@@ -18,6 +18,21 @@ export default {
   actionbar: {
     type: Function as PropType<TdChatProps['actionbar']>,
   },
+  /** 是否开启自动滚动 */
+  autoScroll: {
+    type: Boolean,
+    default: true,
+  },
+  /** 默认滚动位置 */
+  defaultScrollTo: {
+    type: String as PropType<TdChatProps['defaultScrollTo']>,
+    default: 'bottom' as TdChatProps['defaultScrollTo'],
+    validator(val: TdChatProps['defaultScrollTo']): boolean {
+      if (!val) return true;
+      return ['top', 'bottom'].includes(val);
+    },
+  },
+
   /** 动画效果，支持「渐变加载动画」,「闪烁加载动画」, 「骨架屏」三种 */
   animation: {
     type: String as PropType<TdChatProps['animation']>,

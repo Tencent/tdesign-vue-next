@@ -1,7 +1,8 @@
-import { defineComponent, computed, provide, ref } from 'vue';
+import { defineComponent, computed, provide, ref, onMounted, onUnmounted } from 'vue';
 import { ClearIcon } from 'tdesign-icons-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
-import { isArray } from 'lodash-es';
+import { isArray, throttle } from 'lodash-es';
+
 import props from './props';
 import { Divider, Popconfirm } from 'tdesign-vue-next';
 import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
@@ -137,30 +138,127 @@ export default defineComponent({
       </Popconfirm>
     );
     const showFooter = computed(() => renderTNodeJSX('footer'));
-    const chatBoxRef = ref<HTMLDivElement>();
+    const listRef = ref<HTMLDivElement>();
+    const innerRef = ref<HTMLDivElement>();
+    // 自动滚动相关状态
+    const scrollTopTmp = ref(0);
+    const scrollHeightTmp = ref(0);
+    const preventAutoScroll = ref(false);
+    const isAutoScrollEnabled = ref(false);
+    const observer = ref<ResizeObserver | null>(null);
+
     // 滚动到底部
     const scrollToBottom = (data: ScrollToBottomParams) => {
-      if (!chatBoxRef.value) return;
+      if (!listRef.value) return;
       const { behavior = 'auto' } = data;
-      handleScrollToBottom(chatBoxRef.value, behavior);
+      handleScrollToBottom(listRef.value, behavior);
     };
+
+    /** 触发自动滚动 */
+    const handleAutoScroll = throttle(() => {
+      const { autoScroll, defaultScrollTo } = props;
+      if (!autoScroll || !isAutoScrollEnabled.value) {
+        return;
+      }
+
+      if (!listRef.value) return;
+
+      if (defaultScrollTo === 'top') {
+        listRef.value.scrollTo({
+          top: 0,
+          behavior: 'auto',
+        });
+      } else {
+        scrollToBottom({
+          behavior: 'auto',
+        });
+      }
+    }, 50);
+
+    /** 检测自动滚动是否触发 */
+    const checkAutoScroll = throttle(() => {
+      if (!listRef.value) return;
+      const { scrollTop, scrollHeight, clientHeight } = listRef.value;
+      const { defaultScrollTo } = props;
+
+      // 判断上滚：总高度未变更 && 滚动diff大于阈值
+      const scrollDiff = scrollTopTmp.value - scrollTop;
+      const upScroll = scrollHeight === scrollHeightTmp.value && scrollDiff >= 10 ? true : false;
+      // 用户主动上滚，取消自动滚动，标记为手动阻止
+      if (upScroll) {
+        isAutoScrollEnabled.value = false;
+        preventAutoScroll.value = true;
+      } else {
+        const threshold = 50;
+        let isNearTarget = false;
+
+        if (defaultScrollTo === 'top') {
+          // 滚动到顶部模式：检查是否接近顶部
+          isNearTarget = scrollTop <= threshold;
+        } else {
+          // 滚动到底部模式：检查是否接近底部
+          isNearTarget = scrollHeight - (scrollTop + clientHeight) <= threshold;
+        }
+
+        // 如果手动阻止，必须滚动至目标位置阈值内才可恢复自动滚动
+        if (preventAutoScroll.value) {
+          if (isNearTarget) {
+            isAutoScrollEnabled.value = true;
+            preventAutoScroll.value = false;
+          }
+          // 未手动阻止，可触发自动滚动
+        } else {
+          isAutoScrollEnabled.value = true;
+        }
+      }
+      scrollTopTmp.value = scrollTop;
+    }, 60);
+
     const handleScroll = (e: Event) => {
+      checkAutoScroll();
       emit('scroll', {
         e,
       });
     };
+
+    // 初始化自动滚动
+    onMounted(() => {
+      const { defaultScrollTo } = props;
+      defaultScrollTo === 'bottom' && (isAutoScrollEnabled.value = true);
+
+      const list = listRef.value;
+      const inner = innerRef.value;
+      if (list) {
+        observer.value = new ResizeObserver(() => {
+          // 高度变化，触发滚动校验
+          if (list?.scrollHeight !== scrollHeightTmp.value) {
+            handleAutoScroll();
+          }
+          scrollHeightTmp.value = list?.scrollHeight || 0;
+        });
+        if (inner) {
+          observer.value?.observe(inner);
+        }
+      }
+    });
+
+    onUnmounted(() => {
+      observer.value?.disconnect();
+    });
+
     expose({
       scrollToBottom,
     });
+
     // clearHistory为true时，清空历史记录显示
     // return里的props是响应式
     // 倒序渲染不影响清空历史的位置
     return () => (
       <div class={classes.value}>
-        <div class={listClasses.value} ref={chatBoxRef} onScroll={handleScroll}>
+        <div class={listClasses.value} ref={listRef} onScroll={handleScroll}>
           {props.reverse && <div class="place-holder"></div>}
           {props.reverse && props.clearHistory && renderTNodeJSX('clearHistory', defaultClearHistory)}
-          {renderBody()}
+          <div ref={innerRef}>{renderBody()}</div>
           {!props.reverse && props.clearHistory && renderTNodeJSX('clearHistory', defaultClearHistory)}
         </div>
         {showFooter.value && <div class={`${COMPONENT_NAME.value}__footer`}>{showFooter.value}</div>}

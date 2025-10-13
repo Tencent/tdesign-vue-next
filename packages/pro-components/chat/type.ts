@@ -20,6 +20,17 @@ export interface TdChatProps {
    */
   actionbar?: TNode;
   /**
+   * 是否开启自动滚动
+   * @default true
+   */
+  autoScroll?: boolean;
+  /**
+   * 默认滚动位置
+   * @default 'bottom'
+   */
+  defaultScrollTo?: 'top' | 'bottom';
+
+  /**
    * 动画效果，支持「渐变加载动画」,「闪烁加载动画」, 「骨架屏」三种
    * @default skeleton
    */

@@ -19,7 +19,7 @@
         </template>
       </template>
       <template #actionbar="{ item, index }">
-        <t-chat-action
+        <t-chat-actionbar
           v-if="item.role === 'assistant'"
           :content="getActionContent(item.content)"
           :action-bar="['good', 'bad', 'replay', 'copy']"
@@ -77,18 +77,6 @@ const getActionContent = function (contentArray) {
 // 倒序渲染
 const chatList = ref([
   {
-    avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
-    name: 'TDesignAI',
-    datetime: '今天16:38',
-    role: 'assistant',
-    content: [
-      {
-        type: 'text',
-        data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-      },
-    ],
-  },
-  {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: '今天16:38',
@@ -97,6 +85,18 @@ const chatList = ref([
       {
         type: 'text',
         data: '南极的自动提款机叫什么名字？',
+      },
+    ],
+  },
+  {
+    avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
+    name: 'TDesignAI',
+    datetime: '今天16:38',
+    role: 'assistant',
+    content: [
+      {
+        type: 'text',
+        data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
       },
     ],
   },
@@ -128,7 +128,7 @@ const inputEnter = function (inputValue) {
     ],
   };
 
-  chatList.value.unshift(params);
+  chatList.value.push(params);
   // 空消息占位
   const params2 = {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
@@ -151,7 +151,7 @@ const inputEnter = function (inputValue) {
     ],
   };
 
-  chatList.value.unshift(params2);
+  chatList.value.push(params2);
   handleData(inputValue);
 };
 
@@ -184,7 +184,7 @@ const fetchSSE = async (fetchFn, options) => {
 const handleData = async () => {
   loading.value = true;
   isStreamLoad.value = true;
-  const lastItem = chatList.value[0];
+  const lastItem = chatList.value[chatList.value.length - 1];
   const mockedData = {
     reasoning: `嗯，用户问牛顿第一定律是不是适用于所有参考系。首先，我得先回忆一下牛顿第一定律的内容。牛顿第一定律，也就是惯性定律，说物体在没有外力作用时会保持静止或匀速直线运动。也就是说，保持原来的运动状态。
 
