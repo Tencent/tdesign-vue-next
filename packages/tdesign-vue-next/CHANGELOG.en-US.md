@@ -698,3 +698,98 @@ docClass: timeline
 - `Select`:  Fix abnormal keyboard selection issue after entering filter conditions when remote search is combined with filtering @ZTH520 ([#4218](https://github.com/Tencent/tdesign-vue-next/pull/4218))
 - `Table`: Fix warning logic issue of `filter.type` @uyarn ([#4226](https://github.com/Tencent/tdesign-vue-next/pull/4226))
 - `InputNumber`: Fix the issue where when `allowInputOverLimit=false` and judging size value, if `value` is `undefined`, Infinity appears @HaixingOoO  @uyarn ([#4262](https://github.com/Tencent/tdesign-vue-next/pull/4262))
+- `DatePicker`: Fix year parsing error issue under specified `format` and `valueType` @Ericleungs ([#4161](https://github.com/Tencent/tdesign-vue-next/pull/4161))
+
+
+## 🌈 1.9.5 `2024-05-16` 
+### 🚀 Features
+- `Input`: Add `borderless` API to support borderless mode @uyarn ([#4159](https://github.com/Tencent/tdesign-vue-next/pull/4159))
+- `AutoComplete`: Add `borderless` API to support borderless mode @liweijie0812 ([#4192](https://github.com/Tencent/tdesign-vue-next/pull/4192))
+- `ColorPicker`: Add `borderless` API to support borderless mode @liweijie0812 ([#4192](https://github.com/Tencent/tdesign-vue-next/pull/4192))
+- `TagInput`: Add `borderless` API to support borderless mode @liweijie0812 ([#4192](https://github.com/Tencent/tdesign-vue-next/pull/4192))
+- `DatePicker`: @liweijie0812 ([#4192](https://github.com/Tencent/tdesign-vue-next/pull/4192))
+ - Add `borderless` API to support borderless mode 
+ - Add `label` API to support custom left text
+- `TimePicker`:
+  - Add `borderless` API to support borderless mode @liweijie0812 ([#4192](https://github.com/Tencent/tdesign-vue-next/pull/4192))
+  - Add `valueDisplay` API to support custom display content @liweijie0812 ([#4192](https://github.com/Tencent/tdesign-vue-next/pull/4192))
+  - Add `label` API to support custom left text @liweijie0812 ([#4195](https://github.com/Tencent/tdesign-vue-next/pull/4195))
+  - Now button no longer displays when setting `preset` API @uyarn ([#4191](https://github.com/Tencent/tdesign-vue-next/pull/4191))
+- `Upload`: Add `default` and `content` parameter pass-through in `trigger-button-props` @betavs ([#4126](https://github.com/Tencent/tdesign-vue-next/pull/4126))
+- `Radio`: Disable priority `Radio.disabled` > `RadioGroup.disabled` > `Form.disabled` @liweijie0812 ([#4182](https://github.com/Tencent/tdesign-vue-next/pull/4182))
+- `Scroll`: Adjust scrollbar compatibility implementation method, optimize issue requiring `autoprefixer` version update in version `1.9.4` @LoopZhou
+
+### 🐞 Bug Fixes
+- `Table`: 
+  - Fix error in scrolling to specified row under virtual scroll @Cat1007 ([#4129](https://github.com/Tencent/tdesign-vue-next/pull/4129))
+  - Modify table judgment of content overflow @thc-07 ([#4093](https://github.com/Tencent/tdesign-vue-next/pull/4093))
+- `Upload`: 
+  - Fix abnormal style issue under error type in image upload @uyarn ([#4197](https://github.com/Tencent/tdesign-vue-next/pull/4197))
+  - `data` property definition missing `Function` type @betavs ([#4127](https://github.com/Tencent/tdesign-vue-next/pull/4127))
+- `Select`: When selection box is inputable, each input triggers popup-visible-change event @Liao-js ([#4137](https://github.com/Tencent/tdesign-vue-next/pull/4137))
+- `Transfer`: Fix abnormal issue where default selected values that are not allowed to be removed can still be removed in transfer box @liect ([#4147](https://github.com/Tencent/tdesign-vue-next/pull/4147))
+- `Textarea`: Compatible with error reporting issue caused by element not existing when component is destroyed @PDieE ([#4144](https://github.com/Tencent/tdesign-vue-next/pull/4144))
+- `Form`: Fix abnormal behavior when form `disabled` is `true` and form input components `disabled` is `false` @uyarn ([#4189](https://github.com/Tencent/tdesign-vue-next/pull/4189))
+- `Menu`: Increase style priority of `t-popup__menu`, solve abnormal style issue caused by consistent style priority in dist @uyarn ([#4197](https://github.com/Tencent/tdesign-vue-next/pull/4197))
+- `Select`: Optimize issue where selected style overrides disabled style @fython ([#4197](https://github.com/Tencent/tdesign-vue-next/pull/4197))
+- `Cascader`: Fix the issue where `Cascader` triggers `change` event multiple times when deleting options in multiple selection state @algerkong ([#4140](https://github.com/Tencent/tdesign-vue-next/pull/4140))
+- `ColorPicker`: Fix the issue where channel button position does not change when switching preview color @fennghuang ([#4177](https://github.com/Tencent/tdesign-vue-next/pull/4177))
+
+### 🚧 Others
+- `Tabs`: Update slidable tabs example documentation @fennghuang ([#4167](https://github.com/Tencent/tdesign-vue-next/pull/4167))
+- `Upload`: Fix abnormal `locale` jump link issue @uyarn ([#4197](https://github.com/Tencent/tdesign-vue-next/pull/4197))
+
+## 🌈 1.9.4 `2024-04-18` 
+### 🚀 Features
+- `Textarea`: 
+  - Add `allow-input-over-max` property @betavs ([#4086](https://github.com/Tencent/tdesign-vue-next/pull/4086))
+  - Add `onValidate` event @betavs ([#4086](https://github.com/Tencent/tdesign-vue-next/pull/4086))
+- `Scroll`: Fix abnormal style issue in components with scrollbars such as Table and Select caused by `Chrome 121` version supporting scroll width @loopzhou (common#1765). Please note that projects initialized based on @vue/cli-service 4.x and below versions will be affected by this fix due to outdated `autoprefixer` version, please upgrade @vue/cli-service to 5.0 and above
+
+### 🐞 Bug Fixes
+- `DatePicker`: Do not perform initialization parse for `valueType = 'Date'` @Cat1007 ([#4066](https://github.com/Tencent/tdesign-vue-next/pull/4066))
+- `Loading`: `hide` function incorrectly closes all `Loading` instances. @XBIsland ([#4081](https://github.com/Tencent/tdesign-vue-next/pull/4081))
+- `Popup`: Fix display issue caused by abnormal `document` judgment due to `shadowroot` in `webcomponent` scenario @decadef20 ([#4091](https://github.com/Tencent/tdesign-vue-next/pull/4091))
+- `Descriptions`: Fix error when content is empty @zhangpaopao0609 ([#4092](https://github.com/Tencent/tdesign-vue-next/pull/4092))
+- `Textarea`: `autosize` does not take effect in `Firefox`. @XBIsland ([#4104](https://github.com/Tencent/tdesign-vue-next/pull/4104))
+- `DatePicker`: Fix abnormal selection issue in week and quarter modes in version `1.9.3` @uyarn ([#4096](https://github.com/Tencent/tdesign-vue-next/pull/4096))
+- `Tabs`: Fix abnormal position issue when manually adding `tab` after drag sorting @Liao-js ([#4108](https://github.com/Tencent/tdesign-vue-next/pull/4108))
+- `Cascader`: Fix custom rendered content not supporting multiple selection @ZTH520 ([#4109](https://github.com/Tencent/tdesign-vue-next/pull/4109))
+- `TimePicker`:  Fix incorrect preset value issue when no specific range is selected @uyarn ([#4123](https://github.com/Tencent/tdesign-vue-next/pull/4123))
+- `Skeleton`: Fix inability to cancel incoming `loading` before reaching `delay` time when setting `delay` delay and `loading` is `true` @boogie-ben ([#4119](https://github.com/Tencent/tdesign-vue-next/pull/4119))
+- `BreadcrumbItem`: Fix reading `content` content; fix calling non-function `slot?.default()` issue when text overflows @boogie-ben ([#4120](https://github.com/Tencent/tdesign-vue-next/pull/4120))
+
+
+## 🌈 1.9.3 `2024-03-29`
+### 🐞 Bug Fixes
+- `Form`: Fix warning issue in version `1.9.1` @uyarn ([#4060](https://github.com/Tencent/tdesign-vue-next/pull/4060))
+- `Loading`: Fix warning for external `directive` usage and naming error in version `1.9.1` @uyarn ([#4060](https://github.com/Tencent/tdesign-vue-next/pull/4060))
+- `DatePicker`: Fix abnormal issue using `Date` in version `1.9.1` @uyarn
+
+## 🌈 1.9.1 `2024-03-28` 
+### 🚀 Features
+- `Breadcrumb`: `breadcrumb-item` adds `click` event @uyarn ([#4017](https://github.com/Tencent/tdesign-vue-next/pull/4017))
+- `Tag`: Add `color` API to support custom colors @maoyiluo ([#4023](https://github.com/Tencent/tdesign-vue-next/pull/4023))
+- `TagInput`: Extend delete functionality of `collapsedItems` 
+- `DatePicker`: Add `valueDisplay` and `selectInputProps` API to support customizing display content @uyarn ([#4038](https://github.com/Tencent/tdesign-vue-next/pull/4038))
+### 🐞 Bug Fixes
+- `Descriptions`: 
+  - Fix missing editor prompt issue for `t-descriptions-item` component @uyarn ([#4006](https://github.com/Tencent/tdesign-vue-next/pull/4006))
+  - Optimize adaptive width issue @uyarn ([#4006](https://github.com/Tencent/tdesign-vue-next/pull/4006))
+- `Loading`:
+  -  Fix `preventScrollThrough` parameter invalid when calling `LoadingPlugin`. @XBIsland ([#4040](https://github.com/Tencent/tdesign-vue-next/pull/4040))
+  -  Fix `v-loading` directive invalid when using `unplugin-vue-components` for on-demand loading @XBIsland ([#4048](https://github.com/Tencent/tdesign-vue-next/pull/4048))
+- `Table`: 
+  - `activeRowList` assignment error when `activeRowType = multiple`. @XBIsland ([#4010](https://github.com/Tencent/tdesign-vue-next/pull/4010))
+  - Fix incorrect virtual scroll table total height calculation when data length changes @Cat1007 ([#4016](https://github.com/Tencent/tdesign-vue-next/pull/4016))
+- `Notification`: `NotifyPlugin` returns incorrect `NotificationInstance` causing `NotifyPlugin.close` function to incorrectly close component. @XBIsland ([#4014](https://github.com/Tencent/tdesign-vue-next/pull/4014))
+- `Form`: Avoid issue where `form-item`'s `label` property still assigns value when `for` is empty @sechi747 ([#4027](https://github.com/Tencent/tdesign-vue-next/pull/4027))
+- `Cascader`: Fix style failure issue caused by abnormal `value` data backfill ([#4021](https://github.com/Tencent/tdesign-vue-next/pull/4021)) @XBIsland ([#4025](https://github.com/Tencent/tdesign-vue-next/pull/4025))
+- `Tnput`: Fix keyboard operation cannot trigger `blur` event during `hover`. ([#3963](https://github.com/Tencent/tdesign-vue-next/pull/3963)) ([#3903](https://github.com/Tencent/tdesign-vue-next/pull/3903)) ([#3639](https://github.com/Tencent/tdesign-vue-next/pull/3639)) @XBIsland ([#4032](https://github.com/Tencent/tdesign-vue-next/pull/4032))
+- `Locale`: Fix abnormal English language pack issue for `Image` and `ImageViewer` @uyarn ([#4038](https://github.com/Tencent/tdesign-vue-next/pull/4038))
+- `DatePicker`: Fix calculation error issue when `format` and `valueType` are inconsistent @uyarn ([#4058](https://github.com/Tencent/tdesign-vue-next/pull/4058))
+- `Tabs`: Fix console warning issue when using `action` @uyarn ([#4057](https://github.com/Tencent/tdesign-vue-next/pull/4057))
+- `ColorPicker`: Fix the issue where `linear-gradient` mode cannot drag to adjust color (#4015) @XBIsland ([#4022](https://github.com/Tencent/tdesign-vue-next/pull/4022))
+- `Icon`: Optimize `Icon` description in no network scenario, highlight solution @xiexin12138 ([#4024](https://github.com/Tencent/tdesign-vue-next/pull/4024))
+### 🚧 Others
+- `Menu`: Remove controversial properties from `demo` @sinbadmaster ([#4049](https://github.com/Tencent/tdesign-vue-next/pull/4049))
