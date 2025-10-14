@@ -1,6 +1,6 @@
 <template>
   <t-space>
-    <div style="width: 785px">
+    <div style="width: 668px">
       <t-attachments :items="filesList" overflow="scrollX"></t-attachments>
     </div>
   </t-space>
