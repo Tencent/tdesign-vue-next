@@ -14,6 +14,7 @@
       <input type="hidden" name="project[files][package.json]" :value="packageJSONContent" />
       <input type="hidden" name="project[files][vite.config.js]" :value="viteConfigContent" />
       <input type="hidden" name="project[files][.stackblitzrc]" :value="stackblitzRc" />
+      <input type="hidden" name="project[files][.npmrc]" value="registry=https://registry.npmmirror.com" />
       <input type="hidden" name="project[template]" value="node" />
 
       <div class="action-online">
