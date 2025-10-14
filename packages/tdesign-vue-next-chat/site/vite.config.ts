@@ -40,6 +40,14 @@ export default defineConfig(({ mode }) => {
     plugins: [vue(), vueJsx(), tDocPlugin()],
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
+      exclude: [
+        '@tdesign/pro-components-chat',
+        '@tdesign-vue-next/chat',
+        '@tdesign/components',
+        '@tdesign/common',
+        'tdesign-vue-next',
+        'tdesign-vue-next/es',
+      ],
     },
   };
 });
