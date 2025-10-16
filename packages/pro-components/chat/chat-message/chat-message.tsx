@@ -16,36 +16,49 @@ export default defineComponent({
   setup(props, { slots }) {
     return () => {
       const renderTNodeJSX = useTNodeJSX();
+      const baseSlots = {
+        actionbar: () => {
+          const actionbar = renderTNodeJSX('actionbar', { slotFirst: true }) && slots.actionbar?.();
+          return actionbar ? <div>{actionbar}</div> : null;
+        },
+        name: () => {
+          const name = renderTNodeJSX('name', { slotFirst: true }) && slots.name?.();
+          return name ? <div>{name}</div> : null;
+        },
+        avatar: () => {
+          // renderTNodeJSX如果没有插槽，会返回属性值，所以需要判断插槽是否存在
+          const avatar = renderTNodeJSX('avatar', { slotFirst: true }) && slots.avatar?.();
+          return avatar ? <div>{avatar}</div> : null;
+        },
+        datetime: () => {
+          const datetime = renderTNodeJSX('datetime', { slotFirst: true }) && slots.datetime?.();
+          return datetime ? <div>{datetime}</div> : null;
+        },
+        header: () => {
+          const header = renderTNodeJSX('header', { slotFirst: true }) && slots.header?.();
+          return header ? <div>{header}</div> : null;
+        },
+      };
+      let vSlots = null;
+      if (props.allowContentSegmentCustom) {
+        vSlots = {
+          ...slots,
+          ...baseSlots,
+        };
+      } else {
+        vSlots = {
+          ...baseSlots,
+          content: () => {
+            const content = (renderTNodeJSX('content', { slotFirst: true }) && slots.content?.()) || slots.default?.();
+            return content ? <div>{content}</div> : null;
+          },
+        };
+      }
       return (
         <BaseChatMessage
           {...(props as TdChatMessageProps)}
           v-slots={{
-            actionbar: () => {
-              const actionbar = renderTNodeJSX('actionbar', { slotFirst: true }) && slots.actionbar?.();
-              return actionbar ? <div>{actionbar}</div> : null;
-            },
-            name: () => {
-              const name = renderTNodeJSX('name', { slotFirst: true }) && slots.name?.();
-              return name ? <div>{name}</div> : null;
-            },
-            avatar: () => {
-              // renderTNodeJSX如果没有插槽，会返回属性值，所以需要判断插槽是否存在
-              const avatar = renderTNodeJSX('avatar', { slotFirst: true }) && slots.avatar?.();
-              return avatar ? <div>{avatar}</div> : null;
-            },
-            datetime: () => {
-              const datetime = renderTNodeJSX('datetime', { slotFirst: true }) && slots.datetime?.();
-              return datetime ? <div>{datetime}</div> : null;
-            },
-            header: () => {
-              const header = renderTNodeJSX('header', { slotFirst: true }) && slots.header?.();
-              return header ? <div>{header}</div> : null;
-            },
-            content: () => {
-              const content =
-                (renderTNodeJSX('content', { slotFirst: true }) && slots.content?.()) || slots.default?.();
-              return content ? <div>{content}</div> : null;
-            },
+            ...vSlots,
           }}
         />
       );

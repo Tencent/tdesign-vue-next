@@ -12,7 +12,7 @@ export default {
   /** 动画效果 */
   animation: {
     type: String as PropType<TdChatMessageProps['animation']>,
-    default: 'skeleton' as TdChatMessageProps['animation'],
+    default: 'circle' as TdChatMessageProps['animation'],
     validator(val: TdChatMessageProps['animation']): boolean {
       if (!val) return true;
       return ['skeleton', 'moving', 'gradient', 'circle'].includes(val);
@@ -48,5 +48,9 @@ export default {
   },
   chatContentProps: {
     type: Object as PropType<TdChatMessageProps['chatContentProps']>,
+  },
+  allowContentSegmentCustom: {
+    type: Boolean,
+    default: false,
   },
 };
