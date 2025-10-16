@@ -4,7 +4,6 @@
       ref="chatRef"
       :clear-history="chatList.length > 0 && !isStreamLoad"
       :text-loading="loading"
-      :is-stream-load="isStreamLoad"
       style="height: 600px"
       animation="gradient"
       @scroll="handleChatScroll"
@@ -35,7 +34,7 @@
         </t-chat-message>
       </template>
       <template #footer>
-        <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
+        <t-chat-sender v-model="query" :loading="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-sender>
       </template>
     </t-chat>
     <t-button v-show="isShowToBottom" variant="text" class="bottomBtn" @click="backBottom">
@@ -52,6 +51,7 @@ import { ArrowDownIcon } from 'tdesign-icons-vue-next';
 
 const fetchCancel = ref(null);
 const loading = ref(false);
+const query = ref('');
 // 流式数据加载中
 const isStreamLoad = ref(false);
 
@@ -65,9 +65,13 @@ const backBottom = () => {
 };
 // 是否显示回到底部按钮
 const handleChatScroll = function ({ e }) {
-  const scrollTop = e.target.scrollTop;
-  isShowToBottom.value = scrollTop < 0;
+  if (e.target.clientHeight + e.target.scrollTop < e.target.scrollHeight) {
+    isShowToBottom.value = true;
+  } else {
+    isShowToBottom.value = false;
+  }
 };
+
 // 清空消息
 const clearConfirm = function () {
   chatList.value = [];
@@ -93,8 +97,64 @@ const getActionContent = function (contentArray) {
   const textContent = contentArray.find((item) => item.type === 'text' || item.type === 'markdown');
   return textContent ? textContent.data : '';
 };
-// 倒序渲染
+// 正序渲染
 const chatList = ref([
+  {
+    avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
+    name: '自己',
+    datetime: '今天16:38',
+    id: '11111',
+    role: 'user',
+    status: 'complete',
+    content: [
+      {
+        type: 'text',
+        data: '分析以下内容，总结一篇广告策划方案',
+      },
+      {
+        type: 'attachment',
+        data: [
+          {
+            fileType: 'doc',
+            name: 'demo.docx',
+            url: 'https://tdesign.gtimg.com/site/demo.docx',
+            size: 12312,
+          },
+          {
+            fileType: 'pdf',
+            name: 'demo2.pdf',
+            url: 'https://tdesign.gtimg.com/site/demo.pdf',
+            size: 34333,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
+    name: '自己',
+    datetime: '今天16:38',
+    id: '22222',
+    role: 'user',
+    status: 'complete',
+    content: [
+      {
+        type: 'text',
+        data: '这个图里的帅哥是谁？',
+      },
+      {
+        type: 'attachment',
+        data: [
+          {
+            fileType: 'image',
+            name: 'avatar.jpg',
+            size: 234234,
+            url: 'https://tdesign.gtimg.com/site/avatar.jpg',
+          },
+        ],
+      },
+    ],
+  },
   {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
@@ -150,62 +210,6 @@ const chatList = ref([
       },
     ],
   },
-  {
-    avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
-    name: '自己',
-    datetime: '今天16:38',
-    id: '22222',
-    role: 'user',
-    status: 'complete',
-    content: [
-      {
-        type: 'text',
-        data: '这个图里的帅哥是谁？',
-      },
-      {
-        type: 'attachment',
-        data: [
-          {
-            fileType: 'image',
-            name: 'avatar.jpg',
-            size: 234234,
-            url: 'https://tdesign.gtimg.com/site/avatar.jpg',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
-    name: '自己',
-    datetime: '今天16:38',
-    id: '11111',
-    role: 'user',
-    status: 'complete',
-    content: [
-      {
-        type: 'text',
-        data: '分析以下内容，总结一篇广告策划方案',
-      },
-      {
-        type: 'attachment',
-        data: [
-          {
-            fileType: 'doc',
-            name: 'demo.docx',
-            url: 'https://tdesign.gtimg.com/site/demo.docx',
-            size: 12312,
-          },
-          {
-            fileType: 'pdf',
-            name: 'demo2.pdf',
-            url: 'https://tdesign.gtimg.com/site/demo.pdf',
-            size: 34333,
-          },
-        ],
-      },
-    ],
-  },
 ]);
 
 const onStop = function () {
@@ -234,7 +238,7 @@ const inputEnter = function (inputValue) {
     ],
   };
 
-  chatList.value.unshift(params);
+  chatList.value.push(params);
   // 空消息占位
   const params2 = {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
@@ -244,7 +248,7 @@ const inputEnter = function (inputValue) {
     content: [
       {
         type: 'thinking',
-        status: 'complete',
+        status: 'pending',
         data: {
           title: '思考中...',
           text: '',
@@ -257,8 +261,10 @@ const inputEnter = function (inputValue) {
     ],
   };
 
-  chatList.value.unshift(params2);
+  chatList.value.push(params2);
+
   handleData(inputValue);
+  query.value = '';
 };
 
 const fetchSSE = async (fetchFn, options) => {
@@ -290,7 +296,8 @@ const fetchSSE = async (fetchFn, options) => {
 const handleData = async () => {
   loading.value = true;
   isStreamLoad.value = true;
-  const lastItem = chatList.value[0];
+  const lastItem = chatList.value[chatList.value.length - 1];
+
   const mockedData = {
     reasoning: `嗯，用户问牛顿第一定律是不是适用于所有参考系。首先，我得先回忆一下牛顿第一定律的内容。牛顿第一定律，也就是惯性定律，说物体在没有外力作用时会保持静止或匀速直线运动。也就是说，保持原来的运动状态。
   

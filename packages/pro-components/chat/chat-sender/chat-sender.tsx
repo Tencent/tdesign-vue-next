@@ -181,12 +181,13 @@ export default defineComponent({
 
       return (
         <Fragment>
-          {actions
-            .filter(
-              (item): item is { name: UploadActionType; action: () => void } =>
-                item.name === 'uploadAttachment' || item.name === 'uploadImage',
-            )
-            .map((item) => buttonComponents[item.name])}
+          {actions.length > 0 &&
+            actions
+              .filter(
+                (item): item is { name: UploadActionType; action: () => void } =>
+                  item.name === 'uploadAttachment' || item.name === 'uploadImage',
+              )
+              .map((item) => buttonComponents[item.name])}
           {!showStopBtn.value ? (
             <Button
               theme="default"
@@ -211,8 +212,8 @@ export default defineComponent({
     };
     const renderSuffixIcon = () => {
       const suffix = renderTNodeJSX('suffix', { params: { renderPresets: getDefaultSuffixIcon } });
-
-      return suffix ? suffix : getDefaultSuffixIcon();
+      // 默认没有上传附件和上传图片入口
+      return suffix ? suffix : getDefaultSuffixIcon([]);
     };
     const handleRemove = (e: CustomEvent) => {
       emit('remove', e);
