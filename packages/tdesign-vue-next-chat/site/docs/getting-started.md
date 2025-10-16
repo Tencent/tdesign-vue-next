@@ -1,6 +1,6 @@
 ---
 title: TD Chat for AI
-description: TDesign适配桌面端的AI Chat组件库，适合在 vue3.x 技术栈中的AI chat组件。后续将推出适用于React技术栈的chat组件。
+description: TDesign 适配桌面端的 AI Chat 组件库，适合在 Vue3.x 技术栈中的 AI Chat 组件。
 spline: ai
 ---
 
@@ -154,7 +154,7 @@ module.exports = {
 
 ## 配置服务
 
-TDesign Chat 支持两种后端AI Agent服务返回数据协议模式：**自定义协议**和**AG-UI标准协议**。您可以根据后端服务的实际情况选择合适的协议模式。
+TDesign Chat 支持两种后端 AI Agent 服务返回数据协议模式：**自定义协议**和**AG-UI标准协议**。您可以根据后端服务的实际情况选择合适的协议模式。
 
 ### 自定义协议模式
 

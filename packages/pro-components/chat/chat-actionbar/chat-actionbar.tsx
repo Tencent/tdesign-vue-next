@@ -11,7 +11,6 @@ import {
   CopyIcon,
   Share1Icon,
 } from 'tdesign-icons-vue-next';
-// TODO: need refactor packages/components/typography/utils/copy-to-clipboard/index.ts???
 import Clipboard from 'clipboard';
 import { MessagePluginSingleton } from '../utils';
 import props from './chat-actionbar-props';
@@ -136,7 +135,7 @@ export default defineComponent({
                 <Share1Icon />
               </Button>
             </Tooltip>
-            <span class={`${COMPONENT_NAME.value}__refresh-line`}></span>
+            {/* <span class={`${COMPONENT_NAME.value}__refresh-line`}></span> */}
           </div>
         </Space>
       ) : null;
