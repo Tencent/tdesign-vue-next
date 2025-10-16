@@ -48,6 +48,7 @@
     "tmenu",
     "tnode",
     "vnode",
-    "wechat"
+    "wechat",
+    "Actionbar"
   ]
 }
