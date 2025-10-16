@@ -106,3 +106,5 @@ export default {
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };
+
+export { AGUIAdapter, getMessageContentForCopy, isAIMessage } from 'tdesign-web-components/lib/chat-engine';
