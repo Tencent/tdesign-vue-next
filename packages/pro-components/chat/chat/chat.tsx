@@ -158,9 +158,9 @@ export default defineComponent({
     const observer = ref<ResizeObserver | null>(null);
 
     // 滚动到底部
-    const scrollToBottom = (data: ScrollToBottomParams) => {
+    const scrollToBottom = (data?: ScrollToBottomParams) => {
       if (!listRef.value) return;
-      const { behavior = 'auto' } = data;
+      const behavior = data?.behavior ?? 'auto';
       handleScrollToBottom(listRef.value, behavior);
     };
 
