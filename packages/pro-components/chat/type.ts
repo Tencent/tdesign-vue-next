@@ -80,6 +80,11 @@ export interface TdChatProps {
    */
   reverse?: boolean;
   /**
+   * 是否显示“回到底部”按钮
+   * @default true
+   */
+  showScrollButton?: boolean;
+  /**
    * 新消息是否处于加载状态，加载状态默认显示骨架屏，接口请求返回数据时请将新消息加载状态置为false
    * @default false
    */
@@ -99,7 +104,7 @@ export interface ChatInstanceFunctions {
   /**
    * 对话列表过长时，支持对话列表重新滚动回底部的方法
    */
-  scrollToBottom?: (params: ScrollToBottomParams) => void;
+  scrollToBottom?: (params?: ScrollToBottomParams) => void;
 }
 
 export interface TdChatLoadingProps {

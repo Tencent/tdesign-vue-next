@@ -1,6 +1,6 @@
 <template>
   <div style="height: 600px; display: flex; flex-direction: column">
-    <t-chat-list ref="listRef" style="width: 100%" @scroll="onScrollHandler">
+    <t-chat ref="listRef" style="width: 100%" @scroll="onScrollHandler">
       <t-chat-message
         v-for="(message, idx) in messages"
         :key="message.id"
@@ -18,7 +18,7 @@
           />
         </template>
       </t-chat-message>
-    </t-chat-list>
+    </t-chat>
     <t-chat-sender
       ref="inputRef"
       v-model="inputValue"
