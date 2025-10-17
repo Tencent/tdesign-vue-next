@@ -22,6 +22,7 @@ textLoading | Boolean | false | 新消息是否处于加载状态，加载状态
 onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击清空历史按钮回调。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 onScroll | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>滚动事件的回调。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 autoScroll | Boolean | true | 是否开启自动滚动到底部 | N
+showScrollButton | Boolean | true | 是否显示滚动到底部按钮 | N
 ### Chat Events
 
 名称 | 参数 | 描述

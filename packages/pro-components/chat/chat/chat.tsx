@@ -133,7 +133,13 @@ export default defineComponent({
     const scrollButtonVisible = ref(false);
     /** 检测并显示滚到底部按钮（阈值 140px，debounce 70ms） */
     const checkAndShowScrollButton = debounce(() => {
+      // 关闭时不显示按钮也不计算
+      if (!props.showScrollButton) {
+        scrollButtonVisible.value = false;
+        return;
+      }
       const list = listRef.value;
+      if (!list) return;
       if (!props.reverse) {
         if (list && list.scrollHeight - list.clientHeight - list.scrollTop > 0) {
           scrollButtonVisible.value = true;
@@ -276,7 +282,7 @@ export default defineComponent({
           {!props.reverse && props.clearHistory && renderTNodeJSX('clearHistory', defaultClearHistory)}
         </div>
         {showFooter.value && <div class={`${COMPONENT_NAME.value}__footer`}>{showFooter.value}</div>}
-        {scrollButtonVisible.value && (
+        {props.showScrollButton && scrollButtonVisible.value && (
           <Button variant="text" class={`${COMPONENT_NAME.value}__to-bottom`} onClick={backBottom}>
             <div class={`${COMPONENT_NAME.value}__to-bottom-inner`}>
               <ArrowDownIcon />
