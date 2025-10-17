@@ -1,10 +1,10 @@
 import { defineComponent, computed, provide, ref, onMounted, onUnmounted } from 'vue';
-import { ClearIcon } from 'tdesign-icons-vue-next';
+import { ClearIcon, ArrowDownIcon } from 'tdesign-icons-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
-import { isArray, throttle } from 'lodash-es';
+import { isArray, throttle, debounce } from 'lodash-es';
 
 import props from './props';
-import { Divider, Popconfirm } from 'tdesign-vue-next';
+import { Divider, Popconfirm, Button } from 'tdesign-vue-next';
 import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 import ChatMessage from '../chat-message';
 import { TdChatItemMeta, ScrollToBottomParams } from '../type';
@@ -129,6 +129,21 @@ export default defineComponent({
     const showFooter = computed(() => renderTNodeJSX('footer'));
     const listRef = ref<HTMLDivElement>();
     const innerRef = ref<HTMLDivElement>();
+    // 回到底部按钮显示
+    const scrollButtonVisible = ref(false);
+    /** 检测并显示滚到底部按钮（阈值 140px，debounce 70ms） */
+    const checkAndShowScrollButton = debounce(() => {
+      const list = listRef.value;
+      if (!props.reverse) {
+        if (list && list.scrollHeight - list.clientHeight - list.scrollTop > 0) {
+          scrollButtonVisible.value = true;
+        } else {
+          scrollButtonVisible.value = false;
+        }
+      } else {
+        scrollButtonVisible.value = list.scrollTop < 0;
+      }
+    }, 70);
     // 自动滚动相关状态
     const scrollTopTmp = ref(0);
     const scrollHeightTmp = ref(0);
@@ -205,6 +220,8 @@ export default defineComponent({
 
     const handleScroll = (e: Event) => {
       checkAutoScroll();
+      // 使用防抖检测是否显示“回到底部”按钮（距离底部超过阈值显示）
+      checkAndShowScrollButton();
       emit('scroll', {
         e,
       });
@@ -217,6 +234,9 @@ export default defineComponent({
 
       const list = listRef.value;
       const inner = innerRef.value;
+
+      // 初始化“回到底部”按钮显示状态
+      checkAndShowScrollButton();
       if (list) {
         observer.value = new ResizeObserver(() => {
           // 高度变化，触发滚动校验
@@ -235,6 +255,11 @@ export default defineComponent({
       observer.value?.disconnect();
     });
 
+    // 平滑回到底部
+    const backBottom = () => {
+      scrollToBottom({ behavior: 'smooth' });
+    };
+
     expose({
       scrollToBottom,
     });
@@ -251,6 +276,13 @@ export default defineComponent({
           {!props.reverse && props.clearHistory && renderTNodeJSX('clearHistory', defaultClearHistory)}
         </div>
         {showFooter.value && <div class={`${COMPONENT_NAME.value}__footer`}>{showFooter.value}</div>}
+        {scrollButtonVisible.value && (
+          <Button variant="text" class={`${COMPONENT_NAME.value}__to-bottom`} onClick={backBottom}>
+            <div class={`${COMPONENT_NAME.value}__to-bottom-inner`}>
+              <ArrowDownIcon />
+            </div>
+          </Button>
+        )}
       </div>
     );
   },

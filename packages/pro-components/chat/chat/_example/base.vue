@@ -29,18 +29,12 @@
         <t-chat-sender v-model="query" :loading="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-sender>
       </template>
     </t-chat>
-    <t-button v-show="isShowToBottom" variant="text" class="bottomBtn" @click="backBottom">
-      <div class="to-bottom">
-        <ArrowDownIcon />
-      </div>
-    </t-button>
   </div>
 </template>
 
 <script setup lang="jsx">
 import { ref } from 'vue';
 import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
-import { ArrowDownIcon } from 'tdesign-icons-vue-next';
 
 const fetchCancel = ref(null);
 const loading = ref(false);
@@ -48,20 +42,14 @@ const loading = ref(false);
 const isStreamLoad = ref(false);
 const query = ref('');
 const chatRef = ref(null);
-const isShowToBottom = ref(false);
 // 滚动到底部
 const backBottom = () => {
   chatRef.value.scrollToBottom({
     behavior: 'smooth',
   });
 };
-// 是否显示回到底部按钮
 const handleChatScroll = function ({ e }) {
-  if (e.target.clientHeight + e.target.scrollTop < e.target.scrollHeight) {
-    isShowToBottom.value = true;
-  } else {
-    isShowToBottom.value = false;
-  }
+  console.log('handleChatScroll', e);
 };
 // 清空消息
 const clearConfirm = function () {
@@ -253,35 +241,6 @@ const handleData = async () => {
 }
 .chat-box {
   position: relative;
-  .bottomBtn {
-    position: absolute;
-    left: 50%;
-    margin-left: -20px;
-    bottom: 210px;
-    padding: 0;
-    border: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.08), 0px 16px 24px 2px rgba(0, 0, 0, 0.04),
-      0px 6px 30px 5px rgba(0, 0, 0, 0.05);
-  }
-  .to-bottom {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #dcdcdc;
-    box-sizing: border-box;
-    background: var(--td-bg-color-container);
-    border-radius: 50%;
-    font-size: 24px;
-    line-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .t-icon {
-      font-size: 24px;
-    }
-  }
 }
 
 .model-select {
