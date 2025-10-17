@@ -239,9 +239,6 @@ const handleData = async () => {
 ::-webkit-scrollbar-track {
   background-color: var(--td-scroll-track-color);
 }
-.chat-box {
-  position: relative;
-}
 
 .model-select {
   display: flex;

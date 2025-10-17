@@ -8,7 +8,7 @@
       </t-space>
     </div>
 
-    <t-chat-list ref="listRef" style="width: 100%; flex: 1">
+    <t-chat ref="listRef" style="width: 100%; flex: 1">
       <t-chat-message
         v-for="(message, idx) in messages"
         :key="message.id"
@@ -41,7 +41,7 @@
           />
         </template>
       </t-chat-message>
-    </t-chat-list>
+    </t-chat>
 
     <t-chat-sender
       ref="inputRef"
