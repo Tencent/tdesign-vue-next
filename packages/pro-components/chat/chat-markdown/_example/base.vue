@@ -93,8 +93,7 @@ const typeWriter = () => {
     const char = doc[currentIndex.value];
     currentIndex.value += 1;
     displayText.value += char;
-    console.log('模拟流式输出：displayText==', displayText.value);
-    timerRef.value = setTimeout(typeWriter, 10);
+    timerRef.value = setTimeout(typeWriter, 30);
   } else {
     isTyping.value = false;
   }
