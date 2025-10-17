@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, type Ref } from 'vue';
+import { ref, onMounted, onUnmounted, watch, type Ref } from 'vue';
 import type { ChatMessagesData, ChatStatus, ChatServiceConfig } from 'tdesign-web-components/lib/chat-engine';
 import { TdChatProps } from 'tdesign-web-components';
 import ChatEngine from 'tdesign-web-components/lib/chat-engine';
@@ -11,6 +11,7 @@ export const useChat = (options: {
   const status: Ref<ChatStatus> = ref('idle');
   const chatEngineRef = ref<ChatEngine | null>(null);
   const msgSubscribeRef = ref<(() => void) | null>(null);
+  const prevInitialMessages = ref<ChatMessagesData[]>([]);
 
   const syncState = (state: ChatMessagesData[]) => {
     messages.value = state;
@@ -41,6 +42,29 @@ export const useChat = (options: {
       msgSubscribeRef.value();
     }
   });
+
+  // 监听 defaultMessages 变化
+  watch(
+    () => options.defaultMessages,
+    (newMessages, oldMessages) => {
+      // 检查 defaultMessages 是否真的发生了变化
+      const hasChanged = JSON.stringify(prevInitialMessages.value) !== JSON.stringify(newMessages);
+
+      if (hasChanged && newMessages && newMessages.length > 0) {
+        // 更新引用
+        prevInitialMessages.value = newMessages;
+
+        // 重新初始化聊天引擎或更新消息
+        if (chatEngineRef.value) {
+          chatEngineRef.value.setMessages(newMessages, 'replace');
+
+          // 同步状态
+          syncState(newMessages);
+        }
+      }
+    },
+    { deep: true },
+  );
 
   return {
     chatEngine: chatEngineRef,

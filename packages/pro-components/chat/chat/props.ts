@@ -18,6 +18,21 @@ export default {
   actionbar: {
     type: Function as PropType<TdChatProps['actionbar']>,
   },
+  /** 是否开启自动滚动 */
+  autoScroll: {
+    type: Boolean,
+    default: true,
+  },
+  /** 默认滚动位置 */
+  defaultScrollTo: {
+    type: String as PropType<TdChatProps['defaultScrollTo']>,
+    default: 'bottom' as TdChatProps['defaultScrollTo'],
+    validator(val: TdChatProps['defaultScrollTo']): boolean {
+      if (!val) return true;
+      return ['top', 'bottom'].includes(val);
+    },
+  },
+
   /** 动画效果，支持「渐变加载动画」,「闪烁加载动画」, 「骨架屏」三种 */
   animation: {
     type: String as PropType<TdChatProps['animation']>,
@@ -67,10 +82,10 @@ export default {
   reasoning: {
     type: Function as PropType<TdChatProps['reasoning']>,
   },
-  /** 是否表现为倒序 */
+  /** 是否表现为倒序，默认为正序 */
   reverse: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   /** 新消息是否处于加载状态，加载状态默认显示骨架屏，接口请求返回数据时请将新消息加载状态置为false */
   textLoading: Boolean,

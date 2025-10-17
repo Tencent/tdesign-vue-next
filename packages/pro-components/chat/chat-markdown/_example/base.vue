@@ -40,7 +40,15 @@ an example | *an example* | **an example**
 This is [an example](http://example.com/ "Title") inline link.
 
 <http://example.com/>
+# TDesign（腾讯设计体系）核心特性与技术架构
 
+以下是关于 TDesign（腾讯设计体系）的核心特性与技术架构的表格化总结：
+
+| 分类 | 核心内容 | 关键技术/特性 |
+|------|----------|---------------|
+| **设计理念** | • 设计价值观：用户为本、科技向善、突破创新... | • 设计原子单元 |
+| **核心组件库** | • 基础组件：Button/Input/Table/Modal... | • 组件覆盖率  |
+| **技术特性** | • 多框架支持：Vue/React/Angular... | • 按需加载 |
 \`\`\`bash
 $ npm i tdesign-vue-next
 \`\`\`
@@ -54,7 +62,15 @@ import App from './app.vue';
 const app = createApp(App);
 app.use(TDesignChat);
 \`\`\`
-`;
+\`\`\`mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+
+\`\`\`
+  `;
 
 const displayText = ref(doc);
 const isTyping = ref(false);
@@ -77,8 +93,7 @@ const typeWriter = () => {
     const char = doc[currentIndex.value];
     currentIndex.value += 1;
     displayText.value += char;
-    console.log('模拟流式输出：displayText==', displayText.value);
-    timerRef.value = setTimeout(typeWriter, 10);
+    timerRef.value = setTimeout(typeWriter, 30);
   } else {
     isTyping.value = false;
   }

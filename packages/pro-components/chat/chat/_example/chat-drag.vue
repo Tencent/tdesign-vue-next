@@ -17,19 +17,13 @@
         :data="chatList"
         :clear-history="chatList.length > 0 && !isStreamLoad"
         :text-loading="loading"
-        :is-stream-load="isStreamLoad"
+        :reverse="true"
         @clear="clearConfirm"
       >
         <!-- eslint-disable-next-line vue/no-unused-vars -->
         <template #content="{ item }">
           <template v-for="(content, contentIndex) in item.content" :key="contentIndex">
-            <t-chat-thinking
-              v-if="content.type === 'thinking'"
-              :status="content.status"
-              :content="content.data"
-              :role="item.role"
-            />
-            <t-chat-content v-else :content="content.data" :role="item.role" />
+            <t-chat-content :content="content.data" :role="item.role" />
           </template>
         </template>
         <template #actionbar="{ item }">

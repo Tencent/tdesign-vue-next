@@ -118,7 +118,9 @@ const onActions = {
 
 <template>
   <t-space direction="vertical" style="width: 100%">
-    <t-chat-message variant="base" placement="right" :content="userMessage1.content" :role="userMessage1.role" />
+    <t-divider>文件附件</t-divider>
+    <t-chat-message variant="base" :content="userMessage1.content" :role="userMessage1.role" />
+    <t-divider>思考过程，资料来源与搜索联想</t-divider>
     <t-chat-message
       :content="aiMessages.content"
       :role="aiMessages.role"
@@ -129,6 +131,7 @@ const onActions = {
       }"
       :handle-actions="onActions"
     />
-    <t-chat-message variant="base" placement="right" :content="userMessage2.content" :role="userMessage2.role" />
+    <t-divider>图片附件</t-divider>
+    <t-chat-message variant="base" :content="userMessage2.content" :role="userMessage2.role" />
   </t-space>
 </template>
