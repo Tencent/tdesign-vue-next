@@ -32,11 +32,12 @@ const animationOptions = [
 <template>
   <t-space direction="vertical" style="width: 100%">
     <t-divider>消息加载状态</t-divider>
-    <t-select v-model="animation" style="width: 20%" :options="animationOptions" />
     <t-chat-message
+      v-for="opt in animationOptions"
+      :key="opt.value"
       avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
       datetime="今天16:38"
-      :animation="animation"
+      :animation="opt.value"
       name="TDesignAI"
       role="assistant"
       :status="messages.loading.status"
@@ -50,3 +51,8 @@ const animationOptions = [
     />
   </t-space>
 </template>
+<style lang="less">
+.t-divider {
+  color: var(--td-text-color-placeholder);
+}
+</style>
