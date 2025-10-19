@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType, ComputedRef } from 'vue';
 import { get, isArray, debounce, cloneDeep, isFunction, intersection, pick as picker } from 'lodash-es';
 
 import FakeArrow from '../common-components/fake-arrow';
@@ -39,7 +39,7 @@ export default defineComponent({
   },
   setup(props: TdSelectProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, { slots }) {
     const classPrefix = usePrefixClass();
-    const isDisabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
