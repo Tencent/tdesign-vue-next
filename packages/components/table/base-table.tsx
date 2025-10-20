@@ -44,7 +44,7 @@ export default defineComponent({
     onLeafColumnsChange: Function as PropType<BaseTableProps['onLeafColumnsChange']>,
     thDraggable: Boolean,
   },
-  emits: ['show-element-change'],
+  emits: ['show-element-change', 'update:activeRowKeys'],
   setup(props: BaseTableProps, context: SetupContext) {
     const { lazyLoad } = toRefs(props);
     const renderTNode = useTNodeJSX();
