@@ -147,7 +147,7 @@ const switchScene = (data: any) => {
         align-items: center;
         justify-content: center;
         span {
-          margin-left: var(--td-comp-margin-xs);
+          margin-left: var(--td-comp-margin-s);
         }
       }
     }

@@ -37,28 +37,38 @@
           @click="checkClick"
         >
           <SystemSumIcon />
+
           <span>深度思考</span>
         </t-button>
       </div>
     </template>
     <template #inner-header>
-      <t-space
+      <div
         :style="{
-          width: 'calc(100% - 24px)',
-          margin: '0 12px 12px 12px',
-          padding: '4px 0',
+          display: 'flex',
+          width: '100%',
+          marginBottom: '8px',
+          paddingBottom: '8px',
           justifyContent: 'space-between',
-          borderBottom: '1px solid #e7e7e7',
+          alignItem: 'center',
+          borderBottom: '1px solid var(--td-component-stroke)',
         }"
       >
-        <t-space size="small">
-          <EnterIcon :size="'14px'" :style="{ color: 'rgba(0, 0, 0, 0.26)', transform: 'scaleX(-1)' }" />
-          <span :style="{ fontSize: '14px', color: 'rgba(0, 0, 0, 0.4)' }">引用一段文字</span>
-        </t-space>
-        <div :style="{ marginLeft: 'auto', width: '16px' }" @click="onRemoveRef">
-          <CloseIcon :size="'14px'" :style="{ color: 'rgba(0, 0, 0, 0.26)' }" />
+        <div :style="{ flex: 1, display: 'flex', alignItems: 'center' }">
+          <EnterIcon
+            :size="'20px'"
+            :style="{ color: 'var(--td-text-color-disabled)', transform: 'scaleX(-1)', padding: '6px' }"
+          />
+          <p :style="{ fontSize: '14px', color: 'var(--td-text-color-placeholder)', marginLeft: '4px' }">
+            “牛顿第一定律（惯性定律）仅适用于惯性参考系，而不适用于非惯性参考系。”
+          </p>
         </div>
-      </t-space>
+        <CloseIcon
+          :size="'20px'"
+          :style="{ color: 'var(--td-text-color-disabled)', padding: '6px' }"
+          @click="onRemoveRef"
+        />
+      </div>
     </template>
   </t-chat-sender>
 </template>
@@ -208,7 +218,7 @@ const handleFileClick = (e: CustomEvent<TdAttachmentItem>) => {
         align-items: center;
         justify-content: center;
         span {
-          margin-left: var(--td-comp-margin-xs);
+          margin-left: var(--td-comp-margin-s);
         }
       }
     }
