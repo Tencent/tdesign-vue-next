@@ -17,7 +17,7 @@
             <template v-if="item.data?.length === 0 || item.data?.every((img) => img.url === undefined)">
               <Skeleton style="width: 600px; margin: 14px 0" theme="paragraph" animation="gradient" />
             </template>
-            <Space v-else break-line :size="16">
+            <Space v-else break-line :size="8">
               <ImageViewer
                 v-for="(img, imgIndex) in item.data.map((img) => img.url)"
                 :key="imgIndex"
@@ -61,7 +61,7 @@
 </template>
 
 <script setup lang="tsx">
-import { ref, onMounted, computed, watch, nextTick } from 'vue';
+import { ref, onMounted, computed, watch } from 'vue';
 import { BrowseIcon, Filter3Icon, ImageAddIcon, Transform1Icon } from 'tdesign-icons-vue-next';
 import type {
   SSEChunkData,
@@ -70,12 +70,11 @@ import type {
   ChatMessagesData,
   ChatServiceConfig,
   TdAttachmentItem,
-  TdChatSenderParams,
   UploadFile,
   TdChatMessageConfig,
   TdChatbotApi,
 } from '@tdesign-vue-next/chat';
-import { ImageViewer, Skeleton, ImageViewerProps, Button, Dropdown, Space, Image } from 'tdesign-vue-next';
+import { ImageViewer, Skeleton, Button, Dropdown, Space, Image } from 'tdesign-vue-next';
 import { Bot } from '@tdesign-vue-next/chat';
 
 const renderFilter3Icon = () => <Filter3Icon />;
@@ -108,7 +107,7 @@ const mockData: ChatMessagesData[] = [
       {
         type: 'text',
         status: 'complete',
-        data: '欢迎使用TDesign智能生图助手，请先写下你的创意，可以试试上传参考图哦～',
+        data: '欢迎使用 TDesign 智能生图助手，请先写下你的创意，可以试试上传参考图哦',
       },
     ],
   },
@@ -227,7 +226,7 @@ const onFileSelect = (e: CustomEvent<TdAttachmentItem[]>) => {
       file.name === newFile.name
         ? {
             ...file,
-            url: 'https://tdesign.gtimg.com/site/avatar.jpg',
+            url: 'https://tdesign.gtimg.com/demo/images/example5.png',
             status: 'success',
             description: '上传成功',
           }
@@ -275,7 +274,7 @@ onMounted(() => {
   reqParamsRef.value = {
     ratio: ratio.value,
     style: style.value,
-    file: 'https://tdesign.gtimg.com/site/avatar.jpg',
+    file: 'https://tdesign.gtimg.com/demo/images/example5.png',
   };
 });
 
@@ -284,12 +283,12 @@ watch([ratio, style], () => {
   reqParamsRef.value = {
     ratio: ratio.value,
     style: style.value,
-    file: 'https://tdesign.gtimg.com/site/avatar.jpg',
+    file: 'https://tdesign.gtimg.com/demo/images/example5.png',
   };
 });
 
 const senderProps = computed(() => ({
-  defaultValue: '请为Tdesign设计三张品牌宣传图',
+  defaultValue: '请为 TDesign 设计三张品牌宣传图',
   placeholder: '描述你的生图需求~',
   uploadProps: {
     multiple: false,
@@ -340,10 +339,11 @@ const senderProps = computed(() => ({
 .tdesign-demo-image-viewer__ui-image--img {
   width: auto;
   height: auto;
-  max-width: 100%;
   max-height: 100%;
   cursor: pointer;
   position: absolute;
+  object-fit: cover;
+  border-radius: 9px;
 }
 
 .tdesign-demo-image-viewer__ui-image--footer {
@@ -375,7 +375,6 @@ const senderProps = computed(() => ({
 .tdesign-demo-image-viewer__base {
   width: 160px;
   height: 160px;
-  margin: 10px;
   border: 4px solid var(--td-bg-color-secondarycontainer);
   border-radius: var(--td-radius-medium);
 }
