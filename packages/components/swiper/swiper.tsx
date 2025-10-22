@@ -39,12 +39,12 @@ export default defineComponent({
     const getChildComponentByName = useChildComponentSlots();
 
     const swiperItemLength = ref(0);
-    const navigationConfig = computed(() => {
-      return {
-        ...defaultNavigation,
-        ...(isVNode(props.navigation) ? {} : (props.navigation as object)),
-      };
-    });
+
+    const navigationConfig = computed(() => ({
+      ...defaultNavigation,
+      ...(typeof props.navigation === 'object' && !isVNode(props.navigation) ? props.navigation : {}),
+    }));
+
     const isEnd = computed(() => {
       if (props.type === 'card') {
         return !props.loop && currentIndex.value + 1 >= swiperItemLength.value;
@@ -253,7 +253,9 @@ export default defineComponent({
       );
     };
     const renderNavigation = () => {
+      if (props.navigation === false) return null;
       if (isVNode(props.navigation)) return props.navigation;
+
       const navigationSlot = renderTNodeJSX('navigation');
       if (navigationSlot && isVNode(navigationSlot?.[0])) return navigationSlot;
 
