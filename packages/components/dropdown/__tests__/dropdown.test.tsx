@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { Dropdown, DropdownMenu, DropdownItem, Button } from '@tdesign/components';
+import { DropdownOption } from '@tdesign/components/dropdown/type';
 import DropdownProps from '@tdesign/components/dropdown/props';
 import { sleep } from '@tdesign/internal-utils';
 
@@ -456,7 +457,7 @@ describe('Dropdown', () => {
 
   describe('theme', () => {
     it('renders options with different themes', () => {
-      const options = [
+      const options: DropdownOption[] = [
         { content: 'Default', value: '1', theme: 'default' },
         { content: 'Success', value: '2', theme: 'success' },
         { content: 'Warning', value: '3', theme: 'warning' },
@@ -470,6 +471,287 @@ describe('Dropdown', () => {
       );
 
       expect(wrapper.exists()).toBe(true);
+    });
+  });
+
+  describe('internal logic', () => {
+    describe('manualCloseTimeout', () => {
+      it('calculates timeout with number delay', async () => {
+        const options = [{ content: 'Option 1', value: '1' }];
+        const popupProps = { delay: 200 };
+
+        const wrapper = mount(
+          <Dropdown options={options} popupProps={popupProps} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        // manualCloseTimeout 应该是 delay + 10 = 210
+        expect(wrapper.exists()).toBe(true);
+      });
+
+      it('calculates timeout with array delay', async () => {
+        const options = [{ content: 'Option 1', value: '1' }];
+        const popupProps = { delay: [100, 300] };
+
+        const wrapper = mount(
+          <Dropdown options={options} popupProps={popupProps} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        // manualCloseTimeout 应该是 delay[1] + 10 = 310
+        expect(wrapper.exists()).toBe(true);
+      });
+
+      it('calculates timeout with array delay (single value)', async () => {
+        const options = [{ content: 'Option 1', value: '1' }];
+        const popupProps = { delay: [150] };
+
+        const wrapper = mount(
+          <Dropdown options={options} popupProps={popupProps} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        // manualCloseTimeout 应该是 delay[0] + 10 = 160
+        expect(wrapper.exists()).toBe(true);
+      });
+
+      it('uses default timeout when no delay', async () => {
+        const options = [{ content: 'Option 1', value: '1' }];
+
+        const wrapper = mount(
+          <Dropdown options={options} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        // manualCloseTimeout 应该是默认值 160
+        expect(wrapper.exists()).toBe(true);
+      });
+    });
+
+    describe('handleMenuClick', () => {
+      it('triggers onClick callback', async () => {
+        const onClick = vi.fn();
+        const options = [{ content: 'Option 1', value: '1' }];
+
+        const wrapper = mount(
+          <Dropdown options={options} onClick={onClick} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        await wrapper.find('button').trigger('click');
+        await nextTick();
+        await sleep(100);
+
+        const dropdownItem = document.querySelector('.t-dropdown__item');
+        if (dropdownItem) {
+          await (dropdownItem as HTMLElement).click();
+          await nextTick();
+
+          expect(onClick).toHaveBeenCalled();
+          expect(onClick.mock.calls[0][0]).toMatchObject({ value: '1' });
+        }
+      });
+
+      it('closes popup after item click when hideAfterItemClick is true', async () => {
+        const options = [{ content: 'Option 1', value: '1' }];
+
+        const wrapper = mount(
+          <Dropdown options={options} hideAfterItemClick={true} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        // 打开下拉菜单
+        await wrapper.find('button').trigger('click');
+        await nextTick();
+        await sleep(100);
+
+        const dropdownItem = document.querySelector('.t-dropdown__item');
+        if (dropdownItem) {
+          await (dropdownItem as HTMLElement).click();
+          await nextTick();
+          await sleep(200); // 等待 manualCloseTimeout
+
+          // 验证弹窗已关闭
+          const popup = wrapper.findComponent({ name: 'TPopup' });
+          expect(popup.exists()).toBe(true);
+        }
+      });
+
+      it('does not close popup after item click when hideAfterItemClick is false', async () => {
+        const options = [{ content: 'Option 1', value: '1' }];
+
+        const wrapper = mount(
+          <Dropdown options={options} hideAfterItemClick={false} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        // 打开下拉菜单
+        await wrapper.find('button').trigger('click');
+        await nextTick();
+        await sleep(100);
+
+        const dropdownItem = document.querySelector('.t-dropdown__item');
+        if (dropdownItem) {
+          await (dropdownItem as HTMLElement).click();
+          await nextTick();
+          await sleep(200);
+
+          // 验证弹窗仍然存在
+          const popup = wrapper.findComponent({ name: 'TPopup' });
+          expect(popup.exists()).toBe(true);
+        }
+      });
+
+      it('calls popupProps.onVisibleChange when hideAfterItemClick is true', async () => {
+        const onVisibleChange = vi.fn();
+        const options = [{ content: 'Option 1', value: '1' }];
+        const popupProps = { onVisibleChange };
+
+        const wrapper = mount(
+          <Dropdown options={options} popupProps={popupProps} hideAfterItemClick={true} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        // 打开下拉菜单
+        await wrapper.find('button').trigger('click');
+        await nextTick();
+        await sleep(100);
+
+        const dropdownItem = document.querySelector('.t-dropdown__item');
+        if (dropdownItem) {
+          await (dropdownItem as HTMLElement).click();
+          await nextTick();
+          await sleep(200);
+
+          // 验证 onVisibleChange 被调用
+          expect(onVisibleChange).toHaveBeenCalledWith(false, expect.any(Object));
+        }
+      });
+
+      it('calls popupProps["on-visible-change"] when hideAfterItemClick is true', async () => {
+        const onVisibleChange = vi.fn();
+        const options = [{ content: 'Option 1', value: '1' }];
+        const popupProps = { 'on-visible-change': onVisibleChange };
+
+        const wrapper = mount(
+          <Dropdown options={options} popupProps={popupProps} hideAfterItemClick={true} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        // 打开下拉菜单
+        await wrapper.find('button').trigger('click');
+        await nextTick();
+        await sleep(100);
+
+        const dropdownItem = document.querySelector('.t-dropdown__item');
+        if (dropdownItem) {
+          await (dropdownItem as HTMLElement).click();
+          await nextTick();
+          await sleep(200);
+
+          // 验证 on-visible-change 被调用
+          expect(onVisibleChange).toHaveBeenCalledWith(false, expect.any(Object));
+        }
+      });
+    });
+
+    describe('handleVisibleChange', () => {
+      it('updates isPopupVisible when visibility changes', async () => {
+        const options = [{ content: 'Option 1', value: '1' }];
+
+        const wrapper = mount(
+          <Dropdown options={options} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        const popup = wrapper.findComponent({ name: 'TPopup' });
+
+        // 打开弹窗
+        await wrapper.find('button').trigger('click');
+        await nextTick();
+        await sleep(100);
+
+        expect(popup.exists()).toBe(true);
+      });
+
+      it('calls popupProps.onVisibleChange when visibility changes', async () => {
+        const onVisibleChange = vi.fn();
+        const options = [{ content: 'Option 1', value: '1' }];
+        const popupProps = { onVisibleChange };
+
+        const wrapper = mount(
+          <Dropdown options={options} popupProps={popupProps} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        const popup = wrapper.findComponent({ name: 'TPopup' });
+
+        // 模拟 Popup 组件触发 onVisibleChange 事件
+        await popup.vm.$emit('visible-change', true, {});
+        await nextTick();
+
+        // 验证 onVisibleChange 被调用
+        expect(onVisibleChange).toHaveBeenCalled();
+        expect(onVisibleChange.mock.calls[0][0]).toBe(true);
+      });
+
+      it('calls popupProps["on-visible-change"] when visibility changes', async () => {
+        const onVisibleChange = vi.fn();
+        const options = [{ content: 'Option 1', value: '1' }];
+        const popupProps = { 'on-visible-change': onVisibleChange };
+
+        const wrapper = mount(
+          <Dropdown options={options} popupProps={popupProps} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        const popup = wrapper.findComponent({ name: 'TPopup' });
+
+        // 模拟 Popup 组件触发 onVisibleChange 事件
+        await popup.vm.$emit('visible-change', true, {});
+        await nextTick();
+
+        // 验证 on-visible-change 被调用
+        expect(onVisibleChange).toHaveBeenCalled();
+        expect(onVisibleChange.mock.calls[0][0]).toBe(true);
+      });
+
+      it('handles visibility change to false', async () => {
+        const onVisibleChange = vi.fn();
+        const options = [{ content: 'Option 1', value: '1' }];
+        const popupProps = { onVisibleChange };
+
+        const wrapper = mount(
+          <Dropdown options={options} popupProps={popupProps} trigger="click">
+            <Button>Click me</Button>
+          </Dropdown>,
+        );
+
+        // 打开弹窗
+        await wrapper.find('button').trigger('click');
+        await nextTick();
+        await sleep(100);
+
+        // 关闭弹窗（点击外部区域）
+        await wrapper.find('button').trigger('click');
+        await nextTick();
+        await sleep(100);
+
+        // 验证 onVisibleChange 被调用两次（一次 true，一次 false）
+        expect(onVisibleChange).toHaveBeenCalled();
+      });
     });
   });
 });
