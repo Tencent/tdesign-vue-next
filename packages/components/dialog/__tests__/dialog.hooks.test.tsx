@@ -10,19 +10,13 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
-        setup() {
-          const { getConfirmBtn, getCancelBtn } = useAction({
-            confirmBtnAction,
-            cancelBtnAction,
-          });
-
-          return () => h('div', [getConfirmBtn, getCancelBtn]);
-        },
+      const { getConfirmBtn, getCancelBtn } = useAction({
+        confirmBtnAction,
+        cancelBtnAction,
       });
 
-      const wrapper = mount(TestComponent);
-      expect(wrapper.exists()).toBe(true);
+      expect(typeof getConfirmBtn).toBe('function');
+      expect(typeof getCancelBtn).toBe('function');
     });
 
     it('getConfirmBtn returns button with default props', () => {
@@ -325,7 +319,13 @@ describe('Dialog Hooks', () => {
           const confirmBtn = getConfirmBtn({
             confirmBtn: 'Confirm',
             globalConfirm: '确认',
-            globalConfirmBtnTheme: { warning: 'warning', danger: 'danger' },
+            globalConfirmBtnTheme: {
+              default: 'primary',
+              info: 'info',
+              warning: 'warning',
+              danger: 'danger',
+              success: 'success',
+            },
             theme: 'warning',
             className: 'test-confirm',
           });

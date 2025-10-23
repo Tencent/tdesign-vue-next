@@ -557,18 +557,14 @@ describe('Dialog', () => {
   describe('v-model', () => {
     it('supports v-model:visible', async () => {
       const visible = ref(false);
-      const wrapper = mount({
+      await mount({
         setup() {
           return () => <Dialog v-model:visible={visible.value} />;
         },
       });
-
       expect(visible.value).toBe(false);
-
-      await wrapper.setProps({ visible: true });
       visible.value = true;
       await nextTick();
-
       expect(visible.value).toBe(true);
     });
   });
@@ -583,7 +579,6 @@ describe('Dialog', () => {
           default: () => <div class="custom-content">Custom Content</div>,
         },
       });
-
       expect(wrapper.find('.custom-content').exists()).toBe(true);
       expect(wrapper.find('.custom-content').text()).toBe('Custom Content');
     });
