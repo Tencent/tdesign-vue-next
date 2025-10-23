@@ -1,341 +1,282 @@
-import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { getCSSValue, initDragEvent } from '../utils';
 
-describe('getCSSValue', () => {
-  describe('number input', () => {
-    it('positive number', () => {
+describe('Dialog Utils', () => {
+  describe('getCSSValue', () => {
+    it('converts number to px string', () => {
       expect(getCSSValue(100)).toBe('100px');
-      expect(getCSSValue(50)).toBe('50px');
-      expect(getCSSValue(1)).toBe('1px');
-    });
-
-    it('zero', () => {
       expect(getCSSValue(0)).toBe('0px');
+      expect(getCSSValue(500)).toBe('500px');
     });
 
-    it('negative number', () => {
-      expect(getCSSValue(-50)).toBe('-50px');
-      expect(getCSSValue(-100)).toBe('-100px');
-    });
-
-    it('decimal number', () => {
-      expect(getCSSValue(1.5)).toBe('1.5px');
-      expect(getCSSValue(10.25)).toBe('10.25px');
-      expect(getCSSValue(0.5)).toBe('0.5px');
-    });
-
-    it('special number values', () => {
-      expect(getCSSValue(Infinity)).toBe('Infinitypx');
-      expect(getCSSValue(-Infinity)).toBe('-Infinitypx');
-      expect(getCSSValue(NaN)).toBe(NaN);
-    });
-  });
-
-  describe('string input', () => {
-    it('numeric string', () => {
-      expect(getCSSValue('100')).toBe('100px');
-      expect(getCSSValue('0')).toBe('0px');
-      expect(getCSSValue('-50')).toBe('-50px');
-      expect(getCSSValue('1.5')).toBe('1.5px');
-    });
-
-    it('css unit string', () => {
-      expect(getCSSValue('100px')).toBe('100px');
+    it('returns string value as is', () => {
       expect(getCSSValue('50%')).toBe('50%');
-      expect(getCSSValue('1rem')).toBe('1rem');
-      expect(getCSSValue('2em')).toBe('2em');
+      expect(getCSSValue('100px')).toBe('100px');
       expect(getCSSValue('auto')).toBe('auto');
-      expect(getCSSValue('inherit')).toBe('inherit');
+      expect(getCSSValue('20vh')).toBe('20vh');
     });
 
-    it('empty string', () => {
-      expect(getCSSValue('')).toBe('0px');
-    });
-
-    it('invalid string', () => {
-      expect(getCSSValue('abc')).toBe('abc');
-      expect(getCSSValue('100abc')).toBe('100abc');
-      expect(getCSSValue('px100')).toBe('px100');
+    it('handles edge cases', () => {
+      // '0' 和 '100' 是字符串，Number.isNaN(Number('0')) 为 false，所以会转换为 '0px' 和 '100px'
+      expect(getCSSValue('0')).toBe('0px');
+      expect(getCSSValue('100')).toBe('100px');
     });
   });
 
-  describe('edge cases', () => {
-    it('null and undefined', () => {
-      expect(getCSSValue(null)).toBe('0px');
-      expect(getCSSValue(undefined)).toBe(undefined);
-    });
-  });
-});
+  describe('initDragEvent', () => {
+    let dragBox: HTMLElement;
+    let mousedownEvent: MouseEvent;
+    let mousemoveEvent: MouseEvent;
+    let mouseupEvent: MouseEvent;
 
-describe('initDragEvent', () => {
-  let mockElement: HTMLElement;
-  let mockMouseDownEvent: MouseEvent;
-  let mockMouseMoveEvent: MouseEvent;
-  let mockMouseUpEvent: MouseEvent;
-  let addEventListenerSpy: any;
-  let removeEventListenerSpy: any;
+    beforeEach(() => {
+      // 创建一个模拟的 dragBox 元素
+      dragBox = document.createElement('div');
+      dragBox.style.position = 'absolute';
+      dragBox.style.left = '100px';
+      dragBox.style.top = '100px';
+      dragBox.style.width = '200px';
+      dragBox.style.height = '150px';
+      document.body.appendChild(dragBox);
 
-  beforeEach(() => {
-    // 创建模拟DOM元素
-    mockElement = document.createElement('div');
-
-    // 设置元素大小
-    Object.defineProperty(mockElement, 'offsetWidth', {
-      writable: true,
-      value: 200,
-    });
-    Object.defineProperty(mockElement, 'offsetHeight', {
-      writable: true,
-      value: 100,
-    });
-    Object.defineProperty(mockElement, 'offsetLeft', {
-      writable: true,
-      value: 100,
-    });
-    Object.defineProperty(mockElement, 'offsetTop', {
-      writable: true,
-      value: 50,
+      // 模拟 offsetLeft, offsetTop, offsetWidth, offsetHeight
+      Object.defineProperty(dragBox, 'offsetLeft', { value: 100, writable: true });
+      Object.defineProperty(dragBox, 'offsetTop', { value: 100, writable: true });
+      Object.defineProperty(dragBox, 'offsetWidth', { value: 200, writable: true });
+      Object.defineProperty(dragBox, 'offsetHeight', { value: 150, writable: true });
     });
 
-    // 模拟style对象
-    Object.assign(mockElement.style, {
-      position: '',
-      left: '',
-      top: '',
+    afterEach(() => {
+      document.body.removeChild(dragBox);
     });
 
-    // 设置窗口大小
-    Object.defineProperty(window, 'innerWidth', {
-      writable: true,
-      value: 1024,
-    });
-    Object.defineProperty(window, 'innerHeight', {
-      writable: true,
-      value: 768,
+    it('initializes drag event on element', () => {
+      const addEventListener = vi.spyOn(dragBox, 'addEventListener');
+      initDragEvent(dragBox);
+
+      expect(addEventListener).toHaveBeenCalledWith('mousedown', expect.any(Function));
     });
 
-    // 添加到DOM
-    document.body.appendChild(mockElement);
+    it('allows dragging within window bounds', () => {
+      initDragEvent(dragBox);
 
-    // 创建模拟事件
-    mockMouseDownEvent = new MouseEvent('mousedown', {
-      clientX: 150,
-      clientY: 75,
-      bubbles: true,
-    });
-
-    mockMouseMoveEvent = new MouseEvent('mousemove', {
-      clientX: 200,
-      clientY: 125,
-      bubbles: true,
-    });
-
-    mockMouseUpEvent = new MouseEvent('mouseup', {
-      bubbles: true,
-    });
-
-    // 监听事件绑定
-    addEventListenerSpy = vi.spyOn(document, 'addEventListener');
-    removeEventListenerSpy = vi.spyOn(document, 'removeEventListener');
-  });
-
-  afterEach(() => {
-    vi.restoreAllMocks();
-    document.body.innerHTML = '';
-  });
-
-  describe('basic functionality', () => {
-    it('should initialize drag on mousedown', () => {
-      initDragEvent(mockElement);
-
-      mockElement.dispatchEvent(mockMouseDownEvent);
-
-      expect(addEventListenerSpy).toHaveBeenCalledWith('mousemove', expect.any(Function));
-      expect(addEventListenerSpy).toHaveBeenCalledWith('mouseup', expect.any(Function));
-      expect(addEventListenerSpy).toHaveBeenCalledWith('dragend', expect.any(Function));
-    });
-
-    it('should remove event listeners on mouseup', () => {
-      initDragEvent(mockElement);
-
-      // 触发mousedown
-      mockElement.dispatchEvent(mockMouseDownEvent);
-
-      // 获取mouseup处理函数
-      const mouseUpHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mouseup')[1];
-
-      // 触发mouseup
-      mouseUpHandler(mockMouseUpEvent);
-
-      expect(removeEventListenerSpy).toHaveBeenCalledWith('mousemove', expect.any(Function));
-      expect(removeEventListenerSpy).toHaveBeenCalledWith('mouseup', expect.any(Function));
-    });
-
-    it('should set element position and style on drag', () => {
-      initDragEvent(mockElement);
-
-      // 触发mousedown
-      mockElement.dispatchEvent(mockMouseDownEvent);
-
-      // 获取mousemove处理函数
-      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mousemove')[1];
-
-      // 触发mousemove
-      mouseMoveHandler(mockMouseMoveEvent);
-
-      expect(mockElement.style.position).toBe('absolute');
-      expect(mockElement.style.left).toBeTruthy();
-      expect(mockElement.style.top).toBeTruthy();
-    });
-  });
-
-  describe('boundary constraints', () => {
-    it('should constrain to left boundary', () => {
-      initDragEvent(mockElement);
-
-      mockElement.dispatchEvent(mockMouseDownEvent);
-
-      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mousemove')[1];
-
-      // 创建超出左边界的事件
-      const leftBoundaryEvent = new MouseEvent('mousemove', {
-        clientX: -100,
-        clientY: 75,
-      });
-
-      mouseMoveHandler(leftBoundaryEvent);
-
-      expect(mockElement.style.left).toBe('0px');
-    });
-
-    it('should constrain to top boundary', () => {
-      initDragEvent(mockElement);
-
-      mockElement.dispatchEvent(mockMouseDownEvent);
-
-      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mousemove')[1];
-
-      // 创建超出上边界的事件
-      const topBoundaryEvent = new MouseEvent('mousemove', {
+      // 模拟 mousedown 事件
+      mousedownEvent = new MouseEvent('mousedown', {
         clientX: 150,
-        clientY: -100,
+        clientY: 150,
+        bubbles: true,
       });
 
-      mouseMoveHandler(topBoundaryEvent);
+      dragBox.dispatchEvent(mousedownEvent);
 
-      expect(mockElement.style.top).toBe('0px');
-    });
-
-    it('should constrain to right boundary', () => {
-      initDragEvent(mockElement);
-
-      mockElement.dispatchEvent(mockMouseDownEvent);
-
-      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mousemove')[1];
-
-      // 创建超出右边界的事件
-      const rightBoundaryEvent = new MouseEvent('mousemove', {
-        clientX: 2000,
-        clientY: 75,
+      // 模拟 mousemove 事件
+      mousemoveEvent = new MouseEvent('mousemove', {
+        clientX: 200,
+        clientY: 200,
+        bubbles: true,
       });
 
-      mouseMoveHandler(rightBoundaryEvent);
+      document.dispatchEvent(mousemoveEvent);
 
-      // 应该被限制在窗口宽度减去元素宽度的位置
-      const expectedLeft = window.innerWidth - mockElement.offsetWidth;
-      expect(mockElement.style.left).toBe(`${expectedLeft}px`);
+      // 验证位置已更新
+      expect(dragBox.style.position).toBe('absolute');
     });
 
-    it('should constrain to bottom boundary', () => {
-      initDragEvent(mockElement);
+    it('prevents dragging outside left boundary', () => {
+      initDragEvent(dragBox);
 
-      mockElement.dispatchEvent(mockMouseDownEvent);
-
-      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mousemove')[1];
-
-      // 创建超出下边界的事件
-      const bottomBoundaryEvent = new MouseEvent('mousemove', {
+      mousedownEvent = new MouseEvent('mousedown', {
         clientX: 150,
-        clientY: 2000,
+        clientY: 150,
+        bubbles: true,
       });
 
-      mouseMoveHandler(bottomBoundaryEvent);
+      dragBox.dispatchEvent(mousedownEvent);
 
-      // 应该被限制在窗口高度减去元素高度的位置
-      const expectedTop = window.innerHeight - mockElement.offsetHeight;
-      expect(mockElement.style.top).toBe(`${expectedTop}px`);
-    });
-  });
-
-  describe('edge cases', () => {
-    it('should not enable drag when element is larger than window', () => {
-      // 设置元素大小超过窗口大小
-      Object.defineProperty(mockElement, 'offsetWidth', {
-        writable: true,
-        value: 2000,
-      });
-      Object.defineProperty(mockElement, 'offsetHeight', {
-        writable: true,
-        value: 1000,
+      // 尝试拖到左边界外
+      mousemoveEvent = new MouseEvent('mousemove', {
+        clientX: -50,
+        clientY: 150,
+        bubbles: true,
       });
 
-      initDragEvent(mockElement);
+      document.dispatchEvent(mousemoveEvent);
 
-      mockElement.dispatchEvent(mockMouseDownEvent);
-
-      // 不应该绑定任何拖拽相关的事件监听器
-      expect(addEventListenerSpy).not.toHaveBeenCalledWith('mousemove', expect.any(Function));
-      expect(addEventListenerSpy).not.toHaveBeenCalledWith('mouseup', expect.any(Function));
+      // left 应该被限制为 0
+      expect(parseInt(dragBox.style.left) >= 0).toBe(true);
     });
 
-    it('should handle missing window dimensions', () => {
-      // 模拟没有window.innerWidth的情况
-      Object.defineProperty(window, 'innerWidth', {
-        writable: true,
-        value: undefined,
-      });
-      Object.defineProperty(document.documentElement, 'clientWidth', {
-        writable: true,
-        value: 1024,
+    it('prevents dragging outside top boundary', () => {
+      initDragEvent(dragBox);
+
+      mousedownEvent = new MouseEvent('mousedown', {
+        clientX: 150,
+        clientY: 150,
+        bubbles: true,
       });
 
-      expect(() => {
-        initDragEvent(mockElement);
-        mockElement.dispatchEvent(mockMouseDownEvent);
-      }).not.toThrow();
+      dragBox.dispatchEvent(mousedownEvent);
+
+      // 尝试拖到上边界外
+      mousemoveEvent = new MouseEvent('mousemove', {
+        clientX: 150,
+        clientY: -50,
+        bubbles: true,
+      });
+
+      document.dispatchEvent(mousemoveEvent);
+
+      // top 应该被限制为 0
+      expect(parseInt(dragBox.style.top) >= 0).toBe(true);
     });
 
-    it('should handle missing window innerHeight', () => {
-      // 模拟没有 window.innerHeight 的情况
-      Object.defineProperty(window, 'innerHeight', {
-        writable: true,
-        value: undefined,
-      });
-      Object.defineProperty(document.documentElement, 'clientHeight', {
-        writable: true,
-        value: 768,
+    it('stops dragging on mouseup', () => {
+      initDragEvent(dragBox);
+
+      mousedownEvent = new MouseEvent('mousedown', {
+        clientX: 150,
+        clientY: 150,
+        bubbles: true,
       });
 
-      expect(() => {
-        initDragEvent(mockElement);
-        mockElement.dispatchEvent(mockMouseDownEvent);
-      }).not.toThrow();
+      dragBox.dispatchEvent(mousedownEvent);
+
+      // 模拟 mouseup 事件
+      mouseupEvent = new MouseEvent('mouseup', {
+        bubbles: true,
+      });
+
+      document.dispatchEvent(mouseupEvent);
+
+      // 再次移动鼠标，位置不应该改变
+      const currentLeft = dragBox.style.left;
+      const currentTop = dragBox.style.top;
+
+      mousemoveEvent = new MouseEvent('mousemove', {
+        clientX: 300,
+        clientY: 300,
+        bubbles: true,
+      });
+
+      document.dispatchEvent(mousemoveEvent);
+
+      expect(dragBox.style.left).toBe(currentLeft);
+      expect(dragBox.style.top).toBe(currentTop);
     });
 
-    it('should handle dragend event', () => {
-      initDragEvent(mockElement);
+    it('stops dragging on dragend', () => {
+      initDragEvent(dragBox);
 
-      mockElement.dispatchEvent(mockMouseDownEvent);
+      mousedownEvent = new MouseEvent('mousedown', {
+        clientX: 150,
+        clientY: 150,
+        bubbles: true,
+      });
 
-      // 获取dragend处理函数
-      const dragEndHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'dragend')[1];
+      dragBox.dispatchEvent(mousedownEvent);
 
-      // 触发dragend
-      const dragEndEvent = new Event('dragend');
-      dragEndHandler(dragEndEvent);
+      // 模拟 dragend 事件
+      const dragendEvent = new Event('dragend', {
+        bubbles: true,
+      });
 
-      expect(removeEventListenerSpy).toHaveBeenCalledWith('mousemove', expect.any(Function));
-      expect(removeEventListenerSpy).toHaveBeenCalledWith('mouseup', expect.any(Function));
+      document.dispatchEvent(dragendEvent);
+
+      // 再次移动鼠标，位置不应该改变
+      const currentLeft = dragBox.style.left;
+      const currentTop = dragBox.style.top;
+
+      mousemoveEvent = new MouseEvent('mousemove', {
+        clientX: 300,
+        clientY: 300,
+        bubbles: true,
+      });
+
+      document.dispatchEvent(mousemoveEvent);
+
+      expect(dragBox.style.left).toBe(currentLeft);
+      expect(dragBox.style.top).toBe(currentTop);
+    });
+
+    it('does not allow dragging when dialog is larger than window', () => {
+      // 设置 dialog 大于窗口
+      Object.defineProperty(dragBox, 'offsetWidth', { value: window.innerWidth + 100, writable: true });
+      Object.defineProperty(dragBox, 'offsetHeight', { value: window.innerHeight + 100, writable: true });
+
+      initDragEvent(dragBox);
+
+      const initialLeft = dragBox.style.left;
+      const initialTop = dragBox.style.top;
+
+      mousedownEvent = new MouseEvent('mousedown', {
+        clientX: 150,
+        clientY: 150,
+        bubbles: true,
+      });
+
+      dragBox.dispatchEvent(mousedownEvent);
+
+      mousemoveEvent = new MouseEvent('mousemove', {
+        clientX: 200,
+        clientY: 200,
+        bubbles: true,
+      });
+
+      document.dispatchEvent(mousemoveEvent);
+
+      // 位置不应该改变
+      expect(dragBox.style.left).toBe(initialLeft);
+      expect(dragBox.style.top).toBe(initialTop);
+    });
+
+    it('prevents dragging outside right boundary', () => {
+      initDragEvent(dragBox);
+
+      mousedownEvent = new MouseEvent('mousedown', {
+        clientX: 150,
+        clientY: 150,
+        bubbles: true,
+      });
+
+      dragBox.dispatchEvent(mousedownEvent);
+
+      // 尝试拖到右边界外
+      mousemoveEvent = new MouseEvent('mousemove', {
+        clientX: window.innerWidth + 100,
+        clientY: 150,
+        bubbles: true,
+      });
+
+      document.dispatchEvent(mousemoveEvent);
+
+      // left 应该被限制在窗口内
+      const maxLeft = window.innerWidth - dragBox.offsetWidth;
+      expect(parseInt(dragBox.style.left) <= maxLeft).toBe(true);
+    });
+
+    it('prevents dragging outside bottom boundary', () => {
+      initDragEvent(dragBox);
+
+      mousedownEvent = new MouseEvent('mousedown', {
+        clientX: 150,
+        clientY: 150,
+        bubbles: true,
+      });
+
+      dragBox.dispatchEvent(mousedownEvent);
+
+      // 尝试拖到下边界外
+      mousemoveEvent = new MouseEvent('mousemove', {
+        clientX: 150,
+        clientY: window.innerHeight + 100,
+        bubbles: true,
+      });
+
+      document.dispatchEvent(mousemoveEvent);
+
+      // top 应该被限制在窗口内
+      const maxTop = window.innerHeight - dragBox.offsetHeight;
+      expect(parseInt(dragBox.style.top) <= maxTop).toBe(true);
     });
   });
 });

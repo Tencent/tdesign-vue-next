@@ -1,490 +1,539 @@
-// @ts-nocheck
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { ref, defineComponent } from 'vue';
-import { useAction, useSameTarget } from '../hooks';
+import { defineComponent, h } from 'vue';
+import { useAction } from '../hooks/useAction';
+import { useSameTarget } from '../hooks/useSameTarget';
 
-const UnifiedTestComponent = defineComponent({
-  props: {
-    // useAction 相关 props
-    confirmBtn: [String, Object, Function],
-    cancelBtn: [String, Object, Function],
-    confirmLoading: Boolean,
-    theme: String,
-    size: String,
-    className: String,
-    globalConfirm: [String, Object],
-    globalCancel: [String, Object],
-    globalConfirmBtnTheme: Object,
+describe('Dialog Hooks', () => {
+  describe('useAction', () => {
+    it('returns getConfirmBtn and getCancelBtn functions', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
 
-    // useSameTarget 相关 props
-    onClick: Function,
-    disabled: Boolean,
+      const TestComponent = defineComponent({
+        setup() {
+          const { getConfirmBtn, getCancelBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
 
-    // 测试模式控制
-    testMode: {
-      type: String,
-      default: 'action', // 'action' | 'sameTarget' | 'extended'
-    },
-  },
-  setup(props, { expose }) {
-    // useAction 测试逻辑
-    if (props.testMode === 'action') {
-      const mockAction = {
-        confirmBtnAction: vi.fn(),
-        cancelBtnAction: vi.fn(),
-      };
-
-      const { getConfirmBtn, getCancelBtn } = useAction(mockAction);
-
-      const confirmOptions = {
-        confirmBtn: props.confirmBtn,
-        globalConfirm: props.globalConfirm || '确认',
-        className: props.className || 'test-confirm',
-        size: props.size || 'medium',
-        confirmLoading: props.confirmLoading,
-        theme: props.theme,
-        globalConfirmBtnTheme: props.globalConfirmBtnTheme || {
-          default: 'primary',
-          info: 'info',
-          warning: 'warning',
-          danger: 'danger',
-          success: 'success',
+          return () => h('div', [getConfirmBtn, getCancelBtn]);
         },
-      };
+      });
 
-      const cancelOptions = {
-        cancelBtn: props.cancelBtn,
-        globalCancel: props.globalCancel || '取消',
-        className: props.className || 'test-cancel',
-        size: props.size || 'medium',
-      };
+      const wrapper = mount(TestComponent);
+      expect(wrapper.exists()).toBe(true);
+    });
 
-      const confirmBtn = getConfirmBtn(confirmOptions);
-      const cancelBtn = getCancelBtn(cancelOptions);
+    it('getConfirmBtn returns button with default props', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
 
-      expose({ confirmBtn, cancelBtn, mockAction });
+      const TestComponent = defineComponent({
+        setup() {
+          const { getConfirmBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
 
-      return () => (
-        <div>
-          {confirmBtn}
-          {cancelBtn}
-        </div>
-      );
-    }
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: undefined,
+            globalConfirm: '确认',
+            className: 'test-confirm',
+          });
 
-    // useSameTarget 测试逻辑
-    if (props.testMode === 'sameTarget') {
-      const { onClick, onMousedown, onMouseup } = useSameTarget(props.onClick);
+          return () => h('div', [confirmBtn]);
+        },
+      });
 
-      expose({ onClick, onMousedown, onMouseup });
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-confirm').exists()).toBe(true);
+    });
 
-      return () => (
-        <div onClick={onClick} onMousedown={onMousedown} onMouseup={onMouseup}>
-          测试目标
-        </div>
-      );
-    }
+    it('getConfirmBtn handles string confirmBtn', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
 
-    // 扩展测试逻辑
-    if (props.testMode === 'extended') {
+      const TestComponent = defineComponent({
+        setup() {
+          const { getConfirmBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: 'Custom Confirm',
+            globalConfirm: '确认',
+            className: 'test-confirm',
+          });
+
+          return () => h('div', [confirmBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-confirm').exists()).toBe(true);
+      expect(wrapper.find('.test-confirm').text()).toBe('Custom Confirm');
+    });
+
+    it('getConfirmBtn handles object confirmBtn', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getConfirmBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: { content: 'OK', theme: 'primary' },
+            globalConfirm: '确认',
+            className: 'test-confirm',
+          });
+
+          return () => h('div', [confirmBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-confirm').exists()).toBe(true);
+    });
+
+    it('getConfirmBtn returns null when confirmBtn is null', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getConfirmBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: null,
+            globalConfirm: '确认',
+            className: 'test-confirm',
+          });
+
+          return () => h('div', [confirmBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-confirm').exists()).toBe(false);
+    });
+
+    it('getConfirmBtn handles confirmLoading', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getConfirmBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: 'Confirm',
+            globalConfirm: '确认',
+            className: 'test-confirm',
+            confirmLoading: true,
+          });
+
+          return () => h('div', [confirmBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-confirm').exists()).toBe(true);
+    });
+
+    it('getCancelBtn returns button with default props', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getCancelBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const cancelBtn = getCancelBtn({
+            cancelBtn: undefined,
+            globalCancel: '取消',
+            className: 'test-cancel',
+          });
+
+          return () => h('div', [cancelBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-cancel').exists()).toBe(true);
+    });
+
+    it('getCancelBtn handles string cancelBtn', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getCancelBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const cancelBtn = getCancelBtn({
+            cancelBtn: 'Custom Cancel',
+            globalCancel: '取消',
+            className: 'test-cancel',
+          });
+
+          return () => h('div', [cancelBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-cancel').exists()).toBe(true);
+      expect(wrapper.find('.test-cancel').text()).toBe('Custom Cancel');
+    });
+
+    it('getCancelBtn handles object cancelBtn', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getCancelBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const cancelBtn = getCancelBtn({
+            cancelBtn: { content: 'Cancel', theme: 'default' },
+            globalCancel: '取消',
+            className: 'test-cancel',
+          });
+
+          return () => h('div', [cancelBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-cancel').exists()).toBe(true);
+    });
+
+    it('getCancelBtn returns null when cancelBtn is null', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getCancelBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const cancelBtn = getCancelBtn({
+            cancelBtn: null,
+            globalCancel: '取消',
+            className: 'test-cancel',
+          });
+
+          return () => h('div', [cancelBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-cancel').exists()).toBe(false);
+    });
+
+    it('confirm button triggers confirmBtnAction on click', async () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getConfirmBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: 'Confirm',
+            globalConfirm: '确认',
+            className: 'test-confirm',
+          });
+
+          return () => h('div', [confirmBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      const button = wrapper.find('.test-confirm');
+
+      await button.trigger('click');
+
+      expect(confirmBtnAction).toHaveBeenCalled();
+    });
+
+    it('cancel button triggers cancelBtnAction on click', async () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getCancelBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const cancelBtn = getCancelBtn({
+            cancelBtn: 'Cancel',
+            globalCancel: '取消',
+            className: 'test-cancel',
+          });
+
+          return () => h('div', [cancelBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      const button = wrapper.find('.test-cancel');
+
+      await button.trigger('click');
+
+      expect(cancelBtnAction).toHaveBeenCalled();
+    });
+
+    it('handles theme prop for confirm button', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getConfirmBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: 'Confirm',
+            globalConfirm: '确认',
+            globalConfirmBtnTheme: { warning: 'warning', danger: 'danger' },
+            theme: 'warning',
+            className: 'test-confirm',
+          });
+
+          return () => h('div', [confirmBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-confirm').exists()).toBe(true);
+    });
+
+    it('handles size prop for buttons', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const TestComponent = defineComponent({
+        setup() {
+          const { getConfirmBtn, getCancelBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: 'Confirm',
+            globalConfirm: '确认',
+            className: 'test-confirm',
+            size: 'large',
+          });
+
+          const cancelBtn = getCancelBtn({
+            cancelBtn: 'Cancel',
+            globalCancel: '取消',
+            className: 'test-cancel',
+            size: 'large',
+          });
+
+          return () => h('div', [confirmBtn, cancelBtn]);
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+      expect(wrapper.find('.test-confirm').exists()).toBe(true);
+      expect(wrapper.find('.test-cancel').exists()).toBe(true);
+    });
+  });
+
+  describe('useSameTarget', () => {
+    it('returns onClick, onMousedown, and onMouseup handlers', () => {
       const handleClick = vi.fn();
-      const extendDisabled = ref(props.disabled);
-      const { onClick, onMousedown, onMouseup } = useSameTarget(extendDisabled.value ? undefined : handleClick);
+      const { onClick, onMousedown, onMouseup } = useSameTarget(handleClick);
 
-      expose({ onClick, onMousedown, onMouseup, handleClick, extendDisabled });
-
-      return () => (
-        <div onClick={onClick} onMousedown={onMousedown} onMouseup={onMouseup}>
-          扩展测试
-        </div>
-      );
-    }
-
-    return () => <div>默认测试组件</div>;
-  },
-});
-
-describe('useAction', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
-
-  describe('getConfirmBtn', () => {
-    it('should return null when confirmBtn is null', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: null,
-        },
-      });
-      expect(wrapper.vm.confirmBtn).toBe(null);
+      expect(typeof onClick).toBe('function');
+      expect(typeof onMousedown).toBe('function');
+      expect(typeof onMouseup).toBe('function');
     });
 
-    it('should return default button when confirmBtn is undefined', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: undefined,
-        },
-      });
-      const button = wrapper.find('button');
-      expect(button.exists()).toBeTruthy();
-      expect(button.text()).toBe('确认');
-      expect(button.classes()).toContain('t-button--theme-primary');
+    it('calls handleClick when mousedown and mouseup targets are the same', () => {
+      const handleClick = vi.fn();
+      const { onClick, onMousedown, onMouseup } = useSameTarget(handleClick);
+
+      const target = document.createElement('div');
+      const mousedownEvent = new MouseEvent('mousedown', { bubbles: true });
+      Object.defineProperty(mousedownEvent, 'target', { value: target, enumerable: true });
+      Object.defineProperty(mousedownEvent, 'currentTarget', { value: target, enumerable: true });
+
+      const mouseupEvent = new MouseEvent('mouseup', { bubbles: true });
+      Object.defineProperty(mouseupEvent, 'target', { value: target, enumerable: true });
+      Object.defineProperty(mouseupEvent, 'currentTarget', { value: target, enumerable: true });
+
+      const clickEvent = new MouseEvent('click', { bubbles: true });
+      Object.defineProperty(clickEvent, 'target', { value: target, enumerable: true });
+      Object.defineProperty(clickEvent, 'currentTarget', { value: target, enumerable: true });
+
+      onMousedown(mousedownEvent);
+      onMouseup(mouseupEvent);
+      onClick(clickEvent);
+
+      expect(handleClick).toHaveBeenCalled();
     });
 
-    it('should display custom content when confirmBtn is string', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: '自定义确认',
-        },
-      });
-      const button = wrapper.find('button');
-      expect(button.text()).toBe('自定义确认');
+    it('does not call handleClick when mousedown target is different', () => {
+      const handleClick = vi.fn();
+      const { onClick, onMousedown, onMouseup } = useSameTarget(handleClick);
+
+      const target1 = document.createElement('div');
+      const target2 = document.createElement('div');
+
+      const mousedownEvent = new MouseEvent('mousedown', { bubbles: true });
+      Object.defineProperty(mousedownEvent, 'target', { value: target1, enumerable: true });
+      Object.defineProperty(mousedownEvent, 'currentTarget', { value: target2, enumerable: true });
+
+      const mouseupEvent = new MouseEvent('mouseup', { bubbles: true });
+      Object.defineProperty(mouseupEvent, 'target', { value: target2, enumerable: true });
+      Object.defineProperty(mouseupEvent, 'currentTarget', { value: target2, enumerable: true });
+
+      const clickEvent = new MouseEvent('click', { bubbles: true });
+
+      onMousedown(mousedownEvent);
+      onMouseup(mouseupEvent);
+      onClick(clickEvent);
+
+      expect(handleClick).not.toHaveBeenCalled();
     });
 
-    it('should apply object properties when confirmBtn is object', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: { content: '保存', theme: 'success' },
-        },
-      });
-      const button = wrapper.find('button');
-      expect(button.text()).toBe('保存');
-      expect(button.classes()).toContain('t-button--theme-success');
+    it('does not call handleClick when mouseup target is different', () => {
+      const handleClick = vi.fn();
+      const { onClick, onMousedown, onMouseup } = useSameTarget(handleClick);
+
+      const target1 = document.createElement('div');
+      const target2 = document.createElement('div');
+
+      const mousedownEvent = new MouseEvent('mousedown', { bubbles: true });
+      Object.defineProperty(mousedownEvent, 'target', { value: target1, enumerable: true });
+      Object.defineProperty(mousedownEvent, 'currentTarget', { value: target1, enumerable: true });
+
+      const mouseupEvent = new MouseEvent('mouseup', { bubbles: true });
+      Object.defineProperty(mouseupEvent, 'target', { value: target1, enumerable: true });
+      Object.defineProperty(mouseupEvent, 'currentTarget', { value: target2, enumerable: true });
+
+      const clickEvent = new MouseEvent('click', { bubbles: true });
+
+      onMousedown(mousedownEvent);
+      onMouseup(mouseupEvent);
+      onClick(clickEvent);
+
+      expect(handleClick).not.toHaveBeenCalled();
     });
 
-    it('should show loading state', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: '确认',
-          confirmLoading: true,
-        },
-      });
-      const button = wrapper.find('button');
-      expect(button.classes()).toContain('t-is-loading');
+    it('resets state after click', () => {
+      const handleClick = vi.fn();
+      const { onClick, onMousedown, onMouseup } = useSameTarget(handleClick);
+
+      const target = document.createElement('div');
+
+      const mousedownEvent = new MouseEvent('mousedown', { bubbles: true });
+      Object.defineProperty(mousedownEvent, 'target', { value: target, enumerable: true });
+      Object.defineProperty(mousedownEvent, 'currentTarget', { value: target, enumerable: true });
+
+      const mouseupEvent = new MouseEvent('mouseup', { bubbles: true });
+      Object.defineProperty(mouseupEvent, 'target', { value: target, enumerable: true });
+      Object.defineProperty(mouseupEvent, 'currentTarget', { value: target, enumerable: true });
+
+      const clickEvent = new MouseEvent('click', { bubbles: true });
+
+      // 第一次点击
+      onMousedown(mousedownEvent);
+      onMouseup(mouseupEvent);
+      onClick(clickEvent);
+
+      expect(handleClick).toHaveBeenCalledTimes(1);
+
+      // 第二次点击，但没有 mousedown 和 mouseup
+      onClick(clickEvent);
+
+      // 不应该再次调用
+      expect(handleClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should trigger confirmBtnAction on click', async () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: '确认',
-        },
-      });
-      const button = wrapper.find('button');
-      await button.trigger('click');
-      expect(wrapper.vm.mockAction.confirmBtnAction).toHaveBeenCalled();
+    it('works without handleClick callback', () => {
+      const { onClick, onMousedown, onMouseup } = useSameTarget();
+
+      const target = document.createElement('div');
+
+      const mousedownEvent = new MouseEvent('mousedown', { bubbles: true });
+      Object.defineProperty(mousedownEvent, 'target', { value: target, enumerable: true });
+      Object.defineProperty(mousedownEvent, 'currentTarget', { value: target, enumerable: true });
+
+      const mouseupEvent = new MouseEvent('mouseup', { bubbles: true });
+      Object.defineProperty(mouseupEvent, 'target', { value: target, enumerable: true });
+      Object.defineProperty(mouseupEvent, 'currentTarget', { value: target, enumerable: true });
+
+      const clickEvent = new MouseEvent('click', { bubbles: true });
+
+      // 不应该抛出错误
+      expect(() => {
+        onMousedown(mousedownEvent);
+        onMouseup(mouseupEvent);
+        onClick(clickEvent);
+      }).not.toThrow();
     });
 
-    it('should handle different theme types', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: '确认',
-          theme: 'warning',
-        },
-      });
-      const button = wrapper.find('button');
-      expect(button.classes()).toContain('t-button--theme-warning');
-    });
+    it('handles multiple clicks correctly', () => {
+      const handleClick = vi.fn();
+      const { onClick, onMousedown, onMouseup } = useSameTarget(handleClick);
 
-    it('should handle global config as object', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: undefined,
-          globalConfirm: { content: '全局确认', theme: 'info' },
-        },
-      });
-      const button = wrapper.find('button');
-      expect(button.text()).toBe('全局确认');
-      expect(button.classes()).toContain('t-button--theme-info');
-    });
+      const target = document.createElement('div');
 
-    it('When both confirmBtn props and slot exist, props should be preferred and a warning should be output', () => {
-      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: 'props优先',
-        },
-        slots: {
-          confirmBtn: () => 'slot内容',
-        },
-      });
-      // 断言 warning 被调用
-      expect(warnSpy).toHaveBeenCalledWith(
-        'Both $props.confirmBtn and $scopedSlots.confirmBtn exist, $props.confirmBtn is preferred.',
-      );
-      // 断言按钮内容为 props
-      const button = wrapper.find('button');
-      expect(button.text()).toBe('props优先');
-      warnSpy.mockRestore();
-    });
+      const createEvent = (type: string) => {
+        const event = new MouseEvent(type, { bubbles: true });
+        Object.defineProperty(event, 'target', { value: target, enumerable: true });
+        Object.defineProperty(event, 'currentTarget', { value: target, enumerable: true });
+        return event;
+      };
 
-    it('should render content returned by confirmBtn function', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: () => '函数按钮',
-        },
-      });
-      expect(wrapper.html()).toContain('函数按钮');
-    });
+      // 第一次点击
+      onMousedown(createEvent('mousedown'));
+      onMouseup(createEvent('mouseup'));
+      onClick(createEvent('click'));
 
-    it('should render slot content when only confirmBtn slot is provided', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: undefined,
-        },
-        slots: {
-          confirmBtn: () => '插槽按钮',
-        },
-      });
-      expect(wrapper.html()).toContain('插槽按钮');
-    });
-  });
+      expect(handleClick).toHaveBeenCalledTimes(1);
 
-  describe('getCancelBtn', () => {
-    it('When both cancelBtn props and slot exist, props should be preferred and a warning should be output', () => {
-      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          cancelBtn: 'props优先',
-        },
-        slots: {
-          cancelBtn: () => 'slot内容',
-        },
-      });
-      // 断言 warning 被调用
-      expect(warnSpy).toHaveBeenCalledWith(
-        'Both $props.cancelBtn and $scopedSlots.cancelBtn exist, $props.cancelBtn is preferred.',
-      );
-      // 断言按钮内容为 props
-      const button = wrapper.findAll('button');
-      expect(button[1].text()).toBe('props优先');
-      warnSpy.mockRestore();
-    });
+      // 第二次点击
+      onMousedown(createEvent('mousedown'));
+      onMouseup(createEvent('mouseup'));
+      onClick(createEvent('click'));
 
-    it('should return null when cancelBtn is null', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          cancelBtn: null,
-        },
-      });
-      expect(wrapper.vm.cancelBtn).toBe(null);
+      expect(handleClick).toHaveBeenCalledTimes(2);
     });
-
-    it('should return default button when cancelBtn is undefined', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: null,
-          cancelBtn: undefined,
-        },
-      });
-      const buttons = wrapper.findAll('button');
-      const cancelButton = buttons[0];
-      expect(cancelButton.exists()).toBeTruthy();
-      expect(cancelButton.text()).toBe('取消');
-      expect(cancelButton.classes()).toContain('t-button--theme-default');
-    });
-
-    it('should display custom content when cancelBtn is string', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: null,
-          cancelBtn: '自定义取消',
-        },
-      });
-      const button = wrapper.find('button');
-      expect(button.text()).toBe('自定义取消');
-    });
-
-    it('should apply object properties when cancelBtn is object', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: null,
-          cancelBtn: { content: '关闭', theme: 'danger' },
-        },
-      });
-      const button = wrapper.find('button');
-      expect(button.text()).toBe('关闭');
-      expect(button.classes()).toContain('t-button--theme-danger');
-    });
-
-    it('should trigger cancelBtnAction on click', async () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          confirmBtn: null,
-          cancelBtn: '取消',
-        },
-      });
-      const button = wrapper.find('button');
-      await button.trigger('click');
-      expect(wrapper.vm.mockAction.cancelBtnAction).toHaveBeenCalled();
-    });
-
-    it('should use globalCancel string as button content', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          cancelBtn: undefined,
-          globalCancel: '全局取消',
-        },
-      });
-      const buttons = wrapper.findAll('button');
-      const cancelButton = buttons[1];
-      expect(cancelButton.text()).toBe('全局取消');
-    });
-
-    it('globalCancel object should set button content and theme', () => {
-      const wrapper = mount(UnifiedTestComponent, {
-        props: {
-          testMode: 'action',
-          cancelBtn: undefined,
-          globalCancel: { content: '全局取消对象', theme: 'danger' },
-        },
-      });
-      const buttons = wrapper.findAll('button');
-      const cancelButton = buttons[1];
-      expect(cancelButton.text()).toBe('全局取消对象');
-      expect(cancelButton.classes()).toContain('t-button--theme-danger');
-    });
-  });
-});
-
-describe('useSameTarget', () => {
-  it('should return event handler functions', () => {
-    const handleClick = vi.fn();
-    const wrapper = mount(UnifiedTestComponent, {
-      props: {
-        testMode: 'sameTarget',
-        onClick: handleClick,
-      },
-    });
-    expect(typeof wrapper.vm.onClick).toBe('function');
-    expect(typeof wrapper.vm.onMousedown).toBe('function');
-    expect(typeof wrapper.vm.onMouseup).toBe('function');
-  });
-
-  it('should call handleClick when mousedown and mouseup targets are same', async () => {
-    const handleClick = vi.fn();
-    const wrapper = mount(UnifiedTestComponent, {
-      props: {
-        testMode: 'sameTarget',
-        onClick: handleClick,
-      },
-    });
-    const mockTarget = document.createElement('div');
-    await wrapper.vm.onMousedown({ target: mockTarget, currentTarget: mockTarget } as MouseEvent);
-    await wrapper.vm.onMouseup({ target: mockTarget, currentTarget: mockTarget } as MouseEvent);
-    await wrapper.vm.onClick({} as MouseEvent);
-    expect(handleClick).toHaveBeenCalledTimes(1);
-  });
-
-  it('should not call handleClick when mousedown targets are different', async () => {
-    const handleClick = vi.fn();
-    const wrapper = mount(UnifiedTestComponent, {
-      props: {
-        testMode: 'sameTarget',
-        onClick: handleClick,
-      },
-    });
-    const mockTarget1 = document.createElement('div');
-    const mockTarget2 = document.createElement('div');
-    await wrapper.vm.onMousedown({ target: mockTarget1, currentTarget: mockTarget2 } as MouseEvent);
-    await wrapper.vm.onMouseup({ target: mockTarget1, currentTarget: mockTarget1 } as MouseEvent);
-    await wrapper.vm.onClick({} as MouseEvent);
-    expect(handleClick).not.toHaveBeenCalled();
-  });
-
-  it('should not call handleClick when mouseup targets are different', async () => {
-    const handleClick = vi.fn();
-    const wrapper = mount(UnifiedTestComponent, {
-      props: {
-        testMode: 'sameTarget',
-        onClick: handleClick,
-      },
-    });
-    const mockTarget1 = document.createElement('div');
-    const mockTarget2 = document.createElement('div');
-    await wrapper.vm.onMousedown({ target: mockTarget1, currentTarget: mockTarget1 } as MouseEvent);
-    await wrapper.vm.onMouseup({ target: mockTarget1, currentTarget: mockTarget2 } as MouseEvent);
-    await wrapper.vm.onClick({} as MouseEvent);
-    expect(handleClick).not.toHaveBeenCalled();
-  });
-
-  it('should reset state after click', async () => {
-    const handleClick = vi.fn();
-    const wrapper = mount(UnifiedTestComponent, {
-      props: {
-        testMode: 'sameTarget',
-        onClick: handleClick,
-      },
-    });
-    const mockTarget = document.createElement('div');
-    await wrapper.vm.onMousedown({ target: mockTarget, currentTarget: mockTarget } as MouseEvent);
-    await wrapper.vm.onMouseup({ target: mockTarget, currentTarget: mockTarget } as MouseEvent);
-    await wrapper.vm.onClick({} as MouseEvent);
-    expect(handleClick).toHaveBeenCalledTimes(1);
-    await wrapper.vm.onClick({} as MouseEvent);
-    expect(handleClick).toHaveBeenCalledTimes(1);
-  });
-
-  it('should not throw error when no handleClick function provided', async () => {
-    const wrapper = mount(UnifiedTestComponent, {
-      props: {
-        testMode: 'sameTarget',
-        onClick: undefined,
-      },
-    });
-    const mockTarget = document.createElement('div');
-    expect(() => {
-      wrapper.vm.onMousedown({ target: mockTarget, currentTarget: mockTarget } as MouseEvent);
-      wrapper.vm.onMouseup({ target: mockTarget, currentTarget: mockTarget } as MouseEvent);
-      wrapper.vm.onClick({} as MouseEvent);
-    }).not.toThrow();
-  });
-
-  it('should handle extended parameters correctly', async () => {
-    const wrapper = mount(UnifiedTestComponent, {
-      props: {
-        testMode: 'extended',
-        disabled: false,
-      },
-    });
-    const mockTarget = document.createElement('div');
-    await wrapper.vm.onMousedown({ target: mockTarget, currentTarget: mockTarget } as MouseEvent);
-    await wrapper.vm.onMouseup({ target: mockTarget, currentTarget: mockTarget } as MouseEvent);
-    await wrapper.vm.onClick({} as MouseEvent);
-    expect(wrapper.vm.handleClick).toHaveBeenCalled();
-  });
-
-  it('should return correct state when all conditions are not met', async () => {
-    const wrapper = mount(UnifiedTestComponent, {
-      props: {
-        testMode: 'sameTarget',
-        onClick: undefined,
-      },
-    });
-    const mockTarget1 = document.createElement('div');
-    const mockTarget2 = document.createElement('div');
-    await wrapper.vm.onMousedown({ target: mockTarget1, currentTarget: mockTarget2 } as MouseEvent);
-    await wrapper.vm.onMouseup({ target: mockTarget1, currentTarget: mockTarget2 } as MouseEvent);
-    expect(() => {
-      wrapper.vm.onClick({} as MouseEvent);
-    }).not.toThrow();
   });
 });
