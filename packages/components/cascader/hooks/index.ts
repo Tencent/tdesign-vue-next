@@ -23,13 +23,12 @@ import {
   CascaderValue,
   TreeOptionData,
 } from '../types';
-import { CascaderProps } from '..';
 
 /**
  * @description 扁平化树形数据，在 filterable 和 checkStrictly 时使用
  */
-function flattenOptions(options: CascaderProps['options']) {
-  const result: CascaderProps['options'] = [];
+function flattenOptions(options: TdCascaderProps['options']) {
+  const result: TdCascaderProps['options'] = [];
 
   function processNodes(nodes: any[], parentLabel = '', isParentDisabled = false) {
     nodes.forEach((node) => {

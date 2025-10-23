@@ -2,7 +2,6 @@ import { isArray, isNumber, cloneDeep, isFunction } from 'lodash-es';
 
 import type { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../types';
 import { getFullPathLabel, getTreeValue, isEmptyValues } from './helper';
-import { CascaderProps } from '..';
 
 /**
  * 点击item的副作用
@@ -16,7 +15,7 @@ export function expendClickEffect(
   trigger: TdCascaderProps['trigger'],
   node: TreeNode,
   cascaderContext: CascaderContextType,
-  options: CascaderProps['options'],
+  options: TdCascaderProps['options'],
 ) {
   const { checkStrictly, multiple, treeStore, setVisible, setValue, setTreeNodes, setExpend, value, max, valueType } =
     cascaderContext;
@@ -28,25 +27,14 @@ export function expendClickEffect(
   if (propsTrigger === trigger) {
     const expanded = node.setExpanded(true);
 
-    const updateNodes = () => {
+    if (checkStrictly && cascaderContext.inputVal) {
+      setTimeout(() => treeStore.reload(options), 300);
+    } else if (!cascaderContext.inputVal) {
+      treeStore.replaceExpanded(expanded);
       const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
       setTreeNodes(nodes);
-    };
-
-    const handleTreeUpdate = () => {
-      if (checkStrictly && cascaderContext.inputVal) {
-        treeStore.reload(options);
-      } else {
-        treeStore.refreshNodes();
-      }
-      treeStore.replaceExpanded(expanded);
-      updateNodes();
-    };
-
-    if (checkStrictly && cascaderContext.inputVal) {
-      setTimeout(handleTreeUpdate, 300);
     } else {
-      handleTreeUpdate();
+      treeStore.refreshNodes();
     }
 
     // 多选条件下手动维护expend
