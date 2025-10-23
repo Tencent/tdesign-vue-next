@@ -43,7 +43,7 @@
     "marked-highlight": "catalog:docs",
     "tdesign-icons-vue-next": "catalog:tdesign",
     "tdesign-vue-next": "workspace:^",
-    "tdesign-web-components": "1.2.4-alpha.4",
+    "tdesign-web-components": "1.2.4-alpha.5",
     "omi-vueify": "^0.0.12"
   },
   "devDependencies": {
