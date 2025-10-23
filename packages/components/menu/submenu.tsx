@@ -82,8 +82,6 @@ export default defineComponent({
     ]);
     const submenuClass = computed(() => [
       `${classPrefix.value}-menu__item`,
-      `${classPrefix.value}-menu__item-spacer`,
-      `${classPrefix.value}-menu__item-spacer--${isHead && !isNested.value ? 'bottom' : 'right'}`,
       {
         [`${classPrefix.value}-is-disabled`]: props.disabled,
         [`${classPrefix.value}-is-opened`]: isOpen.value,
