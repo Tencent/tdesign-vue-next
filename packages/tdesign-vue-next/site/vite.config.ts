@@ -16,7 +16,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const publicPathMap: Record<string, string> = {
   preview: '/',
-  production: '/vue-next/',
+  production: 'https://static.tdesign.tencent.com/vue-next/',
 };
 
 export default defineConfig(({ mode }) => {

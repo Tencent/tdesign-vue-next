@@ -59,6 +59,7 @@ export default defineComponent({
     });
 
     const onInputChange: StrInputProps['onChange'] = (value, context) => {
+      popupVisible.value = true;
       setTValue(value, context);
     };
 
