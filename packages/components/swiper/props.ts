@@ -70,8 +70,7 @@ export default {
   },
   /** 导航器全部配置 */
   navigation: {
-    type: [Boolean, Function] as PropType<TdSwiperProps['navigation']>,
-    default: true as TdSwiperProps['navigation'],
+    type: [Object, Function] as PropType<TdSwiperProps['navigation']>,
   },
   /** 是否悬浮时停止轮播 */
   stopOnHover: {
