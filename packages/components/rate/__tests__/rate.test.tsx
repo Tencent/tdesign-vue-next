@@ -5,6 +5,7 @@ import { expect, vi } from 'vitest';
 import { Rate } from '@tdesign/components';
 import RateProps from '@tdesign/components/rate/props';
 import { StarFilledIcon } from 'tdesign-icons-vue-next';
+import { sleep } from '@tdesign/internal-utils';
 
 describe('Rate', () => {
   describe('props', () => {
@@ -29,12 +30,29 @@ describe('Rate', () => {
       const wrapper2 = mount(Rate, {
         props: {
           allowHalf: true,
-          value: 2.5,
+          value: 0.5,
         },
       });
+      // spy
+      vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({
+        width: 100,
+        height: 100,
+        x: 100,
+        y: 100,
+        top: 100,
+        right: 100,
+        bottom: 100,
+        left: 100,
+        toJSON: () => ({}),
+      });
+      const items = wrapper2.findAll('.t-rate__item');
+      items[0].trigger('mousemove', { clientX: 100 });
+      expect(items[0].classes()).toContain('t-rate__item--half');
 
-      expect(wrapper2.vm.$props.value).toBe(2.5);
-      expect(wrapper2.findAll('.t-rate__item--half').length).toBe(1);
+      await sleep(100);
+      items[1].trigger('mousemove', { clientX: 300 });
+      expect(items[1].classes()).toContain('t-rate__item');
+      expect(items[1].classes().length).toBe(1);
     });
 
     it(':clearable[boolean]', async () => {
