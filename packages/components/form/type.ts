@@ -28,10 +28,6 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   errorMessage?: FormErrorMessage;
   /**
-   * 允许表单统一控制禁用状态的自定义组件名称列表。默认会有组件库的全部输入类组件：TInput、TInputNumber、TCascader、TSelect、TOption、TSwitch、TCheckbox、TCheckboxGroup、TRadio、TRadioGroup、TTreeSelect、TDatePicker、TTimePicker、TUpload、TTransfer、TSlider。对于自定义组件，组件内部需要包含可以控制表单禁用状态的变量 `formDisabled`。示例：`['CustomUpload', 'CustomInput']`
-   */
-  formControlledComponents?: Array<string>;
-  /**
    * 表单原生的id属性，支持用于配合非表单内的按钮通过form属性来触发表单事件
    */
   id?: string;
@@ -65,7 +61,6 @@ export interface TdFormProps<FormData extends Data = Data> {
   requiredMark?: boolean;
   /**
    * 表单必填符号（*）显示位置
-   * @default left
    */
   requiredMarkPosition?: 'left' | 'right';
   /**

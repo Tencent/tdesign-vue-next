@@ -1,5 +1,5 @@
 import { defineComponent, computed, PropType } from 'vue';
-import { useConfig, usePrefixClass } from '../../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import TButton from '../../../button';
 
 import type { TdDatePickerProps } from '../../type';
@@ -10,10 +10,7 @@ export default defineComponent({
     enableTimePicker: Boolean,
     presetsPlacement: String,
     presets: Object,
-    needConfirm: {
-      type: Boolean,
-      default: true,
-    },
+    needConfirm: Boolean,
     selectedValue: [String, Number, Array, Date] as PropType<TdDatePickerProps['value']>,
     onPresetClick: Function,
     onConfirmClick: Function,

@@ -23,10 +23,11 @@ export const docs = [
       },
       {
         title: '更新日志',
-        titleEn: 'CHANGELOG',
+        titleEn: 'Changelog',
         name: 'changelog',
         path: '/vue-next/changelog',
         component: () => import('@tdesign/vue-next/CHANGELOG.md'),
+        componentEn: () => import('@tdesign/vue-next/CHANGELOG.en-US.md'),
       },
       {
         title: '组件概览',
@@ -537,6 +538,14 @@ export const docs = [
         path: '/vue-next/components/progress',
         component: () => import('@tdesign/components/progress/progress.md'),
         componentEn: () => import('@tdesign/components/progress/progress.en-US.md'),
+      },
+      {
+        title: 'QRCode 二维码',
+        titleEn: 'QRCode',
+        name: 'qrcode',
+        path: '/vue-next/components/qrcode',
+        component: () => import('@tdesign/components/qrcode/qrcode.md'),
+        componentEn: () => import('@tdesign/components/qrcode/qrcode.en-US.md'),
       },
       {
         title: 'Skeleton 骨架屏',

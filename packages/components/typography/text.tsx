@@ -1,13 +1,12 @@
 import { computed, defineComponent, ref } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './text-props';
 import copy from './utils/copy-to-clipboard';
 import { CopyIcon, CheckIcon } from 'tdesign-icons-vue-next';
-import Ellipsis from './ellipsis';
+import Ellipsis from './components/ellipsis';
 import TTooltip from '../tooltip';
 import TButton from '../button';
 import { useConfig } from '../config-provider/hooks/useConfig';
-import { useContent } from '../hooks/tnode';
 
 import type { TdTextProps } from './type';
 import type { TdTooltipProps } from '../tooltip/type';
@@ -36,7 +35,7 @@ export default defineComponent({
       wrap(underline, 'u');
       wrap(del, 'del');
       wrap(code, 'code');
-      wrap(mark !== false, 'mark', mark ? { color: mark } : {});
+      wrap(mark !== false, 'mark', mark ? { backgroundColor: mark } : {});
       wrap(keyboard, 'kbd');
       wrap(italic, 'i');
       return currentContent;
@@ -67,7 +66,6 @@ export default defineComponent({
 
     const renderCopy = () => {
       const { copyable } = props;
-      if (!copyable) return;
 
       let icon: any = isCopied.value ? () => <CheckIcon /> : () => <CopyIcon />;
       let tooltipConf: TdTooltipProps = {
@@ -94,6 +92,10 @@ export default defineComponent({
     };
 
     const getChildrenText = () => {
+      const { copyable } = props;
+      if (typeof copyable === 'object' && copyable?.text) {
+        return copyable.text;
+      }
       if (typeof content.value === 'string') {
         return content.value;
       } else if (Array.isArray(content.value)) {

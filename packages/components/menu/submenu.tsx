@@ -16,13 +16,11 @@ import {
 import props from './submenu-props';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
 import FakeArrow from '../common-components/fake-arrow';
-import useRipple from '../hooks/useRipple';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useRipple, useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/shared-hooks';
+
 import { Popup, PopupPlacement } from '../popup';
 import { isFunction } from 'lodash-es';
 import { TdSubmenuProps } from './type';
-import useCollapseAnimation from '../hooks/useCollapseAnimation';
 
 export default defineComponent({
   name: 'TSubmenu',
@@ -36,8 +34,10 @@ export default defineComponent({
     const menu = inject<TdMenuInterface>('TdMenu');
     const { value } = toRefs(props);
     const { theme, activeValues, expandValues, isHead, open } = menu;
+
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', {});
     const { setSubPopup, closeParentPopup } = submenu;
+
     const mode = computed(() => attrs.expandType || menu.mode.value);
 
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
@@ -335,12 +335,16 @@ export default defineComponent({
     return () => {
       let child = null;
       let events = {};
+      let virtualChild;
 
       if (mode.value === 'popup') {
         events = {
           onMouseenter: handleMouseEnter,
           onMouseleave: handleMouseLeave,
         };
+        // popup模式下且存在多层的特殊封装场景中，需要将子节点挂载进行计算高亮
+        if (activeValues.value.length < 2)
+          virtualChild = <div style="display:none">{renderContent('default', 'content')}</div>;
       }
       if (Object.keys(slots).length > 0) {
         child = isHead ? renderHeadSubmenu() : renderSubmenu();
@@ -349,6 +353,7 @@ export default defineComponent({
       return (
         <li class={classes.value} {...events}>
           {child}
+          {virtualChild}
         </li>
       );
     };

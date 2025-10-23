@@ -3,11 +3,7 @@ import { TagInputValue, TagInputChangeContext } from '../type';
 import { TagInputProps } from '../types';
 import { InputValue } from '../../input';
 import Tag from '../../tag';
-import useVModel from '../../hooks/useVModel';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useTNodeJSX } from '../../hooks/tnode';
-import { useDisabled } from '../../hooks/useDisabled';
-import { useReadonly } from '../../hooks/useReadonly';
+import { useVModel, useTNodeJSX, useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 
 export type ChangeParams = [TagInputChangeContext];
 
@@ -83,7 +79,7 @@ export function useTagList(props: TagInputProps) {
           const tagContent = renderTNode('tag', { params: { value: item } });
           return (
             <Tag
-              key={`${item}${index}`}
+              key={index}
               size={size.value}
               disabled={isDisabled.value}
               onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, index })}

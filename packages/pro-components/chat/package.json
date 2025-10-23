@@ -1,0 +1,18 @@
+{
+  "name": "@tdesign/pro-components-chat",
+  "private": true,
+  "main": "index.ts",
+  "author": "tdesign",
+  "license": "MIT",
+  "dependencies": {
+    "clipboard": "catalog:deps",
+    "lodash-es": "catalog:deps",
+    "tdesign-icons-vue-next": "catalog:tdesign"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "catalog:types"
+  },
+  "peerDependencies": {
+    "vue": ">=3.1.0"
+  }
+}

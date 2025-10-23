@@ -5,7 +5,7 @@
  * */
 
 import { ButtonProps } from '../button';
-import { AttachNode, Styles, TNode } from '../common';
+import { TNode, Styles, AttachNode, AppContext } from '../common';
 
 export interface TdDialogProps {
   /**
@@ -31,7 +31,6 @@ export interface TdDialogProps {
   closeOnEscKeydown?: boolean;
   /**
    * 点击蒙层时是否触发关闭事件
-   * @default false
    */
   closeOnOverlayClick?: boolean;
   /**
@@ -83,7 +82,7 @@ export interface TdDialogProps {
    * 是否启用对话框懒加载，启用时对话框内的内容不渲染
    * @default false
    */
-    lazy?: boolean;
+  lazy?: boolean;
   /**
    * 对话框类型，有 4 种：模态对话框、非模态对话框、普通对话框、全屏对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件
    * @default modal
@@ -235,8 +234,8 @@ export interface DialogCloseContext {
   e: MouseEvent | KeyboardEvent;
 }
 
-export type DialogMethod = (options?: DialogOptions) => DialogInstance;
+export type DialogMethod = (options?: DialogOptions, context?: AppContext) => DialogInstance;
 
-export type DialogConfirmMethod = (options?: DialogOptions) => DialogInstance;
+export type DialogConfirmMethod = (options?: DialogOptions, context?: AppContext) => DialogInstance;
 
-export type DialogAlertMethod = (options?: Omit<DialogOptions, 'cancelBtn'>) => DialogInstance;
+export type DialogAlertMethod = (options?: Omit<DialogOptions, 'cancelBtn'>, context?: AppContext) => DialogInstance;

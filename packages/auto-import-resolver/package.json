@@ -1,0 +1,44 @@
+{
+  "name": "@tdesign-vue-next/auto-import-resolver",
+  "version": "0.1.2",
+  "description": "On-demand components auto importing for series of TDesign Vue Components",
+  "author": "tdesign",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.cts",
+  "scripts": {
+    "build": "tsx scripts/prebuild.ts && tsdown"
+  },
+  "dependencies": {
+    "unplugin-utils": "^0.3.0",
+    "unplugin-vue-components": "^29.0.0"
+  },
+  "devDependencies": {
+    "tdesign-icons-vue-next": "catalog:tdesign",
+    "tsdown": "catalog:bundle",
+    "tsx": "catalog:bundle",
+    "typescript": "catalog:types"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git",
+    "directory": "packages/auto-import-resolver"
+  },
+  "files": [
+    "dist"
+  ]
+}

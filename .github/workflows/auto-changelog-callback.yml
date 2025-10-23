@@ -12,8 +12,20 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request_review' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Download pr id
+        uses: dawidd6/action-download-artifact@v8
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: pr-id
+
+      - name: Output pr id
+        id: pr
+        run: echo "id=$(cat pr-id.txt)" >> $GITHUB_OUTPUT
+
       - name: auto-changelog
         uses: TDesignOteam/flow-pilot-action@develop
         with:
           token: ${{ secrets.TDESIGN_BOT_TOKEN }}
-          packages: 'tdesign-vue-next,@tdesign-vue-next/chat'
+          packages: 'tdesign-vue-next,@tdesign-vue-next/chat,@tdesign-vue-next/auto-import-resolver'
+          pr_number: ${{ steps.pr.outputs.id }}

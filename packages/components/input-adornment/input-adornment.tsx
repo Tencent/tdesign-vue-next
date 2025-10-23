@@ -1,14 +1,12 @@
 import { defineComponent, h, VNodeChild } from 'vue';
-import { isString } from 'lodash-es';
-import { isNumber } from 'lodash-es';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { isString, isNumber, isFunction } from 'lodash-es';
+
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
+
 import props from './props';
-import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TInputAdornment',
-  inheritAttrs: false,
   props,
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('input-adornment');

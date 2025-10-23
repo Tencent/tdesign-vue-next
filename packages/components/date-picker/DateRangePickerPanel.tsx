@@ -1,7 +1,6 @@
 import { defineComponent, computed, ref, onMounted } from 'vue';
 import dayjs from 'dayjs';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isFunction } from 'lodash-es';
 
 import dateRangePickerPanelProps from './date-range-picker-panel-props';
 import dateRangePickerProps from './date-range-picker-props';
@@ -89,12 +88,6 @@ export default defineComponent({
 
     // 日期点击
     function onCellClick(date: Date, { e }: { e: MouseEvent }) {
-      props.onCellClick?.({
-        e,
-        partial: activeIndex.value ? 'end' : 'start',
-        date: value.value.map((v) => dayjs(v).toDate()),
-      });
-
       isHoverCell.value = false;
       isSelected.value = true;
 
@@ -104,6 +97,11 @@ export default defineComponent({
       }) as string;
       cacheValue.value = nextValue;
 
+      props.onCellClick?.({
+        e,
+        partial: activeIndex.value ? 'end' : 'start',
+        date: nextValue.map((v) => dayjs(v).toDate()),
+      });
       // 有时间选择器走 confirm 逻辑
       if (props.enableTimePicker) return;
 

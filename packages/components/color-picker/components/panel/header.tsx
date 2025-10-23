@@ -1,11 +1,11 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
 
-import props from '../../props';
 import { COLOR_MODES } from '@tdesign/common-js/color-picker/constants';
-import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../../../radio';
-import { TdColorModes } from '../../types';
+import { useConfig } from '@tdesign/shared-hooks';
+import { RadioButton as TRadioButton, RadioGroup as TRadioGroup } from '../../../radio';
+import props from '../../color-picker-panel-props';
 import { useBaseClassName } from '../../hooks';
-import { useConfig } from '../../../hooks';
+import type { TdColorModes } from '../../types';
 
 export default defineComponent({
   name: 'PanelHeader',
@@ -14,9 +14,6 @@ export default defineComponent({
     mode: {
       type: String as PropType<TdColorModes>,
       default: 'color',
-    },
-    togglePopup: {
-      type: Function,
     },
     onModeChange: {
       type: Function,

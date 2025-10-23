@@ -21,7 +21,7 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm build
+      - run: pnpm run '/build:*/'
 
       - name: Set publishing config
         run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
@@ -31,4 +31,4 @@ jobs:
       - uses: TDesignOteam/flow-pilot-action@develop
         with:
           token: ${{ secrets.TDESIGN_BOT_TOKEN }}
-          packages: 'tdesign-vue-next,@tdesign-vue-next/chat'
+          packages: 'tdesign-vue-next,@tdesign-vue-next/chat,@tdesign-vue-next/auto-import-resolver'

@@ -4,13 +4,31 @@
   "author": "tdesign",
   "license": "MIT",
   "scripts": {
-    "build:vue-next": "cross-env NODE_ENV=production tsx ./tdesign-vue-next/index.ts"
+    "build:vue-next": "cross-env NODE_ENV=production tsx ./vue-next/index.ts",
+    "build:chat": "cross-env NODE_ENV=production tsx ./vue-next-chat/index.ts"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^16.0.1",
-    "cross-env": "^7.0.3",
-    "fs-extra": "^11.3.0",
-    "glob": "^11.0.1",
-    "tsx": "^4.19.2"
+    "@rollup/plugin-babel": "catalog:bundle",
+    "@rollup/plugin-commonjs": "catalog:bundle",
+    "@rollup/plugin-json": "catalog:bundle",
+    "@rollup/plugin-node-resolve": "catalog:bundle",
+    "@rollup/plugin-replace": "catalog:bundle",
+    "@rollup/plugin-url": "catalog:bundle",
+    "cross-env": "catalog:bundle",
+    "esbuild": "catalog:bundle",
+    "fs-extra": "catalog:bundle",
+    "glob": "catalog:bundle",
+    "rollup": "catalog:bundle",
+    "rollup-plugin-analyzer": "catalog:bundle",
+    "rollup-plugin-copy": "catalog:bundle",
+    "rollup-plugin-esbuild": "catalog:bundle",
+    "rollup-plugin-ignore-import": "catalog:bundle",
+    "rollup-plugin-multi-input": "catalog:bundle",
+    "rollup-plugin-postcss": "catalog:bundle",
+    "rollup-plugin-static-import": "catalog:bundle",
+    "rollup-plugin-styles": "catalog:bundle",
+    "rollup-plugin-terser": "catalog:bundle",
+    "rollup-plugin-vue": "catalog:bundle",
+    "tsx": "catalog:bundle"
   }
 }

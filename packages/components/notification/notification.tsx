@@ -6,10 +6,9 @@ import {
 } from 'tdesign-icons-vue-next';
 import { isFunction } from 'lodash-es';
 
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useConfig, useContent, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './props';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+
 import { fadeIn, fadeOut } from './utils';
 
 export default defineComponent({
@@ -31,10 +30,17 @@ export default defineComponent({
     const timer = ref(null);
     const notificationRef = ref(null);
 
-    const close = (e?: MouseEvent) => {
+    const handleCloseBtnClick = (e?: MouseEvent) => {
       const dom = notificationRef.value as HTMLElement;
       fadeOut(dom, props.placement, () => {
         props.onCloseBtnClick?.({ e });
+      });
+    };
+
+    const close = () => {
+      const dom = notificationRef.value as HTMLElement;
+      fadeOut(dom, props.placement, () => {
+        props.onClose?.();
       });
     };
 
@@ -60,7 +66,7 @@ export default defineComponent({
     const renderClose = () => {
       const defaultClose = <CloseIcon />;
       return (
-        <span class={`${classPrefix.value}-message__close`} onClick={close}>
+        <span class={`${classPrefix.value}-message__close`} onClick={handleCloseBtnClick}>
           {renderTNode('closeBtn', defaultClose)}
         </span>
       );

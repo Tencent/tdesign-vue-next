@@ -1,5 +1,5 @@
-import { onMounted, reactive, TypeCreateElement, usePrefixClass, useLazyLoad, TypeVNode } from '../adapt';
-import { TypeTreeItemState } from '../tree-types';
+import { onMounted, reactive, TypeCreateElement, usePrefixClass, useLazyLoad, TypeVNode } from '../utils/adapt';
+import { TypeTreeItemState } from '../types';
 import useItemEvents from './useItemEvents';
 import useRenderIcon from './useRenderIcon';
 import useRenderLabel from './useRenderLabel';
@@ -76,7 +76,7 @@ export default function useTreeItem(state: TypeTreeItemState) {
       [`${classPrefix}-is-disabled`]: node.isDisabled(),
     });
     list.push({
-      [`${componentName}__item--draggable`]: node.isDraggable(),
+      [`${componentName}__item--draggable`]: !node.isDisabled() && node.isDraggable(),
     });
     if (node.visible) {
       list.push(`${componentName}__item--visible`);
@@ -143,7 +143,7 @@ export default function useTreeItem(state: TypeTreeItemState) {
         data-level={level}
         style={styles}
         onClick={(evt: MouseEvent) => handleClick(evt)}
-        draggable={node.isDraggable()}
+        draggable={!node.isDisabled() && node.isDraggable()}
         onDragstart={(evt: DragEvent) => handleDragStart(evt)}
         onDragend={(evt: DragEvent) => handleDragEnd(evt)}
         onDragover={(evt: DragEvent) => handleDragOver(evt)}

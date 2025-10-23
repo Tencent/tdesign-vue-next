@@ -2,7 +2,7 @@ import { defineComponent, ref, computed, Ref, CSSProperties } from 'vue';
 import Notification from './notification';
 import { TdNotificationProps, NotificationOptions } from './type';
 import { DEFAULT_Z_INDEX, PLACEMENT_OFFSET, DISTANCE } from './consts';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   props: {
@@ -70,6 +70,12 @@ export default defineComponent({
         onDurationEnd: () => {
           if (item.onDurationEnd) {
             item.onDurationEnd();
+          }
+          return remove(index);
+        },
+        onClose: () => {
+          if (item.onClose) {
+            item.onClose();
           }
           return remove(index);
         },

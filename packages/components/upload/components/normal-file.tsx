@@ -8,10 +8,9 @@ import {
 } from 'tdesign-icons-vue-next';
 import TLoading from '../../loading';
 import Link from '../../link';
-import { useTNodeJSX } from '../../hooks/tnode';
+import { useTNodeJSX, useGlobalIcon } from '@tdesign/shared-hooks';
 import { UploadFile } from '../type';
 import { abridgeName } from '@tdesign/common-js/upload/utils';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../consts';
 import { UploadConfig } from '../../config-provider';

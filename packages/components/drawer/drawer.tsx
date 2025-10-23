@@ -1,16 +1,23 @@
 import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpdated, ref, watch, Teleport } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { isServer } from '../utils/dom';
+import {
+  useConfig,
+  useContent,
+  useTNodeJSX,
+  useTeleport,
+  useGlobalIcon,
+  usePrefixClass,
+  usePopupManager,
+} from '@tdesign/shared-hooks';
+
+import { isServer } from '@tdesign/shared-utils';
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
 import props from './props';
 import { DrawerCloseContext } from './type';
 import { useAction } from '../dialog/hooks';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+
 import { useDrag } from './hooks';
 import type { TdDrawerProps } from './type';
-import useTeleport from '../hooks/useTeleport';
 
 let key = 1;
 
@@ -30,6 +37,7 @@ export default defineComponent({
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
     const { draggedSizeValue, enableDrag, draggableLineStyles, draggingStyles } = useDrag(props as TdDrawerProps);
+    const computedVisible = computed(() => props.visible);
     const isMounted = ref(false);
 
     // teleport容器
@@ -87,9 +95,16 @@ export default defineComponent({
     }));
 
     const handleEscKeydown = (e: KeyboardEvent) => {
-      if ((props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) && e.key === 'Escape' && isVisible.value) {
+      if (
+        (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) &&
+        e.key === 'Escape' &&
+        isVisible.value &&
+        isTopInteractivePopup()
+      ) {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
+        // 阻止事件冒泡
+        e.stopImmediatePropagation();
       }
     };
 
@@ -99,6 +114,9 @@ export default defineComponent({
         styleEl.value?.parentNode?.removeChild?.(styleEl.value);
         styleEl.value = null;
       }, 150);
+      nextTick(() => {
+        drawerEle.value?.focus?.();
+      });
     };
 
     const createStyleEl = () => {
@@ -161,6 +179,10 @@ export default defineComponent({
       );
     };
 
+    const { isTopInteractivePopup } = usePopupManager('drawer', {
+      visible: computedVisible,
+    });
+
     watch(modeAndPlacement, handlePushMode, { immediate: true });
 
     const updateVisibleState = (value: boolean) => {
@@ -174,7 +196,14 @@ export default defineComponent({
           setTimeout(() => (isVisible.value = true));
         } else {
           isVisible.value = false;
-          setTimeout(() => (destroyOnCloseVisible.value = true), 200);
+          // immediate 的 watch 的第一次触发，会将设置为 true 的行为延后
+          // 插件场景下，watch -> create 方法 的立刻调用，导致 destroyOnCloseVisible 被 watch 的第一次触发覆盖
+          // 所以关闭时候，默认先置为 false
+          // 后续考虑移除 immediate 的 watch ?
+          if (destroyOnCloseVisible.value) {
+            destroyOnCloseVisible.value = false;
+          }
+          setTimeout(() => (destroyOnCloseVisible.value = true), 300);
         }
         return;
       }

@@ -3,9 +3,9 @@ import props from './props';
 import generateBase64Url from '@tdesign/common-js/watermark/generateBase64Url';
 import randomMovingStyle from '@tdesign/common-js/watermark/randomMovingStyle';
 import injectStyle from '@tdesign/common-js/utils/injectStyle';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useContent, usePrefixClass, useVariables } from '@tdesign/shared-hooks';
 import { useMutationObserver } from './hooks';
-import { useContent } from '../hooks/tnode';
+
 import setStyle from '@tdesign/common-js/utils/setStyle';
 
 export default defineComponent({
@@ -44,7 +44,9 @@ export default defineComponent({
     const offsetTop = computed(() => {
       return offset[1] || gapY.value / 2;
     });
-
+    const { fontColor } = useVariables({
+      fontColor: '--td-text-color-watermark',
+    });
     const bgImageOptions = computed(() => ({
       width: props.width,
       height: props.height,
@@ -56,6 +58,8 @@ export default defineComponent({
       watermarkContent: props.watermarkContent,
       offsetLeft: offsetLeft.value,
       offsetTop: offsetTop.value,
+      fontColor: fontColor.value,
+      layout: props.layout,
     }));
 
     const removeWaterMark = () => {
@@ -65,7 +69,7 @@ export default defineComponent({
     };
 
     const injectWaterMark = () => {
-      generateBase64Url(bgImageOptions.value, (base64Url) => {
+      generateBase64Url(bgImageOptions.value, (base64Url, backgroundSize) => {
         removeWaterMark();
 
         backgroundImage.value = base64Url;
@@ -79,7 +83,7 @@ export default defineComponent({
           bottom: 0,
           width: '100%',
           height: '100%',
-          backgroundSize: `${gapX.value + props.width}px`,
+          backgroundSize: `${backgroundSize?.width || gapX.value + props.width}px`,
           pointerEvents: 'none',
           backgroundRepeat: backgroundRepeat.value,
           backgroundImage: `url('${backgroundImage.value}')`,
@@ -118,7 +122,7 @@ export default defineComponent({
       );
     });
 
-    watch(() => props, injectWaterMark, { deep: true, flush: 'post' });
+    watch(() => [props, fontColor.value], injectWaterMark, { deep: true, flush: 'post' });
 
     return () => {
       const COMPONENT_NAME = usePrefixClass('watermark');

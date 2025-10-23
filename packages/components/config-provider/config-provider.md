@@ -90,6 +90,7 @@ list | Object | - | 列表组件全局配置。TS 类型：`ListConfig` | N
 message | Object | - | 消息组件全局配置。TS 类型：`MessageConfig` | N
 pagination | Object | - | 分页组件全局配置。TS 类型：`PaginationConfig` | N
 popconfirm | Object | - | 气泡确认框全局配置。TS 类型：`PopconfirmConfig` | N
+qrcode | Object | - | 二维码全局配置。TS 类型：`QRCodeConfig` | N
 rate | Object | - | 评分全局配置。TS 类型：`RateConfig` | N
 select | Object | - | 选择器组件全局配置。TS 类型：`SelectConfig` | N
 steps | Object | - | 步骤条组件全局配置。TS 类型：`StepsConfig` | N
@@ -225,6 +226,7 @@ titleText | Object | - | 空状态组件各类型的标题文本配置。TS 类�
 colonText | String | - | 字段旁边的冒号，中文为“：” | N
 errorMessage | Object | - | 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`。TS 类型：`FormErrorMessage`，[Form API Documents](./form?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 requiredMark | Boolean | true | 是否显示必填符号（*），默认显示 | N
+requiredMarkPosition | String | left | 表单必填符号（*）显示位置。可选项：left/right | N
 
 ### GuideConfig
 
@@ -288,6 +290,14 @@ total | String | - | 语言配置，数据总条数文本，示例：`'共 {tota
 cancel | String / Object | - | 语言配置，“取消”描述文本。TS 类型：`string \| ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 confirm | String / Object | - | 语言配置，“确定”描述文本。TS 类型：`string \| ButtonProps` | N
 confirmBtnTheme | Object | - | 确认按钮主题色，即 Popconfirm 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }。TS 类型：`{ default: string; warning: string; danger: string; }` | N
+
+### QRCodeConfig
+
+名称 | 类型 | 默认值 | 描述 | 必传
+-- | -- | -- | -- | --
+expiredText | String | - | 语言配置，“二维码过期”描述文本 | N
+refreshText | String | - | 语言配置，“点击刷新”描述文本 | N
+scannedText | String | - | 语言配置，“已扫描”描述文本 | N
 
 ### RateConfig
 

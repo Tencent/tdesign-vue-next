@@ -1,7 +1,7 @@
 import { Ref, computed } from 'vue';
 
 import log from '@tdesign/common-js/log/index';
-import useVirtualScroll from '../../hooks/useVirtualScrollNew';
+import { useVirtualScrollNew } from '@tdesign/shared-hooks';
 import { TdListProps } from '../type';
 import { Styles, type ComponentScrollToElementParams } from '../../common';
 
@@ -14,7 +14,7 @@ export const useListVirtualScroll = (
     data: listItems.value,
     scroll: scroll,
   }));
-  const virtualConfig = useVirtualScroll(listRef, virtualScrollParams);
+  const virtualConfig = useVirtualScrollNew(listRef, virtualScrollParams);
   const isVirtualScroll = computed(() => virtualConfig.isVirtualScroll.value);
   let lastScrollY = -1;
 

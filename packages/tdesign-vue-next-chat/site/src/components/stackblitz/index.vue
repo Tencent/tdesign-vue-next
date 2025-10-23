@@ -62,6 +62,14 @@ export default defineComponent({
       mockDataContent,
       mockDataReasoningContent,
     };
+    const match = window.location.hostname.match(/preview-pr-(\d+)-tdesign-vue-next-chat.surge.sh/);
+    if (match) {
+      const packageJSON = JSON.parse(packageJSONContent);
+      packageJSON.dependencies[
+        '@tdesign-vue-next/chat'
+      ] = `https://pkg.pr.new/Tencent/tdesign-vue-next/@tdesign-vue-next/chat@${match[1]}`;
+      data.packageJSONContent = JSON.stringify(packageJSON, null, 2);
+    }
     const code = ref('');
 
     const formRef = ref(null);

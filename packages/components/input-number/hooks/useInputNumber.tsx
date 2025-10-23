@@ -1,8 +1,7 @@
 import { computed, ref, toRefs, watch } from 'vue';
-import useCommonClassName from '../../hooks/useCommonClassName';
-import useVModel from '../../hooks/useVModel';
+import { useVModel, useReadonly, useDisabled, useCommonClassName } from '@tdesign/shared-hooks';
+
 import { InputNumberValue, TdInputNumberProps } from '../type';
-import { useReadonly } from '../../hooks/useReadonly';
 
 // 计算逻辑，统一到 common 中，方便各框架复用（如超过 16 位的大数处理）
 import {
@@ -16,14 +15,14 @@ import {
   formatUnCompleteNumber,
   largeNumberToFixed,
 } from '@tdesign/common-js/input-number/number';
-import { useDisabled } from '../../hooks/useDisabled';
+
 import { StrInputProps } from '../../input';
 
 /**
  * 独立一个组件 Hook 方便用户直接使用相关逻辑 自定义任何样式的数字输入框
  */
 export default function useInputNumber(props: TdInputNumberProps) {
-  const { classPrefix, sizeClassNames, statusClassNames } = useCommonClassName();
+  const { classPrefix, SIZE, STATUS } = useCommonClassName();
   const { value, modelValue, max, min } = toRefs(props);
   // 统一处理受控、非受控、语法糖 v-model 等
   const [tValue, setTValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
@@ -44,9 +43,9 @@ export default function useInputNumber(props: TdInputNumberProps) {
 
   const wrapClasses = computed(() => [
     `${classPrefix.value}-input-number`,
-    sizeClassNames[props.size],
+    SIZE.value[props.size],
     {
-      [statusClassNames.disabled]: tDisabled.value,
+      [STATUS.value.disabled]: tDisabled.value,
       [`${classPrefix.value}-is-controls-right`]: props.theme === 'column',
       [`${classPrefix.value}-input-number--${props.theme}`]: props.theme,
       [`${classPrefix.value}-input-number--auto-width`]: props.autoWidth,
@@ -55,12 +54,12 @@ export default function useInputNumber(props: TdInputNumberProps) {
 
   const reduceClasses = computed(() => [
     `${classPrefix.value}-input-number__decrease`,
-    { [statusClassNames.disabled]: disabledReduce.value },
+    { [STATUS.value.disabled]: disabledReduce.value },
   ]);
 
   const addClasses = computed(() => [
     `${classPrefix.value}-input-number__increase`,
-    { [statusClassNames.disabled]: disabledAdd.value },
+    { [STATUS.value.disabled]: disabledAdd.value },
   ]);
 
   const getUserInput = (value: InputNumberValue) => {
@@ -178,32 +177,56 @@ export default function useInputNumber(props: TdInputNumberProps) {
     const val = formatThousandths(inputValue);
     if (!canInputNumber(val, props.largeNumber)) return;
 
-    userInput.value = val;
+    // 先处理小数位数限制，然后再更新显示值和实际值
+    let processedVal = val;
+    if (props.decimalPlaces !== undefined && val !== '' && val.includes('.')) {
+      const parts = val.split('.');
+      // 获取实际小数位数限制
+      const decimalLimit = typeof props.decimalPlaces === 'number' ? props.decimalPlaces : props.decimalPlaces.places;
+
+      if (parts[1] && parts[1].length > decimalLimit) {
+        // 直接截断为指定小数位数
+        processedVal = `${parts[0]}.${parts[1].substring(0, decimalLimit)}`;
+      }
+    }
+
+    // 更新显示值
+    userInput.value = processedVal;
 
     if (props.largeNumber) {
-      setTValue(val, { type: 'input', e });
+      setTValue(processedVal, { type: 'input', e });
       return;
     }
 
-    if (canSetValue(String(val), Number(tValue.value))) {
-      const newVal = val === '' ? undefined : Number(val);
-      setTValue(newVal, { type: 'input', e });
+    // 当处理后的值与当前值不同时，才更新
+    const newNumber = processedVal === '' ? undefined : Number(processedVal);
+    if (canSetValue(processedVal, Number(tValue.value))) {
+      setTValue(newNumber, { type: 'input', e });
     }
   };
 
   const handleBlur = (value: string, ctx: { e: FocusEvent }) => {
     const { largeNumber, max, min, decimalPlaces } = props;
-    if (!props.allowInputOverLimit && tValue.value !== undefined) {
-      const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
-      if (r === 'below-minimum') {
+    if (!props.allowInputOverLimit) {
+      // 当值为 undefined 或 null 且最小值不为默认值 -Infinity 时，设置为最小值
+      if ([undefined, null].includes(tValue.value) && min !== -Infinity) {
         setTValue(min, { type: 'blur', e: ctx.e });
         props.onBlur?.(min, ctx);
         return;
       }
-      if (r === 'exceed-maximum') {
-        setTValue(max, { type: 'blur', e: ctx.e });
-        props.onBlur?.(max, ctx);
-        return;
+      // 当值不为 undefined 时，进行范围检查
+      if (tValue.value !== undefined) {
+        const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
+        if (r === 'below-minimum') {
+          setTValue(min, { type: 'blur', e: ctx.e });
+          props.onBlur?.(min, ctx);
+          return;
+        }
+        if (r === 'exceed-maximum') {
+          setTValue(max, { type: 'blur', e: ctx.e });
+          props.onBlur?.(max, ctx);
+          return;
+        }
       }
     }
     const newValue = formatUnCompleteNumber(value, {

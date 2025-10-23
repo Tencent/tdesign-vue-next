@@ -1,12 +1,11 @@
 import { defineComponent, ref, toRefs } from 'vue';
-import useDefaultValue from '../hooks/useDefaultValue';
-import useVModel from '../hooks/useVModel';
-import { useTNodeDefault } from '../hooks/tnode';
-import props from './props';
-import { Popup as TPopup } from '../popup';
+import { useDefaultValue, useTNodeDefault, useVModel } from '@tdesign/shared-hooks';
+
+import { type PopupProps, Popup as TPopup } from '../popup';
 import ColorPanel from './components/panel';
 import DefaultTrigger from './components/trigger';
 import { useBaseClassName } from './hooks';
+import props from './props';
 
 export default defineComponent({
   name: 'TColorPicker',
@@ -14,8 +13,6 @@ export default defineComponent({
   setup(props) {
     const baseClassName = useBaseClassName();
     const renderTNodeJSXDefault = useTNodeDefault();
-    const visible = ref(false);
-    const setVisible = (value: boolean) => (visible.value = value);
 
     const { value: inputValue, modelValue, recentColors } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
@@ -37,40 +34,27 @@ export default defineComponent({
 
       return (
         <ColorPanel
-          {...props}
+          {...{
+            ...props,
+            onChange: setInnerValue,
+            onRecentColorsChange: setInnerRecentColors,
+          }}
           value={innerValue.value}
           recentColors={innerRecentColors.value}
-          onChange={setInnerValue}
-          onRecentColorsChange={setInnerRecentColors}
         />
       );
     };
 
     return () => {
       const popProps = {
-        placement: 'bottom-left',
-        ...((props.popupProps as any) || {}),
-        trigger: 'click',
-        attach: 'body',
+        placement: 'bottom-left' as const,
+        trigger: 'click' as const,
         overlayClassName: [baseClassName.value],
-        visible: visible.value,
-        overlayInnerStyle: {
-          padding: 0,
-        },
-        onVisibleChange: (
-          visible: boolean,
-          context: {
-            trigger: string;
-          },
-        ) => {
-          if (context.trigger === 'document') {
-            setVisible(false);
-          }
-        },
+        ...((props.popupProps as PopupProps) || {}),
       };
       return (
         <TPopup {...popProps} content={renderPopupContent}>
-          <div class={`${baseClassName.value}__trigger`} onClick={() => setVisible(!visible.value)} ref={refTrigger}>
+          <div class={`${baseClassName.value}__trigger`} ref={refTrigger}>
             {renderTNodeJSXDefault(
               'default',
               <DefaultTrigger

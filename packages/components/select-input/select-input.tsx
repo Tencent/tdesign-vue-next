@@ -4,8 +4,7 @@ import props from './props';
 import { TdSelectInputProps } from './type';
 import { useMultiple, useSingle, useOverlayInnerStyle } from './hooks';
 import type { SelectInputValueDisplayOptions } from './hooks';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 const useComponentClassName = () => {
   return {

@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tag or CheckTag > @event: Tag > Event passthrough: close 1`] = `
+<div
+  class="t-tag t-tag--default t-tag--dark t-tag--close"
+>
+  <!---->
+  <span>
+    <!---->
+  </span>
+  <svg
+    class="t-icon t-icon-close t-tag__icon-close"
+    fill="none"
+    height="1em"
+    style="fill: none;"
+    viewBox="0 0 24 24"
+    width="1em"
+  >
+    <g
+      id="close"
+    >
+      <path
+        d="M16.9503 7.05029L12.0005 12M12.0005 12L7.05078 16.9498M12.0005 12L16.9503 16.9498M12.0005 12L7.05078 7.05029"
+        id="stroke1"
+        stroke="currentColor"
+        stroke-linecap="square"
+        stroke-width="2"
+      />
+    </g>
+  </svg>
+</div>
+`;

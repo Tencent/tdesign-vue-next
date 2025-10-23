@@ -14,6 +14,9 @@
   <a href="https://www.npmjs.com/package/tdesign-vue-next">
     <img src="https://img.shields.io/npm/dm/tdesign-vue-next" alt="Downloads">
   </a>
+  <a href="https://deepwiki.com/Tencent/tdesign-vue-next">
+    <img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki">
+  </a>
 </p>
 
 English | [简体中文](./README-zh_CN.md)
@@ -76,15 +79,15 @@ Contributing is welcome. Read [guidelines for contributing](https://github.com/T
 
 ## Contributors
 
-<a href="https://github.com/tencent/tdesign-vue-next/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=tencent/tdesign-vue-next" />
+<a href="https://openomy.app/github/tencent/tdesign-vue-next" target="_blank" style="display: block; width: 100%;" align="center"> 
+  <img src="https://openomy.app/svg?repo=tencent/tdesign-vue-next&chart=bubble&latestMonth=12" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
 </a>
 
 # Feedback
 
 Create your [Github issues](https://github.com/Tencent/tdesign-vue-next/issues) or scan the QR code below to join our user groups
 
-<img src="https://raw.githubusercontent.com/Tencent/tdesign/main/packages/components/src/images/groups/vue3-group.png" width="200" />
+<img src="https://raw.githubusercontent.com/Tencent/tdesign/main/packages/site-components/src/images/groups/vue3-group.png" width="200" />
 
 # License
 

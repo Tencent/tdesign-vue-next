@@ -1,0 +1,255 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DatePicker > :mode 1`] = `
+<div
+  class="t-date-picker"
+>
+  <div
+    class="t-select-input t-select-input--empty"
+    needconfirm="true"
+  >
+    
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请选择年份"
+          readonly=""
+          spellcheck="false"
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-icon t-icon-calendar"
+            fill="none"
+            height="1em"
+            style="fill: none;"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <g
+              id="calendar"
+            >
+              <path
+                d="M21 10H3V21H21V10Z"
+                fill="transparent"
+                id="fill1"
+              />
+              <path
+                d="M21 10H3V5H21V10Z"
+                fill="transparent"
+                id="fill2"
+              />
+              <path
+                d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </g>
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`DatePicker > :range 1`] = `
+<div
+  class="t-date-range-picker"
+>
+  <div
+    class="t-range-input-popup"
+  >
+    
+    
+    <div
+      class="t-range-input t-range-input--suffix"
+    >
+      <div
+        class="t-range-input__inner"
+      >
+        <!---->
+        <!---->
+        <div
+          class="t-input__wrap t-range-input__inner-left"
+        >
+          <div
+            class="t-input t-is-readonly"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请选择日期"
+              readonly=""
+              spellcheck="false"
+              type="text"
+              unselectable="on"
+            />
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+        <div
+          class="t-range-input__inner-separator"
+        >
+           - 
+        </div>
+        <div
+          class="t-input__wrap t-range-input__inner-right"
+        >
+          <div
+            class="t-input t-is-readonly"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请选择日期"
+              readonly=""
+              spellcheck="false"
+              type="text"
+              unselectable="on"
+            />
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+        <!---->
+        <span
+          class="t-range-input__suffix t-range-input__suffix-icon"
+        >
+          <svg
+            class="t-icon t-icon-calendar"
+            fill="none"
+            height="1em"
+            style="fill: none;"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <g
+              id="calendar"
+            >
+              <path
+                d="M21 10H3V21H21V10Z"
+                fill="transparent"
+                id="fill1"
+              />
+              <path
+                d="M21 10H3V5H21V10Z"
+                fill="transparent"
+                id="fill2"
+              />
+              <path
+                d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </g>
+          </svg>
+        </span>
+      </div>
+    </div>
+    <!---->
+    
+    <!---->
+    
+  </div>
+</div>
+`;
+
+exports[`DatePicker > :value 1`] = `
+<div
+  class="t-date-picker"
+>
+  <div
+    class="t-select-input"
+    needconfirm="true"
+  >
+    
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--suffix"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请选择日期"
+          readonly=""
+          spellcheck="false"
+          type="text"
+          unselectable="on"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-icon t-icon-calendar"
+            fill="none"
+            height="1em"
+            style="fill: none;"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <g
+              id="calendar"
+            >
+              <path
+                d="M21 10H3V21H21V10Z"
+                fill="transparent"
+                id="fill1"
+              />
+              <path
+                d="M21 10H3V5H21V10Z"
+                fill="transparent"
+                id="fill2"
+              />
+              <path
+                d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </g>
+          </svg>
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    
+    <!---->
+  </div>
+</div>
+`;

@@ -1,5 +1,5 @@
-import { defineComponent, ref, toRefs, watch, computed } from 'vue';
-import { cloneDeep } from 'lodash-es';
+import { computed, defineComponent, ref, toRefs, watch } from 'vue';
+import { cloneDeep, isNull, isUndefined } from 'lodash-es';
 import {
   Color,
   DEFAULT_COLOR,
@@ -10,28 +10,23 @@ import {
   initColorFormat,
   TD_COLOR_USED_COLORS_MAX_SIZE,
 } from '@tdesign/common-js/color-picker/index';
-import { useCommonClassName, useConfig } from '../../../hooks/useConfig';
-import props from '../../props';
+import { useCommonClassName, useConfig, useDefaultValue, useVModel } from '@tdesign/shared-hooks';
+import props from '../../color-picker-panel-props';
+import { useBaseClassName } from '../../hooks';
+import type { ColorPickerChangeTrigger, TdColorPickerProps } from '../../type';
+import type { TdColorModes } from '../../types';
+import FormatPanel from '../format';
+import AlphaSlider from './alpha';
 import PanelHeader from './header';
+import HueSlider from './hue';
 import LinearGradient from './linear-gradient';
 import SaturationPanel from './saturation';
-import HueSlider from './hue';
-import AlphaSlider from './alpha';
-import FormatPanel from '../format';
 import SwatchesPanel from './swatches';
-import type { TdColorPickerProps, ColorPickerChangeTrigger } from '../../type';
-import type { TdColorModes } from '../../types';
-import { useBaseClassName } from '../../hooks';
-import useVModel from '../../../hooks/useVModel';
-import useDefaultValue from '../../../hooks/useDefaultValue';
 
 export default defineComponent({
   name: 'ColorPanel',
   props: {
     ...props,
-    togglePopup: {
-      type: Function,
-    },
   },
   setup(props) {
     const baseClassName = useBaseClassName();
@@ -109,7 +104,10 @@ export default defineComponent({
         const newMode = getModeByColor(newColor);
         mode.value = newMode;
         color.value.isGradient = newMode === 'linear-gradient';
-        color.value.update(newColor);
+        const currentColor = color.value.getFormattedColor(props.format, props.enableAlpha);
+        if (currentColor !== newColor) {
+          color.value.update(newColor);
+        }
       },
     );
 
@@ -249,13 +247,16 @@ export default defineComponent({
 
       // 系统预设颜色
       let systemColors = props.swatchColors;
-      if (systemColors === undefined) {
+      if (isUndefined(systemColors)) {
         systemColors = [...DEFAULT_SYSTEM_SWATCH_COLORS];
+      }
+      if (isNull(systemColors)) {
+        systemColors = [];
       }
       if (onlySupportGradient) {
         systemColors = systemColors.filter((color) => Color.isGradientColor(color));
       }
-      const showSystemColors = Array.isArray(systemColors);
+      const showSystemColors = Array.isArray(systemColors) && systemColors.length;
 
       const renderSwatches = () => {
         if (!showSystemColors && !showUsedColors) return null;
