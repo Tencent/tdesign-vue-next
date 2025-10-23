@@ -33,10 +33,14 @@ export default defineComponent({
         ...PLACEMENT_OFFSET[placement],
       };
 
-      if (offset && offset.length === 2) {
-        style.left = getOffset(offset[0]) ?? style.left;
-        style.top = getOffset(offset[1]) ?? style.top;
+      if (Array.isArray(offset) && offset.length === 2) {
+        const horizontalProp = placement.includes('left') ? 'left' : 'right';
+        const verticalProp = placement.includes('top') ? 'top' : 'bottom';
+
+        style[horizontalProp as 'left' | 'right'] = getOffset(offset[0]) ?? style[horizontalProp as 'left' | 'right'];
+        style[verticalProp as 'top' | 'bottom'] = getOffset(offset[1]) ?? style[verticalProp as 'top' | 'bottom'];
       }
+
       return style;
     });
 
@@ -58,15 +62,11 @@ export default defineComponent({
       return isNaN(Number(val)) ? val : `${val}px`;
     };
 
-    const notificationStyles = (item: { offset: NotificationOptions['offset']; zIndex: number }) => {
+    const notificationStyles = (item: { zIndex: number }) => {
       const styles: CSSProperties = {
         marginBottom: DISTANCE,
       };
-      if (item.offset) {
-        styles.position = 'relative';
-        styles.left = getOffset(item.offset[0]);
-        styles.top = getOffset(item.offset[1]);
-      }
+
       if (item.zIndex) styles['z-index'] = item.zIndex;
       return styles;
     };
@@ -106,7 +106,7 @@ export default defineComponent({
       if (!list.value.length) return;
       return (
         <div class={`${COMPONENT_NAME.value}__show`} style={styles.value}>
-          {list.value.map((item: { offset: NotificationOptions['offset']; zIndex: number; id: number }, index) => (
+          {list.value.map((item: { zIndex: number; id: number }, index) => (
             <Notification ref={addChild} key={item.id} style={notificationStyles(item)} {...getProps(index, item)} />
           ))}
         </div>
