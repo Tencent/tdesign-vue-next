@@ -6,6 +6,11 @@ import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   props: {
+    /**
+     * 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10em', '8rem']
+     */
+    offset: Array<string | number>,
+
     placement: {
       type: String,
       default: 'top-right',
@@ -17,15 +22,23 @@ export default defineComponent({
   setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('notification-list');
 
-    const { placement } = props as NotificationOptions;
+    const { placement, offset } = props as NotificationOptions;
 
     const list: Ref<NotificationOptions[]> = ref([]);
     const notificationList = ref([]);
 
-    const styles = computed(() => ({
-      zIndex: DEFAULT_Z_INDEX,
-      ...PLACEMENT_OFFSET[placement],
-    }));
+    const styles = computed(() => {
+      const style: CSSProperties = {
+        zIndex: DEFAULT_Z_INDEX,
+        ...PLACEMENT_OFFSET[placement],
+      };
+
+      if (offset && offset.length === 2) {
+        style.left = getOffset(offset[0]) ?? style.left;
+        style.top = getOffset(offset[1]) ?? style.top;
+      }
+      return style;
+    });
 
     const add = (options: TdNotificationProps): number => {
       list.value.push(options);
@@ -91,7 +104,6 @@ export default defineComponent({
 
     return () => {
       if (!list.value.length) return;
-
       return (
         <div class={`${COMPONENT_NAME.value}__show`} style={styles.value}>
           {list.value.map((item: { offset: NotificationOptions['offset']; zIndex: number; id: number }, index) => (
