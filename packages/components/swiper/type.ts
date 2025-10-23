@@ -63,8 +63,9 @@ export interface TdSwiperProps {
   loop?: boolean;
   /**
    * 导航器全部配置
+   * @default true
    */
-  navigation?: SwiperNavigation | TNode;
+  navigation?: SwiperNavigation | TNode | Boolean;
   /**
    * 是否悬浮时停止轮播
    * @default true
