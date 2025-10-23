@@ -10,6 +10,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { Fragment, nextTick } from 'vue';
 import log from '@tdesign/common-js/log/index';
+import { Alert } from '@tdesign/components/alert';
 
 const h = vi.hoisted(() => {
   const store = { handler: null as ((e: any) => void) | null };
@@ -32,8 +33,6 @@ vi.mock('@tdesign/shared-utils', async (importOriginal) => {
     addClass: h.addClassMock,
   };
 });
-
-import { Alert } from '@tdesign/components/alert';
 
 function setOffsetHeight(el: Element, height: number) {
   Object.defineProperty(el, 'offsetHeight', {
