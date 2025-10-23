@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue';
 import { omit } from 'lodash-es';
-import Panel from './components/Panel';
+import TCascaderSubPanel from './components/Panel';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
 import props from './props';
@@ -185,8 +185,9 @@ export default defineComponent({
             panel: () => (
               <>
                 {renderTNodeJSX('panelTopContent')}
-                <Panel
+                <TCascaderSubPanel
                   option={props.option}
+                  options={props.options}
                   empty={props.empty}
                   visible={visible}
                   trigger={props.trigger}

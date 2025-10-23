@@ -15,6 +15,7 @@ export function expendClickEffect(
   trigger: TdCascaderProps['trigger'],
   node: TreeNode,
   cascaderContext: CascaderContextType,
+  options: TdCascaderProps['options'],
 ) {
   const { checkStrictly, multiple, treeStore, setVisible, setValue, setTreeNodes, setExpend, value, max, valueType } =
     cascaderContext;
@@ -25,13 +26,15 @@ export function expendClickEffect(
   // 点击展开节点，设置展开状态
   if (propsTrigger === trigger) {
     const expanded = node.setExpanded(true);
-    treeStore.refreshNodes();
 
-    // 筛选情况下，不更新展开节点
-    if (!cascaderContext.inputVal) {
+    if (checkStrictly && cascaderContext.inputVal) {
+      setTimeout(() => treeStore.reload(options), 300);
+    } else if (!cascaderContext.inputVal) {
       treeStore.replaceExpanded(expanded);
       const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
       setTreeNodes(nodes);
+    } else {
+      treeStore.refreshNodes();
     }
 
     // 多选条件下手动维护expend
@@ -49,7 +52,7 @@ export function expendClickEffect(
     setValue(valueType === 'single' ? value : node.getPath().map((item) => item.value), 'check', node.getModel());
 
     // 当 trigger 为 hover 时 ，点击节点一定是关闭 panel 的操作
-    if (!checkStrictly || propsTrigger === 'hover') {
+    if (!checkStrictly || propsTrigger === 'hover' || cascaderContext.inputVal) {
       setVisible(false, {});
     }
   }
@@ -62,7 +65,7 @@ export function expendClickEffect(
  * @returns
  */
 export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderContextType) {
-  const { disabled, max, inputVal, multiple, setVisible, setValue, treeNodes, treeStore, valueType } = cascaderContext;
+  const { disabled, max, inputVal, setVisible, setValue, treeNodes, treeStore, valueType } = cascaderContext;
 
   if (!node || disabled || node.disabled) {
     return;
@@ -83,10 +86,6 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
       treeStore.replaceExpanded(expanded);
       treeStore.refreshNodes();
     }, 0);
-  }
-
-  if (!multiple) {
-    setVisible(false, {});
   }
 
   const isSelectAll = treeNodes.every((item) => checked.indexOf(item.value) > -1);
@@ -162,7 +161,7 @@ export function handleRemoveTagEffect(
 }
 
 /**
- * input和treeStore变化的副作用
+ * input 和 treeStore 变化的副作用
  * @param inputVal
  * @param treeStore
  * @param setTreeNodes
@@ -176,21 +175,50 @@ export const treeNodesEffect = (
 ) => {
   if (!treeStore) return;
   let nodes = [];
-  if (inputVal) {
-    const filterMethods = (node: TreeNode) => {
-      if (!node.isLeaf()) return;
-      if (isFunction(filter)) {
-        return filter(`${inputVal}`, node as TreeNodeModel & TreeNode);
-      }
-      const fullPathLabel = getFullPathLabel(node, '');
-      return fullPathLabel.indexOf(`${inputVal}`) > -1;
-    };
+  // 通用的过滤方法
+  const filterMethods = (node: TreeNode) => {
+    if (!node.isLeaf()) return false;
+    if (isFunction(filter)) {
+      return filter(`${inputVal}`, node as TreeNodeModel & TreeNode);
+    }
+    const fullPathLabel = getFullPathLabel(node, '');
+    return fullPathLabel.includes(`${inputVal}`);
+  };
 
+  if (inputVal) {
     nodes = treeStore.nodes.filter(filterMethods);
   } else {
     nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
   }
   setTreeNodes(nodes);
+};
+
+/**
+ * 计算 expend 的值
+ * @param treeStore
+ * @param treeValue
+ * @returns TreeNodeValue[]
+ */
+export const calculateExpand = (
+  treeStore: CascaderContextType['treeStore'],
+  treeValue: TreeNodeValue[],
+): TreeNodeValue[] => {
+  const expandedMap = new Map();
+  const [val] = treeValue;
+
+  if (!isEmptyValues(val)) {
+    expandedMap.set(val, true);
+    const node = treeStore.getNode(val);
+    if (!node) {
+      treeStore.refreshNodes();
+      return [];
+    }
+    node.getParents().forEach((tn: TreeNode) => {
+      expandedMap.set(tn.value, true);
+    });
+  }
+
+  return Array.from(expandedMap.keys());
 };
 
 /**
@@ -207,27 +235,19 @@ export const treeStoreExpendEffect = (
   const treeValue = getTreeValue(value);
 
   if (!treeStore) return;
+
   // init expanded, 无expend状态时设置
   if (isArray(treeValue) && expend.length === 0) {
-    const expandedMap = new Map();
-    const [val] = treeValue;
-    if (!isEmptyValues(val)) {
-      expandedMap.set(val, true);
-      const node = treeStore.getNode(val);
-      if (!node) {
-        treeStore.refreshNodes();
-        return;
-      }
-      node.getParents().forEach((tn: TreeNode) => {
-        expandedMap.set(tn.value, true);
-      });
-      const expandedArr = Array.from(expandedMap.keys());
+    const expandedArr = calculateExpand(treeStore, treeValue);
+    if (expandedArr.length > 0) {
       treeStore.replaceExpanded(expandedArr);
     }
   }
+
   // 本地维护 expend，更加可控，不需要依赖于 tree 的状态
   if (treeStore.getExpanded() && expend.length) {
     treeStore.replaceExpanded(expend);
   }
+
   treeStore.refreshNodes();
 };
