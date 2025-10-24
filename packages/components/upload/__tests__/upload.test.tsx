@@ -124,7 +124,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onSelectChangeFn).toHaveBeenCalled();
     expect(onSelectChangeFn.mock.calls[0][0]).toEqual(fileList);
     expect(onSelectChangeFn.mock.calls[0][1].currentSelectedFiles).toEqual([
@@ -199,7 +199,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onChangeFn).toHaveBeenCalled();
     expect(onChangeFn.mock.calls[0][0][0].response).toBe(undefined);
     expect(onChangeFn.mock.calls[0][0][0].raw).toEqual(fileList[0]);
@@ -252,7 +252,7 @@ describe('Upload Component', () => {
       ></Upload>,
     );
     wrapper.find('.t-upload__dragger-upload-btn').trigger('click');
-    await sleep(0);
+    await sleep();
     expect(onSuccessFn).toHaveBeenCalled();
     expect(onSuccessFn.mock.calls[0][0].fileList[0].url).toBe('https://tdesign.gtimg.com/demo/demo-image-1.png');
     expect(onSuccessFn.mock.calls[0][0].currentFiles[0].url).toBe('https://tdesign.gtimg.com/demo/demo-image-1.png');
@@ -276,7 +276,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom, 'file', 3);
-    await sleep(0);
+    await sleep();
     expect(onChangeFn).not.toHaveBeenCalled();
     expect(onValidateFn).toHaveBeenCalled();
     expect(onValidateFn.mock.calls[0][0].type).toBe('BEFORE_ALL_FILES_UPLOAD');
@@ -297,7 +297,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom, 'file', 3);
-    await sleep(0);
+    await sleep();
     expect(onChangeFn).not.toHaveBeenCalled();
     expect(onValidateFn).toHaveBeenCalled();
     expect(onValidateFn.mock.calls[0][0].type).toBe('CUSTOM_BEFORE_UPLOAD');
@@ -318,7 +318,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom, 'file', 3);
-    await sleep(0);
+    await sleep();
     expect(onChangeFn).toHaveBeenCalled();
     expect(onChangeFn.mock.calls[0][0][0].raw).toEqual(fileList[1]);
     expect(onValidateFn).toHaveBeenCalled();
@@ -337,7 +337,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onFailFn).toHaveBeenCalled();
     expect(onFailFn.mock.calls[0][0].XMLHttpRequest.upload.requestParams).toEqual({
       file_name: 'custom-file-name.excel',
@@ -405,7 +405,7 @@ describe('Upload Component', () => {
     const wrapper = mount(<Upload disabled={true} onSelectChange={onSelectChangeFn}></Upload>);
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onSelectChangeFn).not.toHaveBeenCalled();
   });
 
@@ -931,7 +931,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onSelectChangeFn).toHaveBeenCalled();
     expect(onSelectChangeFn.mock.calls[0][0]).toEqual(fileList);
     expect(onSelectChangeFn.mock.calls[0][1].currentSelectedFiles[0].name).toBe('another name');
@@ -950,7 +950,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onFailFn).toHaveBeenCalled();
     expect(onFailFn.mock.calls[0][0].XMLHttpRequest.upload.requestParams.requestData).toEqual({
       file: fileList[0],
@@ -974,7 +974,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onChangeFn).toHaveBeenCalled();
     expect(onChangeFn.mock.calls[0][0][0].response.responseData).toEqual({
       ret: 0,
@@ -997,7 +997,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onFailFn).toHaveBeenCalled();
     expect(onFailFn.mock.calls[0][0].failedFiles[0].raw).toEqual(fileList[0]);
     expect(onFailFn.mock.calls[0][0].currentFiles[0].raw).toEqual(fileList[0]);
@@ -1018,7 +1018,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onFailFn).toHaveBeenCalled();
     expect(onFailFn.mock.calls[0][0].XMLHttpRequest.upload.requestHeaders['XML-HTTP-REQUEST']).toBe('tdesign_token');
   });
@@ -1045,7 +1045,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom, 'file', 3);
-    await sleep(0);
+    await sleep();
     expect(onChangeFn).toHaveBeenCalled();
     expect(onChangeFn.mock.calls[0][0].length).toBe(3);
   });
@@ -1132,7 +1132,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onFailFn).toHaveBeenCalled();
     expect(onFailFn.mock.calls[0][0].XMLHttpRequest.upload.requestParams).toEqual({
       file_name: fileList[0],
@@ -1175,7 +1175,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom, 'image');
-    await sleep(0);
+    await sleep();
     expect(onChangeFn).toHaveBeenCalled();
     expect(onChangeFn.mock.calls[0][0][0].raw).toEqual(fileList[0]);
     expect(onChangeFn.mock.calls[0][0][0].response.url).toBe('https://tdesign.gtimg.com/demo/demo-image-1.png');
@@ -1194,7 +1194,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onFailFn).toHaveBeenCalled();
     expect(onFailFn.mock.calls[0][0].failedFiles.map((t) => t.raw)).toEqual(fileList);
     expect(onFailFn.mock.calls[0][0].currentFiles.map((t) => t.raw)).toEqual(fileList);
@@ -1250,7 +1250,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom, 'file', 5);
-    await sleep(0);
+    await sleep();
     expect(onValidateFn).toHaveBeenCalled();
     expect(onValidateFn.mock.calls[0][0].type).toBe('FILE_OVER_SIZE_LIMIT');
     expect(onValidateFn.mock.calls[0][0].files.length).toBe(3);
@@ -1268,7 +1268,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom, 'file', 5);
-    await sleep(0);
+    await sleep();
     expect(onValidateFn).toHaveBeenCalled();
     expect(onValidateFn.mock.calls[0][0].type).toBe('FILE_OVER_SIZE_LIMIT');
     expect(onValidateFn.mock.calls[0][0].files.length).toBe(3);
@@ -1286,7 +1286,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom, 'file', 5);
-    await sleep(0);
+    await sleep();
     expect(onValidateFn).toHaveBeenCalled();
     expect(onValidateFn.mock.calls[0][0].type).toBe('FILE_OVER_SIZE_LIMIT');
     expect(onValidateFn.mock.calls[0][0].files.length).toBe(3);
@@ -1540,7 +1540,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onFailFn).toHaveBeenCalled();
     expect(onFailFn.mock.calls[0][0].XMLHttpRequest.withCredentials).toBeTruthy();
   });
@@ -1712,7 +1712,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     expect(onFailFn).toHaveBeenCalled();
     expect(onFailFn.mock.calls[0][0].XMLHttpRequest.upload.requestParams).toEqual({ file: fileList[0], length: 1 });
   });
@@ -2092,7 +2092,7 @@ describe('Upload Component', () => {
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom);
-    await sleep(0);
+    await sleep();
     wrapper.find('.t-upload__flow-table tbody tr:last-child .t-upload__delete').trigger('click');
     await wrapper.vm.$nextTick();
     expect(onChangeFn1).not.toHaveBeenCalled();
