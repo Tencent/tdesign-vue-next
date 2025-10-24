@@ -1,5 +1,4 @@
 import { defineComponent, computed } from 'vue';
-import { omit } from 'lodash-es';
 import TCascaderSubPanel from './components/Panel';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
