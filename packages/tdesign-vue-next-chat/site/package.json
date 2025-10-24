@@ -6,7 +6,6 @@
     "start": "pnpm run dev",
     "dev": "vite",
     "build": "vite build",
-    "intranet": "vite build --mode intranet",
     "preview": "vite build --mode preview && cp dist/index.html dist/404.html"
   },
   "author": "tdesign",
@@ -18,7 +17,7 @@
     "@tdesign/pro-components-chat": "workspace:^",
     "@tdesign-vue-next/chat": "workspace:^",
     "semver": "catalog:docs",
-    "tdesign-site-components": "catalog:tdesign",
+    "@tdesign/site-components": "catalog:tdesign",
     "tdesign-theme-generator": "catalog:tdesign",
     "vue": "catalog:deps",
     "vue-router": "catalog:deps",

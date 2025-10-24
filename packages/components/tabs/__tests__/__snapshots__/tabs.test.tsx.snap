@@ -45,13 +45,21 @@ exports[`Tabs > :props > :addable 1`] = `
             class="t-icon t-icon-add"
             fill="none"
             height="1em"
+            style="fill: none;"
             viewBox="0 0 24 24"
             width="1em"
           >
-            <path
-              d="M13 4V11L20 11V13L13 13V20H11L11 13H4L4 11L11 11L11 4L13 4Z"
-              fill="currentColor"
-            />
+            <g
+              id="add"
+            >
+              <path
+                d="M12 5L12 19M19 12L5 12"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+            </g>
           </svg>
         </div>
         <!---->

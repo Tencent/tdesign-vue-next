@@ -1,5 +1,5 @@
 import { defineComponent, toRefs, computed } from 'vue';
-import { RectangleIcon, SendIcon, StopCircleIcon } from 'tdesign-icons-vue-next';
+import { SendIcon, StopCircleIcon } from 'tdesign-icons-vue-next';
 import { Button, Textarea } from 'tdesign-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { useTNodeJSX, usePrefixClass, useVModel } from '@tdesign/shared-hooks';
@@ -7,16 +7,11 @@ import props from './chat-input-props';
 
 export default defineComponent({
   name: 'TChatInput',
-  components: {
-    RectangleIcon,
-    SendIcon,
-  },
   props,
   emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus'], // declare the custom events here
-  setup(props, { slots, emit }) {
+  setup(props, { emit }) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { stopBtnText, placeholder } = toRefs(globalConfig.value);
     const { value, modelValue } = toRefs(props);
     const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     // 按钮禁用，
@@ -28,12 +23,11 @@ export default defineComponent({
     // 输入框高度
     const autosize = computed(() => props.autosize);
     // 输入框默认文案
-    const placeholderText = computed(() => props.placeholder ?? placeholder.value);
+    const placeholderText = computed(() => props.placeholder ?? globalConfig.value.placeholder);
 
     let shiftDownFlag = false;
     let isComposition = false;
     const renderTNodeJSX = useTNodeJSX();
-    const suffixIcon = renderTNodeJSX('suffixIcon') || slots.suffixIcon;
     const sendClick = (e: MouseEvent | KeyboardEvent) => {
       if (textValue.value && !disabled.value) {
         emit('send', textValue.value, { e });
@@ -106,6 +100,7 @@ export default defineComponent({
       );
     };
     const renderSuffixIcon = () => {
+      const suffixIcon = renderTNodeJSX('suffixIcon');
       return suffixIcon ? suffixIcon : getDefaultSuffixIcon();
     };
     return () => (
@@ -135,7 +130,7 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}__footer__stopbtn`}>
             <Button variant="outline" onClick={handleStop}>
               <StopCircleIcon />
-              {stopBtnText.value}
+              {globalConfig.value.stopBtnText}
             </Button>
           </div>
         )}

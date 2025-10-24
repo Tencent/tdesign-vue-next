@@ -87,7 +87,7 @@ Contributing is welcome. Read [guidelines for contributing](https://github.com/T
 
 Create your [Github issues](https://github.com/Tencent/tdesign-vue-next/issues) or scan the QR code below to join our user groups
 
-<img src="https://raw.githubusercontent.com/Tencent/tdesign/main/packages/components/src/images/groups/vue3-group.png" width="200" />
+<img src="https://raw.githubusercontent.com/Tencent/tdesign/main/packages/site-components/src/images/groups/vue3-group.png" width="200" />
 
 # License
 

@@ -2,7 +2,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #skeleton="{ configProps }"
-      ><t-skeleton v-bind="configProps">
+      ><t-skeleton v-bind="configProps" style="width: inherit" class="t-skeleton-live-demo">
         <div class="t-skeleton-demo-paragraph">
           <p>
             骨架屏组件，是指当网络较慢时，在页面真实数据加载之前，给用户展示出页面的大致结构。
@@ -32,3 +32,8 @@ function onPanelChange(panel) {
   usageCode.value = `<template>${usageCodeMap[panel].trim()}</template>`;
 }
 </script>
+<style>
+.t-skeleton-live-demo .t-skeleton__row {
+  justify-content: center;
+}
+</style>

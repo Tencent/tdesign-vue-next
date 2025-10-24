@@ -6,7 +6,6 @@
     "start": "pnpm run dev",
     "dev": "vite --configLoader runner",
     "build": "vite build --configLoader runner",
-    "intranet": "vite build --mode intranet --configLoader runner",
     "preview": "vite build --mode preview --configLoader runner && cp dist/index.html dist/404.html"
   },
   "author": "tdesign",
@@ -14,8 +13,7 @@
   "dependencies": {
     "nprogress": "catalog:deps",
     "semver": "catalog:docs",
-    "tdesign-icons-view": "catalog:tdesign",
-    "tdesign-site-components": "0.17.0-alpha.6",
+    "@tdesign/site-components": "0.18.0-alpha.1",
     "tdesign-theme-generator": "catalog:tdesign",
     "vue": "catalog:deps",
     "vue-router": "catalog:deps",
