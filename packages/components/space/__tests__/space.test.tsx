@@ -19,17 +19,10 @@ describe('Space', () => {
     it(':align', async () => {
       expect(wrapper.find('.t-space').classes()).not.toContain('t-space-align-start');
 
-      await wrapper.setProps({ align: 'start' });
-      expect(wrapper.find('.t-space').classes()).toContain('t-space-align-start');
-
-      await wrapper.setProps({ align: 'end' });
-      expect(wrapper.find('.t-space').classes()).toContain('t-space-align-end');
-
-      await wrapper.setProps({ align: 'center' });
-      expect(wrapper.find('.t-space').classes()).toContain('t-space-align-center');
-
-      await wrapper.setProps({ align: 'baseline' });
-      expect(wrapper.find('.t-space').classes()).toContain('t-space-align-baseline');
+      for (const align of ['start', 'end', 'center', 'baseline'] as const) {
+        await wrapper.setProps({ align });
+        expect(wrapper.find('.t-space').classes()).toContain(`t-space-align-${align}`);
+      }
     });
 
     it(':breakLine', async () => {
@@ -45,11 +38,10 @@ describe('Space', () => {
     it(':direction', async () => {
       expect(wrapper.find('.t-space').classes()).toContain('t-space-horizontal');
 
-      await wrapper.setProps({ direction: 'vertical' });
-      expect(wrapper.find('.t-space').classes()).toContain('t-space-vertical');
-
-      await wrapper.setProps({ direction: 'horizontal' });
-      expect(wrapper.find('.t-space').classes()).toContain('t-space-horizontal');
+      for (const direction of ['vertical', 'horizontal'] as const) {
+        await wrapper.setProps({ direction });
+        expect(wrapper.find('.t-space').classes()).toContain(`t-space-${direction}`);
+      }
     });
 
     it(':separator[string]', async () => {
@@ -70,22 +62,14 @@ describe('Space', () => {
       expect(wrapper.find('.custom-separator').exists()).toBe(true);
     });
 
-    it(':size[string:small]', async () => {
-      await wrapper.setProps({ size: 'small' });
-      const spaceElement = wrapper.find('.t-space').element as HTMLElement;
-      expect(spaceElement.style.gap).toBe('8px');
-    });
+    it(':size[string]', async () => {
+      const sizeMap = { small: '8px', medium: '16px', large: '24px' };
 
-    it(':size[string:medium]', async () => {
-      await wrapper.setProps({ size: 'medium' });
-      const spaceElement = wrapper.find('.t-space').element as HTMLElement;
-      expect(spaceElement.style.gap).toBe('16px');
-    });
-
-    it(':size[string:large]', async () => {
-      await wrapper.setProps({ size: 'large' });
-      const spaceElement = wrapper.find('.t-space').element as HTMLElement;
-      expect(spaceElement.style.gap).toBe('24px');
+      for (const [size, expectedGap] of Object.entries(sizeMap)) {
+        await wrapper.setProps({ size });
+        const spaceElement = wrapper.find('.t-space').element as HTMLElement;
+        expect(spaceElement.style.gap).toBe(expectedGap);
+      }
     });
 
     it(':size[string:custom]', async () => {
