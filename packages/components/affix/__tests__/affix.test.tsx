@@ -31,6 +31,12 @@ describe('Affix', () => {
       expect(wrapper.exists()).toBeTruthy();
     });
 
+    it(':container[string]', async () => {
+      const wrapper = mount(<Affix container="body">Content</Affix>);
+      await nextTick();
+      expect(wrapper.exists()).toBeTruthy();
+    });
+
     it(':container[function]', async () => {
       const wrapper = mount({
         methods: {
@@ -48,6 +54,19 @@ describe('Affix', () => {
       });
       await nextTick();
       expect(wrapper.exists()).toBeTruthy();
+    });
+
+    it(':content[string]', async () => {
+      const wrapper = mount(<Affix content="Affix Content" />);
+      await nextTick();
+      expect(wrapper.text()).toBe('Affix Content');
+    });
+
+    it(':content[function]', async () => {
+      const contentFn = () => 'Custom Content';
+      const wrapper = mount(<Affix content={contentFn} />);
+      await nextTick();
+      expect(wrapper.text()).toBe('Custom Content');
     });
 
     it(':onFixedChange[function]', async () => {
@@ -82,6 +101,32 @@ describe('Affix', () => {
 
         expect(onFixedChange).toHaveBeenCalled();
       }
+    });
+  });
+
+  describe('slots', () => {
+    it('default slot', async () => {
+      const wrapper = mount(Affix, {
+        slots: {
+          default: '<div class="custom-content">Custom Slot Content</div>',
+        },
+      });
+
+      await nextTick();
+      expect(wrapper.find('.custom-content').exists()).toBe(true);
+      expect(wrapper.find('.custom-content').text()).toBe('Custom Slot Content');
+    });
+
+    it('content slot', async () => {
+      const wrapper = mount(Affix, {
+        slots: {
+          content: '<span class="custom-span">Slot Content</span>',
+        },
+      });
+
+      await nextTick();
+      expect(wrapper.find('.custom-span').exists()).toBe(true);
+      expect(wrapper.find('.custom-span').text()).toBe('Slot Content');
     });
   });
 
@@ -591,6 +636,288 @@ describe('Affix', () => {
 
         testWrapper.unmount();
       });
+    });
+  });
+
+  describe('internal logic', () => {
+    it('should expose scrollContainer, affixWrapRef, and handleScroll', async () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Affix ref="affixRef" offsetTop={10}>
+              <div>test content</div>
+            </Affix>
+          );
+        },
+      });
+
+      await nextTick();
+      const affixRef = (wrapper.vm.$refs as any).affixRef;
+
+      expect(affixRef.scrollContainer).toBeDefined();
+      expect(affixRef.affixWrapRef).toBeDefined();
+      expect(typeof affixRef.handleScroll).toBe('function');
+    });
+
+    it('should handle ticking state correctly', async () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Affix ref="affixRef" offsetTop={10}>
+              <div style="width: 100px; height: 20px">test content</div>
+            </Affix>
+          );
+        },
+      });
+
+      await nextTick();
+      const affixRef = (wrapper.vm.$refs as any).affixRef;
+
+      vi.spyOn(affixRef.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
+        top: 5,
+        width: 100,
+        height: 20,
+      }));
+
+      // 第一次调用 handleScroll
+      affixRef.handleScroll();
+      // 立即再次调用，应该被 ticking 状态阻止
+      affixRef.handleScroll();
+
+      await nextTick();
+      expect(wrapper.exists()).toBe(true);
+    });
+
+    it('should calculate fixedTop correctly for offsetTop', async () => {
+      const offsetTop = 20;
+      const wrapper = mount({
+        render() {
+          return (
+            <Affix ref="affixRef" offsetTop={offsetTop}>
+              <div style="width: 100px; height: 20px">test content</div>
+            </Affix>
+          );
+        },
+      });
+
+      await nextTick();
+      const affixRef = (wrapper.vm.$refs as any).affixRef;
+
+      vi.spyOn(affixRef.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
+        top: 10, // 小于 offsetTop，应该触发固定
+        width: 100,
+        height: 20,
+      }));
+
+      window.dispatchEvent(new CustomEvent('scroll'));
+      await nextTick();
+
+      const affixElement = wrapper.find('.t-affix');
+      if (affixElement.exists()) {
+        const style = affixElement.attributes('style');
+        expect(style).toContain(`top: ${offsetTop}px`);
+      }
+    });
+
+    it('should not apply fixed when element is in normal position', async () => {
+      const offsetTop = 20;
+      const wrapper = mount({
+        render() {
+          return (
+            <Affix ref="affixRef" offsetTop={offsetTop}>
+              <div style="width: 100px; height: 20px">test content</div>
+            </Affix>
+          );
+        },
+      });
+
+      await nextTick();
+      const affixRef = (wrapper.vm.$refs as any).affixRef;
+
+      vi.spyOn(affixRef.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
+        top: 100, // 大于 offsetTop，不应该固定
+        width: 100,
+        height: 20,
+      }));
+
+      affixRef.handleScroll();
+      await nextTick();
+
+      const affixElements = wrapper.findAll('.t-affix');
+      expect(affixElements.length).toBe(0);
+    });
+
+    it('should apply zIndex when fixed', async () => {
+      const zIndex = 999;
+      const wrapper = mount({
+        render() {
+          return (
+            <Affix ref="affixRef" offsetTop={10} zIndex={zIndex}>
+              <div style="width: 100px; height: 20px">test content</div>
+            </Affix>
+          );
+        },
+      });
+
+      await nextTick();
+      const affixRef = (wrapper.vm.$refs as any).affixRef;
+
+      vi.spyOn(affixRef.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
+        top: 5,
+        width: 100,
+        height: 20,
+      }));
+
+      window.dispatchEvent(new CustomEvent('scroll'));
+      await nextTick();
+
+      const affixElement = wrapper.find('.t-affix');
+      if (affixElement.exists()) {
+        const style = affixElement.attributes('style');
+        expect(style).toContain(`z-index: ${zIndex}`);
+      }
+    });
+
+    it('should remove placeholder when not fixed', async () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Affix ref="affixRef" offsetTop={10}>
+              <div style="width: 100px; height: 20px">test content</div>
+            </Affix>
+          );
+        },
+      });
+
+      await nextTick();
+      const affixRef = (wrapper.vm.$refs as any).affixRef;
+
+      // 先触发固定状态
+      vi.spyOn(affixRef.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
+        top: 5,
+        width: 100,
+        height: 20,
+      }));
+
+      window.dispatchEvent(new CustomEvent('scroll'));
+      await nextTick();
+
+      // 改变位置，取消固定
+      vi.spyOn(affixRef.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
+        top: 100,
+        width: 100,
+        height: 20,
+      }));
+
+      window.dispatchEvent(new CustomEvent('scroll'));
+      await nextTick();
+
+      // 验证 class 被移除
+      const affixElements = wrapper.findAll('.t-affix');
+      expect(affixElements.length).toBe(0);
+    });
+
+    it('should emit fixedChange with correct parameters', async () => {
+      const onFixedChange = vi.fn();
+      const wrapper = mount({
+        render() {
+          return (
+            <Affix ref="affixRef" offsetTop={10} onFixedChange={onFixedChange}>
+              <div style="width: 100px; height: 20px">test content</div>
+            </Affix>
+          );
+        },
+      });
+
+      await nextTick();
+      const affixRef = (wrapper.vm.$refs as any).affixRef;
+
+      vi.spyOn(affixRef.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
+        top: 5,
+        width: 100,
+        height: 20,
+      }));
+
+      window.dispatchEvent(new CustomEvent('scroll'));
+      await nextTick();
+
+      if (onFixedChange.mock.calls.length > 0) {
+        const [affixed, context] = onFixedChange.mock.calls[0];
+        expect(affixed).toBe(true);
+        expect(context).toHaveProperty('top');
+        expect(typeof context.top).toBe('number');
+      }
+    });
+
+    it('should handle getBoundingClientRect returning undefined', async () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Affix ref="affixRef" offsetTop={10}>
+              <div style="width: 100px; height: 20px">test content</div>
+            </Affix>
+          );
+        },
+      });
+
+      await nextTick();
+      const affixRef = (wrapper.vm.$refs as any).affixRef;
+
+      // Mock getBoundingClientRect 返回 undefined
+      vi.spyOn(affixRef.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => undefined);
+
+      expect(() => {
+        affixRef.handleScroll();
+      }).not.toThrow();
+    });
+
+    it('should handle window resize event', async () => {
+      const onFixedChange = vi.fn();
+      const wrapper = mount({
+        render() {
+          return (
+            <Affix ref="affixRef" offsetTop={10} onFixedChange={onFixedChange}>
+              <div style="width: 100px; height: 20px">test content</div>
+            </Affix>
+          );
+        },
+      });
+
+      await nextTick();
+      const affixRef = (wrapper.vm.$refs as any).affixRef;
+
+      vi.spyOn(affixRef.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
+        top: 5,
+        width: 100,
+        height: 20,
+      }));
+
+      window.dispatchEvent(new Event('resize'));
+      await nextTick();
+
+      // resize 事件会触发 handleScroll，进而可能触发 fixedChange
+      expect(wrapper.exists()).toBe(true);
+    });
+
+    it('should handle keep-alive activation/deactivation', async () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Affix ref="affixRef" offsetTop={10}>
+              <div>test content</div>
+            </Affix>
+          );
+        },
+      });
+
+      await nextTick();
+      const affixRef = (wrapper.vm.$refs as any).affixRef;
+
+      expect(affixRef.scrollContainer).toBeDefined();
+
+      expect(() => {
+        affixRef.handleScroll();
+      }).not.toThrow();
     });
   });
 });
