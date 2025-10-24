@@ -1,4 +1,4 @@
-import { nextTick, ref } from 'vue';
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
