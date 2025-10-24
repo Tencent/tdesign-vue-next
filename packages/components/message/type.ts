@@ -3,7 +3,7 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
-import { ComponentPublicInstance } from 'vue';
+
 import { TNode, AttachNode, AppContext } from '../common';
 
 export interface TdMessageProps {
@@ -88,13 +88,13 @@ export type MessagePlacementList =
   | 'bottom-left'
   | 'bottom-right';
 
-export interface MessageInstance extends ComponentPublicInstance {
+export interface MessageInstance {
   close: () => void;
 }
 
 export type MessageMethod = (
   theme: MessageThemeList,
-  message: string | MessageOptions,
+  message: string | TNode | MessageOptions,
   duration?: number,
   context?: AppContext,
 ) => Promise<MessageInstance>;
@@ -102,37 +102,37 @@ export type MessageMethod = (
 export type MessageInfoOptions = Omit<MessageOptions, 'theme'>;
 
 export type MessageInfoMethod = (
-  message: string | MessageInfoOptions,
+  message: string | TNode | MessageInfoOptions,
   duration?: number,
   context?: AppContext,
 ) => Promise<MessageInstance>;
 
 export type MessageErrorMethod = (
-  message: string | MessageInfoOptions,
+  message: string | TNode | MessageInfoOptions,
   duration?: number,
   context?: AppContext,
 ) => Promise<MessageInstance>;
 
 export type MessageWarningMethod = (
-  message: string | MessageInfoOptions,
+  message: string | TNode | MessageInfoOptions,
   duration?: number,
   context?: AppContext,
 ) => Promise<MessageInstance>;
 
 export type MessageSuccessMethod = (
-  message: string | MessageInfoOptions,
+  message: string | TNode | MessageInfoOptions,
   duration?: number,
   context?: AppContext,
 ) => Promise<MessageInstance>;
 
 export type MessageLoadingMethod = (
-  message: string | MessageInfoOptions,
+  message: string | TNode | MessageInfoOptions,
   duration?: number,
   context?: AppContext,
 ) => Promise<MessageInstance>;
 
 export type MessageQuestionMethod = (
-  message: string | MessageInfoOptions,
+  message: string | TNode | MessageInfoOptions,
   duration?: number,
   context?: AppContext,
 ) => Promise<MessageInstance>;
