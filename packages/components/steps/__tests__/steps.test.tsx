@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import { nextTick, ref } from 'vue';
@@ -39,7 +38,7 @@ describe('Steps', () => {
     });
 
     it(':layout[horizontal/vertical]', () => {
-      const layoutList = ['horizontal', 'vertical'];
+      const layoutList = ['horizontal', 'vertical'] as const;
       layoutList.forEach((layout) => {
         const wrapper = mount(() => (
           <Steps layout={layout}>
@@ -91,7 +90,7 @@ describe('Steps', () => {
     });
 
     it(':separator[line/dashed/arrow]', async () => {
-      const separatorList = ['line', 'dashed', 'arrow'];
+      const separatorList = ['line', 'dashed', 'arrow'] as const;
       separatorList.forEach((separator) => {
         const wrapper = mount(() => (
           <Steps separator={separator}>
@@ -107,7 +106,7 @@ describe('Steps', () => {
     });
 
     it(':sequence[positive/reverse]', async () => {
-      const sequenceList = ['positive', 'reverse'];
+      const sequenceList = ['positive', 'reverse'] as const;
       sequenceList.forEach((sequence) => {
         const wrapper = mount(() => (
           <Steps sequence={sequence}>
@@ -123,7 +122,7 @@ describe('Steps', () => {
     });
 
     it(':theme[default/dot]', async () => {
-      const themeList = ['default', 'dot'];
+      const themeList = ['default', 'dot'] as const;
       themeList.forEach((theme) => {
         const wrapper = mount(() => (
           <Steps theme={theme}>
@@ -139,8 +138,8 @@ describe('Steps', () => {
     });
 
     it(':onChange[function]', async () => {
-      const current = ref(0);
-      const onChange = (n) => {
+      const current = ref<string | number>(0);
+      const onChange = (n: string | number) => {
         current.value = n;
       };
       const wrapper = mount(() => (
@@ -162,8 +161,8 @@ describe('Steps', () => {
 
     describe('events', () => {
       it('change', async () => {
-        const current = ref(0);
-        const onChange = (n) => {
+        const current = ref<string | number>(0);
+        const onChange = (n: string | number) => {
           current.value = n;
         };
         const wrapper = mount(() => (

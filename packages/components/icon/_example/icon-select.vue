@@ -1,17 +1,19 @@
 <template>
-  <t-select
-    v-model="value"
-    placeholder="请选择"
-    :style="{ width: '400px' }"
-    :popup-props="{ overlayInnerStyle: { width: '400px' } }"
-  >
-    <t-option v-for="item in options" :key="item.stem" :value="item.stem" class="overlay-options">
-      <div>
-        <t-icon :name="item.stem" />
-      </div>
-    </t-option>
-    <template #valueDisplay><t-icon :name="value" :style="{ marginRight: '8px' }" />{{ value }}</template>
-  </t-select>
+  <t-space>
+    <t-select
+      v-model="value"
+      placeholder="请选择"
+      :style="{ width: '400px' }"
+      :popup-props="{ overlayInnerStyle: { width: '400px' } }"
+    >
+      <t-option v-for="item in options" :key="item.stem" :value="item.stem" class="overlay-options">
+        <div>
+          <t-icon :name="item.stem" />
+        </div>
+      </t-option>
+      <template #valueDisplay><t-icon :name="value" :style="{ marginRight: '8px' }" />{{ value }}</template>
+    </t-select>
+  </t-space>
 </template>
 <script setup>
 import { ref } from 'vue';

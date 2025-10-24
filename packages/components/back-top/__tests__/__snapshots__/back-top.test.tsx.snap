@@ -71,13 +71,21 @@ exports[`BackTop > props > :offset[Array] 1`] = `
     class="t-icon t-icon-backtop t-back-top__icon"
     fill="none"
     height="1em"
+    style="fill: none;"
     viewBox="0 0 24 24"
     width="1em"
   >
-    <path
-      d="M4 4H20V6H4V4ZM12 7.58579L18.9142 14.5L17.5 15.9142L13 11.4142V21H11V11.4142L6.5 15.9142L5.08579 14.5L12 7.58579Z"
-      fill="currentColor"
-    />
+    <g
+      id="backtop"
+    >
+      <path
+        d="M17.5 14.5L12 9L6.5 14.5M5 5H19M12 10.25V20"
+        id="stroke1"
+        stroke="currentColor"
+        stroke-linecap="square"
+        stroke-width="2"
+      />
+    </g>
   </svg>
   <span
     class="t-back-top__text"
@@ -99,13 +107,21 @@ exports[`BackTop > props > :shape[circle/square] > shape-circle 1`] = `
     class="t-icon t-icon-backtop t-back-top__icon"
     fill="none"
     height="1em"
+    style="fill: none;"
     viewBox="0 0 24 24"
     width="1em"
   >
-    <path
-      d="M4 4H20V6H4V4ZM12 7.58579L18.9142 14.5L17.5 15.9142L13 11.4142V21H11V11.4142L6.5 15.9142L5.08579 14.5L12 7.58579Z"
-      fill="currentColor"
-    />
+    <g
+      id="backtop"
+    >
+      <path
+        d="M17.5 14.5L12 9L6.5 14.5M5 5H19M12 10.25V20"
+        id="stroke1"
+        stroke="currentColor"
+        stroke-linecap="square"
+        stroke-width="2"
+      />
+    </g>
   </svg>
   <span
     class="t-back-top__text"
@@ -127,13 +143,21 @@ exports[`BackTop > props > :shape[circle/square] > shape-square 1`] = `
     class="t-icon t-icon-backtop t-back-top__icon"
     fill="none"
     height="1em"
+    style="fill: none;"
     viewBox="0 0 24 24"
     width="1em"
   >
-    <path
-      d="M4 4H20V6H4V4ZM12 7.58579L18.9142 14.5L17.5 15.9142L13 11.4142V21H11V11.4142L6.5 15.9142L5.08579 14.5L12 7.58579Z"
-      fill="currentColor"
-    />
+    <g
+      id="backtop"
+    >
+      <path
+        d="M17.5 14.5L12 9L6.5 14.5M5 5H19M12 10.25V20"
+        id="stroke1"
+        stroke="currentColor"
+        stroke-linecap="square"
+        stroke-width="2"
+      />
+    </g>
   </svg>
   <span
     class="t-back-top__text"
