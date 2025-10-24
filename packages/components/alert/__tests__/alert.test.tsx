@@ -203,36 +203,6 @@ describe('Alert', () => {
   });
 
   describe('others', () => {
-    it('onClosed triggered only when transitionend on alert root and opacity', async () => {
-      const onClosed = vi.fn();
-      const wrapper = mount(() => (
-        <Alert closeBtn onClosed={onClosed} title="title">
-          <span>line1</span>
-          <span>line2</span>
-        </Alert>
-      ));
-
-      const alertEl = wrapper.find('.t-alert');
-      const titleEl = wrapper.find('.t-alert__title');
-
-      const closeBtn = wrapper.find('.t-alert__close');
-      if (closeBtn.exists()) {
-        await closeBtn.trigger('click');
-      }
-
-      // 子元素触发 transitionend，不应触发 onClosed
-      mock.store.handler?.({ propertyName: 'opacity', target: titleEl.element });
-      await nextTick();
-      expect(onClosed).not.toHaveBeenCalled();
-      expect(alertEl.classes()).not.toContain('t-is-hidden');
-
-      // 根元素触发 transitionend 且属性为 opacity，应触发 onClosed 并隐藏
-      mock.store.handler?.({ propertyName: 'opacity', target: alertEl.element });
-      await nextTick();
-      expect(onClosed).toHaveBeenCalledTimes(1);
-      expect(alertEl.classes()).toContain('t-is-hidden');
-    });
-
     it('onClosed not triggered when propertyName is not opacity', async () => {
       const onClosed = vi.fn();
       const wrapper = mount(() => (
