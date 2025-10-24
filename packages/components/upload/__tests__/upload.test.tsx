@@ -13,7 +13,8 @@ describe('Upload Component', () => {
     server.listen({ onUnhandledRequest: 'error' });
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    await sleep(50);
     server.resetHandlers();
   });
 
