@@ -3,7 +3,6 @@ import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { Rate } from '@tdesign/components';
-import RateProps from '@tdesign/components/rate/props';
 import { StarFilledIcon } from 'tdesign-icons-vue-next';
 import { sleep } from '@tdesign/internal-utils';
 
