@@ -1,7 +1,7 @@
 import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { beforeEach, expect, it, vi, describe } from 'vitest';
-import { Affix } from '@tdesign/components/affix';
+import { Affix } from '@tdesign/components';
 
 describe('Affix', () => {
   vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
