@@ -38,7 +38,7 @@ describe('Dropdown hooks', () => {
         props: {
           options: {
             type: Array,
-            default: () => [],
+            default: () => [] as Array<DropdownOption>,
           },
         },
         setup(props, { expose }: SetupContext) {
