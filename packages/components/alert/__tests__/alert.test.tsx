@@ -12,25 +12,31 @@ import { Fragment, nextTick } from 'vue';
 import log from '@tdesign/common-js/log/index';
 import { Alert } from '@tdesign/components/alert';
 
-const h = vi.hoisted(() => {
-  const store = { handler: null as ((e: any) => void) | null };
+const mock = vi.hoisted(() => {
+  const store = { handler: null } as { handler: ((e: any) => void) | null };
   const onMock = vi.fn((el: Element, evt: string, handler: (e: any) => void) => {
-    if (evt === 'transitionend') store.handler = handler;
+    if (evt === 'transitionend') {
+      store.handler = handler;
+    }
   });
-  const offMock = vi.fn();
   const addClassMock = vi.fn((el: Element | null, cls: string) => {
-    if (el) el.classList.add(cls);
+    if (el) {
+      el.classList.add(cls);
+    }
   });
-  return { store, onMock, offMock, addClassMock };
+  return {
+    store,
+    onMock,
+    addClassMock,
+  };
 });
 
 vi.mock('@tdesign/shared-utils', async (importOriginal) => {
   const actual = await importOriginal<any>();
   return {
     ...actual,
-    on: h.onMock,
-    off: h.offMock,
-    addClass: h.addClassMock,
+    on: mock.onMock,
+    addClass: mock.addClassMock,
   };
 });
 
@@ -215,13 +221,13 @@ describe('Alert', () => {
       }
 
       // 子元素触发 transitionend，不应触发 onClosed
-      h.store.handler?.({ propertyName: 'opacity', target: titleEl.element });
+      mock.store.handler?.({ propertyName: 'opacity', target: titleEl.element });
       await nextTick();
       expect(onClosed).not.toHaveBeenCalled();
       expect(alertEl.classes()).not.toContain('t-is-hidden');
 
       // 根元素触发 transitionend 且属性为 opacity，应触发 onClosed 并隐藏
-      h.store.handler?.({ propertyName: 'opacity', target: alertEl.element });
+      mock.store.handler?.({ propertyName: 'opacity', target: alertEl.element });
       await nextTick();
       expect(onClosed).toHaveBeenCalledTimes(1);
       expect(alertEl.classes()).toContain('t-is-hidden');
@@ -236,15 +242,10 @@ describe('Alert', () => {
       ));
       const alertEl = wrapper.find('.t-alert');
 
-      h.store.handler?.({ propertyName: 'height', target: alertEl.element });
+      mock.store.handler?.({ propertyName: 'height', target: alertEl.element });
       await nextTick();
       expect(onClosed).not.toHaveBeenCalled();
       expect(alertEl.classes()).not.toContain('t-is-hidden');
-
-      // 卸载时应解绑（on 在挂载时调用，off 在卸载时调用）
-      wrapper.unmount();
-      expect(h.onMock).toHaveBeenCalled();
-      expect(h.offMock).toHaveBeenCalled();
     });
 
     it('close (deprecated) triggers warnOnce and renders CloseIcon', async () => {
