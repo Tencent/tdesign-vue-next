@@ -199,6 +199,13 @@ const columns = computed<TableProps['columns']>(() => {
         showConfirmAndReset: true,
         // 日期范围是一个组件，重置时需赋值为 []
         resetValue: [],
+        // 自定义过滤值显示格式，避免显示 [object Object]
+        formatValue: (value: any) => {
+          if (Array.isArray(value) && value.length === 2) {
+            return `${value[0]} ~ ${value[1]}`;
+          }
+          return value ? String(value) : '';
+        },
       },
     },
   ];

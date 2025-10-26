@@ -612,6 +612,49 @@ TABLES.forEach((TTable) => {
           });
         }
       });
+
+      describe(':filter.formatValue', () => {
+        it('formatValue should format complex filter values', async () => {
+          if (TTable.name === 'TBaseTable') return;
+
+          const filterColumns = [
+            {
+              title: 'Date Range',
+              colKey: 'dateRange',
+              filter: {
+                type: 'input',
+                resetValue: [],
+                formatValue: (value) => {
+                  if (Array.isArray(value) && value.length === 2) {
+                    return `${value[0]} ~ ${value[1]}`;
+                  }
+                  return value ? String(value) : '';
+                },
+              },
+            },
+          ];
+
+          const wrapper = mount({
+            render() {
+              return (
+                <TTable
+                  rowKey="index"
+                  data={data}
+                  columns={filterColumns}
+                  filterValue={{ dateRange: ['2025-01-01', '2025-12-31'] }}
+                ></TTable>
+              );
+            },
+          });
+
+          await wrapper.vm.$nextTick();
+          const filterResult = wrapper.find('.t-table__filter-result');
+          if (filterResult.exists()) {
+            expect(filterResult.text()).toContain('2025-01-01 ~ 2025-12-31');
+            expect(filterResult.text()).not.toContain('[object Object]');
+          }
+        });
+      });
     });
   });
 });
