@@ -88,7 +88,10 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
       .filter((col) => col.filter)
       .forEach((col, index) => {
         let value = tFilterValue.value[col.colKey];
-        if (col.filter.list && !['null'].includes(String(value))) {
+        // 优先使用自定义格式化函数
+        if (isFunction(col.filter?.formatValue)) {
+          value = col.filter.formatValue(value);
+        } else if (col.filter.list && !['null'].includes(String(value))) {
           const formattedValue = value instanceof Array ? value : [value];
           const label: string[] = [];
           col.filter.list.forEach((option) => {

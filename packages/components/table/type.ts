@@ -865,6 +865,10 @@ export interface TableColumnFilter {
    */
   confirmEvents?: string[];
   /**
+   * 用于格式化过滤值在"过滤结果行"中的显示。当筛选值为复杂数据类型（如对象、数组）时，可通过该函数自定义显示内容
+   */
+  formatValue?: (value: any) => string;
+  /**
    * 过滤项标题文本，显示在“过滤结果行”中的列标题描述。一般用于表头标题和过滤文本行中的列标题不一样的场景
    */
   label?: string | TNode;
