@@ -624,7 +624,7 @@ TABLES.forEach((TTable) => {
               filter: {
                 type: 'input',
                 resetValue: [],
-                formatValue: (value) => {
+                formatValue: (value: unknown) => {
                   if (Array.isArray(value) && value.length === 2) {
                     return `${value[0]} ~ ${value[1]}`;
                   }
