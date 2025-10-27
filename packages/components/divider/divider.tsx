@@ -1,7 +1,7 @@
 import { computed, defineComponent } from 'vue';
 import props from './props';
 import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
-import { pxCompat } from '@common/js/utils/helper';
+import { pxCompat } from '@tdesign/common-js/utils/helper';
 
 export default defineComponent({
   name: 'TDivider',
