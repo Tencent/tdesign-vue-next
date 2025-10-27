@@ -31,3 +31,8 @@ const inputEnter = function () {
   }, 5000);
 };
 </script>
+<style>
+.test {
+  color: var(--td-brand-color);
+}
+</style>

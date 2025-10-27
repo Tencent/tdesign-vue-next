@@ -25,7 +25,6 @@ const animationOptions = [
   { label: 'skeleton', value: 'skeleton' },
   { label: 'moving', value: 'moving' },
   { label: 'gradient', value: 'gradient' },
-  { label: 'circle', value: 'circle' },
   { label: 'dot', value: 'dot' },
 ];
 </script>
