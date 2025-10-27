@@ -42,6 +42,13 @@ describe('Message', () => {
       });
     });
 
+    it(':className', () => {
+      const customClass = 'custom-message-class';
+      const wrapper = mount(() => <Message content={text} className={customClass} />);
+      const message = wrapper.find('.t-message');
+      expect(message.classes()).toContain(customClass);
+    });
+
     it(':onCloseBtnClick', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => <Message content={text} closeBtn onCloseBtnClick={fn} />);
@@ -99,6 +106,18 @@ describe('Message', () => {
       await nextTick();
 
       expect(document.querySelectorAll('.t-message').length).toBe(0);
+    });
+
+    it('should apply className option', async () => {
+      const customClass = 'custom-plugin-message';
+      MessagePlugin.loading({ className: customClass, content: 'test', duration: 0 });
+
+      await nextTick();
+
+      const message = document.querySelector('.t-message');
+      expect(message?.classList.contains(customClass)).toBe(true);
+
+      MessagePlugin.closeAll();
     });
   });
 });
