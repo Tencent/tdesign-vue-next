@@ -25,6 +25,7 @@ export default {
   /** 卡片模式下非当前展示轮播图的缩放比例 */
   cardScale: {
     type: Number,
+    default: 210 / 332,
   },
   /** 当前轮播在哪一项（下标） */
   current: {
