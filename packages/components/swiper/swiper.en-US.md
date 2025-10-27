@@ -1,6 +1,6 @@
+:: BASE_DOC ::
 
 ## API
-
 
 ### Swiper Props
 
