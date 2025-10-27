@@ -1,12 +1,14 @@
-:: BASE_DOC ::
 
 ## API
+
+
 ### Swiper Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 animation | String | slide | 轮播切换动画效果类型：滑动、淡入淡出等。可选项：slide/fade | N
 autoplay | Boolean | true | 是否自动播放 | N
+cardScale | Number | 210/332 | 卡片模式下非当前展示轮播图的缩放比例 | N
 current | Number | 0 | 当前轮播在哪一项（下标）。支持语法糖 `v-model` 或 `v-model:current` | N
 defaultCurrent | Number | 0 | 当前轮播在哪一项（下标）。非受控属性 | N
 direction | String | horizontal | 轮播滑动方向，包括横向滑动和纵向滑动两个方向。可选项：horizontal/vertical | N
@@ -19,7 +21,6 @@ stopOnHover | Boolean | true | 是否悬浮时停止轮播 | N
 theme | String | light | 深色模式和浅色模式。可选项：light/dark | N
 trigger | String | hover | 触发切换的方式：悬浮、点击等。可选项：hover/click | N
 type | String | default | 样式类型：默认样式、卡片样式。可选项：default/card | N
-cardScale | Number | 210/332 | 卡片模式下的缩放比例 | N
 onChange | Function |  | TS 类型：`(current: number, context: { source: SwiperChangeSource }) => void`<br/>轮播切换时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/swiper/type.ts)。<br/>`type SwiperChangeSource = 'autoplay' \| 'click' \| 'hover'`<br/> | N
 
 ### Swiper Events
@@ -30,7 +31,7 @@ change | `(current: number, context: { source: SwiperChangeSource })` | 轮播�
 
 ### SwiperNavigation
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 placement | String | inside | 导航器位置，位于主体的内侧或是外侧。可选项：inside/outside | N
 showSlideBtn | String | always | 何时显示导航器的翻页按钮：始终显示、悬浮显示、永不显示。可选项：always/hover/never | N
