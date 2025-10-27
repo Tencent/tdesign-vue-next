@@ -12,6 +12,9 @@ export function useDrag(initTransform: InitTransform) {
   const transform = ref(initTransform);
 
   const mouseDownHandler = (e: MouseEvent) => {
+    // only move by left mouse click
+    if (e.button !== 0) return;
+
     const { pageX: startX, pageY: startY } = e;
     const { translateX, translateY } = transform.value;
     const mouseMoveHandler = (e: MouseEvent) => {
@@ -21,13 +24,19 @@ export function useDrag(initTransform: InitTransform) {
         translateY: translateY + pageY - startY,
       };
     };
-    const mouseUpHandler = () => {
+
+    const removeHandler = () => {
       document.removeEventListener('mousemove', mouseMoveHandler);
       document.removeEventListener('mouseup', mouseUpHandler);
+      document.removeEventListener('mouseleave', mouseLeaveHandler);
     };
+
+    const mouseUpHandler = () => removeHandler();
+    const mouseLeaveHandler = () => removeHandler();
 
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
+    document.addEventListener('mouseleave', mouseLeaveHandler);
   };
 
   const resetTransform = () => {
