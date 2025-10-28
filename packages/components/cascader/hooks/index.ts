@@ -261,7 +261,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
     (val) => {
       if (props.checkStrictly && props.filterable) {
         if (val) {
-          const flattenedOptions = flattenOptions(props.options, cascaderContext.value.treeStore);
+          const flattenedOptions = flattenOptions(props.options);
           statusContext.treeStore.reload(flattenedOptions);
           statusContext.treeStore.refreshNodes();
         } else {
