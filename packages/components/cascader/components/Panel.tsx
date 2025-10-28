@@ -32,7 +32,7 @@ export default defineComponent({
 
     const handleExpand = (node: TreeNode, trigger: 'hover' | 'click') => {
       const { trigger: propsTrigger, cascaderContext } = props;
-      expandClickEffect(propsTrigger, trigger, node, cascaderContext, props.options);
+      expandClickEffect(propsTrigger, trigger, node, cascaderContext);
     };
 
     const renderItem = (node: TreeNode, index: number) => {

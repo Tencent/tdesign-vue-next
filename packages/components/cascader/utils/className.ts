@@ -33,9 +33,10 @@ export function getNodeStatusClass(
   STATUS: Record<string, string>,
   cascaderContext: CascaderContextType,
 ) {
-  const { checkStrictly, multiple, value, max } = cascaderContext;
+  const { checkStrictly, multiple, value, max, isParentFilterable } = cascaderContext;
   const expandedActive =
-    (!checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true)) || (checkStrictly && node.expanded);
+    (!checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true)) ||
+    (checkStrictly && node.expanded && !isParentFilterable);
 
   const isLeaf = node.isLeaf();
 
