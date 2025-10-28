@@ -130,7 +130,15 @@ export default defineComponent({
             (node.loading ? (
               <TLoading class={iconClass.value} size="small" />
             ) : (
-              <ChevronRightIcon class={iconClass.value} />
+              <ChevronRightIcon
+                class={iconClass.value}
+                onClick={({ e }: { e: MouseEvent }) => {
+                  if (isOptionChildAndMultiple) {
+                    e.stopPropagation();
+                    props.onClick();
+                  }
+                }}
+              />
             ))}
         </li>
       );
