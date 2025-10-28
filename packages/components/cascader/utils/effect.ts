@@ -15,7 +15,6 @@ export function expandClickEffect(
   trigger: TdCascaderProps['trigger'],
   node: TreeNode,
   cascaderContext: CascaderContextType,
-  options: TdCascaderProps['options'],
 ) {
   const { checkStrictly, multiple, treeStore, setVisible, setValue, setTreeNodes, setExpand, value, max, valueType } =
     cascaderContext;
@@ -27,9 +26,7 @@ export function expandClickEffect(
   if (propsTrigger === trigger) {
     const expanded = node.setExpanded(true);
 
-    if (checkStrictly && cascaderContext.inputVal) {
-      setTimeout(() => treeStore.reload(options), 300);
-    } else if (!cascaderContext.inputVal) {
+    if (!cascaderContext.inputVal) {
       treeStore.replaceExpanded(expanded);
       const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
       setTreeNodes(nodes);

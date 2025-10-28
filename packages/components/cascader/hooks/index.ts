@@ -67,7 +67,9 @@ export const useContext = (
     expend: [],
   });
 
-  const isParentFilterable = computed(() => props.valueMode === 'parentFirst' && statusContext.inputVal);
+  const isParentFilterable = computed(
+    () => (props.valueMode === 'parentFirst' || props.checkStrictly) && statusContext.inputVal,
+  );
 
   return {
     statusContext,
@@ -258,19 +260,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
   watch(
     () => statusContext.inputVal,
-    (val) => {
-      if (props.checkStrictly && props.filterable) {
-        if (val) {
-          const flattenedOptions = flattenOptions(props.options);
-          statusContext.treeStore.reload(flattenedOptions);
-          statusContext.treeStore.refreshNodes();
-        } else {
-          statusContext.treeStore.reload(props.options);
-        }
-        const expand = calculateExpand(statusContext.treeStore, cascaderContext.value.value);
-        statusContext.treeStore.replaceExpanded(expand);
-        updateExpand();
-      }
+    () => {
       updatedTreeNodes();
     },
   );
