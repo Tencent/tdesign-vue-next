@@ -11,7 +11,6 @@ import {
   isValueInvalid,
   treeNodesEffect,
   treeStoreExpendEffect,
-  calculateExpand,
 } from '../utils';
 
 import {
@@ -23,34 +22,6 @@ import {
   CascaderValue,
   TreeOptionData,
 } from '../types';
-
-/**
- * @description 扁平化树形数据，在 filterable 和 checkStrictly 或 valueMode 为 parentFirst 时使用
- */
-function flattenOptions(options: TdCascaderProps['options']) {
-  const result: TdCascaderProps['options'] = [];
-
-  function processNodes(nodes: any[], parentLabel = '', isParentDisabled = false) {
-    nodes.forEach((node) => {
-      const currentDisabled = isParentDisabled || node.disabled || false;
-      const currentLabel = parentLabel ? `${parentLabel}/${node.label}` : node.label;
-      const newNode = {
-        label: currentLabel,
-        value: node.value,
-        disabled: currentDisabled,
-      };
-
-      result.push(newNode);
-
-      if (node.children) {
-        processNodes(node.children, currentLabel, currentDisabled);
-      }
-    });
-  }
-
-  processNodes(options);
-  return result;
-}
 
 // 全局状态
 export const useContext = (
@@ -67,6 +38,7 @@ export const useContext = (
     expend: [],
   });
 
+  // 部分模式下需要允许父节点被搜索选择 valueMode = 'parentFirst' 和 checkStrictly
   const isParentFilterable = computed(
     () => (props.valueMode === 'parentFirst' || props.checkStrictly) && statusContext.inputVal,
   );
