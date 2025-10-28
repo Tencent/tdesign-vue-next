@@ -22,6 +22,7 @@ showArrow | Boolean | false | \- | N
 trigger | String | hover | options: hover/click/focus/mousedown/context-menu | N
 triggerElement | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 visible | Boolean | - | `v-model` and `v-model:visible` is supported。Typescript：`boolean` | N
+defaultVisible | Boolean | - | uncontrolled property。Typescript：`boolean` | N
 zIndex | Number | - | \- | N
 onOverlayClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>trigger on popup content click | N
 onScroll | Function |  | Typescript：`(context: { e: WheelEvent }) => void`<br/> | N
