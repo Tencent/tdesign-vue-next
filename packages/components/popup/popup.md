@@ -80,5 +80,5 @@ visible-change | `(visible: boolean, context: PopupVisibleChangeContext)` | 当�
 -- | -- | -- | --
 getOverlay | \- | `HTMLElement` | 获取浮层元素
 getOverlayState | \- | `{ hover: boolean }` | 获取浮层悬浮状态
-getPopper | \- | `typeof createPopper ` | 获取当前组件 popper 实例。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/popup/type.ts)。<br/>`import { createPopper } from '@popperjs/core'`<br/>
+getPopper | \- | `typeof createPopper` | 获取当前组件 popper 实例。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/popup/type.ts)。<br/>`import { createPopper } from '@popperjs/core'`<br/>
 update | \- | \- | 更新浮层内容

@@ -124,7 +124,6 @@ export interface PopupInstanceFunctions {
   getOverlayState?: () => { hover: boolean };
   /**
    * 获取当前组件 popper 实例
-   * @default false
    */
   getPopper?: () => typeof createPopper;
   /**

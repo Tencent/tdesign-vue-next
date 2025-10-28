@@ -44,5 +44,5 @@ name | params | return | description
 -- | -- | -- | --
 getOverlay | \- | `HTMLElement` | used to get overly html element
 getOverlayState | \- | `{ hover: boolean }` | get mouseover state of overlay
-getPopper | \- | `typeof createPopper ` | get the popup component popper instance。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/popup/type.ts)。<br/>`import { createPopper } from '@popperjs/core'`<br/>
+getPopper | \- | `typeof createPopper` | get the popup component popper instance。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/popup/type.ts)。<br/>`import { createPopper } from '@popperjs/core'`<br/>
 update | \- | \- | used to update overlay content
