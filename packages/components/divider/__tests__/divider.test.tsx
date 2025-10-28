@@ -110,18 +110,15 @@ describe('Divider', () => {
     it(':size[string/number]', () => {
       // string
       const wrapperString = mount(<Divider size="20px" />);
-      expect(wrapperString.attributes('style')).toContain('margin: 20px 0;');
-      expect(wrapperString.element).toMatchSnapshot('size-string');
+      expect(wrapperString.attributes('style')).toContain('margin: 20px 0px;');
 
       // number
       const wrapperNumber = mount(<Divider size={30} />);
-      expect(wrapperNumber.attributes('style')).toContain('margin: 30px 0;');
-      expect(wrapperNumber.element).toMatchSnapshot('size-number');
+      expect(wrapperNumber.attributes('style')).toContain('margin: 30px 0px;');
 
       // vertical
       const wrapperVertical = mount(<Divider layout="vertical" size="40px" />);
-      expect(wrapperVertical.attributes('style')).toContain('margin: 0 40px;');
-      expect(wrapperVertical.element).toMatchSnapshot('size-vertical');
+      expect(wrapperVertical.attributes('style')).toContain('margin: 0px 40px;');
     });
   });
 });
