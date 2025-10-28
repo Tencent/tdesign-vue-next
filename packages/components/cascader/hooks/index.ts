@@ -25,7 +25,7 @@ import {
 } from '../types';
 
 /**
- * @description 扁平化树形数据，在 filterable 和 checkStrictly 时使用
+ * @description 扁平化树形数据，在 filterable 和 checkStrictly 或 valueMode 为 parentFirst 时使用
  */
 function flattenOptions(options: TdCascaderProps['options']) {
   const result: TdCascaderProps['options'] = [];
@@ -34,12 +34,12 @@ function flattenOptions(options: TdCascaderProps['options']) {
     nodes.forEach((node) => {
       const currentDisabled = isParentDisabled || node.disabled || false;
       const currentLabel = parentLabel ? `${parentLabel}/${node.label}` : node.label;
-
       const newNode = {
         label: currentLabel,
         value: node.value,
         disabled: currentDisabled,
       };
+
       result.push(newNode);
 
       if (node.children) {
@@ -67,6 +67,8 @@ export const useContext = (
     expend: [],
   });
 
+  const isParentFilterable = computed(() => props.valueMode === 'parentFirst' && statusContext.inputVal);
+
   return {
     statusContext,
     cascaderContext: computed(() => {
@@ -84,6 +86,7 @@ export const useContext = (
         minCollapsedNum,
         valueType,
         modelValue,
+        valueMode,
       } = props;
       return {
         value: statusContext.scopeVal,
@@ -99,7 +102,9 @@ export const useContext = (
         showAllLevels,
         minCollapsedNum,
         valueType,
+        valueMode,
         visible: innerPopupVisible.value,
+        isParentFilterable: isParentFilterable.value,
         ...statusContext,
         setTreeNodes: (nodes: TreeNode[]) => {
           statusContext.treeNodes = nodes;
@@ -112,7 +117,7 @@ export const useContext = (
         setInputVal: (val: string) => {
           statusContext.inputVal = val;
         },
-        setExpend: (val: TreeNodeValue[]) => {
+        setExpand: (val: TreeNodeValue[]) => {
           statusContext.expend = val;
         },
       };
@@ -139,12 +144,12 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
   // 更新treeNodes
   const updatedTreeNodes = () => {
-    const { inputVal, treeStore, setTreeNodes } = cascaderContext.value;
-    treeNodesEffect(inputVal, treeStore, setTreeNodes, props.filter);
+    const { inputVal, treeStore, setTreeNodes, isParentFilterable } = cascaderContext.value;
+    treeNodesEffect(inputVal, treeStore, setTreeNodes, props.filter, isParentFilterable);
   };
 
   // 更新节点展开状态
-  const updateExpend = () => {
+  const updateExpand = () => {
     const { value, treeStore } = cascaderContext.value;
     const { expend } = statusContext;
     treeStoreExpendEffect(treeStore, value, expend);
@@ -185,7 +190,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
         treeStore.reload(options);
         treeStore.refreshNodes();
       }
-      updateExpend();
+      updateExpand();
       updatedTreeNodes();
     },
     { immediate: true, deep: true },
@@ -235,7 +240,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
       }
 
       if (!statusContext.treeStore) return;
-      updateExpend();
+      updateExpand();
       updatedTreeNodes();
     },
     { immediate: true },
@@ -256,7 +261,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
     (val) => {
       if (props.checkStrictly && props.filterable) {
         if (val) {
-          const flattenedOptions = flattenOptions(props.options);
+          const flattenedOptions = flattenOptions(props.options, cascaderContext.value.treeStore);
           statusContext.treeStore.reload(flattenedOptions);
           statusContext.treeStore.refreshNodes();
         } else {
@@ -264,7 +269,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
         }
         const expand = calculateExpand(statusContext.treeStore, cascaderContext.value.value);
         statusContext.treeStore.replaceExpanded(expand);
-        updateExpend();
+        updateExpand();
       }
       updatedTreeNodes();
     },
