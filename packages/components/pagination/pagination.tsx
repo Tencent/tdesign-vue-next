@@ -144,7 +144,8 @@ export default defineComponent({
     watch(
       () => pageCount.value,
       () => {
-        if (innerCurrent.value > pageCount.value) innerCurrent.value = 1;
+        if (innerCurrent.value > pageCount.value)
+          setInnerCurrent(1, { current: 1, previous: innerCurrent.value, pageSize: innerPageSize.value });
       },
     );
     watch(
