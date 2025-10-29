@@ -1,6 +1,5 @@
 <template>
   <t-space direction="vertical">
-    <t-button @click="toggleTyping">{{ isTyping ? '暂停' : '流式输出' }}</t-button>
     <t-chat-markdown :content="displayText" />
   </t-space>
 </template>
@@ -77,14 +76,6 @@ const isTyping = ref(false);
 const timerRef = ref(null);
 const currentIndex = ref(doc.length);
 const startTimeRef = ref(Date.now());
-
-const toggleTyping = () => {
-  if (currentIndex.value >= doc.length) {
-    currentIndex.value = 0;
-    displayText.value = '';
-  }
-  isTyping.value = !isTyping.value;
-};
 
 const typeWriter = () => {
   if (!isTyping.value) return;

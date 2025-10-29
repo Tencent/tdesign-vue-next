@@ -7,4 +7,5 @@ import type { TdChatThinkContentProps } from 'tdesign-web-components/lib/chat-me
 export const ChatThinking = omiVueify('t-chat-thinking-content', {
   methodNames: [],
 }) as DefineComponent<TdChatThinkContentProps>;
+
 export default ChatThinking;

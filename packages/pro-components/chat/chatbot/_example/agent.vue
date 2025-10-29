@@ -16,7 +16,11 @@
               <Timeline mode="same" theme="dot">
                 <TimelineItem v-for="step in item.content.steps" :key="step.agent_id" label="">
                   <template #dot>
-                    <CheckCircleFilledIcon :size="'medium'" :color="step?.status === 'finish' ? 'green' : '#ccc'" />
+                    <CheckCircleFilledIcon
+                      :size="'medium'"
+                      :color="step?.status === 'finish' ? 'var(--td-success-color)' : '#ccc'"
+                      class="t-timeline-item__dot-content"
+                    />
                   </template>
                   <div class="step">
                     <div class="title">{{ step.step }}</div>
@@ -181,7 +185,7 @@ onMounted(() => {
 
 <style scoped>
 .step {
-  color: #4d4d4d;
+  color: var(--td-text-color-secondary);
 }
 
 .title {
@@ -196,7 +200,7 @@ onMounted(() => {
 }
 
 .command {
-  background-color: #efeff0;
+  background-color: var(--td-bg-color-secondarycontainer);
   border-radius: 12px;
   display: inline-block; /* 内联块级元素使宽度自适应内容 */
   padding: 4px 8px;
