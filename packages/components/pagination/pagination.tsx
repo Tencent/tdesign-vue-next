@@ -140,14 +140,6 @@ export default defineComponent({
       return array;
     });
 
-    // 如果页面总数发生变化并当前页数大于总页数则重置为1
-    watch(
-      () => pageCount.value,
-      () => {
-        if (innerCurrent.value > pageCount.value)
-          setInnerCurrent(1, { current: 1, previous: innerCurrent.value, pageSize: innerPageSize.value });
-      },
-    );
     watch(
       () => innerCurrent.value,
       (val) => (jumpIndex.value = val),
