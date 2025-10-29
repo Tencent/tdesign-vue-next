@@ -113,14 +113,8 @@ export default defineComponent({
 
     return () => {
       const { cascaderContext, node, optionChild } = props;
-      const isOptionChildAndMultiple = optionChild && cascaderContext.multiple;
       return (
-        <li
-          ref={liRef}
-          class={itemClass.value}
-          onClick={() => (isOptionChildAndMultiple ? props.onChange() : props.onClick())}
-          onMouseenter={props.onMouseenter}
-        >
+        <li ref={liRef} class={itemClass.value} onClick={props.onClick} onMouseenter={props.onMouseenter}>
           {optionChild ||
             (cascaderContext.multiple
               ? RenderCheckBox(node, cascaderContext)
@@ -130,15 +124,7 @@ export default defineComponent({
             (node.loading ? (
               <TLoading class={iconClass.value} size="small" />
             ) : (
-              <ChevronRightIcon
-                class={iconClass.value}
-                onClick={({ e }: { e: MouseEvent }) => {
-                  if (isOptionChildAndMultiple) {
-                    e.stopPropagation();
-                    props.onClick();
-                  }
-                }}
-              />
+              <ChevronRightIcon class={iconClass.value} />
             ))}
         </li>
       );
