@@ -13,7 +13,7 @@ export function useDrag(initTransform: InitTransform) {
 
   const mouseDownHandler = (e: MouseEvent) => {
     // only move by left mouse click
-    if ('button' in e && e.button !== 0) return;
+    if (e.button !== 0) return;
 
     const { pageX: startX, pageY: startY } = e;
     const { translateX, translateY } = transform.value;
