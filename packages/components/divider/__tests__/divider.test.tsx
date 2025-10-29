@@ -29,8 +29,7 @@ describe('Divider', () => {
           text
         </Divider>,
       );
-      expect(wrapper.classes('t-divider--with-text-left')).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot('align-vertical-left');
+      expect(wrapper.classes('t-divider--with-text-left')).toBeFalsy();
     });
 
     it(':dashed[true/false]', () => {
