@@ -116,7 +116,10 @@ export default {
     default: undefined,
   },
   /** 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 */
-  reserveKeyword: Boolean,
+  reserveKeyword: {
+    type: Boolean,
+    default: true,
+  },
   /** 透传 SelectInput 筛选器输入框组件的全部属性 */
   selectInputProps: {
     type: Object as PropType<TdCascaderProps['selectInputProps']>,

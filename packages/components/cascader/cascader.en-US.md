@@ -36,7 +36,7 @@ popupVisible | Boolean | - | \- | N
 defaultPopupVisible | Boolean | - | uncontrolled property | N
 prefixIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 readonly | Boolean | undefined | \- | N
-reserveKeyword | Boolean | false | \- | N
+reserveKeyword | Boolean | true | \- | N
 selectInputProps | Object | - | Typescript：`SelectInputProps`，[SelectInput API Documents](./select-input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/cascader/type.ts) | N
 showAllLevels | Boolean | true | \- | N
 size | String | medium | options: large/medium/small。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N

@@ -62,7 +62,18 @@ export function expandClickEffect(
  * @returns
  */
 export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderContextType) {
-  const { disabled, max, inputVal, setVisible, setValue, treeNodes, treeStore, valueType } = cascaderContext;
+  const {
+    disabled,
+    max,
+    inputVal,
+    setVisible,
+    setValue,
+    treeNodes,
+    treeStore,
+    valueType,
+    setInputVal,
+    reserveKeyword,
+  } = cascaderContext;
 
   if (!node || disabled || node.disabled) {
     return;
@@ -103,6 +114,7 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
         );
 
   setValue(resValue, node.checked ? 'uncheck' : 'check', node.getModel());
+  if (!reserveKeyword) setInputVal('');
 }
 
 /**

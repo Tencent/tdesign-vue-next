@@ -36,7 +36,7 @@ popupVisible | Boolean | - | 是否显示下拉框 | N
 defaultPopupVisible | Boolean | - | 是否显示下拉框。非受控属性 | N
 prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 readonly | Boolean | undefined | 只读状态，值为真会隐藏输入框，且无法打开下拉框 | N
-reserveKeyword | Boolean | false | 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 | N
+reserveKeyword | Boolean | true | 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 | N
 selectInputProps | Object | - | 透传 SelectInput 筛选器输入框组件的全部属性。TS 类型：`SelectInputProps`，[SelectInput API Documents](./select-input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/cascader/type.ts) | N
 showAllLevels | Boolean | true | 选中值使用完整路径，输入框在单选时也显示完整路径 | N
 size | String | medium | 组件尺寸。可选项：large/medium/small。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N

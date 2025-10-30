@@ -61,6 +61,7 @@ export const useContext = (
         valueType,
         modelValue,
         valueMode,
+        reserveKeyword,
       } = props;
       return {
         value: statusContext.scopeVal,
@@ -77,6 +78,7 @@ export const useContext = (
         minCollapsedNum,
         valueType,
         valueMode,
+        reserveKeyword,
         visible: innerPopupVisible.value,
         isParentFilterable: isParentFilterable.value,
         ...statusContext,

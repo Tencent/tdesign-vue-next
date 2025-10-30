@@ -23,6 +23,7 @@ export interface CascaderContextType
     | 'minCollapsedNum'
     | 'valueType'
     | 'valueMode'
+    | 'reserveKeyword'
   > {
   treeStore: TreeStore;
   setValue: (val: CascaderValue, source: CascaderChangeSource, node?: TreeNodeModel) => void;
