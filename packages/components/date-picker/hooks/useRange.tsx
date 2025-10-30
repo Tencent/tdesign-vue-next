@@ -58,8 +58,11 @@ export function useRange(props: TdDateRangePickerProps) {
     onClick: ({ position }: any) => {
       activeIndex.value = position === 'first' ? 0 : 1;
     },
-    onClear: ({ e }: { e: MouseEvent }) => {
-      e.stopPropagation();
+    onClear: (context: { e: MouseEvent } | MouseEvent) => {
+      // 处理全局替换关闭图标的场景，此时event 可能不在 context 里面
+      if ('e' in context) context.e.stopPropagation();
+      else context.stopPropagation();
+
       popupVisible.value = false;
       onChange?.([], { dayjsValue: [], trigger: 'clear' });
     },
