@@ -31,11 +31,27 @@
       :option="optionRender"
     >
     </t-cascader>
+    <t-cascader
+      v-model="value4"
+      :popup-props="{ overlayClassName: 'tdesign-demo-select__overlay-option' }"
+      :options="options"
+      multiple
+    >
+      <template #option="{ item, onChange }">
+        <div class="tdesign-demo__user-option" @click="(e) => handleClick(item, onChange)">
+          <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
+          <div class="tdesign-demo__user-option-info">
+            <div>{{ item.label }}</div>
+            <div>{{ item.value }}</div>
+          </div>
+        </div>
+      </template>
+    </t-cascader>
   </t-space>
 </template>
 <script lang="tsx" setup>
 import { ref, computed } from 'vue';
-import { CascaderProps } from 'tdesign-vue-next';
+import type { CascaderProps, TreeOptionData } from 'tdesign-vue-next';
 const options: CascaderProps['options'] = [
   {
     label: '选项一',
@@ -96,6 +112,10 @@ const getDeepOptions = (options: CascaderProps['options']): CascaderProps['optio
   }));
 };
 const optionsData = computed<CascaderProps['options']>(() => getDeepOptions(options));
+
+const handleClick = (item: TreeOptionData, changeCallback: () => void) => {
+  if (Array.isArray(item.children) && !item.children?.length) changeCallback();
+};
 </script>
 <style>
 .tdesign-demo__user-option {

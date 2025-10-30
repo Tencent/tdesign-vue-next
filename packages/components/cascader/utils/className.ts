@@ -33,9 +33,10 @@ export function getNodeStatusClass(
   STATUS: Record<string, string>,
   cascaderContext: CascaderContextType,
 ) {
-  const { checkStrictly, multiple, value, max } = cascaderContext;
+  const { checkStrictly, multiple, value, max, isParentFilterable } = cascaderContext;
   const expandedActive =
-    (!checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true)) || (checkStrictly && node.expanded);
+    (!checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true)) ||
+    (checkStrictly && node.expanded && !isParentFilterable);
 
   const isLeaf = node.isLeaf();
 
@@ -72,14 +73,14 @@ export function getCascaderItemClass(
   STATUS: Record<string, string>,
   cascaderContext: CascaderContextType,
 ) {
-  const { size } = cascaderContext;
+  const { size, isParentFilterable } = cascaderContext;
   return [
     `${prefix}-cascader__item`,
     ...getNodeStatusClass(node, STATUS, cascaderContext),
     SIZE[size],
     {
       [`${prefix}-cascader__item--with-icon`]: !!node.children,
-      [`${prefix}-cascader__item--leaf`]: node.isLeaf(),
+      [`${prefix}-cascader__item--leaf`]: node.isLeaf() || isParentFilterable,
     },
   ];
 }
