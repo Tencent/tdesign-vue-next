@@ -5,6 +5,37 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.2 `2025-10-30` 
+
+### 🚀 Features
+- `Affix`: Added support for `content`API, consistent with other components @ImaginingMaker @zhangpaopao0609 ([#5981](https://github.com/Tencent/tdesign-vue-next/pull/5981))
+- `Cascader`: 
+  - Support the use of `filterable` with `checkStrictly` and `valueMode = parentFirst` to display the effect of non-leaf nodes @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+  - 'option' adds 'onChange' and 'onExpand' methods, which are used to customize the trigger logic of clicking a node when customizing nodes in multi-selection scenarios. For specific use, please refer to the reference example of custom drop-down options @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+- `Popup`: Added `getPopper()` method, which will return a popper instance for scenarios where dynamic operations are based on popper@RSS1102 ([#6096](https://github.com/Tencent/tdesign-vue-next/pull/6096))
+
+### 🐞 Bug Fixes
+- `AutoComplete`: Fixed the issue where the option pop-up window cannot be opened again when deleting the content of the input box after selecting with the keyboard@SaberA1ter ([#6059](https://github.com/Tencent/tdesign-vue-next/pull/6059))
+- `Cascader`: 
+  - Fixed the problem that multiple selection custom nodes cannot be expanded and processed @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+  - Fix the problem with invalid `reserveKeyword` API @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+- `DatePicker`: Fixed a problem in the content area at the bottom of the panel that still exists when it is not needed @huguangju ([#6055](https://github.com/Tencent/tdesign-vue-next/pull/6055))
+- `DateRangePicker`: Fixed the problem of clicking the Close button reporting an error in the global replacement icon scenario ([#6108](https://github.com/Tencent/tdesign-vue-next/pull/6108))
+- `Form`: Fixed error in English translation of error messages `max` and `min`@liweijie0812 ([#6082](https://github.com/Tencent/tdesign-vue-next/pull/6082))
+- `ImageViewer`: 
+  - Fixed the problem where `zIndex` is too large and the tooltips of the toolbar will be blocked@liweijie0812 ([#6107](https://github.com/Tencent/tdesign-vue-next/pull/6107))
+  - Fixed the problem that when previewing a picture, it lost focus after right-clicking, and the preview picture would follow the mouse movement @mikasayw ([#6098](https://github.com/Tencent/tdesign-vue-next/pull/6098))
+- `MessagePlugin`: Fix the invalid `className` parameter @Wesley-0808 ([#6097](https://github.com/Tencent/tdesign-vue-next/pull/6097))
+- `NotificationPlugin`: Optimization `offset` does not take effect on container layer@liweijie0812 ([#6087](https://github.com/Tencent/tdesign-vue-next/pull/6087))
+- `Rate`: Fixed the issue where the `color` attribute does not support responsiveness @mikasayw ([#6072](https://github.com/Tencent/tdesign-vue-next/pull/6072))
+- `Table`: Fix alarm problem on the console @mikasayw ([#6070](https://github.com/Tencent/tdesign-vue-next/pull/6070))
+- `Menu`: Fix the residual state of the sub-menu when the parent menu is closed@RSS1102 ([#6086](https://github.com/Tencent/tdesign-vue-next/pull/6086)))
+- `Table`: Make sure to use `defaultPageSize` when `pageSize` is not provided@RSS1102 ([#6101](https://github.com/Tencent/tdesign-vue-next/pull/6101))
+
+### 📝 Documentation
+- `ImageViewer`: Problem with the optimization example page operation bar blocked by the theme generator@liweijie0812 ([#6107](https://github.com/Tencent/tdesign-vue-next/pull/6107))
+
+
 ## 🌈 1.17.1 `2025-10-09` 
 
 ### 🐞 Bug Fixes
