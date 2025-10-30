@@ -56,7 +56,6 @@ export default defineComponent({
             zIndex={props.zIndex}
           >
             <TImageViewerIcon onClick={props.onRotate} icon={() => <RotationIcon size="medium" />} />
-            {props.zIndex}
           </TToolTip>
           <TImageViewerIcon icon={() => <ZoomOutIcon size="medium" />} onClick={props.onZoomOut} />
           <TImageViewerIcon
