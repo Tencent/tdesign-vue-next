@@ -60,8 +60,8 @@ export function useRange(props: TdDateRangePickerProps) {
     },
     onClear: (context: { e: MouseEvent } | MouseEvent) => {
       // 处理全局替换关闭图标的场景，此时 event 可能不在 context 里面，而是 context 本身
-      if ('e' in context) context.e.stopPropagation();
-      else context.stopPropagation();
+      if (context instanceof MouseEvent) context.stopPropagation();
+      else context.e.stopPropagation();
 
       popupVisible.value = false;
       onChange?.([], { dayjsValue: [], trigger: 'clear' });
