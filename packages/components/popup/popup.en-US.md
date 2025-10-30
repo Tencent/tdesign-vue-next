@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Popup Props
 
 name | type | default | description | required
@@ -42,6 +43,7 @@ visible-change | `(visible: boolean, context: PopupVisibleChangeContext)` | [see
 
 name | params | return | description
 -- | -- | -- | --
-getOverlay | \- | `HTMLElement` | used to get overly html element
+getOverlay | \- | `HTMLElement \| null` | used to get overly html element
 getOverlayState | \- | `{ hover: boolean }` | get mouseover state of overlay
+getPopper | \- | `Instance \| null` | get the popup component popper instance。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/popup/type.ts)。<br/>`import { Instance } from '@popperjs/core'`<br/>
 update | \- | \- | used to update overlay content

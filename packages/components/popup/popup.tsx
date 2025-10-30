@@ -249,6 +249,7 @@ export default defineComponent({
       getOverlayState: () => ({
         hover: isOverlayHover.value,
       }),
+      getPopper: () => popper,
       /** close is going to be deprecated. visible is enough */
       close: () => hide(),
     });
