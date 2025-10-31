@@ -19,6 +19,11 @@ onMounted(() => {
 </script>
 
 <style lang="less">
+// 全局锚点链接滚动偏移
+html {
+  scroll-padding-top: 120px;
+}
+
 div[slot='action'] {
   display: inline-flex;
   column-gap: 8px;
