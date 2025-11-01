@@ -18,7 +18,7 @@ export default defineComponent({
   name: 'TSwiper',
   props,
   emits: ['update:current'],
-  setup(props, {}) {
+  setup(props) {
     const prefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
 
