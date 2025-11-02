@@ -120,6 +120,10 @@ export default {
     type: Boolean,
     default: true,
   },
+  /** 虚拟滚动属性 */
+  scroll: {
+    type: Object as PropType<TdCascaderProps['scroll']>,
+  },
   /** 透传 SelectInput 筛选器输入框组件的全部属性 */
   selectInputProps: {
     type: Object as PropType<TdCascaderProps['selectInputProps']>,
