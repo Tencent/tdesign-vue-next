@@ -4,7 +4,6 @@ import { CascaderContextType, TreeNode } from '../types';
 import { usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
 import Item from './Item';
 import { getDefaultNode } from '@tdesign/shared-utils';
-
 import CascaderProps from '../props';
 import { useListVirtualScroll } from '../../list/hooks';
 
@@ -145,10 +144,10 @@ export default defineComponent({
             },
           ]}
           style={{
-            position: isVirtualScroll ? 'relative' : undefined,
+            position: isVirtualScroll.value ? 'relative' : undefined,
           }}
         >
-          {isVirtualScroll ? (
+          {isVirtualScroll.value ? (
             <>
               <div style={cursorStyle.value}></div>
               <ul key={key} style={listStyle.value}>

@@ -12,7 +12,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const options = [];
+const options = ref([]);
 const value = ref(['20.1.20']);
 
 const onChange = (val, context) => {
