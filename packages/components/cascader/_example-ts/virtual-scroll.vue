@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const options = ref([]);
 const value = ref(['20.1.20']);
