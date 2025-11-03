@@ -5,9 +5,9 @@
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-name | String | - | 发送者名称 | N
-avatar | String/JSX.Element | - | 发送者头像 | N
-datetime | String | - | 消息发送时间 | N
+name | String / Slot / Function | - | 发送者名称 | N
+avatar | String / Slot / Function | - | 发送者头像 | N
+datetime | String / Slot / Function | - | 消息发送时间 | N
 content | Array | - | 消息内容对象。类型定义见 `Message` | Y
 role | String | assistant | 消息角色。可选项：user/assistant/system | N
 status | String | - | 消息状态。可选项：pending/streaming/complete/stop/error | N
@@ -16,15 +16,7 @@ variant | String | text | 消息变体样式。可选项：base/outline/text | N
 chatContentProps | Object | - | 消息内容属性配置。类型支持见 `chatContentProps` | N
 animation | String | circle | 加载动画类型。可选项：skeleton/moving/gradient/circle | N
 allowContentSegmentCustom | Boolean | false | 是否允许自定义局部消息内容，其他消息内容实用默认样式 | N
-### ChatMessagesData 消息对象结构
 
-字段 | 类型 | 必传 | 说明
---|--|--|--
-id | string | Y | 消息唯一标识
-role | `"user" \| "assistant" \| "system"` | Y | 消息角色类型
-status | `"pending" \| "streaming" \| "complete" \| "stop" \| "error"` | N | 消息状态
-content | `UserMessageContent[] \| AIMessageContent[] \|  TextContent[]` | N | 消息内容
-ext | any | N | 扩展字段
 
 #### UserMessageContent 内容类型支持
 - 文本消息 (`TextContent`)

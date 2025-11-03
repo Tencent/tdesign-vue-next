@@ -17,3 +17,4 @@ onRemove | (item: Attachment) => void / undefined | - | 附件移除时的回调
 名称 | 参数 | 描述
 -- | -- | --
 remove | `(item: Attachment) => void` | 附件移除时的回调函数
+fileClick |	`(item: Attachment) => void`|点击文件时触发
