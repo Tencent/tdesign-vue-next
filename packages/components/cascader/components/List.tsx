@@ -45,9 +45,13 @@ export default defineComponent({
 
     const treeNodes = computed(() => props.treeNodes);
     const isVisible = computed(() => props.cascaderContext.visible);
+    const scroll = computed(() => ({
+      rowHeight: 28,
+      ...props.scroll,
+    }));
 
     const { virtualConfig, cursorStyle, listStyle, isVirtualScroll, onInnerVirtualScroll, scrollToElement } =
-      useListVirtualScroll(props.scroll, panelWrapperRef, treeNodes as any);
+      useListVirtualScroll(scroll.value, panelWrapperRef, treeNodes as any);
 
     const handleExpand = (node: TreeNode, trigger: 'hover' | 'click') => {
       const { trigger: propsTrigger, cascaderContext } = props;

@@ -2,7 +2,7 @@
   <t-cascader
     v-model="value"
     :options="options"
-    :scroll="{ type: 'virtual', bufferSize: 5, threshold: 10, rowHeight: 28 }"
+    :scroll="{ type: 'virtual', bufferSize: 5, threshold: 10 }"
     clearable
     multiple
     @change="onChange"
