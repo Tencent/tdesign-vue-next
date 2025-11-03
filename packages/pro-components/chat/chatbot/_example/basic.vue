@@ -8,27 +8,26 @@
       :chat-service-config="chatServiceConfig"
     >
       <template #sender-footer-prefix>
-        <t-space align="center" size="small">
+        <div class="model-select">
+          <t-tooltip v-model:visible="allowToolTip" content="切换模型" trigger="hover">
+            <t-select
+              v-model="selectValue"
+              :options="selectOptions"
+              value-type="object"
+              @focus="allowToolTip.value = false"
+            ></t-select>
+          </t-tooltip>
           <t-button
+            class="check-box"
+            theme="default"
+            :class="{ 'is-active': isChecked }"
             variant="outline"
-            shape="round"
-            :theme="activeR1 ? 'primary' : 'default'"
-            size="small"
-            @click="toggleR1"
+            @click="checkClick"
           >
-            R1.深度思考
+            <SystemSumIcon />
+            <span>深度思考</span>
           </t-button>
-          <t-button
-            variant="outline"
-            :theme="activeSearch ? 'primary' : 'default'"
-            size="small"
-            shape="round"
-            :icon="renderIcon"
-            @click="toggleSearch"
-          >
-            联网查询
-          </t-button>
-        </t-space>
+        </div>
       </template>
     </t-chatbot>
   </div>
@@ -36,7 +35,7 @@
 
 <script setup lang="tsx">
 import { ref, watch } from 'vue';
-import { InternetIcon } from 'tdesign-icons-vue-next';
+import { SystemSumIcon } from 'tdesign-icons-vue-next';
 import {
   type SSEChunkData,
   type AIMessageContent,
@@ -45,10 +44,7 @@ import {
   type ChatMessagesData,
   type ChatServiceConfig,
   type TdChatbotApi,
-  type ChatMessageStatus,
 } from '@tdesign-vue-next/chat';
-
-const renderIcon = () => <InternetIcon />;
 
 // 默认初始化消息
 const mockData: ChatMessagesData[] = [
@@ -80,6 +76,31 @@ const mockData: ChatMessagesData[] = [
     ),
   },
 ];
+
+const allowToolTip = ref(false);
+
+const selectOptions = [
+  {
+    label: '默认模型',
+    value: 'default',
+  },
+  {
+    label: 'Deepseek',
+    value: 'deepseek-r1',
+  },
+  {
+    label: '混元',
+    value: 'hunyuan',
+  },
+];
+const selectValue = ref({
+  label: '默认模型',
+  value: 'default',
+});
+const isChecked = ref(false);
+const checkClick = () => {
+  isChecked.value = !isChecked.value;
+};
 
 const chatRef = ref<TdChatbotApi | null>(null);
 const activeR1 = ref(false);
@@ -157,9 +178,7 @@ const chatServiceConfig: ChatServiceConfig = ref({
       case 'think':
         return {
           type: 'thinking',
-          status: (currentStatus: ChatMessageStatus | undefined) => {
-            return /耗时/.test(rest?.title) ? 'complete' : currentStatus || 'loading';
-          },
+          status: /耗时/.test(rest?.title) ? 'complete' : 'streaming',
           data: {
             title: rest.title || '深度思考中',
             text: rest.content || '', // 深度克隆
@@ -202,12 +221,51 @@ watch(
   { immediate: true },
 );
 
-// 切换方法
-const toggleR1 = () => (activeR1.value = !activeR1.value);
-const toggleSearch = () => (activeSearch.value = !activeSearch.value);
-
 // 发送者属性
 const senderProps = {
   placeholder: '有问题，尽管问～ Enter 发送，Shift+Enter 换行',
 };
 </script>
+<style lang="less">
+t-chatbot {
+  .model-select {
+    display: flex;
+    align-items: center;
+    .t-select {
+      width: 112px;
+      height: var(--td-comp-size-m);
+      margin-right: var(--td-comp-margin-s);
+      .t-input {
+        border-radius: 32px;
+        padding: 0 15px;
+      }
+      .t-input.t-is-focused {
+        box-shadow: none;
+      }
+    }
+    .check-box {
+      width: 112px;
+      height: var(--td-comp-size-m);
+      border-radius: 32px;
+      // border: 0;
+      // background: var(--td-bg-color-component);
+      color: var(--td-text-color-primary);
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      .t-button__text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+          margin-left: var(--td-comp-margin-s);
+        }
+      }
+    }
+    .check-box.is-active {
+      border: 1px solid var(--td-brand-color-focus);
+      background: var(--td-brand-color-light);
+      color: var(--td-text-color-brand);
+    }
+  }
+}
+</style>

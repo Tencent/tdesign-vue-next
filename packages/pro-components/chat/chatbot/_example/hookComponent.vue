@@ -114,8 +114,7 @@ const { chatEngine, messages, status } = useChat({
         case 'think':
           return {
             type: 'thinking',
-            status: (currentStatus: string | undefined) =>
-              /耗时/.test(rest?.title) ? 'complete' : currentStatus || 'loading',
+            status: /耗时/.test(rest?.title) ? 'complete' : 'streaming',
             data: {
               title: rest.title || '深度思考中',
               text: rest.content || '',

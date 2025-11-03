@@ -19,6 +19,7 @@ const filesList = [
   {
     uid: '3',
     name: 'image-file.png',
+    url:'https://tdesign.gtimg.com/site/avatar.jpg',
     size: 333333,
   },
   {

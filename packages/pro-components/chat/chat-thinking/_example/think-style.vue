@@ -1,24 +1,6 @@
-<!-- ==== 修改后代码 ==== -->
 <template>
   <div class="chat-thinking-demo">
     <t-space direction="vertical">
-      <t-space>
-        <t-space direction="vertical">
-          <h5>layout：</h5>
-          <t-radio-group :value="layout" @change="handleLayoutChange">
-            <t-radio value="border">border</t-radio>
-            <t-radio value="block">block</t-radio>
-          </t-radio-group>
-        </t-space>
-        <t-space direction="vertical">
-          <h5>animation：</h5>
-          <t-radio-group :value="animation" @change="handleAnimationChange">
-            <t-radio value="moving">moving</t-radio>
-            <t-radio value="gradient">gradient</t-radio>
-            <t-radio value="circle">circle</t-radio>
-          </t-radio-group>
-        </t-space>
-      </t-space>
       <t-chat-thinking
         :content="{
           title: title,

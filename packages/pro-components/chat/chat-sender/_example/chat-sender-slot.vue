@@ -42,7 +42,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-import { SystemSumIcon, EnterIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { SystemSumIcon } from 'tdesign-icons-vue-next';
 const loading = ref(false);
 const allowToolTip = ref(false);
 const chatSenderRef = ref(null);

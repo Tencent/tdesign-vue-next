@@ -6,8 +6,8 @@
       :message-props="messageProps"
       :sender-props="senderProps"
       :chat-service-config="chatServiceConfig"
-      @messageChange="handleMessageChange"
-      @chatAfterSend="onSend"
+      @message-change="handleMessageChange"
+      @chat-after-send="onSend"
     >
       <!-- 渲染自定义消息内容 -->
       <template v-for="msg in mockMessage" :key="msg.id">
@@ -17,7 +17,7 @@
             <template v-if="item.data?.length === 0 || item.data?.every((img) => img.url === undefined)">
               <Skeleton style="width: 600px; margin: 14px 0" theme="paragraph" animation="gradient" />
             </template>
-            <Space v-else break-line :size="8">
+            <Space v-else break-line :size="16">
               <ImageViewer
                 v-for="(img, imgIndex) in item.data.map((img) => img.url)"
                 :key="imgIndex"
@@ -41,16 +41,14 @@
       <!-- 输入框底部自定义区域 -->
       <template #sender-footer-prefix>
         <Space align="center" size="small">
-          <Button shape="round" variant="outline" size="small" :icon="renderImageAddIcon" @click="onAttachClick">
-            参考图
-          </Button>
+          <Button shape="round" variant="outline" :icon="renderImageAddIcon" @click="onAttachClick"> 参考图 </Button>
           <Dropdown :options="RatioOptions" trigger="click" @click="switchRatio">
-            <Button shape="round" variant="outline" :icon="renderTransform1Icon" size="small">
+            <Button shape="round" variant="outline" :icon="renderTransform1Icon">
               {{ selectedRatioLabel }}
             </Button>
           </Dropdown>
           <Dropdown :options="StyleOptions" trigger="click" @click="switchStyle">
-            <Button shape="round" variant="outline" :icon="renderFilter3Icon" size="small">
+            <Button shape="round" variant="outline" :icon="renderFilter3Icon">
               {{ selectedStyleLabel }}
             </Button>
           </Dropdown>
@@ -74,7 +72,7 @@ import type {
   TdChatMessageConfig,
   TdChatbotApi,
 } from '@tdesign-vue-next/chat';
-import { ImageViewer, Skeleton, Button, Dropdown, Space, Image } from 'tdesign-vue-next';
+import { ImageViewer, Skeleton, Button, Dropdown, Space } from 'tdesign-vue-next';
 import { Bot } from '@tdesign-vue-next/chat';
 
 const renderFilter3Icon = () => <Filter3Icon />;
@@ -311,7 +309,7 @@ const senderProps = computed(() => ({
   position: relative;
   justify-content: center;
   align-items: center;
-  border-radius: var(--td-radius-small);
+  border-radius: 9px;
   overflow: hidden;
 }
 
@@ -343,7 +341,6 @@ const senderProps = computed(() => ({
   cursor: pointer;
   position: absolute;
   object-fit: cover;
-  border-radius: 9px;
 }
 
 .tdesign-demo-image-viewer__ui-image--footer {
@@ -376,6 +373,32 @@ const senderProps = computed(() => ({
   width: 160px;
   height: 160px;
   border: 4px solid var(--td-bg-color-secondarycontainer);
-  border-radius: var(--td-radius-medium);
+}
+</style>
+<style lang="less">
+t-chatbot {
+  .t-space {
+    .t-button {
+      width: 112px;
+      height: var(--td-comp-size-m);
+      border-radius: 32px;
+      color: var(--td-text-color-primary);
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      .t-button__text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+          margin-left: var(--td-comp-margin-s);
+        }
+      }
+      &.is-active {
+        border: 1px solid var(--td-brand-color-focus);
+        background: var(--td-brand-color-light);
+        color: var(--td-text-color-brand);
+      }
+    }
+  }
 }
 </style>

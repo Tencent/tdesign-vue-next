@@ -197,7 +197,7 @@ export default {
     });
 
     const senderProps = reactive({
-      defaultValue: '使用tdesign组件库实现一个登录表单的例子',
+      defaultValue: '使用 TDesign 组件库实现一个登录表单的例子',
       placeholder: '有问题，尽管问～ Enter 发送，Shift+Enter 换行',
     });
 
