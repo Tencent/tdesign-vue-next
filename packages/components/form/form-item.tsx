@@ -236,11 +236,7 @@ export default defineComponent({
       if (props.rules?.length) return props.rules;
       if (!props.name) return [];
 
-      // 获取复杂数据校验的规则名称
-      const index = String(props.name || '').lastIndexOf('.') || -1;
-      const pRuleName = String(props.name || '').slice(index + 1);
-
-      return lodashGet(form?.rules, props.name) || lodashGet(form?.rules, pRuleName) || [];
+      return lodashGet(form?.rules, props.name) || [];
     });
 
     const analysisValidateResult = async (trigger: ValidateTriggerType): Promise<AnalysisValidateResult> => {
