@@ -9,9 +9,9 @@ import {
   watch,
   Slots,
   toRefs,
-  reactive,
   nextTick,
   Transition,
+  toRef,
 } from 'vue';
 import props from './submenu-props';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
@@ -36,7 +36,7 @@ export default defineComponent({
     const { theme, activeValues, expandValues, isHead, open } = menu;
 
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', {});
-    const { setSubPopup, closeParentPopup } = submenu;
+    const { setSubPopup, closeParentPopup, popupVisible: parentPopupVisible } = submenu;
 
     const mode = computed(() => attrs.expandType || menu.mode.value);
 
@@ -100,26 +100,26 @@ export default defineComponent({
       },
     ]);
 
-    provide<TdSubMenuInterface>(
-      'TdSubmenu',
-      reactive({
-        value,
-        addMenuItem: (item: TdMenuItem) => {
-          menuItems.value.push(item);
-          if (submenu) {
-            submenu.addMenuItem(item);
-          }
-        },
-        setSubPopup: (ref: HTMLElement) => {
-          subPopupRef.value = ref;
-        },
-        closeParentPopup: (e: MouseEvent) => {
-          const related = e.relatedTarget as HTMLElement;
-          if (loopInPopup(related)) return;
-          handleMouseLeavePopup(e);
-        },
-      }),
-    );
+    const submenuInterface = {
+      value: value.value,
+      addMenuItem: (item: TdMenuItem) => {
+        menuItems.value.push(item);
+        if (submenu) {
+          submenu.addMenuItem(item);
+        }
+      },
+      setSubPopup: (ref: HTMLElement) => {
+        subPopupRef.value = ref;
+      },
+      closeParentPopup: (e: MouseEvent) => {
+        const related = e.relatedTarget as HTMLElement;
+        if (loopInPopup(related)) return;
+        handleMouseLeavePopup(e);
+      },
+      popupVisible: toRef(popupVisible),
+    };
+
+    provide<TdSubMenuInterface>('TdSubmenu', submenuInterface);
 
     const passSubPopupRefToParent = (val: HTMLElement) => {
       if (isFunction(setSubPopup)) {
@@ -131,6 +131,7 @@ export default defineComponent({
     const handleMouseEnter = () => {
       if (props.disabled) return;
       setTimeout(() => {
+        if (parentPopupVisible?.value === false) return;
         if (!popupVisible.value) {
           open(props.value);
 
@@ -178,6 +179,9 @@ export default defineComponent({
       closeParentPopup?.(e);
     };
     const handleEnterPopup = () => {
+      // 如果父 popup 存在且不可见，不触发保持可见功能
+      if (parentPopupVisible?.value === false) return;
+
       isCursorInPopup.value = true;
     };
 
