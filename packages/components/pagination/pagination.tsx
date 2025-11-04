@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance } from 'vue';
+import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance, nextTick } from 'vue';
 import { isNaN, isObject } from 'lodash-es';
 import {
   PageFirstIcon as TdPageFirstIcon,
@@ -182,38 +182,35 @@ export default defineComponent({
       pageChangeMap[type]();
     };
 
-    const onSelectorChange: (e: string) => void = (e) => {
-      if (props.disabled) {
-        return;
-      }
-      const pageSize: number = parseInt(e, 10);
-      let pageCount = 1;
-      if (pageSize > 0) {
-        pageCount = Math.max(Math.ceil(props.total / pageSize), 1);
-      }
+    const onSelectorChange = (val: string | number) => {
+      if (props.disabled) return;
 
-      let isIndexChange = false;
+      const pageSize = Number(val);
+      const newPageCount = pageSize > 0 ? Math.max(Math.ceil(props.total / pageSize), 1) : 1;
+      const indexExceeds = innerCurrent.value > newPageCount;
 
-      if (innerCurrent.value > pageCount) {
-        isIndexChange = true;
-      }
-
-      /**
-       * 分页大小变化事件
-       * @param {Number} pageSize 分页大小
-       * @param {Number} index 当前页
-       */
       const pageInfo = {
-        current: isIndexChange ? pageCount : innerCurrent.value,
+        current: indexExceeds ? newPageCount : innerCurrent.value,
         previous: innerCurrent.value,
         pageSize,
       };
+
       setInnerPageSize(pageSize, pageInfo);
-      if (isIndexChange) {
-        toPage(pageCount, pageInfo);
-      } else {
-        props.onChange?.(pageInfo);
-      }
+
+      nextTick(() => {
+        if (indexExceeds) {
+          // 如果组件为受控（外部传入 current），优先使用受控值（且小于 newPageCount）
+          const controlledCurrent = current?.value;
+
+          if (controlledCurrent != null && controlledCurrent < newPageCount) {
+            toPage(controlledCurrent, pageInfo);
+          } else {
+            toPage(newPageCount, pageInfo);
+          }
+        } else {
+          props.onChange?.(pageInfo);
+        }
+      });
     };
 
     const onJumperChange = (val: number) => {
