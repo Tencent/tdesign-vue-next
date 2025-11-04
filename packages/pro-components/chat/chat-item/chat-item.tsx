@@ -107,11 +107,16 @@ export default defineComponent({
                     expandIconPlacement={'right'}
                     collapse-panel-props={{
                       header: renderHeader(),
-                      content: <Text content={props.reasoning} role={role.value} />,
+                      content: (
+                        <Text
+                          content={{ type: 'text', data: props.reasoning as unknown as string }}
+                          role={role.value}
+                        />
+                      ),
                     }}
                   ></ChatReasoning>
                 )}
-                {isString(content) ? <Text content={content} role={role.value} /> : content}
+                {isString(content) ? <Text content={content} role={role.value} status={props.status} /> : content}
               </div>
             )}
             {role.value === 'assistant' && showActions.value && (
