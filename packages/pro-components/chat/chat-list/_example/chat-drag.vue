@@ -11,7 +11,7 @@
     :on-confirm="() => (visibleModelessDrag = false)"
   >
     <template #body>
-      <t-chat
+      <t-chat-list
         layout="single"
         style="height: 600px"
         :data="chatList"
@@ -39,7 +39,7 @@
         <template #footer>
           <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
         </template>
-      </t-chat>
+      </t-chat-list>
     </template>
   </t-dialog>
 </template>

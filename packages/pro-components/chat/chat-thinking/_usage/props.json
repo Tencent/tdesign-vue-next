@@ -17,7 +17,7 @@
   {
     "name": "status",
     "type": "enum",
-    "defaultValue": "complete",
+    "defaultValue": "pending",
     "options": [
       {
         "label": "pending",
@@ -46,7 +46,7 @@
   {
     "name": "animation",
     "type": "enum",
-    "defaultValue": "circle",
+    "defaultValue": "moving",
     "options": [
       {
         "label": "circle",
@@ -61,11 +61,5 @@
         "value": "gradient"
       }
     ]
-  },
-  {
-    "name": "collapsed",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
   }
 ]

@@ -1,17 +1,15 @@
 ---
-title: TD Chat for AI
+title: TDesign AI Chat for Vue
 description: TDesign 适配桌面端的 AI Chat 组件库，适合在 Vue3.x 技术栈中的 AI Chat 组件。
 spline: ai
 ---
 
 ## 安装
 
-
 ### 环境要求
 
 - node >= 18.0.0
 - pnpm >= 9.0.0
-
 
 ### 使用 npm 安装
 
@@ -69,7 +67,7 @@ app.use(TDesign).use(TDesignChat);
 
 ```js
 import {
-  Chat as TChat,
+  ChatList as TChatList,
   ChatAction as TChatAction,
   ChatContent as TChatContent,
   ChatInput as TChatInput,
@@ -80,7 +78,6 @@ import {
 <div style="background: #fff5e4; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
    ⚠️ 如果按需使用的同时，需要通过主题生成器导出主题覆盖全局样式，建议请在 `main.ts` 按需注册使用 `createApp(App).use(TChatAction)`
 </div>
-
 
 ### 通过插件按需引用使用
 
@@ -96,7 +93,7 @@ import 'tdesign-vue-next/es/style/index.css';
 const app = createApp(App);
 ```
 
-并安装 `@tdesign-vue-next/auto-import-resolver` 和两个unplugin相关的第三方包
+并安装 `@tdesign-vue-next/auto-import-resolver` 和两个 unplugin 相关的第三方包
 
 ```bash
 npm install -D @tdesign-vue-next/auto-import-resolver unplugin-vue-components unplugin-auto-import
@@ -114,14 +111,18 @@ export default {
   plugins: [
     // ...
     AutoImport({
-      resolvers: [TDesignResolver({
-        library: 'chat'
-      })],
+      resolvers: [
+        TDesignResolver({
+          library: 'chat',
+        }),
+      ],
     }),
     Components({
-      resolvers: [TDesignResolver({
-        library: 'chat'
-      })],
+      resolvers: [
+        TDesignResolver({
+          library: 'chat',
+        }),
+      ],
     }),
   ],
 };
@@ -137,14 +138,18 @@ module.exports = {
   // ...
   plugins: [
     AutoImport.default({
-      resolvers: [TDesignResolver({
-        library: 'chat'
-      })],
+      resolvers: [
+        TDesignResolver({
+          library: 'chat',
+        }),
+      ],
     }),
     Components.default({
-      resolvers: [TDesignResolver({
-        library: 'chat'
-      })],
+      resolvers: [
+        TDesignResolver({
+          library: 'chat',
+        }),
+      ],
     }),
   ],
 };
@@ -154,11 +159,11 @@ module.exports = {
 
 ## 配置服务
 
-TDesign Chat 支持两种后端 AI Agent 服务返回数据协议模式：**自定义协议**和**AG-UI标准协议**。您可以根据后端服务的实际情况选择合适的协议模式。
+TDesign Chat 支持两种后端 AI Agent 服务返回数据协议模式：**自定义协议**和**AG-UI 标准协议**。您可以根据后端服务的实际情况选择合适的协议模式。
 
 ### 自定义协议模式
 
-适用于已有后端服务或需要自定义数据结构的场景，您的后端服务只需要返回标准SSE格式即可。
+适用于已有后端服务或需要自定义数据结构的场景，您的后端服务只需要返回标准 SSE 格式即可。
 
 ```js
 // 自定义后端接口（/api/chat）返回案例
@@ -195,12 +200,11 @@ const chatServiceConfig = {
 };
 ```
 
-
 ### AG-UI 标准协议
 
-**AG-UI协议**是专为AI代理与前端应用交互设计的标准化轻量级协议，内置支持工具调用、状态管理、多步骤任务等高级功能。AG-UI协议支持16种标准化事件类型，组件会自动解析并渲染，包括对话生命周期`RUN_*`、文本消息`TEXT_MESSAGE_*`、思考过程`THINKING_*`、工具调用`TOOL_CALL_*`、状态更新`STATE_*`等。
+**AG-UI 协议**是专为 AI 代理与前端应用交互设计的标准化轻量级协议，内置支持工具调用、状态管理、多步骤任务等高级功能。AG-UI 协议支持 16 种标准化事件类型，组件会自动解析并渲染，包括对话生命周期`RUN_*`、文本消息`TEXT_MESSAGE_*`、思考过程`THINKING_*`、工具调用`TOOL_CALL_*`、状态更新`STATE_*`等。
 
-TDesign Chat内置支持**AG-UI协议数据双向转换**，符合该协议的后端Agent服务，可以无缝接入使用，只需在配置中开启即可。详细介绍见[与AG-UI协议集成](/react-aigc/agui) 
+TDesign Chat 内置支持**AG-UI 协议数据双向转换**，符合该协议的后端 Agent 服务，可以无缝接入使用，只需在配置中开启即可。详细介绍见[与 AG-UI 协议集成](/react-aigc/agui)
 
 ```js
 // 符合AG-UI协议的后端接口（/api/agui/chat）返回案例
@@ -219,39 +223,20 @@ const chatServiceConfig = {
 };
 ```
 
-
 ### 协议选择建议
 
-| 场景 | 推荐协议 | 理由 |
-|------|---------|------|
-| 快速集成到现有服务 | 自定义协议 | 灵活适配现有数据结构 |
-| 构建复杂AI应用 | AG-UI协议 | 业界标准、功能完整、扩展性强 |
-| 多工具调用场景 | AG-UI协议 | 内置工具注册、调用及状态管理Hook |
-| 简单问答场景 | 自定义协议 | 配置简单、开发快速 |
+| 场景               | 推荐协议   | 理由                              |
+| ------------------ | ---------- | --------------------------------- |
+| 快速集成到现有服务 | 自定义协议 | 灵活适配现有数据结构              |
+| 构建复杂 AI 应用   | AG-UI 协议 | 业界标准、功能完整、扩展性强      |
+| 多工具调用场景     | AG-UI 协议 | 内置工具注册、调用及状态管理 Hook |
+| 简单问答场景       | 自定义协议 | 配置简单、开发快速                |
 
 更多详细配置和示例请参考[组件文档](/chat/components/chatbot)。
 
-## 多语言配置
-
-`@tdesign-vue-next/chat` 的所有组件都内置支持了多语言配置的能力。
-
-如果您有多语言的需求，可以通过 `tdesign-vue-next` 提供的[全局配置能力](https://tdesign.tencent.com/vue-next/components/config-provider#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)进行配置。
-
-```html
-<template>
-  <config-provider :global-config="enConfig">
-    <t-chat />
-  </config-provider>
-</template>
-<script setup>
-import { ConfigProvider } from '@tdesign-vue-next/chat/es/config-provider';
-import enConfig from 'tdesign-vue-next/es/locale/en_US';
-</script>
-```
-
 ## 编辑器提示
 
-安装注册 TDesign 之后，在开发项目时，可以配合插件在VSCode等主流编辑器中达到提示组件名及API的效果。
+安装注册 TDesign 之后，在开发项目时，可以配合插件在 VSCode 等主流编辑器中达到提示组件名及 API 的效果。
 
 推荐安装 `volar`，并在项目的 tsconfig.json 的 `includes` 属性中增加`node_modules/@tdesign-vue-next/chat/global.d.ts`，即可实现该效果。
 

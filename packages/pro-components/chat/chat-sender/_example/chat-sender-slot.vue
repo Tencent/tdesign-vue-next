@@ -11,7 +11,12 @@
   >
     <template #input-prefix>
       <t-dropdown :options="options" trigger="click" :style="{ padding: 0 }" @click="switchScene">
-        <t-tag shape="round" variant="light" color="#0052D9" :style="{ marginRight: '4px', cursor: 'pointer' }">
+        <t-tag
+          shape="round"
+          variant="light"
+          color="var(--td-brand-color)"
+          :style="{ marginRight: '4px', cursor: 'pointer' }"
+        >
           {{ options.filter((item) => item.value === scene)[0].content }}
         </t-tag>
       </t-dropdown>
@@ -26,13 +31,7 @@
             @focus="allowToolTip = false"
           ></t-select>
         </t-tooltip>
-        <t-button
-          class="check-box"
-          theme="default"
-          :class="{ 'is-active': isChecked }"
-          variant="outline"
-          @click="checkClick"
-        >
+        <t-button class="check-box" :class="{ 'is-active': isChecked }" variant="text" @click="checkClick">
           <SystemSumIcon />
           <span>深度思考</span>
         </t-button>
@@ -137,8 +136,7 @@ const switchScene = (data: any) => {
       width: 112px;
       height: var(--td-comp-size-m);
       border-radius: 32px;
-      // border: 0;
-      // background: var(--td-bg-color-component);
+      background: var(--td-bg-color-component);
       color: var(--td-text-color-primary);
       box-sizing: border-box;
       flex: 0 0 auto;

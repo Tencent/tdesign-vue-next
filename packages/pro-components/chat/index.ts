@@ -1,6 +1,6 @@
 import { App } from 'vue';
 
-import _Chat from './chat';
+import _ChatList from './chat-list';
 import _ChatItem from './chat-item';
 import _ChatInput from './chat-input';
 import _ChatContent from './chat-content';
@@ -51,37 +51,34 @@ export type ChatSenderProps = TdChatSenderProps;
 export type ChatReasoningProps = TdChatReasoningProps;
 export type ChatLoadingProps = TdChatLoadingProps;
 
-export const Chat = withInstall(_Chat);
+export const ChatList = withInstall(_ChatList);
 export const ChatItem = withInstall(_ChatItem);
-export const ChatInput = withInstall(_ChatInput);
 export const ChatSender = withInstall(_ChatSender);
-export const ChatContent = withInstall(_ChatContent);
-export const ChatReasoning = withInstall(_ChatReasoning);
 export const ChatActionbar = withInstall(_ChatActionbar);
-// 兼容历史版本，分别导出ChatActionbar，ChatAction
-export const ChatAction = withInstall(_ChatActionbar);
 export const FileCard = withInstall(_FileCard);
 export const ChatLoading = withInstall(_ChatLoading);
-// 附件
 export const ChatAttachments = withInstall(_ChatAttachments);
-// 思考
 export const ChatThinking = withInstall(_ChatThinking, 't-chat-thinking');
-// 机器人
 export const ChatBot = withInstall(_ChatBot, 't-chatbot');
-// 消息对话
 export const ChatMessage = withInstall(_ChatMessage, 't-chat-message');
 
 export const ChatSearchContent = withInstall(ChatSearchContentComponent, 't-chat-search-content');
 
 export const ChatSuggestionContent = withInstall(ChatSuggestionContentComponent, 't-chat-suggestion-content');
 
-export const ChatList = withInstall(ChatListComponent, 't-chat-list');
 export const ChatMarkdown = withInstall(_ChatMarkdown, 't-chat-markdown');
+
+// TODO：待下线的组件
+export const Chat = withInstall(_ChatList); // 兼容历史版本，分别导出ChatList，Chat
+export const ChatAction = withInstall(_ChatActionbar); // 兼容历史版本，分别导出ChatActionbar，ChatAction
+export const ChatInput = withInstall(_ChatInput);
+export const ChatContent = withInstall(_ChatContent);
+export const ChatReasoning = withInstall(_ChatReasoning);
 
 // 导出 MarkdownEngine
 export { TdMarkdownEngine as MarkdownEngine };
 
-// webc组件没有加入use todo
+// webcomoponents 组件没有加入use todo
 export default {
   // TODO: refactor
   install(app: App, config?: Record<string, unknown>) {

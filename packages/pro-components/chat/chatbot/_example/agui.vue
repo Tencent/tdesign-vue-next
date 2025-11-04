@@ -1,13 +1,5 @@
 <template>
   <div style="height: 600px; display: flex; flex-direction: column">
-    <!-- 历史消息加载控制栏 -->
-    <div style="padding: 12px; border-bottom: 1px solid #e7e7e7; background-color: #fafafa">
-      <t-space>
-        <t-button size="small" :loading="loadingHistory" @click="loadHistoryMessages"> 加载历史消息 </t-button>
-        <t-button size="small" variant="text" @click="clearMessages"> 清空消息 </t-button>
-      </t-space>
-    </div>
-
     <t-chat ref="listRef" style="width: 100%; flex: 1">
       <t-chat-message
         v-for="(message, idx) in messages"
