@@ -199,16 +199,23 @@ export default defineComponent({
 
       nextTick(() => {
         if (indexExceeds) {
-          // 如果组件为受控（外部传入 current），优先使用受控值（且小于 newPageCount）
-          const controlledCurrent = current?.value;
-
-          if (controlledCurrent != null && controlledCurrent < newPageCount) {
-            toPage(controlledCurrent, pageInfo);
+          if (current.value != null && current.value < newPageCount) {
+            toPage(current.value, pageInfo);
+            setInnerCurrent(current.value, pageInfo);
           } else {
             toPage(newPageCount, pageInfo);
           }
         } else {
           props.onChange?.(pageInfo);
+          // 如果在 setInnerPageSize 后 current 被外部受控修改，则触发 currentChange 事件
+          if (innerCurrent.value !== pageInfo.previous) {
+            const newPageInfo = {
+              current: innerCurrent.value,
+              previous: pageInfo.previous,
+              pageSize,
+            };
+            emit('currentChange', innerCurrent.value, newPageInfo);
+          }
         }
       });
     };
