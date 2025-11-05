@@ -7,6 +7,7 @@
     :status="status"
     :max-height="100"
     :collapsed="collapsed"
+    animation="moving"
     @collapsed-change="collapsedChangeHandle"
   />
 </template>

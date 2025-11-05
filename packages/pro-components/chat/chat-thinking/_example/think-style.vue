@@ -27,7 +27,7 @@ export default defineComponent({
     const status = ref('pending');
     const title = ref('正在思考中...');
     const layout = ref('block');
-    const animation = ref('circle');
+    const animation = ref('moving');
     const timerRef = ref(null);
     const currentIndex = ref(0);
     const startTimeRef = ref(Date.now());
