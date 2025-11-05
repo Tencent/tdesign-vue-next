@@ -7,13 +7,6 @@ const componentDocs = [
     component: () => import('@tdesign/pro-components-chat/chatbot/chatbot.md'),
   },
   {
-    title: 'ChatList 对话列表',
-    titleEn: 'ChatList',
-    name: 'ChatList',
-    path: '/chat/components/chat-list',
-    component: () => import('@tdesign/pro-components-chat/chat-list/chat-list.md'),
-  },
-  {
     title: 'ChatSender 对话输入',
     titleEn: 'ChatSender',
     name: 'ChatSender',
@@ -35,7 +28,7 @@ const componentDocs = [
     component: () => import('@tdesign/pro-components-chat/chat-actionbar/chat-actionbar.md'),
   },
   {
-    title: 'ChatMarkdown 消息内容',
+    title: 'ChatMarkdown Markdown内容',
     titleEn: 'ChatMarkdown',
     name: 'ChatMarkdown',
     path: '/chat/components/chat-markdown',
@@ -63,6 +56,20 @@ const componentDocs = [
     component: () => import('@tdesign/pro-components-chat/attachments/attachments.md'),
   },
   {
+    title: 'ChatList 对话列表',
+    titleEn: 'ChatList',
+    name: 'ChatList',
+    path: '/chat/components/chat-list',
+    component: () => import('@tdesign/pro-components-chat/chat-list/chat-list.md'),
+  },
+  {
+    title: 'ChatContent 对话正文',
+    titleEn: 'ChatContent',
+    name: 'ChatContent',
+    path: '/chat/components/chat-content',
+    component: () => import('@tdesign/pro-components-chat/chat-content/chat-content.md'),
+  },
+  {
     title: 'ChatItem 对话单元',
     titleEn: 'ChatItem',
     name: 'ChatItem',
@@ -82,13 +89,6 @@ const componentDocs = [
     name: 'ChatReasoning',
     path: '/chat/components/chat-reasoning',
     component: () => import('@tdesign/pro-components-chat/chat-reasoning/chat-reasoning.md'),
-  },
-  {
-    title: 'ChatContent 对话正文',
-    titleEn: 'ChatContent',
-    name: 'ChatContent',
-    path: '/chat/components/chat-content',
-    component: () => import('@tdesign/pro-components-chat/chat-content/chat-content.md'),
   },
 ];
 
