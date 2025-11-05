@@ -188,34 +188,40 @@ export default defineComponent({
       const pageSize = Number(val);
       const newPageCount = pageSize > 0 ? Math.max(Math.ceil(props.total / pageSize), 1) : 1;
       const indexExceeds = innerCurrent.value > newPageCount;
+      // 用户自主控制
+      const userControlled = current.value != null && current.value < newPageCount;
 
-      const pageInfo = {
+      // 初始 pageInfo（用于 setInnerPageSize 时传参）
+      const initialPageInfo = {
         current: indexExceeds ? newPageCount : innerCurrent.value,
         previous: innerCurrent.value,
         pageSize,
       };
 
-      setInnerPageSize(pageSize, pageInfo);
+      setInnerPageSize(pageSize, initialPageInfo);
 
       nextTick(() => {
         if (indexExceeds) {
-          if (current.value != null && current.value < newPageCount) {
-            toPage(current.value, pageInfo);
-            setInnerCurrent(current.value, pageInfo);
-          } else {
-            toPage(newPageCount, pageInfo);
-          }
-        } else {
+          // 当当前页索引超过新页数时，需要跳转到合适页
+          const pageCurrent = userControlled ? newPageCount : innerCurrent.value;
+          const pageInfo = {
+            current: pageCurrent,
+            previous: initialPageInfo.current,
+            pageSize,
+          };
+          toPage(pageCurrent, pageInfo);
           props.onChange?.(pageInfo);
+        } else {
+          const pageInfo = {
+            current: innerCurrent.value,
+            previous: initialPageInfo.current,
+            pageSize,
+          };
           // 如果在 setInnerPageSize 后 current 被外部受控修改，则触发 currentChange 事件
           if (innerCurrent.value !== pageInfo.previous) {
-            const newPageInfo = {
-              current: innerCurrent.value,
-              previous: pageInfo.previous,
-              pageSize,
-            };
-            emit('currentChange', innerCurrent.value, newPageInfo);
+            emit('currentChange', innerCurrent.value, pageInfo);
           }
+          props.onChange?.(pageInfo);
         }
       });
     };
