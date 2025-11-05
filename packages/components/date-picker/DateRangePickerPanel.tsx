@@ -45,6 +45,7 @@ export default defineComponent({
         mode: props.mode,
         enableTimePicker: props.enableTimePicker,
         format: props.format,
+        defaultTime: props.defaultTime,
       }),
     );
 

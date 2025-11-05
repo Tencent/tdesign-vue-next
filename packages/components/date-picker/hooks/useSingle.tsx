@@ -29,6 +29,7 @@ export function useSingle(props: TdDatePickerProps) {
       format: props.format,
       valueType: props.valueType,
       enableTimePicker: props.multiple ? false : props.enableTimePicker,
+      defaultTime: props.defaultTime,
     }),
   );
 

@@ -38,6 +38,7 @@ export default defineComponent({
     value: [String, Number, Array, Date],
     internalYear: Array as PropType<Array<number>>,
     disableTime: Function as PropType<TdDateRangePickerProps['disableTime']>,
+    defaultTime: [String, Array] as PropType<TdDatePickerProps['defaultTime'] | TdDateRangePickerProps['defaultTime']>,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
@@ -46,6 +47,7 @@ export default defineComponent({
       mode: props.mode,
       format: props.format,
       enableTimePicker: props.enableTimePicker,
+      defaultTime: props.defaultTime,
     });
 
     const disableTimeOptions = () => {

@@ -27,6 +27,7 @@ export function useRange(props: TdDateRangePickerProps) {
       format: props.format,
       valueType: props.valueType,
       enableTimePicker: props.enableTimePicker,
+      defaultTime: props.defaultTime,
     }),
   );
 
