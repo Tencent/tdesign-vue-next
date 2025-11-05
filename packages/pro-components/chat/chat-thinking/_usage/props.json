@@ -49,8 +49,8 @@
     "defaultValue": "moving",
     "options": [
       {
-        "label": "circle",
-        "value": "circle"
+        "label": "dot",
+        "value": "dot"
       },
       {
         "label": "moving",
