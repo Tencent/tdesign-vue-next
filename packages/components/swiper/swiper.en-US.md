@@ -2,7 +2,6 @@
 
 ## API
 
-
 ### Swiper Props
 
 name | type | default | description | required
