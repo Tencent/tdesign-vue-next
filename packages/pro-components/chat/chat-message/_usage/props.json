@@ -38,6 +38,10 @@
             {
                 "label": "circle",
                 "value": "circle"
+            },
+            {
+                "label": "dot",
+                "value": "dot"
             }
         ]
     },

@@ -90,7 +90,11 @@ export default defineComponent({
             avatar={item.avatar}
             name={item.name}
             role={item.role}
-            status={props.textLoading && (props.reverse ? index === 0 : index === data.length - 1) ? 'pending' : ''}
+            status={
+              item.status || (props.textLoading && (props.reverse ? index === 0 : index === data.length - 1))
+                ? 'pending'
+                : ''
+            }
             content={item.content}
             datetime={item.datetime}
             animation={props.animation}
