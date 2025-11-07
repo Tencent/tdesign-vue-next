@@ -11,7 +11,11 @@
       <input type="hidden" name="project[files][src/index.css]" :value="styleContent" />
       <input type="hidden" name="project[files][src/main.js]" :value="mainJsContent" />
       <input type="hidden" name="project[files][src/mock-data/sseRequest.ts]" :value="mockDataContent" />
-      <input type="hidden" name="project[files][src/mock-data/sseRequest-reasoning.ts]" :value="mockDataContent" />
+      <input
+        type="hidden"
+        name="project[files][src/mock-data/sseRequest-reasoning.ts]"
+        :value="mockDataReasoningContent"
+      />
 
       <input type="hidden" name="project[files][index.html]" :value="htmlContent" />
       <input type="hidden" name="project[files][package.json]" :value="packageJSONContent" />
