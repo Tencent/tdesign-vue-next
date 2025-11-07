@@ -40,7 +40,7 @@ const handleScrollToBottom = (target: HTMLDivElement, behavior?: 'auto' | 'smoot
 };
 
 export default defineComponent({
-  name: 'TChat',
+  name: 'TChatList',
   props,
   emits: ['clear', 'scroll'],
   setup(props, { emit, expose }) {

@@ -64,7 +64,7 @@ export default defineComponent({
     return (
       <td-doc-layout>
         <td-header ref="tdHeader" slot="header" />
-        <td-doc-aside ref="tdDocAside" title="TD Chat for AI"></td-doc-aside>
+        <td-doc-aside ref="tdDocAside" title="TDesign Chat for Vue"></td-doc-aside>
         <router-view style={this.contentStyle} onLoaded={this.contentLoaded} />
         <td-theme-generator />
       </td-doc-layout>

@@ -1,5 +1,5 @@
 <template>
-  <t-chat
+  <t-chat-list
     :clear-history="false"
     :text-loading="loading"
     :data="[
@@ -94,7 +94,7 @@
         </template>
       </t-chat-sender>
     </template>
-  </t-chat>
+  </t-chat-list>
 </template>
 <script setup lang="ts">
 import TvisionTcharts from 'tvision-charts-vue-next';

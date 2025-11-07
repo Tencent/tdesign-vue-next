@@ -17,13 +17,7 @@
               @focus="allowToolTip.value = false"
             ></t-select>
           </t-tooltip>
-          <t-button
-            class="check-box"
-            theme="default"
-            :class="{ 'is-active': isChecked }"
-            variant="outline"
-            @click="checkClick"
-          >
+          <t-button class="check-box" :class="{ 'is-active': isChecked }" variant="outline" @click="checkClick">
             <SystemSumIcon />
             <span>深度思考</span>
           </t-button>
@@ -247,9 +241,6 @@ t-chatbot {
       width: 112px;
       height: var(--td-comp-size-m);
       border-radius: 32px;
-      // border: 0;
-      // background: var(--td-bg-color-component);
-      color: var(--td-text-color-primary);
       box-sizing: border-box;
       flex: 0 0 auto;
       .t-button__text {

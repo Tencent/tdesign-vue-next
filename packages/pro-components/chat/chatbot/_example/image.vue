@@ -379,7 +379,6 @@ const senderProps = computed(() => ({
 t-chatbot {
   .t-space {
     .t-button {
-      width: 112px;
       height: var(--td-comp-size-m);
       border-radius: 32px;
       color: var(--td-text-color-primary);

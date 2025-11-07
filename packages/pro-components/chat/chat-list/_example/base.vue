@@ -1,92 +1,75 @@
 <template>
-  <t-space align="center">
-    <t-button theme="primary" @click="visible = true">AI助手悬窗展示</t-button>
-  </t-space>
-  <t-drawer v-model:visible="visible" :footer="false" size="480px" :close-btn="true" class="drawer-box">
-    <template #header>
-      <t-avatar size="32px" shape="circle" image="https://tdesign.gtimg.com/site/chat-avatar.png"></t-avatar>
-      <span class="title">Hi, &nbsp;我是AI</span>
-    </template>
-    <t-chat
-      layout="both"
+  <div class="chat-box">
+    <t-chat-list
+      ref="chatRef"
       :clear-history="chatList.length > 0 && !isStreamLoad"
+      :data="chatList"
       :text-loading="loading"
+      style="height: 600px"
+      animation="gradient"
+      @scroll="handleChatScroll"
       @clear="clearConfirm"
     >
-      <template v-for="(item, index) in chatList" :key="index">
-        <t-chat-message
-          :avatar="item.avatar"
-          :name="item.name"
-          :role="item.role"
-          :content="item.content"
-          :datetime="item.datetime"
-          :variant="getStyle(item.role)"
-          :placement="item.role === 'user' ? 'right' : item.role === 'assistant' ? 'left' : 'left'"
-        >
-          <!-- 自定义操作按钮插槽 -->
-          <template #actionbar>
-            <t-chat-actionbar
-              v-if="item.role === 'assistant'"
-              :content="getActionContent(item.content)"
-              :action-bar="['good', 'bad', 'replay', 'copy']"
-              @actions="handleOperation"
-            />
-          </template>
-        </t-chat-message>
+      <!-- eslint-disable vue/no-unused-vars -->
+      <template #content="{ item, index }">
+        <template v-for="(content, contentIndex) in item.content" :key="contentIndex">
+          <t-chat-thinking v-if="content.type === 'thinking'" :status="content.status" :content="content.data" />
+          <t-chat-content v-else :content="content.data" :role="item.role" />
+        </template>
+      </template>
+      <template #actionbar="{ item, index }">
+        <t-chat-actionbar
+          v-if="item.role === 'assistant'"
+          :content="getActionContent(item.content)"
+          :action-bar="['good', 'bad', 'replay', 'copy']"
+          @actions="handleOperation"
+        />
       </template>
       <template #footer>
-        <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
+        <t-chat-sender v-model="query" :loading="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-sender>
       </template>
-    </t-chat>
-  </t-drawer>
+    </t-chat-list>
+  </div>
 </template>
-<script setup>
+
+<script setup lang="jsx">
 import { ref } from 'vue';
-const visible = ref(false);
 import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
 
 const fetchCancel = ref(null);
 const loading = ref(false);
+// 流式数据加载中
 const isStreamLoad = ref(false);
-
+const query = ref('');
+const chatRef = ref(null);
+// 滚动到底部
+const backBottom = () => {
+  chatRef.value.scrollToBottom({
+    behavior: 'smooth',
+  });
+};
+const handleChatScroll = function ({ e }) {
+  console.log('handleChatScroll', e);
+};
+// 清空消息
+const clearConfirm = function () {
+  chatList.value = [];
+};
 const handleOperation = function (type, options) {
-  const { index } = options;
-  if (type === 'good') {
-    commentValue.value = commentValue.value === 'good' ? '' : 'good';
-  } else if (type === 'bad') {
-    commentValue.value = commentValue.value === 'bad' ? '' : 'bad';
-  } else if (type === 'replay') {
-    const userQuery = chatList.value[index + 1].content[0].data;
+  console.log('handleOperation', type, options);
+};
 
-    inputEnter(userQuery);
-  }
-};
-const getStyle = (role) => {
-  if (role === 'assistant') {
-    return 'outline';
-  }
-  if (role === 'user') {
-    return 'base';
-  }
-  return 'text';
-};
 // 获取操作按钮需要的内容（排除thinking类型）
 const getActionContent = function (contentArray) {
   const textContent = contentArray.find((item) => item.type === 'text' || item.type === 'markdown');
   return textContent ? textContent.data : '';
 };
-// 正序渲染
+// 倒序渲染
 const chatList = ref([
   {
-    role: 'system',
-    content: [
-      {
-        type: 'text',
-        data: '模型由 hunyuan 变为 GPT4',
-      },
-    ],
-  },
-  {
+    avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
+    name: '自己',
+    datetime: '今天16:38',
     role: 'user',
     content: [
       {
@@ -96,6 +79,9 @@ const chatList = ref([
     ],
   },
   {
+    avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
+    name: 'TDesignAI',
+    datetime: '今天16:38',
     role: 'assistant',
     content: [
       {
@@ -106,21 +92,23 @@ const chatList = ref([
   },
 ]);
 
-const clearConfirm = function () {
-  chatList.value = [];
-};
 const onStop = function () {
   if (fetchCancel.value) {
     fetchCancel.value.controller.close();
     loading.value = false;
+    isStreamLoad.value = false;
   }
 };
+
 const inputEnter = function (inputValue) {
   if (isStreamLoad.value) {
     return;
   }
   if (!inputValue) return;
   const params = {
+    avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
+    name: '自己',
+    datetime: new Date().toDateString(),
     role: 'user',
     content: [
       {
@@ -133,6 +121,9 @@ const inputEnter = function (inputValue) {
   chatList.value.push(params);
   // 空消息占位
   const params2 = {
+    avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
+    name: 'TDesignAI',
+    datetime: new Date().toDateString(),
     role: 'assistant',
     content: [
       {
@@ -151,9 +142,10 @@ const inputEnter = function (inputValue) {
   };
 
   chatList.value.push(params2);
-
   handleData(inputValue);
+  query.value = '';
 };
+
 const fetchSSE = async (fetchFn, options) => {
   const response = await fetchFn();
   const { success, fail, complete } = options;
@@ -184,7 +176,6 @@ const handleData = async () => {
   loading.value = true;
   isStreamLoad.value = true;
   const lastItem = chatList.value[chatList.value.length - 1];
-
   const mockedData = {
     reasoning: `嗯，用户问牛顿第一定律是不是适用于所有参考系。首先，我得先回忆一下牛顿第一定律的内容。牛顿第一定律，也就是惯性定律，说物体在没有外力作用时会保持静止或匀速直线运动。也就是说，保持原来的运动状态。
 
@@ -205,7 +196,7 @@ const handleData = async () => {
     },
     {
       success(result) {
-        console.log('success', result);
+        // console.log('success', result);
         loading.value = false;
         // 设置思考过程的status
         if (result.delta.reasoning_content) {
@@ -221,6 +212,8 @@ const handleData = async () => {
           lastItem.content[0].data.text = msg;
           lastItem.content[1].data = msg;
         }
+
+        // 显示用时xx秒，业务侧需要自行处理
         // 设置思考过程的status
         lastItem.content[0].status = 'complete';
         lastItem.content[0].data.title = '已完成思考(耗时20秒)';
@@ -233,6 +226,9 @@ const handleData = async () => {
 };
 </script>
 <style lang="less">
+.text {
+  color: red;
+}
 /* 应用滚动条样式 */
 ::-webkit-scrollbar-thumb {
   background-color: var(--td-scrollbar-color);
@@ -243,31 +239,41 @@ const handleData = async () => {
 ::-webkit-scrollbar-track {
   background-color: var(--td-scroll-track-color);
 }
-.title {
-  margin-left: 16px;
-  font-size: 20px;
-  color: var(--td-text-color-primary);
-  font-weight: 600;
-  line-height: 28px;
-}
-.drawer-box {
-  .t-drawer__header {
-    padding: 32px;
-  }
-  .t-drawer__body {
-    padding: 30px 32px;
-  }
-  .t-drawer__close-btn {
-    right: 32px;
-    top: 32px;
-    background-color: var(--td-bg-color-secondarycontainer);
-    width: 32px;
+
+.model-select {
+  display: flex;
+  align-items: center;
+  .t-select {
+    width: 112px;
     height: 32px;
-    border-radius: 50%;
-    .t-icon {
-      font-size: 20px;
+    margin-right: 8px;
+    .t-input {
+      border-radius: 32px;
+      padding: 0 15px;
     }
+  }
+  .check-box {
+    width: 112px;
+    height: 32px;
+    border-radius: 32px;
+    border: 0;
+    background: #e7e7e7;
+    color: rgba(0, 0, 0, 0.9);
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    .t-button__text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span {
+        margin-left: 4px;
+      }
+    }
+  }
+  .check-box.is-active {
+    border: 1px solid #d9e1ff;
+    background: #f2f3ff;
+    color: var(--td-brand-color);
   }
 }
 </style>
-../_example-mock/sseRequest

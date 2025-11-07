@@ -2,7 +2,7 @@
 
 ## API
 
-### Chat Props
+### ChatList Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
@@ -22,14 +22,15 @@ onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>�
 onScroll | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>滚动事件的回调。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 autoScroll | Boolean | true | 是否开启自动滚动到底部 | N
 showScrollButton | Boolean | true | 是否显示滚动到底部按钮 | N
-### Chat Events
+
+### ChatList Events
 
 名称 | 参数 | 描述
 -- | -- | --
 clear | `(context: { e: MouseEvent })` | 点击清空历史按钮回调。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
 scroll | `(context: { e: MouseEvent })` | 滚动事件的回调。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
 
-### ChatInstanceFunctions 组件实例方法
+### ChatListInstanceFunctions 组件实例方法
 
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
