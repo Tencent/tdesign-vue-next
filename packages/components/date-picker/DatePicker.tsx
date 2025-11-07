@@ -53,7 +53,7 @@ export default defineComponent({
     const formatRef = computed(() =>
       getDefaultFormat({
         mode: props.mode,
-        format: props.format,
+        format: props.format || globalConfig.value.format,
         valueType: props.valueType,
         enableTimePicker: props.multiple ? false : props.enableTimePicker,
       }),
