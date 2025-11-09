@@ -65,6 +65,10 @@ export default defineComponent({
       };
     });
 
+    const singleDefaultTime = computed<string | undefined>(() =>
+      Array.isArray(props.defaultTime) ? '' : (props.defaultTime as string | undefined),
+    );
+
     watch(popupVisible, (visible) => {
       // 多选不考虑输入情况
       if (props.multiple) return;
@@ -78,7 +82,7 @@ export default defineComponent({
             formatDate(inputValue.value, {
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
-              defaultTime: props.defaultTime,
+              defaultTime: singleDefaultTime.value,
             }) as DateValue,
             {
               dayjsValue: parseToDayjs(
@@ -86,7 +90,7 @@ export default defineComponent({
                 formatRef.value.format,
                 undefined,
                 undefined,
-                props.defaultTime,
+                singleDefaultTime.value,
               ),
               trigger: 'confirm',
             },
@@ -160,7 +164,7 @@ export default defineComponent({
         if (props.multiple) {
           const newDate = processDate(date, props.defaultTime);
           onChange(newDate, {
-            dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, props.defaultTime),
+            dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, singleDefaultTime.value),
             trigger: 'pick',
           });
           return;
@@ -173,7 +177,7 @@ export default defineComponent({
             defaultTime: props.defaultTime,
           }) as DateValue,
           {
-            dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, props.defaultTime),
+            dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, singleDefaultTime.value),
             trigger: 'pick',
           },
         );
@@ -232,7 +236,7 @@ export default defineComponent({
       const removeDate = dayjs(ctx.item).toDate();
       const newDate = processDate(removeDate, props.defaultTime);
       onChange?.(newDate, {
-        dayjsValue: parseToDayjs(removeDate, formatRef.value.format, undefined, undefined, props.defaultTime),
+        dayjsValue: parseToDayjs(removeDate, formatRef.value.format, undefined, undefined, singleDefaultTime.value),
         trigger: 'tag-remove',
       });
     }
@@ -309,7 +313,7 @@ export default defineComponent({
               formatRef.value.format,
               undefined,
               undefined,
-              props.defaultTime,
+              singleDefaultTime.value,
             ),
             trigger: 'confirm',
           },
@@ -331,7 +335,7 @@ export default defineComponent({
           targetFormat: formatRef.value.valueType,
         }) as DateValue,
         {
-          dayjsValue: parseToDayjs(presetVal, formatRef.value.format, undefined, undefined, props.defaultTime),
+          dayjsValue: parseToDayjs(presetVal, formatRef.value.format, undefined, undefined, singleDefaultTime.value),
           trigger: 'preset',
         },
       );

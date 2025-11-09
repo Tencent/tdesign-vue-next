@@ -64,6 +64,7 @@ describe('DatePicker', () => {
           <div class={attachClass}>
             <DatePicker
               defaultTime={defaultTime}
+              format="YYYY-MM-DD"
               valueType={'time-stamp'}
               onChange={onChange}
               popupProps={{ attach: `.${attachClass}` }}
@@ -114,6 +115,7 @@ describe('DatePicker', () => {
           <div class={attachClass}>
             <DateRangePicker
               defaultTime={defaultTime}
+              format="YYYY-MM-DD"
               valueType={'time-stamp'}
               onChange={onChange}
               popupProps={{ attach: `.${attachClass}` }}
@@ -172,7 +174,7 @@ describe('DatePicker', () => {
 
     const wrapper = mount({
       render() {
-        return <DatePickerPanel defaultTime={defaultTime} onChange={onChange} />;
+        return <DatePickerPanel defaultTime={defaultTime} format="YYYY-MM-DD" onChange={onChange} />;
       },
     });
 
@@ -196,7 +198,7 @@ describe('DatePicker', () => {
 
     const wrapper = mount({
       render() {
-        return <DateRangePickerPanel defaultTime={defaultTime} onChange={onChange} />;
+        return <DateRangePickerPanel defaultTime={defaultTime} format="YYYY-MM-DD" onChange={onChange} />;
       },
     });
 

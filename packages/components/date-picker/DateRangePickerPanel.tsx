@@ -115,8 +115,8 @@ export default defineComponent({
             defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: nextValue.map((v) =>
-              parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime),
+            dayjsValue: nextValue.map((v, i) =>
+              parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
             ),
             trigger: 'pick',
           },
@@ -232,8 +232,8 @@ export default defineComponent({
             defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: nextValue.map((v) =>
-              parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime),
+            dayjsValue: nextValue.map((v, i) =>
+              parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
             ),
             trigger: 'confirm',
           },
@@ -264,8 +264,8 @@ export default defineComponent({
             defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: presetValue.map((p) =>
-              parseToDayjs(p, formatRef.value.format, undefined, undefined, props.defaultTime),
+            dayjsValue: presetValue.map((p, i) =>
+              parseToDayjs(p, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
             ),
             trigger: 'preset',
           },

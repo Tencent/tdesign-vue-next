@@ -46,6 +46,10 @@ export default defineComponent({
       }),
     );
 
+    const singleDefaultTime = computed<string | undefined>(() =>
+      Array.isArray(props.defaultTime) ? '' : (props.defaultTime as string | undefined),
+    );
+
     // 日期点击
     function onCellClick(date: Date, { e }: { e: MouseEvent }) {
       props.onCellClick?.({ date, e });
@@ -59,7 +63,7 @@ export default defineComponent({
         cacheValue.value = formatDate(date, { format: formatRef.value.format });
       } else {
         onChange?.(formatDate(date, { format: formatRef.value.format, defaultTime: props.defaultTime }) as DateValue, {
-          dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, props.defaultTime),
+          dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, singleDefaultTime.value),
           trigger: 'pick',
         });
       }
@@ -143,7 +147,7 @@ export default defineComponent({
             formatRef.value.format,
             undefined,
             undefined,
-            props.defaultTime,
+            singleDefaultTime.value,
           ),
           trigger: 'confirm',
         },
@@ -157,7 +161,7 @@ export default defineComponent({
       onChange?.(
         formatDate(presetVal, { format: formatRef.value.format, defaultTime: props.defaultTime }) as DateValue,
         {
-          dayjsValue: parseToDayjs(presetVal, formatRef.value.format, undefined, undefined, props.defaultTime),
+          dayjsValue: parseToDayjs(presetVal, formatRef.value.format, undefined, undefined, singleDefaultTime.value),
           trigger: 'preset',
         },
       );
