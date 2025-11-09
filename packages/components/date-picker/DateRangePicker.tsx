@@ -170,9 +170,12 @@ export default defineComponent({
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
               autoSwap: true,
+              defaultTime: props.defaultTime,
             }) as DateValue[],
             {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              dayjsValue: nextValue.map((v) =>
+                parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime),
+              ),
               trigger: 'pick',
             },
           );
@@ -277,9 +280,12 @@ export default defineComponent({
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
               autoSwap: true,
+              defaultTime: props.defaultTime,
             }) as DateValue[],
             {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              dayjsValue: nextValue.map((v) =>
+                parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime),
+              ),
               trigger: 'confirm',
             },
           );
@@ -319,9 +325,12 @@ export default defineComponent({
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
             autoSwap: true,
+            defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),
+            dayjsValue: presetValue.map((p) =>
+              parseToDayjs(p, formatRef.value.format, undefined, undefined, props.defaultTime),
+            ),
             trigger: 'preset',
           },
         );

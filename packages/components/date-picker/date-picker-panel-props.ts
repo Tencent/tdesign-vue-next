@@ -10,7 +10,7 @@ import { PropType } from 'vue';
 export default {
   /** 时间选择器默认值，当 value/defaultValue 未设置值时有效 */
   defaultTime: {
-    type: String,
+    type: [String, Array] as PropType<TdDatePickerPanelProps['defaultTime']>,
     default: '00:00:00',
   },
   /** 点击日期单元格时触发 */

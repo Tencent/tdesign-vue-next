@@ -1,9 +1,11 @@
 <template>
   <t-space direction="vertical">
-    <t-date-range-picker
-      value-type="time-stamp"
-      format="YYYY-MM-DD"
-      :default-time="defaultTime"
+    <t-date-picker v-model="date2" @change="handleChange" />
+    <t-date-picker
+      v-model="date"
+      placeholder="可清除、可输入的日期选择器"
+      clearable
+      allow-input
       @change="handleChange"
     />
   </t-space>
@@ -11,11 +13,13 @@
 
 <script setup>
 import { ref } from 'vue';
-const defaultTime = ['00:00:00', '23:59:59'];
 
-const date = ref([]);
+const date = ref('');
+const date2 = ref('');
 
 function handleChange(value, context) {
   console.log('onChange:', value, context);
+  console.log('timestamp:', context.dayjsValue.valueOf());
+  console.log('YYYYMMDD:', context.dayjsValue.format('YYYYMMDD'));
 }
 </script>
