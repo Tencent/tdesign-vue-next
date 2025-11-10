@@ -190,6 +190,7 @@ export default defineComponent({
                   loading={props.loading}
                   loadingText={props.loadingText}
                   cascaderContext={cascaderContext.value}
+                  scroll={props.scroll}
                   v-slots={{ option: slots.option, empty: slots.empty, loadingText: slots.loadingText }}
                 />
                 {renderTNodeJSX('panelBottomContent')}
