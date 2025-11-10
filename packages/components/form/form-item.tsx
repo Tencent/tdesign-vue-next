@@ -1,4 +1,20 @@
 import {
+  cloneDeep,
+  isArray,
+  isBoolean,
+  isNil,
+  isNumber,
+  isString,
+  get as lodashGet,
+  set as lodashSet,
+} from 'lodash-es';
+import {
+  GlobalIconType,
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
+import {
   computed,
   defineComponent,
   inject,
@@ -12,34 +28,7 @@ import {
   VNode,
   watch,
 } from 'vue';
-import {
-  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
-  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
-  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
-  GlobalIconType,
-} from 'tdesign-icons-vue-next';
-import {
-  isNil,
-  isArray,
-  isNumber,
-  isString,
-  isBoolean,
-  cloneDeep,
-  get as lodashGet,
-  set as lodashSet,
-} from 'lodash-es';
 
-import { validate } from './utils/form-model';
-import {
-  AllValidateResult,
-  Data,
-  FormErrorMessage,
-  FormItemValidateMessage,
-  FormRule,
-  ValidateTriggerType,
-  ValueType,
-} from './type';
-import props from './form-item-props';
 import {
   AnalysisValidateResult,
   ErrorListType,
@@ -50,10 +39,21 @@ import {
   useCLASSNAMES,
   ValidateStatus,
 } from './consts';
+import props from './form-item-props';
+import {
+  AllValidateResult,
+  Data,
+  FormErrorMessage,
+  FormItemValidateMessage,
+  FormRule,
+  ValidateTriggerType,
+  ValueType,
+} from './type';
+import { validate } from './utils/form-model';
 
-import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
-import { getFormItemClassName } from './utils';
 import { template } from '@tdesign/common-js/utils/stringTemplate';
+import { useConfig, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
+import { getFormItemClassName } from './utils';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
@@ -164,7 +164,7 @@ export default defineComponent({
     /** Suffix Icon END */
 
     /** Content Style */
-    const errorClasses = computed(() => {
+    const statusClasses = computed(() => {
       if (!showErrorMessage.value) return '';
       if (verifyStatus.value === ValidateStatus.SUCCESS) {
         return props.successBorder
@@ -176,7 +176,7 @@ export default defineComponent({
       if (props.status) return statusClass.value;
       return type === 'error' ? CLASS_NAMES.value.error : CLASS_NAMES.value.warning;
     });
-    const contentClasses = computed(() => [CLASS_NAMES.value.controls, errorClasses.value]);
+    const contentClasses = computed(() => [CLASS_NAMES.value.controls, statusClasses.value]);
     const contentStyle = computed(() => {
       let contentStyle = {};
       if (labelWidth.value && labelAlign.value !== 'top') {
@@ -322,13 +322,28 @@ export default defineComponent({
     };
 
     const setValidateMessage = (validateMessage: FormItemValidateMessage[]) => {
-      if (!validateMessage && !isArray(validateMessage)) return;
+      if (!validateMessage || !isArray(validateMessage)) return;
+      errorList.value = [];
+      successList.value = [];
       if (validateMessage.length === 0) {
-        errorList.value = [];
         verifyStatus.value = ValidateStatus.SUCCESS;
+        return;
       }
-      errorList.value = validateMessage.map((item) => ({ ...item, result: false }));
-      verifyStatus.value = ValidateStatus.FAIL;
+      const errors = validateMessage.filter(
+        (item) => item.type === 'error' || item.type === 'warning',
+      ) as FormItemValidateMessage[];
+      const successes = validateMessage.filter((item) => item.type === 'success') as FormItemValidateMessage[];
+      errorList.value = errors.map((item) => ({
+        message: item.message,
+        type: item.type as 'error' | 'warning',
+        result: false,
+      }));
+      successList.value = successes.map((item) => ({
+        message: item.message,
+        type: item.type as 'success',
+        result: true,
+      }));
+      verifyStatus.value = errors.length > 0 ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
     };
 
     const value = computed<ValueType>(() => form?.data && lodashGet(form?.data, props.name));
