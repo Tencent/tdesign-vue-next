@@ -443,6 +443,7 @@ export interface TdChatItemMeta {
   role?: string;
   datetime?: string;
   content?: string;
+  status?: string;
 }
 
 export type ScrollToBottomParams = { behavior: 'auto' | 'smooth' };

@@ -166,11 +166,15 @@ export const mockDataReasoningContent = `export class MockSSEResponse {
   private encoder = new TextEncoder();
   private stream: ReadableStream<Uint8Array>;
   private error: boolean;
+  private currentPhase: 'reasoning' | 'content' = 'reasoning';
 
   constructor(
-    private data: string,
-    private delay: number = 300,
-    error = false, // 新增参数，默认为false
+    private data: {
+      reasoning: string; // 推理内容
+      content: string; // 正式内容
+    },
+    private delay: number = 100,
+    error = false,
   ) {
     this.error = error;
 
@@ -182,28 +186,53 @@ export const mockDataReasoningContent = `export class MockSSEResponse {
           setTimeout(() => this.pushData(), this.delay); // 延迟开始推送数据
         }
       },
-      cancel(reason) {
-        console.log('Stream canceled', reason);
-      },
+      cancel() {},
     });
   }
 
   private pushData() {
-    if (this.data.length === 0) {
-      this.controller.close();
-      return;
-    }
     try {
-      const chunk = this.data.slice(0, 1);
-      this.data = this.data.slice(1);
+      if (this.currentPhase === 'reasoning') {
+        // 推送推理内容
+        if (this.data.reasoning.length > 0) {
+          const chunk = JSON.stringify({
+            delta: {
+              reasoning_content: this.data.reasoning.slice(0, 1),
+              content: '',
+            },
+            finished: false,
+          });
+          this.controller.enqueue(this.encoder.encode(chunk));
+          this.data.reasoning = this.data.reasoning.slice(1);
+          // 设置下次推送
+          setTimeout(() => this.pushData(), this.delay);
+        } else {
+          // 推理内容推送完成，切换到正式内容
+          this.currentPhase = 'content';
+          setTimeout(() => this.pushData(), this.delay); // 立即开始推送正式内容
+          return;
+        }
+      }
 
-      this.controller.enqueue(this.encoder.encode(chunk));
+      if (this.currentPhase === 'content') {
+        // 推送正式内容
+        if (this.data.content.length > 0) {
+          const chunk = JSON.stringify({
+            delta: {
+              reasoning_content: '',
+              content: this.data.content.slice(0, 1),
+            },
+            finished: this.data.content.length === 1, // 最后一个字符时标记完成
+          });
+          this.controller.enqueue(this.encoder.encode(chunk));
+          this.data.content = this.data.content.slice(1);
 
-      if (this.data.length > 0) {
-        setTimeout(() => this.pushData(), this.delay);
-      } else {
-        // 数据全部发送完毕后关闭流
-        setTimeout(() => this.controller.close(), this.delay);
+          // 设置下次推送
+          setTimeout(() => this.pushData(), this.delay);
+        } else {
+          setTimeout(() => this.controller.close(), this.delay);
+          return;
+        }
       }
     } catch {}
   }
