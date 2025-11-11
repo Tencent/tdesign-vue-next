@@ -1,59 +1,63 @@
 [
-    {
-        "name": "variant",
-        "type": "enum",
-        "defaultValue": "base",
-        "options": [
-            {
-                "label": "base",
-                "value": "base"
-            },
-            {
-                "label": "outline",
-                "value": "outline"
-            },
-            {
-                "label": "text",
-                "value": "text"
-            }
-        ]
-    },
-    {
-        "name": "animation",
-        "type": "enum",
-        "defaultValue": "skeleton",
-        "options": [
-            {
-                "label": "skeleton",
-                "value": "skeleton"
-            },
-            {
-                "label": "moving",
-                "value": "moving"
-            },
-            {
-                "label": "gradient",
-                "value": "gradient"
-            },
-            {
-                "label": "circle",
-                "value": "circle"
-            }
-        ]
-    },
-    {
-        "name": "placement",
-        "type": "enum",
-        "defaultValue": "left",
-        "options": [
-            {
-                "label": "left",
-                "value": "left"
-            },
-            {
-                "label": "right",
-                "value": "right"
-            }
-        ]
-    }
+  {
+    "name": "variant",
+    "type": "enum",
+    "defaultValue": "base",
+    "options": [
+      {
+        "label": "base",
+        "value": "base"
+      },
+      {
+        "label": "outline",
+        "value": "outline"
+      },
+      {
+        "label": "text",
+        "value": "text"
+      }
+    ]
+  },
+  {
+    "name": "animation",
+    "type": "enum",
+    "defaultValue": "skeleton",
+    "options": [
+      {
+        "label": "skeleton",
+        "value": "skeleton"
+      },
+      {
+        "label": "moving",
+        "value": "moving"
+      },
+      {
+        "label": "gradient",
+        "value": "gradient"
+      },
+      {
+        "label": "dots",
+        "value": "dots"
+      },
+      {
+        "label": "circle",
+        "value": "circle"
+      }
+    ]
+  },
+  {
+    "name": "placement",
+    "type": "enum",
+    "defaultValue": "left",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      }
+    ]
+  }
 ]

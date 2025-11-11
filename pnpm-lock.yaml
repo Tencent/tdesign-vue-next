@@ -874,8 +874,8 @@ importers:
         specifier: workspace:^
         version: link:../tdesign-vue-next
       tdesign-web-components:
-        specifier: 1.2.5-alpha.6
-        version: 1.2.5-alpha.6
+        specifier: ~1.2.6
+        version: 1.2.6
       vue:
         specifier: '>=3.1.0'
         version: 3.3.9(typescript@5.8.3)
@@ -7266,8 +7266,8 @@ packages:
     peerDependencies:
       vue: ~2.7.14
 
-  tdesign-web-components@1.2.5-alpha.6:
-    resolution: {integrity: sha512-fPLsG3+EB4YrKxBSeuHwQP8qge3kx1yyuCA4L6x7yA+pBxKYCeaeccgzXXWjEa/Ouxuy/cShoHd++/FAMCcFXw==}
+  tdesign-web-components@1.2.6:
+    resolution: {integrity: sha512-peGoh4gPXjxOrUgQKeJTyVl8cIBDK6y48WVuCS14UAChfuCWnLG9N+8KTgEnApy2rauTEtp1nU/rVOzMthlbxA==}
 
   temp-dir@2.0.0:
     resolution: {integrity: sha512-aoBAniQmmwtcKp/7BzsH8Cxzv8OL736p7v1ihGb5e9DJ9kTwGWHrQrVB5+lfVDzfGrdRzXch+ig7LHaY1JTOrg==}
@@ -9023,7 +9023,7 @@ snapshots:
       '@types/node': 20.5.1
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.8.3)
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.8.3)
+      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.8.3))(typescript@5.8.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -11189,7 +11189,7 @@ snapshots:
       - '@swc/core'
       - '@swc/wasm'
 
-  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.8.3):
+  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.3.6(typescript@5.8.3)
@@ -15202,7 +15202,7 @@ snapshots:
       validator: 13.15.15
       vue: 2.7.14
 
-  tdesign-web-components@1.2.5-alpha.6:
+  tdesign-web-components@1.2.6:
     dependencies:
       '@babel/runtime': 7.27.6
       '@popperjs/core': 2.11.8

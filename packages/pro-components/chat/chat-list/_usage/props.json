@@ -17,6 +17,10 @@
         "value": "gradient"
       },
       {
+        "label": "dots",
+        "value": "dots"
+      },
+      {
         "label": "circle",
         "value": "circle"
       }
