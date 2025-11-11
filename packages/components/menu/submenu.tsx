@@ -150,11 +150,27 @@ export default defineComponent({
       return targetInPopup(el) || loopInPopup(el.parentElement);
     };
 
+    // 检查元素是否在当前 submenu 的 popup 中（不包括子孙 popup）
+    const isInCurrentPopup = (el: HTMLElement): boolean => {
+      if (!el || !popupWrapperRef.value) return false;
+      let current = el;
+      while (current && current !== document.body) {
+        if (current === popupWrapperRef.value) return true;
+        // 如果遇到其他 popup wrapper，说明不是当前的 popup
+        if (current !== popupWrapperRef.value && current.classList?.contains(`${classPrefix.value}-menu__spacer`)) {
+          return false;
+        }
+        current = current.parentElement;
+      }
+      return false;
+    };
+
     const handleMouseLeave = (e: MouseEvent) => {
       setTimeout(() => {
-        const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
+        const target = e.relatedTarget as HTMLElement;
+        const inCurrentPopup = isInCurrentPopup(target);
 
-        if (isCursorInPopup.value || inPopup) return;
+        if (isCursorInPopup.value || inCurrentPopup) return;
         popupVisible.value = false;
       }, 0);
     };
@@ -163,8 +179,11 @@ export default defineComponent({
       const { toElement, relatedTarget } = e;
       let target = toElement || relatedTarget;
 
+      // 检查鼠标是否移动到自己的子 popup 中
       if (target === subPopupRef.value) return;
+      if (subPopupRef.value && subPopupRef.value.contains(target)) return;
 
+      // 检查鼠标是否回到 submenu 触发器
       const isSubmenu = (el: Element) => el === submenuRef.value;
       while (target !== null && target !== document && !isSubmenu(target)) {
         target = target.parentNode;
@@ -173,10 +192,13 @@ export default defineComponent({
       isCursorInPopup.value = false;
 
       if (!isSubmenu(target)) {
+        // 鼠标离开了 popup 且没有回到触发器
         popupVisible.value = false;
+        // 只有真正离开（不在任何 popup 中）时才通知父级
+        if (!loopInPopup(relatedTarget as HTMLElement)) {
+          closeParentPopup?.(e);
+        }
       }
-
-      closeParentPopup?.(e);
     };
     const handleEnterPopup = () => {
       // 如果父 popup 存在且不可见，不触发保持可见功能
