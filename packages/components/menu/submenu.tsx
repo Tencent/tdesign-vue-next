@@ -1,25 +1,25 @@
+import { useCollapseAnimation, useContent, usePrefixClass, useRipple, useTNodeJSX } from '@tdesign/shared-hooks';
 import {
-  defineComponent,
   computed,
-  inject,
-  ref,
-  provide,
-  onMounted,
+  defineComponent,
   getCurrentInstance,
-  watch,
-  Slots,
-  toRefs,
+  inject,
   nextTick,
-  Transition,
+  onMounted,
+  provide,
+  ref,
+  Slots,
   toRef,
+  toRefs,
+  Transition,
+  watch,
 } from 'vue';
-import props from './submenu-props';
-import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
 import FakeArrow from '../common-components/fake-arrow';
-import { useRipple, useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/shared-hooks';
+import props from './submenu-props';
+import { TdMenuInterface, TdMenuItem, TdSubMenuInterface } from './types';
 
-import { Popup, PopupPlacement } from '../popup';
 import { isFunction } from 'lodash-es';
+import { Popup, PopupPlacement } from '../popup';
 import { TdSubmenuProps } from './type';
 
 export default defineComponent({
@@ -199,10 +199,7 @@ export default defineComponent({
       const popupWrapper = (
         <div
           ref={popupWrapperRef}
-          class={[
-            `${classPrefix.value}-menu__spacer`,
-            `${classPrefix.value}-menu__spacer--${!isNested.value && isHead ? 'top' : 'left'}`,
-          ]}
+          class={[`${classPrefix.value}-menu__spacer`]}
           onMouseenter={handleEnterPopup}
           onMouseleave={handleMouseLeavePopup}
         >
