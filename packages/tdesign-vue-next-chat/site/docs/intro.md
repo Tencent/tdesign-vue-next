@@ -4,7 +4,7 @@ order: 3
 group:
   title: 概述
   order: 1
-description: TDesign Chat 智能对话组件库，为AI应用提供专业级聊天界面解决方案
+description: TDesign Chat 智能对话组件库，为 AI 应用提供专业级聊天界面解决方案
 spline: ai
 ---
 

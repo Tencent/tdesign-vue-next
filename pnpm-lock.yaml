@@ -262,9 +262,6 @@ catalogs:
     tdesign-publish-cli:
       specifier: ^0.0.12
       version: 0.0.12
-    tdesign-site-components:
-      specifier: ^0.16.5
-      version: 0.16.5
     tdesign-theme-generator:
       specifier: ^1.1.8
       version: 1.1.8
@@ -901,12 +898,12 @@ importers:
       '@tdesign/pro-components-chat':
         specifier: workspace:^
         version: link:../../pro-components/chat
+      '@tdesign/site-components':
+        specifier: 0.18.0-alpha.4
+        version: 0.18.0-alpha.4
       semver:
         specifier: catalog:docs
         version: 7.7.2
-      tdesign-site-components:
-        specifier: catalog:tdesign
-        version: 0.16.5
       tdesign-theme-generator:
         specifier: catalog:tdesign
         version: 1.1.8
@@ -2472,6 +2469,9 @@ packages:
 
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
+
+  '@tdesign/site-components@0.18.0-alpha.4':
+    resolution: {integrity: sha512-RPYyQ9HpRLighdmrKw+6IBy9Rko58dc+cnAPyzAGpSjJcn9KGImrfnGnvtgBRUXTdf826Rotc5Jv+kcSgNPb6A==}
 
   '@testing-library/dom@9.3.4':
     resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
@@ -7247,9 +7247,6 @@ packages:
     resolution: {integrity: sha512-eRmrOCUqR/55AAZ8dqUGV8+TU1qzljGoiU9TsFOroHcNe4T1u/dYwEBfg39NsupWUoO/v67XeUDlKyTjUHkO2w==}
     hasBin: true
 
-  tdesign-site-components@0.16.5:
-    resolution: {integrity: sha512-0NMP21yvaH8M8kT/+LSw/fxtTqEB8PMD44uQLkMYJP8KyUHZ8PwpKPO0klXyGHqTojy6YQzYVtwtHJ7vxMNmnQ==}
-
   tdesign-site-components@0.17.0-alpha.7:
     resolution: {integrity: sha512-Wb74fspHI6hDbH1qT7QlSRfiJ/XUuOUXVIzfn8zHodRHJkMjRtrNOIPlFCfSSPBlEMpopXRqldsXKWlXpxeu+w==}
 
@@ -9671,6 +9668,15 @@ snapshots:
       json5: 2.2.3
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.12
+
+  '@tdesign/site-components@0.18.0-alpha.4':
+    dependencies:
+      '@popperjs/core': 2.11.8
+      hybrids: 8.2.2
+      nprogress: 0.2.0
+      prismjs: 1.30.0
+      qrcode: 1.5.4
+      tdesign-icons-svg: 0.0.1
 
   '@testing-library/dom@9.3.4':
     dependencies:
@@ -15131,15 +15137,6 @@ snapshots:
       commander: 7.2.0
       inquirer: 8.2.6
       standard-changelog: 2.0.27
-
-  tdesign-site-components@0.16.5:
-    dependencies:
-      '@popperjs/core': 2.11.8
-      hybrids: 8.2.2
-      nprogress: 0.2.0
-      prismjs: 1.30.0
-      qrcode: 1.5.4
-      tdesign-icons-svg: 0.0.1
 
   tdesign-site-components@0.17.0-alpha.7:
     dependencies:

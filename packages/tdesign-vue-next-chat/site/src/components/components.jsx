@@ -64,7 +64,7 @@ export default defineComponent({
   render() {
     return (
       <td-doc-layout>
-        <td-header ref="tdHeader" slot="header" />
+        <td-header ref="tdHeader" slot="header" disabledLocale={true} />
         <td-doc-aside ref="tdDocAside" title="TDesign Chat for Vue">
           <t-select
             id="historyVersion"
