@@ -7,9 +7,9 @@ import {
   nextTick,
   onMounted,
   provide,
+  reactive,
   ref,
   Slots,
-  toRef,
   toRefs,
   Transition,
   watch,
@@ -36,7 +36,7 @@ export default defineComponent({
     const { theme, activeValues, expandValues, isHead, open } = menu;
 
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', {});
-    const { setSubPopup, closeParentPopup, popupVisible: parentPopupVisible } = submenu;
+    const { setSubPopup, closeParentPopup } = submenu;
 
     const mode = computed(() => attrs.expandType || menu.mode.value);
 
@@ -57,6 +57,8 @@ export default defineComponent({
     const subPopupRef = ref<HTMLElement>();
     const submenuRef = ref<HTMLElement>();
     const transitionClass = usePrefixClass('slide-down');
+    const enterTimerRef = ref<number | null>(null);
+    const leaveTimerRef = ref<number | null>(null);
     useRipple(submenuRef, rippleColor);
 
     const classes = computed(() => [
@@ -100,26 +102,28 @@ export default defineComponent({
       },
     ]);
 
-    const submenuInterface = {
-      value: value.value,
-      addMenuItem: (item: TdMenuItem) => {
-        menuItems.value.push(item);
-        if (submenu) {
-          submenu.addMenuItem(item);
-        }
-      },
-      setSubPopup: (ref: HTMLElement) => {
-        subPopupRef.value = ref;
-      },
-      closeParentPopup: (e: MouseEvent) => {
-        const related = e.relatedTarget as HTMLElement;
-        if (loopInPopup(related)) return;
-        handleMouseLeavePopup(e);
-      },
-      popupVisible: toRef(popupVisible),
-    };
-
-    provide<TdSubMenuInterface>('TdSubmenu', submenuInterface);
+    provide<TdSubMenuInterface>(
+      'TdSubmenu',
+      reactive({
+        value,
+        addMenuItem: (item: TdMenuItem) => {
+          menuItems.value.push(item);
+          if (submenu) {
+            submenu.addMenuItem(item);
+          }
+        },
+        setSubPopup: (ref: HTMLElement) => {
+          subPopupRef.value = ref;
+        },
+        closeParentPopup: (e: MouseEvent) => {
+          const related = e.relatedTarget as HTMLElement;
+          if (loopInPopup(related)) return;
+          // 当子级 popup 隐藏时，隐藏当前 popup 并继续通知父级
+          popupVisible.value = false;
+          closeParentPopup?.(e);
+        },
+      }),
+    );
 
     const passSubPopupRefToParent = (val: HTMLElement) => {
       if (isFunction(setSubPopup)) {
@@ -130,8 +134,20 @@ export default defineComponent({
     // methods
     const handleMouseEnter = () => {
       if (props.disabled) return;
-      setTimeout(() => {
-        if (parentPopupVisible?.value === false) return;
+
+      // 清除之前的离开定时器
+      if (leaveTimerRef.value) {
+        clearTimeout(leaveTimerRef.value);
+        leaveTimerRef.value = null;
+      }
+
+      // 清除之前的进入定时器
+      if (enterTimerRef.value) {
+        clearTimeout(enterTimerRef.value);
+        enterTimerRef.value = null;
+      }
+
+      enterTimerRef.value = window.setTimeout(() => {
         if (!popupVisible.value) {
           open(props.value);
 
@@ -141,7 +157,8 @@ export default defineComponent({
           });
         }
         popupVisible.value = true;
-      }, 0);
+        enterTimerRef.value = null;
+      }, 200);
     };
 
     const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
@@ -150,40 +167,34 @@ export default defineComponent({
       return targetInPopup(el) || loopInPopup(el.parentElement);
     };
 
-    // 检查元素是否在当前 submenu 的 popup 中（不包括子孙 popup）
-    const isInCurrentPopup = (el: HTMLElement): boolean => {
-      if (!el || !popupWrapperRef.value) return false;
-      let current = el;
-      while (current && current !== document.body) {
-        if (current === popupWrapperRef.value) return true;
-        // 如果遇到其他 popup wrapper，说明不是当前的 popup
-        if (current !== popupWrapperRef.value && current.classList?.contains(`${classPrefix.value}-menu__spacer`)) {
-          return false;
-        }
-        current = current.parentElement;
-      }
-      return false;
-    };
-
     const handleMouseLeave = (e: MouseEvent) => {
-      setTimeout(() => {
-        const target = e.relatedTarget as HTMLElement;
-        const inCurrentPopup = isInCurrentPopup(target);
+      // 清除之前的进入定时器
+      if (enterTimerRef.value) {
+        clearTimeout(enterTimerRef.value);
+        enterTimerRef.value = null;
+      }
 
-        if (isCursorInPopup.value || inCurrentPopup) return;
+      // 清除之前的离开定时器
+      if (leaveTimerRef.value) {
+        clearTimeout(leaveTimerRef.value);
+        leaveTimerRef.value = null;
+      }
+
+      leaveTimerRef.value = window.setTimeout(() => {
+        const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
+
+        if (isCursorInPopup.value || inPopup) return;
         popupVisible.value = false;
-      }, 0);
+        leaveTimerRef.value = null;
+      }, 200);
     };
 
     const handleMouseLeavePopup = (e: any) => {
       const { toElement, relatedTarget } = e;
       let target = toElement || relatedTarget;
 
-      // 检查鼠标是否移动到自己的子 popup 中
       if (target === subPopupRef.value) return;
-      if (subPopupRef.value && subPopupRef.value.contains(target)) return;
 
-      // 检查鼠标是否回到 submenu 触发器
       const isSubmenu = (el: Element) => el === submenuRef.value;
       while (target !== null && target !== document && !isSubmenu(target)) {
         target = target.parentNode;
@@ -192,18 +203,17 @@ export default defineComponent({
       isCursorInPopup.value = false;
 
       if (!isSubmenu(target)) {
-        // 鼠标离开了 popup 且没有回到触发器
         popupVisible.value = false;
-        // 只有真正离开（不在任何 popup 中）时才通知父级
-        if (!loopInPopup(relatedTarget as HTMLElement)) {
-          closeParentPopup?.(e);
-        }
+        // 当最后一级 popup 隐藏时，递归通知所有父级隐藏
+        closeParentPopup?.(e);
       }
     };
     const handleEnterPopup = () => {
-      // 如果父 popup 存在且不可见，不触发保持可见功能
-      if (parentPopupVisible?.value === false) return;
-
+      // 清除之前的离开定时器
+      if (leaveTimerRef.value) {
+        clearTimeout(leaveTimerRef.value);
+        leaveTimerRef.value = null;
+      }
       isCursorInPopup.value = true;
     };
 
@@ -221,7 +231,10 @@ export default defineComponent({
       const popupWrapper = (
         <div
           ref={popupWrapperRef}
-          class={[`${classPrefix.value}-menu__spacer`]}
+          class={[
+            `${classPrefix.value}-menu__spacer`,
+            `${classPrefix.value}-menu__spacer--${!isNested.value && isHead ? 'top' : 'left'}`,
+          ]}
           onMouseenter={handleEnterPopup}
           onMouseleave={handleMouseLeavePopup}
         >
