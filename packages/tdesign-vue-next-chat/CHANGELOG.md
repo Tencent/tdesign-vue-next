@@ -5,6 +5,17 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.5.0-alpha.5 `2025-11-05` 
+
+### 🚨 Breaking Change
+- 新增 `Chatbot` 对话、`Attachments` 文件附件、`ChatThinking` 思考过程组件，新组件均基于 Web Components 实现，样式覆盖方式请参考 [自定义样式](/cha/custom-style)
+- 重构 `ChatMarkdown` 组件的渲染能力，内置支持 mermaid 等多种格式的渲染
+- `Chat` 更名为 `ChatList` 对话列表
+- `ChatAction` 更名为 `ChatActionbar` 对话操作
+- `ChatInput`、`ChatReasoning`、`ChatItem` 组件后续版本将移除，如果升级版本请尽量使用对应新组件 ⚠️ 
+- 点击 [0.4.x](https://0_4_5-tdesign-vue-next-chat.surge.sh/chat/getting-started) 查看老版本 Chat 组件的使用文档 
+
+
 ## 🌈 0.4.5 `2025-07-31` 
 
 ### 🐞 Bug Fixes
@@ -140,3 +151,4 @@ spline: explain
 - `t-chat` 新增`scroll`事件回调
 - `t-chat-input` 组件添加 `v-model`支持, 添加 `change` 事件
 - `t-chat-input` 新增 `disabled` 属性
+
