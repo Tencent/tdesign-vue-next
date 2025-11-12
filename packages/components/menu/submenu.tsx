@@ -199,10 +199,6 @@ export default defineComponent({
     };
 
     const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
-    const loopInPopup = (el: HTMLElement): boolean => {
-      if (!el) return false;
-      return targetInPopup(el) || loopInPopup(el.parentElement);
-    };
 
     const handleMouseLeave = (e: MouseEvent) => {
       // 清除之前的显示和隐藏定时器
