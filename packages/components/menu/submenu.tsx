@@ -5,7 +5,6 @@ import {
   getCurrentInstance,
   inject,
   nextTick,
-  onBeforeUnmount,
   onMounted,
   provide,
   reactive,
@@ -37,7 +36,7 @@ export default defineComponent({
     const { theme, activeValues, expandValues, isHead, open } = menu;
 
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', {});
-    const { setSubPopup, closeParentPopup } = submenu;
+    const { setSubPopup, closeParentPopup, cancelHideTimer } = submenu;
 
     const mode = computed(() => attrs.expandType || menu.mode.value);
 
@@ -58,9 +57,11 @@ export default defineComponent({
     const subPopupRef = ref<HTMLElement>();
     const submenuRef = ref<HTMLElement>();
     const transitionClass = usePrefixClass('slide-down');
-    const enterTimerRef = ref<number | null>(null);
-    const leaveTimerRef = ref<number | null>(null);
     useRipple(submenuRef, rippleColor);
+
+    // 存储 setTimeout 的 timer ID，用于清除定时器
+    const showTimer = ref<ReturnType<typeof setTimeout> | null>(null);
+    const hideTimer = ref<ReturnType<typeof setTimeout> | null>(null);
 
     const classes = computed(() => [
       `${classPrefix.value}-submenu`,
@@ -117,29 +118,43 @@ export default defineComponent({
           subPopupRef.value = ref;
         },
         closeParentPopup: (e: MouseEvent) => {
-          const related = e.relatedTarget as HTMLElement;
-          // 如果鼠标移动到了当前层级或子级的 popup，不关闭
-          if (loopInPopup(related)) return;
+          // 不再检查 relatedTarget，直接触发父级的延迟隐藏
+          // 如果鼠标真的停留在父级，父级的 handleEnterPopup 会取消定时器
+          // 如果鼠标继续离开，定时器会触发隐藏
 
-          // 如果鼠标移动到了当前的 popup wrapper，不关闭
-          if (popupWrapperRef.value && popupWrapperRef.value.contains(related)) return;
-
-          // 如果当前 popup 中还有鼠标（例如从子级移回），不关闭
-          if (isCursorInPopup.value) return;
-
-          // 清除所有定时器，立即关闭
-          if (enterTimerRef.value) {
-            clearTimeout(enterTimerRef.value);
-            enterTimerRef.value = null;
-          }
-          if (leaveTimerRef.value) {
-            clearTimeout(leaveTimerRef.value);
-            leaveTimerRef.value = null;
+          // 清除父级的显示定时器
+          if (showTimer.value !== null) {
+            clearTimeout(showTimer.value);
+            showTimer.value = null;
           }
 
-          // 当子级 popup 隐藏时，隐藏当前 popup 并继续通知父级
-          popupVisible.value = false;
-          closeParentPopup?.(e);
+          // 如果父级已经有隐藏定时器在运行，先清除
+          if (hideTimer.value !== null) {
+            clearTimeout(hideTimer.value);
+            hideTimer.value = null;
+          }
+
+          // 设置父级的延迟隐藏
+          hideTimer.value = setTimeout(() => {
+            popupVisible.value = false;
+            hideTimer.value = null;
+          }, 100);
+
+          // 继续通知上级父级
+          if (isFunction(closeParentPopup)) {
+            closeParentPopup(e);
+          }
+        },
+        cancelHideTimer: () => {
+          // 取消当前级别的隐藏定时器
+          if (hideTimer.value !== null) {
+            clearTimeout(hideTimer.value);
+            hideTimer.value = null;
+          }
+          // 递归取消所有父级的隐藏定时器
+          if (isFunction(cancelHideTimer)) {
+            cancelHideTimer();
+          }
         },
       }),
     );
@@ -154,19 +169,22 @@ export default defineComponent({
     const handleMouseEnter = () => {
       if (props.disabled) return;
 
-      // 清除之前的离开定时器
-      if (leaveTimerRef.value) {
-        clearTimeout(leaveTimerRef.value);
-        leaveTimerRef.value = null;
+      // 清除之前的显示和隐藏定时器
+      if (showTimer.value !== null) {
+        clearTimeout(showTimer.value);
+        showTimer.value = null;
+      }
+      if (hideTimer.value !== null) {
+        clearTimeout(hideTimer.value);
+        hideTimer.value = null;
       }
 
-      // 清除之前的进入定时器
-      if (enterTimerRef.value) {
-        clearTimeout(enterTimerRef.value);
-        enterTimerRef.value = null;
+      // 通知父级取消隐藏定时器
+      if (isFunction(cancelHideTimer)) {
+        cancelHideTimer();
       }
 
-      enterTimerRef.value = window.setTimeout(() => {
+      showTimer.value = setTimeout(() => {
         if (!popupVisible.value) {
           open(props.value);
 
@@ -176,8 +194,8 @@ export default defineComponent({
           });
         }
         popupVisible.value = true;
-        enterTimerRef.value = null;
-      }, 200);
+        showTimer.value = null;
+      }, 0);
     };
 
     const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
@@ -187,30 +205,23 @@ export default defineComponent({
     };
 
     const handleMouseLeave = (e: MouseEvent) => {
-      // 清除之前的进入定时器
-      if (enterTimerRef.value) {
-        clearTimeout(enterTimerRef.value);
-        enterTimerRef.value = null;
+      // 清除之前的显示和隐藏定时器
+      if (showTimer.value !== null) {
+        clearTimeout(showTimer.value);
+        showTimer.value = null;
+      }
+      if (hideTimer.value !== null) {
+        clearTimeout(hideTimer.value);
+        hideTimer.value = null;
       }
 
-      // 清除之前的离开定时器
-      if (leaveTimerRef.value) {
-        clearTimeout(leaveTimerRef.value);
-        leaveTimerRef.value = null;
-      }
+      hideTimer.value = setTimeout(() => {
+        const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
 
-      // 提前捕获 relatedTarget，避免在 setTimeout 后失效
-      const relatedTarget = e.relatedTarget as HTMLElement;
-      const inPopup = targetInPopup(relatedTarget);
-
-      leaveTimerRef.value = window.setTimeout(() => {
-        if (isCursorInPopup.value || inPopup) {
-          leaveTimerRef.value = null;
-          return;
-        }
+        if (isCursorInPopup.value || inPopup) return;
         popupVisible.value = false;
-        leaveTimerRef.value = null;
-      }, 200);
+        hideTimer.value = null;
+      }, 100);
     };
 
     const handleMouseLeavePopup = (e: any) => {
@@ -224,43 +235,42 @@ export default defineComponent({
         target = target.parentNode;
       }
 
-      // 清除之前的进入定时器
-      if (enterTimerRef.value) {
-        clearTimeout(enterTimerRef.value);
-        enterTimerRef.value = null;
-      }
-
-      // 清除之前的离开定时器
-      if (leaveTimerRef.value) {
-        clearTimeout(leaveTimerRef.value);
-        leaveTimerRef.value = null;
-      }
-
       isCursorInPopup.value = false;
 
       if (!isSubmenu(target)) {
-        leaveTimerRef.value = window.setTimeout(() => {
-          // 在定时器回调中再次验证状态，避免快速移动导致的误关闭
-          // 如果在延迟期间鼠标又回到了 popup 内，则不关闭
-          if (isCursorInPopup.value) {
-            leaveTimerRef.value = null;
-            return;
-          }
+        // 清除之前的显示和隐藏定时器
+        if (showTimer.value !== null) {
+          clearTimeout(showTimer.value);
+          showTimer.value = null;
+        }
+        if (hideTimer.value !== null) {
+          clearTimeout(hideTimer.value);
+          hideTimer.value = null;
+        }
 
+        // 使用延迟隐藏，避免在子项之间移动时闪烁
+        hideTimer.value = setTimeout(() => {
           popupVisible.value = false;
-          // 当最后一级 popup 隐藏时，递归通知所有父级隐藏
-          closeParentPopup?.(e);
-          leaveTimerRef.value = null;
-        }, 200);
+          hideTimer.value = null;
+        }, 100);
+
+        // 立即通知父级也开始延迟隐藏
+        closeParentPopup?.(e);
       }
     };
     const handleEnterPopup = () => {
-      // 清除之前的离开定时器
-      if (leaveTimerRef.value) {
-        clearTimeout(leaveTimerRef.value);
-        leaveTimerRef.value = null;
-      }
       isCursorInPopup.value = true;
+
+      // 进入 popup 时清除隐藏定时器
+      if (hideTimer.value !== null) {
+        clearTimeout(hideTimer.value);
+        hideTimer.value = null;
+      }
+
+      // 通知父级取消隐藏定时器
+      if (isFunction(cancelHideTimer)) {
+        cancelHideTimer();
+      }
     };
 
     const handleSubmenuItemClick = () => {
@@ -409,18 +419,6 @@ export default defineComponent({
           break;
         }
         node = node?.parent;
-      }
-    });
-
-    onBeforeUnmount(() => {
-      // 清理所有定时器，避免内存泄漏和意外的状态变化
-      if (enterTimerRef.value) {
-        clearTimeout(enterTimerRef.value);
-        enterTimerRef.value = null;
-      }
-      if (leaveTimerRef.value) {
-        clearTimeout(leaveTimerRef.value);
-        leaveTimerRef.value = null;
       }
     });
 
