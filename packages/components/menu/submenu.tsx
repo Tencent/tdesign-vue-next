@@ -5,6 +5,7 @@ import {
   getCurrentInstance,
   inject,
   nextTick,
+  onBeforeUnmount,
   onMounted,
   provide,
   reactive,
@@ -180,10 +181,15 @@ export default defineComponent({
         leaveTimerRef.value = null;
       }
 
-      leaveTimerRef.value = window.setTimeout(() => {
-        const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
+      // 提前捕获 relatedTarget，避免在 setTimeout 后失效
+      const relatedTarget = e.relatedTarget as HTMLElement;
+      const inPopup = targetInPopup(relatedTarget);
 
-        if (isCursorInPopup.value || inPopup) return;
+      leaveTimerRef.value = window.setTimeout(() => {
+        if (isCursorInPopup.value || inPopup) {
+          leaveTimerRef.value = null;
+          return;
+        }
         popupVisible.value = false;
         leaveTimerRef.value = null;
       }, 200);
@@ -200,12 +206,27 @@ export default defineComponent({
         target = target.parentNode;
       }
 
+      // 清除之前的进入定时器
+      if (enterTimerRef.value) {
+        clearTimeout(enterTimerRef.value);
+        enterTimerRef.value = null;
+      }
+
+      // 清除之前的离开定时器
+      if (leaveTimerRef.value) {
+        clearTimeout(leaveTimerRef.value);
+        leaveTimerRef.value = null;
+      }
+
       isCursorInPopup.value = false;
 
       if (!isSubmenu(target)) {
-        popupVisible.value = false;
-        // 当最后一级 popup 隐藏时，递归通知所有父级隐藏
-        closeParentPopup?.(e);
+        leaveTimerRef.value = window.setTimeout(() => {
+          popupVisible.value = false;
+          // 当最后一级 popup 隐藏时，递归通知所有父级隐藏
+          closeParentPopup?.(e);
+          leaveTimerRef.value = null;
+        }, 200);
       }
     };
     const handleEnterPopup = () => {
@@ -363,6 +384,18 @@ export default defineComponent({
           break;
         }
         node = node?.parent;
+      }
+    });
+
+    onBeforeUnmount(() => {
+      // 清理所有定时器，避免内存泄漏和意外的状态变化
+      if (enterTimerRef.value) {
+        clearTimeout(enterTimerRef.value);
+        enterTimerRef.value = null;
+      }
+      if (leaveTimerRef.value) {
+        clearTimeout(leaveTimerRef.value);
+        leaveTimerRef.value = null;
       }
     });
 
