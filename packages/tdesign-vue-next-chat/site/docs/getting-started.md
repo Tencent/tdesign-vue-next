@@ -1,15 +1,10 @@
 ---
-title: TDesign AI Chat for Vue
+title: 快速开始
 description: TDesign 适配桌面端的 AI Chat 组件库，适合在 Vue3.x 技术栈中的 AI Chat 组件。
 spline: ai
 ---
 
 ## 安装
-
-### 环境要求
-
-- node >= 18.0.0
-- pnpm >= 9.0.0
 
 ### 使用 npm 安装
 
@@ -68,10 +63,8 @@ app.use(TDesign).use(TDesignChat);
 ```js
 import {
   ChatList as TChatList,
-  ChatAction as TChatAction,
-  ChatContent as TChatContent,
-  ChatInput as TChatInput,
-  ChatItem as TChatItem,
+  ChatActionBar as TChatActionBar,
+  ChatMarkdown as TChatMarkdown,
 } from '@tdesign-vue-next/chat';
 ```
 
@@ -81,7 +74,9 @@ import {
 
 ### 通过插件按需引用使用
 
-除此之外，也可以使用 `unplugin-vue-components` 和 `unplugin-auto-import` 来实现自动导入：
+除此之外，部分组件也可以使用 `unplugin-vue-components` 和 `unplugin-auto-import` 来实现自动导入
+
+> `TDesignResolver` 支持的配置，可以点击此[链接](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/auto-import-resolver/README.md#%E9%80%89%E9%A1%B9)。
 
 您仍需在项目引入组件库的少量全局样式变量
 
@@ -154,8 +149,6 @@ module.exports = {
   ],
 };
 ```
-
-> `TDesignResolver` 支持的配置，可以点击此[链接](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/auto-import-resolver/README.md#%E9%80%89%E9%A1%B9)。
 
 ## 配置服务
 

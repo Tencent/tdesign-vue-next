@@ -28,7 +28,7 @@ const componentDocs = [
     component: () => import('@tdesign/pro-components-chat/chat-actionbar/chat-actionbar.md'),
   },
   {
-    title: 'ChatMarkdown 消息内容',
+    title: 'ChatMarkdown Markdown内容',
     titleEn: 'ChatMarkdown',
     name: 'ChatMarkdown',
     path: '/chat/components/chat-markdown',
