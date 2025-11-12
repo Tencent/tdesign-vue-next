@@ -118,7 +118,25 @@ export default defineComponent({
         },
         closeParentPopup: (e: MouseEvent) => {
           const related = e.relatedTarget as HTMLElement;
+          // 如果鼠标移动到了当前层级或子级的 popup，不关闭
           if (loopInPopup(related)) return;
+
+          // 如果鼠标移动到了当前的 popup wrapper，不关闭
+          if (popupWrapperRef.value && popupWrapperRef.value.contains(related)) return;
+
+          // 如果当前 popup 中还有鼠标（例如从子级移回），不关闭
+          if (isCursorInPopup.value) return;
+
+          // 清除所有定时器，立即关闭
+          if (enterTimerRef.value) {
+            clearTimeout(enterTimerRef.value);
+            enterTimerRef.value = null;
+          }
+          if (leaveTimerRef.value) {
+            clearTimeout(leaveTimerRef.value);
+            leaveTimerRef.value = null;
+          }
+
           // 当子级 popup 隐藏时，隐藏当前 popup 并继续通知父级
           popupVisible.value = false;
           closeParentPopup?.(e);
@@ -222,6 +240,13 @@ export default defineComponent({
 
       if (!isSubmenu(target)) {
         leaveTimerRef.value = window.setTimeout(() => {
+          // 在定时器回调中再次验证状态，避免快速移动导致的误关闭
+          // 如果在延迟期间鼠标又回到了 popup 内，则不关闭
+          if (isCursorInPopup.value) {
+            leaveTimerRef.value = null;
+            return;
+          }
+
           popupVisible.value = false;
           // 当最后一级 popup 隐藏时，递归通知所有父级隐藏
           closeParentPopup?.(e);
