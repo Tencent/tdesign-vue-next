@@ -28,5 +28,4 @@ export interface TdSubMenuInterface {
   addMenuItem?: (item: TdMenuItem) => void;
   setSubPopup?: (popupRef: HTMLElement) => void;
   closeParentPopup?: (e: MouseEvent) => void;
-  popupVisible?: Ref<boolean>;
 }
