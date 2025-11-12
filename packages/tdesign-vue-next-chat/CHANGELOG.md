@@ -9,13 +9,13 @@ spline: explain
 
 ### 🚨 Breaking Change
 - 组件新增：
-  - `Chatbot` 对话，用于需要快速集成智能客服、问答系统等的AI应用；
-  - `ChatMessage` 对话消息体、用于在聊天对话中显示单个消息项。它可以展示用户的头像、昵称、时间、聊天内容，支持多种消息状态和样式变体。
-  - `ChatMarkdown` 内容渲染组件，内置支持 mermaid 等多种格式的渲染；
-  - `Attachments` 文件附件，用于展示文件附件。
-  - `ChatThinking` 思考过程，与原 `ChatReasoning` 功能一致
+  - `Chatbot` 智能对话组件，用于需要快速集成智能客服、问答系统等的AI应用
+  - `ChatMessage` 对话消息体组件、用于在聊天对话中显示单个消息项
+  - `ChatMarkdown` 内容渲染组件，内置支持完善的 Markdown 流式渲染能力，包括 mermaid 等多种格式的渲染
+  - `Attachments` 文件附件组件，用于展示文件附件
+  - `ChatThinking` 思考过程组件，与原 `ChatReasoning` 功能一致
   - 新组件均基于 Web Components 实现，样式覆盖方式请参考 [自定义样式](/cha/custom-style)
-- 原组件更名：`Chat` 更名为 `ChatList` 对话列表，ChatAction` 更名为 `ChatActionbar` 对话操作
+- 原组件更名：`Chat` 更名为 `ChatList` 对话列表，`ChatAction` 更名为 `ChatActionbar` 对话操作
 - 旧组件移除：`ChatInput`、`ChatReasoning`、`ChatItem` 组件后续版本将移除，如果升级版本请尽量使用对应新组件 ⚠️ 
 - 点击 [0.4.x](https://0_4_5-tdesign-vue-next-chat.surge.sh/chat/getting-started) 查看老版本 Chat 组件的使用文档 
 
