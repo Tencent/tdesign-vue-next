@@ -314,6 +314,7 @@ export default defineComponent({
                   )}
                   {renderCloseBtn()}
                   <TImageViewerUtils
+                    zIndex={zIndexValue.value + 1}
                     onZoomIn={onZoomIn}
                     onZoomOut={onZoomOut}
                     onMirror={onMirror}

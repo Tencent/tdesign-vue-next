@@ -18,6 +18,7 @@ export default defineComponent({
   props: {
     ...props,
     placement: String, // just for animation
+    className: String,
   },
   setup(props, { slots, expose }) {
     const COMPONENT_NAME = usePrefixClass('message');
@@ -46,6 +47,7 @@ export default defineComponent({
         {
           [`${classPrefix.value}-is-closable`]: props.closeBtn || slots.closeBtn,
         },
+        props.className,
       ];
     });
 

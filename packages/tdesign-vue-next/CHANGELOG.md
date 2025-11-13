@@ -5,6 +5,37 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.2 `2025-10-30` 
+
+### 🚀 Features
+- `Affix`: 新增支持`content`API，与其他组件保持一致 @ImaginingMaker @zhangpaopao0609 ([#5981](https://github.com/Tencent/tdesign-vue-next/pull/5981))
+- `Cascader`: 
+  - 支持 `filterable` 与 `checkStrictly` 及`valueMode = parentFirst`配合使用，展示非叶子节点的效果 @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+  - `option` 新增`onChange`和`onExpand` 方法，用于多选场景下，自定义节点时自定义点击节点的触发逻辑，具体使用请参考自定义下拉选项的参考示例 @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+- `Popup`: 新增 `getPopper()` 方法，将返回 popper 实例，用于基于 popper 进行动态操作的场景 @RSS1102 ([#6096](https://github.com/Tencent/tdesign-vue-next/pull/6096))
+
+### 🐞 Bug Fixes
+- `AutoComplete`: 修复使用键盘选中后，删除输入框内容时无法再次打开选项弹窗的问题 @SaberA1ter ([#6059](https://github.com/Tencent/tdesign-vue-next/pull/6059))
+- `Cascader`: 
+  - 修复多选自定义节点无法进行展开处理的问题 @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+  - 修复`reserveKeyword` API 无效的问题 @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+- `DatePicker`: 修复面板底部内容区域在非需要情况下仍存在的问题 @huguangju ([#6055](https://github.com/Tencent/tdesign-vue-next/pull/6055))
+- `DateRangePicker`: 修复全局替换图标场景下，点击关闭按钮报错的问题 @uyarn ([#6108](https://github.com/Tencent/tdesign-vue-next/pull/6108))
+- `Form`: 修复错误消息 `max` 和 `min` 英文翻译错误 @liweijie0812  ([#6082](https://github.com/Tencent/tdesign-vue-next/pull/6082))
+- `ImageViewer`: 
+  - 修复 `zIndex` 过大导致工具栏的 tooltip 会被遮挡的问题 @liweijie0812 ([#6107](https://github.com/Tencent/tdesign-vue-next/pull/6107))
+  - 修复预览图片时点击右键后失焦，预览图会跟随鼠标移动的问题 @mikasayw ([#6098](https://github.com/Tencent/tdesign-vue-next/pull/6098))
+- `MessagePlugin`: 修复`className`参数无效的问题 @Wesley-0808 ([#6097](https://github.com/Tencent/tdesign-vue-next/pull/6097))
+- `NotificationPlugin`: 优化 `offset` 没有对容器层生效的问题 @liweijie0812 ([#6087](https://github.com/Tencent/tdesign-vue-next/pull/6087))
+- `Rate`: 修复`color`属性不支持响应式的问题 @mikasayw ([#6072](https://github.com/Tencent/tdesign-vue-next/pull/6072))
+- `Table`: 修复控制台的告警问题 @mikasayw ([#6070](https://github.com/Tencent/tdesign-vue-next/pull/6070))
+- `Menu`: 修复父菜单关闭时子菜单状态残留 @RSS1102 ([#6086](https://github.com/Tencent/tdesign-vue-next/pull/6086))
+- `Table`: 当未提供 `pageSize` 时确保使用 `defaultPageSize` 大小 @RSS1102 ([#6101](https://github.com/Tencent/tdesign-vue-next/pull/6101))
+
+### 📝 Documentation
+- `ImageViewer`: 优化示例页面操作栏被主题生成器遮挡的问题 @liweijie0812 ([#6107](https://github.com/Tencent/tdesign-vue-next/pull/6107))
+
+
 ## 🌈 1.17.1 `2025-10-09` 
 
 ### 🐞 Bug Fixes

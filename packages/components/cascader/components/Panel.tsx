@@ -6,7 +6,7 @@ import CascaderProps from '../props';
 import { useConfig, usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
 
 import { getDefaultNode } from '@tdesign/shared-utils';
-import { getPanels, expendClickEffect, valueChangeEffect } from '../utils';
+import { getPanels, expandClickEffect, valueChangeEffect } from '../utils';
 
 export default defineComponent({
   name: 'TCascaderSubPanel',
@@ -32,14 +32,19 @@ export default defineComponent({
 
     const handleExpand = (node: TreeNode, trigger: 'hover' | 'click') => {
       const { trigger: propsTrigger, cascaderContext } = props;
-      expendClickEffect(propsTrigger, trigger, node, cascaderContext, props.options);
+      expandClickEffect(propsTrigger, trigger, node, cascaderContext);
     };
 
     const renderItem = (node: TreeNode, index: number) => {
       const optionChild = node.data.content
         ? getDefaultNode(node.data.content(h))
         : renderTNodeJSXDefault('option', {
-            params: { item: node.data, index },
+            params: {
+              item: node.data,
+              index,
+              onExpand: () => handleExpand(node, 'click'),
+              onChange: () => valueChangeEffect(node, props.cascaderContext),
+            },
           });
       return (
         <Item
