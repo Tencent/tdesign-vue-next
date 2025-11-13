@@ -1,25 +1,27 @@
-import { useCollapseAnimation, useContent, usePrefixClass, useRipple, useTNodeJSX } from '@tdesign/shared-hooks';
 import {
-  computed,
   defineComponent,
-  getCurrentInstance,
+  computed,
   inject,
-  nextTick,
-  onMounted,
-  provide,
-  reactive,
   ref,
+  provide,
+  onMounted,
+  getCurrentInstance,
+  watch,
   Slots,
   toRefs,
+  reactive,
+  nextTick,
   Transition,
-  watch,
 } from 'vue';
-import FakeArrow from '../common-components/fake-arrow';
-import props from './submenu-props';
-import { TdMenuInterface, TdMenuItem, TdSubMenuInterface } from './types';
-
 import { isFunction } from 'lodash-es';
+import { useRipple, useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/shared-hooks';
+
+import props from './submenu-props';
+import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
+import FakeArrow from '../common-components/fake-arrow';
+
 import { Popup, PopupPlacement } from '../popup';
+
 import { TdSubmenuProps } from './type';
 
 export default defineComponent({
