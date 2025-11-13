@@ -899,8 +899,8 @@ importers:
         specifier: workspace:^
         version: link:../../pro-components/chat
       '@tdesign/site-components':
-        specifier: 0.18.0-alpha.4
-        version: 0.18.0-alpha.4
+        specifier: 0.18.0-alpha.5
+        version: 0.18.0-alpha.5
       semver:
         specifier: catalog:docs
         version: 7.7.2
@@ -2470,8 +2470,8 @@ packages:
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
 
-  '@tdesign/site-components@0.18.0-alpha.4':
-    resolution: {integrity: sha512-RPYyQ9HpRLighdmrKw+6IBy9Rko58dc+cnAPyzAGpSjJcn9KGImrfnGnvtgBRUXTdf826Rotc5Jv+kcSgNPb6A==}
+  '@tdesign/site-components@0.18.0-alpha.5':
+    resolution: {integrity: sha512-fymZOqgvSccAoq+UwJ9u3SNNd4gy31JTofa/maQrwPX3gpFW9+yDPez3uJpGMQgxkMU1AkW064RpSkFm5m+srg==}
 
   '@testing-library/dom@9.3.4':
     resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
@@ -9669,7 +9669,7 @@ snapshots:
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.12
 
-  '@tdesign/site-components@0.18.0-alpha.4':
+  '@tdesign/site-components@0.18.0-alpha.5':
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
