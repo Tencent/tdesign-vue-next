@@ -5,6 +5,23 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.3 `2025-11-14` 
+
+### 🚀 Features
+- `DatePicker`: The configuration of `defaultTime` is also applied when `enableTimePicker` is not configured, which affects the return value of `valueType` as `time-stamp` and the callback parameter of `onChange` ⚠️ @RSS1102 @uyarn ([#6140](https://github.com/Tencent/tdesign-vue-next/pull/6140))
+- `Divider`: Support `size` API to control the spacing size @liweijie0812 ([#6094](https://github.com/Tencent/tdesign-vue-next/pull/6094))
+- `Guide`: Supports automatic adjustment of the display effect of the boot component when adjusting the window size @yrc2333 ([#6133](https://github.com/Tencent/tdesign-vue-next/pull/6133)))
+- `Form`: Form verification `pattern` supports string type @liweijie0812 ([#6134](https://github.com/Tencent/tdesign-vue-next/pull/6134))
+- `Form`: Add `success` verification type support in `setValidateMessage` @RSS1102 ([#6147](https://github.com/Tencent/tdesign-vue-next/pull/6147))
+
+### 🐞 Bug Fixes
+- `Popup`: Fix abnormal problem in SSR scenarios @uyarn ([#6124](https://github.com/Tencent/tdesign-vue-next/pull/6124))
+- `Table`: Fix the problem that the current page cannot be customized when the pageSize changes @RSS1102 ([#6127](https://github.com/Tencent/tdesign-vue-next/pull/6127))
+- `Tabs`: Fix the issue where turning on `destroyOnHide` to remove tags will cause subsequent TabItem status to be abnormal @yrc2333 ([#6137](https://github.com/Tencent/tdesign-vue-next/pull/6137))
+- `Empty`: Fix invalid multi-language dynamic switching response @liweijie0812 ([#6126](https://github.com/Tencent/tdesign-vue-next/pull/6126))
+- `Menu`: Fix the problem that the submenu is not folded correctly after the parent menu is closed when the menu is quickly operated @RSS1102 ([#6121](https://github.com/Tencent/tdesign-vue-next/pull/6121)))
+
+
 ## 🌈 1.17.2 `2025-10-30` 
 
 ### 🚀 Features
