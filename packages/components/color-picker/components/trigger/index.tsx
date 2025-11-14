@@ -3,7 +3,7 @@ import TInput from '../../../input';
 import { Color, getColorObject } from '../../utils';
 import { TdColorPickerProps } from '../../type';
 import { useBaseClassName } from '../../hooks';
-import { useCommonClassName, useEventForward } from '@tdesign/shared-hooks';
+import { useCommonClassName } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'DefaultTrigger',
@@ -70,12 +70,6 @@ export default defineComponent({
 
     const handleClear = (context: { e: MouseEvent }) => props.onTriggerClear?.(context);
 
-    const inputEvents = useEventForward(props.inputProps as TdColorPickerProps['inputProps'], {
-      onBlur: handleChange,
-      onChange: handleChange,
-      onClear: handleClear,
-    });
-
     return () => {
       const inputSlots = {
         label: () => {
@@ -104,7 +98,10 @@ export default defineComponent({
           v-slots={inputSlots}
           v-model={value.value}
           disabled={props.disabled}
-          {...inputEvents.value}
+          onBlur={handleChange}
+          onChange={handleChange}
+          onClear={handleClear}
+          {...props.inputProps}
         />
       );
     };

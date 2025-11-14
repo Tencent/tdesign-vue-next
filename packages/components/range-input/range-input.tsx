@@ -1,7 +1,7 @@
 import { defineComponent, ref, toRefs, computed, Fragment } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
-import Input, { TdInputProps } from '../input';
+import Input from '../input';
 import props from './props';
 import { RangeInputValue, RangeInputPosition } from './type';
 
@@ -14,7 +14,6 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useCommonClassName,
-  useEventForward,
 } from '@tdesign/shared-hooks';
 
 import { isArray } from 'lodash-es';
@@ -114,63 +113,6 @@ export default defineComponent({
       const tips = renderTNodeJSX('tips');
       const separator = renderTNodeJSX('separator');
 
-      const firstInputEvents = useEventForward(inputProps.value[0] as TdInputProps, {
-        onClick: ({ e }: { e: MouseEvent }) => {
-          props.onClick?.({ e, position: 'first' });
-        },
-        onClear: () => setInnerValue([], { position: 'first', trigger: 'input' }),
-        onEnter: (val, { e }) => {
-          handleEnter([val, innerValue.value?.[1]], { e, position: 'first' } as {
-            e: any;
-            position: RangeInputPosition;
-          });
-        },
-        onFocus: (val, { e }) => {
-          handleFocus([val, innerValue.value?.[1]], { e, position: 'first' } as {
-            e: any;
-            position: RangeInputPosition;
-          });
-        },
-        onBlur: (val, { e }) => {
-          handleBlur([val, innerValue.value?.[1]], { e, position: 'first' } as {
-            e: any;
-            position: RangeInputPosition;
-          });
-        },
-        onChange: (val, { e }) => {
-          setInnerValue([val, innerValue.value?.[1]], { e, position: 'first', trigger: 'input' });
-        },
-      });
-      const secondInputEvents = useEventForward(inputProps.value[1] as TdInputProps, {
-        onClick: ({ e }: { e: MouseEvent }) => {
-          props.onClick?.({ e, position: 'second' });
-        },
-        onClear: () => {
-          setInnerValue([], { position: 'second', trigger: 'input' });
-        },
-        onEnter: (val, { e }) => {
-          handleEnter([innerValue.value?.[0], val], { e, position: 'second' } as {
-            e: any;
-            position: RangeInputPosition;
-          });
-        },
-        onFocus: (val, { e }) => {
-          handleFocus([innerValue.value?.[0], val], { e, position: 'second' } as {
-            e: any;
-            position: RangeInputPosition;
-          });
-        },
-        onBlur: (val, { e }) => {
-          handleBlur([innerValue.value?.[0], val], { e, position: 'second' } as {
-            e: any;
-            position: RangeInputPosition;
-          });
-        },
-        onChange: (val, { e }) => {
-          setInnerValue([innerValue.value?.[0], val], { e, position: 'second', trigger: 'input' });
-        },
-      });
-
       const RangeInputContent = (
         <div
           {...attrs}
@@ -205,7 +147,30 @@ export default defineComponent({
               readonly={isReadonly.value}
               format={format.value[0]}
               value={innerValue.value?.[0]}
-              {...firstInputEvents.value}
+              onClick={({ e }: { e: MouseEvent }) => props.onClick?.({ e, position: 'first' })}
+              onClear={() => setInnerValue([], { position: 'first', trigger: 'input' })}
+              onEnter={(val, { e }) =>
+                handleEnter([val, innerValue.value?.[1]], { e, position: 'first' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onFocus={(val, { e }) =>
+                handleFocus([val, innerValue.value?.[1]], { e, position: 'first' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onBlur={(val, { e }) =>
+                handleBlur([val, innerValue.value?.[1]], { e, position: 'first' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onChange={(val, { e }) =>
+                setInnerValue([val, innerValue.value?.[1]], { e, position: 'first', trigger: 'input' })
+              }
+              {...inputProps.value[0]}
             />
 
             <div class={`${COMPONENT_NAME.value}__inner-separator`}>{separator}</div>
@@ -221,7 +186,30 @@ export default defineComponent({
               readonly={isReadonly.value}
               format={format.value[1]}
               value={innerValue.value?.[1]}
-              {...secondInputEvents.value}
+              onClick={({ e }: { e: MouseEvent }) => props.onClick?.({ e, position: 'second' })}
+              onClear={() => setInnerValue([], { position: 'second', trigger: 'input' })}
+              onEnter={(val, { e }) =>
+                handleEnter([innerValue.value?.[0], val], { e, position: 'second' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onFocus={(val, { e }) =>
+                handleFocus([innerValue.value?.[0], val], { e, position: 'second' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onBlur={(val, { e }) =>
+                handleBlur([innerValue.value?.[0], val], { e, position: 'second' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onChange={(val, { e }) =>
+                setInnerValue([innerValue.value?.[0], val], { e, position: 'second', trigger: 'input' })
+              }
+              {...inputProps.value[1]}
             />
             {suffixContent ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffixContent}</div> : null}
             {(suffixIconContent || isShowClearIcon.value) && (

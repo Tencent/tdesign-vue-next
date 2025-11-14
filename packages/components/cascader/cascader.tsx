@@ -1,4 +1,5 @@
 import { defineComponent, computed } from 'vue';
+import { omit } from 'lodash-es';
 import TCascaderSubPanel from './components/Panel';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
@@ -21,7 +22,6 @@ import {
   useReadonly,
   usePrefixClass,
   useCommonClassName,
-  useEventForward,
 } from '@tdesign/shared-hooks';
 import { useCascaderContext } from './hooks';
 
@@ -104,38 +104,6 @@ export default defineComponent({
     return () => {
       const { setVisible, visible, inputVal, setInputVal } = cascaderContext.value;
 
-      const selectInputEvents = useEventForward(props.selectInputProps as TdSelectInputProps, {
-        onTagChange: (val: CascaderValue, ctx) => {
-          // 按 enter 键不处理
-          if (ctx.trigger === 'enter') return;
-          handleRemoveTagEffect(cascaderContext.value, ctx.index, props.onRemove);
-        },
-        onInputChange: (value) => {
-          if (!isFilterable.value) return;
-          setInputVal(`${value}`);
-        },
-        onPopupVisibleChange: (val: boolean, context) => {
-          if (isDisabled.value) return;
-          setVisible(val, context);
-        },
-        onBlur: (val, context) => {
-          props.onBlur?.({
-            value: cascaderContext.value.value,
-            inputValue: context.inputValue || '',
-            e: context.e as FocusEvent,
-          });
-        },
-        onFocus: (val, context) => {
-          props.onFocus?.({
-            value: cascaderContext.value.value,
-            e: context.e,
-          });
-        },
-        onClear: () => {
-          closeIconClickEffect(cascaderContext.value);
-        },
-      });
-
       return (
         <SelectInput
           class={cascaderClassNames.value}
@@ -174,6 +142,42 @@ export default defineComponent({
             ...(props.tagInputProps as TdCascaderProps['tagInputProps']),
           }}
           tagProps={{ ...(props.tagProps as TdCascaderProps['tagProps']) }}
+          onInputChange={(value, ctx) => {
+            if (!isFilterable.value) return;
+            setInputVal(`${value}`);
+            (props?.selectInputProps as TdSelectInputProps)?.onInputChange?.(value, ctx);
+          }}
+          onTagChange={(val: CascaderValue, ctx) => {
+            // 按 enter 键不处理
+            if (ctx.trigger === 'enter') return;
+            handleRemoveTagEffect(cascaderContext.value, ctx.index, props.onRemove);
+            // @ts-ignore TODO: fix bug
+            (props?.selectInputProps as TdSelectInputProps)?.onTagChange?.(val, ctx);
+          }}
+          onPopupVisibleChange={(val: boolean, context) => {
+            if (isDisabled.value) return;
+            setVisible(val, context);
+            (props?.selectInputProps as TdSelectInputProps)?.onPopupVisibleChange?.(val, context);
+          }}
+          onBlur={(val, context) => {
+            props.onBlur?.({
+              value: cascaderContext.value.value,
+              inputValue: context.inputValue || '',
+              e: context.e as FocusEvent,
+            });
+            (props?.selectInputProps as TdSelectInputProps)?.onBlur?.(val, context);
+          }}
+          onFocus={(val, context) => {
+            props.onFocus?.({
+              value: cascaderContext.value.value,
+              e: context.e,
+            });
+            (props?.selectInputProps as TdSelectInputProps)?.onFocus?.(val, context);
+          }}
+          onClear={(context: { e: MouseEvent }) => {
+            closeIconClickEffect(cascaderContext.value);
+            (props?.selectInputProps as TdSelectInputProps)?.onClear?.(context);
+          }}
           v-slots={{
             label: slots.label,
             suffix: slots.suffix,
@@ -197,7 +201,14 @@ export default defineComponent({
             ),
             collapsedItems: slots.collapsedItems,
           }}
-          {...selectInputEvents.value}
+          {...omit(props.selectInputProps as TdSelectInputProps, [
+            'onTagChange',
+            'onInputChange',
+            'onPopupVisibleChange',
+            'onBlur',
+            'onFocus',
+            'onClear',
+          ])}
         />
       );
     };
