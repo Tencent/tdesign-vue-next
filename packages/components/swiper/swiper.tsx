@@ -1,7 +1,7 @@
-import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from 'vue';
+import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode, toRefs } from 'vue';
 import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
-import { useTNodeJSX, useGlobalIcon, usePrefixClass, useChildComponentSlots } from '@tdesign/shared-hooks';
+import { useTNodeJSX, useGlobalIcon, usePrefixClass, useChildComponentSlots, useVModel } from '@tdesign/shared-hooks';
 
 import props from './props';
 import { SwiperNavigation, SwiperChangeSource } from './type';
@@ -18,7 +18,7 @@ export default defineComponent({
   name: 'TSwiper',
   props,
   emits: ['update:current'],
-  setup(props, { emit }) {
+  setup(props) {
     const prefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
 
@@ -30,8 +30,11 @@ export default defineComponent({
     let swiperSwitchingTimer = 0;
     let isBeginToEnd = false;
     let isEndToBegin = false;
-    const currentIndex = ref(props.current || props.defaultCurrent);
-    const navActiveIndex = ref(props.current || props.defaultCurrent);
+
+    const { current, modelValue } = toRefs(props);
+    const [currentIndex, setCurrentIndex] = useVModel(current, modelValue, props.defaultCurrent, props.onChange);
+
+    const navActiveIndex = ref(currentIndex.value);
     const isHovering = ref(false);
     const isSwitching = ref(false);
     const showArrow = ref(false);
@@ -129,7 +132,7 @@ export default defineComponent({
     const swiperTo = (index: number, context: { source: SwiperChangeSource }) => {
       let targetIndex = index % swiperItemLength.value;
       navActiveIndex.value = targetIndex;
-      emit('update:current', targetIndex);
+      setCurrentIndex(targetIndex, context);
       props.onChange?.(targetIndex, context);
       isSwitching.value = true;
       if (props.animation === 'slide' && swiperItemLength.value > 1 && props.type !== 'card') {
@@ -140,7 +143,7 @@ export default defineComponent({
           clearTimer();
           setTimeout(() => {
             isEndToBegin = true;
-            currentIndex.value = 0;
+            setCurrentIndex(0, context);
           }, props.duration);
         }
         if (currentIndex.value === 0) {
@@ -150,12 +153,12 @@ export default defineComponent({
             clearTimer();
             setTimeout(() => {
               isBeginToEnd = true;
-              currentIndex.value = swiperItemLength.value - 1;
+              setCurrentIndex(swiperItemLength.value - 1, context);
             }, props.duration);
           }
         }
       }
-      currentIndex.value = targetIndex;
+      setCurrentIndex(targetIndex, context);
     };
     const clearTimer = () => {
       if (swiperTimer) {
@@ -317,12 +320,6 @@ export default defineComponent({
             }
           }, props.duration + 50) as unknown as number;
         }
-      },
-    );
-    watch(
-      () => props.current,
-      () => {
-        swiperTo(props.current, { source: 'autoplay' });
       },
     );
 

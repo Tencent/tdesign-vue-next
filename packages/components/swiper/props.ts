@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdSwiperProps } from './type';
@@ -23,10 +22,19 @@ export default {
     type: Boolean,
     default: true,
   },
+  /** 卡片模式下非当前展示轮播图的缩放比例 */
+  cardScale: {
+    type: Number,
+    default: 210 / 332,
+  },
   /** 当前轮播在哪一项（下标） */
   current: {
     type: Number,
-    default: 0,
+    default: undefined,
+  },
+  modelValue: {
+    type: Number,
+    default: undefined,
   },
   /** 当前轮播在哪一项（下标），非受控属性 */
   defaultCurrent: {
@@ -96,11 +104,6 @@ export default {
       if (!val) return true;
       return ['default', 'card'].includes(val);
     },
-  },
-  /** 卡片模式下的缩放比例 */
-  cardScale: {
-    type: Number,
-    default: 210 / 332,
   },
   /** 轮播切换时触发 */
   onChange: Function as PropType<TdSwiperProps['onChange']>,
