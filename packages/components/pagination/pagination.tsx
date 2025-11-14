@@ -210,7 +210,6 @@ export default defineComponent({
             pageSize,
           };
           toPage(pageCurrent, pageInfo);
-          props.onChange?.(pageInfo);
         } else {
           const pageInfo = {
             current: innerCurrent.value,
