@@ -1,20 +1,4 @@
 import {
-  cloneDeep,
-  isArray,
-  isBoolean,
-  isNil,
-  isNumber,
-  isString,
-  get as lodashGet,
-  set as lodashSet,
-} from 'lodash-es';
-import {
-  GlobalIconType,
-  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
-  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
-  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
-} from 'tdesign-icons-vue-next';
-import {
   computed,
   defineComponent,
   inject,
@@ -28,7 +12,34 @@ import {
   VNode,
   watch,
 } from 'vue';
+import {
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  GlobalIconType,
+} from 'tdesign-icons-vue-next';
+import {
+  isNil,
+  isArray,
+  isNumber,
+  isString,
+  isBoolean,
+  cloneDeep,
+  get as lodashGet,
+  set as lodashSet,
+} from 'lodash-es';
 
+import { validate } from './utils/form-model';
+import {
+  AllValidateResult,
+  Data,
+  FormErrorMessage,
+  FormItemValidateMessage,
+  FormRule,
+  ValidateTriggerType,
+  ValueType,
+} from './type';
+import props from './form-item-props';
 import {
   AnalysisValidateResult,
   ErrorListType,
@@ -39,21 +50,10 @@ import {
   useCLASSNAMES,
   ValidateStatus,
 } from './consts';
-import props from './form-item-props';
-import {
-  AllValidateResult,
-  Data,
-  FormErrorMessage,
-  FormItemValidateMessage,
-  FormRule,
-  ValidateTriggerType,
-  ValueType,
-} from './type';
-import { validate } from './utils/form-model';
 
-import { template } from '@tdesign/common-js/utils/stringTemplate';
-import { useConfig, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
+import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 import { getFormItemClassName } from './utils';
+import { template } from '@tdesign/common-js/utils/stringTemplate';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
