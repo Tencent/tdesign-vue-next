@@ -5,6 +5,7 @@ import {
   ref,
   provide,
   onMounted,
+  onBeforeUnmount,
   getCurrentInstance,
   watch,
   Slots,
@@ -65,6 +66,17 @@ export default defineComponent({
     const showTimer = ref<ReturnType<typeof setTimeout> | null>(null);
     const hideTimer = ref<ReturnType<typeof setTimeout> | null>(null);
 
+    const clearTimers = () => {
+      if (showTimer.value !== null) {
+        clearTimeout(showTimer.value);
+        showTimer.value = null;
+      }
+      if (hideTimer.value !== null) {
+        clearTimeout(hideTimer.value);
+        hideTimer.value = null;
+      }
+    };
+
     const classes = computed(() => [
       `${classPrefix.value}-submenu`,
       {
@@ -124,17 +136,7 @@ export default defineComponent({
           // 如果鼠标真的停留在父级，父级的 handleEnterPopup 会取消定时器
           // 如果鼠标继续离开，定时器会触发隐藏
 
-          // 清除父级的显示定时器
-          if (showTimer.value !== null) {
-            clearTimeout(showTimer.value);
-            showTimer.value = null;
-          }
-
-          // 如果父级已经有隐藏定时器在运行，先清除
-          if (hideTimer.value !== null) {
-            clearTimeout(hideTimer.value);
-            hideTimer.value = null;
-          }
+          clearTimers();
 
           // 设置父级的延迟隐藏
           hideTimer.value = setTimeout(() => {
@@ -171,15 +173,7 @@ export default defineComponent({
     const handleMouseEnter = () => {
       if (props.disabled) return;
 
-      // 清除之前的显示和隐藏定时器
-      if (showTimer.value !== null) {
-        clearTimeout(showTimer.value);
-        showTimer.value = null;
-      }
-      if (hideTimer.value !== null) {
-        clearTimeout(hideTimer.value);
-        hideTimer.value = null;
-      }
+      clearTimers();
 
       // 通知父级取消隐藏定时器
       if (isFunction(cancelHideTimer)) {
@@ -203,15 +197,7 @@ export default defineComponent({
     const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
 
     const handleMouseLeave = (e: MouseEvent) => {
-      // 清除之前的显示和隐藏定时器
-      if (showTimer.value !== null) {
-        clearTimeout(showTimer.value);
-        showTimer.value = null;
-      }
-      if (hideTimer.value !== null) {
-        clearTimeout(hideTimer.value);
-        hideTimer.value = null;
-      }
+      clearTimers();
 
       hideTimer.value = setTimeout(() => {
         const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
@@ -236,15 +222,7 @@ export default defineComponent({
       isCursorInPopup.value = false;
 
       if (!isSubmenu(target)) {
-        // 清除之前的显示和隐藏定时器
-        if (showTimer.value !== null) {
-          clearTimeout(showTimer.value);
-          showTimer.value = null;
-        }
-        if (hideTimer.value !== null) {
-          clearTimeout(hideTimer.value);
-          hideTimer.value = null;
-        }
+        clearTimers();
 
         // 使用延迟隐藏，避免在子项之间移动时闪烁
         hideTimer.value = setTimeout(() => {
@@ -418,6 +396,11 @@ export default defineComponent({
         }
         node = node?.parent;
       }
+    });
+
+    // Cleanup timers on unmount to prevent memory leaks
+    onBeforeUnmount(() => {
+      clearTimers();
     });
 
     return () => {
