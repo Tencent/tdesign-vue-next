@@ -6,7 +6,7 @@
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
 import { IsURLOptions } from 'validator/es/lib/isURL';
-import { TNode, FormResetEvent, FormSubmitEvent } from '../common';
+import { FormResetEvent, FormSubmitEvent, TNode } from '../common';
 
 export interface TdFormProps<FormData extends Data = Data> {
   /**
@@ -378,7 +378,7 @@ export interface FormResetParams<FormData> {
 export type FormValidateMessage<FormData> = { [field in keyof FormData]: FormItemValidateMessage[] };
 
 export interface FormItemValidateMessage {
-  type: 'warning' | 'error';
+  type: 'warning' | 'error' | 'success';
   message: string;
 }
 
