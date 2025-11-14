@@ -1,9 +1,9 @@
 import { defineComponent, PropType } from 'vue';
 import { SearchIcon as TdSearchIcon } from 'tdesign-icons-vue-next';
 
-import { SearchOption, TdTransferProps } from '../types';
+import { SearchOption } from '../types';
 import TInput from '../../input';
-import { useEventForward, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TTransferSearch',
@@ -33,15 +33,11 @@ export default defineComponent({
         trigger,
       });
     };
-    const inputProps: TdTransferProps['search'] = typeof props.search === 'object' ? props.search : { clearable: true };
-
-    const inputEvents = useEventForward(inputProps, {
-      onChange: handleChange,
-    });
+    const inputProps = typeof props.search === 'object' ? props.search : { clearable: true };
 
     return () => (
       <div class={`${classPrefix.value}-transfer__search-wrapper`}>
-        <TInput defaultValue={props.value} placeholder={props.placeholder} {...inputEvents.value}>
+        <TInput {...inputProps} defaultValue={props.value} onChange={handleChange} placeholder={props.placeholder}>
           <SearchIcon slot="suffix-icon" />
         </TInput>
       </div>

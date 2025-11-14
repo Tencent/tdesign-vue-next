@@ -4,7 +4,7 @@ import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from '.
 import { SelectInputCommonProperties } from '../types';
 import TagInput, { TagInputValue, TagInputProps } from '../../tag-input';
 import Loading from '../../loading';
-import { useDisabled, useReadonly, usePrefixClass, useDefaultValue, useEventForward } from '@tdesign/shared-hooks';
+import { useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
 
 import { PopupInstanceFunctions } from '../../popup';
 
@@ -109,17 +109,20 @@ export function useMultiple(props: TdSelectInputProps, context: SetupContext, po
       ...props.tagInputProps,
     };
 
-    const tagInputEvents = useEventForward(tagInputProps, {
-      onInputChange: onInputChange,
-      onChange: onTagInputChange,
-      onClear: p.onInnerClear,
-      onBlur: onBlur,
-      onEnter: onEnter,
-      onFocus: onFocus,
-    });
-
     const { tips: _tips, ...slots } = context.slots;
-    return <TagInput ref={tagInputRef} v-slots={slots} {...tagInputEvents.value} />;
+    return (
+      <TagInput
+        ref={tagInputRef}
+        {...tagInputProps}
+        v-slots={slots}
+        onInputChange={onInputChange}
+        onChange={onTagInputChange}
+        onClear={p.onInnerClear}
+        onBlur={onBlur}
+        onEnter={onEnter}
+        onFocus={onFocus}
+      />
+    );
   };
 
   return {
