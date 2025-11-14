@@ -142,7 +142,7 @@ export default defineComponent({
             formatRef.value.format,
             undefined,
             undefined,
-            singleDefaultTime.value,
+            props.defaultTime,
           ),
           trigger: 'confirm',
         },
@@ -156,7 +156,7 @@ export default defineComponent({
       onChange?.(
         formatDate(presetVal, { format: formatRef.value.format, defaultTime: props.defaultTime }) as DateValue,
         {
-          dayjsValue: parseToDayjs(presetVal, formatRef.value.format, undefined, undefined, singleDefaultTime.value),
+          dayjsValue: parseToDayjs(presetVal, formatRef.value.format, undefined, undefined, props.defaultTime),
           trigger: 'preset',
         },
       );
