@@ -11,7 +11,6 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useDefaultValue,
-  useEventForward,
 } from '@tdesign/shared-hooks';
 
 import { useTagScroll, useHover, useDragSorter, useTagList } from './hooks';
@@ -195,22 +194,6 @@ export default defineComponent({
       // const inputProps = inputProps as TdTagInputProps['inputProps'];
       const readonly = isReadonly.value || inputProps.value?.readonly;
 
-      const inputEvents = useEventForward(inputProps.value, {
-        onWheel: onWheel,
-        onChange: onInnerChange,
-        onPaste: onPaste.value,
-        onEnter: onInputEnter,
-        onKeyup: onInputBackspaceKeyUp,
-        onKeydown: onInputBackspaceKeyDown,
-        onMouseenter: onMouseEnter,
-        onMouseleave: onMouseLeave,
-        onFocus: onInnerFocus,
-        onBlur: onInnerBlur,
-        onClick: onClick,
-        onCompositionstart: onInputCompositionstart,
-        onCompositionend: onInputCompositionend,
-      });
-
       return (
         <TInput
           ref={tagInputRef}
@@ -233,7 +216,20 @@ export default defineComponent({
           suffixIcon={() => suffixIconNode}
           prefixIcon={() => prefixIconNode}
           keepWrapperWidth={!autoWidth.value}
-          {...inputEvents.value}
+          onWheel={onWheel}
+          onChange={onInnerChange}
+          onPaste={onPaste.value}
+          onEnter={onInputEnter}
+          onKeyup={onInputBackspaceKeyUp}
+          onKeydown={onInputBackspaceKeyDown}
+          onMouseenter={onMouseEnter}
+          onMouseleave={onMouseLeave}
+          onFocus={onInnerFocus}
+          onBlur={onInnerBlur}
+          onClick={onClick}
+          onCompositionstart={onInputCompositionstart}
+          onCompositionend={onInputCompositionend}
+          {...inputProps.value}
         />
       );
     };

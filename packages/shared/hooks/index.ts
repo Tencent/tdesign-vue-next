@@ -24,4 +24,3 @@ export * from './useVirtualScroll';
 export * from './useVirtualScrollNew';
 export * from './useMutationObservable';
 export * from './useVariables';
-export * from './useEventForward';

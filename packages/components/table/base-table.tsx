@@ -5,13 +5,7 @@ import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
 import usePagination from './hooks/usePagination';
-import {
-  useConfig,
-  useTNodeJSX,
-  useVirtualScrollNew,
-  useElementLazyRender,
-  useEventForward,
-} from '@tdesign/shared-hooks';
+import { useConfig, useTNodeJSX, useVirtualScrollNew, useElementLazyRender } from '@tdesign/shared-hooks';
 import useAffix from './hooks/useAffix';
 import Loading from '../loading';
 import TBody, { extendTableProps } from './components/tbody';
@@ -396,15 +390,15 @@ export default defineComponent({
 
       const renderAffixedHeader = () => {
         if (props.showHeader === false) return null;
-
-        const affixHeaderEvents = useEventForward(getAffixProps(props.headerAffixedTop), {
-          onFixedChange: onFixedChange,
-        });
-
         return (
           !!(virtualConfig.isVirtualScroll.value || props.headerAffixedTop) &&
           (props.headerAffixedTop ? (
-            <Affix ref={headerTopAffixRef} offsetTop={0} {...affixHeaderEvents.value}>
+            <Affix
+              offsetTop={0}
+              {...getAffixProps(props.headerAffixedTop)}
+              onFixedChange={onFixedChange}
+              ref={headerTopAffixRef}
+            >
               {affixHeaderWithWrap}
             </Affix>
           ) : (
@@ -522,16 +516,14 @@ export default defineComponent({
       // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
       const showFooter = Boolean(virtualConfig.isVirtualScroll.value || props.footerAffixedBottom);
       const hasFooter = props.footData?.length || props.footerSummary || context.slots['footerSummary'];
-      const affixFooterEvents = useEventForward(getAffixProps(props.footerAffixedBottom), {
-        onFixedChange: onFixedChange,
-      });
       const affixedFooter = Boolean(showFooter && hasFooter && tableWidth.value) && (
         <Affix
-          ref={footerBottomAffixRef}
           class={tableBaseClass.affixedFooterWrap}
+          onFixedChange={onFixedChange}
           offsetBottom={marginScrollbarWidth || 0}
+          {...getAffixProps(props.footerAffixedBottom)}
           style={{ marginTop: `${-1 * ((tableFootHeight.value ?? 0) + marginScrollbarWidth)}px` }}
-          {...affixFooterEvents.value}
+          ref={footerBottomAffixRef}
         >
           <div
             ref={affixFooterRef}
