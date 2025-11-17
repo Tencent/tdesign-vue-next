@@ -27,7 +27,9 @@ jobs:
 
       - run: pnpm run '/build:*/'
 
-      - run: npm i -g npm@latest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
 
       - uses: TDesignOteam/flow-pilot-action@develop
         with:
