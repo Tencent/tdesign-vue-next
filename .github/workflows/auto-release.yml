@@ -23,10 +23,7 @@ jobs:
 
       - run: pnpm run '/build:*/'
 
-      - name: Set publishing config
-        run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.TDESIGN_NPM_TOKEN}}
+      - run: npm i -g npm@latest
 
       - uses: TDesignOteam/flow-pilot-action@develop
         with:
