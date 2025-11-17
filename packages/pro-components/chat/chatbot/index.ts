@@ -7,6 +7,7 @@ import type {
   TdChatSearchContentProps,
   TdChatSuggestionContentProps,
 } from 'tdesign-web-components';
+
 export const ChatBot = omiVueify('t-chatbot', {
   // TODO: 这里可以补充TdChatbotApi里需要暴露出来的方法（ref实例上的方法）
   methodNames: ['addPrompt', 'regenerate', 'selectFile', 'registerMergeStrategy'],

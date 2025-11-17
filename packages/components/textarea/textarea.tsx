@@ -91,7 +91,9 @@ export default defineComponent({
       let val = (target as HTMLInputElement).value;
       if (props.maxcharacter && props.maxcharacter >= 0) {
         const stringInfo = getCharacterLength(val, props.maxcharacter);
-        val = typeof stringInfo === 'object' && stringInfo.characters;
+        if (!props.allowInputOverMax) {
+          val = typeof stringInfo === 'object' && stringInfo.characters;
+        }
       }
       !isComposing.value && setInnerValue(val, { e });
       nextTick(() => setInputValue(val));
@@ -238,6 +240,7 @@ export default defineComponent({
           [STATUS.value.disabled]: disabled.value,
           [STATUS.value.focused]: focused.value,
           [`${prefix.value}-resize-none`]: typeof props.autosize === 'object',
+          [`${prefix.value}-hide-scrollbar`]: props.autosize === true,
         },
       ]);
 

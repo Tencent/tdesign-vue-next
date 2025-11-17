@@ -7,6 +7,7 @@
       transition
       expand-all
       draggable
+      check-strictly
       :allow-drop="handleAllowDrop"
       @drag-start="handleDragStart"
       @drag-end="handleDragEnd"
@@ -49,6 +50,7 @@ const items = ref([
               {
                 value: '1.1.2.1',
                 label: '1.1.2.1',
+                disabled: true,
               },
               {
                 value: '1.1.2.2',
@@ -70,7 +72,7 @@ const items = ref([
       },
       {
         value: '2.2',
-        label: '2.2 不允许拖放为 2.2 的子节点',
+        label: '2.2 （不允许其它节点拖放为其子节点）',
       },
     ],
   },

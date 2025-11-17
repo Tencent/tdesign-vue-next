@@ -164,7 +164,7 @@ export default defineComponent({
     /** Suffix Icon END */
 
     /** Content Style */
-    const errorClasses = computed(() => {
+    const statusClasses = computed(() => {
       if (!showErrorMessage.value) return '';
       if (verifyStatus.value === ValidateStatus.SUCCESS) {
         return props.successBorder
@@ -176,7 +176,7 @@ export default defineComponent({
       if (props.status) return statusClass.value;
       return type === 'error' ? CLASS_NAMES.value.error : CLASS_NAMES.value.warning;
     });
-    const contentClasses = computed(() => [CLASS_NAMES.value.controls, errorClasses.value]);
+    const contentClasses = computed(() => [CLASS_NAMES.value.controls, statusClasses.value]);
     const contentStyle = computed(() => {
       let contentStyle = {};
       if (labelWidth.value && labelAlign.value !== 'top') {
@@ -235,9 +235,8 @@ export default defineComponent({
     const innerRules = computed<FormRule[]>(() => {
       if (props.rules?.length) return props.rules;
       if (!props.name) return [];
-      const index = `${props.name}`.lastIndexOf('.') || -1;
-      const pRuleName = `${props.name}`.slice(index + 1);
-      return lodashGet(form?.rules, props.name) || lodashGet(form?.rules, pRuleName) || [];
+
+      return lodashGet(form?.rules, props.name) || [];
     });
 
     const analysisValidateResult = async (trigger: ValidateTriggerType): Promise<AnalysisValidateResult> => {
@@ -323,13 +322,28 @@ export default defineComponent({
     };
 
     const setValidateMessage = (validateMessage: FormItemValidateMessage[]) => {
-      if (!validateMessage && !isArray(validateMessage)) return;
+      if (!validateMessage || !isArray(validateMessage)) return;
+      errorList.value = [];
+      successList.value = [];
       if (validateMessage.length === 0) {
-        errorList.value = [];
         verifyStatus.value = ValidateStatus.SUCCESS;
+        return;
       }
-      errorList.value = validateMessage.map((item) => ({ ...item, result: false }));
-      verifyStatus.value = ValidateStatus.FAIL;
+      const errors = validateMessage.filter(
+        (item) => item.type === 'error' || item.type === 'warning',
+      ) as FormItemValidateMessage[];
+      const successes = validateMessage.filter((item) => item.type === 'success') as FormItemValidateMessage[];
+      errorList.value = errors.map((item) => ({
+        message: item.message,
+        type: item.type as 'error' | 'warning',
+        result: false,
+      }));
+      successList.value = successes.map((item) => ({
+        message: item.message,
+        type: item.type as 'success',
+        result: true,
+      }));
+      verifyStatus.value = errors.length > 0 ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
     };
 
     const value = computed<ValueType>(() => form?.data && lodashGet(form?.data, props.name));

@@ -15,7 +15,7 @@ import _Attachments from './attachments';
 import _ChatThinking from './chat-thinking';
 import _ChatBot from './chatbot';
 import _ChatMarkdown from './chat-markdown';
-import { ChatSearchContentComponent, ChatSuggestionContentComponent, ChatListComponent } from './chatbot';
+import { ChatSearchContentComponent, ChatSuggestionContentComponent } from './chatbot';
 // 修改为直接导出
 import { useChat } from './chatbot/useChat';
 export { useChat };

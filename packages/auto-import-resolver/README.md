@@ -220,7 +220,7 @@ Components({
 Components({
   resolvers: [
     TDesignResolver({
-      exclude: ['Button'],
+      exclude: ['TButton'],
     }),
   ],
 });

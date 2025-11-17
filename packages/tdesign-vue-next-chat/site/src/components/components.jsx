@@ -16,7 +16,10 @@ export default defineComponent({
     return {
       loaded: false,
       version: tdesignVueNextChatPackageJson.version,
-      options: [{ label: '0.4.5', value: '0_4_5' }],
+      options: [
+        { label: '0.4.6', value: '0_4_6' },
+        { label: '0.4.5', value: '0_4_5' },
+      ],
     };
   },
 

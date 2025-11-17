@@ -23,24 +23,25 @@
  * msg.then(instance => instance.close())
  *
  */
-import { App, nextTick, Plugin, AppContext, createVNode, render, VNode } from 'vue';
-import MessageList, { DEFAULT_Z_INDEX } from './message-list';
-import { getAttach } from '@tdesign/shared-utils';
-import {
-  MessageOptions,
-  MessageMethod,
-  MessageInstance,
-  MessageInfoMethod,
-  MessageErrorMethod,
-  MessageWarningMethod,
-  MessageSuccessMethod,
-  MessageLoadingMethod,
-  MessageQuestionMethod,
-  MessageCloseMethod,
-  MessageCloseAllMethod,
-} from './type';
-import { AttachNodeReturnValue } from '../common';
+import { App, AppContext, createVNode, isVNode, nextTick, Plugin, render, VNode } from 'vue';
 import { isObject, isString } from 'lodash-es';
+import { getAttach } from '@tdesign/shared-utils';
+import MessageList, { DEFAULT_Z_INDEX } from './message-list';
+
+import type { AttachNodeReturnValue } from '../common';
+import type {
+  MessageCloseAllMethod,
+  MessageCloseMethod,
+  MessageErrorMethod,
+  MessageInfoMethod,
+  MessageInstance,
+  MessageLoadingMethod,
+  MessageMethod,
+  MessageOptions,
+  MessageQuestionMethod,
+  MessageSuccessMethod,
+  MessageWarningMethod,
+} from './type';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<AttachNodeReturnValue, Record<string, VNode>> = new Map();
@@ -100,11 +101,15 @@ const MessageFunction = (props: MessageOptions, context?: AppContext): Promise<M
 
 const showThemeMessage: MessageMethod = (theme, params, duration, context) => {
   let options: MessageOptions = { theme };
-  if (isString(params)) {
+
+  if (isVNode(params)) {
+    options.content = () => params;
+  } else if (isString(params)) {
     options.content = params;
   } else if (isObject(params) && !(params instanceof Array)) {
     options = { ...options, ...params };
   }
+
   (duration || duration === 0) && (options.duration = duration);
   return MessageFunction(options, context);
 };

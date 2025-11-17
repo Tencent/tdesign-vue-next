@@ -60,7 +60,6 @@ import {
   type ChatRequestParams,
   type ChatMessagesData,
   type TdChatActionsName,
-  type TdChatSenderParams,
   type TdChatListApi,
   type TdChatSenderApi,
   isAIMessage,

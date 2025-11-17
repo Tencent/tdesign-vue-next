@@ -17,7 +17,7 @@ import {
 } from 'vue';
 import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
-import { off, on, once } from '@tdesign/shared-utils';
+import { off, on, once, isServer } from '@tdesign/shared-utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 import Container from './container';
 import props from './props';
@@ -212,7 +212,7 @@ export default defineComponent({
       () => visible.value,
       (visible) => {
         if (visible) {
-          on(document, 'mousedown', onDocumentMouseDown, true);
+          !isServer && on(document, 'mousedown', onDocumentMouseDown, true);
           if (props.trigger === 'focus') {
             once(triggerEl.value, 'keydown', (ev: KeyboardEvent) => {
               const code = typeof process !== 'undefined' && process.env?.TEST ? '27' : 'Escape';
@@ -223,7 +223,7 @@ export default defineComponent({
           }
           return;
         }
-        off(document, 'mousedown', onDocumentMouseDown, true);
+        !isServer && off(document, 'mousedown', onDocumentMouseDown, true);
       },
       { immediate: true },
     );
@@ -249,6 +249,7 @@ export default defineComponent({
       getOverlayState: () => ({
         hover: isOverlayHover.value,
       }),
+      getPopper: () => popper,
       /** close is going to be deprecated. visible is enough */
       close: () => hide(),
     });

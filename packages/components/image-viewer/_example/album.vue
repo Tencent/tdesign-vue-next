@@ -1,6 +1,6 @@
 <template>
   <div :style="{ width: '240px', height: '240px' }" class="tdesign-demo-image-viewer__base">
-    <t-image-viewer v-model:visible="visible" :images="images" :title="title">
+    <t-image-viewer v-model:visible="visible" :images="images" :title="title" :z-index="10000">
       <template #trigger>
         <div class="tdesign-demo-image-viewer__ui-image">
           <img alt="test" :src="img1" class="tdesign-demo-image-viewer__ui-image--img" />

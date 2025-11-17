@@ -17,7 +17,13 @@ spline: explain
   - 新组件均基于 Web Components 实现，样式覆盖方式请参考 [自定义样式](/cha/custom-style)
 - 原组件更名：`Chat` 更名为 `ChatList` 对话列表，`ChatAction` 更名为 `ChatActionbar` 对话操作
 - 旧组件移除：`ChatInput`、`ChatReasoning`、`ChatItem` 组件后续版本将移除，如果升级版本请尽量使用对应新组件 ⚠️ 
-- 点击 [0.4.x](https://0_4_5-tdesign-vue-next-chat.surge.sh/chat/getting-started) 查看老版本 Chat 组件的使用文档 
+- 点击 [0.4.x](https://0_4_6-tdesign-vue-next-chat.surge.sh/chat/getting-started) 查看老版本 Chat 组件的使用文档 
+
+
+## 🌈 0.4.6 `2025-09-12` 
+
+### 🐞 Bug Fixes
+- `ChatInput`: 修复 `suffixIcon` 传值不是插槽，响应式无效 @liweijie0812 ([#5905](https://github.com/Tencent/tdesign-vue-next/pull/5905))
 
 
 ## 🌈 0.4.5 `2025-07-31` 

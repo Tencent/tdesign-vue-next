@@ -85,8 +85,8 @@ export default defineComponent({
       if (!props.multiple) {
         actived.value = nodeInfo.value ? [nodeInfo.value.value] : [];
       }
-      setTreeParentsExpanded();
     });
+
     watch(
       () => props.data,
       async () => {
@@ -371,7 +371,6 @@ export default defineComponent({
         checkable={props.multiple}
         disabled={tDisabled.value || multiLimitDisabled.value}
         filter={filterByText.value}
-        icon={!filterByText.value}
         actived={actived.value}
         expanded={expanded.value}
         activeMultiple={props.multiple}
