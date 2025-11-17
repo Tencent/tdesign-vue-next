@@ -1,3 +1,9 @@
+## 🌈 0.1.3 `2025-11-17` 
+
+### 🚀 Features
+- 解析 chat 系列组件，新增 Attachments，ChatActionbar，ChatList，ChatMarkdown, ChatThinking，Chatbot @liweijie0812 ([#6154](https://github.com/Tencent/tdesign-vue-next/pull/6154))
+
+
 ## 🌈 0.1.2 `2025-09-10` 
 
 ### 🚀 Features
