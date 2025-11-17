@@ -4,6 +4,10 @@ on:
   pull_request_target:
     types: [closed]
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   publish:
     if: github.event.pull_request.merged && startsWith(github.head_ref, 'release/')
