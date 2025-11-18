@@ -26,7 +26,6 @@ import type {
   TdChatMessageConfig,
   TdChatbotApi,
 } from '@tdesign-vue-next/chat';
-import Bot from '@tdesign-vue-next/chat';
 
 // 默认初始化消息
 const mockData: ChatMessagesData[] = [
@@ -46,7 +45,7 @@ const mockData: ChatMessagesData[] = [
 export default {
   name: 'ChatSample',
   setup() {
-    const chatRef = ref<(InstanceType<typeof Bot> & TdChatbotApi) | null>(null);
+    const chatRef = ref(null);
     const files = ref<TdAttachmentItem[]>([]);
 
     // 消息属性配置

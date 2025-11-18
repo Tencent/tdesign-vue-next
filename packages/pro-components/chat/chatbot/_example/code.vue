@@ -47,9 +47,7 @@ import {
   AIMessageContent,
   ChatRequestParams,
   ChatServiceConfig,
-  TdChatbotApi,
 } from '@tdesign-vue-next/chat';
-import Bot from '../index';
 import Login from './components/Login.vue';
 
 // 默认初始化消息
@@ -73,7 +71,7 @@ export default {
     Login,
   },
   setup() {
-    const chatRef = ref<(InstanceType<typeof Bot> & TdChatbotApi) | null>(null);
+    const chatRef = ref(null);
     const mockMessage = ref<ChatMessagesData[]>(mockData);
 
     // 预览效果弹窗

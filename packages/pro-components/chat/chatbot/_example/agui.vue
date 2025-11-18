@@ -65,9 +65,9 @@ import {
   isAIMessage,
   getMessageContentForCopy,
   AGUIAdapter,
+  useChat,
 } from '@tdesign-vue-next/chat';
 import { MessagePlugin } from 'tdesign-vue-next';
-import { useChat } from '../useChat';
 import CustomToolCallRenderer from './components/Toolcall.vue';
 
 const listRef = ref<TdChatListApi | null>(null);

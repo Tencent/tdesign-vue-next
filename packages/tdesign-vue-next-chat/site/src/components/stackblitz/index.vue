@@ -16,6 +16,8 @@
         name="project[files][src/mock-data/sseRequest-reasoning.ts]"
         :value="mockDataReasoningContent"
       />
+      <input type="hidden" name="project[files][src/components/Toolcall.vue]" :value="componentToolcallDemoContent" />
+      <input type="hidden" name="project[files][src/components/Login.vue]" :value="componentLoginDemoContent" />
 
       <input type="hidden" name="project[files][index.html]" :value="htmlContent" />
       <input type="hidden" name="project[files][package.json]" :value="packageJSONContent" />
@@ -46,6 +48,8 @@ import {
   viteConfigContent,
   mockDataContent,
   mockDataReasoningContent,
+  componentLoginDemoContent,
+  componentToolcallDemoContent,
 } from './content';
 
 export default defineComponent({
@@ -65,6 +69,8 @@ export default defineComponent({
       packageJSONContent,
       mockDataContent,
       mockDataReasoningContent,
+      componentLoginDemoContent,
+      componentToolcallDemoContent,
     };
     const match = window.location.hostname.match(/preview-pr-(\d+)-tdesign-vue-next-chat.surge.sh/);
     if (match) {

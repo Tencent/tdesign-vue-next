@@ -47,13 +47,11 @@ import type {
   AIMessageContent,
   ChatRequestParams,
   ChatServiceConfig,
-  ChatBaseContent,
   ChatMessagesData,
   SSEChunkData,
 } from '@tdesign-vue-next/chat';
 import { CheckCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { Timeline, TimelineItem } from 'tdesign-vue-next';
-import { Bot } from '@tdesign-vue-next/chat';
 
 // 默认初始化消息
 const mockData: ChatMessagesData[] = [
@@ -70,7 +68,7 @@ const mockData: ChatMessagesData[] = [
   },
 ];
 
-const chatRef = ref<InstanceType<typeof Bot> | null>(null);
+const chatRef = ref(null);
 const mockMessage = ref<ChatMessagesData[]>(mockData);
 
 // 消息属性配置

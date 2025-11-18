@@ -7,15 +7,14 @@ import _ChatContent from './chat-content';
 import _ChatReasoning from './chat-reasoning';
 import _ChatLoading from './chat-loading';
 
-// 用的vue源码
 import _ChatActionbar from './chat-actionbar';
-import _FileCard from './file-card';
 import _ChatSender from './chat-sender';
 import _Attachments from './attachments';
 import _ChatThinking from './chat-thinking';
 import _ChatBot from './chatbot';
 import _ChatMarkdown from './chat-markdown';
 import { ChatSearchContentComponent, ChatSuggestionContentComponent } from './chatbot';
+
 // 修改为直接导出
 import { useChat } from './chatbot/useChat';
 export { useChat };
@@ -55,7 +54,6 @@ export const ChatList = withInstall(_ChatList);
 export const ChatItem = withInstall(_ChatItem);
 export const ChatSender = withInstall(_ChatSender);
 export const ChatActionbar = withInstall(_ChatActionbar);
-export const FileCard = withInstall(_FileCard);
 export const ChatLoading = withInstall(_ChatLoading);
 export const Attachments = withInstall(_Attachments);
 export const ChatThinking = withInstall(_ChatThinking, 't-chat-thinking');
@@ -78,9 +76,7 @@ export const ChatReasoning = withInstall(_ChatReasoning);
 // 导出 MarkdownEngine
 export { TdMarkdownEngine as MarkdownEngine };
 
-// webcomoponents 组件没有加入use todo
 export default {
-  // TODO: refactor
   install(app: App, config?: Record<string, unknown>) {
     app.use(Chat, config);
     app.use(ChatItem, config);
@@ -98,7 +94,6 @@ export default {
     app.use(ChatSearchContent, config);
     app.use(ChatSuggestionContent, config);
     app.use(ChatList, config);
-    app.use(FileCard, config);
     app.use(ChatMarkdown, config);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
