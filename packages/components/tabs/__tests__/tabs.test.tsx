@@ -94,7 +94,7 @@ describe('Tabs', () => {
       const wrapper = mount({
         render() {
           return (
-            <Tabs onChange={fn} value={2} removable={true} onRemove={onTabRemoveFn}>
+            <Tabs onChange={fn} value={2} onRemove={onTabRemoveFn}>
               <TabPanel value={1} label={'1'} removable={true}>
                 1
               </TabPanel>

@@ -235,13 +235,7 @@ export default defineComponent({
       const imageSrc = typeof firstImage === 'string' ? firstImage : firstImage.mainImage || firstImage.thumbnail;
       return (
         <div class={`${COMPONENT_NAME.value}__trigger`}>
-          <Image
-            src={imageSrc}
-            alt="preview"
-            fit="contain"
-            class={`${COMPONENT_NAME.value}__trigger-img`}
-            onClick={() => openHandler()}
-          />
+          <Image src={imageSrc} alt="preview" fit="contain" class={`${COMPONENT_NAME.value}__trigger-img`} />
           <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={() => openHandler()}>
             <span>
               <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger-icon`} />
