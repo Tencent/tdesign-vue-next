@@ -51,7 +51,6 @@ export type ChatReasoningProps = TdChatReasoningProps;
 export type ChatLoadingProps = TdChatLoadingProps;
 
 export const ChatList = withInstall(_ChatList);
-export const ChatItem = withInstall(_ChatItem);
 export const ChatSender = withInstall(_ChatSender);
 export const ChatActionbar = withInstall(_ChatActionbar);
 export const ChatLoading = withInstall(_ChatLoading);
@@ -59,7 +58,7 @@ export const Attachments = withInstall(_Attachments);
 export const ChatThinking = withInstall(_ChatThinking, 't-chat-thinking');
 export const ChatBot = withInstall(_ChatBot, 't-chatbot');
 export const ChatMessage = withInstall(_ChatMessage, 't-chat-message');
-
+export const ChatContent = withInstall(_ChatContent);
 export const ChatSearchContent = withInstall(ChatSearchContentComponent, 't-chat-search-content');
 
 export const ChatSuggestionContent = withInstall(ChatSuggestionContentComponent, 't-chat-suggestion-content');
@@ -70,31 +69,31 @@ export const ChatMarkdown = withInstall(_ChatMarkdown, 't-chat-markdown');
 export const Chat = withInstall(_ChatList); // 兼容历史版本，分别导出ChatList，Chat
 export const ChatAction = withInstall(_ChatActionbar); // 兼容历史版本，分别导出ChatActionbar，ChatAction
 export const ChatInput = withInstall(_ChatInput);
-export const ChatContent = withInstall(_ChatContent);
 export const ChatReasoning = withInstall(_ChatReasoning);
+export const ChatItem = withInstall(_ChatItem);
 
 // 导出 MarkdownEngine
 export { TdMarkdownEngine as MarkdownEngine };
 
 export default {
   install(app: App, config?: Record<string, unknown>) {
-    app.use(Chat, config);
-    app.use(ChatItem, config);
-    app.use(ChatInput, config);
+    app.use(ChatBot, config);
+    app.use(ChatList, config);
     app.use(ChatContent, config);
-    app.use(ChatReasoning, config);
+    app.use(ChatMarkdown, config);
     app.use(ChatActionbar, config);
-    app.use(ChatAction, config);
     app.use(ChatLoading, config);
     app.use(ChatSender, config);
     app.use(ChatThinking, config);
     app.use(ChatMessage, config);
-    app.use(ChatBot, config);
     app.use(Attachments, config);
     app.use(ChatSearchContent, config);
     app.use(ChatSuggestionContent, config);
-    app.use(ChatList, config);
-    app.use(ChatMarkdown, config);
+    app.use(Chat, config);
+    app.use(ChatAction, config);
+    app.use(ChatInput, config);
+    app.use(ChatItem, config);
+    app.use(ChatReasoning, config);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };
