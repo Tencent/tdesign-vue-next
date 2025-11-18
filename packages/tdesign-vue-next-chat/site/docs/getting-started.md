@@ -11,19 +11,19 @@ spline: ai
 推荐使用 npm 方式进行开发
 
 ```shell
-npm i @tdesign-vue-next/chat
+npm i @tdesign-vue-next/chat@alpha
 ```
 
 ### 使用 yarn 安装
 
 ```shell
-yarn add @tdesign-vue-next/chat
+yarn add @tdesign-vue-next/chat@alpha
 ```
 
 ### 使用 pnpm 安装
 
 ```shell
-pnpm add @tdesign-vue-next/chat
+pnpm add @tdesign-vue-next/chat@alpha
 ```
 
 ## 使用
