@@ -35,8 +35,6 @@ export default defineComponent({
   props,
 
   setup(props: TdPaginationProps) {
-    const { emit } = getCurrentInstance();
-
     const { modelValue, pageSize, current } = toRefs(props);
     const renderTNodeJSX = useTNodeJSX();
     const [innerCurrent, setInnerCurrent] = useVModel(
@@ -140,9 +138,18 @@ export default defineComponent({
       return array;
     });
 
+    const pageInfoValue = ref<PageInfo | null>({
+      current: innerCurrent.value,
+      previous: 0,
+      pageSize: innerPageSize.value,
+    });
+
     watch(
       () => innerCurrent.value,
-      (val) => (jumpIndex.value = val),
+      (val) => {
+        jumpIndex.value = val;
+        props.onChange?.(pageInfoValue.value);
+      },
     );
 
     const toPage: (pageIndex: number, pageInfo?: PageInfo) => void = (pageIndex, pageInfo) => {
@@ -155,6 +162,7 @@ export default defineComponent({
       } else if (pageIndex > pageCount.value) {
         current = pageCount.value;
       }
+
       if (innerCurrent.value !== current) {
         const prev = innerCurrent.value;
         pageInfo = pageInfo || {
@@ -162,13 +170,9 @@ export default defineComponent({
           previous: prev,
           pageSize: innerPageSize.value,
         };
-        if (pageInfo) {
-          setInnerCurrent(current, pageInfo);
-          props.onChange?.(pageInfo);
-        } else {
-          // 非主动更改时应仅更新modelValue不触发onCurrentChange事件
-          emit('update:modelValue', current);
-        }
+
+        setInnerCurrent(current, pageInfo);
+        pageInfoValue.value = pageInfo;
       }
     };
 
@@ -209,6 +213,7 @@ export default defineComponent({
             previous: initialPageInfo.current,
             pageSize,
           };
+          pageInfoValue.value = pageInfo;
           toPage(pageCurrent, pageInfo);
         } else {
           const pageInfo = {
@@ -216,11 +221,7 @@ export default defineComponent({
             previous: initialPageInfo.current,
             pageSize,
           };
-          // 如果在 setInnerPageSize 后 current 被外部受控修改，则触发 currentChange 事件
-          if (innerCurrent.value !== pageInfo.previous) {
-            emit('currentChange', innerCurrent.value, pageInfo);
-          }
-          props.onChange?.(pageInfo);
+          pageInfoValue.value = pageInfo;
         }
       });
     };

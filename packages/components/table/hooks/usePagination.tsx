@@ -36,8 +36,6 @@ export default function usePagination(
     () => {
       if (!pagination.value || !pagination.value.current) return;
       const { current, pageSize } = pagination.value;
-      // 保存变化前的 innerPagination，用于判断此次变化是否来自内部 Pagination 的 onChange
-      const prevInner = { current: innerPagination.value?.current, pageSize: innerPagination.value?.pageSize };
 
       const newPageInfo = { current, pageSize };
       innerPagination.value = newPageInfo;
@@ -45,13 +43,6 @@ export default function usePagination(
         pagination.value.current,
         pagination.value.pageSize || pagination.value.defaultPageSize,
       );
-
-      if (
-        props.onPageChange &&
-        (prevInner.current !== newPageInfo.current || prevInner.pageSize !== newPageInfo.pageSize)
-      ) {
-        props.onPageChange?.(newPageInfo as PageInfo, dataSource.value);
-      }
     },
     { immediate: true },
   );
