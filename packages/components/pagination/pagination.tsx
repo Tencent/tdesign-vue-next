@@ -138,17 +138,16 @@ export default defineComponent({
       return array;
     });
 
-    const pageInfoValue = ref<PageInfo | null>({
-      current: innerCurrent.value,
-      previous: 0,
-      pageSize: innerPageSize.value,
-    });
+    // const pageInfoValue = ref<PageInfo | null>({
+    //   current: innerCurrent.value,
+    //   previous: 0,
+    //   pageSize: innerPageSize.value,
+    // });
 
     watch(
       () => innerCurrent.value,
       (val) => {
         jumpIndex.value = val;
-        props.onChange?.(pageInfoValue.value);
       },
     );
 
@@ -172,7 +171,7 @@ export default defineComponent({
         };
 
         setInnerCurrent(current, pageInfo);
-        pageInfoValue.value = pageInfo;
+        props.onChange?.(pageInfo);
       }
     };
 
@@ -213,7 +212,6 @@ export default defineComponent({
             previous: initialPageInfo.current,
             pageSize,
           };
-          pageInfoValue.value = pageInfo;
           toPage(pageCurrent, pageInfo);
         } else {
           const pageInfo = {
@@ -221,7 +219,7 @@ export default defineComponent({
             previous: initialPageInfo.current,
             pageSize,
           };
-          pageInfoValue.value = pageInfo;
+          props.onChange?.(pageInfo);
         }
       });
     };

@@ -349,10 +349,9 @@ describe('BaseTable Component', () => {
 
   it('props.pagination: onPageChange should be triggered when switching pages', async () => {
     const onPageChange = vi.fn();
-
     const pagination = {
-      defaultCurrent: 1,
-      defaultPageSize: 2,
+      current: 1,
+      pageSize: 2,
       total: 10,
     };
 
@@ -396,10 +395,9 @@ describe('BaseTable Component', () => {
 
   it('props.pagination: scroll position should reset when switching pages', async () => {
     const onPageChange = vi.fn();
-    // 使用非受控模式
     const pagination = {
-      defaultCurrent: 1,
-      defaultPageSize: 2,
+      current: 1,
+      pageSize: 2,
       total: 50,
     };
 
@@ -427,6 +425,7 @@ describe('BaseTable Component', () => {
     const nextButton = wrapper.find('.t-pagination__btn-next');
     expect(nextButton.exists()).toBeTruthy();
     await nextButton.trigger('click');
+
     expect(onPageChange).toHaveBeenCalledTimes(1);
     // 断言滚动条回到顶部
     expect(scrollElement.scrollTop).toBe(0);
