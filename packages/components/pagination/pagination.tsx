@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance, nextTick } from 'vue';
+import { defineComponent, computed, ref, watch, toRefs, nextTick } from 'vue';
 import { isNaN, isObject } from 'lodash-es';
 import {
   PageFirstIcon as TdPageFirstIcon,
