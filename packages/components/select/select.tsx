@@ -51,7 +51,7 @@ export default defineComponent({
       props.onInputChange,
       'inputValue',
     );
-    const [orgValue, setOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [orgValue, setOrgValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
     const selectPanelRef = ref(null);
     const selectInputRef = ref(null);
     const keys = computed(() => ({

@@ -21,7 +21,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
 
     const { value, modelValue } = toRefs(props);
-    const [tabValue, setTabValue] = useVModel(value, modelValue, props.defaultValue || '', props.onChange);
+    const [tabValue, setTabValue] = useVModel(value, modelValue, props.defaultValue || '', 'onChange');
 
     provide<InjectTabs>('tabs', { value: tabValue });
 

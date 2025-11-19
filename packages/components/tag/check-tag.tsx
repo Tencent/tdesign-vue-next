@@ -15,13 +15,7 @@ export default defineComponent({
     const renderContent = useContent();
 
     const { checked, modelValue } = toRefs(props);
-    const [innerChecked, setInnerChecked] = useVModel(
-      checked,
-      modelValue,
-      props.defaultChecked,
-      props.onChange,
-      'checked',
-    );
+    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, 'onChange', 'checked');
 
     const tagClass = computed(() => {
       return [

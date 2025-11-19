@@ -22,13 +22,7 @@ export default defineComponent({
   setup(props, { attrs }) {
     const inputRef = ref();
     const { checked, modelValue } = toRefs(props);
-    const [innerChecked, setInnerChecked] = useVModel(
-      checked,
-      modelValue,
-      props.defaultChecked,
-      props.onChange,
-      'checked',
-    );
+    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, 'onChange', 'checked');
 
     const radioChecked = computed(() => (radioGroup ? props.value === radioGroup.value : innerChecked.value));
 

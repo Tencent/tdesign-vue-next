@@ -19,7 +19,7 @@ export default defineComponent({
       collapsed,
       modelValue,
       props.defaultCollapsed,
-      props.onExpandChange,
+      'onExpandChange',
       'collapsed',
     );
 
