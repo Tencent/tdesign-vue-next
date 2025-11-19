@@ -258,6 +258,12 @@ export default defineComponent({
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
 
+      const confirmValue = {
+        date: nextValue.map((v) => dayjs(v).toDate()),
+        e: e || null,
+        partial: (activeIndex.value ? 'end' : 'start') as DateRangePickerPartial,
+      };
+
       // 当两端都有有效值时更改 value
       if (notValidIndex === -1 && nextValue.length === 2) {
         // 二次修改时当其中一侧不符合上次区间规范时，清空另一侧数据
@@ -269,11 +275,8 @@ export default defineComponent({
           cacheValue.value = nextValue;
           inputValue.value = nextValue;
         } else {
-          props?.onConfirm?.({
-            date: nextValue.map((v) => dayjs(v).toDate()),
-            e: e || null,
-            partial: activeIndex.value ? 'end' : 'start',
-          });
+          props?.onConfirm?.(confirmValue);
+
           onChange?.(
             formatDate(nextValue, {
               format: formatRef.value.format,
@@ -299,12 +302,20 @@ export default defineComponent({
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
 
+      const confirmValue = {
+        date: nextValue.map((v) => dayjs(v).toDate()),
+        e: e || null,
+        partial: (activeIndex.value ? 'end' : 'start') as DateRangePickerPartial,
+      };
+
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (!isFirstValueSelected.value || !activeIndex.value) {
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex as 0 | 1;
         isFirstValueSelected.value = !!nextValue[0];
+
+        props?.onConfirm?.(confirmValue);
       } else if (nextValue.length === 2) {
         popupVisible.value = false;
       }
