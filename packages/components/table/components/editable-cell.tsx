@@ -234,7 +234,7 @@ export default defineComponent({
             value: editValue.value,
             editedRow: { ...props.row, [props.col.colKey]: editValue.value },
             validateEdit,
-            isEdit: false,
+            isEdit: isEdit.value,
           });
           clearTimeout(timer);
         }, 0);
