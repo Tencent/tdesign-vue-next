@@ -1,0 +1,75 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Link > props > disabled[boolean] 1`] = `
+<a
+  class="t-link t-link--theme-default t-is-disabled"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link > props > disabled[boolean] 2`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link > props > hover[string] 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-color"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link > props > hover[string] 2`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link > props > href[string] 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+  href="https://tdesign.tencent.com/"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link > props > target[string] 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+  target="_blank"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;

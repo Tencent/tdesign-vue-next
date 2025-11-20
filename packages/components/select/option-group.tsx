@@ -1,7 +1,7 @@
 import { defineComponent, inject, computed } from 'vue';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 import props from './option-group-props';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+
 import { selectInjectKey } from './consts';
 
 export default defineComponent({

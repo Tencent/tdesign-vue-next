@@ -1,5 +1,5 @@
-import { existsSync } from 'fs-extra';
-import { posix, dirname, win32 } from 'path';
+import { existsSync } from 'node:fs';
+import { posix, dirname, win32 } from 'node:path';
 
 const normalizePathRegExp = new RegExp(`\\${win32.sep}`, 'g');
 

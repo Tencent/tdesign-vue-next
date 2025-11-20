@@ -1,9 +1,9 @@
 import { ref, Ref, toRefs } from 'vue';
 import { get } from 'lodash-es';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import { BaseTableProps } from '../interface';
+import { useDefaultValue } from '@tdesign/shared-hooks';
+import { BaseTableProps } from '../types';
 import { RowEventContext, TableRowData } from '../type';
-import { on, off } from '../../utils/dom';
+import { on, off } from '@tdesign/shared-utils';
 import {
   ARROW_DOWN_REG,
   ARROW_UP_REG,
@@ -209,7 +209,9 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
       clearShiftAreaSelection();
     } else if (ALL_REG.test(code)) {
       // 全选
-      setAllActive();
+      if (activeRowType.value === 'multiple') {
+        setAllActive();
+      }
     }
 
     if (!SPACE_REG.test(code)) {

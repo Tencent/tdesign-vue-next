@@ -1,4 +1,5 @@
-import { tdesignVueNextPackageJson, tdesignVueNextSitePackageJson } from '@tdesign/internal-utils/package-json';
+import { catalogs } from '@tdesign/internal-utils/catalogs';
+import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
 
 export const htmlContent = `
   <div id="app"></div>
@@ -52,12 +53,27 @@ export const styleContent = `
     font-weight: 500;
     font-size: 20px;
   }
+
+  /* grid 组件示例展示 */
+  .tdesign-demo-item--grid .t-col > div {
+    min-height: 40px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background: #366ef4;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .tdesign-demo-item--grid .t-col:nth-of-type(2n) > div {
+    background: #8eabff;
+  }
 `;
 
 export const stackblitzRc = `
   {
-    "installDependencies": true,
-    "startCommand": "npm run dev"
+    "installDependencies": false,
+    "startCommand": "pnpm install && pnpm dev"
   }
 `;
 
@@ -82,16 +98,17 @@ export const packageJSONContent = JSON.stringify(
       serve: 'vite preview',
     },
     dependencies: {
-      vue: tdesignVueNextSitePackageJson.dependencies.vue,
-      less: tdesignVueNextSitePackageJson.devDependencies.less,
+      vue: catalogs.deps.vue,
+      less: catalogs.bundle.less,
       'tdesign-vue-next': tdesignVueNextPackageJson.version,
-      'tdesign-icons-vue-next': tdesignVueNextPackageJson.dependencies['tdesign-icons-vue-next'],
+      'tdesign-icons-vue-next': catalogs.tdesign['tdesign-icons-vue-next'],
+      dayjs: catalogs.deps.dayjs,
     },
     devDependencies: {
-      vite: tdesignVueNextSitePackageJson.devDependencies.vite,
-      '@vue/compiler-sfc': tdesignVueNextSitePackageJson.devDependencies['@vue/compiler-sfc'],
-      '@vitejs/plugin-vue': tdesignVueNextSitePackageJson.devDependencies['@vitejs/plugin-vue'],
-      '@vitejs/plugin-vue-jsx': tdesignVueNextSitePackageJson.devDependencies['@vitejs/plugin-vue-jsx'],
+      vite: catalogs.bundle.vite,
+      '@vue/compiler-sfc': catalogs.bundle['@vue/compiler-sfc'],
+      '@vitejs/plugin-vue': catalogs.bundle['@vitejs/plugin-vue'],
+      '@vitejs/plugin-vue-jsx': catalogs.bundle['@vitejs/plugin-vue-jsx'],
     },
   },
   null,

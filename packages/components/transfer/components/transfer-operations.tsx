@@ -1,14 +1,12 @@
-import { defineComponent, createElementVNode, PropType, h } from 'vue';
+import { defineComponent, createElementVNode, PropType, h, VNode } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLeftIcon } from 'tdesign-icons-vue-next';
 
 import Button from '../../button';
-import { TNode } from '../../common';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { SlotReturnArray, TNode } from '../../common';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+
 import props from '../props';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isString, isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TTransferOperations',
@@ -68,14 +66,20 @@ export default defineComponent({
           direction,
         });
       }
+
       if (isFunction(props.operation)) {
         const renderContent = props.operation;
         return renderContent(h as any, { direction });
       }
-      let renderContent: string | TNode;
+
+      let renderContent: string | TNode | VNode | SlotReturnArray | null;
       if (isArray(props.operation)) {
         const [left, right] = props.operation;
-        renderContent = direction === 'right' ? right : left;
+        const directionOp = direction === 'right' ? right : left;
+        const content = isFunction(directionOp) ? directionOp(h as any) : directionOp;
+
+        // 过滤掉 boolean
+        renderContent = content === false || content === true ? '' : content;
       } else {
         renderContent = '';
       }
@@ -93,7 +97,7 @@ export default defineComponent({
           onClick={moveToRight}
           icon={getIcon('right')}
         >
-          {slots.operation || (isArray(props.operation) && props.operation[1]) ? renderButton(h, 'right') : null}
+          {renderButton(h, 'right')}
         </Button>
         <Button
           variant="outline"
@@ -104,7 +108,7 @@ export default defineComponent({
           onClick={moveToLeft}
           icon={getIcon('left')}
         >
-          {slots.operation || (isArray(props.operation) && props.operation[0]) ? renderButton(h, 'left') : null}
+          {renderButton(h, 'left')}
         </Button>
       </div>
     );

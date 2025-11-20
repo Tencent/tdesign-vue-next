@@ -1,13 +1,9 @@
 import { defineComponent, ref, computed, toRefs, reactive, Fragment } from 'vue';
 import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue-next';
-// TODO: need refactor
-import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
-import props from './chat-sender-props';
 import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
-// TODO: need refactor
-import useVModel from '../../components/hooks/useVModel';
-// TODO: need refactor
-import { useTNodeJSX, useContent } from '../../components/hooks/tnode';
+import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
+import { usePrefixClass, useTNodeJSX, useVModel } from '@tdesign/shared-hooks';
+import props from './chat-sender-props';
 
 import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from './type';
 
@@ -21,29 +17,24 @@ export default defineComponent({
     const senderTextarea = ref(null);
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { uploadImageText, uploadAttachmentText } = globalConfig.value;
     const { value, modelValue } = toRefs(props);
     const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
     const focusFlag = ref(false);
-    const loading = ref(false);
-    const showStopBtn = computed(() => props.stopDisabled && loading.value);
+    const showStopBtn = computed(() => props.loading || props.stopDisabled);
     const disabled = computed(() => props.disabled || false);
     const uploadImageRef = ref(null);
     const uploadFileRef = ref(null);
     const renderTNodeJSX = useTNodeJSX();
-    const renderContent = useContent();
     // 点击了发送按钮
     const sendClick = (e: MouseEvent | KeyboardEvent) => {
       if (textValue.value && !disabled.value) {
         emit('send', textValue.value, { e });
-        loading.value = true;
-        textValue.value = '';
       }
     };
     // 点击了停止按钮
     const handleStop = (e: MouseEvent) => {
-      loading.value = false;
+      e.stopPropagation(); // 阻止事件冒泡
       emit('stop', textValue.value, {
         e,
       });
@@ -69,14 +60,15 @@ export default defineComponent({
 
     const blurFn = (value: string, context: { e: FocusEvent }) => {
       focusFlag.value = false;
+      shiftDownFlag = false;
       emit('blur', value, context);
     };
 
     const keyupFn = (value: string, context: { e: KeyboardEvent }) => {
       const {
-        e: { key },
+        e: { key, shiftKey },
       } = context;
-      if (key === 'Shift') {
+      if (key === 'Shift' || !shiftKey) {
         shiftDownFlag = false;
       }
     };
@@ -117,7 +109,7 @@ export default defineComponent({
         const defaultAction = actionsDefault.find((item) => item.name === name)?.action;
         return defaultAction || (({ files, name }) => emit('fileSelect', { files, name }));
       };
-
+      const { uploadAttachmentText, uploadImageText } = globalConfig.value;
       const uploadAttachment = actions.find((item) => item.name === 'uploadAttachment');
       const uploadAttachmentButton = uploadAttachment ? (
         <Fragment>
@@ -194,18 +186,25 @@ export default defineComponent({
                 item.name === 'uploadAttachment' || item.name === 'uploadImage',
             )
             .map((item) => buttonComponents[item.name])}
-          <Button
-            theme="default"
-            size="small"
-            variant="text"
-            class={[
-              `${COMPONENT_NAME.value}-sender__button__default`,
-              textValue.value ? '' : `${COMPONENT_NAME.value}-sender__button--disabled`,
-            ]}
-            disabled={disabled.value || showStopBtn.value || !textValue.value}
-          >
-            <SendFilledIcon />
-          </Button>
+          {!showStopBtn.value ? (
+            <Button
+              theme="default"
+              size="small"
+              variant="text"
+              class={[
+                `${COMPONENT_NAME.value}-sender__button__default`,
+                textValue.value ? '' : `${COMPONENT_NAME.value}-sender__button--disabled`,
+              ]}
+              onClick={sendClick}
+              disabled={disabled.value || showStopBtn.value || !textValue.value}
+            >
+              <SendFilledIcon />
+            </Button>
+          ) : (
+            <Button variant="text" class={`${COMPONENT_NAME.value}-sender__button__default`} onClick={handleStop}>
+              <div class={`${COMPONENT_NAME.value}-sender__button__stopicon`} />
+            </Button>
+          )}
         </Fragment>
       );
       // }
@@ -217,14 +216,14 @@ export default defineComponent({
     };
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
-        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderContent('default', 'header')}</div>
+        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderTNodeJSX('header')}</div>
         <div
           class={[
             `${COMPONENT_NAME.value}-sender__textarea`,
             focusFlag.value ? `${COMPONENT_NAME.value}-sender__textarea--focus` : '',
           ]}
         >
-          <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderContent('default', 'inner-header')}</div>
+          <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderTNodeJSX('inner-header')}</div>
           <Textarea
             ref={senderTextarea}
             value={textValue.value}
@@ -245,22 +244,10 @@ export default defineComponent({
             onCompositionend={compositionendFn}
           />
           <div class={`${COMPONENT_NAME.value}-sender__footer`}>
-            <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderContent('default', 'prefix')}</div>
+            <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderTNodeJSX('prefix')}</div>
             <div class={`${COMPONENT_NAME.value}-sender__button`}>
               {/* 发送按钮 */}
-              {!showStopBtn.value && (
-                <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`} onClick={sendClick}>
-                  {renderSuffixIcon()}
-                </div>
-              )}
-              {/* 停止按钮 */}
-              {showStopBtn.value && (
-                <div class={`${COMPONENT_NAME.value}-sender__button__stopbtn`}>
-                  <Button variant="text" class={`${COMPONENT_NAME.value}-sender__button__default`} onClick={handleStop}>
-                    <div class={`${COMPONENT_NAME.value}-sender__button__stopicon`} />
-                  </Button>
-                </div>
-              )}
+              <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`}>{renderSuffixIcon()}</div>
             </div>
           </div>
         </div>

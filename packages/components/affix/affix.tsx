@@ -1,12 +1,10 @@
 import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent, onActivated, onDeactivated } from 'vue';
-import { isFunction } from 'lodash-es';
-import { isUndefined } from 'lodash-es';
+import { isFunction, isUndefined } from 'lodash-es';
 
-import { on, off, getScrollContainer } from '../utils/dom';
+import { on, off, getScrollContainer } from '@tdesign/shared-utils';
 import props from './props';
 import { ScrollContainerElement } from '../common';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TAffix',
@@ -14,7 +12,7 @@ export default defineComponent({
   emits: ['fixedChange'],
   setup(props, context) {
     const COMPONENT_NAME = usePrefixClass('affix');
-    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
 
     const affixWrapRef = ref<HTMLElement>(null);
     const affixRef = ref<HTMLElement>(null);
@@ -151,7 +149,7 @@ export default defineComponent({
     return () => (
       <div ref={affixWrapRef}>
         <div ref={affixRef} style={affixStyle.value}>
-          {renderTNodeJSX('default')}
+          {renderContent('default', 'content')}
         </div>
       </div>
     );

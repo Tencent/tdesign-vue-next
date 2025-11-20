@@ -2,10 +2,7 @@ import { ref, computed, watch } from 'vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import { omit } from 'lodash-es';
 
-import { useTNodeJSX } from '../../hooks/tnode';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import { useReadonly } from '../../hooks/useReadonly';
+import { useConfig, useTNodeJSX, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { TdDateRangePickerProps, DateValue, DateRangePickerPartial } from '../type';
 import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
@@ -61,8 +58,11 @@ export function useRange(props: TdDateRangePickerProps) {
     onClick: ({ position }: any) => {
       activeIndex.value = position === 'first' ? 0 : 1;
     },
-    onClear: ({ e }: { e: MouseEvent }) => {
-      e.stopPropagation();
+    onClear: (context: { e: MouseEvent } | MouseEvent) => {
+      // 处理全局替换关闭图标的场景，此时 event 可能不在 context 里面，而是 context 本身
+      if (context instanceof MouseEvent) context.stopPropagation();
+      else context.e.stopPropagation();
+
       popupVisible.value = false;
       onChange?.([], { dayjsValue: [], trigger: 'clear' });
     },

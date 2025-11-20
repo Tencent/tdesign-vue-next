@@ -25,10 +25,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'pnpm'
 
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
 
-      - run: pnpm run site:preview
+      - run: pnpm -C packages/tdesign-vue-next/site run preview
 
       - uses: actions/upload-artifact@v4
         with:
@@ -48,10 +49,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'pnpm'
 
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
 
-      - run: pnpm run site:chat-preview
+      - run: pnpm -C packages/tdesign-vue-next-chat/site run preview
       
       - uses: actions/upload-artifact@v4
         with:

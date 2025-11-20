@@ -1,15 +1,11 @@
 import { defineComponent, provide, computed, watchEffect, ref, toRefs } from 'vue';
-import { intersection } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { isUndefined } from 'lodash-es';
+import { isObject, isUndefined, intersection } from 'lodash-es';
+
 import Checkbox from './checkbox';
 import props from './checkbox-group-props';
 import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 import { CheckboxGroupInjectionKey } from './consts';
-import useVModel from '../hooks/useVModel';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useChildComponentSlots } from '../hooks/slot';
+import { useVModel, useTNodeJSX, usePrefixClass, useChildComponentSlots } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
@@ -69,31 +65,38 @@ export default defineComponent({
      * 此函数遍历 `optionList` 中的项，忽略被标记为 `checkAll`、`disabled` 或 `readonly` 的项，
      * 并收集非这些状态的项的值到一个 Set 集合中。如果达到最大限制 `maxExceeded`，则停止遍历。
      *
-     * @returns {CheckboxGroupValue} 返回一个数组，包含所有非 `checkAll`、`disabled`、`readonly` 状态复选框的值。
      */
-    const getAllCheckboxValue = (): CheckboxGroupValue => {
-      const val = new Set<TdCheckboxProps['value']>();
-
+    const getAllCheckboxValue = () => {
+      const checkAllVal = new Set<TdCheckboxProps['value']>();
+      const uncheckAllVal = new Set<TdCheckboxProps['value']>();
       // 遍历选项列表，忽略特定状态的项，并收集有效值
       for (let i = 0, len = optionList.value.length; i < len; i++) {
         const item = optionList.value[i];
 
-        // 如果项被标记为检查所有、禁用或只读，则跳过当前循环迭代
+        // 如果项被标记为检查所有、禁用或只读，且未选中，则跳过当前循环迭代
         if (item.checkAll) continue;
-        if (item.disabled) continue;
-        if (item.readonly) continue;
+        if (item.disabled) {
+          if (!innerValue.value.includes(item.value)) continue;
+          else uncheckAllVal.add(item.value); // 添加禁用状态项的值到集合中
+        }
+        if (item.readonly) {
+          if (!innerValue.value.includes(item.value)) continue;
+          else uncheckAllVal.add(item.value); // 添加禁用状态项的值到集合中
+        }
 
-        val.add(item.value); // 添加非排除状态项的值到集合中
+        checkAllVal.add(item.value); // 添加非排除状态项的值到集合中
 
         // 如果已达到最大限制，则终止循环
         if (maxExceeded.value) break;
       }
 
-      return [...val]; // 从 Set 集合转换为数组并返回
+      return { checkAllVal: [...checkAllVal], uncheckAllVal: [...uncheckAllVal] }; // 从 Set 集合转换为数组并返回
     };
 
     const onCheckAllChange = (checked: boolean, context: { e: Event; source?: 't-checkbox' }) => {
-      const value: CheckboxGroupValue = checked ? getAllCheckboxValue() : [];
+      const { checkAllVal, uncheckAllVal } = getAllCheckboxValue();
+
+      const value: CheckboxGroupValue = checked ? checkAllVal : uncheckAllVal;
       setInnerValue(value, {
         e: context.e,
         type: checked ? 'check' : 'uncheck',

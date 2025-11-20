@@ -1,5 +1,5 @@
 import { h, defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
-import { debounce } from 'lodash-es';
+import { debounce, isFunction } from 'lodash-es';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,
   ChevronRightIcon as TdChevronRightIcon,
@@ -15,11 +15,7 @@ import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize } from '../hooks/useListener';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import useDragSort from '../hooks/useDragSort';
-import { isFunction } from 'lodash-es';
+import { useResize, useDragSort, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TTabNav',
@@ -41,6 +37,7 @@ export default defineComponent({
     onAdd: tabProps.onAdd,
     onRemove: tabProps.onRemove,
     dragSort: tabProps.dragSort,
+    // 在 useDragSort 里会被调用
     onDragSort: tabProps.onDragSort,
   },
   setup(props) {
@@ -195,7 +192,7 @@ export default defineComponent({
       }
       props.onChange(value);
     };
-    const removeBtnClick = ({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) => {
+    const onTabRemove = ({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) => {
       props.onRemove({ e, value, index });
     };
     const setActiveTab = (ref: any) => {
@@ -243,7 +240,8 @@ export default defineComponent({
             removable={panel.removable}
             value={panel.value}
             onClick={(e: MouseEvent) => tabClick(e, panel)}
-            onRemove={removeBtnClick}
+            onTabRemove={onTabRemove}
+            onTabPanelRemove={panel.onRemove}
           />
         );
       });

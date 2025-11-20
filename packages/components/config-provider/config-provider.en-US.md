@@ -89,6 +89,7 @@ list | Object | - | List global configs。Typescript：`ListConfig` | N
 message | Object | - | Message Component global configs。Typescript：`MessageConfig` | N
 pagination | Object | - | Pagination global configs。Typescript：`PaginationConfig` | N
 popconfirm | Object | - | Popconfirm global configs。Typescript：`PopconfirmConfig` | N
+qrcode | Object | - | QRCode global configs。Typescript：`QRCodeConfig` | N
 rate | Object | - | Rate global configs。Typescript：`RateConfig` | N
 select | Object | - | Select global configs。Typescript：`SelectConfig` | N
 steps | Object | - | Steps global configs。Typescript：`StepsConfig` | N
@@ -224,6 +225,7 @@ name | type | default | description | required
 colonText | String | - | colon on the right of label ":" | N
 errorMessage | Object | - | Typescript：`FormErrorMessage`，[Form API Documents](./form?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 requiredMark | Boolean | true | \- | N
+requiredMarkPosition | String | left | Display position of required symbols。options: left/right | N
 
 ### GuideConfig
 
@@ -287,6 +289,14 @@ name | type | default | description | required
 cancel | String / Object | - | Typescript：`string \| ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 confirm | String / Object | - | Typescript：`string \| ButtonProps` | N
 confirmBtnTheme | Object | - | Typescript：`{ default: string; warning: string; danger: string; }` | N
+
+### QRCodeConfig
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+expiredText | String | - | Language configuration, "QR code expired" description text | N
+refreshText | String | - | Language configuration, "QR code refresh" description text | N
+scannedText | String | - | Language configuration, "QR code scanned" description text | N
 
 ### RateConfig
 

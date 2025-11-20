@@ -101,12 +101,14 @@ const SCHOOL_OPTIONS = [
   { label: '学校三', value: 3 },
 ];
 
-const rules = {
+const rules = computed(() => ({
   school: [{ required: true, message: '学校必填' }],
-  name: [{ required: true, message: '用户名必填' }],
-  courseType: [{ required: true, message: '选科必填' }],
-  course: [{ required: true, message: '课程必填' }],
-};
+  students: formData.students.map(() => ({
+    name: [{ required: true, message: '用户名必填' }],
+    courseType: [{ required: true, message: '选科必填' }],
+    course: [{ required: true, message: '课程必填' }],
+  })),
+}));
 
 const courseOptions = computed(() =>
   COURSE_OPTIONS.filter((item) => {

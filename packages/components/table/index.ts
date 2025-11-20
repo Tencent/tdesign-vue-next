@@ -2,14 +2,14 @@ import { cloneDeep } from 'lodash-es';
 import _BaseTable from './base-table';
 import _PrimaryTable from './primary-table';
 import _EnhancedTable from './enhanced-table';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { InfinityScroll } from '../common';
 import { BaseTableInstanceFunctions, EnhancedTableInstanceFunctions, PrimaryTableInstanceFunctions } from './type';
 
 import './style';
 
 export * from './type';
-export * from './interface';
+export * from './types';
 
 export type AllTableInstanceFunctions = EnhancedTableInstanceFunctions &
   PrimaryTableInstanceFunctions &

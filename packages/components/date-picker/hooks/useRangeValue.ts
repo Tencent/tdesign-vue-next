@@ -1,5 +1,5 @@
-import { ref, toRefs, watchEffect, computed } from 'vue';
-import useVModel from '../../hooks/useVModel';
+import { ref, toRefs, watchEffect, computed, watch } from 'vue';
+import { useVModel } from '@tdesign/shared-hooks';
 import { isArray } from 'lodash-es';
 
 import { TdDateRangePickerProps } from '../type';
@@ -59,6 +59,19 @@ export function useRangeValue(props: TdDateRangePickerProps) {
   );
   const year = ref(initYearMonthTime({ value: value.value, mode: props.mode, format: formatRef.value.format }).year);
   const cacheValue = ref(formatDate(value.value, { format: formatRef.value.format })); // 选择阶段预选状态
+
+  // 用于处理预设值的场景，打开面板自动展示未来某个时间的场景
+  watch(
+    () => isFirstValueSelected.value,
+    () => {
+      if (year.value[1] < year.value[0]) {
+        year.value[1] = year.value[0];
+      }
+      if (month.value[1] < month.value[0]) {
+        month.value[1] = month.value[0];
+      }
+    },
+  );
 
   // 输入框响应 value 变化
   watchEffect(() => {

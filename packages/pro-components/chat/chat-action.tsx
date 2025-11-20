@@ -1,8 +1,7 @@
 import { defineComponent } from 'vue';
-// TODO: need refactor
-import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
-import props from './chat-action-props';
+import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 import { Button, Space, Tooltip } from 'tdesign-vue-next';
+import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import {
   ThumbUpIcon,
   ThumbUpFilledIcon,
@@ -11,9 +10,9 @@ import {
   RefreshIcon,
   CopyIcon,
 } from 'tdesign-icons-vue-next';
-// TODO: need refactor
-import { useTNodeJSX } from '../../components/hooks/tnode';
+// TODO: need refactor packages/components/typography/utils/copy-to-clipboard/index.ts???
 import Clipboard from 'clipboard';
+import props from './chat-action-props';
 import { MessagePluginSingleton } from './utils';
 
 export default defineComponent({
@@ -25,11 +24,13 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const messagePluginInstance = MessagePluginSingleton.getInstance();
     const { globalConfig } = useConfig('chat');
-    const { copyTipText, likeTipText, dislikeTipText, refreshTipText, copyTextSuccess, copyTextFail } =
-      globalConfig.value;
+
     return () => {
       // textLoading更新后要传给子组件和孙组件
       const content = renderTNodeJSX('content');
+      const { copyTipText, likeTipText, dislikeTipText, refreshTipText, copyTextSuccess, copyTextFail } =
+        globalConfig.value;
+
       // 内置操作按钮，assistantActions和插槽判断 t-chat注入的属性获取不到默认为false
       const disabled = props.disabled;
       const copyAnswer = () => {

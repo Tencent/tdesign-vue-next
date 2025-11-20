@@ -1,12 +1,7 @@
 import { defineComponent, computed, provide, inject, ComputedRef, toRefs } from 'vue';
-// TODO: need refactor
-import { usePrefixClass } from '../../components/hooks/useConfig';
+import { usePrefixClass, useTNodeJSX, useVModel } from '@tdesign/shared-hooks';
 import props from './chat-reasoning-props';
 import { Collapse, CollapsePanel } from 'tdesign-vue-next';
-// TODO: need refactor
-import { useTNodeJSX } from '../../components/hooks/tnode';
-// TODO: need refactor
-import useVModel from '../../components/hooks/useVModel';
 
 export default defineComponent({
   name: 'TChatReasoning',

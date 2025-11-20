@@ -1,10 +1,10 @@
-import { App, createApp, ref, Plugin, defineComponent, h, onMounted, nextTick } from 'vue';
+import { App, ref, Plugin, defineComponent, h, onMounted, nextTick, AppContext, createVNode, render } from 'vue';
 import DialogComponent from './dialog';
-import { getAttach } from '../utils/dom';
+import { getAttach } from '@tdesign/shared-utils';
 import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from './type';
 import { omit } from 'lodash-es';
 
-const createDialog: DialogMethod = (props: DialogOptions) => {
+const createDialog: DialogMethod = (props, context) => {
   const options = { ...props };
   const wrapper = document.createElement('div');
   const visible = ref(false);
@@ -28,6 +28,11 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
 
     preClassName = className;
   };
+
+  function destroySelf() {
+    render(null, wrapper);
+    wrapper.remove();
+  }
 
   const component = defineComponent({
     setup(props, { expose }) {
@@ -57,6 +62,11 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
           options.onClose ||
           function () {
             visible.value = false;
+            if (options.destroyOnClose) {
+              setTimeout(() => {
+                destroySelf();
+              }, 300);
+            }
           };
         delete options.className;
         delete options.style;
@@ -68,8 +78,12 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
       };
     },
   });
-  const dialogComponent = createApp(component);
-  const dialog = dialogComponent.mount(wrapper);
+  const dialog = createVNode(component);
+  // eslint-disable-next-line no-underscore-dangle
+  if (context ?? DialogPlugin._context) {
+    // eslint-disable-next-line no-underscore-dangle
+    dialog.appContext = context ?? DialogPlugin._context;
+  }
 
   const container = getAttach(options.attach);
   if (container) {
@@ -77,6 +91,8 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   } else {
     console.error('attach is not exist');
   }
+
+  render(dialog, wrapper);
 
   const dialogNode: DialogInstance = {
     show: () => {
@@ -87,18 +103,17 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
     },
     update: (newOptions: DialogOptions) => {
       // className & style由updateClassNameStyle来处理
-      dialog.update(omit(newOptions, ['className', 'style']));
+      dialog.component.exposed.update(omit(newOptions, ['className', 'style']));
       updateClassNameStyle(newOptions.className, newOptions.style);
     },
     destroy: () => {
       visible.value = false;
       setTimeout(() => {
-        dialogComponent.unmount();
-        wrapper.remove();
+        destroySelf();
       }, 300);
     },
     setConfirmLoading: (val: boolean) => {
-      dialog.update({ confirmLoading: val });
+      dialog.component.exposed.update({ confirmLoading: val });
     },
   };
   return dialogNode;
@@ -110,12 +125,12 @@ interface ExtraApi {
 
 type ExtraApiType = keyof ExtraApi;
 
-const confirm: DialogConfirmMethod = (props: DialogOptions) => createDialog(props);
+const confirm: DialogConfirmMethod = (props: DialogOptions, context?: AppContext) => createDialog(props, context);
 
-const alert: DialogAlertMethod = (props: Omit<DialogOptions, 'confirmBtn'>) => {
+const alert: DialogAlertMethod = (props: Omit<DialogOptions, 'confirmBtn'>, context?: AppContext) => {
   const options = { ...props };
   options.cancelBtn = null;
-  return createDialog(options);
+  return createDialog(options, context);
 };
 
 const extraApi: ExtraApi = {
@@ -123,12 +138,19 @@ const extraApi: ExtraApi = {
   alert,
 };
 
-export type DialogPluginType = Plugin & ExtraApi & DialogMethod;
+export type DialogPluginType = Plugin &
+  ExtraApi &
+  DialogMethod & {
+    _context?: AppContext;
+  };
 
 export const DialogPlugin = createDialog as DialogPluginType;
 
 DialogPlugin.install = (app: App): void => {
   app.config.globalProperties.$dialog = createDialog;
+  // 如果使用 use 方法，自动绑定当前 App 的 context
+  // eslint-disable-next-line no-underscore-dangle
+  DialogPlugin._context = app._context;
   Object.keys(extraApi).forEach((funcName: ExtraApiType) => {
     app.config.globalProperties.$dialog[funcName] = extraApi[funcName];
   });

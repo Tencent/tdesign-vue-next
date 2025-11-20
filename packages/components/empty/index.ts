@@ -1,5 +1,5 @@
 import _Empty from './empty';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import type { TdEmptyProps } from './type';
 
 import './style';

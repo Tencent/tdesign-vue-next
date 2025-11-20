@@ -5,14 +5,14 @@ on:
     types: [opened]
 
   pull_request_review:
-    types: [submitted]  
+    types: [submitted]
 
   issue_comment:
     types: [edited]
 
 jobs:
   changelog:
-    if: github.event.review.state == 'approved' 
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ github.event.pull_request.number }} > pr-id.txt
@@ -31,7 +31,9 @@ jobs:
         uses: TDesignOteam/flow-pilot-action@develop
         with:
           token: ${{ secrets.TDESIGN_BOT_TOKEN }}
-          packages: 'tdesign-vue-next,@tdesign-vue-next/chat'
+          packages: 'tdesign-vue-next,@tdesign-vue-next/chat,@tdesign-vue-next/auto-import-resolver'
+          tmt-secret-id: ${{ secrets.TMT_SECRET_ID }}
+          tmt-secret-key: ${{ secrets.TMT_SECRET_KEY }}
 
   commit-changelog:
     if: github.event.issue.pull_request
@@ -41,4 +43,4 @@ jobs:
         uses: TDesignOteam/flow-pilot-action@develop
         with:
           token: ${{ secrets.TDESIGN_BOT_TOKEN }}
-          packages: 'tdesign-vue-next,@tdesign-vue-next/chat'
+          packages: 'tdesign-vue-next,@tdesign-vue-next/chat,@tdesign-vue-next/auto-import-resolver'

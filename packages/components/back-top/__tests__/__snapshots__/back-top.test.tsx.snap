@@ -1,0 +1,229 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BackTop > props > :content[slot] > content-slot 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  
+  <span
+    class="custom-node"
+  >
+    TNode
+  </span>
+  
+</button>
+`;
+
+exports[`BackTop > props > :content[string/function] > content-TNode 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  <span
+    class="custom-node"
+  >
+    TNode
+  </span>
+</button>
+`;
+
+exports[`BackTop > props > :default[slot] > default-slot 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  
+  <span
+    class="custom-node"
+  >
+    TNode
+  </span>
+  
+</button>
+`;
+
+exports[`BackTop > props > :default[string/function] > default-TNode 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  <span
+    class="custom-node"
+  >
+    TNode
+  </span>
+</button>
+`;
+
+exports[`BackTop > props > :offset[Array] 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
+  style="inset-inline-end: 10px; inset-block-end: 20px;"
+  type="button"
+>
+  
+  <svg
+    class="t-icon t-icon-backtop t-back-top__icon"
+    fill="none"
+    height="1em"
+    style="fill: none;"
+    viewBox="0 0 24 24"
+    width="1em"
+  >
+    <g
+      id="backtop"
+    >
+      <path
+        d="M17.5 14.5L12 9L6.5 14.5M5 5H19M12 10.25V20"
+        id="stroke1"
+        stroke="currentColor"
+        stroke-linecap="square"
+        stroke-width="2"
+      />
+    </g>
+  </svg>
+  <span
+    class="t-back-top__text"
+  >
+    TOP
+  </span>
+  
+</button>
+`;
+
+exports[`BackTop > props > :shape[circle/square] > shape-circle 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--circle t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  
+  <svg
+    class="t-icon t-icon-backtop t-back-top__icon"
+    fill="none"
+    height="1em"
+    style="fill: none;"
+    viewBox="0 0 24 24"
+    width="1em"
+  >
+    <g
+      id="backtop"
+    >
+      <path
+        d="M17.5 14.5L12 9L6.5 14.5M5 5H19M12 10.25V20"
+        id="stroke1"
+        stroke="currentColor"
+        stroke-linecap="square"
+        stroke-width="2"
+      />
+    </g>
+  </svg>
+  <span
+    class="t-back-top__text"
+  >
+    TOP
+  </span>
+  
+</button>
+`;
+
+exports[`BackTop > props > :shape[circle/square] > shape-square 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  
+  <svg
+    class="t-icon t-icon-backtop t-back-top__icon"
+    fill="none"
+    height="1em"
+    style="fill: none;"
+    viewBox="0 0 24 24"
+    width="1em"
+  >
+    <g
+      id="backtop"
+    >
+      <path
+        d="M17.5 14.5L12 9L6.5 14.5M5 5H19M12 10.25V20"
+        id="stroke1"
+        stroke="currentColor"
+        stroke-linecap="square"
+        stroke-width="2"
+      />
+    </g>
+  </svg>
+  <span
+    class="t-back-top__text"
+  >
+    TOP
+  </span>
+  
+</button>
+`;
+
+exports[`BackTop > props > :size[medium/small] > size-medium 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  
+  BackTop
+  
+</button>
+`;
+
+exports[`BackTop > props > :size[medium/small] > size-small 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-s"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  
+  BackTop
+  
+</button>
+`;
+
+exports[`BackTop > props > :theme[light/primary/dark] > theme-dark 1`] = `
+<button
+  class="t-back-top t-back-top--theme-dark t-back-top--square t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  
+  Text
+  
+</button>
+`;
+
+exports[`BackTop > props > :theme[light/primary/dark] > theme-light 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  
+  Text
+  
+</button>
+`;
+
+exports[`BackTop > props > :theme[light/primary/dark] > theme-primary 1`] = `
+<button
+  class="t-back-top t-back-top--theme-primary t-back-top--square t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  
+  Text
+  
+</button>
+`;

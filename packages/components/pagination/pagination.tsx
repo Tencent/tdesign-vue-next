@@ -1,5 +1,5 @@
-import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance } from 'vue';
-import { isNaN } from 'lodash-es';
+import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance, nextTick } from 'vue';
+import { isNaN, isObject } from 'lodash-es';
 import {
   PageFirstIcon as TdPageFirstIcon,
   PageLastIcon as TdPageLastIcon,
@@ -9,17 +9,20 @@ import {
   ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import {
+  useConfig,
+  useVModel,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  useDefaultValue,
+} from '@tdesign/shared-hooks';
+
 import TInputNumber from '../input-number';
 import { Select } from '../select';
 import TInputAdornment from '../input-adornment';
 import props from './props';
 import { usePaginationClasses, useMoreAction } from './hooks';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
-import { useTNodeJSX } from '../hooks/tnode';
-import { isObject } from 'lodash-es';
 
 import type { PageInfo, TdPaginationProps } from '../pagination/type';
 
@@ -137,13 +140,6 @@ export default defineComponent({
       return array;
     });
 
-    // 如果页面总数发生变化并当前页数大于总页数则重置为1
-    watch(
-      () => pageCount.value,
-      () => {
-        if (innerCurrent.value > pageCount.value) innerCurrent.value = 1;
-      },
-    );
     watch(
       () => innerCurrent.value,
       (val) => (jumpIndex.value = val),
@@ -186,38 +182,47 @@ export default defineComponent({
       pageChangeMap[type]();
     };
 
-    const onSelectorChange: (e: string) => void = (e) => {
-      if (props.disabled) {
-        return;
-      }
-      const pageSize: number = parseInt(e, 10);
-      let pageCount = 1;
-      if (pageSize > 0) {
-        pageCount = Math.max(Math.ceil(props.total / pageSize), 1);
-      }
+    const onSelectorChange = (val: string | number) => {
+      if (props.disabled) return;
 
-      let isIndexChange = false;
+      const pageSize = Number(val);
+      const newPageCount = pageSize > 0 ? Math.max(Math.ceil(props.total / pageSize), 1) : 1;
+      const indexExceeds = innerCurrent.value > newPageCount;
+      // 用户自主控制
+      const userControlled = current.value != null && current.value < newPageCount;
 
-      if (innerCurrent.value > pageCount) {
-        isIndexChange = true;
-      }
-
-      /**
-       * 分页大小变化事件
-       * @param {Number} pageSize 分页大小
-       * @param {Number} index 当前页
-       */
-      const pageInfo = {
-        current: isIndexChange ? pageCount : innerCurrent.value,
+      // 初始 pageInfo（用于 setInnerPageSize 时传参）
+      const initialPageInfo = {
+        current: indexExceeds ? newPageCount : innerCurrent.value,
         previous: innerCurrent.value,
         pageSize,
       };
-      setInnerPageSize(pageSize, pageInfo);
-      if (isIndexChange) {
-        toPage(pageCount, pageInfo);
-      } else {
-        props.onChange?.(pageInfo);
-      }
+
+      setInnerPageSize(pageSize, initialPageInfo);
+
+      nextTick(() => {
+        if (indexExceeds) {
+          // 当当前页索引超过新页数时，需要跳转到合适页
+          const pageCurrent = userControlled ? newPageCount : innerCurrent.value;
+          const pageInfo = {
+            current: pageCurrent,
+            previous: initialPageInfo.current,
+            pageSize,
+          };
+          toPage(pageCurrent, pageInfo);
+        } else {
+          const pageInfo = {
+            current: innerCurrent.value,
+            previous: initialPageInfo.current,
+            pageSize,
+          };
+          // 如果在 setInnerPageSize 后 current 被外部受控修改，则触发 currentChange 事件
+          if (innerCurrent.value !== pageInfo.previous) {
+            emit('currentChange', innerCurrent.value, pageInfo);
+          }
+          props.onChange?.(pageInfo);
+        }
+      });
     };
 
     const onJumperChange = (val: number) => {
@@ -256,7 +261,7 @@ export default defineComponent({
           {/* 数据统计区 */}
           {renderTNodeJSX(
             'totalContent',
-            <div class={CLASS_MAP.totalClass.value}>{t(globalConfig.value.total, { total })}</div>,
+            <div class={CLASS_MAP.totalClass.value}>{t(globalConfig.value.total, total)}</div>,
           )}
           {/* 分页器 */}
           {showPageSize && pageSizeOptions.length > 0 && (

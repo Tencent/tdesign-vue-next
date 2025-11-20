@@ -1,10 +1,5 @@
+// mark: 后续将 utils 移动到 src 中
 import { fireEvent, createEvent } from '@testing-library/dom';
-
-export function mockDelay(timeout = 300) {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(true), timeout);
-  });
-}
 
 export function simulateInputChange(dom: HTMLInputElement, text: string) {
   dom.value = text;

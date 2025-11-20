@@ -23,7 +23,7 @@
             expandIconPlacement: 'right',
             onExpandChange: handleChange(value, { index }),
             collapsePanelProps: {
-              header: renderHeader(index === 0 && isStreamLoad, item),
+              header: renderHeader(index === 0 && isStreamLoad && !item.content, item),
               content: renderReasoningContent(item.reasoning),
             },
           }"
@@ -32,7 +32,8 @@
       </template>
       <template #footer>
         <t-chat-sender
-          :stop-disabled="isStreamLoad"
+          v-model="inputValue"
+          :loading="isStreamLoad"
           :textarea-props="{
             placeholder: '请输入消息...',
           }"
@@ -68,6 +69,7 @@ import { CheckCircleIcon } from 'tdesign-icons-vue-next';
 
 const fetchCancel = ref(null);
 const loading = ref(false);
+const inputValue = ref('');
 // 流式数据加载中
 const isStreamLoad = ref(false);
 const visible = ref(false);
@@ -196,16 +198,16 @@ const onStop = function () {
   }
 };
 
-const inputEnter = function (inputValue) {
+const inputEnter = function () {
   if (isStreamLoad.value) {
     return;
   }
-  if (!inputValue) return;
+  if (!inputValue.value) return;
   const params = {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: new Date().toDateString(),
-    content: inputValue,
+    content: inputValue.value,
     role: 'user',
   };
   chatList.value.unshift(params);
@@ -219,7 +221,8 @@ const inputEnter = function (inputValue) {
     role: 'assistant',
   };
   chatList.value.unshift(params2);
-  handleData(inputValue);
+  handleData(inputValue.value);
+  inputValue.value = '';
 };
 const fetchSSE = async (fetchFn, options) => {
   const response = await fetchFn();

@@ -1,11 +1,10 @@
 import { ComponentPublicInstance } from 'vue';
-import { cloneDeep } from 'lodash-es';
-import { isUndefined } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, cloneDeep, isUndefined } from 'lodash-es';
 
 import { TransferListOptionBase, TransferItemOption, TdTransferProps, TransferValue, DataOption } from '../types';
 
-export { emitEvent } from '../../utils/event';
+// TODO:PAOPAO for what?
+// export { emitEvent } from '../../utils/event';
 
 export const TRANSFER_NAME = 'TTransfer';
 
@@ -211,4 +210,5 @@ export {
   cloneTreeWithFilter,
   filterTransferData,
   getLefCount,
+  isTreeNodeValid,
 };

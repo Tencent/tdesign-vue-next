@@ -1,4 +1,4 @@
-import { defineComponent, VNode, ref, onMounted, onBeforeUnmount } from 'vue';
+import { defineComponent, VNode, ref, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,
@@ -6,22 +6,26 @@ import {
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isString } from 'lodash-es';
 
-import { on, off, addClass } from '../utils/dom';
+import { on, off, addClass } from '@tdesign/shared-utils';
 import props from './props';
 import { SlotReturnValue } from '../common';
-import { useIcon } from '../hooks/icon';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-
-import { useTNodeJSX } from '../hooks/tnode';
+import {
+  useIcon,
+  useConfig,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  filterCommentNode,
+} from '@tdesign/shared-hooks';
+import log from '@tdesign/common-js/log/index';
 
 export default defineComponent({
   name: 'TAlert',
   props,
-  setup(props) {
+  setup(props, { slots }) {
+    const instance = getCurrentInstance();
     const { globalConfig, classPrefix } = useConfig('alert');
     const { CheckCircleFilledIcon, CloseIcon, ErrorCircleFilledIcon, HelpCircleFilledIcon, InfoCircleFilledIcon } =
       useGlobalIcon({
@@ -59,14 +63,20 @@ export default defineComponent({
     };
 
     const renderClose = () => {
-      const { close } = props;
+      // close属性变更为closeBtn过渡期使用，close废弃后可删除。（需兼容标签上直接写close和closeBtn的场景）
+      const { closeBtn } = props;
+      const isUsingClose = Object.prototype.hasOwnProperty.call(instance.vnode.props || {}, 'close') || slots.close;
+      const close = isUsingClose ? props.close : closeBtn;
+      if (isUsingClose) {
+        log.warnOnce('TAlert', 'prop `close` is going to be deprecated, please use `closeBtn` instead.');
+      }
       let closeContent = null;
       if (close === true || close === '') {
         closeContent = <CloseIcon />;
       } else if (isString(close)) {
         closeContent = close;
       } else {
-        closeContent = renderIconTNode('close');
+        closeContent = renderTNodeJSX(isUsingClose ? 'close' : 'closeBtn');
       }
       return closeContent ? (
         <div class={`${COMPONENT_NAME.value}__close`} onClick={handleClose}>
@@ -91,12 +101,12 @@ export default defineComponent({
     };
 
     const renderDescription = () => {
-      let messageContent;
+      let messageContent = renderTNodeJSX('default') || renderTNodeJSX('message');
 
-      messageContent = renderTNodeJSX('default');
-      if (!messageContent) {
-        messageContent = renderTNodeJSX('message');
+      if (isArray(messageContent)) {
+        messageContent = filterCommentNode(messageContent);
       }
+
       const contentLength = isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = props.maxLine > 0 && props.maxLine < contentLength;
       const height = (descriptionRef.value?.children[0] as HTMLElement)?.offsetHeight;

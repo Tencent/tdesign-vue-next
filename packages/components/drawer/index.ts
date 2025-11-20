@@ -1,5 +1,5 @@
 import _Drawer from './drawer';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdDrawerProps } from './type';
 
 import './style';

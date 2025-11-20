@@ -2,8 +2,8 @@ import { defineComponent, PropType, computed, VNode, nextTick, ref, watch, onMou
 import tabProps from './props';
 
 // hooks
-import { usePrefixClass } from '../hooks/useConfig';
-import useResizeObserver from '../hooks/useResizeObserver';
+import { usePrefixClass, useResizeObserver } from '@tdesign/shared-hooks';
+
 import { debounce } from 'lodash-es';
 
 export default defineComponent({

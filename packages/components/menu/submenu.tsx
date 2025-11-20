@@ -5,6 +5,7 @@ import {
   ref,
   provide,
   onMounted,
+  onBeforeUnmount,
   getCurrentInstance,
   watch,
   Slots,
@@ -13,16 +14,16 @@ import {
   nextTick,
   Transition,
 } from 'vue';
+import { isFunction } from 'lodash-es';
+import { useRipple, useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/shared-hooks';
+
 import props from './submenu-props';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
 import FakeArrow from '../common-components/fake-arrow';
-import useRipple from '../hooks/useRipple';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+
 import { Popup, PopupPlacement } from '../popup';
-import { isFunction } from 'lodash-es';
+
 import { TdSubmenuProps } from './type';
-import useCollapseAnimation from '../hooks/useCollapseAnimation';
 
 export default defineComponent({
   name: 'TSubmenu',
@@ -36,8 +37,10 @@ export default defineComponent({
     const menu = inject<TdMenuInterface>('TdMenu');
     const { value } = toRefs(props);
     const { theme, activeValues, expandValues, isHead, open } = menu;
+
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', {});
-    const { setSubPopup, closeParentPopup } = submenu;
+    const { setSubPopup, closeParentPopup, cancelHideTimer } = submenu;
+
     const mode = computed(() => attrs.expandType || menu.mode.value);
 
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
@@ -58,6 +61,21 @@ export default defineComponent({
     const submenuRef = ref<HTMLElement>();
     const transitionClass = usePrefixClass('slide-down');
     useRipple(submenuRef, rippleColor);
+
+    // 存储 setTimeout 的 timer ID，用于清除定时器
+    const showTimer = ref<ReturnType<typeof setTimeout> | null>(null);
+    const hideTimer = ref<ReturnType<typeof setTimeout> | null>(null);
+
+    const clearTimers = () => {
+      if (showTimer.value !== null) {
+        clearTimeout(showTimer.value);
+        showTimer.value = null;
+      }
+      if (hideTimer.value !== null) {
+        clearTimeout(hideTimer.value);
+        hideTimer.value = null;
+      }
+    };
 
     const classes = computed(() => [
       `${classPrefix.value}-submenu`,
@@ -82,8 +100,6 @@ export default defineComponent({
     ]);
     const submenuClass = computed(() => [
       `${classPrefix.value}-menu__item`,
-      `${classPrefix.value}-menu__item-spacer`,
-      `${classPrefix.value}-menu__item-spacer--${isHead && !isNested.value ? 'bottom' : 'right'}`,
       {
         [`${classPrefix.value}-is-disabled`]: props.disabled,
         [`${classPrefix.value}-is-opened`]: isOpen.value,
@@ -116,9 +132,33 @@ export default defineComponent({
           subPopupRef.value = ref;
         },
         closeParentPopup: (e: MouseEvent) => {
-          const related = e.relatedTarget as HTMLElement;
-          if (loopInPopup(related)) return;
-          handleMouseLeavePopup(e);
+          // 不再检查 relatedTarget，直接触发父级的延迟隐藏
+          // 如果鼠标真的停留在父级，父级的 handleEnterPopup 会取消定时器
+          // 如果鼠标继续离开，定时器会触发隐藏
+
+          clearTimers();
+
+          // 设置父级的延迟隐藏
+          hideTimer.value = setTimeout(() => {
+            popupVisible.value = false;
+            hideTimer.value = null;
+          }, 100);
+
+          // 继续通知上级父级
+          if (isFunction(closeParentPopup)) {
+            closeParentPopup(e);
+          }
+        },
+        cancelHideTimer: () => {
+          // 取消当前级别的隐藏定时器
+          if (hideTimer.value !== null) {
+            clearTimeout(hideTimer.value);
+            hideTimer.value = null;
+          }
+          // 递归取消所有父级的隐藏定时器
+          if (isFunction(cancelHideTimer)) {
+            cancelHideTimer();
+          }
         },
       }),
     );
@@ -132,7 +172,15 @@ export default defineComponent({
     // methods
     const handleMouseEnter = () => {
       if (props.disabled) return;
-      setTimeout(() => {
+
+      clearTimers();
+
+      // 通知父级取消隐藏定时器
+      if (isFunction(cancelHideTimer)) {
+        cancelHideTimer();
+      }
+
+      showTimer.value = setTimeout(() => {
         if (!popupVisible.value) {
           open(props.value);
 
@@ -142,22 +190,22 @@ export default defineComponent({
           });
         }
         popupVisible.value = true;
+        showTimer.value = null;
       }, 0);
     };
 
     const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
-    const loopInPopup = (el: HTMLElement): boolean => {
-      if (!el) return false;
-      return targetInPopup(el) || loopInPopup(el.parentElement);
-    };
 
     const handleMouseLeave = (e: MouseEvent) => {
-      setTimeout(() => {
+      clearTimers();
+
+      hideTimer.value = setTimeout(() => {
         const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
 
         if (isCursorInPopup.value || inPopup) return;
         popupVisible.value = false;
-      }, 0);
+        hideTimer.value = null;
+      }, 100);
     };
 
     const handleMouseLeavePopup = (e: any) => {
@@ -174,13 +222,31 @@ export default defineComponent({
       isCursorInPopup.value = false;
 
       if (!isSubmenu(target)) {
-        popupVisible.value = false;
-      }
+        clearTimers();
 
-      closeParentPopup?.(e);
+        // 使用延迟隐藏，避免在子项之间移动时闪烁
+        hideTimer.value = setTimeout(() => {
+          popupVisible.value = false;
+          hideTimer.value = null;
+        }, 100);
+
+        // 立即通知父级也开始延迟隐藏
+        closeParentPopup?.(e);
+      }
     };
     const handleEnterPopup = () => {
       isCursorInPopup.value = true;
+
+      // 进入 popup 时清除隐藏定时器
+      if (hideTimer.value !== null) {
+        clearTimeout(hideTimer.value);
+        hideTimer.value = null;
+      }
+
+      // 通知父级取消隐藏定时器
+      if (isFunction(cancelHideTimer)) {
+        cancelHideTimer();
+      }
     };
 
     const handleSubmenuItemClick = () => {
@@ -332,15 +398,24 @@ export default defineComponent({
       }
     });
 
+    // Cleanup timers on unmount to prevent memory leaks
+    onBeforeUnmount(() => {
+      clearTimers();
+    });
+
     return () => {
       let child = null;
       let events = {};
+      let virtualChild;
 
       if (mode.value === 'popup') {
         events = {
           onMouseenter: handleMouseEnter,
           onMouseleave: handleMouseLeave,
         };
+        // popup模式下且存在多层的特殊封装场景中，需要将子节点挂载进行计算高亮
+        if (activeValues.value.length < 2)
+          virtualChild = <div style="display:none">{renderContent('default', 'content')}</div>;
       }
       if (Object.keys(slots).length > 0) {
         child = isHead ? renderHeadSubmenu() : renderSubmenu();
@@ -349,6 +424,7 @@ export default defineComponent({
       return (
         <li class={classes.value} {...events}>
           {child}
+          {virtualChild}
         </li>
       );
     };

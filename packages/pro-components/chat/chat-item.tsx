@@ -1,11 +1,11 @@
 import { defineComponent, computed, provide, Fragment } from 'vue';
-// TODO: need refactor
-import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
+import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
+
+import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
+
 import props from './chat-item-props';
 import { isString, isObject } from 'lodash-es';
 import { Skeleton } from 'tdesign-vue-next';
-// TODO: need refactor
-import { useTNodeJSX } from '../../components/hooks/tnode';
 import Text from './chat-content';
 import { CheckCircleIcon } from 'tdesign-icons-vue-next';
 import ChatLoading from './chat-loading';
@@ -24,7 +24,6 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { loadingText, loadingEndText } = globalConfig.value;
     const renderTNodeJSX = useTNodeJSX();
     const role = computed(() => renderTNodeJSX('role'));
     const variant = computed(() => renderTNodeJSX('variant'));
@@ -63,6 +62,7 @@ export default defineComponent({
       // 内置操作按钮，assistantActions和插槽判断 t-chat注入的属性获取不到默认为false
       const showActions = computed(() => renderTNodeJSX('actions'));
       const renderHeader = () => {
+        const { loadingText, loadingEndText } = globalConfig.value;
         if (reasoningLoading) {
           return <ChatLoading text={loadingText} />;
         }

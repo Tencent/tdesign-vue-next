@@ -1,12 +1,13 @@
 <template>
   <t-chat-sender
     v-model="query"
-    :stop-disabled="loading"
     :textarea-props="{
       placeholder: '请输入消息...',
     }"
+    :loading="loading"
     @send="inputEnter"
     @file-select="fileSelect"
+    @stop="onStop"
   >
     <!-- 自定义操作区域的内容，默认支持图片上传、附件上传和发送按钮 -->
     <template #suffix="{ renderPresets }">
@@ -27,11 +28,12 @@ import { ref } from 'vue';
 const query = ref('');
 const loading = ref(false);
 // 模拟消息发送
-const inputEnter = function (inputValue: string) {
+const inputEnter = function () {
   if (loading.value) {
     return;
   }
-  if (!inputValue) return;
+  if (!query.value) return;
+  query.value = '';
   loading.value = true;
   setTimeout(() => {
     loading.value = false;
@@ -39,5 +41,8 @@ const inputEnter = function (inputValue: string) {
 };
 const fileSelect = (file: File) => {
   console.log(file);
+};
+const onStop = function () {
+  loading.value = false;
 };
 </script>

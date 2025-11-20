@@ -1,9 +1,8 @@
 import { defineComponent, computed, ref, watch } from 'vue';
 import dayjs from 'dayjs';
-import { useDisabled } from '../hooks/useDisabled';
-import { usePrefixClass } from '../hooks/useConfig';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
+
+import { isArray, isFunction } from 'lodash-es';
 
 import props from './date-range-picker-props';
 import { DateValue, DateRangePickerPartial } from './type';
@@ -21,7 +20,6 @@ import {
 } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
 import { dateCorrection } from './utils';
-import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TDateRangePicker',
@@ -108,10 +106,14 @@ export default defineComponent({
         activeIndex.value = 0;
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
-        inputValue.value = formatDate(value.value, {
-          format: formatRef.value.valueType,
-          targetFormat: formatRef.value.format,
-        });
+        if (props.needConfirm) {
+          inputValue.value = formatDate(value.value, {
+            format: formatRef.value.valueType,
+            targetFormat: formatRef.value.format,
+          });
+        } else {
+          confirmValueChange();
+        }
       }
     });
 
@@ -167,9 +169,12 @@ export default defineComponent({
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
               autoSwap: true,
+              defaultTime: props.defaultTime,
             }) as DateValue[],
             {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              dayjsValue: nextValue.map((v, i) =>
+                parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+              ),
               trigger: 'pick',
             },
           );
@@ -248,9 +253,7 @@ export default defineComponent({
         format: formatRef.value.format,
       });
     }
-
-    // 确定
-    function onConfirmClick({ e }: { e: MouseEvent }) {
+    const confirmValueChange = (e?: MouseEvent) => {
       const nextValue = [...(inputValue.value as string[])];
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
@@ -268,7 +271,7 @@ export default defineComponent({
         } else {
           props?.onConfirm?.({
             date: nextValue.map((v) => dayjs(v).toDate()),
-            e,
+            e: e || null,
             partial: activeIndex.value ? 'end' : 'start',
           });
           onChange?.(
@@ -276,14 +279,25 @@ export default defineComponent({
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
               autoSwap: true,
+              defaultTime: props.defaultTime,
             }) as DateValue[],
             {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              dayjsValue: nextValue.map((v, i) =>
+                parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+              ),
               trigger: 'confirm',
             },
           );
         }
       }
+    };
+    // 确定
+    function onConfirmClick({ e }: { e: MouseEvent }) {
+      confirmValueChange(e);
+
+      const nextValue = [...(inputValue.value as string[])];
+
+      const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (!isFirstValueSelected.value || !activeIndex.value) {
@@ -310,9 +324,12 @@ export default defineComponent({
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
             autoSwap: true,
+            defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),
+            dayjsValue: presetValue.map((p, i) =>
+              parseToDayjs(p, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+            ),
             trigger: 'preset',
           },
         );
@@ -388,6 +405,7 @@ export default defineComponent({
       presets: props.presets,
       time: time.value,
       disableDate: props.disableDate,
+      disableTime: props.disableTime,
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
@@ -395,6 +413,7 @@ export default defineComponent({
       popupVisible: popupVisible.value,
       panelPreselection: props.panelPreselection,
       cancelRangeSelectLimit: props.cancelRangeSelectLimit,
+      needConfirm: props.needConfirm,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,

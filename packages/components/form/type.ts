@@ -6,7 +6,7 @@
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
 import { IsURLOptions } from 'validator/es/lib/isURL';
-import { TNode, FormResetEvent, FormSubmitEvent } from '../common';
+import { FormResetEvent, FormSubmitEvent, TNode } from '../common';
 
 export interface TdFormProps<FormData extends Data = Data> {
   /**
@@ -27,10 +27,6 @@ export interface TdFormProps<FormData extends Data = Data> {
    * 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`
    */
   errorMessage?: FormErrorMessage;
-  /**
-   * 允许表单统一控制禁用状态的自定义组件名称列表。默认会有组件库的全部输入类组件：TInput、TInputNumber、TCascader、TSelect、TOption、TSwitch、TCheckbox、TCheckboxGroup、TRadio、TRadioGroup、TTreeSelect、TDatePicker、TTimePicker、TUpload、TTransfer、TSlider。对于自定义组件，组件内部需要包含可以控制表单禁用状态的变量 `formDisabled`。示例：`['CustomUpload', 'CustomInput']`
-   */
-  formControlledComponents?: Array<string>;
   /**
    * 表单原生的id属性，支持用于配合非表单内的按钮通过form属性来触发表单事件
    */
@@ -65,7 +61,6 @@ export interface TdFormProps<FormData extends Data = Data> {
   requiredMark?: boolean;
   /**
    * 表单必填符号（*）显示位置
-   * @default left
    */
   requiredMarkPosition?: 'left' | 'right';
   /**
@@ -242,7 +237,7 @@ export interface FormRule {
   /**
    * 内置校验方法，校验值是否符合正则表达式匹配结果，示例：`{ pattern: /@qq.com/, message: '请输入 QQ 邮箱' }`
    */
-  pattern?: RegExp;
+  pattern?: RegExp | string;
   /**
    * 内置校验方法，校验值是否已经填写。该值为 true，默认显示必填标记，可通过设置 `requiredMark: false` 隐藏必填标记
    */
@@ -383,7 +378,7 @@ export interface FormResetParams<FormData> {
 export type FormValidateMessage<FormData> = { [field in keyof FormData]: FormItemValidateMessage[] };
 
 export interface FormItemValidateMessage {
-  type: 'warning' | 'error';
+  type: 'warning' | 'error' | 'success';
   message: string;
 }
 

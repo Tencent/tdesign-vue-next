@@ -1,15 +1,19 @@
 import { defineComponent, ref, toRefs, inject, watch, computed } from 'vue';
 import { isString } from 'lodash-es';
 import props from './props';
-import useVModel from '../hooks/useVModel';
-import useRipple from '../hooks/useRipple';
-import { useContent } from '../hooks/tnode';
-import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
+import {
+  useVModel,
+  useRipple,
+  useContent,
+  useDisabled,
+  useReadonly,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
+
 import { CheckboxGroupInjectionKey } from './consts';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TCheckbox',
@@ -131,7 +135,7 @@ export default defineComponent({
     const renderContent = useContent();
 
     const handleLabelClick = (e: MouseEvent) => {
-      // 在tree等组件中使用  阻止label触发checked 与expand冲突
+      // 在 Tree、Cascader 等组件中使用  阻止 label触发 checked 与非叶子节点的 expand 冲突
       if (props.stopLabelTrigger) e.preventDefault();
     };
 
@@ -147,6 +151,7 @@ export default defineComponent({
           tabindex={isDisabled.value ? undefined : '0'}
           onFocus={onCheckboxFocus}
           onBlur={onCheckboxBlur}
+          onClick={handleLabelClick}
           title={titleAttr}
         >
           {!showCheckbox.value
@@ -163,10 +168,15 @@ export default defineComponent({
                   value={props.value ? props.value : undefined}
                   checked={tChecked.value}
                   onChange={handleChange}
+                  onClick={(e: MouseEvent) => e.stopPropagation()}
                   key="input"
                 ></input>,
-                <span class={`${COMPONENT_NAME.value}__input`} key="input-span"></span>,
-                <span class={`${COMPONENT_NAME.value}__label`} key="label" onClick={handleLabelClick}>
+                <span
+                  class={`${COMPONENT_NAME.value}__input`}
+                  key="input-span"
+                  onClick={props.stopLabelTrigger && handleChange} // stopLabelTrigger 情况下，仍需保证真正的 input 触发 change
+                />,
+                <span class={`${COMPONENT_NAME.value}__label`} key="label">
                   {renderContent('default', 'label')}
                 </span>,
               ]}

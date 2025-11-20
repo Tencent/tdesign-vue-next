@@ -3,12 +3,11 @@ import {
   ArrowTriangleDownFilledIcon as TDArrowTriangleDownFilledIcon,
   ArrowTriangleUpFilledIcon as TDArrowTriangleUpFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { isNumber } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { isNumber, isFunction } from 'lodash-es';
+
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+
 import Skeleton from '../skeleton';
 import Tween from '@tdesign/common-js/statistic/tween';
 import { COLOR_MAP, getFormatValue } from '@tdesign/common-js/statistic/utils';
@@ -66,9 +65,8 @@ export default defineComponent({
     });
 
     const contentStyle = computed(() => {
-      const { color } = props;
       return {
-        color: COLOR_MAP[color] || color,
+        color: COLOR_MAP[props.color as keyof typeof COLOR_MAP] || props.color,
       };
     });
 
@@ -93,7 +91,7 @@ export default defineComponent({
 
     onMounted(() => props.animation && props.animationStart && start());
 
-    expose({ start });
+    expose({ start, contentStyle });
 
     return () => {
       const trendIcon = props.trend ? trendIcons[props.trend] : null;

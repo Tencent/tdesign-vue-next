@@ -1,10 +1,8 @@
-import { isNil } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isNil, isArray } from 'lodash-es';
+
 import { defineComponent, provide, ref } from 'vue';
 
-import { useTNodeJSX } from '../hooks/tnode';
-import { useChildComponentSlots } from '../hooks/slot';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useTNodeJSX, usePrefixClass, useCommonClassName, useChildComponentSlots } from '@tdesign/shared-hooks';
 
 import props from './props';
 import { descriptionsKey } from './consts';

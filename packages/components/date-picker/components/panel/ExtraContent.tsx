@@ -9,7 +9,7 @@ export default defineComponent({
     presets: Object as PropType<TdDatePickerProps['presets'] | TdDateRangePickerProps['presets']>,
     enableTimePicker: Boolean as PropType<TdDatePickerProps['enableTimePicker']>,
     presetsPlacement: String as PropType<TdDatePickerProps['presetsPlacement']>,
-    needConfirm: { type: Boolean, default: true },
+    needConfirm: Boolean,
     onPresetClick: Function,
     onConfirmClick: Function,
     selectedValue: [String, Number, Array, Date] as PropType<TdDatePickerProps['value']>,

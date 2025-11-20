@@ -1,7 +1,7 @@
 import { defineComponent, PropType, computed } from 'vue';
 
 import TDatePickerCell from './Cell';
-import { useConfig, usePrefixClass } from '../../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import { parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { isArray } from 'lodash-es';
 
@@ -71,10 +71,11 @@ export default defineComponent({
         };
       }
 
+      const valueDayjs = parseToDayjs(value, props.format).locale(dayjsLocale);
+      const targetDayjs = parseToDayjs(targetValue, props.format).locale(dayjsLocale);
       return {
         [`${COMPONENT_NAME.value}-${props.mode}-row--active`]:
-          parseToDayjs(value, props.format).locale(dayjsLocale).week() ===
-          parseToDayjs(targetValue, props.format).locale(dayjsLocale).week(),
+          valueDayjs.year() === targetDayjs.year() && valueDayjs.week() === targetDayjs.week(),
       };
     };
 

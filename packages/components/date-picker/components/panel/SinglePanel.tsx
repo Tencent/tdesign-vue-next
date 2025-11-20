@@ -1,5 +1,5 @@
 import { defineComponent, PropType, computed } from 'vue';
-import { useConfig, usePrefixClass } from '../../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
@@ -30,10 +30,8 @@ export default defineComponent({
     time: String,
     popupVisible: Boolean,
     multiple: Boolean,
-    needConfirm: {
-      type: Boolean,
-      default: true,
-    },
+    needConfirm: Boolean,
+    defaultTime: [String, Array] as PropType<TdDatePickerProps['defaultTime']>,
     onPanelClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -103,6 +101,7 @@ export default defineComponent({
       onCellMouseEnter: props.onCellMouseEnter,
       onCellMouseLeave: props.onCellMouseLeave,
       onTimePickerChange: props.onTimePickerChange,
+      defaultTime: props.defaultTime,
     }));
 
     const extraProps = computed(() => ({

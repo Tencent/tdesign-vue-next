@@ -1,6 +1,6 @@
 import _Descriptions from './descriptions';
 import _DescriptionsItem from './descriptions-item';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdDescriptionsProps, TdDescriptionsItemProps } from './type';
 
 import './style';

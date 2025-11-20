@@ -1,10 +1,11 @@
 import { defineComponent, PropType, computed } from 'vue';
-import { useConfig, usePrefixClass } from '../../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { TdDateRangePickerProps } from '../../type';
 import { getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { useTableData, useDisableDate } from '../../hooks';
+import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TRangePanel',
@@ -13,6 +14,7 @@ export default defineComponent({
     activeIndex: Number,
     isFirstValueSelected: Boolean,
     disableDate: [Object, Array, Function] as PropType<TdDateRangePickerProps['disableDate']>,
+    disableTime: Function as PropType<TdDateRangePickerProps['disableTime']>,
     mode: {
       type: String as PropType<TdDateRangePickerProps['mode']>,
       default: 'date',
@@ -33,6 +35,7 @@ export default defineComponent({
     month: Array as PropType<Array<number>>,
     time: Array as PropType<Array<string>>,
     cancelRangeSelectLimit: Boolean,
+    defaultTime: Array as PropType<TdDateRangePickerProps['defaultTime']>,
     onClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -43,6 +46,7 @@ export default defineComponent({
     onYearChange: Function,
     onMonthChange: Function,
     onTimePickerChange: Function,
+    needConfirm: Boolean,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker__panel');
@@ -76,8 +80,11 @@ export default defineComponent({
       }),
     );
 
-    const startTableData = computed(() =>
-      useTableData({
+    const startTableData = computed(() => {
+      const disableDate = isFunction(props.disableDate)
+        ? props.disableDate({ partial: 'start', value: props.value[0] })
+        : disableDateOptions.value.disableDate;
+      return useTableData({
         isRange: true,
         start: props.value[0] ? parseToDayjs(props.value[0], format.value).toDate() : undefined,
         end: props.value[1] ? parseToDayjs(props.value[1], format.value).toDate() : undefined,
@@ -94,12 +101,17 @@ export default defineComponent({
         mode: props.mode,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
         ...disableDateOptions.value,
+        disableDate,
         cancelRangeSelectLimit: props.cancelRangeSelectLimit,
-      }),
-    );
+      });
+    });
 
-    const endTableData = computed(() =>
-      useTableData({
+    const endTableData = computed(() => {
+      const disableDate = isFunction(props.disableDate)
+        ? props.disableDate({ partial: 'end', value: props.value })
+        : disableDateOptions.value.disableDate;
+
+      return useTableData({
         isRange: true,
         start: props.value[0] ? parseToDayjs(props.value[0], format.value).toDate() : undefined,
         end: props.value[1] ? parseToDayjs(props.value[1], format.value).toDate() : undefined,
@@ -111,20 +123,21 @@ export default defineComponent({
           !hidePreselection && props.hoverValue[1]
             ? parseToDayjs(props.hoverValue[1], format.value).toDate()
             : undefined,
-        year: props.year[1],
+        year: props.mode === 'year' && props.year[1] - props.year[0] <= 9 ? props.year[1] + 9 : props.year[1],
         month: props.month[1],
         mode: props.mode,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
         ...disableDateOptions.value,
+        disableDate,
         cancelRangeSelectLimit: props.cancelRangeSelectLimit,
-      }),
-    );
+      });
+    });
 
     const panelContentProps = computed(() => ({
       format: format.value,
       mode: props.mode,
       firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
-
+      internalYear: props.year,
       popupVisible: props.popupVisible,
       enableTimePicker: props.enableTimePicker,
       timePickerProps: props.timePickerProps,
@@ -135,6 +148,8 @@ export default defineComponent({
       onCellMouseEnter: props.onCellMouseEnter,
       onCellMouseLeave: props.onCellMouseLeave,
       onTimePickerChange: props.onTimePickerChange,
+      disableTime: props.disableTime,
+      defaultTime: props.defaultTime,
     }));
 
     return () => (
@@ -155,6 +170,7 @@ export default defineComponent({
             onPresetClick={props.onPresetClick}
             onConfirmClick={props.onConfirmClick}
             presetsPlacement={props.presetsPlacement}
+            needConfirm={props.needConfirm}
           />
         ) : null}
         <div class={`${COMPONENT_NAME.value}-content-wrapper`}>
@@ -202,6 +218,7 @@ export default defineComponent({
             onPresetClick={props.onPresetClick}
             onConfirmClick={props.onConfirmClick}
             presetsPlacement={props.presetsPlacement}
+            needConfirm={props.needConfirm}
           />
         ) : null}
       </div>

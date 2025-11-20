@@ -1,13 +1,12 @@
 import { defineComponent, h } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './title-props';
-import Ellipsis from './ellipsis';
-import { useContent } from '../hooks/tnode';
+import Ellipsis from './components/ellipsis';
 
 export default defineComponent({
   name: 'TTypographyTitle',
   props,
-  setup(props) {
+  setup(props, { attrs }) {
     const COMPONENT_NAME = usePrefixClass('typography');
     const renderContent = useContent();
 
@@ -19,7 +18,7 @@ export default defineComponent({
           {h(Tag, ...content)}
         </Ellipsis>
       ) : (
-        <>{h(Tag, { class: COMPONENT_NAME.value }, ...content)}</>
+        <>{h(Tag, { ...attrs, class: [COMPONENT_NAME.value, attrs.class] }, ...content)}</>
       );
     };
   },

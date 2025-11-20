@@ -11,9 +11,7 @@ import CustomFile from './components/custom-file';
 
 import { UploadDragEvents } from './hooks/useDrag';
 import useUpload from './hooks/useUpload';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
-import { useDisabled } from '../hooks/useDisabled';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useContent, useTNodeJSX, useDisabled, useGlobalIcon } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TUpload',
@@ -170,6 +168,7 @@ export default defineComponent({
         v-slots={{
           fileListDisplay: slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
+          trigger: slots.trigger,
         }}
       />
     );

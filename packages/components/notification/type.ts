@@ -4,8 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { ComponentPublicInstance } from 'vue';
-import { TNode, AttachNode } from '../common';
+import { TNode, AttachNode, AppContext } from '../common';
 
 export interface TdNotificationProps {
   /**
@@ -51,6 +50,10 @@ export interface TdNotificationProps {
    * 计时结束时触发
    */
   onDurationEnd?: () => void;
+  /**
+   * 调用 NotificationPlugin.close  时触发
+   */
+  onClose?: () => void;
 }
 
 export interface NotificationOptions extends TdNotificationProps {
@@ -79,24 +82,37 @@ export type NotificationThemeList = 'info' | 'success' | 'warning' | 'error';
 
 export type NotificationPlacementList = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
-export interface NotificationInstance extends ComponentPublicInstance {
+export interface NotificationInstance {
   close: () => void;
 }
 
 export type NotificationMethod = (
   theme: NotificationThemeList,
-  options?: NotificationOptions,
+  options: NotificationOptions,
+  context?: AppContext,
 ) => Promise<NotificationInstance>;
 
 export type NotificationInfoOptions = Omit<NotificationOptions, 'theme'>;
 
-export type NotificationInfoMethod = (options: NotificationInfoOptions) => Promise<NotificationInstance>;
+export type NotificationInfoMethod = (
+  options: NotificationInfoOptions,
+  context?: AppContext,
+) => Promise<NotificationInstance>;
 
-export type NotificationWarningMethod = (options: NotificationInfoOptions) => Promise<NotificationInstance>;
+export type NotificationWarningMethod = (
+  options: NotificationInfoOptions,
+  context?: AppContext,
+) => Promise<NotificationInstance>;
 
-export type NotificationErrorMethod = (options: NotificationInfoOptions) => Promise<NotificationInstance>;
+export type NotificationErrorMethod = (
+  options: NotificationInfoOptions,
+  context?: AppContext,
+) => Promise<NotificationInstance>;
 
-export type NotificationSuccessMethod = (options: NotificationInfoOptions) => Promise<NotificationInstance>;
+export type NotificationSuccessMethod = (
+  options: NotificationInfoOptions,
+  context?: AppContext,
+) => Promise<NotificationInstance>;
 
 export type NotificationCloseMethod = (options: Promise<NotificationInstance>) => void;
 
