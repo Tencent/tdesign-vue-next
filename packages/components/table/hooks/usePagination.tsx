@@ -63,7 +63,11 @@ export default function usePagination(
 
   const renderPagination = () => {
     if (!props.pagination) return null;
-    const paginationProps = { ...props.pagination };
+    const paginationProps = { ...props.pagination } as PaginationProps & { class?: string; className?: string };
+    if (paginationProps.className) {
+      paginationProps.class = paginationProps.class || paginationProps.className;
+      delete paginationProps.className;
+    }
     // Vue3，两个 onChange 事件绑定，会成为数组，因为需提前移除外部 onChange
     delete paginationProps.onChange;
     return (
