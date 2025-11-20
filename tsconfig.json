@@ -4,6 +4,7 @@
     "target": "esnext",
     "lib": [ "esnext", "dom", "dom.iterable", "scripthost"],
     "jsx": "preserve",
+    "jsxImportSource": "vue",
 
     /* Modules */
     "module": "esnext",

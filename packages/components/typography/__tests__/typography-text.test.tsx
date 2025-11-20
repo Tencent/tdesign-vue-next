@@ -36,6 +36,7 @@ describe('Typography Text', () => {
       const renderCopySlot = () => 'test';
       const wrapper = mount(() => (
         <Text
+          //@ts-ignore
           id="test"
           copyable={{
             onCopy: handleCopy,

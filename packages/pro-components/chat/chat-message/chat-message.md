@@ -1,0 +1,55 @@
+:: BASE_DOC ::
+
+## API
+### ChatMessage Props
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+name | String / Slot / Function | - | 发送者名称 | N
+avatar | String / Slot / Function | - | 发送者头像 | N
+datetime | String / Slot / Function | - | 消息发送时间 | N
+content | Array | - | 消息内容对象。类型定义见 `Message` | Y
+role | String | assistant | 消息角色。可选项：user/assistant/system | N
+status | String | - | 消息状态。可选项：pending/streaming/complete/stop/error | N
+placement | String | left | 消息位置。可选项：left/right | N
+variant | String | text | 消息变体样式。可选项：base/outline/text | N
+chatContentProps | Object | - | 消息内容属性配置。类型支持见 `chatContentProps` | N
+animation | String | circle | 加载动画类型。可选项：skeleton/moving/gradient/circle | N
+allowContentSegmentCustom | Boolean | false | 是否允许自定义局部消息内容，其他消息内容实用默认样式 | N
+
+
+#### UserMessageContent 内容类型支持
+- 文本消息 (`TextContent`)
+- 附件消息 (`AttachmentContent`)
+
+#### AIMessageContent 内容类型支持
+- 文本消息 (`TextContent`)
+- Markdown 消息 (`MarkdownContent`)
+- 搜索消息 (`SearchContent`)
+- 建议消息 (`SuggestionContent`)
+- 思考状态 (`ThinkingContent`)
+- 图片消息 (`ImageContent`)
+- 附件消息 (`AttachmentContent`)
+- 自定义消息 (`AIContentTypeOverrides`)
+
+几种类型都继承自`ChatBaseContent`，包含通用字段：
+字段 | 类型 | 必传 | 默认值 | 说明
+--|--|--|--|--
+type | `ChatContentType` | Y | - | 内容类型标识（text/markdown/search等）
+data | 泛型TData | Y | - | 具体内容数据，类型由type决定
+status | `ChatMessageStatus \| ((currentStatus?: ChatMessageStatus) => ChatMessageStatus)` | N | - | 内容状态或状态计算函数
+id | string | N | - | 内容块唯一标识
+
+每种类型的data字段有不同的结构，具体可参考下方表格，[详细类型定义](https://github.com/TDesignOteam/tdesign-web-components/blob/develop/src/chatbot/core/type.ts#L17)
+
+
+### 插槽
+
+| 插槽名 | 说明 |
+|--------|------|
+| content | 自定义消息内容 |
+| avatar | 自定义头像 |
+| name | 自定义名称 |
+| datetime | 自定义时间 |
+| actionbar | 自定义操作栏 |
+

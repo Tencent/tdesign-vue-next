@@ -33,6 +33,7 @@ export default defineComponent({
         [`${classPrefix.value}-submenu__item`]: !!submenu && !menu.isHead,
       },
     ]);
+    // @ts-ignore
     const router = computed(() => props.router || instance?.proxy.$router);
 
     const handleClick = (e: MouseEvent) => {

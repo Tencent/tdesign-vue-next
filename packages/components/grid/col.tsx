@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject } from 'vue';
+import { computed, defineComponent, inject, h } from 'vue';
 import props from './col-props';
 import { useRowSize } from './hooks';
 import { RowProviderType, parseFlex, calcColPadding, getColClasses } from './utils';
@@ -31,10 +31,14 @@ export default defineComponent({
 
     return () => {
       const { tag: TAG } = props;
-      return (
-        <TAG class={colClasses.value} style={colStyle.value}>
-          {renderTNodeJSX('default')}
-        </TAG>
+
+      return h(
+        TAG,
+        {
+          class: colClasses.value,
+          style: colStyle.value,
+        },
+        [renderTNodeJSX('default')],
       );
     };
   },

@@ -17,8 +17,7 @@ const router = createRouter({
 
 const createSSRApp = (comp: any) => {
   const app = createApp(comp);
-  // TODO: paopao 从代码上看，这句应该是没有用的
-  app.config.globalProperties.$route = undefined;
+  // @ts-ignore TODO
   app.use(TDesign);
   app.use(router);
   return renderToString(app);
