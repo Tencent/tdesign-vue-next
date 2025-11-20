@@ -597,7 +597,7 @@ export default defineComponent({
         <div
           ref={tableContentRef}
           class={tableBaseClass.content}
-          style={tableContentStyles.value}
+          style={{ ...tableElementStyles.value, overflowAnchor: 'none' }}
           onScroll={onInnerVirtualScroll}
         >
           {virtualConfig.isVirtualScroll.value && <div class={virtualScrollClasses.cursor} style={virtualStyle} />}
