@@ -19,6 +19,7 @@ declare module 'vue' {
     ChatMarkdown: typeof import('@tdesign-vue-next/chat')['ChatMarkdown'];
     ChatThinking: typeof import('@tdesign-vue-next/chat')['ChatThinking'];
     Chatbot: typeof import('@tdesign-vue-next/chat')['Chatbot'];
+    ChatMessage: typeof import('@tdesign-vue-next/chat')['ChatMessage'];
   }
 }
 
