@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Upload Component > props.draggable: theme=image & draggable=true, fail file render fine 1`] = `
+exports[`Upload > props > :draggable[theme=image] > draggable-image-fail 1`] = `
 <div
   class="t-upload"
 >
@@ -197,7 +197,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
 </div>
 `;
 
-exports[`Upload Component > props.draggable: theme=image & draggable=true, progress file render fine 1`] = `
+exports[`Upload > props > :draggable[theme=image] > draggable-image-progress 1`] = `
 <div
   class="t-upload"
 >
@@ -398,7 +398,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
 </div>
 `;
 
-exports[`Upload Component > props.draggable: theme=image & draggable=true, success file render fine 1`] = `
+exports[`Upload > props > :draggable[theme=image] > draggable-image-success 1`] = `
 <div
   class="t-upload"
 >
@@ -595,7 +595,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
 </div>
 `;
 
-exports[`Upload Component > props.draggable: theme=image & draggable=true, success file render fine with file.response.url 1`] = `
+exports[`Upload > props > :draggable[theme=image] > draggable-image-success-response-url 1`] = `
 <div
   class="t-upload"
 >
@@ -792,7 +792,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
 </div>
 `;
 
-exports[`Upload Component > props.draggable: theme=image & draggable=true, waiting file render fine 1`] = `
+exports[`Upload > props > :draggable[theme=image] > draggable-image-waiting 1`] = `
 <div
   class="t-upload"
 >
@@ -959,7 +959,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
 </div>
 `;
 
-exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
+exports[`Upload > props > :theme[image/file/file-input/file-flow/image-flow] > theme-file-flow 1`] = `
 <div
   class="t-upload"
 >
@@ -1416,7 +1416,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
 </div>
 `;
 
-exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
+exports[`Upload > props > :theme[image/file/file-input/file-flow/image-flow] > theme-image-flow 1`] = `
 <div
   class="t-upload"
 >
