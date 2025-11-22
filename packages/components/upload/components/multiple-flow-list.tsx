@@ -395,9 +395,9 @@ export default defineComponent({
     return () => {
       const cardClassName = `${uploadPrefix.value}__flow-card-area`;
       const cancelUploadDisabled = disabled.value || !uploading.value;
-      const hasCancelUploadTNode = slots.uploadButton || isFunction(props.uploadButton);
+      const hasUploadButtonTNode = slots.uploadButton || isFunction(props.uploadButton);
       const uploadButtonDisabled = Boolean(disabled.value || uploading.value || !displayFiles.value.length);
-      const hasUploadButtonTNode = slots.cancelUploadButton || isFunction(props.cancelUploadButton);
+      const hasCancelUploadTNode = slots.cancelUploadButton || isFunction(props.cancelUploadButton);
       return (
         <div class={`${uploadPrefix.value}__flow ${uploadPrefix.value}__flow-${props.theme}`}>
           <div class={`${uploadPrefix.value}__flow-op`}>
