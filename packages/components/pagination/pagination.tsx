@@ -140,9 +140,7 @@ export default defineComponent({
 
     watch(
       () => innerCurrent.value,
-      (val) => {
-        jumpIndex.value = val;
-      },
+      (val) => (jumpIndex.value = val),
     );
 
     const toPage: (pageIndex: number, pageInfo?: PageInfo) => void = (pageIndex, pageInfo) => {
