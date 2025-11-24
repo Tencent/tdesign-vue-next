@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance, nextTick } from 'vue';
+import { defineComponent, computed, ref, watch, toRefs, nextTick } from 'vue';
 import { isNaN, isObject } from 'lodash-es';
 import {
   PageFirstIcon as TdPageFirstIcon,
@@ -35,8 +35,6 @@ export default defineComponent({
   props,
 
   setup(props: TdPaginationProps) {
-    const { emit } = getCurrentInstance();
-
     const { modelValue, pageSize, current } = toRefs(props);
     const renderTNodeJSX = useTNodeJSX();
     const [innerCurrent, setInnerCurrent] = useVModel(
@@ -149,27 +147,22 @@ export default defineComponent({
       if (props.disabled) {
         return;
       }
-      let current = pageIndex;
+
+      let toPageCurrent = pageIndex;
       if (pageIndex < min) {
-        current = min;
+        toPageCurrent = min;
       } else if (pageIndex > pageCount.value) {
-        current = pageCount.value;
+        toPageCurrent = pageCount.value;
       }
-      if (innerCurrent.value !== current) {
-        const prev = innerCurrent.value;
-        pageInfo = pageInfo || {
-          current,
-          previous: prev,
-          pageSize: innerPageSize.value,
-        };
-        if (pageInfo) {
-          setInnerCurrent(current, pageInfo);
-          props.onChange?.(pageInfo);
-        } else {
-          // 非主动更改时应仅更新modelValue不触发onCurrentChange事件
-          emit('update:modelValue', current);
-        }
-      }
+
+      pageInfo = pageInfo || {
+        current: toPageCurrent,
+        previous: innerCurrent.value,
+        pageSize: innerPageSize.value,
+      };
+
+      setInnerCurrent(toPageCurrent, pageInfo);
+      props.onChange?.(pageInfo);
     };
 
     const handlePageChange = (type: PageChangeType) => {
@@ -187,40 +180,33 @@ export default defineComponent({
 
       const pageSize = Number(val);
       const newPageCount = pageSize > 0 ? Math.max(Math.ceil(props.total / pageSize), 1) : 1;
-      const indexExceeds = innerCurrent.value > newPageCount;
-      // 用户自主控制
-      const userControlled = current.value != null && current.value < newPageCount;
+      const previousCurrent = innerCurrent.value;
+      const indexExceeds = previousCurrent > newPageCount;
 
-      // 初始 pageInfo（用于 setInnerPageSize 时传参）
-      const initialPageInfo = {
-        current: indexExceeds ? newPageCount : innerCurrent.value,
-        previous: innerCurrent.value,
+      // 触发 onPageSizeChange 回调
+      setInnerPageSize(pageSize, {
+        current: indexExceeds ? newPageCount : previousCurrent,
+        previous: previousCurrent,
         pageSize,
-      };
+      });
 
-      setInnerPageSize(pageSize, initialPageInfo);
-
+      // 场景:用户在 onPageSizeChange 中修改 current,需要重新计算 current
       nextTick(() => {
-        if (indexExceeds) {
-          // 当当前页索引超过新页数时，需要跳转到合适页
-          const pageCurrent = userControlled ? newPageCount : innerCurrent.value;
-          const pageInfo = {
-            current: pageCurrent,
-            previous: initialPageInfo.current,
-            pageSize,
-          };
-          toPage(pageCurrent, pageInfo);
-        } else {
-          const pageInfo = {
-            current: innerCurrent.value,
-            previous: initialPageInfo.current,
-            pageSize,
-          };
-          // 如果在 setInnerPageSize 后 current 被外部受控修改，则触发 currentChange 事件
-          if (innerCurrent.value !== pageInfo.previous) {
-            emit('currentChange', innerCurrent.value, pageInfo);
-          }
+        const userChanged = innerCurrent.value !== previousCurrent;
+        const targetCurrent = userChanged ? innerCurrent.value : indexExceeds ? newPageCount : innerCurrent.value;
+
+        const pageInfo = {
+          current: targetCurrent,
+          previous: previousCurrent,
+          pageSize,
+        };
+
+        // 如果用户改了 current 或者不需要跳页,直接触发 onChange
+        // 否则需要调用 toPage 来更新内部状态
+        if (userChanged || !indexExceeds) {
           props.onChange?.(pageInfo);
+        } else {
+          toPage(targetCurrent, pageInfo);
         }
       });
     };
