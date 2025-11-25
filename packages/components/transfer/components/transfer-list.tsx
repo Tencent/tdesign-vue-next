@@ -230,7 +230,7 @@ export default defineComponent({
     };
     const renderContent = () => {
       const isDraggable = props.draggable && props.listType === TARGET;
-      let defaultNode: JSX.Element = null;
+      let defaultNode: VNode = null;
       if (!isDraggable) {
         defaultNode = (
           <TCheckboxGroup value={props.checkedValue} onChange={handleCheckedChange}>
@@ -357,10 +357,9 @@ export default defineComponent({
         >
           {props.search && (
             <Search
-              searchValue={filterValue.value}
+              value={filterValue.value}
               placeholder={t(globalConfig.value.placeholder)}
               onChange={handleSearch}
-              disabled={props.disabled}
               search={props.search}
             />
           )}

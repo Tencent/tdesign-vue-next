@@ -1,0 +1,249 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChatAction > :props > :actionBar 1`] = `
+<div
+  class="t-chat__actions"
+>
+  
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      
+      <button
+        class="t-button t-button--variant-base t-button--theme-default t-button--shape-rectangle t-size-s copy-btn"
+        data-clipboard-text=""
+        href=""
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          <svg
+            class="t-icon t-icon-copy"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M2 2H15V7.5H13V4H4V13H7.5V15H2V2ZM9 9H22V22H9V9ZM11 11V20H20V11H11Z"
+              fill="currentColor"
+            />
+          </svg>
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!---->
+    
+    
+  </div>
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      
+      <button
+        class="t-button t-button--variant-base t-button--theme-default t-button--shape-rectangle t-size-s"
+        href=""
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          <svg
+            class="t-icon t-icon-thumb-up"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M10.8786 1.38257L12.1576 1.59573C14.0863 1.91719 15.5 3.58595 15.5 5.54131V7.99992H20.8195C22.0554 7.99992 22.9955 9.10966 22.7923 10.3287L21.1257 20.3287C20.9649 21.2931 20.1306 21.9999 19.1529 21.9999H7V10.8021L10.8786 1.38257ZM12.1131 3.63742L9 11.1977V19.9999L19.1529 19.9999L20.8195 9.99992H13.5V5.54131C13.5 4.66252 12.9289 3.89951 12.1131 3.63742ZM4 9.99992V21.9999H2V9.99992H4Z"
+              fill="currentColor"
+            />
+          </svg>
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!---->
+    
+    
+  </div>
+  
+</div>
+`;
+
+exports[`ChatAction > :props > :comment 1`] = `
+<div
+  class="t-chat__actions"
+>
+  
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      
+      <button
+        class="t-button t-button--variant-base t-button--theme-default t-button--shape-rectangle t-size-s t-chat-button--active"
+        href=""
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          <svg
+            class="t-icon t-icon-thumb-up-filled"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M12.1578 1.59573C14.0866 1.91719 15.5002 3.58595 15.5002 5.54131L15.5002 7.99992 20.8198 7.99992C22.0557 7.99992 22.9958 9.10966 22.7926 10.3287L21.1259 20.3287C20.9652 21.2931 20.1308 21.9999 19.1531 21.9999H7.00024L7.00025 10.8021 10.8789 1.38257 12.1578 1.59573zM4.00024 21.9999H2.00024L2.00025 9.99992H4.00025L4.00024 21.9999z"
+              fill="currentColor"
+            />
+          </svg>
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!---->
+    
+    
+  </div>
+  
+</div>
+`;
+
+exports[`ChatAction > :props > :disabled 1`] = `
+<div
+  class="t-chat__actions"
+>
+  
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      
+      <button
+        class="t-button t-button--variant-base t-button--theme-default t-button--shape-rectangle t-size-s t-is-disabled copy-btn"
+        data-clipboard-text=""
+        disabled=""
+        href=""
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          <svg
+            class="t-icon t-icon-copy"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M2 2H15V7.5H13V4H4V13H7.5V15H2V2ZM9 9H22V22H9V9ZM11 11V20H20V11H11Z"
+              fill="currentColor"
+            />
+          </svg>
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!---->
+    
+    
+  </div>
+  
+</div>
+`;
+
+exports[`ChatAction > :props > :operation 1`] = `
+<div
+  class="t-chat__actions"
+>
+  
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      
+      <button
+        class="t-button t-button--variant-base t-button--theme-default t-button--shape-rectangle t-size-s t-chat-button--active"
+        href=""
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          <svg
+            class="t-icon t-icon-thumb-up-filled"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M12.1578 1.59573C14.0866 1.91719 15.5002 3.58595 15.5002 5.54131L15.5002 7.99992 20.8198 7.99992C22.0557 7.99992 22.9958 9.10966 22.7926 10.3287L21.1259 20.3287C20.9652 21.2931 20.1308 21.9999 19.1531 21.9999H7.00024L7.00025 10.8021 10.8789 1.38257 12.1578 1.59573zM4.00024 21.9999H2.00024L2.00025 9.99992H4.00025L4.00024 21.9999z"
+              fill="currentColor"
+            />
+          </svg>
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!---->
+    
+    
+  </div>
+  
+</div>
+`;

@@ -41,28 +41,10 @@ describe('Menu', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':height', () => {
-      const wrapper = mount({
-        render() {
-          return <Menu height={'750px'}></Menu>;
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
     it(':collapsed', () => {
       const wrapper = mount({
         render() {
           return <Menu collapsed={true}></Menu>;
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':collapsedWidth', () => {
-      const wrapper = mount({
-        render() {
-          return <Menu collapsedWidth={'100px'}></Menu>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();

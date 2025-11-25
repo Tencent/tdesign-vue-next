@@ -177,7 +177,6 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         locale={props.locale}
         onReset={onReset}
         onConfirm={onConfirm}
-        onInnerFilterChange={onInnerFilterChange}
         primaryTableElement={primaryTableRef.value?.$el}
         onVisibleChange={onPopupVisibleChange}
       ></TableFilterController>

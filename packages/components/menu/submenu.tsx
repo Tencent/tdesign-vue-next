@@ -27,8 +27,16 @@ import { TdSubmenuProps } from './type';
 
 export default defineComponent({
   name: 'TSubmenu',
-  props,
-  setup(props: TdSubmenuProps, { attrs, slots }) {
+  props: {
+    ...props,
+    expandType: String,
+  },
+  setup(
+    props: TdSubmenuProps & {
+      expandType: string;
+    },
+    { slots },
+  ) {
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
@@ -41,7 +49,7 @@ export default defineComponent({
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', {});
     const { setSubPopup, closeParentPopup, cancelHideTimer } = submenu;
 
-    const mode = computed(() => attrs.expandType || menu.mode.value);
+    const mode = computed(() => props.expandType || menu.mode.value);
 
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
     const isActive = computed(() => activeValues.value.indexOf(props.value) > -1);

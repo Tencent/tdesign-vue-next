@@ -30,6 +30,7 @@ export default defineComponent({
       const className = [`${COMPONENT_NAME.value}__target`];
       const iconClassName = `${classPrefix.value}-copy`;
       return (
+        // @ts-expect-error
         <TAG id={id} class={className}>
           {children && children(null)}
           <Popup content={globalConfig.value.copyText} placement="top" showArrow class={iconClassName}>

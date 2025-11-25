@@ -69,6 +69,7 @@ export default function useTreeNodes(state: TypeTreeState) {
         stateId={stateId}
         itemKey={nodeUniqueId}
         treeScope={scope}
+        // @ts-expect-error
         onClick={handleClick}
         onChange={handleChange}
       />

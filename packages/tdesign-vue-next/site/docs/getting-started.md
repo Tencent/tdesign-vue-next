@@ -1,6 +1,6 @@
 ---
 title: Vue Next for Web
-description: TDesign 适配桌面端的组件库，适合在 vue3.x 技术栈项目中使用。
+description: TDesign 适配桌面端的组件库，适合在 Vue3.x 技术栈项目中使用。
 ---
 
 ## 安装

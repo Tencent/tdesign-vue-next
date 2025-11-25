@@ -10,7 +10,7 @@ describe('FormItem', () => {
       const wrapper = mount(
         <Form>
           <FormItem label="label" name="name" for="name">
-            <Input id="name" />
+            <Input />
           </FormItem>
         </Form>,
       );
@@ -22,7 +22,7 @@ describe('FormItem', () => {
       const wrapper = mount(
         <Form>
           <FormItem label="label" name="name" help="help text">
-            <Input id="name" />
+            <Input />
           </FormItem>
         </Form>,
       );
@@ -33,7 +33,7 @@ describe('FormItem', () => {
       const wrapperSlot = mount(
         <Form>
           <FormItem label="label" name="name" v-slots={{ help: () => 'help text' }}>
-            <Input id="name" />
+            <Input />
           </FormItem>
         </Form>,
       );
@@ -43,7 +43,7 @@ describe('FormItem', () => {
       const wrapperFunction = mount(
         <Form>
           <FormItem label="label" name="name" help={renderHelp}>
-            <Input id="name" />
+            <Input />
           </FormItem>
         </Form>,
       );
@@ -54,7 +54,7 @@ describe('FormItem', () => {
       const wrapper = mount(
         <Form>
           <FormItem label="label" name="name">
-            <Input id="name" />
+            <Input />
           </FormItem>
         </Form>,
       );
@@ -65,7 +65,7 @@ describe('FormItem', () => {
       const wrapperSlot = mount(
         <Form>
           <FormItem name="name" v-slots={{ label: () => 'label' }}>
-            <Input id="name" />
+            <Input />
           </FormItem>
         </Form>,
       );
@@ -75,7 +75,7 @@ describe('FormItem', () => {
       const wrapperFunction = mount(
         <Form>
           <FormItem name="name" label={renderHelp}>
-            <Input id="name" />
+            <Input />
           </FormItem>
         </Form>,
       );
@@ -85,7 +85,7 @@ describe('FormItem', () => {
     it('labelAlign[string]', () => {
       const formItemWrapper = mount(
         <FormItem label="label" name="name">
-          <Input id="name" />
+          <Input />
         </FormItem>,
       );
 
@@ -99,7 +99,7 @@ describe('FormItem', () => {
         mount(
           <Form label-align="right">
             <FormItem label="label" name="name" labelAlign={align}>
-              <Input id="name" />
+              <Input />
             </FormItem>
           </Form>,
         );
@@ -114,7 +114,7 @@ describe('FormItem', () => {
         mount(
           <Form label-width="100px">
             <FormItem label="label" name="name" labelWidth={labelWidth}>
-              <Input id="name" />
+              <Input />
             </FormItem>
           </Form>,
         );
@@ -134,7 +134,7 @@ describe('FormItem', () => {
           return () => (
             <Form rules={rules}>
               <FormItem label="label" name="name">
-                <Input id="name" />
+                <Input />
               </FormItem>
             </Form>
           );

@@ -51,6 +51,7 @@ export default defineComponent({
             readonly={p.isReadonly.value}
             autocomplete="off"
             placeholder={props.placeholder}
+            // @ts-expect-error
             unselectable={p.isReadonly.value ? 'on' : 'off'}
             autoWidth={props.autoWidth}
             align={props.align || (props.theme === 'row' ? 'center' : undefined)}

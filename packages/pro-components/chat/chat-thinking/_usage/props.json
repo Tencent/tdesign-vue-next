@@ -1,0 +1,65 @@
+[
+  {
+    "name": "layout",
+    "type": "enum",
+    "defaultValue": "block",
+    "options": [
+      {
+        "label": "block",
+        "value": "block"
+      },
+      {
+        "label": "border",
+        "value": "border"
+      }
+    ]
+  },
+  {
+    "name": "status",
+    "type": "enum",
+    "defaultValue": "pending",
+    "options": [
+      {
+        "label": "pending",
+        "value": "pending"
+      },
+      {
+        "label": "complete",
+        "value": "complete"
+      },
+      {
+        "label": "stop",
+        "value": "stop"
+      },
+      {
+        "label": "error",
+        "value": "error"
+      }
+    ]
+  },
+  {
+    "name": "maxHeight",
+    "type": "number",
+    "defaultValue": "-",
+    "description": "内容区域最大高度，超出会自动滚动"
+  },
+  {
+    "name": "animation",
+    "type": "enum",
+    "defaultValue": "moving",
+    "options": [
+      {
+        "label": "dots",
+        "value": "dots"
+      },
+      {
+        "label": "moving",
+        "value": "moving"
+      },
+      {
+        "label": "gradient",
+        "value": "gradient"
+      }
+    ]
+  }
+]

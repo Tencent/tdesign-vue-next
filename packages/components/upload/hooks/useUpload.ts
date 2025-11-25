@@ -18,7 +18,7 @@ export type ValidateParams = Parameters<TdUploadProps['onValidate']>[0];
 /**
  * 上传组件全部逻辑，方便脱离 UI，自定义 UI 组件
  */
-export default function useUpload(props: TdUploadProps) {
+export default function useUpload(props: TdUploadProps): any {
   const inputRef = ref<HTMLInputElement>();
   // TODO: Form 表单控制上传组件是否禁用
   const { disabled, autoUpload, isBatchUpload, multiple, files, modelValue, defaultFiles } = toRefs(props);

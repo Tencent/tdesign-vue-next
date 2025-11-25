@@ -40,9 +40,9 @@ export default defineComponent({
 
     const renderIconTNode = useIcon();
     // alert的dom引用
-    const alertRef = ref<HTMLElement | null>(null);
+    const alertRef = ref<HTMLElement>();
     // description的dom引用
-    const descriptionRef = ref<HTMLElement | null>(null);
+    const descriptionRef = ref<HTMLElement>();
     // desc高度
     const descHeight = ref(0);
     // 是否可见，关闭后置为false

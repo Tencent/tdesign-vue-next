@@ -71,6 +71,7 @@ export default defineComponent({
     onValidate: Function as PropType<EditableCellProps['onValidate']>,
     onRuleChange: Function as PropType<EditableCellProps['onRuleChange']>,
     onEditableChange: Function as PropType<EditableCellProps['onEditableChange']>,
+    onUpdateEditedCell: Function,
   },
 
   emits: ['update-edited-cell'],
