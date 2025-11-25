@@ -1,6 +1,6 @@
-import { defineComponent, computed } from 'vue';
-import props from './props';
+import { computed, defineComponent } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
+import props from './props';
 
 const swiperItemProps = {
   index: {
@@ -13,8 +13,9 @@ const swiperItemProps = {
     type: Boolean,
     default: false,
   },
-  getWrapAttribute: {
-    type: Function,
+  offsetWidth: {
+    type: Number,
+    default: 0,
   },
   swiperItemLength: {
     type: Number,
@@ -50,7 +51,7 @@ export default defineComponent({
     });
     const translateX = computed(() => {
       if (props.type !== 'card') return 0;
-      const wrapWidth = props.getWrapAttribute('offsetWidth') || 0;
+      const wrapWidth = props.offsetWidth;
       const translateIndex = !active.value && props.swiperItemLength > 2 ? disposeIndex.value : props.index;
       const inStage = Math.abs(translateIndex - props.currentIndex) <= 1;
       if (inStage) {

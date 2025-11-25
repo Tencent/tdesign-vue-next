@@ -1,11 +1,17 @@
-import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from 'vue';
+import { cloneVNode, computed, defineComponent, isVNode, onMounted, ref, watch } from 'vue';
 import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
-import { useTNodeJSX, useGlobalIcon, usePrefixClass, useChildComponentSlots } from '@tdesign/shared-hooks';
-
+import {
+  useChildComponentSlots,
+  useGlobalIcon,
+  usePrefixClass,
+  useResizeObserver,
+  useTNodeJSX,
+} from '@tdesign/shared-hooks';
 import props from './props';
-import { SwiperNavigation, SwiperChangeSource } from './type';
 import TSwiperItem from './swiper-item';
+
+import type { SwiperChangeSource, SwiperNavigation } from './type';
 
 const defaultNavigation: SwiperNavigation = {
   placement: 'inside',
@@ -30,15 +36,18 @@ export default defineComponent({
     let swiperSwitchingTimer = 0;
     let isBeginToEnd = false;
     let isEndToBegin = false;
+
     const currentIndex = ref(props.current || props.defaultCurrent);
     const navActiveIndex = ref(props.current || props.defaultCurrent);
     const isHovering = ref(false);
     const isSwitching = ref(false);
     const showArrow = ref(false);
     const swiperWrap = ref<HTMLElement>();
+    const wrapOffsetWidth = ref(0);
+    const swiperItemLength = ref(0);
+
     const getChildComponentByName = useChildComponentSlots();
 
-    const swiperItemLength = ref(0);
     const navigationConfig = computed(() => {
       return {
         ...defaultNavigation,
@@ -105,7 +114,7 @@ export default defineComponent({
             index={index}
             currentIndex={currentIndex.value}
             isSwitching={isSwitching.value}
-            getWrapAttribute={getWrapAttribute}
+            offsetWidth={wrapOffsetWidth.value}
             swiperItemLength={swiperItemLength.value}
             {...p}
           >
@@ -329,6 +338,13 @@ export default defineComponent({
     onMounted(() => {
       setTimer();
       showArrow.value = navigationConfig.value.showSlideBtn === 'always';
+    });
+
+    useResizeObserver(swiperWrap, () => {
+      const parentElement = swiperWrap.value?.parentNode as HTMLElement;
+      if (parentElement) {
+        wrapOffsetWidth.value = parentElement.offsetWidth || 0;
+      }
     });
 
     return () => (
