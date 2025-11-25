@@ -12,6 +12,7 @@ exports[`Swiper > :props > :animation fade 1`] = `
     >
       <div
         class="t-swiper__container"
+        style="height: 0px;"
       >
         
         <div
@@ -98,6 +99,7 @@ exports[`Swiper > :props > :cardScale 1`] = `
     >
       <div
         class="t-swiper__container"
+        style="height: 0px;"
       >
         
         <div
@@ -251,7 +253,7 @@ exports[`Swiper > :props > :direction 1`] = `
     >
       <div
         class="t-swiper__container"
-        style="transform: translate3d(0, -0%, 0px);"
+        style="height: 0px; transform: translate3d(0, -0%, 0px);"
       >
         
         <div
@@ -701,6 +703,7 @@ exports[`Swiper > :props > :type 1`] = `
     >
       <div
         class="t-swiper__container"
+        style="height: 0px;"
       >
         
         <div
