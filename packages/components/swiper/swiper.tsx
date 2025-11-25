@@ -43,7 +43,7 @@ export default defineComponent({
     const isSwitching = ref(false);
     const showArrow = ref(false);
     const swiperWrap = ref<HTMLElement>();
-    const wrapOffset = ref({ width: 0, height: 0 });
+    const swiperOffset = ref({ width: 0, height: 0 });
     const swiperItemLength = ref(0);
 
     const getChildComponentByName = useChildComponentSlots();
@@ -74,7 +74,7 @@ export default defineComponent({
       };
     });
     const containerStyle = computed(() => {
-      const offsetHeight = props.height ? `${props.height}px` : `${wrapOffset.value.height}px`;
+      const offsetHeight = props.height ? `${props.height}px` : `${swiperOffset.value.height}px`;
       if (props.type === 'card' || props.animation === 'fade') {
         return {
           height: offsetHeight,
@@ -114,7 +114,7 @@ export default defineComponent({
             index={index}
             currentIndex={currentIndex.value}
             isSwitching={isSwitching.value}
-            offsetWidth={wrapOffset.value.width}
+            swiperWidth={swiperOffset.value.width}
             swiperItemLength={swiperItemLength.value}
             {...p}
           >
@@ -340,7 +340,7 @@ export default defineComponent({
     useResizeObserver(swiperWrap, () => {
       const parentElement = swiperWrap.value?.parentNode as HTMLElement;
       if (parentElement) {
-        wrapOffset.value = {
+        swiperOffset.value = {
           width: parentElement.offsetWidth || 0,
           height: parentElement.offsetHeight || 0,
         };

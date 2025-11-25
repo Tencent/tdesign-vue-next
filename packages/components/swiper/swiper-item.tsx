@@ -13,7 +13,7 @@ const swiperItemProps = {
     type: Boolean,
     default: false,
   },
-  offsetWidth: {
+  swiperWidth: {
     type: Number,
     default: 0,
   },
@@ -51,18 +51,19 @@ export default defineComponent({
     });
     const translateX = computed(() => {
       if (props.type !== 'card') return 0;
-      const wrapWidth = props.offsetWidth;
+      const swiperWidth = props.swiperWidth;
       const translateIndex = !active.value && props.swiperItemLength > 2 ? disposeIndex.value : props.index;
       const inStage = Math.abs(translateIndex - props.currentIndex) <= 1;
       if (inStage) {
         return (
-          (wrapWidth * ((translateIndex - props.currentIndex) * (1 - itemWidth * props.cardScale) - itemWidth + 1)) / 2
+          (swiperWidth * ((translateIndex - props.currentIndex) * (1 - itemWidth * props.cardScale) - itemWidth + 1)) /
+          2
         );
       }
       if (translateIndex < props.currentIndex) {
-        return (-itemWidth * (1 + props.cardScale) * wrapWidth) / 2;
+        return (-itemWidth * (1 + props.cardScale) * swiperWidth) / 2;
       }
-      return ((2 + itemWidth * (props.cardScale - 1)) * wrapWidth) / 2;
+      return ((2 + itemWidth * (props.cardScale - 1)) * swiperWidth) / 2;
     });
     const zIndex = computed(() => {
       if (props.type !== 'card') return 0;
