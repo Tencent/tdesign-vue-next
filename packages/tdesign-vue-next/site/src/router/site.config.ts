@@ -74,7 +74,6 @@ export const docs = [
     title: '高阶组件',
     titleEn: 'Pro',
     type: 'component', // 组件文档
-    hideInEn: true,
     children: [
       {
         title: 'AI Chat 对话',
@@ -704,22 +703,21 @@ export const docs = [
   },
 ];
 
-const enDocs = docs
-  .filter((doc) => !doc.hideInEn)
-  .map((doc) => {
-    return {
-      ...doc,
-      title: doc.titleEn,
-      children: doc?.children?.map((child) => {
-        return {
-          title: child.titleEn,
-          name: `${child.name}-en`,
-          path: `${child.path}-en`,
-          meta: { lang: 'en' },
-          component: child.componentEn || child.component,
-        };
-      }),
-    };
-  });
+const enDocs = docs.map((doc) => {
+  return {
+    ...doc,
+    title: doc.titleEn,
+    children: doc?.children?.map((child) => {
+      return {
+        title: child.titleEn,
+        name: `${child.name}-en`,
+        path: `${child.path}-en`,
+        meta: { lang: 'en' },
+        component: child.componentEn || child.component,
+        redirect: child.redirect,
+      };
+    }),
+  };
+});
 
 export default { docs, enDocs };
