@@ -13,7 +13,7 @@
   "dependencies": {
     "nprogress": "catalog:deps",
     "semver": "catalog:docs",
-    "@tdesign/site-components": "0.18.0-alpha.1",
+    "@tdesign/site-components": "0.18.0-alpha.6",
     "tdesign-theme-generator": "catalog:tdesign",
     "vue": "catalog:deps",
     "vue-router": "catalog:deps",
