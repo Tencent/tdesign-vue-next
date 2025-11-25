@@ -11,11 +11,11 @@ import {
 } from 'vue';
 import { isFunction } from 'lodash-es';
 
+import { formatPrecision } from '@tdesign/common-js/slider/utils';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import TTooltip from '../tooltip/index';
 import { sliderPropsInjectKey } from './consts';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
-import { formatPrecision } from './utils';
 
 import type { TdSliderProps } from './type';
 

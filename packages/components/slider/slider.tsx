@@ -12,15 +12,14 @@ import {
 } from 'vue';
 import { isArray, isNumber } from 'lodash-es';
 
-import props from './props';
-import TSliderButton from './slider-button';
-
-// hooks
+import { formatPrecision, formatSliderValue, getStopStyle } from '@tdesign/common-js/slider/utils';
 import { useCommonClassName, useDisabled, usePrefixClass, useVModel } from '@tdesign/shared-hooks';
+
 import { sliderPropsInjectKey } from './consts';
 import { useSliderInput } from './hooks/useSliderInput';
 import { useSliderMark } from './hooks/useSliderMark';
-import { formatPrecision, formatSliderValue, getStopStyle } from './utils';
+import props from './props';
+import TSliderButton from './slider-button';
 
 import type { SliderValue } from './type';
 
