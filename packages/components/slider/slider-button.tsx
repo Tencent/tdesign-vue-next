@@ -9,13 +9,15 @@ import {
   ref,
   watchEffect,
 } from 'vue';
-import TTooltip from '../tooltip/index';
-import { TdSliderProps } from './type';
-
 import { isFunction } from 'lodash-es';
+
 import { usePrefixClass } from '@tdesign/shared-hooks';
-import { useSliderTooltip } from './hooks/useSliderTooltip';
+import TTooltip from '../tooltip/index';
 import { sliderPropsInjectKey } from './consts';
+import { useSliderTooltip } from './hooks/useSliderTooltip';
+import { formatPrecision } from './utils';
+
+import type { TdSliderProps } from './type';
 
 export default defineComponent({
   name: 'TSliderButton',
@@ -100,7 +102,7 @@ export default defineComponent({
       const steps = Math.round(newPos / perStepLen);
       let value = steps * perStepLen * rangeDiff.value * 0.01;
       value += parentProps.min;
-      value = Number(parseFloat(`${value}`).toFixed(parentProps.precision));
+      value = formatPrecision(value, parentProps.precision);
       ctx.emit('input', value);
       nextTick(() => {
         tooltipRef.value && tooltipRef.value.updatePopper?.();

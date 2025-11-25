@@ -1,5 +1,6 @@
 import { isString } from 'lodash-es';
-import { TNode } from '../../common';
+import type { TNode } from '../../common';
+
 /**
  * 计算刻度区间值停止坐标
  * @param position 刻度坐标值 ;
@@ -55,4 +56,8 @@ export const formatLabel = (label: TNode | string, val: number) => {
     return text;
   }
   return label;
+};
+
+export const formatPrecision = (value: number, precision: number) => {
+  return Number(parseFloat(`${value}`).toFixed(precision));
 };
