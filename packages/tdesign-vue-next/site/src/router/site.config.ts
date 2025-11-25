@@ -714,6 +714,7 @@ const enDocs = docs.map((doc) => {
         path: `${child.path}-en`,
         meta: { lang: 'en' },
         component: child.componentEn || child.component,
+        redirect: child.redirect,
       };
     }),
   };
