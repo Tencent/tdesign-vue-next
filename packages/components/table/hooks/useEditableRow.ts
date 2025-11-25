@@ -14,7 +14,7 @@ import {
   PrimaryTableCellParams,
 } from '../type';
 import { getCellKey, getRowKeyFromCell } from './useRowspanAndColspan';
-import { OnEditableChangeContext } from '../components/editable-cell';
+import { OnEditableChangeContext, OnEditableChangeContextWithClear } from '../components/editable-cell';
 
 export interface TablePromiseErrorData {
   errors: ErrorListObjectType<TableRowData>[];
@@ -106,6 +106,8 @@ export default function useRowEdit(props: PrimaryTableProps) {
           if (result === true) return;
           allErrorListMap[cellKeys[index]] = result;
         });
+        // 持久化单元格校验结果，退出编辑态后仍然可见
+        errorListMap.value = allErrorListMap;
         props.onValidate?.({ result: allErrorListMap });
         resolve({ result: allErrorListMap });
       }, reject);
@@ -169,10 +171,49 @@ export default function useRowEdit(props: PrimaryTableProps) {
   };
 
   const clearValidateData = () => {
-    errorListMap.value = {};
+    // 如果有持久化的错误键，先赋空数组触发子组件更新，再彻底清空
+    const prevKeys = Object.keys(errorListMap.value || {});
+    if (prevKeys.length) {
+      const tmp: TableErrorListMap = {};
+      prevKeys.forEach((k) => {
+        tmp[k] = [];
+      });
+      // 赋空数组以触发子组件更新
+      errorListMap.value = tmp;
+      setTimeout(() => {
+        errorListMap.value = {};
+
+        // 清理编辑单元格内部错误（若暴露 clearErrors）
+        Object.values(editingCells.value).forEach((cell) => {
+          try {
+            if (typeof (cell as any)?.clearErrors === 'function') {
+              (cell as any).clearErrors();
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        });
+
+        // 通知外部校验结果已清空
+        props.onValidate?.({ result: {} });
+        props.onRowValidate?.({ trigger: 'parent', result: [] });
+      }, 0);
+    } else {
+      // 无持久化错误，直接清理并通知
+      errorListMap.value = {};
+      Object.values(editingCells.value).forEach((cell) => {
+        try {
+          if (typeof (cell as any)?.clearErrors === 'function') {
+            (cell as any).clearErrors();
+          }
+        } catch (e) {}
+      });
+      props.onValidate?.({ result: {} });
+      props.onRowValidate?.({ trigger: 'parent', result: [] });
+    }
   };
 
-  const onPrimaryTableCellEditChange = (params: OnEditableChangeContext<TableRowData>) => {
+  const onPrimaryTableCellEditChange = (params: OnEditableChangeContextWithClear<TableRowData>) => {
     const cellKey = getCellKey(params.row, props.rowKey, params.col.colKey, params.colIndex);
 
     if (params.isEdit) {
@@ -201,7 +242,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
       const rowValueList = Object.keys(editedFormData.value);
       rowValueList.forEach((key) => {
         if (!editableRowKeys.includes(key)) {
-          // clear exited editable state row data
+          // 清理已退出编辑态的行数据
           delete editedFormData.value[key];
         }
       });
@@ -211,6 +252,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
   return {
     editedFormData,
     errorListMap,
+    editingCells,
     editableKeysMap,
     validateTableData,
     validateTableCellData,

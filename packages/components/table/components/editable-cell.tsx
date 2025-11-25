@@ -22,6 +22,10 @@ export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T
   validateEdit: (trigger: 'self' | 'parent') => Promise<true | AllValidateResult[]>;
 }
 
+export interface OnEditableChangeContextWithClear<T> extends OnEditableChangeContext<T> {
+  clearErrors?: () => void;
+}
+
 export interface EditableCellProps {
   rowKey: string;
   row: TableRowData;
@@ -42,7 +46,7 @@ export interface EditableCellProps {
   /** 校验规则发生变化时触发 */
   onRuleChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
   /** 进入或退出编辑态时触发 */
-  onEditableChange?: (context: OnEditableChangeContext<TableRowData>) => void;
+  onEditableChange?: (context: OnEditableChangeContextWithClear<TableRowData>) => void;
 }
 
 export default defineComponent({
@@ -209,6 +213,10 @@ export default defineComponent({
       });
     };
 
+    const clearErrors = () => {
+      errorList.value = [];
+    };
+
     const isSame = (a: any, b: any) => {
       if (isObject(a) && isObject(b)) {
         return JSON.stringify(a) === JSON.stringify(b);
@@ -237,7 +245,8 @@ export default defineComponent({
             editedRow: { ...props.row, [props.col.colKey]: editValue.value },
             validateEdit,
             isEdit: false,
-          });
+            clearErrors,
+          } as OnEditableChangeContextWithClear<TableRowData>);
           clearTimeout(timer);
         }, 0);
       });
@@ -324,7 +333,8 @@ export default defineComponent({
         editedRow: props.row,
         isEdit: true,
         validateEdit,
-      });
+        clearErrors,
+      } as OnEditableChangeContextWithClear<TableRowData>);
     };
 
     const onCellClick = (e: MouseEvent) => {
