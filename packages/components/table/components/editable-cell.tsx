@@ -20,9 +20,6 @@ import { on, off } from '@tdesign/shared-utils';
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;
   validateEdit: (trigger: 'self' | 'parent') => Promise<true | AllValidateResult[]>;
-}
-
-export interface OnEditableChangeContextWithClear<T> extends OnEditableChangeContext<T> {
   clearErrors?: () => void;
 }
 
@@ -46,7 +43,7 @@ export interface EditableCellProps {
   /** 校验规则发生变化时触发 */
   onRuleChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
   /** 进入或退出编辑态时触发 */
-  onEditableChange?: (context: OnEditableChangeContextWithClear<TableRowData>) => void;
+  onEditableChange?: (context: OnEditableChangeContext<TableRowData>) => void;
 }
 
 export default defineComponent({
@@ -246,7 +243,7 @@ export default defineComponent({
             validateEdit,
             isEdit: false,
             clearErrors,
-          } as OnEditableChangeContextWithClear<TableRowData>);
+          } as OnEditableChangeContext<TableRowData>);
           clearTimeout(timer);
         }, 0);
       });
@@ -334,7 +331,7 @@ export default defineComponent({
         isEdit: true,
         validateEdit,
         clearErrors,
-      } as OnEditableChangeContextWithClear<TableRowData>);
+      } as OnEditableChangeContext<TableRowData>);
     };
 
     const onCellClick = (e: MouseEvent) => {

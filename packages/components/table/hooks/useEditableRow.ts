@@ -14,7 +14,7 @@ import {
   PrimaryTableCellParams,
 } from '../type';
 import { getCellKey, getRowKeyFromCell } from './useRowspanAndColspan';
-import { OnEditableChangeContext, OnEditableChangeContextWithClear } from '../components/editable-cell';
+import { OnEditableChangeContext } from '../components/editable-cell';
 
 export interface TablePromiseErrorData {
   errors: ErrorListObjectType<TableRowData>[];
@@ -213,11 +213,10 @@ export default function useRowEdit(props: PrimaryTableProps) {
     }
   };
 
-  const onPrimaryTableCellEditChange = (params: OnEditableChangeContextWithClear<TableRowData>) => {
+  const onPrimaryTableCellEditChange = (params: OnEditableChangeContext<TableRowData>) => {
     const cellKey = getCellKey(params.row, props.rowKey, params.col.colKey, params.colIndex);
 
     if (params.isEdit) {
-      // @ts-ignore
       editingCells.value[cellKey] = params;
     } else {
       delete editingCells.value[cellKey];
