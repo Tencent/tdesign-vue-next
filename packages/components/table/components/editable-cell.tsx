@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
+import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch, inject } from 'vue';
 import { get, set, isFunction, cloneDeep, isObject } from 'lodash-es';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
 import {
@@ -87,6 +87,8 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
+    // 表格作用域内的临时抑制标志（由 primary-table 提供）
+    const tableSuppress = inject('TD_TABLE_SUPPRESS_VALIDATE') as { value?: boolean } | undefined;
 
     const updateEditedCellValue: TableEditableCellPropsParams<TableRowData>['updateEditedCellValue'] = (obj) => {
       if (typeof obj === 'object' && ('rowValue' in obj || obj.isUpdateCurrentRow)) {
@@ -176,6 +178,11 @@ export default defineComponent({
 
     const validateEdit = (trigger: 'self' | 'parent'): Promise<true | AllValidateResult[]> => {
       return new Promise((resolve) => {
+        // 如果父表格临时抑制了校验（例如点击清理按钮导致 blur），则直接短路校验
+        if (tableSuppress?.value) {
+          resolve(true);
+          return;
+        }
         const params: PrimaryTableRowValidateContext<TableRowData> = {
           result: [
             {

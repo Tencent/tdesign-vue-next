@@ -32,6 +32,10 @@ export default function useRowEdit(props: PrimaryTableProps) {
   const editingCells = ref<{ [cellKey: string]: OnEditableChangeContext<TableRowData> }>({});
   // 编辑状态的数据
   const editedFormData = ref<{ [rowValue: string]: { [colKey: string]: any } }>({});
+  // 用于在表格实例内临时抑制单元格校验（例如：在点击清理按钮导致 blur 触发校验时）
+  const clearSuppressValidate = ref(false);
+  // suppressValidate 计时器，避免快速多次点击导致的竞态
+  let clearSuppressTimer: NodeJS.Timeout | undefined;
 
   const getErrorListMapByErrors = (errors: ErrorListObjectType<TableRowData>[]): TableErrorListMap => {
     const errorMap: TableErrorListMap = {};
@@ -171,6 +175,15 @@ export default function useRowEdit(props: PrimaryTableProps) {
   };
 
   const clearValidateData = () => {
+    // 在开始清理时短暂抑制子单元格校验，避免在清理过程中被 blur/click 触发新的校验
+    try {
+      clearSuppressValidate.value = true;
+      if (clearSuppressTimer) clearTimeout(clearSuppressTimer);
+      clearSuppressTimer = setTimeout(() => {
+        clearSuppressValidate.value = false;
+        clearSuppressTimer = null;
+      }, 600);
+    } catch (e) {}
     // 如果有持久化的错误键，先赋空数组触发子组件更新，再彻底清空
     const prevKeys = Object.keys(errorListMap.value || {});
     if (prevKeys.length) {
@@ -197,6 +210,12 @@ export default function useRowEdit(props: PrimaryTableProps) {
         // 通知外部校验结果已清空
         props.onValidate?.({ result: {} });
         props.onRowValidate?.({ trigger: 'parent', result: [] });
+        // 清理完成后再短暂保持抑制，确保不会被随后的 blur 误触发
+        if (clearSuppressTimer) clearTimeout(clearSuppressTimer);
+        clearSuppressTimer = setTimeout(() => {
+          clearSuppressValidate.value = false;
+          clearSuppressTimer = undefined;
+        }, 200);
       }, 0);
     } else {
       // 无持久化错误，直接清理并通知
@@ -210,6 +229,11 @@ export default function useRowEdit(props: PrimaryTableProps) {
       });
       props.onValidate?.({ result: {} });
       props.onRowValidate?.({ trigger: 'parent', result: [] });
+      if (clearSuppressTimer) clearTimeout(clearSuppressTimer);
+      clearSuppressTimer = setTimeout(() => {
+        clearSuppressValidate.value = false;
+        clearSuppressTimer = undefined;
+      }, 200);
     }
   };
 
@@ -261,5 +285,6 @@ export default function useRowEdit(props: PrimaryTableProps) {
     onUpdateEditedCell,
     getEditRowData,
     onPrimaryTableCellEditChange,
+    clearSuppressValidate,
   };
 }
