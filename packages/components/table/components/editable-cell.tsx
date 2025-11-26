@@ -88,7 +88,7 @@ export default defineComponent({
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
     // 表格作用域内的临时抑制标志（由 primary-table 提供）
-    const tableSuppress = inject('TD_TABLE_SUPPRESS_VALIDATE') as { value?: boolean } | undefined;
+    const tableValidSuppress = inject('TD_TABLE_SUPPRESS_VALIDATE') as { value?: boolean } | undefined;
 
     const updateEditedCellValue: TableEditableCellPropsParams<TableRowData>['updateEditedCellValue'] = (obj) => {
       if (typeof obj === 'object' && ('rowValue' in obj || obj.isUpdateCurrentRow)) {
@@ -179,7 +179,7 @@ export default defineComponent({
     const validateEdit = (trigger: 'self' | 'parent'): Promise<true | AllValidateResult[]> => {
       return new Promise((resolve) => {
         // 如果父表格临时抑制了校验（例如点击清理按钮导致 blur），则直接短路校验
-        if (tableSuppress?.value) {
+        if (tableValidSuppress?.value) {
           resolve(true);
           return;
         }
@@ -230,6 +230,8 @@ export default defineComponent({
 
     const updateAndSaveAbort = (outsideAbortEvent: Function, eventName: string, ...args: any) => {
       validateEdit('self').then((result) => {
+        // 如果表格层面正在抑制校验（例如 clearValidateData 期间），不要因校验短路而退出编辑态
+        if (tableValidSuppress?.value) return;
         if (result !== true) return;
         const oldValue = get(row.value, col.value.colKey);
         // 相同的值无需触发变化

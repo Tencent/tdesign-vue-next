@@ -155,7 +155,7 @@ export default defineComponent({
       onUpdateEditedCell,
       getEditRowData,
       onPrimaryTableCellEditChange,
-      clearSuppressValidate,
+      tableSuppressValidate,
     } = useEditableRow(props);
 
     const innerKeyboardRowHover = computed(() => Boolean(showExpandedRow.value || showRowSelect.value));
@@ -197,7 +197,7 @@ export default defineComponent({
     });
 
     // 将表格作用域内的抑制校验标志注入子组件
-    provide('TD_TABLE_SUPPRESS_VALIDATE', clearSuppressValidate);
+    provide('TD_TABLE_SUPPRESS_VALIDATE', tableSuppressValidate);
 
     // 对外暴露的方法
     context.expose({
