@@ -528,11 +528,7 @@ export default defineComponent({
     provide('updateScrollTop', updateScrollTop);
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
-      const inputEvents = useEventForward(props.inputProps, {
-        onKeydown: (val, { e }) => {
-          handleKeyDown(e);
-        },
-      });
+
       const popupEvents = useEventForward(restPopupProps, {
         onScrollToBottom: handlerPopupScrollToBottom,
       });
@@ -595,7 +591,9 @@ export default defineComponent({
             inputProps={{
               size: props.size,
               autofocus: props.autofocus,
-              ...inputEvents.value,
+              ...props.inputProps,
+              // fix me, onkeydown should be onKeydown
+              onkeydown: handleKeyDown,
             }}
             tagInputProps={{
               size: props.size,
