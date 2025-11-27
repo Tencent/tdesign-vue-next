@@ -41,9 +41,6 @@ export interface UploadDisplayDragEvents {
 
 export type ImageEvent = Event;
 
-/**
- * 通用全局类型
- * */
 export type PlainObject = { [key: string]: any };
 
 export type OptionData = {
@@ -63,6 +60,9 @@ export type TreeOptionData<T = string | number> = {
   content?: string | TNode;
 } & PlainObject;
 
+/**
+ * 通用全局类型
+ * */
 export type SizeEnum = 'small' | 'medium' | 'large';
 
 export type ShapeEnum = 'circle' | 'round';
