@@ -23,8 +23,6 @@
     "dev:vue": "pnpm -C packages/tdesign-vue-next/site dev",
     "test:vue": "pnpm -C packages/tdesign-vue-next/test test",
     "test:vue:update": "pnpm -C packages/tdesign-vue-next/test test:update",
-    "test:vue:gui": "pnpm -C packages/tdesign-vue-next/test test:unit-gui",
-    "test:vue:coverage": "pnpm -C packages/tdesign-vue-next/test test:unit-coverage",
     "build:vue": "pnpm -C internal/builds build:vue-next",
     "dev:chat": "pnpm -C packages/tdesign-vue-next-chat/site dev",
     "build:chat": "pnpm -C internal/builds build:chat",
