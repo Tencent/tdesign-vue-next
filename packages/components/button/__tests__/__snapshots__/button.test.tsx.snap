@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Button > props > :block[true/false] 1`] = `
+exports[`Button > props > :block[boolean] 1`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-size-full-width"
   href=""
@@ -17,7 +17,7 @@ exports[`Button > props > :block[true/false] 1`] = `
 </button>
 `;
 
-exports[`Button > props > :block[true/false] 2`] = `
+exports[`Button > props > :block[boolean] 2`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
   href=""
@@ -102,7 +102,7 @@ exports[`Button > props > :default[string/function] > default-string 1`] = `
 </button>
 `;
 
-exports[`Button > props > :disabled[true/false] 1`] = `
+exports[`Button > props > :disabled[boolean] 1`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-is-disabled"
   disabled=""
@@ -119,7 +119,7 @@ exports[`Button > props > :disabled[true/false] 1`] = `
 </button>
 `;
 
-exports[`Button > props > :disabled[true/false] 2`] = `
+exports[`Button > props > :disabled[boolean] 2`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
   href=""
@@ -154,7 +154,7 @@ exports[`Button > props > :form[string] 1`] = `
 </button>
 `;
 
-exports[`Button > props > :ghost[true/false] 1`] = `
+exports[`Button > props > :ghost[boolean] 1`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-button--ghost"
   href=""
@@ -171,7 +171,7 @@ exports[`Button > props > :ghost[true/false] 1`] = `
 </button>
 `;
 
-exports[`Button > props > :ghost[true/false] 2`] = `
+exports[`Button > props > :ghost[boolean] 2`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
   href=""
@@ -251,7 +251,7 @@ exports[`Button > props > :loading[Button contains element \`.t-loading\`] 1`] =
 </button>
 `;
 
-exports[`Button > props > :loading[true/false] 1`] = `
+exports[`Button > props > :loading[boolean] 1`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-is-loading"
   disabled=""
@@ -296,7 +296,7 @@ exports[`Button > props > :loading[true/false] 1`] = `
 </button>
 `;
 
-exports[`Button > props > :loading[true/false] 2`] = `
+exports[`Button > props > :loading[boolean] 2`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
   href=""
