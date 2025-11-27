@@ -177,41 +177,24 @@ export default function useRowEdit(props: PrimaryTableProps) {
   const clearValidateData = () => {
     // 短暂抑制子单元格校验，避免在清理过程中被 blur/click 触发新的校验
     tableSuppressValidate.value = true;
+
+    // 彻底清空持久化错误
+    errorListMap.value = {};
+
+    // 清理编辑单元格内的错误显示
+    Object.values(editingCells.value).forEach((cell) => {
+      cell?.clearErrors?.();
+    });
+
+    // 通知外部校验结果已清空
+    props.onValidate?.({ result: {} });
+    props.onRowValidate?.({ trigger: 'parent', result: [] });
+
     if (tableSuppressTimer) clearTimeout(tableSuppressTimer);
     tableSuppressTimer = setTimeout(() => {
       tableSuppressValidate.value = false;
       tableSuppressTimer = undefined;
-    }, 600);
-
-    const clearAndNotify = () => {
-      // 彻底清空持久化错误
-      errorListMap.value = {};
-
-      // 清理编辑单元格内部错误（若暴露 clearErrors）
-      Object.values(editingCells.value).forEach((cell) => {
-        cell?.clearErrors?.();
-      });
-
-      // 通知外部校验结果已清空
-      props.onValidate?.({ result: {} });
-      props.onRowValidate?.({ trigger: 'parent', result: [] });
-
-      if (tableSuppressTimer) clearTimeout(tableSuppressTimer);
-      tableSuppressTimer = setTimeout(() => {
-        tableSuppressValidate.value = false;
-        tableSuppressTimer = undefined;
-      }, 200);
-    };
-
-    // 如果有持久化的错误键，先赋空数组以触发子组件更新，再在下个 tick 彻底清空并通知
-    const prevKeys = Object.keys(errorListMap.value || {});
-    if (!prevKeys.length) {
-      clearAndNotify();
-      return;
-    }
-    const tmp: TableErrorListMap = Object.fromEntries(prevKeys.map((k) => [k, []]));
-    errorListMap.value = tmp;
-    setTimeout(clearAndNotify, 0);
+    }, 200);
   };
 
   const onPrimaryTableCellEditChange = (params: OnEditableChangeContext<TableRowData>) => {
