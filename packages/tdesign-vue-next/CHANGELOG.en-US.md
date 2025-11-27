@@ -5,6 +5,34 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.4 `2025-11-27` 
+
+### 🚀 Features
+- `Table`: Optimize the display effect when the content of the Table changes after paging. The pager will be anchored in the current viewport @RSS1102 ([#6172](https://github.com/Tencent/tdesign-vue-next/pull/6172))
+
+### 🐞 Bug Fixes
+- `Calendar`: Optimize the handling of props events in the transparent transmission component and fix the problem that the callback function of transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `DatePicker`: Optimize the interaction problem of the date range selector to avoid the problem of having to repeat the operation multiple times after selecting the end date first @mikasayw ([#6143](https://github.com/Tencent/tdesign-vue-next/pull/6143))
+- `Description`: Fixed the spacing problem of `itemLayout` vertically arranged in borderless mode @mikasayw ([#6156](https://github.com/Tencent/tdesign-vue-next/pull/6156))
+- `Input`: 
+  - Fixed an issue where input and upper-level select components fail to render auto-width for the first time in safari @Cat1007 ([common#2336](https://github.com/Tencent/tdesign-common/pull/2336)) ([#6188](https://github.com/Tencent/tdesign-vue-next/pull/6188))
+  - Optimize the handling of props events in the transparent transmission component, and fix the problem that the callback function for transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `SelectInput`: Optimize the handling of props events in the transparent transmission component and fix the problem that the callback function of transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `Slider`: Fixed an error in precision calculation during initialization @RylanBot ([#6183](https://github.com/Tencent/tdesign-vue-next/pull/6183)))
+- `Table`: 
+  - Optimize the handling of props events in the transparent transmission component, and fix the problem that the callback function for transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+  - Fixed the issue where editable cells are not correctly displayed in the validateData callback under `keepEditMode` @uyarn ([#5490](https://github.com/Tencent/tdesign-vue-next/pull/5490))
+- `TagInput`: Optimize the handling of props events in transparent transmission components and fix the problem that the callback function of transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `TreeSelect`: Optimize the handling of props events in the transparent transmission component and fix the problem that the callback function for transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `Upload`: 
+    - Optimize the handling of props events in the transparent transmission component and fix the problem that the callback function of the transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+    - Fixed an issue where file array uploads are not supported.​ @GATING ([#6169](https://github.com/Tencent/tdesign-vue-next/pull/6169))
+- `Table`: Fixed the problem that manual changes to the `current` attribute in paging controlled mode do not trigger `onPageChange` @RSS1102 ([#6163](https://github.com/Tencent/tdesign-vue-next/pull/6163))
+
+### 📝 Documentation
+- `Calendar`: Supplementary usage example of the `range` parameter @shumuuu ([#6148](https://github.com/Tencent/tdesign-vue-next/pull/6148))
+
+
 ## 🌈 1.17.3 `2025-11-14` 
 
 ### 🚀 Features
