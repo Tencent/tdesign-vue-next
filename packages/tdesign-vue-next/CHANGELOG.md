@@ -5,6 +5,34 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.4 `2025-11-27` 
+
+### 🚀 Features
+- `Table`: 优化通过分页操作后 Table 内容变化时的展示效果，分页器会锚定在当前视口 @RSS1102 ([#6172](https://github.com/Tencent/tdesign-vue-next/pull/6172))
+
+### 🐞 Bug Fixes
+- `Calendar`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `DatePicker`: 优化日期范围选择器的交互问题，避免先选择结束日期后需重复操作多次的问题 @mikasayw ([#6143](https://github.com/Tencent/tdesign-vue-next/pull/6143))
+- `Description`: 修复无边框模式下`itemLayout`垂直排列的间距问题 @mikasayw  ([#6156](https://github.com/Tencent/tdesign-vue-next/pull/6156))
+- `Input`: 
+  - 修正 input 及上层 select 等组件在 safari 中初次渲染 auto-width 失效的问题 @Cat1007 ([common#2336](https://github.com/Tencent/tdesign-common/pull/2336))  ([#6188](https://github.com/Tencent/tdesign-vue-next/pull/6188))
+  - 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `SelectInput`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `Slider`: 修复初始化时精度计算错误的问题 @RylanBot ([#6183](https://github.com/Tencent/tdesign-vue-next/pull/6183))
+- `Table`: 
+  - 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+  - 修复可编辑单元格在`keepEditMode`下没有正确在validateData回调展示的问题 @uyarn ([#5490](https://github.com/Tencent/tdesign-vue-next/pull/5490))
+- `TagInput`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `TreeSelect`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `Upload`: 
+    - 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+    - 修复不支持文件数组上传的问题 @GATING  ([#6169](https://github.com/Tencent/tdesign-vue-next/pull/6169))
+- `Table`: 修复分页受控模式下 `current` 属性手动变更不触发 `onPageChange` 的问题 @RSS1102 ([#6163](https://github.com/Tencent/tdesign-vue-next/pull/6163))
+
+### 📝 Documentation
+- `Calendar`: 补充`range`参数的用法示例 @shumuuu ([#6148](https://github.com/Tencent/tdesign-vue-next/pull/6148))
+
+
 ## 🌈 1.17.3 `2025-11-14` 
 
 ### 🚀 Features
