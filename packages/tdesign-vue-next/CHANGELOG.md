@@ -5,7 +5,7 @@ toc: false
 docClass: timeline
 ---
 
-## 🌈 1.17.4 `2025-11-27` 
+## 🌈 1.17.4 `2025-11-28` 
 
 ### 🚀 Features
 - `Table`: 优化通过分页操作后 Table 内容变化时的展示效果，分页器会锚定在当前视口 @RSS1102 ([#6172](https://github.com/Tencent/tdesign-vue-next/pull/6172))
@@ -1976,6 +1976,7 @@ docClass: timeline
 
 ## 🌈 0.x `2021-05-19 - 2022-12-14`
 前往 [GitHub](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/tdesign-vue-next/CHANGELOG-0.x.md) 查看 `0.x` 更新日志
+
 
 
 
