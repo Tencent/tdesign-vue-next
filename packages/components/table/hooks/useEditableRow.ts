@@ -110,7 +110,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
           if (result === true) return;
           allErrorListMap[cellKeys[index]] = result;
         });
-        // 持久化单元格校验结果，退出编辑态后仍然可见
+        // 持久化单元格校验结果
         errorListMap.value = allErrorListMap;
         props.onValidate?.({ result: allErrorListMap });
         resolve({ result: allErrorListMap });
@@ -175,66 +175,43 @@ export default function useRowEdit(props: PrimaryTableProps) {
   };
 
   const clearValidateData = () => {
-    // 在开始清理时短暂抑制子单元格校验，避免在清理过程中被 blur/click 触发新的校验
-    try {
-      tableSuppressValidate.value = true;
-      if (tableSuppressTimer) clearTimeout(tableSuppressTimer);
-      tableSuppressTimer = setTimeout(() => {
-        tableSuppressValidate.value = false;
-        tableSuppressTimer = null;
-      }, 600);
-    } catch (e) {}
-    // 如果有持久化的错误键，先赋空数组触发子组件更新，再彻底清空
-    const prevKeys = Object.keys(errorListMap.value || {});
-    if (prevKeys.length) {
-      const tmp: TableErrorListMap = {};
-      prevKeys.forEach((k) => {
-        tmp[k] = [];
-      });
-      // 赋空数组以触发子组件更新
-      errorListMap.value = tmp;
-      setTimeout(() => {
-        errorListMap.value = {};
+    // 短暂抑制子单元格校验，避免在清理过程中被 blur/click 触发新的校验
+    tableSuppressValidate.value = true;
+    if (tableSuppressTimer) clearTimeout(tableSuppressTimer);
+    tableSuppressTimer = setTimeout(() => {
+      tableSuppressValidate.value = false;
+      tableSuppressTimer = undefined;
+    }, 600);
 
-        // 清理编辑单元格内部错误（若暴露 clearErrors）
-        Object.values(editingCells.value).forEach((cell) => {
-          try {
-            if (typeof (cell as any)?.clearErrors === 'function') {
-              (cell as any).clearErrors();
-            }
-          } catch (e) {
-            console.error(e);
-          }
-        });
-
-        // 通知外部校验结果已清空
-        props.onValidate?.({ result: {} });
-        props.onRowValidate?.({ trigger: 'parent', result: [] });
-        // 清理完成后再短暂保持抑制，确保不会被随后的 blur 误触发
-        if (tableSuppressTimer) clearTimeout(tableSuppressTimer);
-        tableSuppressTimer = setTimeout(() => {
-          tableSuppressValidate.value = false;
-          tableSuppressTimer = undefined;
-        }, 200);
-      }, 0);
-    } else {
-      // 无持久化错误，直接清理并通知
+    const clearAndNotify = () => {
+      // 彻底清空持久化错误
       errorListMap.value = {};
+
+      // 清理编辑单元格内部错误（若暴露 clearErrors）
       Object.values(editingCells.value).forEach((cell) => {
-        try {
-          if (typeof (cell as any)?.clearErrors === 'function') {
-            (cell as any).clearErrors();
-          }
-        } catch (e) {}
+        cell?.clearErrors?.();
       });
+
+      // 通知外部校验结果已清空
       props.onValidate?.({ result: {} });
       props.onRowValidate?.({ trigger: 'parent', result: [] });
+
       if (tableSuppressTimer) clearTimeout(tableSuppressTimer);
       tableSuppressTimer = setTimeout(() => {
         tableSuppressValidate.value = false;
         tableSuppressTimer = undefined;
       }, 200);
+    };
+
+    // 如果有持久化的错误键，先赋空数组以触发子组件更新，再在下个 tick 彻底清空并通知
+    const prevKeys = Object.keys(errorListMap.value || {});
+    if (!prevKeys.length) {
+      clearAndNotify();
+      return;
     }
+    const tmp: TableErrorListMap = Object.fromEntries(prevKeys.map((k) => [k, []]));
+    errorListMap.value = tmp;
+    setTimeout(clearAndNotify, 0);
   };
 
   const onPrimaryTableCellEditChange = (params: OnEditableChangeContext<TableRowData>) => {
