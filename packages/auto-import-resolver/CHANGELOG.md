@@ -1,3 +1,15 @@
+## 🌈 0.1.4 `2025-11-18` 
+
+### 🐞 Bug Fixes
+- 修复 `0.1.3` 产物错误，解析 Chat 相关新组件报错的问题 @liweijie0812 ([#6164](https://github.com/Tencent/tdesign-vue-next/pull/6164))
+
+
+## 🌈 0.1.3 `2025-11-17` 
+
+### 🚀 Features
+- 解析 chat 系列组件，新增 Attachments，ChatActionbar，ChatList，ChatMarkdown, ChatThinking，Chatbot @liweijie0812 ([#6154](https://github.com/Tencent/tdesign-vue-next/pull/6154))
+
+
 ## 🌈 0.1.2 `2025-09-10` 
 
 ### 🚀 Features

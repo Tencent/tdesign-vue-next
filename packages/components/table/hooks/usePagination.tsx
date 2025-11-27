@@ -36,7 +36,9 @@ export default function usePagination(
     () => {
       if (!pagination.value || !pagination.value.current) return;
       const { current, pageSize } = pagination.value;
-      innerPagination.value = { current, pageSize };
+
+      const newPageInfo = { current, pageSize };
+      innerPagination.value = newPageInfo;
       updateDataSourceAndPaginate(
         pagination.value.current,
         pagination.value.pageSize || pagination.value.defaultPageSize,
