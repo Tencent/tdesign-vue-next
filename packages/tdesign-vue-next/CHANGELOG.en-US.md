@@ -5,7 +5,7 @@ toc: false
 docClass: timeline
 ---
 
-## 🌈 1.17.4 `2025-11-27` 
+## 🌈 1.17.4 `2025-11-28`
 
 ### 🚀 Features
 - `Table`: Optimize the display effect when the content of the Table changes after paging. The pager will be anchored in the current viewport @RSS1102 ([#6172](https://github.com/Tencent/tdesign-vue-next/pull/6172))
