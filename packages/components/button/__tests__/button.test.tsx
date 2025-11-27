@@ -6,7 +6,7 @@ import props from '@tdesign/components/button/props';
 
 describe('Button', () => {
   describe('props', () => {
-    it(':block[true/false]', () => {
+    it(':block[boolean]', () => {
       // default
       const wrapper1 = mount(<Button>Text</Button>);
       expect(wrapper1.classes('t-size-full-width')).toBeFalsy();
@@ -46,7 +46,7 @@ describe('Button', () => {
       expect(wrapperFunction.element).toMatchSnapshot('default-function');
     });
 
-    it(':disabled[true/false]', () => {
+    it(':disabled[boolean]', () => {
       // default
       const wrapper1 = mount(<Button>Text</Button>);
       expect(wrapper1.classes('t-is-disabled')).toBeFalsy();
@@ -62,7 +62,7 @@ describe('Button', () => {
       expect(wrapper3.element).toMatchSnapshot();
     });
 
-    it(':ghost[true/false]', () => {
+    it(':ghost[boolean]', () => {
       // default
       const wrapper1 = mount(<Button>Text</Button>);
       expect(wrapper1.classes('t-button--ghost')).toBeFalsy();
@@ -95,7 +95,7 @@ describe('Button', () => {
       expect(wrapper.find('.custom-node').exists()).toBeTruthy();
     });
 
-    it(':loading[true/false]', () => {
+    it(':loading[boolean]', () => {
       // default
       const wrapper1 = mount(<Button>Text</Button>);
       expect(wrapper1.classes('t-is-loading')).toBeFalsy();
@@ -296,7 +296,7 @@ describe('Button', () => {
   });
 
   describe('events', () => {
-    it('@click', async () => {
+    it('click', async () => {
       const fn = vi.fn();
       const wrapper = mount(<Button onClick={fn}></Button>);
       wrapper.findComponent(Button).trigger('click');
