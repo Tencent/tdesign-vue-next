@@ -24,10 +24,16 @@ const mock = vi.hoisted(() => {
       el.classList.add(cls);
     }
   });
+  const removeClassMock = vi.fn((el: Element | null, cls: string) => {
+    if (el) {
+      el.classList.remove(cls);
+    }
+  });
   return {
     store,
     onMock,
     addClassMock,
+    removeClassMock,
   };
 });
 
@@ -37,6 +43,7 @@ vi.mock('@tdesign/shared-utils', async (importOriginal) => {
     ...actual,
     on: mock.onMock,
     addClass: mock.addClassMock,
+    removeClass: mock.removeClassMock,
   };
 });
 
@@ -331,6 +338,63 @@ describe('Alert', () => {
       const operation = wrapper.find('.t-alert__operation');
       expect(operation.exists()).eq(true);
       expect(operation.text()).eq('op');
+    });
+
+    it('removes t-alert--closing class after transition ends', async () => {
+      const onClosed = vi.fn();
+      const wrapper = mount(() => (
+        <Alert closeBtn onClosed={onClosed}>
+          text
+        </Alert>
+      ));
+      const alertEl = wrapper.find('.t-alert');
+
+      // Click close button to start closing
+      const close = wrapper.find('.t-alert__close');
+      await close.trigger('click');
+      await nextTick();
+
+      // Verify closing class is added
+      expect(alertEl.classes()).toContain('t-alert--closing');
+
+      // Simulate transitionend event for opacity
+      mock.store.handler?.({ propertyName: 'opacity', target: alertEl.element });
+      await nextTick();
+
+      // Verify closing class is removed and hidden class is added
+      expect(alertEl.classes()).not.toContain('t-alert--closing');
+      expect(alertEl.classes()).toContain('t-is-hidden');
+      expect(onClosed).toHaveBeenCalled();
+    });
+
+    it('resets visible state when v-show shows the component again', async () => {
+      const onClosed = vi.fn();
+      const wrapper = mount(() => (
+        <Alert closeBtn onClosed={onClosed}>
+          text
+        </Alert>
+      ));
+      const alertEl = wrapper.find('.t-alert');
+
+      // Click close button to start closing
+      const close = wrapper.find('.t-alert__close');
+      await close.trigger('click');
+      await nextTick();
+
+      // Simulate transitionend event
+      mock.store.handler?.({ propertyName: 'opacity', target: alertEl.element });
+      await nextTick();
+
+      // Verify hidden class is added
+      expect(alertEl.classes()).toContain('t-is-hidden');
+
+      // Simulate v-show showing the component again by setting display style
+      (alertEl.element as HTMLElement).style.display = '';
+      await wrapper.vm.$forceUpdate();
+      await nextTick();
+
+      // The visible state should be reset, removing t-is-hidden
+      expect(alertEl.classes()).not.toContain('t-is-hidden');
     });
   });
 });

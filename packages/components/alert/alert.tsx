@@ -1,4 +1,4 @@
-import { defineComponent, VNode, ref, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue';
+import { defineComponent, VNode, ref, onMounted, onBeforeUnmount, onUpdated, getCurrentInstance } from 'vue';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,
@@ -8,7 +8,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { isArray, isString } from 'lodash-es';
 
-import { on, off, addClass } from '@tdesign/shared-utils';
+import { on, off, addClass, removeClass } from '@tdesign/shared-utils';
 import props from './props';
 import { SlotReturnValue } from '../common';
 import {
@@ -157,6 +157,7 @@ export default defineComponent({
       // 防止子元素冒泡触发
       if (e.propertyName === 'opacity' && isTransitionTarget) {
         visible.value = false;
+        removeClass(alertRef.value, `${COMPONENT_NAME.value}--closing`);
         props.onClosed?.({ e });
       }
     };
@@ -167,6 +168,16 @@ export default defineComponent({
     });
     onBeforeUnmount(() => {
       off(alertRef.value, 'transitionend', handleCloseEnd);
+    });
+    // 当组件通过 v-show 重新显示时，重置 visible 状态
+    onUpdated(() => {
+      if (!visible.value && alertRef.value) {
+        // 检查父组件是否通过 v-show 控制显示（检查 inline style 是否不是 display: none）
+        const inlineDisplay = alertRef.value.style.display;
+        if (inlineDisplay !== 'none') {
+          visible.value = true;
+        }
+      }
     });
 
     return () => (
