@@ -85,8 +85,8 @@ export default defineComponent({
 
       if (props.createAble) {
         selectProvider.value.handleCreate?.(props.value);
-        // When creating a new option, construct the option from props
-        // since the option may not exist in optionsList yet (async onCreate)
+        // When creating a new option with async onCreate (e.g., setTimeout to check with backend),
+        // construct the option from props since the option may not exist in optionsList yet
         const createdOption = { value: props.value, label: labelText.value };
         if (selectProvider.value.multiple) {
           const currentSelectedOptions = selectProvider.value.getSelectedOptions();
