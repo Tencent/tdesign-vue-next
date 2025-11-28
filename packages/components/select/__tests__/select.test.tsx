@@ -234,6 +234,69 @@ describe('Select', () => {
         panelNode.parentNode.removeChild(panelNode);
       });
     });
+    describe('onCreate #6228', () => {
+      it('should correctly pass created option data when onCreate uses async operation', async () => {
+        const onChangeFn = vi.fn();
+        const value = ref('');
+        const optionsRef = ref([
+          { label: '选项一', value: '1' },
+          { label: '选项二', value: '2' },
+        ]);
+
+        const wrapper = mount({
+          setup() {
+            return { value, options: optionsRef };
+          },
+          render() {
+            return (
+              <Select
+                v-model={value.value}
+                creatable
+                filterable
+                options={optionsRef.value}
+                onChange={onChangeFn}
+                onCreate={(val) => {
+                  // Simulate async operation (e.g., checking with backend)
+                  setTimeout(() => {
+                    optionsRef.value.push({ label: String(val), value: val });
+                  }, 100);
+                }}
+              />
+            );
+          },
+        });
+
+        // Open the popup and type to create a new option
+        const input = wrapper.find('.t-input');
+        await input.trigger('click');
+        await wrapper.setProps({ popupProps: { visible: true } });
+
+        // Simulate typing in the input
+        const textbox = wrapper.find('input');
+        await textbox.setValue('newOption');
+        await nextTick();
+
+        // Wait for the create option to appear
+        await nextTick();
+
+        // Click the create option
+        const createOption = document.querySelector('.t-select__create-option--special');
+        if (createOption instanceof HTMLElement) {
+          createOption.click();
+          await nextTick();
+
+          // Verify onChange was called with the correct option data
+          expect(onChangeFn).toHaveBeenCalled();
+          const [newValue, context] = onChangeFn.mock.calls[0];
+          expect(newValue).toBe('newOption');
+          // The fix ensures option is correctly constructed from props even before async onCreate completes
+          expect(context.option).toEqual(expect.objectContaining({ value: 'newOption', label: 'newOption' }));
+        }
+
+        const panelNode = document.querySelector('.t-select__list');
+        panelNode?.parentNode?.removeChild(panelNode);
+      });
+    });
   });
 
   describe('keys', () => {
@@ -424,69 +487,5 @@ describe('Select CheckAll with Disabled Option', () => {
     await checkAllCheckbox.click();
     expect(value.value).not.toContain('4');
     cleanup();
-  });
-});
-
-describe('Select Creatable with Async onCreate', () => {
-  it('should correctly pass created option data when onCreate uses async operation', async () => {
-    const onChangeFn = vi.fn();
-    const value = ref('');
-    const optionsRef = ref([
-      { label: '选项一', value: '1' },
-      { label: '选项二', value: '2' },
-    ]);
-
-    const wrapper = mount({
-      setup() {
-        return { value, options: optionsRef };
-      },
-      render() {
-        return (
-          <Select
-            v-model={value.value}
-            creatable
-            filterable
-            options={optionsRef.value}
-            onChange={onChangeFn}
-            onCreate={(val) => {
-              // Simulate async operation (e.g., checking with backend)
-              setTimeout(() => {
-                optionsRef.value.push({ label: String(val), value: val });
-              }, 100);
-            }}
-          />
-        );
-      },
-    });
-
-    // Open the popup and type to create a new option
-    const input = wrapper.find('.t-input');
-    await input.trigger('click');
-    await wrapper.setProps({ popupProps: { visible: true } });
-
-    // Simulate typing in the input
-    const textbox = wrapper.find('input');
-    await textbox.setValue('newOption');
-    await nextTick();
-
-    // Wait for the create option to appear
-    await nextTick();
-
-    // Click the create option
-    const createOption = document.querySelector('.t-select__create-option--special');
-    if (createOption) {
-      createOption.click();
-      await nextTick();
-
-      // Verify onChange was called with the correct option data
-      expect(onChangeFn).toHaveBeenCalled();
-      const [newValue, context] = onChangeFn.mock.calls[0];
-      expect(newValue).toBe('newOption');
-      // The fix ensures option is correctly constructed from props even before async onCreate completes
-      expect(context.option).toEqual(expect.objectContaining({ value: 'newOption', label: 'newOption' }));
-    }
-
-    const panelNode = document.querySelector('.t-select__list');
-    if (panelNode) panelNode.parentNode.removeChild(panelNode);
   });
 });
