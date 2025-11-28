@@ -8,6 +8,11 @@ import { TdHeadMenuProps } from '../menu/type';
 import { PropType } from 'vue';
 
 export default {
+  /** 是否省略多余的子项（仅在横向模式生效） */
+  ellipsis: {
+    type: Boolean,
+    default: true,
+  },
   /** 展开的子菜单集合 */
   expanded: {
     type: Array as PropType<TdHeadMenuProps['expanded']>,
