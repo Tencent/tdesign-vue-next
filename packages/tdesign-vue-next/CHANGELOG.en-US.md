@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.5 `2025-11-28` 
+
+### 🐞 Bug Fixes
+- `Tree`: Fixed the problem where the filtering node was accidentally disabled @RylanBot ([common#2345](https://github.com/Tencent/tdesign-common/pull/2345)) ([#6196](https://github.com/Tencent/tdesign-vue-next/pull/6196))
+
+
 ## 🌈 1.17.4 `2025-11-28`
 
 ### 🚀 Features
