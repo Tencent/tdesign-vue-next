@@ -181,10 +181,18 @@ describe('DropdownMenu', () => {
     });
 
     it('renders empty menu when no options', () => {
-      // 由于 DropdownMenu 在 onMounted 中会查询 .t-dropdown__item，
-      // 当没有选项时会报错，所以这里跳过这个测试
-      // 实际使用中，DropdownMenu 总是会有至少一个选项
-      expect(true).toBe(true);
+      // With the fix, DropdownMenu should not crash when there are no options
+      const wrapper = mount(DropdownMenu, {
+        props: {
+          options: [],
+        },
+        attachTo: document.body,
+      });
+
+      expect(wrapper.exists()).toBe(true);
+      expect(wrapper.find('.t-dropdown__menu').exists()).toBe(true);
+      expect(wrapper.findAll('.t-dropdown__item').length).toBe(0);
+      wrapper.unmount();
     });
   });
 

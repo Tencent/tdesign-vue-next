@@ -40,7 +40,10 @@ export default defineComponent({
         const menuHeight = parseInt(window?.getComputedStyle(menuRef.value).height, 10);
         if (menuHeight >= props.maxHeight) isOverMaxHeight.value = true;
       }
-      itemHeight.value = document.querySelector(`.${dropdownClass.value}__item`).scrollHeight + 2;
+      const dropdownItem = document.querySelector(`.${dropdownClass.value}__item`);
+      if (dropdownItem) {
+        itemHeight.value = dropdownItem.scrollHeight + 2;
+      }
     });
 
     const getContent = (content: string | TNode) => {
