@@ -340,7 +340,7 @@ describe('Alert', () => {
       expect(operation.text()).eq('op');
     });
 
-    it('removes t-alert--closing class after transition ends', async () => {
+    it('关闭动画结束后移除 t-alert--closing 类', async () => {
       const onClosed = vi.fn();
       const wrapper = mount(() => (
         <Alert closeBtn onClosed={onClosed}>
@@ -349,25 +349,25 @@ describe('Alert', () => {
       ));
       const alertEl = wrapper.find('.t-alert');
 
-      // Click close button to start closing
+      // 点击关闭按钮开始关闭
       const close = wrapper.find('.t-alert__close');
       await close.trigger('click');
       await nextTick();
 
-      // Verify closing class is added
+      // 验证 closing 类已添加
       expect(alertEl.classes()).toContain('t-alert--closing');
 
-      // Simulate transitionend event for opacity
+      // 模拟 opacity 的 transitionend 事件
       mock.store.handler?.({ propertyName: 'opacity', target: alertEl.element });
       await nextTick();
 
-      // Verify closing class is removed and hidden class is added
+      // 验证 closing 类已移除，hidden 类已添加
       expect(alertEl.classes()).not.toContain('t-alert--closing');
       expect(alertEl.classes()).toContain('t-is-hidden');
       expect(onClosed).toHaveBeenCalled();
     });
 
-    it('resets visible state when v-show shows the component again', async () => {
+    it('v-show 重新显示时重置 visible 状态', async () => {
       const onClosed = vi.fn();
       const wrapper = mount(() => (
         <Alert closeBtn onClosed={onClosed}>
@@ -376,24 +376,24 @@ describe('Alert', () => {
       ));
       const alertEl = wrapper.find('.t-alert');
 
-      // Click close button to start closing
+      // 点击关闭按钮开始关闭
       const close = wrapper.find('.t-alert__close');
       await close.trigger('click');
       await nextTick();
 
-      // Simulate transitionend event
+      // 模拟 transitionend 事件
       mock.store.handler?.({ propertyName: 'opacity', target: alertEl.element });
       await nextTick();
 
-      // Verify hidden class is added
+      // 验证 hidden 类已添加
       expect(alertEl.classes()).toContain('t-is-hidden');
 
-      // Simulate v-show showing the component again by setting display style
+      // 模拟 v-show 通过设置 display 样式重新显示组件
       (alertEl.element as HTMLElement).style.display = '';
       await wrapper.vm.$forceUpdate();
       await nextTick();
 
-      // The visible state should be reset, removing t-is-hidden
+      // visible 状态应重置，t-is-hidden 类应移除
       expect(alertEl.classes()).not.toContain('t-is-hidden');
     });
   });
