@@ -489,8 +489,9 @@ export default defineComponent({
       // 防止多次触发添加截流
       const debounceOnScrollBottom = debounce((e) => props.onScrollToBottom?.({ e }), 100);
 
-      // windows 下 scrollTop 会出现小数，这里取整
-      if (clientHeight + Math.floor(scrollTop) === scrollHeight) {
+      // 页面缩放时，scrollTop/clientHeight/scrollHeight 可能出现小数，使用容差值进行比较
+      // When page is zoomed, scrollTop/clientHeight/scrollHeight may have decimal values, use tolerance for comparison
+      if (Math.abs(clientHeight + scrollTop - scrollHeight) < 1) {
         // touch bottom
         debounceOnScrollBottom(e);
       }
