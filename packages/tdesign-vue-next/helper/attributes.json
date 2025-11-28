@@ -4670,11 +4670,11 @@
   },
   "t-primary-table/async-loading": {
     "type": "String|TNode",
-    "description": "async loading state\n\n异步加载状态。值为 `loading` 显示默认文字 “正在加载中，请稍后”，值为 `loading-more` 显示“点击加载更多”，值为其他，表示完全自定义异步加载区域内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+    "description": "async loading state\n\n异步加载状态。值为 `loading` 显示默认文字 “正在加载中，请稍后”，值为 `load-more` 显示“点击加载更多”，值为其他，表示完全自定义异步加载区域内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
   },
   "t-table/async-loading": {
     "type": "String|TNode",
-    "description": "async loading state\n\n异步加载状态。值为 `loading` 显示默认文字 “正在加载中，请稍后”，值为 `loading-more` 显示“点击加载更多”，值为其他，表示完全自定义异步加载区域内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+    "description": "async loading state\n\n异步加载状态。值为 `loading` 显示默认文字 “正在加载中，请稍后”，值为 `load-more` 显示“点击加载更多”，值为其他，表示完全自定义异步加载区域内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
   },
   "t-primary-table/column-controller": {
     "type": "Object",

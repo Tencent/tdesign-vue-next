@@ -72,6 +72,7 @@ export default defineComponent({
         footer={() => (
           <div class={`${classPrefix.value}-image-viewer-mini__footer`}>
             <TImageViewerUtils
+              zIndex={props.zIndex}
               onZoomIn={props.onZoomIn}
               onZoomOut={props.onZoomOut}
               scale={props.scale}

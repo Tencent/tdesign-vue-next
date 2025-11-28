@@ -3,7 +3,14 @@ import { pick, isObject } from 'lodash-es';
 
 import Input, { StrInputProps } from '../../input';
 import Loading from '../../loading';
-import { useTNodeJSX, useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
+import {
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  usePrefixClass,
+  useDefaultValue,
+  useEventForward,
+} from '@tdesign/shared-hooks';
 
 import { PopupInstanceFunctions } from '../../popup';
 import { TdSelectInputProps } from '../type';
@@ -125,19 +132,20 @@ export function useSingle(
       props.onBlur?.(value.value, { ...context, inputValue: val });
     };
 
+    const inputEvent = useEventForward(inputProps, {
+      onChange: onInnerInputChange,
+      onClear: onInnerClear,
+      onEnter,
+      onFocus,
+      onBlur,
+    });
+
     return (
       <Input
         ref={inputRef}
         style={context.attrs?.style}
         v-slots={slots}
-        {...{
-          onChange: onInnerInputChange,
-          onClear: onInnerClear,
-          onEnter,
-          onFocus,
-          onBlur,
-          ...inputProps,
-        }}
+        {...inputEvent.value}
         inputClass={inputClassProps}
       />
     );

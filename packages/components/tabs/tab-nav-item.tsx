@@ -40,7 +40,7 @@ export default defineComponent({
     const removeBtnClick = ({ e }: { e: MouseEvent }) => {
       if (e) e.stopPropagation();
       props.onTabRemove({ e, value: props.value, index: props.index });
-      props.onTabPanelRemove({ e, value: props.value });
+      props.onTabPanelRemove?.({ e, value: props.value });
     };
     const onClickNav = (e: MouseEvent) => {
       if (props.disabled) return;

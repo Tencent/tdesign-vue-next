@@ -1,6 +1,6 @@
 {
   "name": "@tdesign-vue-next/auto-import-resolver",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "On-demand components auto importing for series of TDesign Vue Components",
   "author": "tdesign",
   "license": "MIT",
@@ -20,8 +20,8 @@
     "build": "tsx scripts/prebuild.ts && tsdown"
   },
   "dependencies": {
-    "unplugin-utils": "^0.2.4",
-    "unplugin-vue-components": "^28.8.0"
+    "unplugin-utils": "^0.3.0",
+    "unplugin-vue-components": "^29.0.0"
   },
   "devDependencies": {
     "tdesign-icons-vue-next": "catalog:tdesign",
