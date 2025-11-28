@@ -91,11 +91,16 @@ export default function useRowSelect(
   function getSelectedHeader() {
     return () => {
       const isIndeterminate =
-        intersectionKeys.value.length > 0 && intersectionKeys.value.length < canSelectedRows.value.length;
+        // Some visible rows are selected but not all
+        (intersectionKeys.value.length > 0 && intersectionKeys.value.length < canSelectedRows.value.length) ||
+        // Some selected rows are not visible (e.g., collapsed tree children)
+        (tSelectedRowKeys.value.length > 0 && intersectionKeys.value.length < tSelectedRowKeys.value.length);
       const isChecked =
         intersectionKeys.value.length !== 0 &&
         canSelectedRows.value.length !== 0 &&
-        intersectionKeys.value.length === canSelectedRows.value.length;
+        intersectionKeys.value.length === canSelectedRows.value.length &&
+        // Ensure all selected rows are visible (no hidden collapsed selections)
+        intersectionKeys.value.length === tSelectedRowKeys.value.length;
       return (
         <Checkbox
           checked={isChecked}
