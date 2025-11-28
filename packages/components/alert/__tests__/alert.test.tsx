@@ -381,6 +381,11 @@ describe('Alert', () => {
       await close.trigger('click');
       await nextTick();
 
+      // 模拟 v-show=false 设置 display: none（在 transitionend 之前）
+      (alertEl.element as HTMLElement).style.display = 'none';
+      await wrapper.vm.$forceUpdate();
+      await nextTick();
+
       // 模拟 transitionend 事件
       mock.store.handler?.({ propertyName: 'opacity', target: alertEl.element });
       await nextTick();
@@ -388,7 +393,7 @@ describe('Alert', () => {
       // 验证 hidden 类已添加
       expect(alertEl.classes()).toContain('t-is-hidden');
 
-      // 模拟 v-show 通过设置 display 样式重新显示组件
+      // 模拟 v-show=true 通过移除 display: none 重新显示组件
       (alertEl.element as HTMLElement).style.display = '';
       await wrapper.vm.$forceUpdate();
       await nextTick();

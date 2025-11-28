@@ -49,6 +49,8 @@ export default defineComponent({
     const visible = ref(true);
     // 是否已收起，使用折叠功能时有效，用于表示是否已折叠；默认折叠
     const collapsed = ref(true);
+    // 记录上一次的 display 样式值，用于检测 v-show 状态变化
+    let prevDisplay = '';
 
     const renderIcon = () => {
       const Component = {
@@ -174,11 +176,13 @@ export default defineComponent({
     // v-show 为 false 时，Vue 会将 inline style 的 display 设为 'none'
     onUpdated(() => {
       if (!visible.value && alertRef.value) {
-        // 检查父组件是否通过 v-show 控制显示
-        const inlineDisplay = alertRef.value.style.display;
-        if (inlineDisplay !== 'none') {
+        const currentDisplay = alertRef.value.style.display;
+        // 只有当 display 从 'none' 变为其他值时，才重置 visible 状态
+        // 这表示 v-show 从 false 变为 true
+        if (prevDisplay === 'none' && currentDisplay !== 'none') {
           visible.value = true;
         }
+        prevDisplay = currentDisplay;
       }
     });
 
