@@ -85,17 +85,31 @@ export default defineComponent({
 
       if (props.createAble) {
         selectProvider.value.handleCreate?.(props.value);
+        // When creating a new option, construct the option from props
+        // since the option may not exist in optionsList yet (async onCreate)
+        const createdOption = { value: props.value, label: labelText.value };
         if (selectProvider.value.multiple) {
+          const currentSelectedOptions = selectProvider.value.getSelectedOptions();
           selectProvider.value.handleValueChange(
             [...(selectProvider.value.selectValue as SelectValue[]), props.value],
             {
-              selectedOptions: selectProvider.value.getSelectedOptions(),
+              option: createdOption,
+              selectedOptions: [...currentSelectedOptions, createdOption],
               trigger: 'check',
               e,
             },
           );
           return;
         }
+        selectProvider.value.handleValueChange(props.value, {
+          option: createdOption,
+          selectedOptions: [createdOption],
+          trigger: 'check',
+          e,
+        });
+        selectProvider.value.handlePopupVisibleChange(false, { e });
+        selectProvider.value.emitBlur(e);
+        return;
       }
       const selectedOptions = selectProvider.value.getSelectedOptions(props.value);
       selectProvider.value.handleValueChange(props.value, {
