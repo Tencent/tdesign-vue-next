@@ -170,9 +170,11 @@ export default defineComponent({
       off(alertRef.value, 'transitionend', handleCloseEnd);
     });
     // 当组件通过 v-show 重新显示时，重置 visible 状态
+    // v-show 为 true 时，Vue 会将 inline style 的 display 设为空字符串
+    // v-show 为 false 时，Vue 会将 inline style 的 display 设为 'none'
     onUpdated(() => {
       if (!visible.value && alertRef.value) {
-        // 检查父组件是否通过 v-show 控制显示（检查 inline style 是否不是 display: none）
+        // 检查父组件是否通过 v-show 控制显示
         const inlineDisplay = alertRef.value.style.display;
         if (inlineDisplay !== 'none') {
           visible.value = true;
