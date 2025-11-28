@@ -1,8 +1,69 @@
 import { mount } from '@vue/test-utils';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
+import { defineComponent } from 'vue';
 import { List, ListItem, ListProps } from '@tdesign/components/list';
 
 describe('List', () => {
+  describe('warnings', () => {
+    let originalWarn: typeof console.warn;
+    let warnings: string[];
+
+    beforeEach(() => {
+      warnings = [];
+      originalWarn = console.warn;
+      console.warn = (...args: any[]) => {
+        warnings.push(args.join(' '));
+      };
+    });
+
+    afterEach(() => {
+      console.warn = originalWarn;
+    });
+
+    it('should not warn about slot being invoked outside of render function when using TSX', () => {
+      // This is the exact pattern from the issue that was causing warnings
+      const TestComponent = defineComponent({
+        setup() {
+          return () => (
+            <List split={true} size="small">
+              <ListItem>列表内容的描述性文字</ListItem>
+              <ListItem>列表内容的描述性文字</ListItem>
+              <ListItem>列表内容的描述性文字</ListItem>
+            </List>
+          );
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+
+      // Check that no Vue warnings were emitted about slot invocation outside render function
+      const slotWarning = warnings.find((w) => w.includes('Slot "default" invoked outside of the render function'));
+
+      expect(slotWarning).toBeUndefined();
+      wrapper.unmount();
+    });
+
+    it('should not warn with asyncLoading prop', () => {
+      const TestComponent = defineComponent({
+        setup() {
+          return () => (
+            <List asyncLoading="loading">
+              <ListItem>描述性文字一</ListItem>
+              <ListItem>描述性文字二</ListItem>
+            </List>
+          );
+        },
+      });
+
+      const wrapper = mount(TestComponent);
+
+      const slotWarning = warnings.find((w) => w.includes('Slot "default" invoked outside of the render function'));
+
+      expect(slotWarning).toBeUndefined();
+      wrapper.unmount();
+    });
+  });
+
   describe('props', () => {
     it('asyncLoading[string]', () => {
       const wrapperLoading = mount(() => (
