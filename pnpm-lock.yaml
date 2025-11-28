@@ -950,8 +950,8 @@ importers:
   packages/tdesign-vue-next/site:
     dependencies:
       '@tdesign/site-components':
-        specifier: 0.18.0-alpha.6
-        version: 0.18.0-alpha.6
+        specifier: 0.18.0-alpha.7
+        version: 0.18.0-alpha.7
       nprogress:
         specifier: catalog:deps
         version: 0.2.0
@@ -2398,8 +2398,8 @@ packages:
   '@tdesign/site-components@0.17.0':
     resolution: {integrity: sha512-fk+4+Zlb0qVHfIume0wpkshBGioFAJWZJoXFPoVockjIZc+ifxyKBf5o2ac/lXopHP6mKVwchAe0W7KkkhJaBA==}
 
-  '@tdesign/site-components@0.18.0-alpha.6':
-    resolution: {integrity: sha512-nnnE82D9kmxuqeuOtPwfpalkilinJPw85jkbe0us/eFoW9ArXUTXk62RyIQ7U3VMe51dGuZUOfI9c0TLpK1j2A==}
+  '@tdesign/site-components@0.18.0-alpha.7':
+    resolution: {integrity: sha512-8SDWKMaxUDkRzg4XVoemMJ8BWF6dBlE9jujvpEDL+Jej+k659f1iV4saqxpQK8UF9lNQZzJxwlHuTdC8tSOhBg==}
 
   '@testing-library/dom@9.3.4':
     resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
@@ -8974,7 +8974,7 @@ snapshots:
       qrcode: 1.5.4
       tdesign-icons-svg: 0.0.1
 
-  '@tdesign/site-components@0.18.0-alpha.6':
+  '@tdesign/site-components@0.18.0-alpha.7':
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
