@@ -181,7 +181,7 @@ describe('DropdownMenu', () => {
     });
 
     it('renders empty menu when no options', () => {
-      // With the fix, DropdownMenu should not crash when there are no options
+      // 修复后，DropdownMenu 在没有选项时不会崩溃
       const wrapper = mount(DropdownMenu, {
         props: {
           options: [],
