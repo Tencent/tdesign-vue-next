@@ -85,7 +85,7 @@ export function useKeyboardControl({
           selectPanelRef.value.isVirtual && isFilterable.value && virtualFilteredOptions.value.length
             ? virtualFilteredOptions.value
             : isRemoteSearch.value
-            ? optionsList.value
+            ? displayOptions.value
             : filteredOptions.value;
 
         if (!finalOptions.length) finalOptions = optionsList.value;
