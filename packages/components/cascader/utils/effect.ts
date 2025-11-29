@@ -187,7 +187,9 @@ export const treeNodesEffect = (
   let nodes = [];
   // 通用的过滤方法
   const filterMethods = (node: TreeNode) => {
-    if (!node.isLeaf() && !isParentFilterable) return false;
+    // 当children为true时（动态加载场景），应当允许过滤该节点
+    const isLazyLoadNode = node.children === true;
+    if (!node.isLeaf() && !isParentFilterable && !isLazyLoadNode) return false;
     if (isFunction(filter)) {
       return filter(`${inputVal}`, node as TreeNodeModel & TreeNode);
     }
