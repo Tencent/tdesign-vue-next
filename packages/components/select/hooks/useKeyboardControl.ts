@@ -81,24 +81,30 @@ export function useKeyboardControl({
       case 'Enter':
         if (hoverIndex.value === -1) break;
 
-        let finalOptions =
-          selectPanelRef.value.isVirtual && isFilterable.value && virtualFilteredOptions.value.length
+        // For virtual scroll with filtering, use virtualFilteredOptions
+        // For remote search, use optionsList
+        // For local filtering, use filteredOptions if available, otherwise fall back to optionsList
+        // optionsList is the flattened list of all selectable options, which matches the keyboard navigation order
+        const finalOptions =
+          selectPanelRef.value?.isVirtual && isFilterable.value && virtualFilteredOptions.value.length
             ? virtualFilteredOptions.value
             : isRemoteSearch.value
             ? optionsList.value
-            : filteredOptions.value;
-
-        if (!finalOptions.length) finalOptions = optionsList.value;
+            : filteredOptions.value.length
+            ? filteredOptions.value
+            : optionsList.value;
         if (!innerPopupVisible.value) {
           setInnerPopupVisible(true, { e });
           break;
         }
 
         if (!multiple) {
-          const selectedOptions = getSelectedOptions(finalOptions[hoverIndex.value].value);
-          setInnerValue(finalOptions[hoverIndex.value].value, {
+          const currentOption = finalOptions[hoverIndex.value];
+          if (!currentOption) break;
+          const selectedOptions = getSelectedOptions(currentOption.value);
+          setInnerValue(currentOption.value, {
             option: selectedOptions?.[0],
-            selectedOptions: getSelectedOptions(finalOptions[hoverIndex.value].value),
+            selectedOptions: getSelectedOptions(currentOption.value),
             trigger: 'check',
             e,
           });
@@ -106,14 +112,17 @@ export function useKeyboardControl({
         } else {
           if (hoverIndex.value === -1) return;
 
-          if (finalOptions[hoverIndex.value].checkAll) {
+          const currentOption = finalOptions[hoverIndex.value];
+          if (!currentOption) return;
+
+          if (currentOption.checkAll) {
             onCheckAllChange(!isCheckAll.value);
             return;
           }
 
-          const optionValue = finalOptions[hoverIndex.value]?.value;
+          const optionValue = currentOption.value;
 
-          if (!optionValue) return;
+          if (optionValue === undefined) return;
           const newValue = getNewMultipleValue(innerValue.value, optionValue);
 
           if (max > 0 && newValue.value.length > max) return; // 如果已选达到最大值 则不处理
@@ -150,7 +159,7 @@ export function useKeyboardControl({
 
     const scrollHeight = optionHeight * index;
 
-    popupContentRef.value.scrollTo({
+    popupContentRef.value?.scrollTo?.({
       top: scrollHeight,
       behavior: 'smooth',
     });
