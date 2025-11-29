@@ -27,12 +27,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 const maxDate = ref('2028-04');
 const minDate = ref('2018-08');
 
-const range1 = ref(['', maxDate.value]);
-const range2 = ref([minDate.value, '']);
+const range1 = computed(() => ['', maxDate.value]);
+const range2 = computed(() => [minDate.value, '']);
 const range3 = ref(['2018-08', '2028-04']);
 </script>

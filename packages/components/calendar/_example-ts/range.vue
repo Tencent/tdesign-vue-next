@@ -27,13 +27,13 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { CalendarProps, CalendarValue } from 'tdesign-vue-next';
 
 const maxDate = ref<CalendarValue>('2028-04');
 const minDate = ref<CalendarValue>('2018-08');
 
-const range1 = ref<CalendarProps['range']>(['', maxDate.value]);
-const range2 = ref<CalendarProps['range']>([minDate.value, '']);
+const range1 = computed<CalendarProps['range']>(() => ['', maxDate.value]);
+const range2 = computed<CalendarProps['range']>(() => [minDate.value, '']);
 const range3 = ref<CalendarProps['range']>(['2018-08', '2028-04']);
 </script>
