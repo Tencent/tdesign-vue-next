@@ -1,10 +1,10 @@
-import { defineComponent, computed, onMounted, inject, ComputedRef } from 'vue';
+import { defineComponent, computed, onMounted, inject, ComputedRef, watch } from 'vue';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import props from './chat-content-props';
 import Clipboard from 'clipboard';
 import hljs from 'highlight.js';
-import { Marked } from 'marked';
+import { Marked, MarkedExtension } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 
 const escapeTest = /[&<>"']/;
@@ -62,13 +62,9 @@ export default defineComponent({
       });
     });
 
-    const marked = new Marked(
-      markedHighlight({
-        highlight(code) {
-          return hljs.highlightAuto(code).value;
-        },
-      }),
-      {
+    // Create marked instance with default options
+    const createMarkedInstance = () => {
+      const defaultRenderer: MarkedExtension = {
         renderer: {
           code(code, lang, escaped) {
             return `<pre class="hljs"><div class="t-chat__code-header">
@@ -77,7 +73,34 @@ export default defineComponent({
         </div><code class="hljs language-${escape(lang)}" >${escaped ? code : escape(code)}</code></pre>`;
           },
         },
+      };
+
+      const markedInstance = new Marked(
+        markedHighlight({
+          highlight(code) {
+            return hljs.highlightAuto(code).value;
+          },
+        }),
+        defaultRenderer,
+      );
+
+      // Apply user-provided markedOptions if available
+      if (props.markedOptions) {
+        markedInstance.use(props.markedOptions as MarkedExtension);
+      }
+
+      return markedInstance;
+    };
+
+    let marked = createMarkedInstance();
+
+    // Watch for changes in markedOptions and recreate the instance
+    watch(
+      () => props.markedOptions,
+      () => {
+        marked = createMarkedInstance();
       },
+      { deep: true },
     );
 
     const getHtmlByMarked = (markdown: string) => {
