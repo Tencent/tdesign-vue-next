@@ -49,8 +49,8 @@ export function useTagScroll(props: TdTagInputProps) {
   const onWheel = ({ e }: { e: WheelEvent }) => {
     if (readonly.value || disabled.value) return;
     if (!scrollElement.value) return;
-    // 使用 deltaX 或 deltaY 来判断滚动方向，优先使用 deltaX（Mac trackpad），fallback 到 deltaY（Windows 鼠标滚轮）
-    const delta = e.deltaX !== 0 ? e.deltaX : e.deltaY;
+    // 使用 deltaX 或 deltaY 来判断滚动方向，优先使用绝对值更大的
+    const delta = Math.abs(e.deltaX) >= Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
     if (delta > 0) {
       updateScrollDistance();
       const distance = Math.min(scrollElement.value.scrollLeft + 120, scrollDistance.value);
