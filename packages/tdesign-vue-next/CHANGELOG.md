@@ -5,6 +5,57 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.5 `2025-11-28` 
+
+### 🐞 Bug Fixes
+- `Tree`: 修复 `1.17.3` 版本过滤中可选节点被错误禁用的问题 @RylanBot ([common#2345](https://github.com/Tencent/tdesign-common/pull/2345))  ([#6196](https://github.com/Tencent/tdesign-vue-next/pull/6196))
+
+
+## 🌈 1.17.4 `2025-11-28` 
+
+### 🚀 Features
+- `Table`: 优化通过分页操作后 Table 内容变化时的展示效果，分页器会锚定在当前视口 @RSS1102 ([#6172](https://github.com/Tencent/tdesign-vue-next/pull/6172))
+
+### 🐞 Bug Fixes
+- `Calendar`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `DatePicker`: 优化日期范围选择器的交互问题，避免先选择结束日期后需重复操作多次的问题 @mikasayw ([#6143](https://github.com/Tencent/tdesign-vue-next/pull/6143))
+- `Description`: 修复无边框模式下`itemLayout`垂直排列的间距问题 @mikasayw  ([#6156](https://github.com/Tencent/tdesign-vue-next/pull/6156))
+- `Input`: 
+  - 修正 input 及上层 select 等组件在 safari 中初次渲染 auto-width 失效的问题 @Cat1007 ([common#2336](https://github.com/Tencent/tdesign-common/pull/2336))  ([#6188](https://github.com/Tencent/tdesign-vue-next/pull/6188))
+  - 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `SelectInput`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `Slider`: 修复初始化时精度计算错误的问题 @RylanBot ([#6183](https://github.com/Tencent/tdesign-vue-next/pull/6183))
+- `Table`: 
+  - 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+  - 修复可编辑单元格在`keepEditMode`下没有正确在validateData回调展示的问题 @uyarn ([#5490](https://github.com/Tencent/tdesign-vue-next/pull/5490))
+- `TagInput`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `TreeSelect`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `Upload`: 
+    - 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+    - 修复不支持文件数组上传的问题 @GATING  ([#6169](https://github.com/Tencent/tdesign-vue-next/pull/6169))
+- `Table`: 修复分页受控模式下 `current` 属性手动变更不触发 `onPageChange` 的问题 @RSS1102 ([#6163](https://github.com/Tencent/tdesign-vue-next/pull/6163))
+
+### 📝 Documentation
+- `Calendar`: 补充`range`参数的用法示例 @shumuuu ([#6148](https://github.com/Tencent/tdesign-vue-next/pull/6148))
+
+
+## 🌈 1.17.3 `2025-11-14` 
+
+### 🚀 Features
+- `DatePicker`: 在未配置 `enableTimePicker` 场景下也应用 `defaultTime` 的配置，影响 `valueType` 为 `time-stamp`的返回值及 `onChange` 的回调参数 ⚠️ @RSS1102 @uyarn ([#6140](https://github.com/Tencent/tdesign-vue-next/pull/6140))
+- `Divider`: 新增 `size` API，用于控制间距大小 @liweijie0812 ([#6094](https://github.com/Tencent/tdesign-vue-next/pull/6094))
+- `Guide`: 支持在调整窗口大小时自动调整引导组件的展示效果 @yrc2333 ([#6133](https://github.com/Tencent/tdesign-vue-next/pull/6133))
+- `Form`:  `pattern` API 新增支持 string 类型 @liweijie0812 ([#6134](https://github.com/Tencent/tdesign-vue-next/pull/6134))
+- `Form`: 在 `setValidateMessage` 中添加 `success` 验证类型支持 @RSS1102 ([#6147](https://github.com/Tencent/tdesign-vue-next/pull/6147))
+
+### 🐞 Bug Fixes
+- `Popup`: 修复在 SSR 场景下的异常问题 @uyarn ([#6124](https://github.com/Tencent/tdesign-vue-next/pull/6124))
+- `Table`: 修复在 pageSize 由小到大改变时无法自定义当前页的问题 @RSS1102 ([#6127](https://github.com/Tencent/tdesign-vue-next/pull/6127))
+- `Tabs`: 修复开启 `destroyOnHide` 移除标签后会导致后续 TabItem 状态异常的问题 @yrc2333 ([#6137](https://github.com/Tencent/tdesign-vue-next/pull/6137))
+- `Empty`: 修复多语言动态切换响应式无效 @liweijie0812 ([#6126](https://github.com/Tencent/tdesign-vue-next/pull/6126))
+- `Menu`: 修复快速操作菜单时，父菜单关闭后子菜单未正确收起的问题 @RSS1102 ([#6121](https://github.com/Tencent/tdesign-vue-next/pull/6121))
+
+
 ## 🌈 1.17.2 `2025-10-30` 
 
 ### 🚀 Features
