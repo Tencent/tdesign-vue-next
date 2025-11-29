@@ -1,4 +1,4 @@
-import { ref, h } from 'vue';
+import { ref, h, nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { describe, expect, vi, it } from 'vitest';
@@ -62,6 +62,7 @@ describe('Transfer', () => {
       const nonDisabledItem = items[1];
       const checkbox = nonDisabledItem.find('.t-checkbox input');
       await checkbox.trigger('change');
+      await nextTick();
 
       // The checked value should be updated
       expect(checked.value.length).toBeGreaterThan(0);
