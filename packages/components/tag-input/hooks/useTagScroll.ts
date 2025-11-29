@@ -40,7 +40,7 @@ export function useTagScroll(props: TdTagInputProps) {
       updateScrollElement(element);
     }
     if (!scrollElement.value) return;
-    
+
     // 使用 setTimeout 确保 DOM 布局完成后再计算滚动距离
     setTimeout(() => {
       updateScrollDistance();
