@@ -663,4 +663,43 @@ describe('DatePicker', () => {
     const html = wrapper.element.innerHTML;
     expect(html).toContain('01:02:03');
   });
+
+  it('DatePicker: timePickerProps.disableTime should auto-adjust initial time to first available', async () => {
+    // Test that when disableTime disables hours 0-6, the initial time (00:00:00) is auto-adjusted to 07:00:00
+    const attachClass = 'date-picker-disable-time-test';
+
+    const wrapper = mount({
+      render() {
+        return (
+          <div class={attachClass}>
+            <DatePicker
+              format="YYYY-MM-DD HH:mm:ss"
+              enableTimePicker={true}
+              popupProps={{ attach: `.${attachClass}` }}
+              timePickerProps={{
+                disableTime: () => ({
+                  hour: [0, 1, 2, 3, 4, 5, 6],
+                }),
+              }}
+            />
+          </div>
+        );
+      },
+    });
+
+    const trigger = wrapper.find('.t-input');
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
+    await trigger.trigger('click');
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    // Check that the time viewer shows 07:00:00 (first non-disabled hour) instead of 00:00:00
+    const popupViewer =
+      (wrapper.element.querySelector('.t-date-picker__panel-time-viewer') as HTMLElement | null) ||
+      (document.querySelector('.t-date-picker__panel-time-viewer') as HTMLElement | null);
+    expect(popupViewer).toBeTruthy();
+    // The key assertion: time should be adjusted to 07:00:00, not the default 00:00:00
+    expect(popupViewer?.textContent?.trim()).toBe('07:00:00');
+  });
 });

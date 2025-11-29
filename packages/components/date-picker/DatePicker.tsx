@@ -16,6 +16,7 @@ import {
 import { useSingle } from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@tdesign/common-js/date-picker/utils';
+import { getFirstAvailableTime } from './utils/getFirstAvailableTime';
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';
@@ -118,7 +119,41 @@ export default defineComponent({
       if (visible) {
         year.value = parseToDayjs(value.value as DateValue, formatRef.value.valueType).year();
         month.value = parseToDayjs(value.value as DateValue, formatRef.value.format).month();
-        time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
+        let initialTime = formatTime(
+          value.value,
+          formatRef.value.format,
+          formatRef.value.timeFormat,
+          props.defaultTime,
+        );
+
+        // Check if the initial time is disabled and adjust to first available time
+        const timePickerPropsTyped = props.timePickerProps as TdDatePickerProps['timePickerProps'];
+        if (props.enableTimePicker && timePickerPropsTyped?.disableTime) {
+          const adjustedTime = getFirstAvailableTime(
+            initialTime,
+            formatRef.value.timeFormat,
+            timePickerPropsTyped.disableTime,
+          );
+
+          // If time was adjusted, update inputValue and cacheValue with the new time
+          if (adjustedTime !== initialTime) {
+            initialTime = adjustedTime;
+            const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(adjustedTime);
+            let nextHours = hours;
+            if (/am/i.test(meridiem) && nextHours === 12) nextHours -= 12;
+            if (/pm/i.test(meridiem) && nextHours < 12) nextHours += 12;
+
+            const currentDate = dayjs(inputValue.value as string, formatRef.value.format).isValid()
+              ? dayjs(inputValue.value as string, formatRef.value.format)
+              : dayjs();
+            const adjustedDate = currentDate.hour(nextHours).minute(minutes).second(seconds).millisecond(milliseconds);
+            const formattedDate = adjustedDate.format(formatRef.value.format);
+            inputValue.value = formattedDate;
+            cacheValue.value = formattedDate;
+          }
+        }
+
+        time.value = initialTime;
       } else {
         isHoverCell.value = false;
       }
