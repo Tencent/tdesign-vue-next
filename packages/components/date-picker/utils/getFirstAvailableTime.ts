@@ -25,8 +25,11 @@ export function getFirstAvailableTime(
     return currentTime;
   }
 
-  // Parse current time
-  const timeParts = currentTime.split(':').map((p) => parseInt(p, 10) || 0);
+  // Parse current time - handle both "HH:mm:ss" and "HH:mm" formats
+  const timeParts = currentTime.split(':').map((p) => {
+    const parsed = parseInt(p, 10);
+    return Number.isNaN(parsed) ? 0 : parsed;
+  });
   const [currentHour = 0, currentMinute = 0, currentSecond = 0] = timeParts;
 
   // Check if current time is disabled
@@ -97,7 +100,8 @@ export function getFirstAvailableTime(
     const pad = (n: number) => n.toString().padStart(2, '0');
 
     // Determine which parts to include based on format
-    const hasHour = /H/.test(format);
+    // Support both 12-hour (h) and 24-hour (H) formats
+    const hasHour = /[Hh]/.test(format);
     const hasMinute = /m/.test(format);
     const hasSecond = /s/.test(format);
 
