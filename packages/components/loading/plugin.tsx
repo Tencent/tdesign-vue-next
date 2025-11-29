@@ -1,4 +1,4 @@
-import { App, Plugin, createVNode, defineComponent, h, reactive, render, AppContext } from 'vue';
+import { App, Plugin, createVNode, defineComponent, h, reactive, render, AppContext, ref } from 'vue';
 import { merge } from 'lodash-es';
 import LoadingComponent from './loading';
 import { usePrefixClass } from '@tdesign/shared-hooks';
@@ -28,9 +28,17 @@ function createLoading(props: TdLoadingProps, context?: AppContext): LoadingInst
     return fullScreenLoadingInstance;
   }
 
+  // Store class names that will be set inside component's setup context
+  const parentRelativeClass = ref('');
+  const lockClass = ref('');
+
   const component = defineComponent({
     setup() {
       const loadingOptions = reactive(mergedProps);
+
+      // Get prefix class inside component setup context to access ConfigProvider's classPrefix
+      parentRelativeClass.value = usePrefixClass('loading__parent--relative').value;
+      lockClass.value = usePrefixClass('loading--lock').value;
 
       return () => h(LoadingComponent, loadingOptions);
     },
@@ -49,8 +57,6 @@ function createLoading(props: TdLoadingProps, context?: AppContext): LoadingInst
   const wrapper = document.createElement('div');
   render(instance, wrapper);
 
-  const parentRelativeClass = usePrefixClass('loading__parent--relative').value;
-  const lockClass = usePrefixClass('loading--lock');
   const lockFullscreen = mergedProps.preventScrollThrough && mergedProps.fullscreen;
 
   if (lockFullscreen) {
@@ -58,14 +64,14 @@ function createLoading(props: TdLoadingProps, context?: AppContext): LoadingInst
   }
 
   if (attach) {
-    addClass(attach, parentRelativeClass);
+    addClass(attach, parentRelativeClass.value);
   } else {
     console.error('attach is not exist');
   }
 
   const loadingInstance: LoadingInstance = {
     hide: () => {
-      removeClass(attach, parentRelativeClass);
+      removeClass(attach, parentRelativeClass.value);
       removeClass(document.body, lockClass.value);
       // 卸载组件渲染
       render(null, wrapper);
