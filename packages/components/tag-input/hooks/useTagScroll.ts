@@ -31,25 +31,31 @@ export function useTagScroll(props: TdTagInputProps) {
   };
 
   const scrollToRight = () => {
-    updateScrollDistance();
-    scrollTo(scrollDistance.value);
-    setTimeout(() => {
-      isScrollable.value = true;
-    }, 200);
+    // 使用 requestAnimationFrame 确保在 DOM 布局更新后再计算滚动距离
+    requestAnimationFrame(() => {
+      updateScrollDistance();
+      scrollTo(scrollDistance.value);
+      setTimeout(() => {
+        isScrollable.value = true;
+      }, 200);
+    });
   };
 
   const scrollToLeft = () => {
     scrollTo(0);
   };
 
-  // TODO：MAC 电脑横向滚动，Windows 纵向滚动。当前只处理了横向滚动
+  // MAC 电脑横向滚动使用 deltaX，Windows 纵向滚动使用 deltaY
   const onWheel = ({ e }: { e: WheelEvent }) => {
     if (readonly.value || disabled.value) return;
     if (!scrollElement.value) return;
-    if (e.deltaX > 0) {
+    // 使用 deltaX 或 deltaY 来判断滚动方向，优先使用 deltaX（Mac trackpad），fallback 到 deltaY（Windows 鼠标滚轮）
+    const delta = e.deltaX !== 0 ? e.deltaX : e.deltaY;
+    if (delta > 0) {
+      updateScrollDistance();
       const distance = Math.min(scrollElement.value.scrollLeft + 120, scrollDistance.value);
       scrollTo(distance);
-    } else {
+    } else if (delta < 0) {
       const distance = Math.max(scrollElement.value.scrollLeft - 120, 0);
       scrollTo(distance);
     }
