@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, ref } from 'vue';
+import { defineComponent, computed, toRefs } from 'vue';
 import { pick, isFunction } from 'lodash-es';
 
 import TransferList from './components/transfer-list';
@@ -19,7 +19,7 @@ import props from './props';
 import { TNode } from '../common';
 
 // hooks
-import { useVModel, useDisabled, usePrefixClass } from '@tdesign/shared-hooks';
+import { useVModel, useDisabled, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: TRANSFER_NAME,
@@ -30,16 +30,11 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const { value, modelValue, checked } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-    // checkedModelValue is a dummy ref (always undefined) since checked doesn't have a corresponding modelValue prop.
-    // This is needed to satisfy useVModel signature while still handling v-model:checked via the propName parameter.
-    // onCheckedChange is passed as undefined because it expects a CheckedOptions object, not just the value array.
-    // The callback is invoked manually in handleCheckedChange with the proper event object.
-    const checkedModelValue = ref(undefined);
-    const [innerChecked, setInnerChecked] = useVModel(
+    // @ts-ignore TODO
+    const [innerChecked, setInnerChecked] = useDefaultValue(
       checked,
-      checkedModelValue,
       props.defaultChecked,
-      undefined,
+      props.onCheckedChange,
       'checked',
     );
     const valueList = computed(() => innerValue.value);
