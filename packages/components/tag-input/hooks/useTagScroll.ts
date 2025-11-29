@@ -5,10 +5,12 @@
 
 import { isFunction } from 'lodash-es';
 import { onMounted, onUnmounted, ref, toRefs } from 'vue';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import { TdTagInputProps } from '../type';
 
 export function useTagScroll(props: TdTagInputProps) {
   const tagInputRef = ref();
+  const classPrefix = usePrefixClass();
   const { excessTagsDisplayType, readonly, disabled } = toRefs(props);
   // 允许向右滚动的最大距离
   const scrollDistance = ref(0);
@@ -17,8 +19,9 @@ export function useTagScroll(props: TdTagInputProps) {
   const isScrollable = ref(false); // 设置可滚动
 
   const updateScrollElement = (element: HTMLElement) => {
-    const inputElement = element.children[0] as HTMLElement;
-    scrollElement.value = inputElement;
+    // 获取 .t-input__prefix 元素，这是真正需要滚动的容器
+    const prefixElement = element.querySelector(`.${classPrefix.value}-input__prefix`) as HTMLElement;
+    scrollElement.value = prefixElement;
   };
 
   const updateScrollDistance = () => {
@@ -31,17 +34,21 @@ export function useTagScroll(props: TdTagInputProps) {
   };
 
   const scrollToRight = () => {
-    // 使用双 requestAnimationFrame 确保在 DOM 布局完全更新后再计算滚动距离
-    // 第一个 rAF 等待样式计算，第二个 rAF 等待布局完成
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        updateScrollDistance();
-        scrollTo(scrollDistance.value);
-        setTimeout(() => {
-          isScrollable.value = true;
-        }, 200);
-      });
-    });
+    // 重新获取滚动元素，确保元素引用是最新的
+    const element = tagInputRef.value?.$el;
+    if (element) {
+      updateScrollElement(element);
+    }
+    if (!scrollElement.value) return;
+    
+    // 使用 setTimeout 确保 DOM 布局完成后再计算滚动距离
+    setTimeout(() => {
+      updateScrollDistance();
+      scrollTo(scrollDistance.value);
+      setTimeout(() => {
+        isScrollable.value = true;
+      }, 200);
+    }, 0);
   };
 
   const scrollToLeft = () => {
