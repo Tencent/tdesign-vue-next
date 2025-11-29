@@ -272,6 +272,75 @@ describe('Select', () => {
       panelNode.parentNode.removeChild(panelNode);
     });
   });
+
+  describe('keyboard navigation with remote search', () => {
+    const remoteSearchOptions = [
+      { label: '架构云', value: '1' },
+      { label: '大数据', value: '2' },
+      { label: '区块链', value: '3' },
+      { label: '人工智能', value: '5' },
+    ];
+
+    it('should select the correct option using keyboard when using onSearch', async () => {
+      const value = ref('');
+      const onChangeFn = vi.fn();
+      const currentOptions = ref([...remoteSearchOptions]);
+
+      // Simulate remote search by filtering options
+      const onSearchFn = vi.fn((searchValue: string) => {
+        if (searchValue) {
+          // Filter options based on search value
+          currentOptions.value = remoteSearchOptions.filter((opt) => opt.label.includes(searchValue));
+        }
+      });
+
+      const wrapper = mount({
+        render() {
+          return (
+            <Select
+              v-model={value.value}
+              options={currentOptions.value}
+              filterable
+              onSearch={onSearchFn}
+              onChange={onChangeFn}
+            />
+          );
+        },
+      });
+
+      const input = wrapper.find('.t-input');
+      await input.trigger('click');
+      await wrapper.setProps({ popupProps: { visible: true } });
+
+      await nextTick();
+
+      // Simulate search - filter to show only '架构云'
+      onSearchFn('架构');
+      await nextTick();
+
+      // Re-mount with filtered options to trigger re-render
+      await wrapper.setProps({ options: currentOptions.value });
+      await nextTick();
+
+      // Get the popup content and verify filtered options
+      const panelNode = document.querySelector('.t-select__list');
+      expect(panelNode).toBeTruthy();
+
+      // Simulate keyboard navigation - press ArrowDown to select first option
+      const inputElement = wrapper.find('.t-input__inner');
+      await inputElement.trigger('keydown', { code: 'ArrowDown' });
+      await nextTick();
+
+      // Press Enter to select
+      await inputElement.trigger('keydown', { code: 'Enter' });
+      await nextTick();
+
+      // The selected value should be '1' (架构云), not from the original full list
+      expect(value.value).toBe('1');
+
+      panelNode.parentNode.removeChild(panelNode);
+    });
+  });
 });
 
 describe('Select Option', () => {
