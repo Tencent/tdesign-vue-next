@@ -51,6 +51,22 @@ describe('Transfer', () => {
       expect(text.text()).toBe('1 / 20 项');
     });
 
+    it(':v-model:checked should emit update:checked event', async () => {
+      const checked = ref<string[]>([]);
+      const wrapper = mount(() => <Transfer data={transferMockData} v-model:checked={checked.value} />);
+
+      // Click on first non-disabled item checkbox
+      const list = wrapper.findAll('.t-transfer__list');
+      const items = list[0].findAll('.t-transfer__list-item');
+      // Find a non-disabled item (item with index 1 should be non-disabled based on mock data)
+      const nonDisabledItem = items[1];
+      const checkbox = nonDisabledItem.find('.t-checkbox input');
+      await checkbox.trigger('change');
+
+      // The checked value should be updated
+      expect(checked.value.length).toBeGreaterThan(0);
+    });
+
     it(':data[array]', () => {
       const wrapper = mount(<Transfer data={transferMockData} />);
       const transfer = wrapper.find('.t-transfer');

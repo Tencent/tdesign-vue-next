@@ -31,7 +31,12 @@ export default defineComponent({
     const { value, modelValue, checked } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     // @ts-ignore TODO
-    const [innerChecked] = useDefaultValue(checked, props.defaultChecked, props.onCheckedChange, 'checked');
+    const [innerChecked, setInnerChecked] = useDefaultValue(
+      checked,
+      props.defaultChecked,
+      props.onCheckedChange,
+      'checked',
+    );
     const valueList = computed(() => innerValue.value);
 
     const isTreeMode = computed(() => {
@@ -103,7 +108,7 @@ export default defineComponent({
         type: listType,
       };
       // TODO onCheckedChange 参数有点不合理
-      innerChecked.value = checked;
+      setInnerChecked(checked);
       props.onCheckedChange?.(event);
     };
 
