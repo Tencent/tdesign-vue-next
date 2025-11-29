@@ -104,7 +104,7 @@ export function useKeyboardControl({
           const selectedOptions = getSelectedOptions(currentOption.value);
           setInnerValue(currentOption.value, {
             option: selectedOptions?.[0],
-            selectedOptions: getSelectedOptions(currentOption.value),
+            selectedOptions,
             trigger: 'check',
             e,
           });
