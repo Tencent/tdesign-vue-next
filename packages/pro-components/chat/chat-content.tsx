@@ -1,4 +1,4 @@
-import { defineComponent, computed, onMounted, inject, ComputedRef, watch } from 'vue';
+import { defineComponent, computed, onMounted, inject, ComputedRef, ref, watch } from 'vue';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import props from './chat-content-props';
@@ -63,7 +63,7 @@ export default defineComponent({
     });
 
     // Create marked instance with default options
-    const createMarkedInstance = () => {
+    const createMarkedInstance = (markedOptions?: Record<string, any>) => {
       const defaultRenderer: MarkedExtension = {
         renderer: {
           code(code, lang, escaped) {
@@ -85,20 +85,21 @@ export default defineComponent({
       );
 
       // Apply user-provided markedOptions if available
-      if (props.markedOptions) {
-        markedInstance.use(props.markedOptions as MarkedExtension);
+      if (markedOptions) {
+        markedInstance.use(markedOptions as MarkedExtension);
       }
 
       return markedInstance;
     };
 
-    let marked = createMarkedInstance();
+    // Use ref to store marked instance and watch for changes
+    const markedRef = ref(createMarkedInstance(props.markedOptions));
 
     // Watch for changes in markedOptions and recreate the instance
     watch(
       () => props.markedOptions,
-      () => {
-        marked = createMarkedInstance();
+      (newOptions) => {
+        markedRef.value = createMarkedInstance(newOptions);
       },
       { deep: true },
     );
@@ -107,7 +108,7 @@ export default defineComponent({
       if (!markdown) {
         return '<div class="waiting"></div>';
       }
-      return marked.parse(markdown);
+      return markedRef.value.parse(markdown);
     };
     const textInfo = computed(() => {
       if (role.value === 'model-change') {
