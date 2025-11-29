@@ -31,13 +31,16 @@ export function useTagScroll(props: TdTagInputProps) {
   };
 
   const scrollToRight = () => {
-    // 使用 requestAnimationFrame 确保在 DOM 布局更新后再计算滚动距离
+    // 使用双 requestAnimationFrame 确保在 DOM 布局完全更新后再计算滚动距离
+    // 第一个 rAF 等待样式计算，第二个 rAF 等待布局完成
     requestAnimationFrame(() => {
-      updateScrollDistance();
-      scrollTo(scrollDistance.value);
-      setTimeout(() => {
-        isScrollable.value = true;
-      }, 200);
+      requestAnimationFrame(() => {
+        updateScrollDistance();
+        scrollTo(scrollDistance.value);
+        setTimeout(() => {
+          isScrollable.value = true;
+        }, 200);
+      });
     });
   };
 
