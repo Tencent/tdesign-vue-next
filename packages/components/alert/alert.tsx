@@ -1,4 +1,4 @@
-import { defineComponent, VNode, ref, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue';
+import { defineComponent, VNode, ref, onMounted, onBeforeUnmount, getCurrentInstance, Fragment } from 'vue';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,
@@ -100,11 +100,33 @@ export default defineComponent({
       );
     };
 
+    // Flatten Fragment children recursively to handle v-for content
+    const flattenContent = (content: SlotReturnValue | SlotReturnValue[]): SlotReturnValue[] => {
+      if (!isArray(content)) {
+        return [content];
+      }
+      const result: SlotReturnValue[] = [];
+      for (const item of content) {
+        if (item && typeof item === 'object' && 'type' in item && item.type === Fragment) {
+          // Fragment VNode: flatten its children
+          const children = (item as VNode).children;
+          if (isArray(children)) {
+            result.push(...flattenContent(children as SlotReturnValue[]));
+          }
+        } else {
+          result.push(item);
+        }
+      }
+      return result;
+    };
+
     const renderDescription = () => {
       let messageContent = renderTNodeJSX('default') || renderTNodeJSX('message');
 
       if (isArray(messageContent)) {
         messageContent = filterCommentNode(messageContent);
+        // Flatten Fragment children to handle v-for dynamic content
+        messageContent = flattenContent(messageContent);
       }
 
       const contentLength = isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;

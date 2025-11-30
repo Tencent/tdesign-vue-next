@@ -183,6 +183,30 @@ describe('Alert', () => {
       expect(description.exists()).eq(true);
       expect(description.find('.t-alert__collapse').exists()).eq(false);
     });
+
+    it('maxLine[number] with dynamic content (v-for simulation)', async () => {
+      // Simulate v-for by wrapping content in Fragment - this is how Vue renders v-for content
+      const messages = ['第一条消息', '第二条消息', '第三条消息', '第四条消息', '第五条消息', '第六条消息'];
+      const wrapper = mount(() => (
+        <Alert title="dynamic content test" maxLine={2}>
+          {messages.map((msg) => (
+            <span key={msg}>{msg}</span>
+          ))}
+        </Alert>
+      ));
+      const description = wrapper.find('.t-alert__description');
+      const collapse = description.find('.t-alert__collapse');
+      // Should show collapse button because there are 6 items and maxLine is 2
+      expect(collapse.exists()).eq(true);
+      expect(collapse.text()).eq('展开更多');
+      // Initially collapsed: should show 2 items + collapse button = 3 children
+      expect(description.element.children.length).eq(3);
+      // Click to expand
+      await collapse.trigger('click');
+      // Expanded: should show 6 items + collapse button = 7 children
+      expect(description.element.children.length).eq(7);
+      expect(collapse.text()).eq('收起');
+    });
   });
 
   describe('events', () => {
