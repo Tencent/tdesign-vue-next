@@ -107,11 +107,15 @@ export default defineComponent({
       }
       const result: SlotReturnValue[] = [];
       for (const item of content) {
-        if (item && typeof item === 'object' && 'type' in item && item.type === Fragment) {
+        // Check if item is a Fragment VNode
+        if (item && typeof item === 'object' && (item as VNode).type === Fragment) {
           // Fragment VNode: flatten its children
           const children = (item as VNode).children;
           if (isArray(children)) {
             result.push(...flattenContent(children as SlotReturnValue[]));
+          } else if (children != null) {
+            // Handle single child or text content
+            result.push(children as SlotReturnValue);
           }
         } else {
           result.push(item);
