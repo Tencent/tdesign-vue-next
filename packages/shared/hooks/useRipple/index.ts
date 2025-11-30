@@ -60,6 +60,8 @@ export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) 
     )
       return;
 
+    // Check again if element is still valid before calling getComputedStyle
+    if (!(dom instanceof Element)) return;
     const elStyle = getComputedStyle(dom);
 
     const elBorder = parseInt(elStyle.borderWidth, 10);
@@ -109,7 +111,10 @@ export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) 
     }
 
     // fix position
-    const initPosition = dom.style.position ? dom.style.position : getComputedStyle(dom).position;
+    let initPosition = dom.style.position;
+    if (!initPosition && dom instanceof Element) {
+      initPosition = getComputedStyle(dom).position;
+    }
     if (initPosition === '' || initPosition === 'static') {
       // eslint-disable-next-line no-param-reassign
       dom.style.position = 'relative';
