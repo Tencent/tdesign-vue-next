@@ -782,6 +782,52 @@ describe('Tree:api', () => {
       expect(t1d2.getIndex()).toBe(0);
       expect(t1d3.getIndex()).toBe(1);
     });
+
+    it('拖动节点时应保持选中状态', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+            },
+            {
+              value: 't1.2',
+            },
+            {
+              value: 't1.3',
+            },
+          ],
+        },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Tree ref="tree" transition={false} data={data} checkable expandAll={true} defaultValue={['t1.2']} />;
+        },
+      });
+
+      const { tree } = wrapper.vm.$refs;
+
+      // 验证初始状态：t1.2 选中，t1.1 和 t1.3 未选中
+      await delay(10);
+      expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(false);
+      expect(wrapper.find('[data-value="t1.2"] .t-checkbox').classes('t-is-checked')).toBe(true);
+      expect(wrapper.find('[data-value="t1.3"] .t-checkbox').classes('t-is-checked')).toBe(false);
+
+      const t1d1 = tree.getItem('t1.1');
+      const t1d2 = tree.getItem('t1.2');
+
+      // 将选中的节点 t1.2 移动到 t1.1 之前
+      tree.insertBefore('t1.1', t1d2);
+
+      await delay(10);
+      // 验证移动后选中状态保持不变
+      expect(t1d2.getIndex()).toBe(0);
+      expect(t1d1.getIndex()).toBe(1);
+      expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(false);
+      expect(wrapper.find('[data-value="t1.2"] .t-checkbox').classes('t-is-checked')).toBe(true);
+      expect(wrapper.find('[data-value="t1.3"] .t-checkbox').classes('t-is-checked')).toBe(false);
+    });
   });
 
   // tree.getIndex
