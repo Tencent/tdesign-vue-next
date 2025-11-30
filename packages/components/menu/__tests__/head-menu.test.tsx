@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { HeadMenu } from '@tdesign/components/menu';
+import { defineComponent } from 'vue';
+import { HeadMenu, MenuItem } from '@tdesign/components/menu';
 
 // every component needs four parts: props/events/slots/functions.
 describe('HeadMenu', () => {
@@ -50,6 +51,43 @@ describe('HeadMenu', () => {
         },
       });
       expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
+  describe('JSX rendering', () => {
+    it('should not warn about slot invoked outside of render function when using JSX with dynamic MenuItems', () => {
+      const warnSpy = vi.spyOn(console, 'warn');
+      const menuOptions = [
+        { label: '用户信息', key: 'info' },
+        { label: '身份验证', key: 'security' },
+      ];
+
+      const MenuComponent = defineComponent({
+        setup() {
+          return () => (
+            <HeadMenu>
+              {menuOptions.map((menu) => (
+                <MenuItem key={menu.key} value={menu.key}>
+                  {menu.label}
+                </MenuItem>
+              ))}
+            </HeadMenu>
+          );
+        },
+      });
+
+      const wrapper = mount(MenuComponent);
+      expect(wrapper.exists()).toBe(true);
+
+      // Check that no warning about slot invoked outside of render function was logged
+      const slotWarnings = warnSpy.mock.calls.filter((call) =>
+        call.some(
+          (arg) => typeof arg === 'string' && arg.includes('Slot "default" invoked outside of the render function'),
+        ),
+      );
+      expect(slotWarnings.length).toBe(0);
+
+      warnSpy.mockRestore();
     });
   });
 });
