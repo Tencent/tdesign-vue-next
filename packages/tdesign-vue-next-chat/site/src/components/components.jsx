@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue';
-import semver from 'semver';
 import siteConfig from '../../site.config';
-import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
+import { tdesignVueNextChatPackageJson } from '@tdesign/internal-utils/package-json';
 
 const { docs, enDocs } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 
@@ -10,12 +9,17 @@ const docsMap = {
   en: enDocs,
 };
 
+const currentVersion = tdesignVueNextChatPackageJson.version;
+
 export default defineComponent({
   data() {
     return {
       loaded: false,
-      version: tdesignVueNextPackageJson.version,
-      options: [],
+      version: tdesignVueNextChatPackageJson.version,
+      options: [
+        { label: '0.4.6', value: '0_4_6' },
+        { label: '0.4.5', value: '0_4_5' },
+      ],
     };
   },
 
@@ -52,10 +56,10 @@ export default defineComponent({
     },
     changeVersion(version) {
       if (version === currentVersion) return;
-      const historyUrl = `//${version}-tdesign-vue-next.surge.sh`;
+      const historyUrl = `//${version}-tdesign-vue-next-chat.surge.sh`;
       window.open(historyUrl, '_blank');
       this.$nextTick(() => {
-        this.version = tdesignVueNextPackageJson.version;
+        this.version = tdesignVueNextChatPackageJson.version;
       });
     },
   },
@@ -63,8 +67,17 @@ export default defineComponent({
   render() {
     return (
       <td-doc-layout>
-        <td-header ref="tdHeader" slot="header" />
-        <td-doc-aside ref="tdDocAside" title="TDesign Chat for Vue"></td-doc-aside>
+        <td-header ref="tdHeader" slot="header" disabledLocale={true} />
+        <td-doc-aside ref="tdDocAside" title="TDesign Chat for Vue">
+          <t-select
+            id="historyVersion"
+            slot="extra"
+            value={this.version}
+            popupProps={{ zIndex: 500, attach: this.getAttach }}
+            onChange={this.changeVersion}
+            options={this.options}
+          />
+        </td-doc-aside>
         <router-view style={this.contentStyle} onLoaded={this.contentLoaded} />
         <td-theme-generator />
       </td-doc-layout>

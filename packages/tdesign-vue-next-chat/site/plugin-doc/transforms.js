@@ -54,9 +54,13 @@ export default {
       const isMockReasoningDemoDisplay =
         ['_example/reasoning', '_example/reasoning-drag', '_example/reasoning-drawer'].includes(relativeDemoPath) &&
         ['chat', 'chat-reasoning'].includes(componentName);
+      const isComponentDemoDisplay =
+        ['_example/agui', '_example/code'].includes(relativeDemoPath) && ['chatbot'].includes(componentName);
 
       const mockDemoPath = `_example/mock-data/sseRequest.ts`;
       const mockReasoningDemoPath = `_example/mock-data/sseRequest-reasoning.ts`;
+      const toolCallDemoPath = `_example/components/Toolcall.vue`;
+      const loginDemoPath = `_example/components/Login.vue`;
 
       const demoPathOnlyLetters = relativeDemoPath.replace(/[^a-zA-Z\d]/g, '');
       const demoDefName = `Demo${demoPathOnlyLetters}`;
@@ -69,6 +73,10 @@ export default {
         demoCodesImports[demoMockDataDefName] = `import ${demoMockDataDefName} from './${mockDemoPath}?raw'`;
       if (isMockReasoningDemoDisplay)
         demoCodesImports[demoMockDataDefName] = `import ${demoMockDataDefName} from './${mockReasoningDemoPath}?raw'`;
+      if (isComponentDemoDisplay) {
+        demoCodesImports[demoMockDataDefName] = `import ${demoMockDataDefName} from './${toolCallDemoPath}?raw'`;
+        demoCodesImports[demoMockDataDefName] = `import ${demoMockDataDefName} from './${loginDemoPath}?raw'`;
+      }
     });
 
     return source;

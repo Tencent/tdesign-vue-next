@@ -37,6 +37,7 @@ export default defineComponent({
     onAdd: tabProps.onAdd,
     onRemove: tabProps.onRemove,
     dragSort: tabProps.dragSort,
+    // 在 useDragSort 里会被调用
     onDragSort: tabProps.onDragSort,
   },
   setup(props) {
@@ -191,7 +192,7 @@ export default defineComponent({
       }
       props.onChange(value);
     };
-    const removeBtnClick = ({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) => {
+    const onTabRemove = ({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) => {
       props.onRemove({ e, value, index });
     };
     const setActiveTab = (ref: any) => {
@@ -240,7 +241,8 @@ export default defineComponent({
             removable={panel.removable}
             value={panel.value}
             onClick={(e: MouseEvent) => tabClick(e, panel)}
-            onRemove={removeBtnClick}
+            onTabRemove={onTabRemove}
+            onTabPanelRemove={panel.onRemove}
           />
         );
       });

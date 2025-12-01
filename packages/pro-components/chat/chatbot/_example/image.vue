@@ -70,10 +70,8 @@ import type {
   TdAttachmentItem,
   UploadFile,
   TdChatMessageConfig,
-  TdChatbotApi,
 } from '@tdesign-vue-next/chat';
 import { ImageViewer, Skeleton, Button, Dropdown, Space } from 'tdesign-vue-next';
-import { Bot } from '@tdesign-vue-next/chat';
 
 const renderFilter3Icon = () => <Filter3Icon />;
 const renderImageAddIcon = () => <ImageAddIcon />;
@@ -112,7 +110,7 @@ const mockData: ChatMessagesData[] = [
 ];
 
 // 模板引用
-const chatRef = ref<InstanceType<typeof Bot> & TdChatbotApi>(null);
+const chatRef = ref(null);
 const ratio = ref<number>(0);
 const style = ref<string>('');
 const reqParamsRef = ref<{ ratio: number; style: string; file?: string }>({

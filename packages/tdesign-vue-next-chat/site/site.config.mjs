@@ -1,6 +1,6 @@
 const componentDocs = [
   {
-    title: 'Chatbot 智能聊天',
+    title: 'Chatbot 智能对话',
     titleEn: 'Chatbot',
     name: 'Chatbot',
     path: '/chat/components/chatbot',
@@ -21,7 +21,7 @@ const componentDocs = [
     component: () => import('@tdesign/pro-components-chat/chat-message/chat-message.md'),
   },
   {
-    title: 'ChatActionbar 对话操作',
+    title: 'ChatActionbar 对话操作栏',
     titleEn: 'ChatActionbar',
     name: 'ChatActionbar',
     path: '/chat/components/chat-actionbar',
@@ -74,6 +74,7 @@ const componentDocs = [
     titleEn: 'ChatItem',
     name: 'ChatItem',
     path: '/chat/components/chat-item',
+    customTag: '待废弃',
     component: () => import('@tdesign/pro-components-chat/chat-item/chat-item.md'),
   },
   {
@@ -81,6 +82,7 @@ const componentDocs = [
     titleEn: 'ChatInput',
     name: 'ChatInput',
     path: '/chat/components/chat-input',
+    customTag: '待废弃',
     component: () => import('@tdesign/pro-components-chat/chat-input/chat-input.md'),
   },
   {
@@ -88,6 +90,7 @@ const componentDocs = [
     titleEn: 'ChatReasoning',
     name: 'ChatReasoning',
     path: '/chat/components/chat-reasoning',
+    customTag: '待废弃',
     component: () => import('@tdesign/pro-components-chat/chat-reasoning/chat-reasoning.md'),
   },
 ];
@@ -165,7 +168,7 @@ export const docs = [
     ],
   },
   {
-    title: '数据展示',
+    title: '智能对话',
     titleEn: 'Data Display',
     type: 'component',
     children: componentDocs,

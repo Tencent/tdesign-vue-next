@@ -49,6 +49,7 @@
     "tnode",
     "vnode",
     "wechat",
-    "Actionbar"
+    "Actionbar",
+    "vueify"
   ]
 }

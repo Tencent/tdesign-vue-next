@@ -13,7 +13,7 @@ export default defineComponent({
       type: [String, Object, Array],
     },
     overlayStyle: {
-      type: Object || (String as PropType<string | CSSProperties>),
+      type: [Object, String] as PropType<string | CSSProperties>,
     },
   },
 

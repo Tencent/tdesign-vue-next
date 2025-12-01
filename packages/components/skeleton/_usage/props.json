@@ -8,8 +8,12 @@
   {
     "name": "animation",
     "type": "enum",
-    "defaultValue": "gradient",
+    "defaultValue": "none",
     "options": [
+      {
+        "label": "none",
+        "value": "none"
+      },
       {
         "label": "gradient",
         "value": "gradient"
@@ -23,8 +27,12 @@
   {
     "name": "theme",
     "type": "enum",
-    "defaultValue": "avatar",
+    "defaultValue": "text",
     "options": [
+       {
+        "label": "text",
+        "value": "text"
+      },
       {
         "label": "avatar",
         "value": "avatar"

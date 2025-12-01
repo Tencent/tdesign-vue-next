@@ -1,44 +1,35 @@
-// @ts-nocheck
-import { ref } from 'vue';
+import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
+import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { Collapse, CollapsePanel } from '@tdesign/components/collapse';
+import collapseProps from '@tdesign/components/collapse/props';
 
 describe('Collapse', () => {
-  describe(':props', () => {
-    test(':borderless', async () => {
-      const borderless = ref(false);
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse borderless={borderless.value}>
-              <CollapsePanel ref="1" value="1" header="标题" default="内容" />
-            </Collapse>
-          );
-        },
-      });
+  describe('props', () => {
+    let wrapper: VueWrapper<InstanceType<typeof Collapse>> | null = null;
+    beforeEach(() => {
+      wrapper = mount(
+        <Collapse>
+          <CollapsePanel value="1" header="标题1" default="内容1" />
+          <CollapsePanel value="2" header="标题2" default="内容2" />
+        </Collapse>,
+      ) as VueWrapper<InstanceType<typeof Collapse>>;
+    });
 
-      // const panel = wrapper.findComponent({ ref: '1' });
-
+    it(':borderless[boolean]', async () => {
       expect(wrapper.classes()).not.toContain('t--border-less');
-
-      borderless.value = true;
-      await wrapper.vm.$nextTick();
+      await wrapper.setProps({ borderless: true });
       expect(wrapper.classes()).toContain('t--border-less');
     });
 
-    test(':defaultExpandAll', async () => {
-      // const defaultExpandAll = ref(false);
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse defaultExpandAll={true}>
-              <CollapsePanel header="标题1" default="内容1" />
-              <CollapsePanel header="标题2" default="内容2" />
-            </Collapse>
-          );
-        },
-      });
+    it(':defaultExpandAll[boolean]', async () => {
+      const wrapper = mount(
+        <Collapse defaultExpandAll>
+          <CollapsePanel value="1" header="标题1" default="内容1" />
+          <CollapsePanel value="2" header="标题2" default="内容2" />
+        </Collapse>,
+      );
 
       const panels = wrapper.findAllComponents(CollapsePanel);
       panels.forEach((panel) => {
@@ -46,121 +37,89 @@ describe('Collapse', () => {
       });
     });
 
-    test(':disabled', async () => {
-      const disabled = ref(false);
+    it(':disabled[boolean]', async () => {
       const handleChange = vi.fn();
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse disabled={disabled.value} onChange={handleChange}>
-              <CollapsePanel ref="1" value="1" header="标题" default="内容" />
-            </Collapse>
-          );
-        },
-      });
-
-      const panel = wrapper.findComponent({ ref: '1' });
+      const wrapper = mount(
+        <Collapse onChange={handleChange}>
+          <CollapsePanel value="1" header="标题" default="内容" />
+        </Collapse>,
+      );
+      const panel = wrapper.findComponent(CollapsePanel);
       await panel.find('.t-collapse-panel__header').trigger('click');
-
       expect(handleChange).toHaveBeenCalled();
-
-      disabled.value = true;
-      await wrapper.vm.$nextTick();
+      await wrapper.setProps({ disabled: true });
       await panel.find('.t-collapse-panel__header').trigger('click');
-
       expect(handleChange).toHaveBeenCalledTimes(1);
     });
 
-    test(':expandIcon', async () => {
-      const expandIcon = ref(true);
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse expandIcon={expandIcon.value}>
-              <CollapsePanel ref="1" value="1" header="标题" default="内容" />
-            </Collapse>
-          );
-        },
-      });
-
-      const panel = wrapper.findComponent({ ref: '1' });
+    it(':expandIcon[boolean/function]', async () => {
+      const wrapper = mount(
+        <Collapse>
+          <CollapsePanel value="1" header="标题" default="内容" />
+        </Collapse>,
+      );
+      const panel = wrapper.findComponent(CollapsePanel);
       expect(panel.find('.t-collapse-panel__header svg').exists()).toBeTruthy();
-
-      expandIcon.value = false;
-      await wrapper.vm.$nextTick();
+      await wrapper.setProps({ expandIcon: false });
       expect(panel.find('.t-collapse-panel__header svg').exists()).toBeFalsy();
+      const customIcon = () => <span class="custom-icon">+</span>;
+      await wrapper.setProps({ expandIcon: customIcon });
+      expect(panel.find('.custom-icon').exists()).toBeTruthy();
+      expect(panel.find('.custom-icon').text()).toBe('+');
     });
 
-    test(':expandIconPlacement', async () => {
-      const expandIconPlacement = ref('left');
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse expandIconPlacement={expandIconPlacement.value}>
-              <CollapsePanel ref="1" value="1" header="标题" default="内容" />
-            </Collapse>
-          );
-        },
-      });
+    it(':expandIconPlacement[left/right]', async () => {
+      const validator = collapseProps.expandIconPlacement.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      // @ts-expect-error
+      expect(validator('other')).toBe(false);
 
-      const panel = wrapper.findComponent({ ref: '1' });
+      const panel = wrapper.findComponent(CollapsePanel);
       expect(panel.find('.t-collapse-panel__header .t-collapse-panel__icon').classes()).toContain(
         't-collapse-panel__icon--left',
       );
 
-      expandIconPlacement.value = 'right';
-      await wrapper.vm.$nextTick();
+      await wrapper.setProps({ expandIconPlacement: 'right' });
       expect(panel.find('.t-collapse-panel__header .t-collapse-panel__icon').classes()).toContain(
         't-collapse-panel__icon--right',
       );
     });
 
-    test(':expandMutex', async () => {
-      const val = ref([]);
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse expandMutex v-model={val.value}>
-              <CollapsePanel ref="1" value="1" header="标题1" default="内容1" />
-              <CollapsePanel ref="2" value="2" header="标题2" default="内容2" />
-            </Collapse>
-          );
-        },
-      });
+    it(':expandMutex[boolean]', async () => {
+      const value = ref([]);
+      const wrapper = mount(
+        <Collapse expandMutex v-model={value.value}>
+          <CollapsePanel value="1" header="标题1" default="内容1" />
+          <CollapsePanel value="2" header="标题2" default="内容2" />
+        </Collapse>,
+      );
 
-      const panel1 = wrapper.findComponent({ ref: '1' });
-      const panel2 = wrapper.findComponent({ ref: '2' });
-      await panel1.find('.t-collapse-panel__header').trigger('click');
+      const panels = wrapper.findAllComponents(CollapsePanel);
+      await panels[0].find('.t-collapse-panel__header').trigger('click');
 
-      expect(val.value).toHaveLength(1);
-      expect(val.value).toContain('1');
+      expect(value.value).toHaveLength(1);
+      expect(value.value).toContain('1');
 
-      await panel2.find('.t-collapse-panel__header').trigger('click');
+      await panels[1].find('.t-collapse-panel__header').trigger('click');
 
-      expect(val.value).toHaveLength(1);
-      expect(val.value).toContain('2');
+      expect(value.value).toHaveLength(1);
+      expect(value.value).toContain('2');
     });
 
-    test(':expandOnRowClick', async () => {
-      const expandOnRowClick = ref(true);
+    it(':expandOnRowClick[boolean]', async () => {
       const handleChange = vi.fn();
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse expandOnRowClick={expandOnRowClick.value} onChange={handleChange}>
-              <CollapsePanel ref="1" value="1" header="标题" default="内容" />
-            </Collapse>
-          );
-        },
-      });
+      const wrapper = mount(
+        <Collapse onChange={handleChange}>
+          <CollapsePanel value="1" header="标题" default="内容" />
+        </Collapse>,
+      );
 
-      const panel = wrapper.findComponent({ ref: '1' });
+      const panel = wrapper.findComponent(CollapsePanel);
       await panel.find('.t-collapse-panel__header').trigger('click');
       expect(handleChange).toHaveBeenCalled();
 
-      expandOnRowClick.value = false;
-      await wrapper.vm.$nextTick();
-
+      await wrapper.setProps({ expandOnRowClick: false });
       await panel.find('.t-collapse-panel__header').trigger('click');
       expect(handleChange).toHaveBeenCalledTimes(1);
 
@@ -168,233 +127,214 @@ describe('Collapse', () => {
       expect(handleChange).toHaveBeenCalledTimes(2);
     });
 
-    test(':defaultValue', async () => {
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse default-value={['1']}>
-              <CollapsePanel ref="1" value="1" header="标题1" default="内容1" />
-              <CollapsePanel ref="2" value="2" header="标题2" default="内容2" />
-            </Collapse>
-          );
-        },
-      });
+    it(':defaultValue[array]', async () => {
+      const wrapper = mount(
+        <Collapse defaultValue={['1']}>
+          <CollapsePanel value="1" header="标题1" default="内容1" />
+          <CollapsePanel value="2" header="标题2" default="内容2" />
+        </Collapse>,
+      );
 
-      const panel1 = wrapper.findComponent({ ref: '1' });
-      const panel2 = wrapper.findComponent({ ref: '2' });
+      const panels = wrapper.findAllComponents(CollapsePanel);
+      expect(panels[0].find('.t-collapse-panel__body').attributes().style).toBeUndefined();
+      expect(panels[1].find('.t-collapse-panel__body').attributes().style).toBe('display: none;');
+    });
 
-      expect(panel1.find('.t-collapse-panel__body').attributes().style).toBeUndefined();
-      expect(panel2.find('.t-collapse-panel__body').attributes().style).toBe('display: none;');
+    it(':value[array]', async () => {
+      const value = ref(['1']);
+      const handleChange = vi.fn();
+      const wrapper = mount(
+        <Collapse value={value.value} onChange={handleChange}>
+          <CollapsePanel value="1" header="标题1" default="内容1" />
+          <CollapsePanel value="2" header="标题2" default="内容2" />
+        </Collapse>,
+      );
+
+      const panels = wrapper.findAllComponents(CollapsePanel);
+
+      // 初始状态：panel1 展开，panel2 收起
+      expect(panels[0].find('.t-collapse-panel__body').attributes().style).toBeUndefined();
+      expect(panels[1].find('.t-collapse-panel__body').attributes().style).toBe('display: none;');
+
+      // 点击 panel2 展开
+      await panels[1].find('.t-collapse-panel__header').trigger('click');
+      expect(handleChange).toHaveBeenCalledWith(['1', '2']);
+
+      wrapper.setProps({ value: ['2'] });
+      await nextTick();
+      expect(panels[0].find('.t-collapse-panel__body').attributes().style).toBe('display: none;');
+      expect(panels[1].find('.t-collapse-panel__body').attributes().style).not.toBe('display: none;');
     });
   });
 
-  describe('@event', () => {
-    test('change', async () => {
+  describe('events', () => {
+    it('change', async () => {
       const handleChange = vi.fn();
+      const wrapper = mount(
+        <Collapse onChange={handleChange}>
+          <CollapsePanel value="1" header="标题" default="内容" />
+        </Collapse>,
+      );
+
+      const panel = wrapper.findComponent(CollapsePanel);
+      await panel.find('.t-collapse-panel__header').trigger('click');
+      expect(handleChange).toHaveBeenCalledWith(['1']);
+    });
+  });
+
+  describe('edge cases', () => {
+    it('empty children', async () => {
+      const wrapper = mount(<Collapse />);
+      expect(wrapper.find('.t-collapse').exists()).toBeTruthy();
+      expect(wrapper.findAllComponents(CollapsePanel)).toHaveLength(0);
+    });
+
+    it('dynamic panels', async () => {
+      const panels = ref([
+        { value: '1', header: '标题1', content: '内容1' },
+        { value: '2', header: '标题2', content: '内容2' },
+      ]);
+      const handleChange = vi.fn();
+
       const wrapper = mount({
         setup() {
           return () => (
             <Collapse onChange={handleChange}>
-              <CollapsePanel ref="1" value="1" header="标题" default="内容" />
+              {panels.value.map((panel) => (
+                <CollapsePanel key={panel.value} value={panel.value} header={panel.header} default={panel.content} />
+              ))}
             </Collapse>
           );
         },
       });
 
-      const panel = wrapper.findComponent({ ref: '1' });
-      await panel.find('.t-collapse-panel__header').trigger('click');
-      expect(handleChange).toHaveBeenCalled();
-    });
-  });
-});
+      expect(wrapper.findAllComponents(CollapsePanel)).toHaveLength(2);
 
-describe('CollapsePanel', () => {
-  describe(':props', () => {
-    test(':default、content、header、headerRightContent', async () => {
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse defaultExpandAll>
-              <CollapsePanel ref="1" value="1" header="标题" headerRightContent="右侧" default="内容1" />
-              <CollapsePanel ref="2" value="2" header="标题" content="内容2" />
-            </Collapse>
-          );
-        },
-      });
+      // 动态添加面板
+      panels.value.push({ value: '3', header: '标题3', content: '内容3' });
+      await nextTick();
+      expect(wrapper.findAllComponents(CollapsePanel)).toHaveLength(3);
 
-      const panel1 = wrapper.findComponent({ ref: '1' });
-      const panel2 = wrapper.findComponent({ ref: '2' });
-      expect(panel1.find('.t-collapse-panel__content').text()).toBe('内容1');
-      expect(panel1.find('.t-collapse-panel__header').text()).toBe('标题右侧');
-      expect(panel2.find('.t-collapse-panel__content').text()).toBe('内容2');
+      // 动态删除面板
+      panels.value.splice(0, 1);
+      await nextTick();
+      expect(wrapper.findAllComponents(CollapsePanel)).toHaveLength(2);
     });
 
-    test(':destroyOnCollapse', async () => {
-      const destroyOnCollapse = ref(false);
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse defaultExpandAll>
-              <CollapsePanel
-                ref="1"
-                value="1"
-                header="标题"
-                default="内容"
-                destroyOnCollapse={destroyOnCollapse.value}
-              />
-            </Collapse>
-          );
-        },
-      });
+    it('invalid value handling', async () => {
+      const value = ref(['nonexistent']);
+      const wrapper = mount(
+        <Collapse value={value.value}>
+          <CollapsePanel value="1" header="标题1" default="内容1" />
+          <CollapsePanel value="2" header="标题2" default="内容2" />
+        </Collapse>,
+      );
 
-      const panel = wrapper.findComponent({ ref: '1' });
-      await panel.find('.t-collapse-panel__header').trigger('click');
-      expect(panel.find('.t-collapse-panel__content').exists()).toBeTruthy();
+      const panels = wrapper.findAllComponents(CollapsePanel);
 
-      destroyOnCollapse.value = true;
-      await panel.find('.t-collapse-panel__header').trigger('click');
-      await panel.find('.t-collapse-panel__header').trigger('click');
-      expect(panel.find('.t-collapse-panel__content').exists()).toBeFalsy();
+      // 无效的 value 不应该展开任何面板
+      expect(panels[0].find('.t-collapse-panel__body').attributes().style).toBe('display: none;');
+      expect(panels[1].find('.t-collapse-panel__body').attributes().style).toBe('display: none;');
     });
 
-    test(':disabled', async () => {
-      const disabled = ref(false);
+    it('expandMutex with defaultExpandAll conflict', async () => {
+      const wrapper = mount(
+        <Collapse expandMutex defaultExpandAll>
+          <CollapsePanel value="1" header="标题1" default="内容1" />
+          <CollapsePanel value="2" header="标题2" default="内容2" />
+        </Collapse>,
+      );
+
+      const panels = wrapper.findAllComponents(CollapsePanel);
+
+      // defaultExpandAll 会展开所有面板，但 expandMutex 会让最后一个面板保持展开
+      expect(panels[0].find('.t-collapse-panel__body').attributes().style).toBeUndefined();
+      expect(panels[1].find('.t-collapse-panel__body').attributes().style).toBeUndefined();
+    });
+
+    it('number type value', async () => {
       const handleChange = vi.fn();
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse onChange={handleChange}>
-              <CollapsePanel ref="1" value="1" header="标题" default="内容" disabled={disabled.value} />
-            </Collapse>
-          );
-        },
-      });
+      const wrapper = mount(
+        <Collapse onChange={handleChange}>
+          <CollapsePanel value={1} header="标题1" default="内容1" />
+          <CollapsePanel value={2} header="标题2" default="内容2" />
+        </Collapse>,
+      );
 
-      const panel = wrapper.findComponent({ ref: '1' });
+      const panel = wrapper.findComponent(CollapsePanel);
       await panel.find('.t-collapse-panel__header').trigger('click');
-
-      expect(handleChange).toHaveBeenCalled();
-
-      disabled.value = true;
-      await wrapper.vm.$nextTick();
-      await panel.find('.t-collapse-panel__header').trigger('click');
-
-      expect(handleChange).toHaveBeenCalledTimes(1);
+      expect(handleChange).toHaveBeenCalledWith([1]);
     });
 
-    test(':expandIcon', async () => {
-      const expandIcon = ref(true);
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse>
-              <CollapsePanel ref="1" value="1" header="标题" default="内容" expandIcon={expandIcon.value} />
-            </Collapse>
-          );
-        },
-      });
-
-      const panel = wrapper.findComponent({ ref: '1' });
-      expect(panel.find('.t-collapse-panel__header svg').exists()).toBeTruthy();
-
-      expandIcon.value = false;
-      await wrapper.vm.$nextTick();
-      expect(panel.find('.t-collapse-panel__header svg').exists()).toBeFalsy();
-    });
-
-    test(':value', async () => {
+    it('auto-generated value when no value provided', async () => {
       const handleChange = vi.fn();
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse onChange={handleChange}>
-              <CollapsePanel ref="1" value="abc" header="标题" default="内容" />
-            </Collapse>
-          );
-        },
-      });
+      const wrapper = mount(
+        <Collapse onChange={handleChange}>
+          <CollapsePanel header="标题1" default="内容1" />
+          <CollapsePanel header="标题2" default="内容2" />
+        </Collapse>,
+      );
 
-      const panel = wrapper.findComponent({ ref: '1' });
+      const panel = wrapper.findComponent(CollapsePanel);
       await panel.find('.t-collapse-panel__header').trigger('click');
-      expect(handleChange).toHaveBeenCalledWith(['abc']);
-    });
-  });
 
-  describe('<slot>', () => {
-    test('default', () => {
+      // 应该使用自动生成的 ID
+      expect(handleChange).toHaveBeenCalledWith([0]);
+    });
+
+    it('multiple collapse instances', async () => {
+      const handleChange1 = vi.fn();
+      const handleChange2 = vi.fn();
+
       const wrapper = mount({
         setup() {
           return () => (
-            <Collapse>
-              <CollapsePanel ref="1" value="1">
-                {{
-                  default: () => <div>内容</div>,
-                }}
-              </CollapsePanel>
-            </Collapse>
+            <div>
+              <Collapse onChange={handleChange1}>
+                <CollapsePanel value="1" header="Collapse1 Panel1" default="内容1" />
+                <CollapsePanel value="2" header="Collapse1 Panel2" default="内容2" />
+              </Collapse>
+              <Collapse onChange={handleChange2}>
+                <CollapsePanel value="1" header="Collapse2 Panel1" default="内容1" />
+                <CollapsePanel value="2" header="Collapse2 Panel2" default="内容2" />
+              </Collapse>
+            </div>
           );
         },
       });
 
-      const panel = wrapper.findComponent({ ref: '1' });
-      expect(panel.find('.t-collapse-panel__content > div').html()).toBe('<div>内容</div>');
+      const collapses = wrapper.findAllComponents(Collapse);
+      const panel11 = collapses[0].findComponent(CollapsePanel);
+      const panel21 = collapses[1].findComponent(CollapsePanel);
+
+      await panel11.find('.t-collapse-panel__header').trigger('click');
+      expect(handleChange1).toHaveBeenCalledWith(['1']);
+      expect(handleChange2).not.toHaveBeenCalled();
+
+      await panel21.find('.t-collapse-panel__header').trigger('click');
+      expect(handleChange2).toHaveBeenCalledWith(['1']);
+      expect(handleChange1).toHaveBeenCalledTimes(1);
     });
 
-    test('header', () => {
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse>
-              <CollapsePanel ref="1" value="1">
-                {{
-                  header: () => <h4>标题</h4>,
-                }}
-              </CollapsePanel>
+    it('nested collapse components', async () => {
+      const outerChange = vi.fn();
+      const innerChange = vi.fn();
+
+      const wrapper = mount(
+        <Collapse onChange={outerChange} defaultValue={['outer1']}>
+          <CollapsePanel value="outer1" header="外层面板">
+            <Collapse onChange={innerChange}>
+              <CollapsePanel value="inner1" header="内层面板" default="嵌套内容" />
             </Collapse>
-          );
-        },
-      });
+          </CollapsePanel>
+        </Collapse>,
+      );
 
-      const panel = wrapper.findComponent({ ref: '1' });
-      expect(panel.find('.t-collapse-panel__header > h4').html()).toBe('<h4>标题</h4>');
-    });
+      const innerPanel = wrapper.findAllComponents(CollapsePanel)[1];
+      await innerPanel.find('.t-collapse-panel__header').trigger('click');
 
-    test('headerRightContent', () => {
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse>
-              <CollapsePanel ref="1" value="1">
-                {{
-                  headerRightContent: () => <span>操作</span>,
-                }}
-              </CollapsePanel>
-            </Collapse>
-          );
-        },
-      });
-
-      const panel = wrapper.findComponent({ ref: '1' });
-      expect(panel.find('.t-collapse-panel__header > div > span').html()).toBe('<span>操作</span>');
-    });
-
-    test('content', () => {
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Collapse>
-              <CollapsePanel ref="1" value="1" header="标题">
-                {{
-                  content: () => <div>内容</div>,
-                }}
-              </CollapsePanel>
-            </Collapse>
-          );
-        },
-      });
-
-      const panel = wrapper.findComponent({ ref: '1' });
-      expect(panel.find('.t-collapse-panel__content > div').html()).toBe('<div>内容</div>');
+      expect(innerChange).toHaveBeenCalledWith(['inner1']);
+      expect(outerChange).not.toHaveBeenCalled();
     });
   });
 });

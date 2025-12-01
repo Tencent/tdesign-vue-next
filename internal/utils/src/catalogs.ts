@@ -89,15 +89,15 @@ export const catalogs = {
     prettier: '^2.8.1',
   },
   tdesign: {
-    'tdesign-icons-view': '^0.3.7',
-    'tdesign-icons-vue-next': '^0.3.7',
+    '@tdesign/site-components': '^0.17.0',
+    'tdesign-icons-vue-next': '~0.4.1',
     'tdesign-publish-cli': '^0.0.12',
-    'tdesign-site-components': '^0.16.5',
     'tdesign-theme-generator': '^1.1.8',
   },
   test: {
     '@testing-library/dom': '^9.3.1',
     '@vue/test-utils': '^2.4.1',
+    canvas: '^3.1.2',
     'dom-parser': '^1.1.5',
     mockdate: '^3.0.5',
     msw: '^1.2.3',

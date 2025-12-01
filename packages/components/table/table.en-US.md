@@ -89,13 +89,13 @@ scroll | `(params: { e: WheelEvent })` | trigger on table content scroll
 scroll-x | `(params: { e: WheelEvent })` | `deprecated`。trigger on scroll horizontal
 scroll-y | `(params: { e: WheelEvent })` | `deprecated`。trigger on scroll vertical
 
-### BaseTableInstanceFunctions 组件实例方法
+### BaseTableInstanceFunctions `Component instance method`
 
 name | params | return | description
 -- | -- | -- | --
 refreshTable | \- | \- | required
 scrollColumnIntoView | `(colKey: string)` | \- | required
-scrollToElement | `(params: ComponentScrollToElementParams)` | \- | required
+scrollToElement | `(params: ComponentScrollToElementParams)` 。 [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts#L125)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/table/type.ts#L325C3-L325C18) | \- | required
 
 ### BaseTableCol
 

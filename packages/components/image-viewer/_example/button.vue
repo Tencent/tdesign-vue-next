@@ -4,6 +4,7 @@
       v-model:visible="visible"
       :trigger="trigger"
       :images="['https://tdesign.gtimg.com/demo/demo-image-1.png']"
+      :z-index="10000"
     >
     </t-image-viewer>
   </div>

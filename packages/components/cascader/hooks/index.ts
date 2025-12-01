@@ -38,6 +38,11 @@ export const useContext = (
     expend: [],
   });
 
+  // 部分模式下需要允许父节点被搜索选择 valueMode = 'parentFirst' 和 checkStrictly
+  const isParentFilterable = computed(
+    () => (props.valueMode === 'parentFirst' || props.checkStrictly) && statusContext.inputVal,
+  );
+
   return {
     statusContext,
     cascaderContext: computed(() => {
@@ -55,6 +60,8 @@ export const useContext = (
         minCollapsedNum,
         valueType,
         modelValue,
+        valueMode,
+        reserveKeyword,
       } = props;
       return {
         value: statusContext.scopeVal,
@@ -70,7 +77,10 @@ export const useContext = (
         showAllLevels,
         minCollapsedNum,
         valueType,
+        valueMode,
+        reserveKeyword,
         visible: innerPopupVisible.value,
+        isParentFilterable: isParentFilterable.value,
         ...statusContext,
         setTreeNodes: (nodes: TreeNode[]) => {
           statusContext.treeNodes = nodes;
@@ -83,7 +93,7 @@ export const useContext = (
         setInputVal: (val: string) => {
           statusContext.inputVal = val;
         },
-        setExpend: (val: TreeNodeValue[]) => {
+        setExpand: (val: TreeNodeValue[]) => {
           statusContext.expend = val;
         },
       };
@@ -110,12 +120,12 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
   // 更新treeNodes
   const updatedTreeNodes = () => {
-    const { inputVal, treeStore, setTreeNodes } = cascaderContext.value;
-    treeNodesEffect(inputVal, treeStore, setTreeNodes, props.filter);
+    const { inputVal, treeStore, setTreeNodes, isParentFilterable } = cascaderContext.value;
+    treeNodesEffect(inputVal, treeStore, setTreeNodes, props.filter, isParentFilterable);
   };
 
   // 更新节点展开状态
-  const updateExpend = () => {
+  const updateExpand = () => {
     const { value, treeStore } = cascaderContext.value;
     const { expend } = statusContext;
     treeStoreExpendEffect(treeStore, value, expend);
@@ -156,7 +166,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
         treeStore.reload(options);
         treeStore.refreshNodes();
       }
-      updateExpend();
+      updateExpand();
       updatedTreeNodes();
     },
     { immediate: true, deep: true },
@@ -206,7 +216,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
       }
 
       if (!statusContext.treeStore) return;
-      updateExpend();
+      updateExpand();
       updatedTreeNodes();
     },
     { immediate: true },

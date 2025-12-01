@@ -12,6 +12,9 @@ export function useDrag(initTransform: InitTransform) {
   const transform = ref(initTransform);
 
   const mouseDownHandler = (e: MouseEvent) => {
+    // only move by left mouse click
+    if ('button' in e && e.button !== 0) return;
+
     const { pageX: startX, pageY: startY } = e;
     const { translateX, translateY } = transform.value;
     const mouseMoveHandler = (e: MouseEvent) => {
@@ -21,13 +24,19 @@ export function useDrag(initTransform: InitTransform) {
         translateY: translateY + pageY - startY,
       };
     };
-    const mouseUpHandler = () => {
+
+    const removeHandler = () => {
       document.removeEventListener('mousemove', mouseMoveHandler);
       document.removeEventListener('mouseup', mouseUpHandler);
+      document.removeEventListener('mouseleave', mouseLeaveHandler);
     };
+
+    const mouseUpHandler = () => removeHandler();
+    const mouseLeaveHandler = () => removeHandler();
 
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
+    document.addEventListener('mouseleave', mouseLeaveHandler);
   };
 
   const resetTransform = () => {
@@ -49,9 +58,10 @@ export function useMirror() {
   return { mirror, onMirror, resetMirror };
 }
 
-export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.2 }) {
-  const { max, min, step, defaultScale } = imageScale;
-  const scale = ref(defaultScale ?? 1);
+export function useScale(imageScale: ImageScale) {
+  const params = { max: 2, min: 0.5, step: 0.2, defaultScale: 1, ...imageScale };
+  const { max, min, step, defaultScale } = params;
+  const scale = ref(defaultScale);
 
   const onZoomIn = throttle(() => {
     const result = positiveAdd(scale.value, step);
@@ -64,7 +74,7 @@ export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.2 
   }, 50);
 
   const resetScale = () => {
-    scale.value = defaultScale ?? 1;
+    scale.value = defaultScale;
   };
 
   const setScale = (newScale: number) => {

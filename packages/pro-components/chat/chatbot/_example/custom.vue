@@ -49,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick } from 'vue';
+import { ref } from 'vue';
 import { SoundIcon, EditIcon, CopyIcon } from 'tdesign-icons-vue-next';
 import {
   type SSEChunkData,
@@ -60,7 +60,6 @@ import {
   type ChatBaseContent,
   type ChatMessagesData,
 } from '@tdesign-vue-next/chat';
-import { Bot } from '../index';
 import TvisionTcharts from 'tvision-charts-vue-next';
 
 const initMessage: ChatMessagesData[] = [
@@ -77,7 +76,7 @@ const initMessage: ChatMessagesData[] = [
   },
 ];
 
-const chatRef = ref<InstanceType<typeof Bot> | null>(null);
+const chatRef = ref(null);
 const mockMessage = ref<ChatMessagesData[]>(initMessage);
 
 // 消息属性配置

@@ -1,3 +1,6 @@
+import { isNil } from 'lodash-es';
+import { parseToDayjs } from '@tdesign/common-js/date-picker/format';
+
 // 用于头部日期切换修正
 export function dateCorrection(
   partialIndex: number,
@@ -45,4 +48,23 @@ export function dateCorrection(
     }
   }
   return { nextYear, nextMonth };
+}
+
+export function parseToDateTime(
+  value: string | Date | number,
+  format: string,
+  times?: [number, number, number, number?],
+) {
+  if (isNil(value)) {
+    return null;
+  }
+
+  let dayjs = parseToDayjs(value, format);
+
+  if (times) {
+    const [hour = 0, minute = 0, second = 0, millisecond = 0] = times;
+    dayjs = dayjs.hour(hour).minute(minute).second(second).millisecond(millisecond);
+  }
+
+  return dayjs.toDate();
 }
