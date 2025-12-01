@@ -26,13 +26,13 @@
             <t-chat-content :content="content.data" :role="item.role" />
           </template>
         </template>
-        <template #actionbar="{ item }">
+        <template #actionbar="{ item, index }">
           <t-chat-actionbar
             v-if="item.role === 'assistant'"
-            :comment="commentValue"
+            :comment="item.comment || ''"
             :content="item.content[0]?.data || ''"
             :action-bar="['good', 'bad', 'replay', 'copy']"
-            @actions="handleOperation"
+            @actions="(type) => handleOperation(type, { item, index })"
           />
         </template>
 
@@ -50,7 +50,7 @@ import { MockSSEResponse } from './mock-data/sseRequest';
 const fetchCancel = ref(null);
 const loading = ref(false);
 const isStreamLoad = ref(false);
-const commentValue = ref('');
+// commentValue变量已移除，现在直接使用消息项的comment属性
 // 倒序渲染
 const chatList = ref([
   {
@@ -88,11 +88,13 @@ const chatList = ref([
   },
 ]);
 
-const handleOperation = (type) => {
-  if (type === 'good') {
-    commentValue.value = commentValue.value === 'good' ? '' : 'good';
-  } else if (type === 'bad') {
-    commentValue.value = commentValue.value === 'bad' ? '' : 'bad';
+const handleOperation = (type, { item, index }) => {
+  console.log('handleOperation', type, index, item);
+  // 对当前消息设置状态
+  if (type === 'good' || type === 'bad') {
+    if (item) {
+      item.comment = item.comment === type ? '' : type;
+    }
   }
 };
 const clearConfirm = function () {

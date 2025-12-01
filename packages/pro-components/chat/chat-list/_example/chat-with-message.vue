@@ -27,8 +27,9 @@
             <t-chat-actionbar
               v-if="item.role === 'assistant'"
               :content="getActionContent(item.content)"
+              :comment="item.comment || ''"
               :action-bar="['good', 'bad', 'replay', 'copy']"
-              @actions="handleOperation"
+              @actions="(type) => handleOperation(type, { item, index })"
             />
           </template>
         </t-chat-message>
@@ -66,8 +67,14 @@ const handleChatScroll = function ({ e }) {
 const clearConfirm = function () {
   chatList.value = [];
 };
-const handleOperation = function (type, options) {
-  console.log('handleOperation', type, options);
+const handleOperation = function (type, { item, index }) {
+  console.log('handleOperation', type, { item, index });
+  // 对当前消息设置状态
+  if (type === 'good' || type === 'bad') {
+    if (item) {
+      item.comment = item.comment === type ? '' : type;
+    }
+  }
 };
 
 // 处理建议和搜索项的操作

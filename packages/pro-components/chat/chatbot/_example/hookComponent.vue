@@ -13,8 +13,8 @@
             v-if="message.role === 'assistant' && message.status === 'complete'"
             :action-bar="getChatActionBar(idx === messages.length - 1)"
             :content="message.content[0].data"
-            :comment="message.role === 'assistant' ? message.comment : ''"
-            @actions="actionHandler"
+            :comment="message.comment || ''"
+            @actions="(name: TdChatActionsName) => actionHandler(name, {message, idx})"
           />
         </template>
       </t-chat-message>
@@ -177,11 +177,19 @@ const getChatActionBar = (isLast: boolean): TdChatActionsName[] => {
 };
 
 // 操作处理
-const actionHandler = (name) => {
+const actionHandler = (name: string, { message, idx }: { message: any; idx: number }) => {
   switch (name) {
     case 'replay':
       console.log('自定义重新回复');
       chatEngine.value?.regenerateAIMessage();
+      break;
+    case 'good':
+    case 'bad':
+      // 设置comment状态
+      if (message !== undefined && messages.value[idx]) {
+        const messageItem = message;
+        messageItem.comment = messageItem.comment === name ? '' : name;
+      }
       break;
     default:
       console.log('触发action', name);
@@ -200,7 +208,7 @@ const inputChangeHandler = (value: string) => {
 };
 
 // 发送处理
-const sendHandler = async (params) => {
+const sendHandler = async (params: string) => {
   if (senderLoading.value) {
     MessagePlugin.error('回答输出中，请稍后操作或点击停止回答');
   } else {

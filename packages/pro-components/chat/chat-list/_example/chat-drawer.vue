@@ -28,8 +28,9 @@
             <t-chat-actionbar
               v-if="item.role === 'assistant'"
               :content="getActionContent(item.content)"
+              :comment="item.comment || ''"
               :action-bar="['good', 'bad', 'replay', 'copy']"
-              @actions="handleOperation"
+              @actions="(type) => handleOperation(type, { item, index })"
             />
           </template>
         </t-chat-message>
@@ -49,15 +50,14 @@ const fetchCancel = ref(null);
 const loading = ref(false);
 const isStreamLoad = ref(false);
 
-const handleOperation = function (type, options) {
-  const { index } = options;
-  if (type === 'good') {
-    commentValue.value = commentValue.value === 'good' ? '' : 'good';
-  } else if (type === 'bad') {
-    commentValue.value = commentValue.value === 'bad' ? '' : 'bad';
+const handleOperation = function (type, { item, index }) {
+  if (type === 'good' || type === 'bad') {
+    // 对当前消息设置状态
+    if (item) {
+      item.comment = item.comment === type ? '' : type;
+    }
   } else if (type === 'replay') {
     const userQuery = chatList.value[index + 1].content[0].data;
-
     inputEnter(userQuery);
   }
 };

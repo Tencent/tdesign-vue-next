@@ -22,7 +22,8 @@
           v-if="item.role === 'assistant'"
           :content="getActionContent(item.content)"
           :action-bar="['good', 'bad', 'replay', 'copy']"
-          @actions="handleOperation"
+          :comment="item.comment"
+          @actions="(type) => handleOperation(type, { item, index })"
         />
       </template>
       <template #footer>
@@ -55,8 +56,14 @@ const handleChatScroll = function ({ e }) {
 const clearConfirm = function () {
   chatList.value = [];
 };
-const handleOperation = function (type, options) {
-  console.log('handleOperation', type, options);
+const handleOperation = function (type, { item, index }) {
+  console.log('handleOperation', type, { item, index });
+  // 对当前消息设置状态
+  if (type === 'good' || type === 'bad') {
+    if (item) {
+      item.comment = item.comment === type ? '' : type;
+    }
+  }
 };
 
 // 获取操作按钮需要的内容（排除thinking类型）

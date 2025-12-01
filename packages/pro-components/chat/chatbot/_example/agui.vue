@@ -28,8 +28,8 @@
             v-if="isAIMessage(message) && message.status === 'complete'"
             :action-bar="getChatActionBar(idx === messages.length - 1)"
             :content="getMessageContentForCopy(message)"
-            :comment="message.role === 'assistant' ? message.comment : ''"
-            @actions="actionHandler"
+            :comment="message.comment || ''"
+            @actions="(name: string) => actionHandler(name, { message, idx })"
           />
         </template>
       </t-chat-message>
@@ -175,14 +175,22 @@ const getChatActionBar = (isLast: boolean): TdChatActionsName[] => {
   return filterActions;
 };
 
-const actionHandler = (name: string, data?: any) => {
+const actionHandler = (name: string, { message, idx }: { message: any; idx: number }) => {
   switch (name) {
     case 'replay': {
       chatEngine.value?.regenerateAIMessage();
       return;
     }
+    case 'good':
+    case 'bad':
+      // 设置comment状态
+      if (idx !== undefined && messages.value[idx]) {
+        const curMessage = message;
+        curMessage.comment = curMessage.comment === name ? '' : name;
+      }
+      break;
     default:
-      console.log('触发action', name, 'data', data);
+      console.log('触发action', name, 'data', message);
   }
 };
 
