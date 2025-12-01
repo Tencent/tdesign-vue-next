@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
+import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance, provide } from 'vue';
 import { get, omit } from 'lodash-es';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
@@ -155,6 +155,7 @@ export default defineComponent({
       onUpdateEditedCell,
       getEditRowData,
       onPrimaryTableCellEditChange,
+      tableSuppressValidate,
     } = useEditableRow(props);
 
     const innerKeyboardRowHover = computed(() => Boolean(showExpandedRow.value || showRowSelect.value));
@@ -194,6 +195,9 @@ export default defineComponent({
       setFilterPrimaryTableRef(primaryTableRef.value);
       setDragSortPrimaryTableRef(primaryTableRef.value);
     });
+
+    // 将表格作用域内的抑制校验标志注入子组件
+    provide('TD_TABLE_SUPPRESS_VALIDATE', tableSuppressValidate);
 
     // 对外暴露的方法
     context.expose({
