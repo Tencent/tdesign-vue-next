@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.6 `2025-12-01` 
+
+### 🐞 Bug Fixes
+- `DatePicker`: 修复 1.16.0 版本后，日期区间选择器跨年时右侧面板月份错误同步变化的问题 @liweijie0812 @Copilot ([#6204](https://github.com/Tencent/tdesign-vue-next/pull/6204))
+
+
 ## 🌈 1.17.5 `2025-11-28` 
 
 ### 🐞 Bug Fixes
