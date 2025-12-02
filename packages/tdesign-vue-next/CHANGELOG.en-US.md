@@ -5,6 +5,94 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.6 `2025-12-01` 
+
+### 🐞 Bug Fixes
+- `DatePicker`: Fixed the issue of incorrect month synchronization on the right panel of the date range selector after version 1.16.0 @liweijie0812@Copilot ([#6204](https://github.com/Tencent/tdesign-vue-next/pull/6204))
+
+
+## 🌈 1.17.5 `2025-11-28` 
+
+### 🐞 Bug Fixes
+- `Tree`: Fixed the problem where the filtering node was accidentally disabled @RylanBot ([common#2345](https://github.com/Tencent/tdesign-common/pull/2345)) ([#6196](https://github.com/Tencent/tdesign-vue-next/pull/6196))
+
+
+## 🌈 1.17.4 `2025-11-28`
+
+### 🚀 Features
+- `Table`: Optimize the display effect when the content of the Table changes after paging. The pager will be anchored in the current viewport @RSS1102 ([#6172](https://github.com/Tencent/tdesign-vue-next/pull/6172))
+
+### 🐞 Bug Fixes
+- `Calendar`: Optimize the handling of props events in the transparent transmission component and fix the problem that the callback function of transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `DatePicker`: Optimize the interaction problem of the date range selector to avoid the problem of having to repeat the operation multiple times after selecting the end date first @mikasayw ([#6143](https://github.com/Tencent/tdesign-vue-next/pull/6143))
+- `Description`: Fixed the spacing problem of `itemLayout` vertically arranged in borderless mode @mikasayw ([#6156](https://github.com/Tencent/tdesign-vue-next/pull/6156))
+- `Input`: 
+  - Fixed an issue where input and upper-level select components fail to render auto-width for the first time in safari @Cat1007 ([common#2336](https://github.com/Tencent/tdesign-common/pull/2336)) ([#6188](https://github.com/Tencent/tdesign-vue-next/pull/6188))
+  - Optimize the handling of props events in the transparent transmission component, and fix the problem that the callback function for transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `SelectInput`: Optimize the handling of props events in the transparent transmission component and fix the problem that the callback function of transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `Slider`: Fixed an error in precision calculation during initialization @RylanBot ([#6183](https://github.com/Tencent/tdesign-vue-next/pull/6183)))
+- `Table`: 
+  - Optimize the handling of props events in the transparent transmission component, and fix the problem that the callback function for transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+  - Fixed the issue where editable cells are not correctly displayed in the validateData callback under `keepEditMode` @uyarn ([#5490](https://github.com/Tencent/tdesign-vue-next/pull/5490))
+- `TagInput`: Optimize the handling of props events in transparent transmission components and fix the problem that the callback function of transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `TreeSelect`: Optimize the handling of props events in the transparent transmission component and fix the problem that the callback function for transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `Upload`: 
+    - Optimize the handling of props events in the transparent transmission component and fix the problem that the callback function of the transparent transmission cannot be triggered @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+    - Fixed an issue where file array uploads are not supported.​ @GATING ([#6169](https://github.com/Tencent/tdesign-vue-next/pull/6169))
+- `Table`: Fixed the problem that manual changes to the `current` attribute in paging controlled mode do not trigger `onPageChange` @RSS1102 ([#6163](https://github.com/Tencent/tdesign-vue-next/pull/6163))
+
+### 📝 Documentation
+- `Calendar`: Supplementary usage example of the `range` parameter @shumuuu ([#6148](https://github.com/Tencent/tdesign-vue-next/pull/6148))
+
+
+## 🌈 1.17.3 `2025-11-14` 
+
+### 🚀 Features
+- `DatePicker`: The configuration of `defaultTime` is also applied when `enableTimePicker` is not configured, which affects the return value of `valueType` as `time-stamp` and the callback parameter of `onChange` ⚠️ @RSS1102 @uyarn ([#6140](https://github.com/Tencent/tdesign-vue-next/pull/6140))
+- `Divider`: Support `size` API to control the spacing size @liweijie0812 ([#6094](https://github.com/Tencent/tdesign-vue-next/pull/6094))
+- `Guide`: Supports automatic adjustment of the display effect of the boot component when adjusting the window size @yrc2333 ([#6133](https://github.com/Tencent/tdesign-vue-next/pull/6133)))
+- `Form`: Form verification `pattern` supports string type @liweijie0812 ([#6134](https://github.com/Tencent/tdesign-vue-next/pull/6134))
+- `Form`: Add `success` verification type support in `setValidateMessage` @RSS1102 ([#6147](https://github.com/Tencent/tdesign-vue-next/pull/6147))
+
+### 🐞 Bug Fixes
+- `Popup`: Fix abnormal problem in SSR scenarios @uyarn ([#6124](https://github.com/Tencent/tdesign-vue-next/pull/6124))
+- `Table`: Fix the problem that the current page cannot be customized when the pageSize changes @RSS1102 ([#6127](https://github.com/Tencent/tdesign-vue-next/pull/6127))
+- `Tabs`: Fix the issue where turning on `destroyOnHide` to remove tags will cause subsequent TabItem status to be abnormal @yrc2333 ([#6137](https://github.com/Tencent/tdesign-vue-next/pull/6137))
+- `Empty`: Fix invalid multi-language dynamic switching response @liweijie0812 ([#6126](https://github.com/Tencent/tdesign-vue-next/pull/6126))
+- `Menu`: Fix the problem that the submenu is not folded correctly after the parent menu is closed when the menu is quickly operated @RSS1102 ([#6121](https://github.com/Tencent/tdesign-vue-next/pull/6121)))
+
+
+## 🌈 1.17.2 `2025-10-30` 
+
+### 🚀 Features
+- `Affix`: Added support for `content`API, consistent with other components @ImaginingMaker @zhangpaopao0609 ([#5981](https://github.com/Tencent/tdesign-vue-next/pull/5981))
+- `Cascader`: 
+  - Support the use of `filterable` with `checkStrictly` and `valueMode = parentFirst` to display the effect of non-leaf nodes @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+  - 'option' adds 'onChange' and 'onExpand' methods, which are used to customize the trigger logic of clicking a node when customizing nodes in multi-selection scenarios. For specific use, please refer to the reference example of custom drop-down options @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+- `Popup`: Added `getPopper()` method, which will return a popper instance for scenarios where dynamic operations are based on popper @RSS1102 ([#6096](https://github.com/Tencent/tdesign-vue-next/pull/6096))
+
+### 🐞 Bug Fixes
+- `AutoComplete`: Fixed the issue where the option pop-up window cannot be opened again when deleting the content of the input box after selecting with the keyboard @SaberA1ter ([#6059](https://github.com/Tencent/tdesign-vue-next/pull/6059))
+- `Cascader`: 
+  - Fixed the problem that multiple selection custom nodes cannot be expanded and processed @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+  - Fix the problem with invalid `reserveKeyword` API @uyarn ([#6102](https://github.com/Tencent/tdesign-vue-next/pull/6102))
+- `DatePicker`: Fixed a problem in the content area at the bottom of the panel that still exists when it is not needed @huguangju ([#6055](https://github.com/Tencent/tdesign-vue-next/pull/6055))
+- `DateRangePicker`: Fixed the problem of clicking the Close button reporting an error in the global replacement icon scenario ([#6108](https://github.com/Tencent/tdesign-vue-next/pull/6108))
+- `Form`: Fixed error in English translation of error messages `max` and `min` @liweijie0812 ([#6082](https://github.com/Tencent/tdesign-vue-next/pull/6082))
+- `ImageViewer`: 
+  - Fixed the problem where `zIndex` is too large and the tooltips of the toolbar will be blocked @liweijie0812 ([#6107](https://github.com/Tencent/tdesign-vue-next/pull/6107))
+  - Fixed the problem that when previewing a picture, it lost focus after right-clicking, and the preview picture would follow the mouse movement @mikasayw ([#6098](https://github.com/Tencent/tdesign-vue-next/pull/6098))
+- `MessagePlugin`: Fix the invalid `className` parameter @Wesley-0808 ([#6097](https://github.com/Tencent/tdesign-vue-next/pull/6097))
+- `NotificationPlugin`: Optimization `offset` does not take effect on container layer @liweijie0812 ([#6087](https://github.com/Tencent/tdesign-vue-next/pull/6087))
+- `Rate`: Fixed the issue where the `color` attribute does not support responsiveness @mikasayw ([#6072](https://github.com/Tencent/tdesign-vue-next/pull/6072))
+- `Table`: Fix alarm problem on the console @mikasayw ([#6070](https://github.com/Tencent/tdesign-vue-next/pull/6070))
+- `Menu`: Fix the residual state of the sub-menu when the parent menu is closed @RSS1102 ([#6086](https://github.com/Tencent/tdesign-vue-next/pull/6086)))
+- `Table`: Make sure to use `defaultPageSize` when `pageSize` is not provided @RSS1102 ([#6101](https://github.com/Tencent/tdesign-vue-next/pull/6101))
+
+### 📝 Documentation
+- `ImageViewer`: Problem with the optimization example page operation bar blocked by the theme generator @liweijie0812 ([#6107](https://github.com/Tencent/tdesign-vue-next/pull/6107))
+
+
 ## 🌈 1.17.1 `2025-10-09` 
 
 ### 🐞 Bug Fixes

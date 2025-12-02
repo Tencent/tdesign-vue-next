@@ -3,7 +3,15 @@ import dayjs from 'dayjs';
 import { isFunction, isDate } from 'lodash-es';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
-import { useConfig, useTNodeJSX, useDisabled, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+import {
+  useConfig,
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  useGlobalIcon,
+  usePrefixClass,
+  useEventForward,
+} from '@tdesign/shared-hooks';
 
 import { useSingle } from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';
@@ -70,9 +78,16 @@ export default defineComponent({
             formatDate(inputValue.value, {
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
+              defaultTime: props.defaultTime,
             }) as DateValue,
             {
-              dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
+              dayjsValue: parseToDayjs(
+                inputValue.value as string,
+                formatRef.value.format,
+                undefined,
+                undefined,
+                props.defaultTime,
+              ),
               trigger: 'confirm',
             },
           );
@@ -143,9 +158,9 @@ export default defineComponent({
         });
       } else {
         if (props.multiple) {
-          const newDate = processDate(date);
+          const newDate = processDate(date, props.defaultTime);
           onChange(newDate, {
-            dayjsValue: parseToDayjs(date, formatRef.value.format),
+            dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, props.defaultTime),
             trigger: 'pick',
           });
           return;
@@ -155,9 +170,10 @@ export default defineComponent({
           formatDate(date, {
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
+            defaultTime: props.defaultTime,
           }) as DateValue,
           {
-            dayjsValue: parseToDayjs(date, formatRef.value.format),
+            dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, props.defaultTime),
             trigger: 'pick',
           },
         );
@@ -167,7 +183,7 @@ export default defineComponent({
       props.onPick?.(date);
     }
 
-    function processDate(date: Date) {
+    function processDate(date: Date, defaultTime?: string | string[]) {
       let isSameDate: boolean;
       const currentValue = (value.value || []) as DateMultipleValue;
       const { dayjsLocale } = globalConfig.value;
@@ -183,13 +199,25 @@ export default defineComponent({
 
       if (!isSameDate) {
         currentDate = currentValue.concat(
-          formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
+          formatDate(date, {
+            format: formatRef.value.format,
+            targetFormat: formatRef.value.valueType,
+            defaultTime,
+          }),
         );
       } else {
         currentDate = currentValue.filter(
           (val) =>
-            formatDate(val, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }) !==
-            formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
+            formatDate(val, {
+              format: formatRef.value.format,
+              targetFormat: formatRef.value.valueType,
+              defaultTime,
+            }) !==
+            formatDate(date, {
+              format: formatRef.value.format,
+              targetFormat: formatRef.value.valueType,
+              defaultTime,
+            }),
         );
       }
       return currentDate;
@@ -202,9 +230,9 @@ export default defineComponent({
       }
 
       const removeDate = dayjs(ctx.item).toDate();
-      const newDate = processDate(removeDate);
+      const newDate = processDate(removeDate, props.defaultTime);
       onChange?.(newDate, {
-        dayjsValue: parseToDayjs(removeDate, formatRef.value.format),
+        dayjsValue: parseToDayjs(removeDate, formatRef.value.format, undefined, undefined, props.defaultTime),
         trigger: 'tag-remove',
       });
     }
@@ -273,9 +301,16 @@ export default defineComponent({
           formatDate(inputValue.value, {
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
+            defaultTime: props.defaultTime,
           }) as DateValue,
           {
-            dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
+            dayjsValue: parseToDayjs(
+              inputValue.value as string,
+              formatRef.value.format,
+              undefined,
+              undefined,
+              props.defaultTime,
+            ),
             trigger: 'confirm',
           },
         );
@@ -296,7 +331,7 @@ export default defineComponent({
           targetFormat: formatRef.value.valueType,
         }) as DateValue,
         {
-          dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
+          dayjsValue: parseToDayjs(presetVal, formatRef.value.format, undefined, undefined, props.defaultTime),
           trigger: 'preset',
         },
       );
@@ -343,6 +378,10 @@ export default defineComponent({
       onPanelClick: () => inputRef.value?.focus?.(),
     }));
 
+    const selectInputEvents = useEventForward(props.selectInputProps as TdDatePickerProps['selectInputProps'], {
+      onClear: onTagClearClick,
+    });
+
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
@@ -363,14 +402,13 @@ export default defineComponent({
           popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
           needConfirm={props.needConfirm}
-          {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
           panel={() => <TSinglePanel {...panelProps.value} />}
           tagInputProps={{
             onRemove: onTagRemoveClick,
           }}
-          onClear={onTagClearClick}
           prefixIcon={() => renderTNodeJSX('prefixIcon')}
           suffixIcon={() => renderTNodeJSX('suffixIcon') || <CalendarIcon />}
+          {...selectInputEvents.value}
         />
       </div>
     );

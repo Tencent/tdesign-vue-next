@@ -132,32 +132,16 @@ const SCHOOL_OPTIONS: RadioGroupProps['options'] = [
     value: 3,
   },
 ];
-const rules: FormProps['rules'] = {
-  school: [
-    {
-      required: true,
-      message: '学校必填',
-    },
-  ],
-  name: [
-    {
-      required: true,
-      message: '用户名必填',
-    },
-  ],
-  courseType: [
-    {
-      required: true,
-      message: '选科必填',
-    },
-  ],
-  course: [
-    {
-      required: true,
-      message: '课程必填',
-    },
-  ],
-};
+
+const rules = computed<FormProps['rules']>(() => ({
+  school: [{ required: true, message: '学校必填' }],
+  students: formData.students.map(() => ({
+    name: [{ required: true, message: '用户名必填' }],
+    courseType: [{ required: true, message: '选科必填' }],
+    course: [{ required: true, message: '课程必填' }],
+  })),
+}));
+
 const courseOptions = computed<CheckboxGroupProps['options']>(() =>
   COURSE_OPTIONS.filter((item) => {
     if (!formData.courseType || !item.courseTypes) return true;

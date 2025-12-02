@@ -186,8 +186,10 @@ export default defineComponent({
           trigger,
         };
         const rules = isFunction(col.value.edit.rules) ? col.value.edit.rules(cellParams.value) : col.value.edit.rules;
+
         if (!col.value.edit || !rules || !rules.length) {
           props.onValidate?.(params);
+
           resolve(true);
           return;
         }
@@ -200,6 +202,7 @@ export default defineComponent({
             resolve(true);
           } else {
             errorList.value = list;
+
             resolve(list);
           }
         });
@@ -222,13 +225,12 @@ export default defineComponent({
           editValue.value = oldValue;
           outsideAbortEvent?.(...args);
         }
+        if (isKeepEditMode.value) return;
         editOnListeners.value[eventName]?.(args[2]);
         // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清除不及时引起的其他问题
         const timer = setTimeout(() => {
-          if (!isKeepEditMode.value) {
-            isEdit.value = false;
-          }
           errorList.value = [];
+          isEdit.value = false;
           props.onEditableChange?.({
             ...cellParams.value,
             value: editValue.value,
@@ -307,6 +309,7 @@ export default defineComponent({
       const node = path.find((node: HTMLElement) => node.classList?.contains(`${classPrefix.value}-popup__content`));
       if (node) return;
       const outsideAbortEvent = col.value.edit.onEdited;
+
       updateAndSaveAbort(outsideAbortEvent, '', {
         ...cellParams.value,
         trigger: 'document',
@@ -331,7 +334,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      if (props.col.edit?.defaultEditable) {
+      if (props.col.edit?.defaultEditable || props.col.edit?.keepEditMode) {
         enterEdit();
       }
     });

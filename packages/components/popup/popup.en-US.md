@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Popup Props
 
 name | type | default | description | required
@@ -22,6 +23,7 @@ showArrow | Boolean | false | \- | N
 trigger | String | hover | options: hover/click/focus/mousedown/context-menu | N
 triggerElement | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 visible | Boolean | - | `v-model` and `v-model:visible` is supported。Typescript：`boolean` | N
+defaultVisible | Boolean | - | uncontrolled property。Typescript：`boolean` | N
 zIndex | Number | - | \- | N
 onOverlayClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>trigger on popup content click | N
 onScroll | Function |  | Typescript：`(context: { e: WheelEvent }) => void`<br/> | N
@@ -41,6 +43,7 @@ visible-change | `(visible: boolean, context: PopupVisibleChangeContext)` | [see
 
 name | params | return | description
 -- | -- | -- | --
-getOverlay | \- | `HTMLElement` | used to get overly html element
+getOverlay | \- | `HTMLElement \| null` | used to get overly html element
 getOverlayState | \- | `{ hover: boolean }` | get mouseover state of overlay
+getPopper | \- | `Instance \| null` | get the popup component popper instance。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/popup/type.ts)。<br/>`import { Instance } from '@popperjs/core'`<br/>
 update | \- | \- | used to update overlay content

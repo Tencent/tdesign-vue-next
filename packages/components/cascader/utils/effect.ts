@@ -10,14 +10,13 @@ import { getFullPathLabel, getTreeValue, isEmptyValues } from './helper';
  * @param node
  * @param cascaderContext
  */
-export function expendClickEffect(
+export function expandClickEffect(
   propsTrigger: TdCascaderProps['trigger'],
   trigger: TdCascaderProps['trigger'],
   node: TreeNode,
   cascaderContext: CascaderContextType,
-  options: TdCascaderProps['options'],
 ) {
-  const { checkStrictly, multiple, treeStore, setVisible, setValue, setTreeNodes, setExpend, value, max, valueType } =
+  const { checkStrictly, multiple, treeStore, setVisible, setValue, setTreeNodes, setExpand, value, max, valueType } =
     cascaderContext;
 
   const isDisabled = node.disabled || (multiple && (value as TreeNodeValue[]).length >= max && max !== 0);
@@ -27,9 +26,7 @@ export function expendClickEffect(
   if (propsTrigger === trigger) {
     const expanded = node.setExpanded(true);
 
-    if (checkStrictly && cascaderContext.inputVal) {
-      setTimeout(() => treeStore.reload(options), 300);
-    } else if (!cascaderContext.inputVal) {
+    if (!cascaderContext.inputVal) {
       treeStore.replaceExpanded(expanded);
       const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
       setTreeNodes(nodes);
@@ -38,8 +35,8 @@ export function expendClickEffect(
     }
 
     // 多选条件下手动维护expend
-    if (multiple) {
-      setExpend(expanded);
+    if (multiple && !cascaderContext.isParentFilterable) {
+      setExpand(expanded);
     }
   }
 
@@ -65,7 +62,18 @@ export function expendClickEffect(
  * @returns
  */
 export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderContextType) {
-  const { disabled, max, inputVal, setVisible, setValue, treeNodes, treeStore, valueType } = cascaderContext;
+  const {
+    disabled,
+    max,
+    inputVal,
+    setVisible,
+    setValue,
+    treeNodes,
+    treeStore,
+    valueType,
+    setInputVal,
+    reserveKeyword,
+  } = cascaderContext;
 
   if (!node || disabled || node.disabled) {
     return;
@@ -106,6 +114,7 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
         );
 
   setValue(resValue, node.checked ? 'uncheck' : 'check', node.getModel());
+  if (!reserveKeyword) setInputVal('');
 }
 
 /**
@@ -172,12 +181,13 @@ export const treeNodesEffect = (
   treeStore: CascaderContextType['treeStore'],
   setTreeNodes: CascaderContextType['setTreeNodes'],
   filter: CascaderContextType['filter'],
+  isParentFilterable: boolean,
 ) => {
   if (!treeStore) return;
   let nodes = [];
   // 通用的过滤方法
   const filterMethods = (node: TreeNode) => {
-    if (!node.isLeaf()) return false;
+    if (!node.isLeaf() && !isParentFilterable) return false;
     if (isFunction(filter)) {
       return filter(`${inputVal}`, node as TreeNodeModel & TreeNode);
     }
