@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.6 `2025-12-01` 
+
+### 🐞 Bug Fixes
+- `DatePicker`: Fixed the issue of incorrect month synchronization on the right panel of the date range selector after version 1.16.0 @liweijie0812@Copilot ([#6204](https://github.com/Tencent/tdesign-vue-next/pull/6204))
+
+
 ## 🌈 1.17.5 `2025-11-28` 
 
 ### 🐞 Bug Fixes
