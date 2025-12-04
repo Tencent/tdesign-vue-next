@@ -2,7 +2,6 @@
 import { SelectInput } from '@tdesign/components';
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { getSelectInputMultipleMount } from './mount';
 
 afterEach(() => {
   document.body.innerHTML = '';
@@ -83,10 +82,13 @@ describe('useMultiple hooks', () => {
   describe('input change triggers', () => {
     it('should not trigger input change on enter or blur', async () => {
       const onInputChange = vi.fn();
-      const wrapper = getSelectInputMultipleMount(SelectInput, {
-        value: [{ label: 'tdesign-vue', value: 1 }],
-        allowInput: true,
-        onInputChange,
+      const wrapper = mount(SelectInput, {
+        props: {
+          value: [{ label: 'tdesign-vue', value: 1 }],
+          multiple: true,
+          allowInput: true,
+          onInputChange,
+        },
       });
 
       const tagInput = wrapper.findComponent({ name: 'TTagInput' });
@@ -100,10 +102,13 @@ describe('useMultiple hooks', () => {
 
     it('should handle input change with valid trigger', async () => {
       const onInputChange = vi.fn();
-      const wrapper = getSelectInputMultipleMount(SelectInput, {
-        value: [{ label: 'tdesign-vue', value: 1 }],
-        allowInput: true,
-        onInputChange,
+      const wrapper = mount(SelectInput, {
+        props: {
+          value: [{ label: 'tdesign-vue', value: 1 }],
+          multiple: true,
+          allowInput: true,
+          onInputChange,
+        },
       });
 
       const tagInput = wrapper.findComponent({ name: 'TTagInput' });
@@ -119,10 +124,13 @@ describe('useMultiple hooks', () => {
 
     it('should not trigger input change on enter trigger', async () => {
       const onInputChange = vi.fn();
-      const wrapper = getSelectInputMultipleMount(SelectInput, {
-        value: [{ label: 'tdesign-vue', value: 1 }],
-        allowInput: true,
-        onInputChange,
+      const wrapper = mount(SelectInput, {
+        props: {
+          value: [{ label: 'tdesign-vue', value: 1 }],
+          multiple: true,
+          allowInput: true,
+          onInputChange,
+        },
       });
 
       const tagInput = wrapper.findComponent({ name: 'TTagInput' });
@@ -136,10 +144,13 @@ describe('useMultiple hooks', () => {
 
     it('should not trigger input change on blur trigger', async () => {
       const onInputChange = vi.fn();
-      const wrapper = getSelectInputMultipleMount(SelectInput, {
-        value: [{ label: 'tdesign-vue', value: 1 }],
-        allowInput: true,
-        onInputChange,
+      const wrapper = mount(SelectInput, {
+        props: {
+          value: [{ label: 'tdesign-vue', value: 1 }],
+          multiple: true,
+          allowInput: true,
+          onInputChange,
+        },
       });
 
       const tagInput = wrapper.findComponent({ name: 'TTagInput' });
@@ -155,9 +166,12 @@ describe('useMultiple hooks', () => {
   describe('blur with overlay hover', () => {
     it('should not trigger blur when overlay is hovering', async () => {
       const onBlur = vi.fn();
-      const wrapper = getSelectInputMultipleMount(SelectInput, {
-        value: [{ label: 'tdesign-vue', value: 1 }],
-        onBlur,
+      const wrapper = mount(SelectInput, {
+        props: {
+          value: [{ label: 'tdesign-vue', value: 1 }],
+          multiple: true,
+          onBlur,
+        },
       });
 
       const popupRef = wrapper.vm.popupRef;
@@ -176,9 +190,12 @@ describe('useMultiple hooks', () => {
 
     it('should trigger blur when overlay is not hovering', async () => {
       const onBlur = vi.fn();
-      const wrapper = getSelectInputMultipleMount(SelectInput, {
-        value: [{ label: 'tdesign-vue', value: 1 }],
-        onBlur,
+      const wrapper = mount(SelectInput, {
+        props: {
+          value: [{ label: 'tdesign-vue', value: 1 }],
+          multiple: true,
+          onBlur,
+        },
       });
 
       const popupRef = wrapper.vm.popupRef;
@@ -199,34 +216,37 @@ describe('useMultiple hooks', () => {
   describe('focus with overlay hover', () => {
     it('should not trigger focus when already focused', async () => {
       const onFocus = vi.fn();
-      const wrapper = getSelectInputMultipleMount(SelectInput, {
-        value: [{ label: 'tdesign-vue', value: 1 }],
-        onFocus,
+      const wrapper = mount(SelectInput, {
+        props: {
+          value: [{ label: 'tdesign-vue', value: 1 }],
+          multiple: true,
+          onFocus,
+        },
       });
 
-      // First focus
-      const tagInput = wrapper.findComponent({ name: 'TTagInput' });
-      await tagInput.vm.$emit('focus', [{ label: 'tdesign-vue', value: 1 }], {
-        trigger: 'focus',
-        e: new Event('focus'),
-      });
+      // First focus - trigger it via real focus event
+      const input = wrapper.find('input');
+      await input.trigger('focus');
+      await wrapper.vm.$nextTick();
 
+      expect(onFocus).toHaveBeenCalledTimes(1);
       onFocus.mockClear();
 
-      // Second focus should not trigger
-      await tagInput.vm.$emit('focus', [{ label: 'tdesign-vue', value: 1 }], {
-        trigger: 'focus',
-        e: new Event('focus'),
-      });
+      // Second focus should not trigger because already focused
+      await input.trigger('focus');
+      await wrapper.vm.$nextTick();
 
       expect(onFocus).not.toBeCalled();
     });
 
     it('should not trigger focus when overlay is hovering', async () => {
       const onFocus = vi.fn();
-      const wrapper = getSelectInputMultipleMount(SelectInput, {
-        value: [{ label: 'tdesign-vue', value: 1 }],
-        onFocus,
+      const wrapper = mount(SelectInput, {
+        props: {
+          value: [{ label: 'tdesign-vue', value: 1 }],
+          multiple: true,
+          onFocus,
+        },
       });
 
       const popupRef = wrapper.vm.popupRef;
