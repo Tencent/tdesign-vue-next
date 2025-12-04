@@ -18,7 +18,7 @@ import '@tdesign/site-components/lib/styles/style.css';
 import '@tdesign/site-components/lib/styles/prism-theme.less';
 import '@tdesign/site-components/lib/styles/prism-theme-dark.less';
 
-import 'tdesign-theme-generator';
+import '@tdesign/theme-generator';
 // @ts-ignore
 import { registerLocaleChange } from '@tdesign/site-components';
 
