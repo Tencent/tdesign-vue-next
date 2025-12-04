@@ -1,10 +1,10 @@
-import { defineComponent, computed, onMounted, inject, ComputedRef } from 'vue';
+import { defineComponent, computed, onMounted, inject, ComputedRef, ref, watch } from 'vue';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import props from './chat-content-props';
 import Clipboard from 'clipboard';
 import hljs from 'highlight.js';
-import { Marked } from 'marked';
+import { Marked, MarkedExtension } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 
 const escapeTest = /[&<>"']/;
@@ -62,13 +62,9 @@ export default defineComponent({
       });
     });
 
-    const marked = new Marked(
-      markedHighlight({
-        highlight(code) {
-          return hljs.highlightAuto(code).value;
-        },
-      }),
-      {
+    // Create marked instance with default options
+    const createMarkedInstance = (markedOptions?: Record<string, any>) => {
+      const defaultRenderer: MarkedExtension = {
         renderer: {
           code(code, lang, escaped) {
             return `<pre class="hljs"><div class="t-chat__code-header">
@@ -77,14 +73,42 @@ export default defineComponent({
         </div><code class="hljs language-${escape(lang)}" >${escaped ? code : escape(code)}</code></pre>`;
           },
         },
+      };
+
+      const markedInstance = new Marked(
+        markedHighlight({
+          highlight(code) {
+            return hljs.highlightAuto(code).value;
+          },
+        }),
+        defaultRenderer,
+      );
+
+      // Apply user-provided markedOptions if available
+      if (markedOptions) {
+        markedInstance.use(markedOptions as MarkedExtension);
+      }
+
+      return markedInstance;
+    };
+
+    // Use ref to store marked instance and watch for changes
+    const markedRef = ref(createMarkedInstance(props.markedOptions));
+
+    // Watch for changes in markedOptions and recreate the instance
+    watch(
+      () => props.markedOptions,
+      (newOptions) => {
+        markedRef.value = createMarkedInstance(newOptions);
       },
+      { deep: true },
     );
 
     const getHtmlByMarked = (markdown: string) => {
       if (!markdown) {
         return '<div class="waiting"></div>';
       }
-      return marked.parse(markdown);
+      return markedRef.value.parse(markdown);
     };
     const textInfo = computed(() => {
       if (role.value === 'model-change') {
