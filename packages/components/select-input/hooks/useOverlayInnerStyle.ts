@@ -12,8 +12,6 @@ export type overlayInnerStyleProps = Pick<
 
 // 单位：px
 const MAX_POPUP_WIDTH = 1000;
-// 避免因滚动条出现文本省略，预留宽度 8
-const RESERVE_WIDTH = 0;
 
 export function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   const { popupProps, autoWidth } = toRefs(props);
@@ -21,12 +19,7 @@ export function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   const disable = useDisabled();
   const isReadonly = useReadonly();
 
-  const matchWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
-    const SCROLLBAR_WIDTH = popupElement.scrollHeight > popupElement.offsetHeight ? RESERVE_WIDTH : 0;
-    const width =
-      popupElement.offsetWidth + SCROLLBAR_WIDTH >= triggerElement.offsetWidth
-        ? popupElement.offsetWidth
-        : triggerElement.offsetWidth;
+  const matchWidthFunc = (triggerElement: HTMLElement) => {
     let otherOverlayInnerStyle: CSSProperties = {};
     if (
       popupProps.value &&
@@ -36,7 +29,7 @@ export function useOverlayInnerStyle(props: overlayInnerStyleProps) {
       otherOverlayInnerStyle = popupProps.value.overlayInnerStyle;
     }
     return {
-      width: `${Math.min(width, MAX_POPUP_WIDTH)}px`,
+      width: `${Math.min(triggerElement.offsetWidth, MAX_POPUP_WIDTH)}px`,
       ...otherOverlayInnerStyle,
     };
   };
@@ -52,9 +45,9 @@ export function useOverlayInnerStyle(props: overlayInnerStyleProps) {
     }
   };
 
-  const getAutoWidthPopupStyleWidth = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
+  const getAutoWidthPopupStyleWidth = (triggerElement: HTMLElement) => {
     return {
-      width: `${Math.max(triggerElement.offsetWidth, popupElement.offsetWidth)}px`,
+      width: `${Math.min(triggerElement.offsetWidth, MAX_POPUP_WIDTH)}px`,
       ...popupProps.value?.overlayInnerStyle,
     };
   };

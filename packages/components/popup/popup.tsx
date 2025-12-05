@@ -554,6 +554,7 @@ export default defineComponent({
           }}
           onResize={() => {
             if (visible.value) {
+              updateOverlayInnerStyle();
               updatePopper();
             }
           }}
