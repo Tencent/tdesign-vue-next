@@ -1,4 +1,4 @@
-import { ref, h } from 'vue';
+import { ref, h, nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { describe, expect, vi, it } from 'vitest';
@@ -49,6 +49,23 @@ describe('Transfer', () => {
       const text = header.findAll('span')[2];
       expect(text.exists()).toBeTruthy();
       expect(text.text()).toBe('1 / 20 项');
+    });
+
+    it(':v-model:checked should emit update:checked event', async () => {
+      const checked = ref<string[]>([]);
+      const wrapper = mount(() => <Transfer data={transferMockData} v-model:checked={checked.value} />);
+
+      // Click on first non-disabled item checkbox
+      const list = wrapper.findAll('.t-transfer__list');
+      const items = list[0].findAll('.t-transfer__list-item');
+      // Find a non-disabled item (item with index 1 should be non-disabled based on mock data)
+      const nonDisabledItem = items[1];
+      const checkbox = nonDisabledItem.find('.t-checkbox input');
+      await checkbox.trigger('change');
+      await nextTick();
+
+      // The checked value should be updated
+      expect(checked.value.length).toBeGreaterThan(0);
     });
 
     it(':data[array]', () => {
