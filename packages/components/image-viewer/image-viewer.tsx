@@ -1,5 +1,5 @@
 import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
-import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
+import { Teleport, Transition, computed, defineComponent, nextTick, onBeforeUnmount, ref, toRefs, watch } from 'vue';
 
 import {
   useVModel,
@@ -159,6 +159,11 @@ export default defineComponent({
         }
       },
     );
+
+    // Clean up timer when component is unmounted to prevent memory leaks and errors
+    onBeforeUnmount(() => {
+      clearTimeout(animationTimer.value);
+    });
 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
