@@ -32,13 +32,20 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
   );
 
   const handleInactive = (ctx: RowEventContext<TableRowData>) => {
-    const { row, index } = ctx;
+    const { row } = ctx;
     const rowValue = get(row, props.rowKey);
     if (activeRowType.value === 'single') {
       const newActiveRowKeys = tActiveRow.value.length > 1 ? [rowValue] : [];
+      const activeRowList: { row: TableRowData; rowIndex: number }[] = [];
+      for (let i = 0, len = data.value.length; i < len; i++) {
+        const row = data.value[i];
+        if (newActiveRowKeys.includes(get(row, props.rowKey))) {
+          activeRowList.push({ row, rowIndex: i });
+        }
+      }
       setTActiveRow(newActiveRowKeys, {
         type: 'inactive',
-        activeRowList: [{ row, rowIndex: index }],
+        activeRowList,
         currentRowData: row,
       });
     } else if (activeRowType.value === 'multiple') {
