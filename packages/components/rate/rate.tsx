@@ -21,7 +21,7 @@ export default defineComponent({
     });
 
     const { value: inputValue, modelValue } = toRefs(props);
-    const [starValue, setStarValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
+    const [starValue, setStarValue] = useVModel(inputValue, modelValue, props.defaultValue, 'onChange');
 
     const hoverValue = ref(undefined);
     const root = ref<HTMLTableElement>();
