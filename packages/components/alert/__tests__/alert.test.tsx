@@ -24,10 +24,16 @@ const mock = vi.hoisted(() => {
       el.classList.add(cls);
     }
   });
+  const removeClassMock = vi.fn((el: Element | null, cls: string) => {
+    if (el) {
+      el.classList.remove(cls);
+    }
+  });
   return {
     store,
     onMock,
     addClassMock,
+    removeClassMock,
   };
 });
 
@@ -37,6 +43,7 @@ vi.mock('@tdesign/shared-utils', async (importOriginal) => {
     ...actual,
     on: mock.onMock,
     addClass: mock.addClassMock,
+    removeClass: mock.removeClassMock,
   };
 });
 
@@ -331,6 +338,68 @@ describe('Alert', () => {
       const operation = wrapper.find('.t-alert__operation');
       expect(operation.exists()).eq(true);
       expect(operation.text()).eq('op');
+    });
+
+    it('关闭动画结束后移除 t-alert--closing 类', async () => {
+      const onClosed = vi.fn();
+      const wrapper = mount(() => (
+        <Alert closeBtn onClosed={onClosed}>
+          text
+        </Alert>
+      ));
+      const alertEl = wrapper.find('.t-alert');
+
+      // 点击关闭按钮开始关闭
+      const close = wrapper.find('.t-alert__close');
+      await close.trigger('click');
+      await nextTick();
+
+      // 验证 closing 类已添加
+      expect(alertEl.classes()).toContain('t-alert--closing');
+
+      // 模拟 opacity 的 transitionend 事件
+      mock.store.handler?.({ propertyName: 'opacity', target: alertEl.element });
+      await nextTick();
+
+      // 验证 closing 类已移除，hidden 类已添加
+      expect(alertEl.classes()).not.toContain('t-alert--closing');
+      expect(alertEl.classes()).toContain('t-is-hidden');
+      expect(onClosed).toHaveBeenCalled();
+    });
+
+    it('v-show 重新显示时重置 visible 状态', async () => {
+      const onClosed = vi.fn();
+      const wrapper = mount(() => (
+        <Alert closeBtn onClosed={onClosed}>
+          text
+        </Alert>
+      ));
+      const alertEl = wrapper.find('.t-alert');
+
+      // 点击关闭按钮开始关闭
+      const close = wrapper.find('.t-alert__close');
+      await close.trigger('click');
+      await nextTick();
+
+      // 模拟 v-show=false 设置 display: none（在 transitionend 之前）
+      (alertEl.element as HTMLElement).style.display = 'none';
+      await wrapper.vm.$forceUpdate();
+      await nextTick();
+
+      // 模拟 transitionend 事件
+      mock.store.handler?.({ propertyName: 'opacity', target: alertEl.element });
+      await nextTick();
+
+      // 验证 hidden 类已添加
+      expect(alertEl.classes()).toContain('t-is-hidden');
+
+      // 模拟 v-show=true 通过移除 display: none 重新显示组件
+      (alertEl.element as HTMLElement).style.display = '';
+      await wrapper.vm.$forceUpdate();
+      await nextTick();
+
+      // visible 状态应重置，t-is-hidden 类应移除
+      expect(alertEl.classes()).not.toContain('t-is-hidden');
     });
   });
 });

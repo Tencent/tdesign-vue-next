@@ -1,4 +1,4 @@
-import { defineComponent, VNode, ref, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue';
+import { defineComponent, VNode, ref, onMounted, onBeforeUnmount, onUpdated, getCurrentInstance } from 'vue';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,
@@ -8,7 +8,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { isArray, isString } from 'lodash-es';
 
-import { on, off, addClass } from '@tdesign/shared-utils';
+import { on, off, addClass, removeClass } from '@tdesign/shared-utils';
 import props from './props';
 import { SlotReturnValue } from '../common';
 import {
@@ -49,6 +49,8 @@ export default defineComponent({
     const visible = ref(true);
     // 是否已收起，使用折叠功能时有效，用于表示是否已折叠；默认折叠
     const collapsed = ref(true);
+    // 记录上一次的 display 样式值，用于检测 v-show 状态变化
+    let prevDisplay = '';
 
     const renderIcon = () => {
       const Component = {
@@ -157,6 +159,7 @@ export default defineComponent({
       // 防止子元素冒泡触发
       if (e.propertyName === 'opacity' && isTransitionTarget) {
         visible.value = false;
+        removeClass(alertRef.value, `${COMPONENT_NAME.value}--closing`);
         props.onClosed?.({ e });
       }
     };
@@ -167,6 +170,20 @@ export default defineComponent({
     });
     onBeforeUnmount(() => {
       off(alertRef.value, 'transitionend', handleCloseEnd);
+    });
+    // 当组件通过 v-show 重新显示时，重置 visible 状态
+    // v-show 为 true 时，Vue 会将 inline style 的 display 设为空字符串
+    // v-show 为 false 时，Vue 会将 inline style 的 display 设为 'none'
+    onUpdated(() => {
+      if (!visible.value && alertRef.value) {
+        const currentDisplay = alertRef.value.style.display;
+        // 只有当 display 从 'none' 变为其他值时，才重置 visible 状态
+        // 这表示 v-show 从 false 变为 true
+        if (prevDisplay === 'none' && currentDisplay !== 'none') {
+          visible.value = true;
+        }
+        prevDisplay = currentDisplay;
+      }
     });
 
     return () => (
