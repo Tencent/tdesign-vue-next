@@ -66,6 +66,20 @@ export default defineComponent({
       }
     });
 
+    // 判断是否为一级菜单项（直接在 TMenu 下，不在 TSubmenu 中）
+    const isFirstLevel = () => {
+      let node = instance?.parent;
+      while (node && !/^t(head)?menu$/i.test(node?.type?.name)) {
+        // 如果遇到 TSubmenu，说明不是一级菜单
+        if (/submenu/i.test(node?.type?.name)) {
+          return false;
+        }
+        node = node?.parent;
+      }
+      // 找到了 TMenu 或 THeadMenu，说明是一级菜单
+      return !!node;
+    };
+
     return () => {
       const liContent = (
         <li ref={itemRef} class={classes.value} onClick={handleClick}>
@@ -94,9 +108,8 @@ export default defineComponent({
         </li>
       );
 
-      const node = instance?.parent;
       // 菜单收起，且只有本身为一级菜单才需要显示 tooltip
-      if (collapsed.value && /tmenu/i.test(node?.type.name)) {
+      if (collapsed.value && isFirstLevel()) {
         return (
           <Tooltip content={() => renderContent('default', 'content')} placement="right">
             {liContent}
