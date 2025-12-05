@@ -1,12 +1,22 @@
-import { computed } from 'vue';
+import { ref } from 'vue';
 import { isArray } from 'lodash-es';
 
 import { useChildComponentSlots } from '@tdesign/shared-hooks';
 
 export const useListItems = () => {
   const getChildComponentSlots = useChildComponentSlots();
+  // Track if we're currently in the render phase (instance-specific using ref)
+  const isInRenderPhase = ref(false);
 
-  const listItems = computed(() => {
+  // Return a getter function that only accesses slots during render phase
+  // This prevents the Vue warning about calling slots outside of render function
+  const getListItems = () => {
+    // During setup phase (before render), return empty array to avoid slot access
+    // The virtual scroll will re-evaluate when data changes during render
+    if (!isInRenderPhase.value) {
+      return [];
+    }
+
     const computedListItems = [];
     // 处理 slots
     const listItemSlots = getChildComponentSlots('ListItem');
@@ -20,9 +30,15 @@ export const useListItems = () => {
       }
     }
     return computedListItems;
-  });
+  };
+
+  // Function to mark that we're entering render phase
+  const setRenderPhase = (value: boolean) => {
+    isInRenderPhase.value = value;
+  };
 
   return {
-    listItems,
+    getListItems,
+    setRenderPhase,
   };
 };

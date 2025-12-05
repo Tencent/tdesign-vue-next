@@ -21,10 +21,10 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('list');
     const { SIZE } = useCommonClassName();
     const renderTNodeJSX = useTNodeJSX();
-    const { listItems } = useListItems();
+    const { getListItems, setRenderPhase } = useListItems();
 
     const { virtualConfig, cursorStyle, listStyle, isVirtualScroll, onInnerVirtualScroll, scrollToElement } =
-      useListVirtualScroll(props.scroll, listRef, listItems);
+      useListVirtualScroll(props.scroll, listRef, getListItems);
 
     /** 列表基础逻辑 start */
     const listClass = computed(() => {
@@ -108,6 +108,9 @@ export default defineComponent({
     };
     expose({ scrollTo: scrollToElement });
     return () => {
+      // Mark that we're in render phase so slots can be safely accessed
+      setRenderPhase(true);
+
       const listContent = [
         renderContent(),
         <div class={loadingClass.value} onClick={handleLoadMore}>

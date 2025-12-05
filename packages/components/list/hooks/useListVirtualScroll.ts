@@ -8,10 +8,10 @@ import { Styles, type ComponentScrollToElementParams } from '../../common';
 export const useListVirtualScroll = (
   scroll: TdListProps['scroll'],
   listRef: Ref<HTMLElement>,
-  listItems: Ref<any[]>,
+  getListItems: () => any[],
 ) => {
   const virtualScrollParams = computed(() => ({
-    data: listItems.value,
+    data: getListItems(),
     scroll: scroll,
   }));
   const virtualConfig = useVirtualScrollNew(listRef, virtualScrollParams);
@@ -60,7 +60,8 @@ export const useListVirtualScroll = (
       log.error('List', 'scrollTo: `index` or `key` must exist.');
       return;
     }
-    if (targetIndex < 0 || targetIndex >= listItems.value.length) {
+    const listItems = getListItems();
+    if (targetIndex < 0 || targetIndex >= listItems.length) {
       log.error('List', `${targetIndex} does not exist in data, check \`index\` or \`key\` please.`);
       return;
     }
