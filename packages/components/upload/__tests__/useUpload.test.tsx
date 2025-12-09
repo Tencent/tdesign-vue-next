@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { Upload } from '@tdesign/components/upload';
 import { simulateFileChange } from '@tdesign/internal-tests/utils';
