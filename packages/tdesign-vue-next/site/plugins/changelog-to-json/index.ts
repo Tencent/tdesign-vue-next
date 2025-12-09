@@ -18,7 +18,8 @@ export default function changelog2Json() {
         res.end(JSON.stringify(json));
       });
     },
-    async closeBundle() {
+    async closeBundle(error?: Error) {
+      if (error) return;
       // 生产构建时写入物理文件
       if (process.env.NODE_ENV === 'production') {
         const json = await generateChangelogJson(changelogPath, 'web');
