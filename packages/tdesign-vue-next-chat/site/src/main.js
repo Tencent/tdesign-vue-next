@@ -11,7 +11,7 @@ import BaseUsage from './components/base-usage.vue';
 
 // import tdesign style
 import '@tdesign/components/style/index.js';
-import '@tdesign/common/style/web/docs.less';
+import '@tdesign/common-style/web/docs.less';
 
 // import site webComponents
 import '@tdesign/site-components';
