@@ -2,6 +2,10 @@ packages:
   - packages/**
   - internal/**
   - '!packages/common'
+  - packages/common/docs
+  - packages/common/js
+  - packages/common/style
+  
 catalogs:
   bundle:
     '@babel/cli': ^7.22.9
