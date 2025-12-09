@@ -1,10 +1,10 @@
 packages:
   - packages/**
   - internal/**
-  - '!packages/common'
   - packages/common/docs
   - packages/common/js
   - packages/common/style
+  - '!packages/common'
   
 catalogs:
   bundle:
