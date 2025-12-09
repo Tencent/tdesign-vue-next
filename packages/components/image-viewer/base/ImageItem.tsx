@@ -28,17 +28,17 @@ export default defineComponent({
     const svgElRef = ref<HTMLDivElement>();
 
     const imgStyle = computed(() => ({
-      transform: `rotate(${props.rotate}deg) scale(${props.scale})`,
+      transform: `rotate(${props.rotate}deg)`,
       display: !props.placementSrc || loaded.value ? 'block' : 'none',
     }));
     const placementImgStyle = computed(() => ({
-      transform: `rotate(${props.rotate}deg) scale(${props.scale})`,
+      transform: `rotate(${props.rotate}deg)`,
       display: !loaded.value ? 'block' : 'none',
     }));
     const boxStyle = computed(() => {
       const { translateX, translateY } = transform.value;
       return {
-        transform: `translate(${translateX}px, ${translateY}px) scale(${props.mirror}, 1)`,
+        transform: `translate(${translateX}px, ${translateY}px) scale(${props.scale * props.mirror}, ${props.scale})`,
       };
     });
 
