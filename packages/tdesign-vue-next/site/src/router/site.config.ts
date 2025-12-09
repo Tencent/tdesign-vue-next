@@ -57,8 +57,8 @@ export const docs = [
         titleEn: 'Theme Customization',
         name: 'custom-theme',
         path: '/vue-next/custom-theme',
-        component: () => import('@tdesign/common-docs/theme.md'),
-        componentEn: () => import('@tdesign/common-docs/theme.en-US.md'),
+        component: () => import('@tdesign/common-docs/web/theme.md'),
+        componentEn: () => import('@tdesign/common-docs/web/theme.en-US.md'),
       },
       {
         title: '深色模式',
