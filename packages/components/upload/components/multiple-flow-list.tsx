@@ -395,9 +395,9 @@ export default defineComponent({
     return () => {
       const cardClassName = `${uploadPrefix.value}__flow-card-area`;
       const cancelUploadDisabled = disabled.value || !uploading.value;
-      const hasCancelUploadTNode = slots.uploadButton || isFunction(props.uploadButton);
+      const hasUploadButtonTNode = slots.uploadButton || isFunction(props.uploadButton);
       const uploadButtonDisabled = Boolean(disabled.value || uploading.value || !displayFiles.value.length);
-      const hasUploadButtonTNode = slots.cancelUploadButton || isFunction(props.cancelUploadButton);
+      const hasCancelUploadTNode = slots.cancelUploadButton || isFunction(props.cancelUploadButton);
       const cancelButtonProps = useEventForward(
         props.cancelUploadButton as TdButtonProps,
         isObject(props.cancelUploadButton)
