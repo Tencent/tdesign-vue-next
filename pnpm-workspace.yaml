@@ -1,7 +1,7 @@
 packages:
   - packages/**
   - internal/**
-  -!packages/common
+  - !packages/common
 catalogs:
   bundle:
     '@babel/cli': ^7.22.9
