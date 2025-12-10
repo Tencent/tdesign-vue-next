@@ -13,7 +13,7 @@ export default {
   /** 下拉操作项内容 */
   content: {
     type: [String, Function] as PropType<TdDropdownItemProps['content']>,
-    default: '',
+    default: '' as TdDropdownItemProps['content'],
   },
   /** 是否禁用操作项 */
   disabled: Boolean,
