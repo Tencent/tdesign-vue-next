@@ -44,3 +44,29 @@ export type { TreeNodeModel } from '../tree';
 export type { TdSelectInputProps } from '../select-input/type';
 
 export const EVENT_NAME_WITH_KEBAB = ['remove', 'blur', 'focus'];
+
+export interface CascaderOptionSlotContext {
+  item: TreeOptionData;
+  index: number;
+  onChange: () => void;
+  onExpand: () => void;
+}
+
+export interface CascaderSubPanelSlots {
+  option?: TdCascaderProps['option'];
+  empty?: TdCascaderProps['empty'];
+  loadingText?: TdCascaderProps['loadingText'];
+  panelHeader?: TdCascaderProps['panelHeader'];
+}
+
+export interface CascaderSlots extends CascaderSubPanelSlots {
+  label?: TdCascaderProps['label'];
+  suffix?: TdCascaderProps['suffix'];
+  prefixIcon?: TdCascaderProps['prefixIcon'];
+  suffixIcon?: TdCascaderProps['suffixIcon'];
+  panelTopContent?: TdCascaderProps['panelTopContent'];
+  panelBottomContent?: TdCascaderProps['panelBottomContent'];
+  tips?: TdCascaderProps['tips'];
+  valueDisplay?: TdCascaderProps['valueDisplay'];
+  collapsedItems?: TdCascaderProps['collapsedItems'];
+}

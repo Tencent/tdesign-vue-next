@@ -1,5 +1,9 @@
 <template>
-  <t-cascader v-model="value" :options="options" clearable @change="onChange" @focus="onFocus" @blur="onBlur" />
+  <t-cascader v-model="value" :options="options">
+    <template #panelHeader="{ panelIndex }">
+      <t-input v-if="panelIndex === 1" v-model="searchValue" placeholder="请输入搜索内容" />
+    </template>
+  </t-cascader>
 </template>
 
 <script setup>

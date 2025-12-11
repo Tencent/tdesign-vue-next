@@ -4,7 +4,7 @@ import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
 import props from './props';
 
-import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './types';
+import { CascaderValue, TdSelectInputProps, TdCascaderProps, CascaderSlots } from './types';
 import {
   closeIconClickEffect,
   handleRemoveTagEffect,
@@ -28,7 +28,14 @@ import { useCascaderContext } from './hooks';
 export default defineComponent({
   name: 'TCascader',
   props,
-  setup(props, { slots }) {
+  setup(
+    props,
+    {
+      slots,
+    }: {
+      slots: CascaderSlots;
+    },
+  ) {
     const COMPONENT_NAME = usePrefixClass('cascader');
     const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();
@@ -190,7 +197,12 @@ export default defineComponent({
                   loading={props.loading}
                   loadingText={props.loadingText}
                   cascaderContext={cascaderContext.value}
-                  v-slots={{ option: slots.option, empty: slots.empty, loadingText: slots.loadingText }}
+                  v-slots={{
+                    option: slots.option,
+                    empty: slots.empty,
+                    loadingText: slots.loadingText,
+                    panelHeader: slots.panelHeader,
+                  }}
                 />
                 {renderTNodeJSX('panelBottomContent')}
               </>

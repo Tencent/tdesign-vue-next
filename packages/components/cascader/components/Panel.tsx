@@ -1,9 +1,9 @@
 import { defineComponent, PropType, computed, h } from 'vue';
 
 import Item from './Item';
-import { TreeNode, CascaderContextType } from '../types';
+import { TreeNode, CascaderContextType, CascaderSubPanelSlots } from '../types';
 import CascaderProps from '../props';
-import { useConfig, usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
+import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@tdesign/shared-hooks';
 
 import { getDefaultNode } from '@tdesign/shared-utils';
 import { getPanels, expandClickEffect, valueChangeEffect } from '../utils';
@@ -22,9 +22,9 @@ export default defineComponent({
       type: Object as PropType<CascaderContextType>,
     },
   },
-
-  setup(props) {
+  setup(props, { slots }: { slots: CascaderSubPanelSlots }) {
     const renderTNodeJSXDefault = useTNodeDefault();
+    const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('cascader');
     const { globalConfig } = useConfig('cascader');
 
@@ -77,6 +77,7 @@ export default defineComponent({
         ]}
         key={`${COMPONENT_NAME}__menu${index}`}
       >
+        {renderTNodeJSX('panelHeader', { params: { panelIndex: index } })}
         {treeNodes.map((node: TreeNode) => renderItem(node, index))}
       </ul>
     );
@@ -85,9 +86,9 @@ export default defineComponent({
       const { inputVal, treeNodes } = props.cascaderContext;
       return inputVal
         ? renderList(treeNodes, true)
-        : panels.value.map((treeNodes, index: number) =>
+        : panels.value.map((treeNodes, index: number) => [
             renderList(treeNodes, false, index !== panels.value.length - 1, index),
-          );
+          ]);
     };
 
     return () => {

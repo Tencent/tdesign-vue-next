@@ -95,6 +95,10 @@ export default {
   panelTopContent: {
     type: [String, Function] as PropType<TdCascaderProps['panelTopContent']>,
   },
+  /** 面板内的标题 */
+  panelHeader: {
+    type: Function as PropType<TdCascaderProps['panelHeader']>,
+  },
   /** 占位符 */
   placeholder: {
     type: String,
