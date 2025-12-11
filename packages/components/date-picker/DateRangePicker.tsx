@@ -355,6 +355,13 @@ export default defineComponent({
 
       year.value = nextYear;
       if (!onlyYearSelect) month.value = nextMonth;
+      
+      props.onYearChange?.({
+        partial,
+        year: nextYear[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
+        trigger: 'year-select',
+      });
     }
 
     function onMonthChange(nextVal: number, { partial }: { partial: DateRangePickerPartial }) {
@@ -391,6 +398,13 @@ export default defineComponent({
       }
 
       month.value = nextMonth;
+      
+      props.onMonthChange?.({
+        partial,
+        month: nextMonth[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
+        trigger: 'month-select',
+      });
     }
 
     const panelProps = computed(() => ({

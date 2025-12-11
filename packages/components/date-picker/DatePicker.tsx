@@ -344,10 +344,22 @@ export default defineComponent({
 
     function onYearChange(nextYear: number) {
       year.value = nextYear;
+      
+      props.onYearChange?.({
+        year: nextYear,
+        date: dayjs(value.value as DateValue).toDate(),
+        trigger: 'year-select',
+      });
     }
 
     function onMonthChange(nextMonth: number) {
       month.value = nextMonth;
+      
+      props.onMonthChange?.({
+        month: nextMonth,
+        date: dayjs(value.value as DateValue).toDate(),
+        trigger: 'month-select',
+      });
     }
 
     const panelProps = computed(() => ({
