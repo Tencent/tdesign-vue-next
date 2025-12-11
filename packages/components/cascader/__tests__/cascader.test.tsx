@@ -37,6 +37,24 @@ const options = [
   },
 ];
 
+// Options with children: true for lazy loading
+const lazyLoadOptions = [
+  {
+    label: '选项一',
+    value: '1',
+    children: true,
+  },
+  {
+    label: '选项二',
+    value: '2',
+    children: true,
+  },
+  {
+    label: '选项三',
+    value: '3',
+  },
+];
+
 describe('Cascader', () => {
   describe(':base', () => {
     it(':render single', async () => {
@@ -166,5 +184,59 @@ describe('Cascader', () => {
         panelNode.parentNode.removeChild(panelNode);
       }),
     );
+  });
+
+  describe(':filter with lazy loading', () => {
+    it('should filter options with children: true (lazy loading)', async () => {
+      const wrapper = mount({
+        render() {
+          return <Cascader options={lazyLoadOptions} filterable popupProps={{ visible: false }}></Cascader>;
+        },
+      });
+      await wrapper.setProps({ popupProps: { visible: true } });
+
+      // Simulate input filter
+      const inputNode = wrapper.find('input');
+      await inputNode.setValue('选项一');
+
+      // Wait for the component to update
+      await wrapper.vm.$nextTick();
+
+      const panelNode = document.querySelector('.t-cascader__panel');
+      // Should find the option with children: true when filtering
+      const items = document.querySelectorAll('.t-cascader__item');
+      expect(items.length).toBe(1);
+      expect(items[0].textContent).toContain('选项一');
+
+      if (panelNode && panelNode.parentNode) {
+        panelNode.parentNode.removeChild(panelNode);
+      }
+    });
+
+    it('should filter option without children when filtering lazy load options', async () => {
+      const wrapper = mount({
+        render() {
+          return <Cascader options={lazyLoadOptions} filterable popupProps={{ visible: false }}></Cascader>;
+        },
+      });
+      await wrapper.setProps({ popupProps: { visible: true } });
+
+      // Simulate input filter
+      const inputNode = wrapper.find('input');
+      await inputNode.setValue('选项三');
+
+      // Wait for the component to update
+      await wrapper.vm.$nextTick();
+
+      const panelNode = document.querySelector('.t-cascader__panel');
+      // Should find the option without children when filtering
+      const items = document.querySelectorAll('.t-cascader__item');
+      expect(items.length).toBe(1);
+      expect(items[0].textContent).toContain('选项三');
+
+      if (panelNode && panelNode.parentNode) {
+        panelNode.parentNode.removeChild(panelNode);
+      }
+    });
   });
 });
