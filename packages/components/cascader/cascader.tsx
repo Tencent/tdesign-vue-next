@@ -1,10 +1,10 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, Slots } from 'vue';
 import TCascaderSubPanel from './components/Panel';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
 import props from './props';
 
-import { CascaderValue, TdSelectInputProps, TdCascaderProps, CascaderSlots } from './types';
+import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './types';
 import {
   closeIconClickEffect,
   handleRemoveTagEffect,
@@ -28,14 +28,7 @@ import { useCascaderContext } from './hooks';
 export default defineComponent({
   name: 'TCascader',
   props,
-  setup(
-    props,
-    {
-      slots,
-    }: {
-      slots: CascaderSlots;
-    },
-  ) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('cascader');
     const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();

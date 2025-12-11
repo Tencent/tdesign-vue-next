@@ -131,6 +131,10 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   panelHeader?: TNode<{ panelIndex: number }>;
   /**
+   * 面板内的页脚
+   */
+  panelFooter?: TNode<{ panelIndex: number }>;
+  /**
    * 占位符
    */
   placeholder?: string;

@@ -99,6 +99,10 @@ export default {
   panelHeader: {
     type: Function as PropType<TdCascaderProps['panelHeader']>,
   },
+  /** 面板内的页脚 */
+  panelFooter: {
+    type: Function as PropType<TdCascaderProps['panelFooter']>,
+  },
   /** 占位符 */
   placeholder: {
     type: String,

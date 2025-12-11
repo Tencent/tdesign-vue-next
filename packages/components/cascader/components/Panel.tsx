@@ -1,7 +1,7 @@
 import { defineComponent, PropType, computed, h } from 'vue';
 
 import Item from './Item';
-import { TreeNode, CascaderContextType, CascaderSubPanelSlots } from '../types';
+import { TreeNode, CascaderContextType } from '../types';
 import CascaderProps from '../props';
 import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@tdesign/shared-hooks';
 
@@ -22,7 +22,7 @@ export default defineComponent({
       type: Object as PropType<CascaderContextType>,
     },
   },
-  setup(props, { slots }: { slots: CascaderSubPanelSlots }) {
+  setup(props) {
     const renderTNodeJSXDefault = useTNodeDefault();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('cascader');
@@ -79,6 +79,7 @@ export default defineComponent({
       >
         {renderTNodeJSX('panelHeader', { params: { panelIndex: index } })}
         {treeNodes.map((node: TreeNode) => renderItem(node, index))}
+        {renderTNodeJSX('panelFooter', { params: { panelIndex: index } })}
       </ul>
     );
 
