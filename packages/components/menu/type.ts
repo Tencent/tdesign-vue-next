@@ -73,6 +73,11 @@ export interface TdMenuProps {
 
 export interface TdHeadMenuProps {
   /**
+   * 是否省略多余的子项（仅在横向模式生效）
+   * @default true
+   */
+  ellipsis?: boolean;
+  /**
    * 展开的子菜单集合
    */
   expanded?: Array<MenuValue>;
