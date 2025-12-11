@@ -64,21 +64,29 @@ export default defineComponent({
     // 是否隐藏预选状态,只有 value 有值的时候需要隐藏
     const hidePreselection = !props.panelPreselection && props.value.length === 2;
 
-    const disableDateOptions = computed(() =>
-      useDisableDate({
+    const disableDateOptions = computed(() => {
+      // 优先使用 hoverValue（包含正在选择的值），如果为空则使用 value（已确认的值）
+      // 这样可以确保：1) 选择第一个日期后立即显示限制 2) hover时也能正确显示限制
+      const startValue = props.hoverValue[0] || props.value[0];
+      const endValue = props.hoverValue[1] || props.value[1];
+
+      const startLimit =
+        props.isFirstValueSelected && props.activeIndex === 1 && startValue
+          ? new Date(parseToDayjs(startValue, format.value, 'start').toDate().setHours(0, 0, 0))
+          : undefined;
+      const endLimit =
+        props.isFirstValueSelected && props.activeIndex === 0 && endValue
+          ? new Date(parseToDayjs(endValue, format.value).toDate().setHours(23, 59, 59))
+          : undefined;
+
+      return useDisableDate({
         format: format.value,
         mode: props.mode,
         disableDate: props.disableDate,
-        start:
-          props.isFirstValueSelected && props.activeIndex === 1
-            ? new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0))
-            : undefined,
-        end:
-          props.isFirstValueSelected && props.activeIndex === 0
-            ? new Date(parseToDayjs(props.value[1], format.value).toDate().setHours(23, 59, 59))
-            : undefined,
-      }),
-    );
+        start: startLimit,
+        end: endLimit,
+      });
+    });
 
     const startTableData = computed(() => {
       const disableDate = isFunction(props.disableDate)
