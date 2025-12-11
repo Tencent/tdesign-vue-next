@@ -220,8 +220,31 @@ export default defineComponent({
       nextYear = correctedDate.nextYear;
       nextMonth = correctedDate.nextMonth;
 
+      const yearChanged = year.value[partialIndex] !== nextYear[partialIndex];
+      const monthChanged = month.value[partialIndex] !== nextMonth[partialIndex];
+
       year.value = nextYear;
       month.value = nextMonth;
+
+      // 触发年份变化事件
+      if (yearChanged) {
+        props.onYearChange?.({
+          partial,
+          year: nextYear[partialIndex],
+          date: value.value.map((v) => dayjs(v).toDate()),
+          trigger: 'arrow-change',
+        });
+      }
+
+      // 触发月份变化事件
+      if (monthChanged) {
+        props.onMonthChange?.({
+          partial,
+          month: nextMonth[partialIndex],
+          date: value.value.map((v) => dayjs(v).toDate()),
+          trigger: 'arrow-change',
+        });
+      }
     }
 
     // time-picker 点击
@@ -355,6 +378,13 @@ export default defineComponent({
 
       year.value = nextYear;
       if (!onlyYearSelect) month.value = nextMonth;
+      
+      props.onYearChange?.({
+        partial,
+        year: nextYear[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
+        trigger: 'year-select',
+      });
     }
 
     function onMonthChange(nextVal: number, { partial }: { partial: DateRangePickerPartial }) {
@@ -391,6 +421,13 @@ export default defineComponent({
       }
 
       month.value = nextMonth;
+      
+      props.onMonthChange?.({
+        partial,
+        month: nextMonth[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
+        trigger: 'month-select',
+      });
     }
 
     const panelProps = computed(() => ({

@@ -262,8 +262,29 @@ export default defineComponent({
       const nextYear = next.getFullYear();
       const nextMonth = next.getMonth();
 
+      const yearChanged = year.value !== nextYear;
+      const monthChanged = month.value !== nextMonth;
+
       year.value = nextYear;
       month.value = nextMonth;
+
+      // 触发年份变化事件
+      if (yearChanged) {
+        props.onYearChange?.({
+          year: nextYear,
+          date: new Date(nextYear, nextMonth),
+          trigger: 'arrow-change',
+        });
+      }
+
+      // 触发月份变化事件
+      if (monthChanged) {
+        props.onMonthChange?.({
+          month: nextMonth,
+          date: new Date(nextYear, nextMonth),
+          trigger: 'arrow-change',
+        });
+      }
     }
 
     // timePicker 点击
@@ -344,10 +365,22 @@ export default defineComponent({
 
     function onYearChange(nextYear: number) {
       year.value = nextYear;
+      
+      props.onYearChange?.({
+        year: nextYear,
+        date: dayjs(value.value as DateValue).toDate(),
+        trigger: 'year-select',
+      });
     }
 
     function onMonthChange(nextMonth: number) {
       month.value = nextMonth;
+      
+      props.onMonthChange?.({
+        month: nextMonth,
+        date: dayjs(value.value as DateValue).toDate(),
+        trigger: 'month-select',
+      });
     }
 
     const panelProps = computed(() => ({
