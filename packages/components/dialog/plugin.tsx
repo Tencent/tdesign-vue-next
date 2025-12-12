@@ -13,7 +13,7 @@ const createDialog: DialogMethod = (props, context) => {
   let preClassName = className;
 
   const updateClassNameStyle = (className: string, style: DialogOptions['style']) => {
-    if (className) {
+    if (className && wrapper.firstElementChild) {
       if (preClassName && preClassName !== className) {
         wrapper.firstElementChild.classList.remove(...preClassName.split(' ').map((name) => name.trim()));
       }
@@ -22,7 +22,7 @@ const createDialog: DialogMethod = (props, context) => {
       });
     }
 
-    if (style) {
+    if (style && wrapper.firstElementChild) {
       (wrapper.firstElementChild as HTMLElement).style.cssText += style;
     }
 
