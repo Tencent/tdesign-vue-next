@@ -65,10 +65,11 @@ export default defineComponent({
     const hidePreselection = !props.panelPreselection && props.value.length === 2;
 
     const disableDateOptions = computed(() => {
-      // 优先使用 hoverValue（包含正在选择的值），如果为空则使用 value（已确认的值）
-      // 这样可以确保：1) 选择第一个日期后立即显示限制 2) hover时也能正确显示限制
-      const startValue = props.hoverValue[0] || props.value[0];
-      const endValue = props.hoverValue[1] || props.value[1];
+      // 使用 value 作为基础，hoverValue 只用于显示预览
+      // value[0] 是已确认的开始日期，value[1] 是已确认的结束日期
+      // 当 isFirstValueSelected 为 true 时，说明已经选择了第一个日期
+      const startValue = props.value[0];
+      const endValue = props.value[1];
 
       const startLimit =
         props.isFirstValueSelected && props.activeIndex === 1 && startValue
