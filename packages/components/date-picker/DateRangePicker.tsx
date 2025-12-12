@@ -135,6 +135,25 @@ export default defineComponent({
 
     // 日期点击
     function onCellClick(date: Date, { e }: { e: MouseEvent; partial: DateRangePickerPartial }) {
+      // 当已选择第一个日期时，检查第二个日期是否在有效范围内
+      if (isFirstValueSelected.value && Array.isArray(cacheValue.value)) {
+        const otherIndex = activeIndex.value === 1 ? 0 : 1;
+        const firstValue = cacheValue.value[otherIndex];
+        if (firstValue) {
+          const firstDate = parseToDayjs(firstValue, formatRef.value.format).startOf('day').toDate();
+          const clickedDate = dayjs(date).startOf('day').toDate();
+
+          // 选择结束日期时，不能选择开始日期之前的日期
+          if (activeIndex.value === 1 && clickedDate < firstDate) {
+            return;
+          }
+          // 选择开始日期时，不能选择结束日期之后的日期
+          if (activeIndex.value === 0 && clickedDate > firstDate) {
+            return;
+          }
+        }
+      }
+
       props.onPick?.(date, { e, partial: activeIndex.value ? 'end' : 'start' });
 
       isHoverCell.value = false;
@@ -394,8 +413,8 @@ export default defineComponent({
     }
 
     const panelProps = computed(() => ({
-      hoverValue: (isHoverCell.value ? inputValue.value : []) as string[],
-      value: (isSelected.value ? cacheValue.value : value.value) as string[],
+      hoverValue: (isHoverCell.value ? inputValue.value : cacheValue.value) as string[],
+      value: cacheValue.value as string[],
       isFirstValueSelected: isFirstValueSelected.value,
       activeIndex: activeIndex.value,
       year: year.value,

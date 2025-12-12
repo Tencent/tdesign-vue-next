@@ -76,8 +76,9 @@ export function useRangeValue(props: TdDateRangePickerProps) {
 
   // 输入框响应 value 变化
   watchEffect(() => {
-    if (!value.value) {
-      cacheValue.value = [];
+    // 只有当 value 有实际内容时才更新 cacheValue
+    // 避免空数组覆盖用户正在选择的值
+    if (!value.value || !value.value.length) {
       return;
     }
     if (!isValidDate(value.value, formatRef.value.format)) return;
