@@ -99,3 +99,11 @@ export default {
 };
 
 export { AGUIAdapter, getMessageContentForCopy, isAIMessage } from 'tdesign-web-components/lib/chat-engine';
+
+export type {
+  SSEChunkData,
+  AIMessageContent,
+  ChatRequestParams,
+  ChatMessagesData,
+  ChatServiceConfig,
+} from 'tdesign-web-components/lib/chat-engine';
