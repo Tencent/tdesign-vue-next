@@ -5,84 +5,97 @@ toc: false
 spline: explain
 ---
 
-## 🌈 0.5.0-alpha.7 `2025-11-18` 
+## 🌈 0.5.0-alpha.8 `2025-12-14`
+
+### 🐞 Bug Fixes
+
+- 修复部分组件构建后丢失的问题
+- 修复`SSEChunkData` 等类型丢失的问题
+
+## 🌈 0.5.0-alpha.7 `2025-11-18`
 
 - `Attachments`: 修复按需引用导出组件命名错误的问题
 - `ChatSender`: 修复中文输入法回车触发 `enter` 的错误
 
-## 🌈 0.5.0-alpha.6 `2025-11-12` 
+## 🌈 0.5.0-alpha.6 `2025-11-12`
 
 ### 🚨 Breaking Change
+
 - 组件新增：
-  - `Chatbot` 智能对话组件，用于需要快速集成智能客服、问答系统等的AI应用
+  - `Chatbot` 智能对话组件，用于需要快速集成智能客服、问答系统等的 AI 应用
   - `ChatMessage` 对话消息体组件、用于在聊天对话中显示单个消息项
   - `ChatMarkdown` 内容渲染组件，内置支持完善的 Markdown 流式渲染能力，包括 mermaid 等多种格式的渲染
   - `Attachments` 文件附件组件，用于展示文件附件
   - `ChatThinking` 思考过程组件，与原 `ChatReasoning` 功能一致
   - 新组件均基于 Web Components 实现，样式覆盖方式请参考 [自定义样式](/cha/custom-style)
 - 原组件更名：`Chat` 更名为 `ChatList` 对话列表，`ChatAction` 更名为 `ChatActionbar` 对话操作
-- 旧组件移除：`ChatInput`、`ChatReasoning`、`ChatItem` 组件后续版本将移除，如果升级版本请尽量使用对应新组件 ⚠️ 
-- 点击 [0.4.x](https://0_4_6-tdesign-vue-next-chat.surge.sh/chat/getting-started) 查看老版本 Chat 组件的使用文档 
+- 旧组件移除：`ChatInput`、`ChatReasoning`、`ChatItem` 组件后续版本将移除，如果升级版本请尽量使用对应新组件 ⚠️
+- 点击 [0.4.x](https://0_4_6-tdesign-vue-next-chat.surge.sh/chat/getting-started) 查看老版本 Chat 组件的使用文档
 
-
-## 🌈 0.4.6 `2025-09-12` 
+## 🌈 0.4.6 `2025-09-12`
 
 ### 🐞 Bug Fixes
+
 - `ChatInput`: 修复 `suffixIcon` 传值不是插槽，响应式无效 @liweijie0812 ([#5905](https://github.com/Tencent/tdesign-vue-next/pull/5905))
 
-
-## 🌈 0.4.5 `2025-07-31` 
+## 🌈 0.4.5 `2025-07-31`
 
 ### 🐞 Bug Fixes
+
 - `Chat`: 修复`0.4.3` 版本后多语言功能没有正确响应切换的问题 @uyarn ([#5828](https://github.com/Tencent/tdesign-vue-next/pull/5828))
 
-## 🌈 0.4.4 `2025-07-31` 
+## 🌈 0.4.4 `2025-07-31`
 
 ### 🐞 Bug Fixes
+
 - `ChatContent`: 错误使用变量导致文案显示异常 @BelinChung ([#5817](https://github.com/Tencent/tdesign-vue-next/pull/5817))
 
-
-## 🌈 0.4.3 `2025-07-18` 
+## 🌈 0.4.3 `2025-07-18`
 
 ### 🐞 Bug Fixes
+
 - `ChatInput`: 修复使用含 shift 的快捷键导致输入框失焦后，shift 标识未取消的问题 @Lyan-u ([#5710](https://github.com/Tencent/tdesign-vue-next/pull/5710))
 - `Locale`: 修复多语言切换响应式失效 @liweijie0812 ([#5704](https://github.com/Tencent/tdesign-vue-next/pull/5704))
 
-## 🌈 0.4.2 `2025-07-03` 
+## 🌈 0.4.2 `2025-07-03`
 
 ### 🚀 Features
+
 - 支持在`Volar`中提供类型提示 @liweijie0812 ([#5612](https://github.com/Tencent/tdesign-vue-next/pull/5612))
 
 ### 🐞 Bug Fixes
-- `Chat`: 修复用户消息字体样式 @Nero978  ([#5617](https://github.com/Tencent/tdesign-vue-next/pull/5617))
-- `ChatSender`: 
+
+- `Chat`: 修复用户消息字体样式 @Nero978 ([#5617](https://github.com/Tencent/tdesign-vue-next/pull/5617))
+- `ChatSender`:
   - 修复 windows 中文输入法（微软拼音）下使用 `shift +组合键` 先松开 shift 键再松开组合键之后，未同步取消 shift 功能的问题 @verynong ([#5608](https://github.com/Tencent/tdesign-vue-next/pull/5608))
 
-## 🌈 0.4.1 `2025-06-12` 
+## 🌈 0.4.1 `2025-06-12`
 
 ### 🚀 Features
-- `ChatSender`: 新增 `loading` API，用于控制按钮状态,  `stopDisabled` 将在未来版本废弃，请尽快使用 `loading` 替换⚠️ @zydemail ([#5595](https://github.com/Tencent/tdesign-vue-next/pull/5595))
+
+- `ChatSender`: 新增 `loading` API，用于控制按钮状态, `stopDisabled` 将在未来版本废弃，请尽快使用 `loading` 替换 ⚠️ @zydemail ([#5595](https://github.com/Tencent/tdesign-vue-next/pull/5595))
 
 ### 🐞 Bug Fixes
-- `ChatSender`: 
+
+- `ChatSender`:
   - 修复 `stopDisabled` 直接修改值不立即生效的问题 @zydemail ([#5595](https://github.com/Tencent/tdesign-vue-next/pull/5595))
   - 修复 `header`、`innerHeader` 等插槽的传参问题 @zydemail ([#5595](https://github.com/Tencent/tdesign-vue-next/pull/5595))
 
+## 🌈 0.4.0 `2025-06-06`
 
-## 🌈 0.4.0 `2025-06-06` 
 ### 🚨 Breaking Change
+
 - 优化产物内容，移除冗余的 bundle 或非冗余 bundle 中的冗余产物，若使用此前文档并未声明的 bundle 内容请注意此变更 ⚠️ @zhangpaopao0609 @uyarn ([#5568](https://github.com/Tencent/tdesign-vue-next/pull/5568))
 
 ### 🐞 Bug Fixes
 
-- `ChatSender`: @zydemail  @dingJieWork ([#5471](https://github.com/Tencent/tdesign-vue-next/pull/5471))
-   - 修复输入框有内容点击上传触发 send 回调事件的问题 
-   - 修复点击上传附件按钮时，按钮在loading 状态结束前不正常展示的异常问题
+- `ChatSender`: @zydemail @dingJieWork ([#5471](https://github.com/Tencent/tdesign-vue-next/pull/5471))
+  - 修复输入框有内容点击上传触发 send 回调事件的问题
+  - 修复点击上传附件按钮时，按钮在 loading 状态结束前不正常展示的异常问题
 
-###  🚧 Others
+### 🚧 Others
 
 - `ChatSender`: 优化部分示例的展示效果
-
 
 ## 🌈 0.3.0 `2025-05-06`
 
@@ -166,4 +179,3 @@ spline: explain
 - `t-chat` 新增`scroll`事件回调
 - `t-chat-input` 组件添加 `v-model`支持, 添加 `change` 事件
 - `t-chat-input` 新增 `disabled` 属性
-
