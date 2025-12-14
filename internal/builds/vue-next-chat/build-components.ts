@@ -179,11 +179,7 @@ export const buildEs = async () => {
       input: [...inputList, `!${joinProComponentsChatRoot('index-lib.ts')}`],
       // 为了保留 style/css.js
       treeshake: false,
-      external: [
-        ...esExternal,
-        /\.css$/, // 排除所有 CSS 文件
-        /tdesign-web-components.*\.css$/, // 排除 tdesign-web-components 的 CSS 文件
-      ],
+      external: (id) => esExternal.some((dep) => id === dep || id.startsWith(`${dep}/`) || id.endsWith('.css')),
       plugins: [multiInput({ relative: joinProComponentsChatRoot() }), ...getPlugins({ cssBuildType: 'multi' })],
     });
     bundle.write({
@@ -205,15 +201,11 @@ export const buildEs = async () => {
 };
 
 export const buildEsm = async () => {
+  const externalDeps = [...esExternalDeps, externalPeerDeps, /@tdesign\/common-style/];
   const bundle = await rollup({
     input: [...inputList, `!${joinProComponentsChatRoot('index-lib.ts')}`],
-    external: [
-      ...externalDeps,
-      ...externalPeerDeps,
-      /@tdesign\/common-style/,
-      /\.css$/, // 排除所有 CSS 文件
-      /tdesign-web-components.*\.css$/, // 排除 tdesign-web-components 的 CSS 文件
-    ],
+    external: (id) =>
+      externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`) || id.endsWith('.css') || id.endsWith('.less')),
     plugins: [multiInput({ relative: joinProComponentsChatRoot() }), ...getPlugins({ cssBuildType: 'source' })],
   });
   await bundle.write({
