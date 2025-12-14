@@ -49,6 +49,15 @@ export function useRangeValue(props: TdDateRangePickerProps) {
       timeFormat: formatRef.value.timeFormat,
     }).time,
   );
+  // 当未设置初始值时，优先用 defaultTime 初始化 time，避免使用当前时间
+  if (!value.value || !value.value.length) {
+    time.value = formatTime(
+      (props.defaultTime || ['', '']) as any,
+      formatRef.value.format,
+      formatRef.value.timeFormat,
+      props.defaultTime,
+    ) as string[];
+  }
   const month = ref(
     initYearMonthTime({
       value: value.value,

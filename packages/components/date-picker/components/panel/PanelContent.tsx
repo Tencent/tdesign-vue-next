@@ -65,7 +65,15 @@ export default defineComponent({
       );
     };
 
-    const defaultTimeValue = '00:00:00';
+    const getDefaultTimeValue = () => {
+      const dt = props.defaultTime as any;
+      if (Array.isArray(dt)) {
+        const idx = props.partial === 'end' ? 1 : 0;
+        return dt[idx] || '00:00:00';
+      }
+      if (typeof dt === 'string' && dt) return dt;
+      return '00:00:00';
+    };
 
     return () => (
       <div class={`${COMPONENT_NAME.value}-content`}>
@@ -101,13 +109,13 @@ export default defineComponent({
 
         {props.enableTimePicker && (
           <div class={`${COMPONENT_NAME.value}-time`}>
-            <div class={`${COMPONENT_NAME.value}-time-viewer`}>{props.time || defaultTimeValue}</div>
+            <div class={`${COMPONENT_NAME.value}-time-viewer`}>{props.time || getDefaultTimeValue()}</div>
             <TTimePickerPanel
               {...{
                 key: props.partial,
                 isShowPanel: props.popupVisible,
                 format: timeFormat,
-                value: props.time || defaultTimeValue,
+                value: props.time || getDefaultTimeValue(),
                 onChange: props.onTimePickerChange,
                 disableTime: disableTimeOptions,
                 ...props.timePickerProps,

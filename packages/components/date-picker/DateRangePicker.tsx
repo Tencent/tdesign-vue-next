@@ -66,8 +66,10 @@ export default defineComponent({
           format: formatRef.value.valueType,
           targetFormat: formatRef.value.format,
         }) as string[];
+        // 初始化 time：当没有有效的 value 时，优先使用 defaultTime，而不是当前时间
+        const initialTimeSource = value.value && value.value.length ? value.value : props.defaultTime || ['', ''];
         time.value = formatTime(
-          value.value || [dayjs().format(formatRef.value.timeFormat), dayjs().format(formatRef.value.timeFormat)],
+          initialTimeSource,
           formatRef.value.format,
           formatRef.value.timeFormat,
           props.defaultTime,
@@ -135,8 +137,8 @@ export default defineComponent({
 
     // 日期点击
     function onCellClick(date: Date, { e }: { e: MouseEvent; partial: DateRangePickerPartial }) {
-      // 当已选择第一个日期时，检查第二个日期是否在有效范围内
-      if (isFirstValueSelected.value && Array.isArray(cacheValue.value)) {
+      // 当已选择第一个日期时，检查第二个日期是否在有效范围内（除非取消范围限制）
+      if (!props.cancelRangeSelectLimit && isFirstValueSelected.value && Array.isArray(cacheValue.value)) {
         const otherIndex = activeIndex.value === 1 ? 0 : 1;
         const firstValue = cacheValue.value[otherIndex];
         if (firstValue) {
