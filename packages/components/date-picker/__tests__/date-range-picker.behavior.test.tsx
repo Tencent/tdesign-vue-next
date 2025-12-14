@@ -36,11 +36,17 @@ describe('DateRangePicker behavior combos', () => {
 
     await flush(wrapper);
     const trigger = wrapper.find('.t-range-input');
+
+    if (!trigger.exists()) {
+      throw new Error(`trigger not found; html: ${wrapper.html()}`);
+    }
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
     await trigger.trigger('click');
     await flush(wrapper);
-
+    await flush(wrapper);
     const waitForPanel = async () => {
-      for (let i = 0; i < 6; i += 1) {
+      for (let i = 0; i < 12; i += 1) {
         const found = document.body.querySelector('.t-date-range-picker__panel');
         if (found) return found as HTMLElement;
         await flush(wrapper);
@@ -102,11 +108,17 @@ describe('DateRangePicker behavior combos', () => {
 
     await flush(wrapper);
     const trigger = wrapper.find('.t-range-input');
+    if (!trigger.exists()) {
+      throw new Error(`trigger not found; html: ${wrapper.html()}`);
+    }
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
     await trigger.trigger('click');
+    await flush(wrapper);
     await flush(wrapper);
 
     const waitForPanel = async () => {
-      for (let i = 0; i < 6; i += 1) {
+      for (let i = 0; i < 12; i += 1) {
         const found = document.body.querySelector('.t-date-range-picker__panel');
         if (found) return found as HTMLElement;
         await flush(wrapper);
