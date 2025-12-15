@@ -14,7 +14,7 @@
               v-model="selectValue"
               :options="selectOptions"
               value-type="object"
-              @focus="allowToolTip.value = false"
+              @focus="allowToolTip = false"
             ></t-select>
           </t-tooltip>
           <t-button class="check-box" :class="{ 'is-active': isChecked }" variant="outline" @click="checkClick">

@@ -1,6 +1,6 @@
 <template>
   <div style="height: 600px; display: flex; flex-direction: column">
-    <t-chat ref="listRef" style="width: 100%; flex: 1">
+    <t-chat-list ref="listRef" :clear-history="false">
       <t-chat-message
         v-for="(message, idx) in messages"
         :key="message.id"
@@ -33,7 +33,7 @@
           />
         </template>
       </t-chat-message>
-    </t-chat>
+    </t-chat-list>
 
     <t-chat-sender
       ref="inputRef"
