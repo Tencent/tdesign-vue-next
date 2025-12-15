@@ -107,7 +107,8 @@ export default defineComponent({
       let content = null;
       const tooltipProps = props.tooltipProps as EllipsisProps['tooltipProps'];
       if (isOverflow.value && flag.value) {
-        const rProps = {
+        const rProps: TooltipProps = {
+          theme: 'light',
           content: (props.tooltipContent as string) || (() => cellNode),
           destroyOnClose: true,
           zIndex: props.zIndex,
