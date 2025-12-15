@@ -5,7 +5,7 @@ import type { TdDatePickerProps, TdDateRangePickerProps, DateRangePickerPartial 
 
 import TDateHeader from '../base/Header';
 import TDateTable from '../base/Table';
-import TTimePickerPanel from '../../../time-picker/panel/time-picker-panel';
+import { TimePickerPanel } from '../../../time-picker';
 import { getDefaultFormat } from '@tdesign/common-js/date-picker/format';
 import type { DateValue } from '@tdesign/common-js/date-picker/utils';
 import { parseToDateTime } from '../../utils';
@@ -110,7 +110,7 @@ export default defineComponent({
         {props.enableTimePicker && (
           <div class={`${COMPONENT_NAME.value}-time`}>
             <div class={`${COMPONENT_NAME.value}-time-viewer`}>{props.time || getDefaultTimeValue()}</div>
-            <TTimePickerPanel
+            <TimePickerPanel
               {...{
                 key: props.partial,
                 isShowPanel: props.popupVisible,
