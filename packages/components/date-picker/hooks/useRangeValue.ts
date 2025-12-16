@@ -1,4 +1,4 @@
-import { ref, toRefs, watchEffect, computed, watch } from 'vue';
+import { ref, toRefs, computed, watch } from 'vue';
 import { useVModel } from '@tdesign/shared-hooks';
 import { isArray } from 'lodash-es';
 
@@ -74,20 +74,19 @@ export function useRangeValue(props: TdDateRangePickerProps) {
     },
   );
 
-  // 输入框响应 value 变化
-  watchEffect(() => {
-    if (!value.value) {
+  watch(value, (newValue) => {
+    if (!newValue) {
       cacheValue.value = [];
       return;
     }
-    if (!isValidDate(value.value, formatRef.value.format)) return;
+    if (!isValidDate(newValue, formatRef.value.format)) return;
 
-    cacheValue.value = formatDate(value.value, {
+    cacheValue.value = formatDate(newValue, {
       format: formatRef.value.valueType,
       targetFormat: formatRef.value.format,
     });
     time.value = formatTime(
-      value.value,
+      newValue,
       formatRef.value.format,
       formatRef.value.timeFormat,
       props.defaultTime,
