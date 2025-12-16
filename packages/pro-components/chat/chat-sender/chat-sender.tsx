@@ -225,7 +225,7 @@ export default defineComponent({
         renderTNodeJSX('header')
       );
     };
-    const renderInputPrefix = renderTNodeJSX('input-prefix') || null;
+    const renderInputPrefix = () => renderTNodeJSX('input-prefix') || null;
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
         {/* <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div> */}
@@ -238,7 +238,7 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div>
           <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderTNodeJSX('inner-header')}</div>
           <div class={`${COMPONENT_NAME.value}-sender__textarea__wrapper`}>
-            {renderInputPrefix}
+            {renderInputPrefix()}
             <Textarea
               ref={senderTextarea}
               value={textValue.value}
