@@ -66,8 +66,8 @@ export const ChatSuggestionContent = withInstall(ChatSuggestionContentComponent,
 export const ChatMarkdown = withInstall(_ChatMarkdown, 't-chat-markdown');
 
 // TODO：待下线的组件
-export const Chat = withInstall(_ChatList, 't-chat'); // 兼容历史版本，分别导出ChatList，Chat
-export const ChatAction = withInstall(_ChatActionbar, 't-chat-action'); // 兼容历史版本，分别导出ChatActionbar，ChatAction
+export const Chat = withInstall(_ChatList); // 兼容历史版本，分别导出ChatList，Chat
+export const ChatAction = withInstall(_ChatActionbar); // 兼容历史版本，分别导出ChatActionbar，ChatAction
 export const ChatInput = withInstall(_ChatInput);
 export const ChatReasoning = withInstall(_ChatReasoning);
 export const ChatItem = withInstall(_ChatItem);
@@ -89,11 +89,11 @@ export default {
     app.use(Attachments, config);
     app.use(ChatSearchContent, config);
     app.use(ChatSuggestionContent, config);
-    app.use(Chat, config);
-    app.use(ChatAction, config);
     app.use(ChatInput, config);
     app.use(ChatItem, config);
     app.use(ChatReasoning, config);
+    app.component('TChat', Chat);
+    app.component('TChatAction', ChatAction);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };
