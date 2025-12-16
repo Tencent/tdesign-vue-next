@@ -396,7 +396,6 @@ export default defineComponent({
           multiple={props.multiple}
           popupProps={popupProps.value}
           inputProps={inputProps.value}
-          needConfirm={props.needConfirm}
           placeholder={
             props.placeholder || (globalConfig.value.placeholder as { [key in typeof props.mode]: string })[props.mode]
           }
