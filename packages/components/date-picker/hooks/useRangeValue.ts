@@ -74,24 +74,28 @@ export function useRangeValue(props: TdDateRangePickerProps) {
     },
   );
 
-  watch(value, (newValue) => {
-    if (!newValue) {
-      cacheValue.value = [];
-      return;
-    }
-    if (!isValidDate(newValue, formatRef.value.format)) return;
+  watch(
+    value,
+    (newValue) => {
+      if (!newValue) {
+        cacheValue.value = [];
+        return;
+      }
+      if (!isValidDate(newValue, formatRef.value.format)) return;
 
-    cacheValue.value = formatDate(newValue, {
-      format: formatRef.value.valueType,
-      targetFormat: formatRef.value.format,
-    });
-    time.value = formatTime(
-      newValue,
-      formatRef.value.format,
-      formatRef.value.timeFormat,
-      props.defaultTime,
-    ) as string[];
-  });
+      cacheValue.value = formatDate(newValue, {
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
+      });
+      time.value = formatTime(
+        newValue,
+        formatRef.value.format,
+        formatRef.value.timeFormat,
+        props.defaultTime,
+      ) as string[];
+    },
+    { immediate: true },
+  );
 
   return {
     year,
