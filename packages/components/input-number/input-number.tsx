@@ -8,7 +8,7 @@ import {
 import TButton from '../button';
 import TInput from '../input';
 import props from './props';
-import { useGlobalIcon } from '@tdesign/shared-hooks';
+import { useEventForward, useGlobalIcon } from '@tdesign/shared-hooks';
 import { TdInputNumberProps } from './type';
 import useInputNumber from './hooks/useInputNumber';
 
@@ -26,6 +26,11 @@ export default defineComponent({
     const p = useInputNumber(props);
     const { inputRef } = p;
     context.expose({ ...p });
+
+    const inputEvents = useEventForward(props.inputProps, {
+      onChange: p.onInnerInputChange,
+      ...p.listeners,
+    });
 
     return () => {
       const reduceIcon =
@@ -59,11 +64,9 @@ export default defineComponent({
             label={props.label}
             suffix={props.suffix}
             tips={props.tips}
-            {...p.listeners}
-            {...props.inputProps}
             v-slots={context.slots}
             value={p.userInput.value}
-            onChange={p.onInnerInputChange}
+            {...inputEvents.value}
           />
           {props.theme !== 'normal' && (
             <TButton

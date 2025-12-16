@@ -20,7 +20,6 @@ export default defineComponent({
   },
   emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus', 'fileSelect', 'remove', 'fileClick'], // declare the custom events here
   setup(props, { emit }) {
-    let shiftDownFlag = false;
     const isComposition = false;
     const senderTextarea = ref(null);
     const COMPONENT_NAME = usePrefixClass('chat');
@@ -49,13 +48,15 @@ export default defineComponent({
     };
     const keydownFn = (value: string, context: { e: KeyboardEvent }) => {
       const {
-        e: { key },
+        e: { key, shiftKey },
       } = context;
-      if (key === 'Shift') {
-        shiftDownFlag = true;
-      }
-      if (key === 'Enter' && !shiftDownFlag && !isComposition) {
-        context.e.cancelBubble = true;
+      if (key === 'Enter') {
+        if (isComposition || context.e.isComposing) {
+          return;
+        }
+        if (shiftKey) {
+          return;
+        }
         context.e.preventDefault();
         context.e.stopPropagation();
         sendClick(context.e);
@@ -68,17 +69,7 @@ export default defineComponent({
 
     const blurFn = (value: string, context: { e: FocusEvent }) => {
       focusFlag.value = false;
-      shiftDownFlag = false;
       emit('blur', value, context);
-    };
-
-    const keyupFn = (value: string, context: { e: KeyboardEvent }) => {
-      const {
-        e: { key, shiftKey },
-      } = context;
-      if (key === 'Shift' || !shiftKey) {
-        shiftDownFlag = false;
-      }
     };
 
     const textChange = (value: string, context: { e: InputEvent }) => {
@@ -261,7 +252,6 @@ export default defineComponent({
                 ...(props.textareaProps as TdChatSenderProps['textareaProps']),
               }}
               onKeydown={keydownFn}
-              onKeyup={keyupFn}
               onFocus={focusFn}
               onBlur={blurFn}
             />

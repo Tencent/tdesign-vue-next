@@ -59,8 +59,8 @@ export const catalogs = {
     raf: '^3.4.1',
     sortablejs: '^1.15.0',
     tinycolor2: '^1.6.0',
-    validator: '^13.9.0',
-    vue: '^3.5.0',
+    validator: '^13.15.23',
+    vue: '^3.3.9',
     'vue-router': '^4.2.4',
   },
   docs: {
@@ -90,9 +90,9 @@ export const catalogs = {
   },
   tdesign: {
     '@tdesign/site-components': '^0.17.0',
+    '@tdesign/theme-generator': '^1.2.0',
     'tdesign-icons-vue-next': '~0.4.1',
     'tdesign-publish-cli': '^0.0.12',
-    'tdesign-theme-generator': '^1.1.8',
   },
   test: {
     '@testing-library/dom': '^9.3.1',
