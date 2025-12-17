@@ -67,7 +67,8 @@ export function useRangeValue(props: TdDateRangePickerProps) {
       if (year.value[1] < year.value[0]) {
         year.value[1] = year.value[0];
       }
-      if (month.value[1] < month.value[0]) {
+      // 只有当左右面板年份相同时，才需要比较月份大小
+      if (year.value[0] === year.value[1] && month.value[1] < month.value[0]) {
         month.value[1] = month.value[0];
       }
     },

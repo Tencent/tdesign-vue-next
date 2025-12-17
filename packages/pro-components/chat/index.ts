@@ -90,11 +90,11 @@ export default {
     app.use(Attachments, config);
     app.use(ChatSearchContent, config);
     app.use(ChatSuggestionContent, config);
-    app.use(Chat, config);
-    app.use(ChatAction, config);
     app.use(ChatInput, config);
     app.use(ChatItem, config);
     app.use(ChatReasoning, config);
+    app.component('TChat', Chat);
+    app.component('TChatAction', ChatAction);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };
