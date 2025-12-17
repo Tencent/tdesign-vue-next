@@ -114,7 +114,7 @@ const getPlugins = ({
       copy({
         targets: [
           {
-            src: joinProComponentsChatRoot('**/style/css.js'),
+            src: [joinProComponentsChatRoot('**/style/css.js'), '!**/node_modules/**/style/css.js'],
             dest: joinTdesignVueNextChatRoot('es'),
             rename: (name, extension, fullPath) =>
               `${fullPath.replace(joinProComponentsChatRoot(), '').slice(0, -6)}${name}.mjs`,

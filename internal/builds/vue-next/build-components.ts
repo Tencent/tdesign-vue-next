@@ -109,7 +109,7 @@ const getPlugins = ({
       copy({
         targets: [
           {
-            src: joinComponentsRoot('**/style/css.js'),
+            src: [joinComponentsRoot('**/style/css.js'), '!**/node_modules/**/style/css.js'],
             dest: joinTdesignVueNextRoot('es'),
             rename: (name, extension, fullPath) =>
               `${fullPath.replace(joinComponentsRoot(), '').slice(0, -6)}${name}.mjs`,
