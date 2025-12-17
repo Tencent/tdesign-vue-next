@@ -44,6 +44,7 @@ const inputList = [
   joinComponentsRoot('**/*.tsx'),
   `!${joinComponentsRoot('**/demos')}`,
   `!${joinComponentsRoot('**/*.d.ts')}`,
+  `!${joinComponentsRoot('**/*.test-d.ts')}`,
   `!${joinComponentsRoot('**/type.ts')}`,
   `!${joinComponentsRoot('**/types.ts')}`,
   `!${joinComponentsRoot('**/__tests__')}`,

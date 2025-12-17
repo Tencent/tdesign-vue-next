@@ -48,6 +48,7 @@ const inputList = [
   joinProComponentsChatRoot('**/*.tsx'),
   `!${joinProComponentsChatRoot('**/demos')}`,
   `!${joinProComponentsChatRoot('**/*.d.ts')}`,
+  `!${joinProComponentsChatRoot('**/*.test-d.ts')}`,
   `!${joinProComponentsChatRoot('**/type.ts')}`,
   `!${joinProComponentsChatRoot('**/types.ts')}`,
   `!${joinProComponentsChatRoot('**/__tests__')}`,
