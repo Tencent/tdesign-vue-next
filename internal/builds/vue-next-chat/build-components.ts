@@ -48,11 +48,11 @@ const inputList = [
   joinProComponentsChatRoot('**/*.tsx'),
   `!${joinProComponentsChatRoot('**/demos')}`,
   `!${joinProComponentsChatRoot('**/*.d.ts')}`,
-  `!${joinProComponentsChatRoot('**/*.test-d.ts')}`,
   `!${joinProComponentsChatRoot('**/type.ts')}`,
   `!${joinProComponentsChatRoot('**/types.ts')}`,
   `!${joinProComponentsChatRoot('**/__tests__')}`,
   `!${joinProComponentsChatRoot('**/_example')}`,
+  `!${joinProComponentsChatRoot('**/node_modules')}`,
 ];
 
 const getPlugins = ({
@@ -115,7 +115,10 @@ const getPlugins = ({
       copy({
         targets: [
           {
-            src: [joinProComponentsChatRoot('**/style/css.js'), '!**/node_modules/**/style/css.js'],
+            src: [
+              joinProComponentsChatRoot('**/style/css.js'),
+              `!${joinProComponentsChatRoot('**/node_modules/**/style/css.js')}`,
+            ],
             dest: joinTdesignVueNextChatRoot('es'),
             rename: (name, extension, fullPath) =>
               `${fullPath.replace(joinProComponentsChatRoot(), '').slice(0, -6)}${name}.mjs`,
