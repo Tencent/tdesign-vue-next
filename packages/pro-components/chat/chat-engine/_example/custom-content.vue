@@ -1,87 +1,59 @@
 <template>
-  <div style="height: 400px; display: flex; flex-direction: column">
-    <div style="flex: 1; overflow: auto">
-      <t-chat-list :clear-history="false" style="flex: 1">
-        <t-chat-message
-          v-for="message in messages"
-          :key="message.id"
-          :message="message"
-          :placement="message.role === 'user' ? 'right' : 'left'"
-          :variant="message.role === 'user' ? 'base' : 'text'"
-          :avatar="message.role === 'user' ? 'https://tdesign.gtimg.com/site/avatar.jpg' : undefined"
-          allow-content-segment-custom
-        >
-          <template v-for="(item, index) in message.content" :key="index">
-            <div v-if="item.type === 'imageview'" :slot="`${item.type}-${index}`">
-              <!-- {{ item.data }} -->
-              <!-- 图片预览组件 -->
-              <template v-if="item.data?.length === 0 || item.data?.every((img) => img.url === undefined)">
-                <t-skeleton style="width: 600px; margin: 14px 0" theme="paragraph" animation="gradient" />
-              </template>
-              <t-space v-else break-line :size="16">
-                <t-image-viewer
-                  v-for="(img, index) in item.data.map((img) => img.url)"
-                  :key="img"
-                  :default-index="index"
-                  :images="item.data.map((img) => img.url)"
-                  :z-index="10000"
-                >
-                  <template #trigger="{ open }">
-                    <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
-                      <img alt="test" :src="img" class="tdesign-demo-image-viewer__ui-image--img" />
-                      <div class="tdesign-demo-image-viewer__ui-image--hover" @click="open(index)">
-                        <span><BrowseIcon size="1.4em" /> 预览</span>
-                      </div>
-                    </div>
-                  </template>
-                </t-image-viewer>
-              </t-space>
-            </div>
-          </template>
-          <!-- <template v-for="(item, index) in message.content" :key="`${message.id}-imageview-${index}`">
-            <template v-if="item.type === 'imageview'">
-              <div :slot="`${item.type}-${index}`">
-                <t-space :size="16" break-line>
-                  <template v-for="(img, imgIndex) in item.data.map((img) => img.url)" :key="imgIndex">
-                    <t-image-viewer :images="item.data.map((img) => img.url)">
-                      <template #trigger="{ open }">
-                        <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
-                          <img alt="test" :src="img" class="tdesign-demo-image-viewer__ui-image--img" />
-                          <div class="tdesign-demo-image-viewer__ui-image--hover" @click="open">
-                            <span><browse-icon size="1.4em" /> 预览</span>
-                          </div>
-                        </div>
-                      </template>
-                    </t-image-viewer>
-                  </template>
-                </t-space>
-              </div>
+  <div style="height: 598px; margin-top: 12px; display: flex; flex-direction: column">
+    <t-chat-list :clear-history="false" style="flex: 1">
+      <t-chat-message
+        v-for="message in messages"
+        :key="message.id"
+        :message="message"
+        :placement="message.role === 'user' ? 'right' : 'left'"
+        :variant="message.role === 'user' ? 'base' : 'text'"
+        :avatar="message.role === 'user' ? 'https://tdesign.gtimg.com/site/avatar.jpg' : undefined"
+        allow-content-segment-custom
+      >
+        <template v-for="(item, index) in message.content" :key="index">
+          <div v-if="item.type === 'imageview'" :slot="`${item.type}-${index}`">
+            <!-- {{ item.data }} -->
+            <!-- 图片预览组件 -->
+            <template v-if="item.data?.length === 0 || item.data?.every((img) => img.url === undefined)">
+              <t-skeleton style="width: 600px; margin: 14px 0" theme="paragraph" animation="gradient" />
             </template>
-          </template> -->
-
-          <!-- 自定义操作栏 -->
-          <template #actionbar>
-            <t-space v-if="isAIMessageComplete(message)" size="small" :style="{ marginTop: '6px' }">
-              <t-button shape="square" variant="text" size="small" title="播放语音" @click="handlePlayAudio">
-                <sound-icon />
-              </t-button>
-              <t-button shape="square" variant="text" size="small" title="编辑" @click="handleEdit">
-                <edit-icon />
-              </t-button>
-              <t-button
-                shape="square"
-                variant="text"
-                size="small"
-                title="复制"
-                @click="handleCopy(getTextContent(message))"
+            <t-space v-else break-line :size="8">
+              <t-image-viewer
+                v-for="(img, index) in item.data.map((img) => img.url)"
+                :key="img"
+                :default-index="index"
+                :images="item.data.map((img) => img.url)"
+                :z-index="10000"
               >
-                <copy-icon />
-              </t-button>
+                <template #trigger="{ open }">
+                  <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
+                    <img alt="test" :src="img" class="tdesign-demo-image-viewer__ui-image--img" />
+                    <div class="tdesign-demo-image-viewer__ui-image--hover" @click="open(index)">
+                      <span><BrowseIcon size="1.4em" /> 预览</span>
+                    </div>
+                  </div>
+                </template>
+              </t-image-viewer>
             </t-space>
-          </template>
-        </t-chat-message>
-      </t-chat-list>
-    </div>
+          </div>
+        </template>
+
+        <!-- 自定义操作栏 -->
+        <template #actionbar>
+          <t-space v-if="isAIMessageComplete(message)" size="small" :style="{ marginTop: '6px' }">
+            <t-button shape="square" variant="text" size="small" title="自定义内容" @click="handleClickActionBar">
+              <smile-icon />
+            </t-button>
+            <t-button shape="square" variant="text" size="small" title="自定义内容" @click="handleClickActionBar">
+              <heart-icon />
+            </t-button>
+            <t-button shape="square" variant="text" size="small" title="自定义内容" @click="handleClickActionBar">
+              <sound-icon />
+            </t-button>
+          </t-space>
+        </template>
+      </t-chat-message>
+    </t-chat-list>
 
     <t-chat-sender
       ref="senderRef"
@@ -98,14 +70,14 @@
       <!-- 自定义输入框底部控制栏 -->
       <template #footer-prefix>
         <t-space align="center" size="small">
-          <t-button shape="round" variant="outline" size="small" @click="handleAttachClick">
+          <t-button shape="round" variant="outline" @click="handleAttachClick">
             <template #icon>
               <image-add-icon />
             </template>
             参考图
           </t-button>
           <t-dropdown :options="RatioOptions" trigger="click" @click="switchRatio">
-            <t-button shape="round" variant="outline" size="small">
+            <t-button shape="round" variant="outline">
               <template #icon>
                 <transform1-icon size="16" />
               </template>
@@ -113,7 +85,7 @@
             </t-button>
           </t-dropdown>
           <t-dropdown :options="StyleOptions" trigger="click" @click="switchStyle">
-            <t-button shape="round" variant="outline" size="small">
+            <t-button shape="round" variant="outline">
               <template #icon>
                 <filter3-icon size="16" />
               </template>
@@ -138,14 +110,14 @@ import {
   useChat,
   isAIMessage,
 } from '@tdesign-vue-next/chat';
-import { ImageViewer, MessagePlugin } from 'tdesign-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
 import {
   BrowseIcon,
   Filter3Icon,
   ImageAddIcon,
   Transform1Icon,
-  CopyIcon,
-  EditIcon,
+  SmileIcon,
+  HeartIcon,
   SoundIcon,
 } from 'tdesign-icons-vue-next';
 
@@ -193,7 +165,7 @@ const ratio = ref<number>(0);
 const style = ref<string>('');
 const reqParamsRef = ref<{ ratio: number; style: string; file?: string }>({ ratio: 0, style: '' });
 const files = ref<TdAttachmentItem[]>([]);
-const inputValue = ref<string>('请为 TDesign 设计三张品牌宣传图');
+const inputValue = ref<string>('请为 TDesign 设计三张品牌宣传图，要求比例：默认比例，风格：默认风格');
 
 // 聊天服务配置
 const chatServiceConfig: ChatServiceConfig = {
@@ -243,8 +215,6 @@ const { chatEngine, messages, status } = useChat({
   defaultMessages: mockData,
   chatServiceConfig,
 });
-
-console.log(messages.value, 'messages---------');
 
 // 选中文件
 const handleAttachClick = () => {
@@ -322,30 +292,9 @@ const isAIMessageComplete = (message: ChatMessagesData) => {
   return isAIMessage(message) && message.status === 'complete';
 };
 
-// 获取消息文本内容
-const getTextContent = (message: ChatMessagesData) => {
-  return (
-    message.content
-      ?.filter((item) => item.type === 'text' || item.type === 'markdown')
-      .map((item) => item.data)
-      .join('\n') || ''
-  );
-};
-
 // 播放语音
-const handlePlayAudio = () => {
-  MessagePlugin.info('播放语音');
-};
-
-// 编辑消息
-const handleEdit = () => {
-  MessagePlugin.info('编辑消息');
-};
-
-// 复制内容
-const handleCopy = (content: string) => {
-  navigator.clipboard.writeText(content);
-  MessagePlugin.success('已复制到剪贴板');
+const handleClickActionBar = () => {
+  MessagePlugin.info('自定义内容');
 };
 
 // 监听比例和风格变化
@@ -367,7 +316,7 @@ watch([ratio, style], () => {
   position: relative;
   justify-content: center;
   align-items: center;
-  border-radius: 9px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -430,6 +379,5 @@ watch([ratio, style], () => {
 .tdesign-demo-image-viewer__base {
   width: 160px;
   height: 160px;
-  border: 4px solid var(--td-bg-color-secondarycontainer);
 }
 </style>

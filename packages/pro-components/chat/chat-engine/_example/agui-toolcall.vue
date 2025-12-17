@@ -1,5 +1,5 @@
 <template>
-  <div style="max-height: 600px; display: flex; flex-direction: column">
+  <div style="height: 598px; margin-top: 12px; display: flex; flex-direction: column">
     <t-chat-list ref="listRef" :clear-history="false">
       <t-chat-message
         v-for="(message, idx) in messages"
@@ -49,6 +49,7 @@ import {
   type ToolCall,
   type AgentToolcallConfig,
   type TdChatActionsName,
+  type ChatMessagesData,
   useChat,
   useAgentToolcall,
   isAIMessage,
@@ -65,19 +66,33 @@ import ImageGenProgress from './components/ImageGenProgress.vue';
  */
 
 const listRef = ref<any>(null);
-const inputValue = ref<string>('请帮我生成一张赛博朋克风格的城市夜景图片');
+const inputValue = ref<string>('请帮我生成一张3D风格海报，应用于B端产品的场景，整体色调是蓝白色系');
+const defaultMessages: ChatMessagesData[] = [
+  {
+    id: 'demo-2',
+    role: 'assistant',
+    datetime: '2024-01-01 10:00:05',
+    content: [
+      // 3. Markdown 内容
+      {
+        type: 'markdown',
+        data: `欢迎使用TDesign智能生图助手，请先写下你的创意，可以试试上传参考图哦～`,
+      },
+    ],
+  },
+];
 
 // 图片生成工具调用配置
 const imageGenActions: AgentToolcallConfig[] = [
-  {
-    name: 'generate_image',
-    description: '生成图片',
-    parameters: [
-      { name: 'taskId', type: 'string', required: true },
-      { name: 'prompt', type: 'string', required: true },
-    ],
-    component: ImageGenStart,
-  },
+  // {
+  //   name: 'generate_image',
+  //   description: '生成图片',
+  //   parameters: [
+  //     { name: 'taskId', type: 'string', required: true },
+  //     { name: 'prompt', type: 'string', required: true },
+  //   ],
+  //   component: ImageGenStart,
+  // },
   {
     name: 'show_progress',
     description: '展示图片生成进度',
@@ -115,7 +130,7 @@ const createChatServiceConfig = () => ({
 });
 
 const { chatEngine, messages, status } = useChat({
-  defaultMessages: [],
+  defaultMessages,
   chatServiceConfig: createChatServiceConfig(),
 });
 

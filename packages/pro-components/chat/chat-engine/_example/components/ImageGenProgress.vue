@@ -1,11 +1,11 @@
 <template>
-  <t-card bordered hover-shadow style="margin-top: 12px">
+  <div style="margin-top: 12px">
     <template v-if="toolStatus === 'error'">
       <div style="color: #ff4d4f">解析参数失败: {{ toolError?.message }}</div>
     </template>
 
     <template v-else-if="!genState">
-      <div>等待任务开始...</div>
+      <div>等待任务开始</div>
     </template>
 
     <template v-else>
@@ -13,8 +13,8 @@
       <template v-if="genState.status === 'preparing'">
         <t-space direction="vertical" style="width: 100%">
           <div style="display: flex; align-items: center; gap: 8px">
-            <loading-icon />
-            <span>准备生成图片...</span>
+            <loading-icon style="color: var(--td-brand-color)" />
+            <span>准备生成图片</span>
           </div>
           <t-progress :percentage="genState.progress" />
           <div style="color: #666; font-size: 12px">{{ genState.message }}</div>
@@ -25,8 +25,8 @@
       <template v-else-if="genState.status === 'generating'">
         <t-space direction="vertical" style="width: 100%">
           <div style="display: flex; align-items: center; gap: 8px">
-            <loading-icon />
-            <span>正在生成图片...</span>
+            <loading-icon style="color: var(--td-brand-color)" />
+            <span>正在生成图片</span>
           </div>
           <t-progress :percentage="genState.progress" />
           <div style="color: #666; font-size: 12px">{{ genState.message }}</div>
@@ -37,14 +37,14 @@
       <template v-else-if="genState.status === 'completed'">
         <t-space direction="vertical" style="width: 100%">
           <div style="display: flex; align-items: center; gap: 8px; color: #52c41a">
-            <check-circle-filled-icon />
-            <span>图片生成完成</span>
+            <check-circle-filled-icon style="color: var(--td-success-color)" size="20px" />
+            <span style="color: black; font-size: 14px">已完成</span>
           </div>
           <t-image
             v-if="genState.imageUrl"
             :src="genState.imageUrl"
             fit="cover"
-            style="width: 100%; max-width: 400px; border-radius: 8px"
+            style="width: 100%; max-width: 320px; border-radius: 8px"
           />
         </t-space>
       </template>
@@ -60,7 +60,7 @@
         </t-space>
       </template>
     </template>
-  </t-card>
+  </div>
 </template>
 
 <script setup lang="ts">

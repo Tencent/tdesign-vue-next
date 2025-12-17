@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="position: relative">
     <!-- 快捷指令区域 -->
     <div class="quick-prompts">
       <div class="prompts-title">快捷指令：</div>
@@ -17,7 +17,7 @@
     </div>
 
     <!-- 聊天组件 -->
-    <div style="height: 400px">
+    <div style="margin-top: 38px; height: 352px">
       <t-chatbot ref="chatRef" :sender-props="senderProps" :chat-service-config="chatServiceConfig" />
     </div>
   </div>
@@ -144,13 +144,17 @@ const handleQuickPrompt = (prompt: string) => {
 
 <style scoped lang="less">
 .quick-prompts {
-  margin-bottom: 16px;
-  padding: 12px;
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: calc(100% + 80px);
+  padding: 12px 0 12px 16px;
   background: #f5f5f5;
-  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 
   .prompts-title {
-    margin-bottom: 8px;
     font-size: 14px;
     font-weight: 500;
   }

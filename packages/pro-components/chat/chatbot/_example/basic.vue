@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 600px">
+  <div style="margin-top: -18px; height: 408px">
     <t-chatbot
       ref="chatRef"
       :default-messages="mockData"

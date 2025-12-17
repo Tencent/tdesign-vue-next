@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; flex-direction: column; height: 100%">
+  <div style="margin-top: -18px; height: 408px; display: flex; flex-direction: column">
     <!-- 消息列表 -->
     <t-chat-list :clear-history="false" style="flex: 1">
       <t-chat-message
@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { type SSEChunkData, type AIMessageContent, useChat } from '@tdesign-vue-next/chat';
+import { type SSEChunkData, type AIMessageContent, type ChatMessagesData, useChat } from '@tdesign-vue-next/chat';
 
 /**
  * 快速开始示例
@@ -37,9 +37,36 @@ import { type SSEChunkData, type AIMessageContent, useChat } from '@tdesign-vue-
 
 const inputValue = ref<string>('');
 
+const defaultMessages: ChatMessagesData[] = [
+  {
+    id: 'demo-1',
+    role: 'user',
+    content: [
+      {
+        type: 'text',
+        data: '南极的自动提款机叫什么名字',
+      },
+    ],
+    datetime: '2024-01-01 10:00:00',
+  },
+  {
+    id: 'demo-2',
+    role: 'assistant',
+    status: 'complete',
+    datetime: '2024-01-01 10:00:05',
+    content: [
+      // 3. Markdown 内容
+      {
+        type: 'markdown',
+        data: `南极的自动提款机并没有一个特定的专属名称，但历史上确实有一台ATM机曾短暂存在于南极的麦克默多站（McMurdo Station）。这台ATM由美国富兰克林国家银行（Wells Fargo）于1998年安装，主要供驻扎在该站的科研人员使用。不过，由于南极的极端环境和极低的人口密度，这台ATM机并未长期运行，最终被移除。`,
+      },
+    ],
+  },
+];
+
 // 使用 useChat Hook 创建聊天引擎
 const { chatEngine, messages, status } = useChat({
-  defaultMessages: [],
+  defaultMessages,
   chatServiceConfig: {
     endpoint: 'https://1257786608-9i9j1kpa67.ap-guangzhou.tencentscf.com/sse/normal',
     stream: true,

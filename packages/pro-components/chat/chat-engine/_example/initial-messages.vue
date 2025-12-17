@@ -1,18 +1,14 @@
 <template>
-  <div>
+  <div style="position: relative">
     <!-- 操作按钮 -->
-    <div style="margin-bottom: 16px; padding: 12px; background: #f5f5f5; border-radius: 4px">
-      <div style="margin-bottom: 8px; font-size: 14px; font-weight: 500">快捷指令：</div>
-      <t-space>
-        <t-button variant="outline" size="small" :disabled="hasHistory" @click="loadHistory"> 加载历史消息 </t-button>
-        <t-button variant="outline" size="small" :disabled="!hasHistory" @click="clearMessages">
-          清空历史消息
-        </t-button>
-      </t-space>
+    <div class="op-button-area">
+      <t-radio-group v-model="historyMode" variant="default-filled" @change="handleModeChange">
+        <t-radio-button value="default">设置初始化消息</t-radio-button>
+        <t-radio-button value="history">加载历史消息</t-radio-button>
+      </t-radio-group>
     </div>
-
     <!-- 聊天界面 -->
-    <div style="height: 400px; display: flex; flex-direction: column">
+    <div style="margin-top: 38px; height: 352px; display: flex; flex-direction: column">
       <t-chat-list :clear-history="false">
         <t-chat-message
           v-for="message in messages"
@@ -40,7 +36,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { type SSEChunkData, type AIMessageContent, type ChatMessagesData, useChat } from '@tdesign-vue-next/chat';
-import { reverse } from 'dns';
 
 /**
  * 初始化消息示例
@@ -52,7 +47,7 @@ import { reverse } from 'dns';
  */
 
 const inputValue = ref<string>('');
-const hasHistory = ref<boolean>(false);
+const historyMode = ref<string>('default');
 
 // 初始化消息
 const defaultMessages: ChatMessagesData[] = [
@@ -70,15 +65,15 @@ const defaultMessages: ChatMessagesData[] = [
         status: 'complete',
         data: [
           {
-            title: 'TDesign 是什么？',
+            title: '请介绍一下 TDesign 设计体系',
             prompt: '请介绍一下 TDesign 设计体系',
           },
           {
-            title: '如何快速上手？',
-            prompt: 'TDesign React 如何快速开始使用？',
+            title: 'TDesign Vue 如何快速开始使用？',
+            prompt: 'TDesign Vue 如何快速开始使用？',
           },
           {
-            title: '有哪些组件？',
+            title: 'TDesign 提供了哪些常用组件？',
             prompt: 'TDesign 提供了哪些常用组件？',
           },
         ],
@@ -153,16 +148,13 @@ const historyMessages: ChatMessagesData[] = [
   },
 ];
 
-// 加载历史消息
-const loadHistory = () => {
-  chatEngine.value?.setMessages(historyMessages, 'replace');
-  hasHistory.value = true;
-};
-
-// 清空消息
-const clearMessages = () => {
-  chatEngine.value?.setMessages([], 'replace');
-  hasHistory.value = false;
+// 切换消息模式
+const handleModeChange = (value: string) => {
+  if (value === 'history') {
+    chatEngine.value?.setMessages(historyMessages, 'replace');
+  } else {
+    chatEngine.value?.setMessages(defaultMessages, 'replace');
+  }
 };
 
 // 发送消息
@@ -181,3 +173,14 @@ const handleStop = () => {
   chatEngine.value?.abortChat();
 };
 </script>
+<style scoped lang="less">
+.op-button-area {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: calc(100% + 80px);
+  box-sizing: border-box;
+  padding: 12px 0 12px 16px;
+  background: #f5f5f5;
+}
+</style>

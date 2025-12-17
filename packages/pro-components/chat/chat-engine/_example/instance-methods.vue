@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div style="position: relative">
     <!-- 操作按钮区域 -->
-    <div style="margin-bottom: 16px; padding: 12px; background: #f5f5f5; border-radius: 4px">
-      <div style="margin-bottom: 8px; font-size: 14px; font-weight: 500">快捷指令：</div>
+    <div class="op-button-area">
+      <div style="font-size: 14px; font-weight: 600; margin-right: 8px">快捷指令：</div>
       <t-space size="small" break-line>
-        <t-button size="small" variant="outline" @click="handleSendUserMessage"> 发送用户消息 </t-button>
-        <t-button size="small" variant="outline" @click="handleSendAIMessage"> 发送AI消息 </t-button>
-        <t-button size="small" variant="outline" @click="handleSendSystemMessage"> 发送系统消息 </t-button>
+        <t-button size="small" variant="outline" @click="handleSendAIMessage"> AI消息 </t-button>
+        <t-button size="small" variant="outline" @click="handleSendUserMessage"> 用户消息 </t-button>
+        <t-button size="small" variant="outline" @click="handleSendSystemMessage"> 系统消息 </t-button>
         <t-button size="small" variant="outline" @click="handleSetMessages"> 批量设置消息 </t-button>
         <t-button size="small" variant="outline" @click="handleClearMessages"> 清空消息 </t-button>
         <t-button size="small" variant="outline" @click="handleRegenerate"> 重新生成 </t-button>
@@ -17,7 +17,7 @@
     </div>
 
     <!-- 聊天界面 -->
-    <div style="height: 400px; display: flex; flex-direction: column">
+    <div style="margin-top: 38px; height: 352px; display: flex; flex-direction: column">
       <t-chat-list :clear-history="false">
         <t-chat-message
           v-for="message in messages"
@@ -157,3 +157,16 @@ const handleStop = () => {
   chatEngine.value?.abortChat();
 };
 </script>
+<style scoped lang="less">
+.op-button-area {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: calc(100% + 80px);
+  box-sizing: border-box;
+  padding: 12px 0 12px 16px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+}
+</style>

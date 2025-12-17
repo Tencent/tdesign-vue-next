@@ -1,36 +1,34 @@
 <template>
-  <div style="display: flex; flex-direction: column; height: 100%; position: relative">
+  <div style="height: 658px; margin-top: 12px; display: flex; flex-direction: column; position: relative">
     <!-- 右侧进度面板：使用 useAgentState 订阅状态 -->
     <ProgressPanel />
 
-    <div style="flex: 1; display: flex; flex-direction: column">
-      <t-chat-list ref="listRef" :clear-history="false">
-        <t-chat-message
-          v-for="message in messages"
-          :key="message.id"
-          :message="message"
-          :variant="messageProps[message.role]?.variant"
-          :placement="messageProps[message.role]?.placement"
-          allow-content-segment-custom
-        >
-          <!-- 工具调用内容 -->
-          <template v-for="(item, index) in message.content" :key="`content-${index}`">
-            <div v-if="isToolCallContent(item)" :slot="`${item.type}-${index}`">
-              <tool-call-renderer :tool-call="item.data" @respond="handleToolCallRespond" />
-            </div>
-          </template>
-        </t-chat-message>
-      </t-chat-list>
+    <t-chat-list ref="listRef" :clear-history="false">
+      <t-chat-message
+        v-for="message in messages"
+        :key="message.id"
+        :message="message"
+        :variant="messageProps[message.role]?.variant"
+        :placement="messageProps[message.role]?.placement"
+        allow-content-segment-custom
+      >
+        <!-- 工具调用内容 -->
+        <template v-for="(item, index) in message.content" :key="`content-${index}`">
+          <div v-if="isToolCallContent(item)" :slot="`${item.type}-${index}`">
+            <tool-call-renderer :tool-call="item.data" @respond="handleToolCallRespond" />
+          </div>
+        </template>
+      </t-chat-message>
+    </t-chat-list>
 
-      <t-chat-sender
-        ref="inputRef"
-        v-model="inputValue"
-        placeholder="请输入您的旅游需求，例如：请为我规划一个北京3日游行程"
-        :loading="senderLoading"
-        @send="sendHandler"
-        @stop="handleStop"
-      />
-    </div>
+    <t-chat-sender
+      ref="inputRef"
+      v-model="inputValue"
+      placeholder="请输入您的旅游需求，例如：请为我规划一个北京3日游行程"
+      :loading="senderLoading"
+      @send="sendHandler"
+      @stop="handleStop"
+    />
   </div>
 </template>
 

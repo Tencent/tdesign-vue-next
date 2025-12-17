@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 600px; display: flex; flex-direction: column">
+  <div style="margin-top: -18px; height: 408px; display: flex; flex-direction: column">
     <t-chat-list ref="listRef" :clear-history="false">
       <t-chat-message
         v-for="(message, idx) in messages"

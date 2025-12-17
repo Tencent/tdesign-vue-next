@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 600px; display: flex; flex-direction: column">
+  <div style="height: 598px; margin-top: 12px; display: flex; flex-direction: column">
     <t-chat-list :clear-history="false" style="flex: 1">
       <t-chat-message
         v-for="(message, idx) in messages"
@@ -49,7 +49,6 @@
             variant="outline"
             shape="round"
             :theme="activeR1 ? 'primary' : 'default'"
-            size="small"
             @click="activeR1 = !activeR1"
           >
             R1.深度思考
@@ -57,7 +56,6 @@
           <t-button
             variant="outline"
             :theme="activeSearch ? 'primary' : 'default'"
-            size="small"
             shape="round"
             @click="activeSearch = !activeSearch"
           >
