@@ -1,5 +1,6 @@
 import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
+import { isNumber } from 'lodash-es';
 
 import {
   useVModel,
@@ -8,8 +9,9 @@ import {
   usePrefixClass,
   useDefaultValue,
   usePopupManager,
+  useConfig,
 } from '@tdesign/shared-hooks';
-
+import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';
 import Image from '../image';
 import TImageItem from './base/ImageItem';
 import TImageViewerIcon from './base/ImageModalIcon';
@@ -19,8 +21,7 @@ import { EVENT_CODE } from './consts';
 import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
 import { ImageScale, TdImageViewerProps } from './type';
-import { downloadFile, formatImages, getOverlay } from './utils';
-import { isNumber } from 'lodash-es';
+import { getOverlay } from './utils';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -29,6 +30,8 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('image-viewer');
     const renderTNodeJSX = useTNodeJSX();
+    const { globalConfig } = useConfig('imageViewer');
+
     const isExpand = ref(true);
     const showOverlayValue = computed(() => getOverlay(props));
 
@@ -91,7 +94,7 @@ export default defineComponent({
     };
 
     const onDownloadClick = (url: string) => {
-      props.onDownload ? props.onDownload(url) : downloadFile(url);
+      props.onDownload ? props.onDownload(url) : downloadImage(url);
     };
 
     const openHandler = (index?: number) => {
@@ -246,7 +249,7 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={() => openHandler()}>
             <span>
               <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger-icon`} />
-              预览
+              {globalConfig.value.previewText}
             </span>
           </div>
         </div>

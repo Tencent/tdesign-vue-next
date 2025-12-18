@@ -252,6 +252,7 @@ errorText | String | - | \- | N
 mirrorTipText | String | - | mirror operation text | N
 originalSizeTipText | String | - | original size tips | N
 rotateTipText | String | - | rotate operation text | N
+previewText | String | - | preview text | N
 
 ### InputConfig
 
