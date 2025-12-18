@@ -7,6 +7,13 @@ const componentDocs = [
     component: () => import('@tdesign/pro-components-chat/chatbot/chatbot.md'),
   },
   {
+    title: 'ChatEngine 对话引擎',
+    titleEn: 'ChatEngine',
+    name: 'ChatEngine',
+    path: '/chat/components/chat-engine',
+    component: () => import('@tdesign/pro-components-chat/chat-engine/chat-engine.md'),
+  },
+  {
     title: 'ChatSender 对话输入',
     titleEn: 'ChatSender',
     name: 'ChatSender',
