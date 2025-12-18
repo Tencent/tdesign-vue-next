@@ -11,11 +11,11 @@ docClass: timeline
 - `ImageViewer`: 
   - Optimize the format processing and compression ratio when downloading cross-domain images @RylanBot ([common#2311](https://github.com/Tencent/tdesign-common/pull/2311)) ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
   - Support direct downloading of same-domain images to avoid problems such as volume increase and animation failure caused by secondary conversion @RylanBot ([common#2311](https://github.com/Tencent/tdesign-common/pull/2311)) ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
+- Support the .dark class name to enable more flexible dark mode switching. @liweijie0812 ([common#2355](https://github.com/Tencent/tdesign-common/pull/2355))
 
 ### 🐞 Bug Fixes
 - `Avatar`: Fixed the inconsistency between the style and the design draft@liweijie0812 ([common#2364](https://github.com/Tencent/tdesign-common/pull/2364)) ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
-- `DatePicker`: Fix the issue of missing styles after bundling when using on-demand component imports and enabling the time picker panel. @uyarn ([#6257](https://github.com/Tencent/tdesign-vue-next/pull/6257))
-- `DateRangePicker`: Fixed a bug where secondary selection will blank data when used in a form and carrying the `default-time` parameter @RSS1102 ([#6268](https://github.com/Tencent/tdesign-vue-next/pull/6268))
+- `DatePicker`: Fixed the issue of missing styles after bundling when using on-demand component imports and enabling the time picker panel. @uyarn ([#6257](https://github.com/Tencent/tdesign-vue-next/pull/6257))- `DateRangePicker`: Fixed a bug where secondary selection will blank data when used in a form and carrying the `default-time` parameter @RSS1102 ([#6268](https://github.com/Tencent/tdesign-vue-next/pull/6268))
 - `Dropdown`: Fixed the issue where the editor prompt is missing the `TDropdownMenu` type declaration @RSS1102 ([#6238](https://github.com/Tencent/tdesign-vue-next/pull/6238))
 - `Menu`: Fixed issues with default margins and icon sizes for menu options @liweijie0812 ([common#2369](https://github.com/Tencent/tdesign-common/pull/2369)) ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
 - `Tree`: Fixed the problem where the highlight style of the selected text is hidden when the child node is a custom Input element. @RylanBot ([common#2370](https://github.com/Tencent/tdesign-common/pull/2370)) ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
