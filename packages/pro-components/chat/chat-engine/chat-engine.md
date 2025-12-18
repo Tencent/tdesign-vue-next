@@ -102,7 +102,7 @@ ChatEngine 实例方法与 Chatbot 组件实例方法完全一致，详见 [Chat
 
 | 返回值          | 类型                                                | 说明                                     |
 | --------------- | --------------------------------------------------- | ---------------------------------------- |
-| stateMap        | Record<string, any>                                 | 状态映射表，格式为 { [stateKey]: stateData } |
+| stateMap        | Record<string, any>                                 | 状态映射表，格式为 `{ [stateKey]: stateData }` |
 | currentStateKey | string \\| null                                      | 当前活跃的 stateKey                      |
 | setStateMap     | (stateMap: Record<string, any> \\| Function) => void | 手动设置状态映射表的方法                 |
 | getCurrentState | () => Record<string, any>                           | 获取当前完整状态的方法                   |
