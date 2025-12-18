@@ -1,5 +1,6 @@
 import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
+import { isNumber } from 'lodash-es';
 
 import {
   useVModel,
@@ -9,7 +10,7 @@ import {
   useDefaultValue,
   usePopupManager,
 } from '@tdesign/shared-hooks';
-
+import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';
 import Image from '../image';
 import TImageItem from './base/ImageItem';
 import TImageViewerIcon from './base/ImageModalIcon';
@@ -19,8 +20,7 @@ import { EVENT_CODE } from './consts';
 import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
 import { ImageScale, TdImageViewerProps } from './type';
-import { downloadFile, formatImages, getOverlay } from './utils';
-import { isNumber } from 'lodash-es';
+import { getOverlay } from './utils';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -91,7 +91,7 @@ export default defineComponent({
     };
 
     const onDownloadClick = (url: string) => {
-      props.onDownload ? props.onDownload(url) : downloadFile(url);
+      props.onDownload ? props.onDownload(url) : downloadImage(url);
     };
 
     const openHandler = (index?: number) => {
