@@ -9,6 +9,7 @@ import {
   usePrefixClass,
   useDefaultValue,
   usePopupManager,
+  useConfig,
 } from '@tdesign/shared-hooks';
 import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';
 import Image from '../image';
@@ -29,6 +30,8 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('image-viewer');
     const renderTNodeJSX = useTNodeJSX();
+    const { globalConfig } = useConfig('imageViewer');
+
     const isExpand = ref(true);
     const showOverlayValue = computed(() => getOverlay(props));
 
@@ -246,7 +249,7 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={() => openHandler()}>
             <span>
               <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger-icon`} />
-              预览
+              {globalConfig.value.previewText}
             </span>
           </div>
         </div>
