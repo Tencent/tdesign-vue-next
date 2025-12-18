@@ -11,6 +11,7 @@ docClass: timeline
 - `ImageViewer`: 
   - 优化下载跨域图片时的格式处理，优化通过下载获取的文件大小  @RylanBot ([common#2311](https://github.com/Tencent/tdesign-common/pull/2311))  ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
   - 支持直接下载同域图片，避免二次转换导致体积增大和动图失效等问题 @RylanBot ([common#2311](https://github.com/Tencent/tdesign-common/pull/2311))  ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
+- 支持 .dark 类名，丰富切换深色模式的方式 @liweijie0812 ([common#2355](https://github.com/Tencent/tdesign-common/pull/2355))
 
 ### 🐞 Bug Fixes
 - `Avatar`: 修复样式与设计稿不一致的问题 @liweijie0812 ([common#2364](https://github.com/Tencent/tdesign-common/pull/2364))  ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
@@ -2007,6 +2008,7 @@ docClass: timeline
 
 ## 🌈 0.x `2021-05-19 - 2022-12-14`
 前往 [GitHub](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/tdesign-vue-next/CHANGELOG-0.x.md) 查看 `0.x` 更新日志
+
 
 
 
