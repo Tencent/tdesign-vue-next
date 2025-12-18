@@ -5,6 +5,12 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.5.0-alpha.10 `2025-12-18`
+
+### 🚀 Features
+
+- 新增 `ChatEngine` 模块，暴露更多 Hooks 使用，展示相关 Chat Engine Hooks 的使用，具体请查看`ChatEngine` 使用示例
+
 ## 🌈 0.5.0-alpha.9 `2025-12-16`
 
 ### 🐞 Bug Fixes

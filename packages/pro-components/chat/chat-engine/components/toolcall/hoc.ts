@@ -15,6 +15,7 @@ export type WithAgentStateProps<P extends object = any> = P & { agentState?: Rec
 export const withAgentStateToolcall1 = <P extends object = any>(
   Component: DefineComponent<WithAgentStateProps<P>>,
 ): DefineComponent<P> => {
+  //@ts-ignore
   return defineComponent({
     name: `withAgentState(${Component.name || 'Component'})`,
     props: Component.props,
@@ -41,6 +42,7 @@ export const withAgentStateToolcall = <P extends object = any>(
   Component: DefineComponent<WithAgentStateProps<P>>,
   subscribeKeyExtractor?: (props: P) => string | undefined,
 ): DefineComponent<P> => {
+  // @ts-ignore
   return defineComponent({
     name: `withAgentState(${Component.name || 'Component'})`,
     props: Component.props,

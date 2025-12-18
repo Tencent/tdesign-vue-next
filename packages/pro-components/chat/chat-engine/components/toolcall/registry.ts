@@ -1,6 +1,6 @@
 import type { Component } from 'vue';
 import { defineComponent, h } from 'vue';
-import type { AgentToolcallConfig, AgentToolcallRegistry, ToolcallComponentProps } from './types';
+import type { AgentToolcallConfig, AgentToolcallRegistry } from './types';
 
 /**
  * 全局 Agent Toolcall 注册表
@@ -20,6 +20,7 @@ class AgentToolcallRegistryManager {
     const existingConfig = this.registry[config.name];
 
     // 如果组件发生变化，清除旧的缓存
+    // @ts-ignore
     if (existingConfig && existingConfig.component !== config.component) {
       this.renderFunctionCache.delete(config.name);
     }
