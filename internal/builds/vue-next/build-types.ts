@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { glob } from 'glob';
 import { readFile, copy, writeFile, remove } from 'fs-extra';
 import { run, joinPosix, joinWorkspaceRoot, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
@@ -27,7 +28,17 @@ const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
 
   // 1. 复制 packages/components 到 packages/tdesign-vue-next/target 下
   const targetDir = joinTdesignVueNextRoot(`${target}`);
-  await copy(joinPosix(typesRoot, `packages/components`), targetDir);
+  await copy(joinPosix(typesRoot, `packages/components`), targetDir, {
+    filter: (srcPath) => {
+      // 将路径解析为标准化格式，避免跨平台路径分隔符问题
+      const normalizedPath = path.normalize(srcPath);
+      // 判断路径中是否包含 __tests__ 目录（匹配完整目录名，避免误判）
+      const hasTestsDir = normalizedPath.split(path.sep).includes('__tests__');
+
+      // 包含 __tests__ 忽略
+      return !hasTestsDir;
+    },
+  });
 
   // 2. 替换 @tdesign/common-js 为 tdesign-vue-next/common/js
   const dtsPaths = await glob(`${joinPosix(targetDir, '**/*.d.ts')}`);
