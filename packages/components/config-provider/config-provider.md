@@ -253,6 +253,7 @@ errorText | String | - | 全局语言配置，默认为 “图片加载失败，
 mirrorTipText | String | - | 全局语言配置，默认为 “镜像” | N
 originalSizeTipText | String | - | 全局语言配置，默认为 “原始大小” | N
 rotateTipText | String | - | 全局语言配置，默认为 “旋转” | N
+previewText | String | - | 全局语言配置，默认为 “预览” | N
 
 ### InputConfig
 
