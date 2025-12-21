@@ -290,7 +290,7 @@ export default defineComponent({
               onDownload={onDownloadClick}
               draggable={props.draggable}
               showOverlay={showOverlayValue.value}
-              title={props.title}
+              title={renderTitle}
               imageReferrerpolicy={imageReferrerpolicy.value}
             />
           </>
