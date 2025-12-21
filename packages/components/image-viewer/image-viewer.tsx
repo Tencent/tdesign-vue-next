@@ -204,6 +204,17 @@ export default defineComponent({
         </div>
       </div>
     );
+
+    const renderTitle = () => {
+      const titleContent = renderTNodeJSX('title');
+
+      return (
+        <div class={`${COMPONENT_NAME.value}__modal-index`}>
+          {titleContent ? titleContent : `${indexValue.value + 1}/${images.value.length}`}
+        </div>
+      );
+    };
+
     const renderNavigationArrow = (type: 'prev' | 'next') => {
       const rotateDeg = type === 'prev' ? 0 : 180;
       const icon = renderTNodeJSX(
@@ -279,7 +290,7 @@ export default defineComponent({
               onDownload={onDownloadClick}
               draggable={props.draggable}
               showOverlay={showOverlayValue.value}
-              title={props.title}
+              title={renderTitle}
               imageReferrerpolicy={imageReferrerpolicy.value}
             />
           </>
@@ -307,10 +318,7 @@ export default defineComponent({
                   {images.value.length > 1 && (
                     <>
                       {renderHeader()}
-                      <div class={`${COMPONENT_NAME.value}__modal-index`}>
-                        {props.title && renderTNodeJSX('title')}
-                        {`${indexValue.value + 1}/${images.value.length}`}
-                      </div>
+                      {renderTitle()}
                       {renderNavigationArrow('prev')}
                       {renderNavigationArrow('next')}
                     </>
