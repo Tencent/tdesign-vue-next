@@ -52,6 +52,7 @@ const inputList = [
   `!${joinProComponentsChatRoot('**/types.ts')}`,
   `!${joinProComponentsChatRoot('**/__tests__')}`,
   `!${joinProComponentsChatRoot('**/_example')}`,
+  `!${joinProComponentsChatRoot('**/node_modules')}`,
 ];
 
 const getPlugins = ({
@@ -114,7 +115,7 @@ const getPlugins = ({
       copy({
         targets: [
           {
-            src: joinProComponentsChatRoot('**/style/css.js'),
+            src: [joinProComponentsChatRoot('**/style/css.js'), `!${joinProComponentsChatRoot('**/node_modules')}`],
             dest: joinTdesignVueNextChatRoot('es'),
             rename: (name, extension, fullPath) =>
               `${fullPath.replace(joinProComponentsChatRoot(), '').slice(0, -6)}${name}.mjs`,
@@ -179,11 +180,7 @@ export const buildEs = async () => {
       input: [...inputList, `!${joinProComponentsChatRoot('index-lib.ts')}`],
       // 为了保留 style/css.js
       treeshake: false,
-      external: [
-        ...esExternal,
-        /\.css$/, // 排除所有 CSS 文件
-        /tdesign-web-components.*\.css$/, // 排除 tdesign-web-components 的 CSS 文件
-      ],
+      external: (id) => esExternal.some((dep) => id === dep || id.startsWith(`${dep}/`) || id.endsWith('.css')),
       plugins: [multiInput({ relative: joinProComponentsChatRoot() }), ...getPlugins({ cssBuildType: 'multi' })],
     });
     bundle.write({
@@ -205,15 +202,11 @@ export const buildEs = async () => {
 };
 
 export const buildEsm = async () => {
+  const externalDeps = [...esExternalDeps, externalPeerDeps, /@tdesign\/common-style/];
   const bundle = await rollup({
     input: [...inputList, `!${joinProComponentsChatRoot('index-lib.ts')}`],
-    external: [
-      ...externalDeps,
-      ...externalPeerDeps,
-      /@tdesign\/common-style/,
-      /\.css$/, // 排除所有 CSS 文件
-      /tdesign-web-components.*\.css$/, // 排除 tdesign-web-components 的 CSS 文件
-    ],
+    external: (id) =>
+      externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`) || id.endsWith('.css') || id.endsWith('.less')),
     plugins: [multiInput({ relative: joinProComponentsChatRoot() }), ...getPlugins({ cssBuildType: 'source' })],
   });
   await bundle.write({

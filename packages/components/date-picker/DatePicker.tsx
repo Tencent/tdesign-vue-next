@@ -3,7 +3,15 @@ import dayjs from 'dayjs';
 import { isFunction, isDate } from 'lodash-es';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
-import { useConfig, useTNodeJSX, useDisabled, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+import {
+  useConfig,
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  useGlobalIcon,
+  usePrefixClass,
+  useEventForward,
+} from '@tdesign/shared-hooks';
 
 import { useSingle } from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';
@@ -370,6 +378,10 @@ export default defineComponent({
       onPanelClick: () => inputRef.value?.focus?.(),
     }));
 
+    const selectInputEvents = useEventForward(props.selectInputProps as TdDatePickerProps['selectInputProps'], {
+      onClear: onTagClearClick,
+    });
+
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
@@ -394,9 +406,9 @@ export default defineComponent({
           tagInputProps={{
             onRemove: onTagRemoveClick,
           }}
-          onClear={onTagClearClick}
           prefixIcon={() => renderTNodeJSX('prefixIcon')}
           suffixIcon={() => renderTNodeJSX('suffixIcon') || <CalendarIcon />}
+          {...selectInputEvents.value}
         />
       </div>
     );

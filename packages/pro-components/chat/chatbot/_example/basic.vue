@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 600px">
+  <div style="margin-top: -18px; height: 408px">
     <t-chatbot
       ref="chatRef"
       :default-messages="mockData"
@@ -14,7 +14,7 @@
               v-model="selectValue"
               :options="selectOptions"
               value-type="object"
-              @focus="allowToolTip.value = false"
+              @focus="allowToolTip = false"
             ></t-select>
           </t-tooltip>
           <t-button class="check-box" :class="{ 'is-active': isChecked }" variant="outline" @click="checkClick">

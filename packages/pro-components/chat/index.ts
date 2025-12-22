@@ -15,12 +15,10 @@ import _ChatBot from './chatbot';
 import _ChatMarkdown from './chat-markdown';
 import { ChatSearchContentComponent, ChatSuggestionContentComponent } from './chatbot';
 
-// 修改为直接导出
-import { useChat } from './chatbot/useChat';
-export { useChat };
-
 import _ChatMessage from './chat-message';
 import { withInstall } from '@tdesign/shared-utils';
+import { ToolCallRenderer } from './chat-engine/components/toolcall';
+export * from './chat-engine';
 
 import {
   TdChatProps,
@@ -75,6 +73,9 @@ export const ChatItem = withInstall(_ChatItem);
 // 导出 MarkdownEngine
 export { TdMarkdownEngine as MarkdownEngine };
 
+// 导出 ToolCallRenderer
+export { ToolCallRenderer };
+
 export default {
   install(app: App, config?: Record<string, unknown>) {
     app.use(ChatBot, config);
@@ -89,13 +90,26 @@ export default {
     app.use(Attachments, config);
     app.use(ChatSearchContent, config);
     app.use(ChatSuggestionContent, config);
-    app.use(Chat, config);
-    app.use(ChatAction, config);
     app.use(ChatInput, config);
     app.use(ChatItem, config);
     app.use(ChatReasoning, config);
+    app.component('TChat', Chat);
+    app.component('TChatAction', ChatAction);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };
 
-export { AGUIAdapter, getMessageContentForCopy, isAIMessage } from 'tdesign-web-components/lib/chat-engine';
+export {
+  AGUIAdapter,
+  getMessageContentForCopy,
+  isAIMessage,
+  isToolCallContent,
+} from 'tdesign-web-components/lib/chat-engine';
+
+export type {
+  SSEChunkData,
+  AIMessageContent,
+  ChatRequestParams,
+  ChatMessagesData,
+  ChatServiceConfig,
+} from 'tdesign-web-components/lib/chat-engine';

@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 600px">
+  <div style="height: 598px; margin-top: 12px">
     <t-chatbot
       ref="chatRef"
       style="height: 100%"
@@ -70,7 +70,7 @@ const initMessage: ChatMessagesData[] = [
       {
         type: 'text',
         status: 'complete',
-        data: '欢迎使用TDesign智能图表分析助手，请输入你的问题',
+        data: '你好！我是 TDesign 智能助手，有什么可以帮助你的吗？',
       },
     ],
   },
@@ -87,7 +87,6 @@ const messageProps: TdChatMessageConfig = {
   },
   assistant: {
     placement: 'left',
-    avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     chatContentProps: {
       thinking: {
         maxHeight: 100,

@@ -173,7 +173,7 @@ export interface TdChatItemProps {
   status?: '' | 'error';
 }
 
-export type ChatContentType = 'text' | 'markdown';
+type ChatContentType = 'text' | 'markdown';
 
 export interface ChatContentData {
   type: ChatContentType;

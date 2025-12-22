@@ -1,27 +1,27 @@
 import {
-  defineComponent,
-  VNode,
-  ref,
-  reactive,
-  provide,
   computed,
+  defineComponent,
   onBeforeUnmount,
   onMounted,
-  watch,
+  provide,
+  reactive,
+  ref,
   toRefs,
+  VNode,
+  watch,
 } from 'vue';
 import { isArray, isNumber } from 'lodash-es';
 
+import { formatPrecision, formatSliderValue, getStopStyle } from '@tdesign/common-js/slider/utils';
+import { useCommonClassName, useDisabled, usePrefixClass, useVModel } from '@tdesign/shared-hooks';
+
+import { sliderPropsInjectKey } from './consts';
+import { useSliderInput } from './hooks/useSliderInput';
+import { useSliderMark } from './hooks/useSliderMark';
 import props from './props';
 import TSliderButton from './slider-button';
-import { SliderValue } from './type';
 
-// hooks
-import { useVModel, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
-import { useSliderMark } from './hooks/useSliderMark';
-import { useSliderInput } from './hooks/useSliderInput';
-import { formatSliderValue, getStopStyle } from './utils';
-import { sliderPropsInjectKey } from './consts';
+import type { SliderValue } from './type';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};
@@ -190,18 +190,19 @@ export default defineComponent({
       let valuetext: string | number;
       if (props.range) {
         if (isArray(sliderValue.value)) {
-          firstValue.value = Math.max(props.min || 0, sliderValue.value[0]);
-          secondValue.value = Math.min(props.max || 100, sliderValue.value[1]);
+          firstValue.value = formatPrecision(Math.max(props.min || 0, sliderValue.value[0]), precision.value);
+          secondValue.value = formatPrecision(Math.min(props.max || 100, sliderValue.value[1]), precision.value);
         } else {
-          firstValue.value = props.min || 0;
-          secondValue.value = props.max || 100;
+          firstValue.value = formatPrecision(props.min || 0, precision.value);
+          secondValue.value = formatPrecision(props.max || 100, precision.value);
         }
         valuetext = `${firstValue.value}-${secondValue.value}`;
       } else {
         if (!isNumber(sliderValue.value)) {
           firstValue.value = props.min;
         } else {
-          firstValue.value = Math.min(props.max, Math.max(props.min, sliderValue.value as number));
+          const value = Math.min(props.max, Math.max(props.min, sliderValue.value as number));
+          firstValue.value = formatPrecision(value, precision.value);
         }
         valuetext = String(firstValue.value);
       }

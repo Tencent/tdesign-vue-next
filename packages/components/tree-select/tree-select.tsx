@@ -23,6 +23,7 @@ import {
   usePrefixClass,
   useTNodeDefault,
   useDefaultValue,
+  useEventForward,
 } from '@tdesign/shared-hooks';
 
 export default defineComponent({
@@ -403,6 +404,19 @@ export default defineComponent({
       treeRef,
     });
 
+    const selectInputEvent = useEventForward(props.selectInputProps as TdTreeSelectProps['selectInputProps'], {
+      onInputChange: inputChange,
+      onTagChange: tagChange,
+      onPopupVisibleChange: handlePopupVisibleChange,
+      onClear: clear,
+      onBlur: (_: any, context) => {
+        props.onBlur?.({ value: treeSelectValue.value, e: context.e as FocusEvent });
+      },
+      onFocus: (_: any, context: { e: FocusEvent }) => {
+        props.onFocus?.({ value: treeSelectValue.value, e: context.e });
+      },
+    });
+
     return () => (
       <SelectInput
         class={`${classPrefix.value}-tree-select`}
@@ -443,13 +457,6 @@ export default defineComponent({
           }
 
           return renderSuffixIcon();
-        }}
-        onClear={clear}
-        onBlur={(_: any, context) => {
-          props.onBlur?.({ value: treeSelectValue.value, e: context.e as FocusEvent });
-        }}
-        onFocus={(_: any, context: { e: FocusEvent }) => {
-          props.onFocus?.({ value: treeSelectValue.value, e: context.e });
         }}
         valueDisplay={() =>
           renderTNodeJSX('valueDisplay', {
@@ -494,10 +501,7 @@ export default defineComponent({
           ),
           collapsedItems: slots.collapsedItems,
         }}
-        onInputChange={inputChange}
-        onTagChange={tagChange}
-        onPopupVisibleChange={handlePopupVisibleChange}
-        {...(props.selectInputProps as TdTreeSelectProps['selectInputProps'])}
+        {...selectInputEvent.value}
       />
     );
   },
