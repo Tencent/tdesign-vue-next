@@ -247,8 +247,9 @@ export default defineComponent({
      * 可选选项的列表
      * 排除已禁用和全选的选项，考虑过滤情况
      */
-    const optionalList = computed(() =>
-      optionsList.value.filter((item) => {
+    const optionalList = computed(() => {
+      const sourceList = isRemoteSearch.value ? searchDisplayOptions.value : optionsList.value;
+      return sourceList.filter((item) => {
         return (
           !item.disabled &&
           // @ts-ignore types only declare checkAll not declare check-all
@@ -256,8 +257,8 @@ export default defineComponent({
           !item.checkAll &&
           filterMethods(item)
         );
-      }),
-    );
+      });
+    });
 
     const getSelectedOptions = (selectValue: SelectValue[] | SelectValue = innerValue.value) => {
       return optionsList.value.filter((option) => {
@@ -314,9 +315,7 @@ export default defineComponent({
     // 全选
     const isCheckAll = computed<boolean>(() => {
       if (intersectionLen.value === 0) return false;
-      return (
-        intersectionLen.value === (isRemoteSearch.value ? searchDisplayOptions.value.length : optionalList.value.length)
-      );
+      return intersectionLen.value === optionalList.value.length;
     });
 
     const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
