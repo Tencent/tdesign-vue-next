@@ -72,7 +72,7 @@ export function TDesignResolver(options: TDesignResolverOptions = {}): Component
 }
 
 function resolveImportName(name: string) {
-  if (name.endsWith('Plugin')) {
+  if (name.endsWith('Plugin') || name.startsWith('use')) {
     return name;
   }
   if (!name.startsWith('T')) {

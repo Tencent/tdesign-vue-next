@@ -10,7 +10,7 @@ import BaseUsage from './components/base-usage.vue';
 
 // import tdesign style
 import '@tdesign/components/style/index.js';
-import '@tdesign/common/style/web/docs.less';
+import '@tdesign/common-style/web/docs.less';
 
 // import site webComponents
 import '@tdesign/site-components';
@@ -18,7 +18,7 @@ import '@tdesign/site-components/lib/styles/style.css';
 import '@tdesign/site-components/lib/styles/prism-theme.less';
 import '@tdesign/site-components/lib/styles/prism-theme-dark.less';
 
-import 'tdesign-theme-generator';
+import '@tdesign/theme-generator';
 // @ts-ignore
 import { registerLocaleChange } from '@tdesign/site-components';
 

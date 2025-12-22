@@ -18,7 +18,7 @@
     "@tdesign-vue-next/chat": "workspace:^",
     "semver": "catalog:docs",
     "@tdesign/site-components": "catalog:tdesign",
-    "tdesign-theme-generator": "catalog:tdesign",
+    "@tdesign/theme-generator": "catalog:tdesign",
     "vue": "catalog:deps",
     "vue-router": "catalog:deps",
     "workbox-precaching": "catalog:docs"

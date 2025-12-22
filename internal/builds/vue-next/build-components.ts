@@ -47,6 +47,7 @@ const inputList = [
   `!${joinComponentsRoot('**/type.ts')}`,
   `!${joinComponentsRoot('**/types.ts')}`,
   `!${joinComponentsRoot('**/__tests__')}`,
+  `!${joinComponentsRoot('**/node_modules')}`,
 ];
 
 const getPlugins = ({
@@ -109,7 +110,7 @@ const getPlugins = ({
       copy({
         targets: [
           {
-            src: joinComponentsRoot('**/style/css.js'),
+            src: [joinComponentsRoot('**/style/css.js'), `!${joinComponentsRoot('**/node_modules')}`],
             dest: joinTdesignVueNextRoot('es'),
             rename: (name, extension, fullPath) =>
               `${fullPath.replace(joinComponentsRoot(), '').slice(0, -6)}${name}.mjs`,
