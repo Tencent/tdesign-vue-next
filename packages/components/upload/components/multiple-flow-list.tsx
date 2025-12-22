@@ -12,7 +12,7 @@ import {
   FileIcon as TdFileIcon,
   VideoIcon as TdVideoIcon,
 } from 'tdesign-icons-vue-next';
-import { isObject, isFunction } from 'lodash-es';
+import { isFunction } from 'lodash-es';
 
 import { useTNodeJSX, useGlobalIcon, useEventForward } from '@tdesign/shared-hooks';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
