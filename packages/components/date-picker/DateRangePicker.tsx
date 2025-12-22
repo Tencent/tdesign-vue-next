@@ -5,7 +5,7 @@ import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks'
 import { isArray, isFunction } from 'lodash-es';
 
 import props from './date-range-picker-props';
-import { DateValue, DateRangePickerPartial } from './type';
+import { DateValue, DateRangePickerPartial, DatePickerYearChangeTrigger, DatePickerMonthChangeTrigger } from './type';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
 import TRangePanel from './components/panel/RangePanel';
@@ -193,7 +193,17 @@ export default defineComponent({
     }
 
     // 头部快速切换
-    function onJumperClick({ trigger, partial }: { trigger: string; partial: DateRangePickerPartial }) {
+    function onJumperClick({
+      trigger,
+      partial,
+    }: {
+      trigger: 'prev' | 'next' | 'current';
+      partial: DateRangePickerPartial;
+    }) {
+      const triggerMap = {
+        prev: 'arrow-previous',
+        next: 'arrow-next',
+      };
       const partialIndex = partial === 'start' ? 0 : 1;
 
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
@@ -232,7 +242,7 @@ export default defineComponent({
           partial,
           year: nextYear[partialIndex],
           date: value.value.map((v) => dayjs(v).toDate()),
-          trigger: 'arrow-change',
+          trigger: trigger === 'current' ? 'today' : (`year-${triggerMap[trigger]}` as DatePickerYearChangeTrigger),
         });
       }
 
@@ -242,7 +252,7 @@ export default defineComponent({
           partial,
           month: nextMonth[partialIndex],
           date: value.value.map((v) => dayjs(v).toDate()),
-          trigger: 'arrow-change',
+          trigger: trigger === 'current' ? 'today' : (`month-${triggerMap[trigger]}` as DatePickerMonthChangeTrigger),
         });
       }
     }
@@ -378,7 +388,7 @@ export default defineComponent({
 
       year.value = nextYear;
       if (!onlyYearSelect) month.value = nextMonth;
-      
+
       props.onYearChange?.({
         partial,
         year: nextYear[partialIndex],
@@ -421,7 +431,7 @@ export default defineComponent({
       }
 
       month.value = nextMonth;
-      
+
       props.onMonthChange?.({
         partial,
         month: nextMonth[partialIndex],

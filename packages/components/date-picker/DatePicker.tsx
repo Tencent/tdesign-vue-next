@@ -20,7 +20,13 @@ import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';
 
-import type { TdDatePickerProps, DateMultipleValue, DateValue } from './type';
+import type {
+  TdDatePickerProps,
+  DateMultipleValue,
+  DateValue,
+  DatePickerYearChangeTrigger,
+  DatePickerMonthChangeTrigger,
+} from './type';
 import type { TagInputRemoveContext } from '../tag-input';
 
 export default defineComponent({
@@ -244,7 +250,11 @@ export default defineComponent({
     }
 
     // 头部快速切换
-    function onJumperClick({ trigger }: { trigger: string }) {
+    function onJumperClick({ trigger }: { trigger: 'prev' | 'next' | 'current' }) {
+      const triggerMap = {
+        prev: 'arrow-previous',
+        next: 'arrow-next',
+      };
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
 
@@ -273,7 +283,7 @@ export default defineComponent({
         props.onYearChange?.({
           year: nextYear,
           date: new Date(nextYear, nextMonth),
-          trigger: 'arrow-change',
+          trigger: trigger === 'current' ? 'today' : (`year-${triggerMap[trigger]}` as DatePickerYearChangeTrigger),
         });
       }
 
@@ -282,7 +292,7 @@ export default defineComponent({
         props.onMonthChange?.({
           month: nextMonth,
           date: new Date(nextYear, nextMonth),
-          trigger: 'arrow-change',
+          trigger: trigger === 'current' ? 'today' : (`month-${triggerMap[trigger]}` as DatePickerMonthChangeTrigger),
         });
       }
     }
@@ -365,7 +375,7 @@ export default defineComponent({
 
     function onYearChange(nextYear: number) {
       year.value = nextYear;
-      
+
       props.onYearChange?.({
         year: nextYear,
         date: dayjs(value.value as DateValue).toDate(),
@@ -375,7 +385,7 @@ export default defineComponent({
 
     function onMonthChange(nextMonth: number) {
       month.value = nextMonth;
-      
+
       props.onMonthChange?.({
         month: nextMonth,
         date: dayjs(value.value as DateValue).toDate(),
