@@ -197,7 +197,7 @@ const chatServiceConfig = {
 
 **AG-UI 协议**是专为 AI 代理与前端应用交互设计的标准化轻量级协议，内置支持工具调用、状态管理、多步骤任务等高级功能。AG-UI 协议支持 16 种标准化事件类型，组件会自动解析并渲染，包括对话生命周期`RUN_*`、文本消息`TEXT_MESSAGE_*`、思考过程`THINKING_*`、工具调用`TOOL_CALL_*`、状态更新`STATE_*`等。
 
-TDesign Chat 内置支持**AG-UI 协议数据双向转换**，符合该协议的后端 Agent 服务，可以无缝接入使用，只需在配置中开启即可。详细介绍见[与 AG-UI 协议集成](/react-aigc/agui)
+TDesign Chat 内置支持**AG-UI 协议数据双向转换**，符合该协议的后端 Agent 服务，可以无缝接入使用，只需在配置中开启即可。详细介绍见[与 AG-UI 协议集成](/chat/agui)
 
 ```js
 // 符合AG-UI协议的后端接口（/api/agui/chat）返回案例
