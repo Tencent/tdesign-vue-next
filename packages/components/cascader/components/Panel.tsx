@@ -1,12 +1,10 @@
-import { defineComponent, PropType, computed, h } from 'vue';
+import { defineComponent, PropType, computed } from 'vue';
 
-import Item from './Item';
-import { TreeNode, CascaderContextType } from '../types';
+import { CascaderContextType } from '../types';
 import CascaderProps from '../props';
 import { useConfig, usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
-
-import { getDefaultNode } from '@tdesign/shared-utils';
-import { getPanels, expandClickEffect, valueChangeEffect } from '../utils';
+import { getPanels } from '../utils';
+import List from './List';
 
 export default defineComponent({
   name: 'TCascaderSubPanel',
@@ -21,6 +19,7 @@ export default defineComponent({
     cascaderContext: {
       type: Object as PropType<CascaderContextType>,
     },
+    scroll: CascaderProps.scroll,
   },
 
   setup(props) {
@@ -30,64 +29,34 @@ export default defineComponent({
 
     const panels = computed(() => getPanels(props.cascaderContext.treeNodes));
 
-    const handleExpand = (node: TreeNode, trigger: 'hover' | 'click') => {
-      const { trigger: propsTrigger, cascaderContext } = props;
-      expandClickEffect(propsTrigger, trigger, node, cascaderContext);
-    };
-
-    const renderItem = (node: TreeNode, index: number) => {
-      const optionChild = node.data.content
-        ? getDefaultNode(node.data.content(h))
-        : renderTNodeJSXDefault('option', {
-            params: {
-              item: node.data,
-              index,
-              onExpand: () => handleExpand(node, 'click'),
-              onChange: () => valueChangeEffect(node, props.cascaderContext),
-            },
-          });
-      return (
-        <Item
-          key={node.value}
-          node={node}
-          optionChild={optionChild}
-          cascaderContext={props.cascaderContext}
-          onClick={() => {
-            handleExpand(node, 'click');
-          }}
-          onMouseenter={() => {
-            handleExpand(node, 'hover');
-          }}
-          onChange={() => {
-            valueChangeEffect(node, props.cascaderContext);
-          }}
-        />
-      );
-    };
-
-    const renderList = (treeNodes: TreeNode[], isFilter = false, segment = true, index = 1) => (
-      <ul
-        class={[
-          `${COMPONENT_NAME.value}__menu`,
-          'narrow-scrollbar',
-          {
-            [`${COMPONENT_NAME.value}__menu--segment`]: segment,
-            [`${COMPONENT_NAME.value}__menu--filter`]: isFilter,
-          },
-        ]}
-        key={`${COMPONENT_NAME}__menu${index}`}
-      >
-        {treeNodes.map((node: TreeNode) => renderItem(node, index))}
-      </ul>
-    );
-
     const renderPanels = () => {
       const { inputVal, treeNodes } = props.cascaderContext;
-      return inputVal
-        ? renderList(treeNodes, true)
-        : panels.value.map((treeNodes, index: number) =>
-            renderList(treeNodes, false, index !== panels.value.length - 1, index),
-          );
+
+      return inputVal ? (
+        <List
+          treeNodes={treeNodes}
+          isFilter
+          option={props.option}
+          cascaderContext={props.cascaderContext}
+          scroll={props.scroll}
+          trigger={props.trigger}
+        />
+      ) : (
+        panels.value.map((treeNodes, index: number) => (
+          <List
+            treeNodes={treeNodes}
+            isFilter={false}
+            segment={index !== panels.value.length - 1}
+            key={`${COMPONENT_NAME}__menu${index}`}
+            listKey={`${COMPONENT_NAME}__menu${index}`}
+            level={index}
+            option={props.option}
+            cascaderContext={props.cascaderContext}
+            scroll={props.scroll}
+            trigger={props.trigger}
+          />
+        ))
+      );
     };
 
     return () => {
