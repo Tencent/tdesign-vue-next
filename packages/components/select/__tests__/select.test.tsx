@@ -272,85 +272,84 @@ describe('Select', () => {
       panelNode.parentNode.removeChild(panelNode);
     });
   });
-});
 
-describe('Select Option', () => {
-  // test props api
-  describe(':props', () => {
-    it(':value', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <Option value={'1'} label={'1'}></Option>
-            </Select>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-    it(':label', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <Option value={'1'} label={'1'}></Option>
-            </Select>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-    it(':disabled', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <Option value={'1'} label={'1'} disabled={true}></Option>
-            </Select>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-  });
-});
-
-describe('Select OptionGroup', () => {
-  // test props api
-  describe(':props', () => {
-    it(':value', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <OptionGroup label={'num'}>
+  describe('Select Option', () => {
+    // test props api
+    describe(':props', () => {
+      it(':value', () => {
+        const value = '1';
+        const wrapper = mount({
+          render() {
+            return (
+              <Select v-model={value}>
                 <Option value={'1'} label={'1'}></Option>
-              </OptionGroup>
-              <OptionGroup label={'abc'}>
-                <Option value={'a'} label={'a'}></Option>
-              </OptionGroup>
-            </Select>
-          );
-        },
+              </Select>
+            );
+          },
+        });
+        expect(wrapper.element).toMatchSnapshot();
       });
-      expect(wrapper.element).toMatchSnapshot();
+      it(':label', () => {
+        const value = '1';
+        const wrapper = mount({
+          render() {
+            return (
+              <Select v-model={value}>
+                <Option value={'1'} label={'1'}></Option>
+              </Select>
+            );
+          },
+        });
+        expect(wrapper.element).toMatchSnapshot();
+      });
+      it(':disabled', () => {
+        const value = '1';
+        const wrapper = mount({
+          render() {
+            return (
+              <Select v-model={value}>
+                <Option value={'1'} label={'1'} disabled={true}></Option>
+              </Select>
+            );
+          },
+        });
+        expect(wrapper.element).toMatchSnapshot();
+      });
     });
   });
 
-  describe(':base', () => {
-    it('v-for and option works fine', async () => {
-      const Comp = {
-        components: {
-          TSelect: Select,
-          TOptionGroup: OptionGroup,
-          TOption: Option,
-        },
-        template: `
+  describe('Select OptionGroup', () => {
+    // test props api
+    describe(':props', () => {
+      it(':value', () => {
+        const value = '1';
+        const wrapper = mount({
+          render() {
+            return (
+              <Select v-model={value}>
+                <OptionGroup label={'num'}>
+                  <Option value={'1'} label={'1'}></Option>
+                </OptionGroup>
+                <OptionGroup label={'abc'}>
+                  <Option value={'a'} label={'a'}></Option>
+                </OptionGroup>
+              </Select>
+            );
+          },
+        });
+        expect(wrapper.element).toMatchSnapshot();
+      });
+    });
+
+    describe(':base', () => {
+      it('v-for and option works fine', async () => {
+        const Comp = {
+          components: {
+            TSelect: Select,
+            TOptionGroup: OptionGroup,
+            TOption: Option,
+          },
+          template: `
           <t-select>
             <t-option-group label='test'>
               <t-option v-for='i in ["1", "2"]' :key='i' :label='i' :value='i'></t-option>
@@ -366,63 +365,232 @@ describe('Select OptionGroup', () => {
             </t-option-group>
           </t-select>
         `,
-      };
+        };
 
-      const wrapper = mount(Comp);
-      await wrapper.setProps({ popupProps: { visible: true } });
+        const wrapper = mount(Comp);
+        await wrapper.setProps({ popupProps: { visible: true } });
 
-      const panelNode = document.querySelector('.t-select__list');
-      const groupNode = document.querySelectorAll('.t-select-option-group');
-      expect(groupNode.length).toBe(3);
-      groupNode.forEach((item) => {
-        const option = item.querySelectorAll('.t-select-option');
-        expect(option.length).toBe(3);
+        const panelNode = document.querySelector('.t-select__list');
+        const groupNode = document.querySelectorAll('.t-select-option-group');
+        expect(groupNode.length).toBe(3);
+        groupNode.forEach((item) => {
+          const option = item.querySelectorAll('.t-select-option');
+          expect(option.length).toBe(3);
+        });
+        panelNode.parentNode.removeChild(panelNode);
       });
-      panelNode.parentNode.removeChild(panelNode);
     });
   });
-});
-describe('Select CheckAll with Disabled Option', () => {
-  const setupTest = async (initialValue) => {
-    const value = ref(initialValue);
-    const wrapper = mount({
-      setup() {
-        return { value };
-      },
-      render() {
-        return <Select v-model={value.value} options={options} multiple />;
-      },
+  describe('Select CheckAll with Disabled Option', () => {
+    const setupTest = async (initialValue) => {
+      const value = ref(initialValue);
+      const wrapper = mount({
+        setup() {
+          return { value };
+        },
+        render() {
+          return <Select v-model={value.value} options={options} multiple />;
+        },
+      });
+
+      await wrapper.setProps({ popupProps: { visible: true } });
+      const checkAllCheckbox = document.querySelector('li[title="全选"] .t-checkbox');
+
+      return {
+        value,
+        wrapper,
+        checkAllCheckbox,
+        cleanup: () => {
+          const panelNode = document.querySelector('.t-select__list');
+          panelNode.parentNode.removeChild(panelNode);
+        },
+      };
+    };
+
+    it('should keep disabled option state consistent regardless of checkAll', async () => {
+      // 测试 disabled 选项默认选中
+      let { value, checkAllCheckbox, cleanup } = await setupTest(['1', '4']);
+      await checkAllCheckbox.click();
+      expect(value.value).toContain('4');
+      await checkAllCheckbox.click();
+      expect(value.value).toContain('4');
+      cleanup();
+
+      // 测试 disabled 选项默认未选中
+      ({ value, checkAllCheckbox, cleanup } = await setupTest([]));
+      await checkAllCheckbox.click();
+      expect(value.value).not.toContain('4');
+      await checkAllCheckbox.click();
+      expect(value.value).not.toContain('4');
+      cleanup();
+    });
+  });
+
+  describe('Select CheckAll with filterable and onSearch', () => {
+    it('should select all and deselect all correctly when using filterable and onSearch together', async () => {
+      const value = ref(['4']);
+      const searchValue = ref('');
+      const onSearch = vi.fn((val) => {
+        searchValue.value = val;
+      });
+
+      const wrapper = mount({
+        setup() {
+          return { value, searchValue };
+        },
+        render() {
+          return <Select v-model={value.value} options={options} multiple filterable onSearch={onSearch} />;
+        },
+      });
+
+      await wrapper.setProps({ popupProps: { visible: true } });
+      await nextTick();
+
+      const checkAllCheckbox = document.querySelector('li[title="全选"] .t-checkbox');
+
+      // 点击全选
+      await checkAllCheckbox.click();
+      await nextTick();
+
+      // 验证所有非 disabled 选项都被选中，disabled选项('4')保持原状态
+      expect(value.value).toEqual(['4', '1', '2', '3', '5', '6']);
+
+      // 再次点击取消全选
+      await checkAllCheckbox.click();
+      await nextTick();
+
+      // 验证所有选项都被取消选中
+      expect(value.value).toEqual(['4']);
+
+      const panelNode = document.querySelector('.t-select__list');
+      panelNode.parentNode.removeChild(panelNode);
     });
 
-    await wrapper.setProps({ popupProps: { visible: true } });
-    const checkAllCheckbox = document.querySelector('li[title="全选"] .t-checkbox');
+    it('should work correctly when initial value is empty', async () => {
+      const value = ref([]);
+      const onSearch = vi.fn();
 
-    return {
-      value,
-      wrapper,
-      checkAllCheckbox,
-      cleanup: () => {
-        const panelNode = document.querySelector('.t-select__list');
-        panelNode.parentNode.removeChild(panelNode);
-      },
-    };
-  };
+      const wrapper = mount({
+        setup() {
+          return { value };
+        },
+        render() {
+          return <Select v-model={value.value} options={options} multiple filterable onSearch={onSearch} />;
+        },
+      });
 
-  it('should keep disabled option state consistent regardless of checkAll', async () => {
-    // 测试 disabled 选项默认选中
-    let { value, checkAllCheckbox, cleanup } = await setupTest(['1', '4']);
-    await checkAllCheckbox.click();
-    expect(value.value).toContain('4');
-    await checkAllCheckbox.click();
-    expect(value.value).toContain('4');
-    cleanup();
+      await wrapper.setProps({ popupProps: { visible: true } });
+      await nextTick();
 
-    // 测试 disabled 选项默认未选中
-    ({ value, checkAllCheckbox, cleanup } = await setupTest([]));
-    await checkAllCheckbox.click();
-    expect(value.value).not.toContain('4');
-    await checkAllCheckbox.click();
-    expect(value.value).not.toContain('4');
-    cleanup();
+      const checkAllCheckbox = document.querySelector('li[title="全选"] .t-checkbox');
+
+      // 点击全选
+      await checkAllCheckbox.click();
+      await nextTick();
+
+      // 验证所有非disabled选项都被选中（不包含disabled的'4'）
+      expect(value.value).toEqual(['1', '2', '3', '5', '6']);
+
+      // 再次点击取消全选
+      await checkAllCheckbox.click();
+      await nextTick();
+
+      // 验证所有选项都被取消选中
+      expect(value.value).toEqual([]);
+
+      const panelNode = document.querySelector('.t-select__list');
+      panelNode.parentNode.removeChild(panelNode);
+    });
+
+    it('should trigger onSearch callback when input changes', async () => {
+      const value = ref([]);
+      const onSearch = vi.fn();
+
+      const wrapper = mount({
+        setup() {
+          return { value };
+        },
+        render() {
+          return <Select v-model={value.value} options={options} multiple filterable onSearch={onSearch} />;
+        },
+      });
+
+      await wrapper.setProps({ popupProps: { visible: true } });
+      await nextTick();
+
+      // 模拟输入搜索
+      const input = wrapper.find('input');
+      await input.setValue('架构');
+      await nextTick();
+
+      // 等待防抖
+      await new Promise((resolve) => setTimeout(resolve, 350));
+
+      // 验证onSearch被调用
+      expect(onSearch).toHaveBeenCalledWith('架构', expect.any(Object));
+
+      const panelNode = document.querySelector('.t-select__list');
+      panelNode.parentNode.removeChild(panelNode);
+    });
+
+    it('should work with only filterable (no onSearch)', async () => {
+      const value = ref([]);
+
+      const wrapper = mount({
+        setup() {
+          return { value };
+        },
+        render() {
+          return <Select v-model={value.value} options={options} multiple filterable />;
+        },
+      });
+
+      await wrapper.setProps({ popupProps: { visible: true } });
+      await nextTick();
+
+      const checkAllCheckbox = document.querySelector('li[title="全选"] .t-checkbox');
+
+      // 点击全选
+      await checkAllCheckbox.click();
+      await nextTick();
+
+      // 验证所有非disabled选项都被选中
+      expect(value.value).toEqual(['1', '2', '3', '5', '6']);
+
+      const panelNode = document.querySelector('.t-select__list');
+      panelNode.parentNode.removeChild(panelNode);
+    });
+
+    it('should preserve disabled option state with filterable and onSearch', async () => {
+      const value = ref(['4']);
+      const onSearch = vi.fn();
+
+      const wrapper = mount({
+        setup() {
+          return { value };
+        },
+        render() {
+          return <Select v-model={value.value} options={options} multiple filterable onSearch={onSearch} />;
+        },
+      });
+
+      await wrapper.setProps({ popupProps: { visible: true } });
+      await nextTick();
+
+      const checkAllCheckbox = document.querySelector('li[title="全选"] .t-checkbox');
+
+      // 全选
+      await checkAllCheckbox.click();
+      await nextTick();
+      expect(value.value).toContain('4'); // disabled选项保持选中
+
+      // 取消全选
+      await checkAllCheckbox.click();
+      await nextTick();
+      expect(value.value).toEqual(['4']); // disabled选项仍然保持选中
+
+      const panelNode = document.querySelector('.t-select__list');
+      panelNode.parentNode.removeChild(panelNode);
+    });
   });
 });

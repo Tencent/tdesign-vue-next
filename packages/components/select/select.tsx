@@ -250,13 +250,16 @@ export default defineComponent({
     const optionalList = computed(() => {
       const sourceList = isRemoteSearch.value ? searchDisplayOptions.value : optionsList.value;
       return sourceList.filter((item) => {
-        return (
+        const baseCondition =
           !item.disabled &&
           // @ts-ignore types only declare checkAll not declare check-all
           !(item['check-all'] || item['check-all'] === '') &&
-          !item.checkAll &&
-          filterMethods(item)
-        );
+          !item.checkAll;
+
+        // 远程搜索模式下，不进行本地过滤；无输入值时也不过滤
+        if (isRemoteSearch.value || !innerInputValue.value) return baseCondition;
+
+        return baseCondition && filterMethods(item);
       });
     });
 
