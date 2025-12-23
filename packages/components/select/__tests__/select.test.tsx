@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { ref, nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
-import { vi, describe, it, expect } from 'vitest';
+import { vi, describe, it, expect, afterEach } from 'vitest';
 import { Select, OptionGroup, Option } from '@tdesign/components/select';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
@@ -20,6 +20,12 @@ const options = [
 ];
 
 describe('Select', () => {
+  afterEach(() => {
+    // 简洁清理：移除残留下拉面板并清理 vitest mock
+    document.querySelectorAll('.t-select__list').forEach((n) => n?.parentNode?.removeChild(n));
+    vi.clearAllMocks();
+  });
+
   describe(':base', () => {
     it(':render single', async () => {
       const wrapper = mount({
