@@ -48,21 +48,56 @@ export default defineComponent({
     // 日历控件栏（右上角）
     const controller = userController(props, state);
 
+    // 解析范围边界
+    const parseRangeBoundary = (value: CalendarRange['from'] | CalendarRange['to'] | null | undefined) => {
+      if (value === undefined || value === null) {
+        return null;
+      }
+      const parsed = dayjs(value);
+      if (!parsed.isValid()) {
+        return null;
+      }
+      return {
+        parsed, // dayjs 对象
+        original: value as CalendarRange['from'] | CalendarRange['to'], // 原始值
+      };
+    };
     // 年\月份下拉框
     const rangeFromTo = computed<CalendarRange>(() => {
       if (!props.range || props.range.length < 2) {
         return null;
       }
       const [v1, v2] = props.range;
-      if (dayjs(v1).isBefore(dayjs(v2))) {
-        return {
-          from: v1,
-          to: v2,
-        };
+      const start = parseRangeBoundary(v1);
+      const end = parseRangeBoundary(v2);
+
+      if (!start && !end) {
+        return null;
       }
+
+      // 未指定边界上/下限时使用默认值
+      const fallback = (edge: 'from' | 'to'): { parsed: dayjs.Dayjs; original: string } => {
+        let fallbackParsed = dayjs(MIN_YEAR);
+        if (edge === 'to') {
+          fallbackParsed =
+            dayjs.isDayjs(state.curDate) && state.curDate?.isValid() ? state.curDate : utils.createDefaultCurDate();
+        }
+        return {
+          parsed: fallbackParsed,
+          original: fallbackParsed.format('YYYY-MM-DD'),
+        };
+      };
+
+      let fromBoundary = start ?? fallback('from');
+      let toBoundary = end ?? fallback('to');
+
+      if (fromBoundary.parsed.isAfter(toBoundary.parsed)) {
+        [fromBoundary, toBoundary] = [toBoundary, fromBoundary]; // 当前一项日期大于后一项时交换两值以确保边界逻辑正确
+      }
+
       return {
-        from: v2,
-        to: v1,
+        from: fromBoundary.original,
+        to: toBoundary.original,
       };
     });
     function checkMonthAndYearSelectedDisabled(year: number, month: number): boolean {
