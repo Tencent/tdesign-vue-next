@@ -260,6 +260,10 @@ export default defineComponent({
           width: calc(100% - ${scrollWidth}px);
         }
       `;
+
+      if (props.visible) {
+        addKeyboardEvent(props.visible);
+      }
     });
 
     onBeforeUnmount(() => {
