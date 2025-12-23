@@ -1,5 +1,5 @@
 import { ref, computed, watch, toRefs } from 'vue';
-import { get, set, cloneDeep, isFunction } from 'lodash-es';
+import { get, set, isFunction } from 'lodash-es';
 
 import { PrimaryTableProps } from '../types';
 import { getEditableKeysMap } from '@tdesign/common-js/table/utils';
@@ -142,7 +142,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
   /** 更新编辑态单元格数据 */
   const onUpdateEditedCell = (rowValue: any, lastRowData: TableRowData, data: { [key: string]: any }) => {
     if (!editedFormData.value[rowValue]) {
-      editedFormData.value[rowValue] = cloneDeep(lastRowData);
+      editedFormData.value[rowValue] = lastRowData;
     }
     Object.entries(data).forEach(([key, val]) => {
       set(editedFormData.value[rowValue], key, val);
