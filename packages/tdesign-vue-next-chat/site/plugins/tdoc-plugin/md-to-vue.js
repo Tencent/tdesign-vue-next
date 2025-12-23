@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 // TODO: 后续将这里修改为 mjs 后修改为 @tdesign/common 引入
-import { compileUsage, getGitTimestamp } from '../../../../packages/common/docs/compile';
+import { compileUsage, getGitTimestamp } from '../../../../../packages/common/docs/compile';
 // TODO: 同上
 import camelCase from 'lodash/camelCase';
 import { joinPackagesRoot, joinProComponentsRoot } from '@tdesign/internal-utils';
@@ -34,7 +34,6 @@ export default async function mdToVue(options) {
             slot="doc-header"
             ref="tdDocHeader"
             spline="${mdSegment.spline}"
-            changelog="false"
             ${mdSegment.isComponent ? `component-name="${mdSegment.componentName}"` : ''}
           >
           </td-doc-header>`
