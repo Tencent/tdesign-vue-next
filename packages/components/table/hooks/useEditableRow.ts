@@ -32,6 +32,10 @@ export default function useRowEdit(props: PrimaryTableProps) {
   const editingCells = ref<{ [cellKey: string]: OnEditableChangeContext<TableRowData> }>({});
   // 编辑状态的数据
   const editedFormData = ref<{ [rowValue: string]: { [colKey: string]: any } }>({});
+  // 用于在表格实例内临时抑制单元格校验（例如：在点击清理按钮导致 blur 触发校验时）
+  const tableSuppressValidate = ref(false);
+  // suppressValidate 计时器，避免快速多次点击导致的竞态
+  let tableSuppressTimer: NodeJS.Timeout | undefined;
 
   const getErrorListMapByErrors = (errors: ErrorListObjectType<TableRowData>[]): TableErrorListMap => {
     const errorMap: TableErrorListMap = {};
@@ -106,6 +110,8 @@ export default function useRowEdit(props: PrimaryTableProps) {
           if (result === true) return;
           allErrorListMap[cellKeys[index]] = result;
         });
+        // 持久化单元格校验结果
+        errorListMap.value = allErrorListMap;
         props.onValidate?.({ result: allErrorListMap });
         resolve({ result: allErrorListMap });
       }, reject);
@@ -169,14 +175,32 @@ export default function useRowEdit(props: PrimaryTableProps) {
   };
 
   const clearValidateData = () => {
+    // 短暂抑制子单元格校验，避免在清理过程中被 blur/click 触发新的校验
+    tableSuppressValidate.value = true;
+
+    // 彻底清空持久化错误
     errorListMap.value = {};
+
+    // 清理编辑单元格内的错误显示
+    Object.values(editingCells.value).forEach((cell) => {
+      cell?.clearErrors?.();
+    });
+
+    // 通知外部校验结果已清空
+    props.onValidate?.({ result: {} });
+    props.onRowValidate?.({ trigger: 'parent', result: [] });
+
+    if (tableSuppressTimer) clearTimeout(tableSuppressTimer);
+    tableSuppressTimer = setTimeout(() => {
+      tableSuppressValidate.value = false;
+      tableSuppressTimer = undefined;
+    }, 200);
   };
 
   const onPrimaryTableCellEditChange = (params: OnEditableChangeContext<TableRowData>) => {
     const cellKey = getCellKey(params.row, props.rowKey, params.col.colKey, params.colIndex);
 
     if (params.isEdit) {
-      // @ts-ignore
       editingCells.value[cellKey] = params;
     } else {
       delete editingCells.value[cellKey];
@@ -201,7 +225,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
       const rowValueList = Object.keys(editedFormData.value);
       rowValueList.forEach((key) => {
         if (!editableRowKeys.includes(key)) {
-          // clear exited editable state row data
+          // 清理已退出编辑态的行数据
           delete editedFormData.value[key];
         }
       });
@@ -211,6 +235,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
   return {
     editedFormData,
     errorListMap,
+    editingCells,
     editableKeysMap,
     validateTableData,
     validateTableCellData,
@@ -220,5 +245,6 @@ export default function useRowEdit(props: PrimaryTableProps) {
     onUpdateEditedCell,
     getEditRowData,
     onPrimaryTableCellEditChange,
+    tableSuppressValidate,
   };
 }

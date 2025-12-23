@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
+import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch, inject } from 'vue';
 import { get, set, isFunction, cloneDeep, isObject } from 'lodash-es';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
 import {
@@ -20,6 +20,7 @@ import { on, off } from '@tdesign/shared-utils';
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;
   validateEdit: (trigger: 'self' | 'parent') => Promise<true | AllValidateResult[]>;
+  clearErrors?: () => void;
 }
 
 export interface EditableCellProps {
@@ -86,6 +87,8 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
+    // 表格作用域内的临时抑制标志（由 primary-table 提供）
+    const tableValidSuppress = inject('TD_TABLE_SUPPRESS_VALIDATE') as { value?: boolean } | undefined;
 
     const updateEditedCellValue: TableEditableCellPropsParams<TableRowData>['updateEditedCellValue'] = (obj) => {
       if (typeof obj === 'object' && ('rowValue' in obj || obj.isUpdateCurrentRow)) {
@@ -175,6 +178,11 @@ export default defineComponent({
 
     const validateEdit = (trigger: 'self' | 'parent'): Promise<true | AllValidateResult[]> => {
       return new Promise((resolve) => {
+        // 如果父表格临时抑制了校验（例如点击清理按钮导致 blur），则直接短路校验
+        if (tableValidSuppress?.value) {
+          resolve(true);
+          return;
+        }
         const params: PrimaryTableRowValidateContext<TableRowData> = {
           result: [
             {
@@ -209,6 +217,10 @@ export default defineComponent({
       });
     };
 
+    const clearErrors = () => {
+      errorList.value = [];
+    };
+
     const isSame = (a: any, b: any) => {
       if (isObject(a) && isObject(b)) {
         return JSON.stringify(a) === JSON.stringify(b);
@@ -218,6 +230,8 @@ export default defineComponent({
 
     const updateAndSaveAbort = (outsideAbortEvent: Function, eventName: string, ...args: any) => {
       validateEdit('self').then((result) => {
+        // 如果表格层面正在抑制校验（例如 clearValidateData 期间），不要因校验短路而退出编辑态
+        if (tableValidSuppress?.value) return;
         if (result !== true) return;
         const oldValue = get(row.value, col.value.colKey);
         // 相同的值无需触发变化
@@ -237,7 +251,8 @@ export default defineComponent({
             editedRow: { ...props.row, [props.col.colKey]: editValue.value },
             validateEdit,
             isEdit: false,
-          });
+            clearErrors,
+          } as OnEditableChangeContext<TableRowData>);
           clearTimeout(timer);
         }, 0);
       });
@@ -324,7 +339,8 @@ export default defineComponent({
         editedRow: props.row,
         isEdit: true,
         validateEdit,
-      });
+        clearErrors,
+      } as OnEditableChangeContext<TableRowData>);
     };
 
     const onCellClick = (e: MouseEvent) => {
