@@ -585,7 +585,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
   /**
    * 列配置弹窗显示或隐藏变化时触发
    */
-  onColumnControllerVisibleChange?: (visible: boolean, context: { trigger: 'cancel' | 'confirm' }) => void;
+  onColumnControllerVisibleChange?: (visible: boolean, context: { trigger: 'cancel' | 'confirm' | 'open' }) => void;
   /**
    * 本地数据排序导致 `data` 变化时触发，第一个参数指变化后的数据，第二个参数 `context.trigger` 表示触发本次变化的来源
    */
