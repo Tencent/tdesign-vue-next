@@ -43,7 +43,6 @@
 <script setup lang="jsx">
 import { ref } from 'vue';
 import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
-import { ArrowDownIcon } from 'tdesign-icons-vue-next';
 
 const fetchCancel = ref(null);
 const loading = ref(false);
@@ -52,12 +51,7 @@ const query = ref('');
 const isStreamLoad = ref(false);
 
 const chatRef = ref(null);
-// 滚动到底部
-const backBottom = () => {
-  chatRef.value.scrollToBottom({
-    behavior: 'smooth',
-  });
-};
+
 // 是否显示回到底部按钮
 const handleChatScroll = function ({ e }) {
   console.log('handleChatScroll', e);

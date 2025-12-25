@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAgentState, provideAgentState, type StateActionOptions } from '../../hooks/useAgentState';
+import { useAgentState, provideAgentState } from '../../hooks/useAgentState';
 
 interface Props {
   initialState?: Record<string, any>;

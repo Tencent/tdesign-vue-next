@@ -7,7 +7,7 @@
       :message-props="messageProps"
       :sender-props="senderProps"
       :chat-service-config="chatServiceConfig"
-      @messageChange="handleMessageChange"
+      @message-change="handleMessageChange"
     >
       <!-- 自定义消息体渲染插槽 -->
       <template v-for="msg in mockMessage" :key="msg.id">
@@ -57,7 +57,6 @@ import {
   type AIContentChunkUpdate,
   type ChatRequestParams,
   type ChatServiceConfig,
-  type ChatBaseContent,
   type ChatMessagesData,
 } from '@tdesign-vue-next/chat';
 import TvisionTcharts from 'tvision-charts-vue-next';

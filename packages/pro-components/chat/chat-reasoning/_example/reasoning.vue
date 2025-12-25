@@ -63,7 +63,7 @@
 <script setup lang="jsx">
 import { ref } from 'vue';
 import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
-import { ArrowDownIcon, SystemSumIcon } from 'tdesign-icons-vue-next';
+import { SystemSumIcon } from 'tdesign-icons-vue-next';
 import { CheckCircleIcon } from 'tdesign-icons-vue-next';
 
 const fetchCancel = ref(null);
@@ -72,13 +72,7 @@ const loading = ref(false);
 const isStreamLoad = ref(false);
 const inputValue = ref('');
 const chatRef = ref(null);
-const isShowToBottom = ref(false);
-// 滚动到底部
-const backBottom = () => {
-  chatRef.value.scrollToBottom({
-    behavior: 'smooth',
-  });
-};
+
 const selectOptions = [
   {
     label: '默认模型',

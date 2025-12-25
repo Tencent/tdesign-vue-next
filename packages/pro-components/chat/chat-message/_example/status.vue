@@ -1,6 +1,4 @@
 <script setup>
-import { ref } from 'vue';
-
 const messages = {
   loading: {
     id: '11111',
@@ -20,7 +18,6 @@ const messages = {
   },
 };
 
-const animation = ref('skeleton');
 const animationOptions = [
   { label: 'skeleton', value: 'skeleton' },
   { label: 'moving', value: 'moving' },

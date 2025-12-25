@@ -6,7 +6,7 @@
       :message-props="messageProps"
       :sender-props="senderProps"
       :chat-service-config="chatServiceConfig"
-      @messageChange="handleMessageChange"
+      @message-change="handleMessageChange"
     >
       <template v-for="msg in mockMessage" :key="msg.id">
         <template v-for="(item, index) in msg.content" :key="`${msg.id}-${item.data.id}`">

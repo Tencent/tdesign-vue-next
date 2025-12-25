@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="tsx">
-import { ref, computed, onMounted, onUnmounted, watch, type Ref } from 'vue';
+import { ref, computed, onMounted, watch, type Ref } from 'vue';
 import type { ToolCall } from 'tdesign-web-components/lib/chat-engine';
 import { isNonInteractiveConfig, type ToolcallComponentProps } from './types';
 import { agentToolcallRegistry } from './registry';

@@ -6,9 +6,9 @@
       :message-props="messageProps"
       :sender-props="senderProps"
       :chat-service-config="chatServiceConfig"
-      @fileSelect="onFileSelect"
-      @fileRemove="onFileRemove"
-      @chatAfterSend="onSend"
+      @file-select="onFileSelect"
+      @file-remove="onFileRemove"
+      @chat-after-send="onSend"
     />
   </div>
 </template>
@@ -24,7 +24,6 @@ import type {
   UploadFile,
   ChatRequestParams,
   TdChatMessageConfig,
-  TdChatbotApi,
 } from '@tdesign-vue-next/chat';
 
 // 默认初始化消息

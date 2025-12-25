@@ -199,5 +199,6 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
     renderFilterIcon,
     renderFirstFilterRow,
     setFilterPrimaryTableRef,
+    onInnerFilterChange,
   };
 }

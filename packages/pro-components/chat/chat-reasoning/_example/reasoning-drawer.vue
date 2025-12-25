@@ -69,10 +69,7 @@ const inputValue = ref('');
 // 流式数据加载中
 const isStreamLoad = ref(false);
 const visible = ref(false);
-// 滚动到底部
-const operation = function (type, options) {
-  console.log(type, options);
-};
+
 const selectOptions = [
   {
     label: '默认模型',

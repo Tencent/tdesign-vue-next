@@ -49,7 +49,7 @@ const handleAction = (type, context) => {
   console.log('Action clicked:', type, context);
 };
 
-const handleDynamicAction = (type, context) => {
+const handleDynamicAction = (type) => {
   if (type === 'good') {
     dynamicComment.value = dynamicComment.value === 'good' ? '' : 'good';
   } else if (type === 'bad') {

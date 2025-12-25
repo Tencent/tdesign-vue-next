@@ -43,12 +43,7 @@ const loading = ref(false);
 const isStreamLoad = ref(false);
 const query = ref('');
 const chatRef = ref(null);
-// 滚动到底部
-const backBottom = () => {
-  chatRef.value.scrollToBottom({
-    behavior: 'smooth',
-  });
-};
+
 const handleChatScroll = function ({ e }) {
   console.log('handleChatScroll', e);
 };
