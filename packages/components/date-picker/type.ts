@@ -179,6 +179,24 @@ export interface TdDatePickerProps {
    * 点击预设按钮后触发
    */
   onPresetClick?: (context: { preset: PresetDate; e: MouseEvent }) => void;
+  /**
+   * 月份切换发生变化时触发
+   */
+  onMonthChange?: (context: {
+    month: number;
+    date: Date;
+    e?: MouseEvent;
+    trigger: DatePickerMonthChangeTrigger;
+  }) => void;
+  /**
+   * 年份切换发生变化时触发
+   */
+  onYearChange?: (context: {
+    year: number;
+    date: Date;
+    trigger: DatePickerYearChangeTrigger;
+    e?: MouseEvent;
+  }) => void;
 }
 
 export interface TdDateRangePickerProps {
@@ -367,6 +385,26 @@ export interface TdDateRangePickerProps {
    * 点击预设按钮后触发
    */
   onPresetClick?: (context: { preset: PresetDate; e: MouseEvent }) => void;
+  /**
+   * 月份切换发生变化时触发
+   */
+  onMonthChange?: (context: {
+    month: number;
+    date: Date[];
+    partial: DateRangePickerPartial;
+    e?: MouseEvent;
+    trigger: DatePickerMonthChangeTrigger;
+  }) => void;
+  /**
+   * 年份切换发生变化时触发
+   */
+  onYearChange?: (context: {
+    year: number;
+    date: Date[];
+    partial: DateRangePickerPartial;
+    trigger: DatePickerYearChangeTrigger;
+    e?: MouseEvent;
+  }) => void;
 }
 
 export interface TdDatePickerPanelProps
