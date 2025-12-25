@@ -6,12 +6,14 @@ import {
   reactive,
   watch,
   onMounted,
+  onBeforeUnmount,
   watchEffect,
   toRefs,
   h,
   VNode,
   Component,
   getCurrentInstance,
+  nextTick,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isArray, isFunction } from 'lodash-es';
@@ -114,13 +116,6 @@ export default defineComponent({
       },
     );
 
-    onMounted(() => {
-      activeValues.value = vMenu.select(activeValue.value);
-      if (expandValues.value?.length > 0) {
-        handleSubmenuExpand(expandValues.value[0]); // 顶部导航只能同时展开一个子菜单
-      }
-    });
-
     const handleClickSubMenuItem = (value: MenuValue) => {
       const activeMenuItem = submenu.find((v) => v.value === value);
       activeMenuItem.onClick?.({ value });
@@ -154,6 +149,13 @@ export default defineComponent({
     const logoRef = ref<HTMLDivElement>();
     const operationRef = ref<HTMLDivElement>();
 
+    // Store the index at which menu items should be sliced for ellipsis
+    const sliceIndex = ref(-1);
+    // ResizeObserver instance
+    let resizeObserver: ResizeObserver | null = null;
+    // Width reserved for the ellipsis menu item
+    const ELLIPSIS_WIDTH = 56;
+
     const getComputedCss = (el: Element, cssProperty: keyof CSSStyleDeclaration) =>
       getComputedStyle(el)[cssProperty] ?? '';
 
@@ -161,6 +163,8 @@ export default defineComponent({
       Number.parseInt(String(getComputedCss(el, cssProperty)), 10);
 
     const calcMenuWidth = () => {
+      if (!menuRef.value || !innerRef.value) return 0;
+
       const menuPaddingLeft = getComputedCssValue(menuRef.value, 'paddingLeft');
       const menuPaddingRight = getComputedCssValue(menuRef.value, 'paddingRight');
       let totalWidth = innerRef.value.clientWidth;
@@ -179,42 +183,84 @@ export default defineComponent({
       return totalWidth - menuPaddingLeft - menuPaddingRight;
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const formatContent = () => {
-      let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
+    // Calculate the slice index based on available width
+    const calcEllipsisSliceIndex = () => {
+      if (!props.ellipsis || !menuRef.value || !innerRef.value) {
+        sliceIndex.value = -1;
+        return;
+      }
 
-      if (menuRef.value && innerRef.value) {
-        const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
-          (item) => item.nodeName !== '#text' || item.nodeValue,
-        ) as HTMLElement[];
+      const menuItems = Array.from(menuRef.value.children ?? []).filter(
+        (item) => !item.classList.contains(`${classPrefix.value}-menu__ellipsis`),
+      ) as HTMLElement[];
 
-        const menuWidth = calcMenuWidth();
-        const menuItemMinWidth = 104;
+      if (menuItems.length === 0) {
+        sliceIndex.value = -1;
+        return;
+      }
 
-        let remainWidth = menuWidth;
-        let sliceIndex = validNodes.length;
+      // Store widths for calculations
+      const widths = menuItems.map((item) => item.offsetWidth);
 
-        for (let index = 0; index < validNodes.length; index++) {
-          const element = validNodes[index];
-          remainWidth -= element.offsetWidth || 0;
-          if (remainWidth < menuItemMinWidth) {
-            sliceIndex = index;
-            break;
-          }
-        }
+      const availableWidth = calcMenuWidth();
 
-        const defaultSlot = slot.slice(0, sliceIndex);
-        const subMore = slot.slice(sliceIndex);
+      let usedWidth = 0;
+      let newSliceIndex = menuItems.length;
 
-        if (subMore.length) {
-          slot = defaultSlot.concat(
-            <Submenu expandType="popup" title={() => <EllipsisIcon />}>
-              {subMore}
-            </Submenu>,
-          );
+      for (let i = 0; i < menuItems.length; i++) {
+        usedWidth += widths[i];
+        // Check if adding the next item would overflow
+        // We need to reserve space for ellipsis if there are more items after
+        const needsEllipsis = i < menuItems.length - 1;
+        const reservedWidth = needsEllipsis ? ELLIPSIS_WIDTH : 0;
+
+        if (usedWidth + reservedWidth > availableWidth) {
+          // This item doesn't fit, slice here
+          newSliceIndex = i;
+          break;
         }
       }
-      return slot;
+
+      // If all items fit, no ellipsis needed
+      sliceIndex.value = newSliceIndex < menuItems.length ? newSliceIndex : -1;
+    };
+
+    // Setup ResizeObserver to detect size changes
+    const setupResizeObserver = () => {
+      if (!props.ellipsis || typeof ResizeObserver === 'undefined') return;
+
+      resizeObserver = new ResizeObserver(() => {
+        nextTick(() => {
+          calcEllipsisSliceIndex();
+        });
+      });
+
+      if (innerRef.value) {
+        resizeObserver.observe(innerRef.value);
+      }
+    };
+
+    // Get content with ellipsis handling
+    const getContent = () => {
+      const slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
+
+      if (!props.ellipsis || sliceIndex.value === -1 || sliceIndex.value >= slot.length) {
+        return slot;
+      }
+
+      const visibleItems = slot.slice(0, sliceIndex.value);
+      const hiddenItems = slot.slice(sliceIndex.value);
+
+      if (hiddenItems.length === 0) {
+        return slot;
+      }
+
+      return [
+        ...visibleItems,
+        <Submenu expandType="popup" title={() => <EllipsisIcon />} class={`${classPrefix.value}-menu__ellipsis`}>
+          {hiddenItems}
+        </Submenu>,
+      ];
     };
 
     const initVMenu = (slots: VNode[], parentValue?: string) => {
@@ -234,13 +280,51 @@ export default defineComponent({
     };
     initVMenu(ctx.slots.default?.() || ctx.slots.content?.() || []);
 
+    onMounted(() => {
+      activeValues.value = vMenu.select(activeValue.value);
+      if (expandValues.value?.length > 0) {
+        handleSubmenuExpand(expandValues.value[0]); // 顶部导航只能同时展开一个子菜单
+      }
+
+      // Initial calculation after mount
+      if (props.ellipsis) {
+        nextTick(() => {
+          calcEllipsisSliceIndex();
+          setupResizeObserver();
+        });
+      }
+    });
+
+    onBeforeUnmount(() => {
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+        resizeObserver = null;
+      }
+    });
+
+    // Watch for ellipsis prop changes
+    watch(
+      () => props.ellipsis,
+      (newVal) => {
+        if (newVal) {
+          nextTick(() => {
+            calcEllipsisSliceIndex();
+            setupResizeObserver();
+          });
+        } else {
+          sliceIndex.value = -1;
+          if (resizeObserver) {
+            resizeObserver.disconnect();
+            resizeObserver = null;
+          }
+        }
+      },
+    );
+
     return () => {
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
-
-      // TODO: 判断逻辑不够完善 影响封装组件的子菜单样式渲染 暂时先不执行 待调整实现方案
-      // const content = formatContent();
-      const content = ctx.slots.default?.() || ctx.slots.content?.() || [];
+      const content = getContent();
 
       return (
         <div class={menuClass.value}>
