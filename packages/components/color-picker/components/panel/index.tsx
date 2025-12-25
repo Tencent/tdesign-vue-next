@@ -34,7 +34,7 @@ export default defineComponent({
     const { t, globalConfig } = useConfig('colorPicker');
     const statusClassNames = STATUS.value;
     const { value: inputValue, modelValue, recentColors } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
+    const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, 'onChange');
     const [innerRecentColors, setInnerRecentColors] = useDefaultValue(
       recentColors,
       props.defaultRecentColors,

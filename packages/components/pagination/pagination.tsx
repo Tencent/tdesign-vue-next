@@ -41,7 +41,7 @@ export default defineComponent({
       current,
       modelValue,
       props.defaultCurrent,
-      props.onCurrentChange,
+      'onCurrentChange',
       'current',
     );
 
