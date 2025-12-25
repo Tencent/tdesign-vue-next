@@ -3,7 +3,6 @@
 exports[`Image-viewer > :props > defaultVisible 1`] = `
 <div
   class="t-image-viewer t-image-viewer-preview-image"
-  style="z-index: 2600;"
   tabindex="-1"
 >
   <div
