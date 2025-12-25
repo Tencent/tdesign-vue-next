@@ -1,3 +1,4 @@
+/* eslint-disable vue/one-component-per-file */
 import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
@@ -357,6 +358,54 @@ describe('Loading', () => {
       await nextTick();
 
       expect(wrapper.find('.t-loading').exists()).toBe(false);
+    });
+  });
+
+  // This test should run last as it modifies the global config state
+  describe('plugin with ConfigProvider', () => {
+    it('should use custom classPrefix from ConfigProvider when installed with app context', async () => {
+      const { ConfigProvider } = await import('@tdesign/components/config-provider');
+      const customPrefix = 'custom';
+
+      // Create container for attach
+      const container = document.createElement('div');
+      container.id = 'custom-prefix-test-container';
+      document.body.appendChild(container);
+
+      // Create app with ConfigProvider and custom classPrefix
+      const testApp = createApp({
+        components: { ConfigProvider },
+        template: `<ConfigProvider :globalConfig="{ classPrefix: '${customPrefix}' }"><div></div></ConfigProvider>`,
+      });
+
+      // Install LoadingPlugin with the app
+      testApp.use(LoadingPlugin);
+
+      // Mount the app to trigger ConfigProvider setup
+      const wrapper = document.createElement('div');
+      document.body.appendChild(wrapper);
+      testApp.mount(wrapper);
+
+      await nextTick();
+
+      // Now use the plugin with the app's context
+      // eslint-disable-next-line no-underscore-dangle
+      const instance = LoadingPlugin({ loading: true, attach: `#${container.id}` }, testApp._context);
+
+      await nextTick();
+
+      // Check that the attach element has the custom prefix class
+      expect(container.classList.contains(`${customPrefix}-loading__parent--relative`)).toBe(true);
+
+      instance.hide();
+
+      // Check that the class is removed after hide
+      expect(container.classList.contains(`${customPrefix}-loading__parent--relative`)).toBe(false);
+
+      // Cleanup
+      testApp.unmount();
+      wrapper.remove();
+      container.remove();
     });
   });
 });
