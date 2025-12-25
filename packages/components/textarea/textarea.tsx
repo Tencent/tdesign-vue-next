@@ -139,7 +139,6 @@ export default defineComponent({
     const formItem = inject(FormItemInjectionKey, undefined);
     const emitBlur = (e: FocusEvent) => {
       if (!e.target) return;
-      adjustTextareaHeight();
       focused.value = false;
       props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
@@ -188,7 +187,9 @@ export default defineComponent({
     // watch
     watch(
       () => innerValue.value,
-      () => adjustTextareaHeight(),
+      () => {
+        nextTick(() => adjustTextareaHeight());
+      },
     );
 
     watch(refTextareaElem, (el) => {
@@ -206,10 +207,6 @@ export default defineComponent({
       } else {
         setStyle(refTextareaElem.value, val);
       }
-    });
-
-    watch(innerValue, () => {
-      nextTick(() => adjustTextareaHeight());
     });
 
     watch(() => props.autosize, adjustTextareaHeight, { deep: true });

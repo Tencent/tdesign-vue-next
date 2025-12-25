@@ -110,9 +110,6 @@ export default defineComponent({
     });
     return () => {
       const content = renderTNodeJSX('content');
-      if (!content && !props.content) {
-        return renderContent('default', 'triggerElement');
-      }
       return (
         <Popup
           {...omit(popupProps.value, ['content', 'default'])}
