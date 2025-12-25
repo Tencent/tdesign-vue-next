@@ -662,14 +662,14 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
         class="t-image-viewer__modal-image"
         draggable="false"
         src="https://tdesign.gtimg.com/demo/demo-image-2.png"
-        style="transform: rotate(0deg) scale(1); display: block;"
+        style="transform: rotate(0deg); display: block;"
       />
       <img
         alt="image"
         class="t-image-viewer__modal-image"
         draggable="false"
         src="https://tdesign.gtimg.com/demo/demo-image-2.png"
-        style="transform: rotate(0deg) scale(1); display: none;"
+        style="transform: rotate(0deg); display: none;"
       />
       <!---->
     </div>
