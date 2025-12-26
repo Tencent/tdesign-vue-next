@@ -886,8 +886,8 @@ importers:
         specifier: workspace:^
         version: link:../tdesign-vue-next
       tdesign-web-components:
-        specifier: 1.2.10-alpha.1
-        version: 1.2.10-alpha.1
+        specifier: 1.2.10-alpha.2
+        version: 1.2.10-alpha.2
       vue:
         specifier: '>=3.1.0'
         version: 3.3.9(typescript@5.8.3)
@@ -7509,8 +7509,8 @@ packages:
     peerDependencies:
       vue: ~2.7.14
 
-  tdesign-web-components@1.2.10-alpha.1:
-    resolution: {integrity: sha512-FFPg39ELOKlYjlGX+uoj0iyg4QV2/tyVgMsyBmKq1KHPM3JS46UPwLen/e4FHw9Ul5SsgScVCENWEAEz+ISeZg==}
+  tdesign-web-components@1.2.10-alpha.2:
+    resolution: {integrity: sha512-p941JsABRukVLfBl4VGS51eRRsUORo55HsW3337/vFIO+02JkfJjVas3Oy0EwNK9kxcc9+46si6S2WOZpWvWDA==}
 
   temp-dir@2.0.0:
     resolution: {integrity: sha512-aoBAniQmmwtcKp/7BzsH8Cxzv8OL736p7v1ihGb5e9DJ9kTwGWHrQrVB5+lfVDzfGrdRzXch+ig7LHaY1JTOrg==}
@@ -15770,7 +15770,7 @@ snapshots:
       validator: 13.15.23
       vue: 2.7.14
 
-  tdesign-web-components@1.2.10-alpha.1:
+  tdesign-web-components@1.2.10-alpha.2:
     dependencies:
       '@babel/runtime': 7.27.6
       '@popperjs/core': 2.11.8
