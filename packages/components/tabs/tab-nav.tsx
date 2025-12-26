@@ -15,7 +15,13 @@ import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize, useDragSort, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
+import {
+  useResizeObserver,
+  useDragSort,
+  useGlobalIcon,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TTabNav',
@@ -179,7 +185,7 @@ export default defineComponent({
     watch([() => props.scrollPosition], handleActiveTabScroll);
 
     // life times
-    useResize(debounce(getMaxScrollLeft), navsContainerRef.value);
+    useResizeObserver(navsContainerRef, debounce(getMaxScrollLeft));
 
     const handleAddTab = (e: MouseEvent) => {
       props.onAdd?.({ e });
