@@ -40,7 +40,7 @@ export default defineComponent({
     const anchorRef = ref<HTMLElement | null>(null);
     const links = ref<string[]>([]);
     const active = ref('');
-    const scrollContainer = ref<ANCHOR_CONTAINER>(null);
+    const scrollContainer = ref<ANCHOR_CONTAINER>();
     const handleScrollLock = ref<boolean>(false);
     const activeLineStyle = reactive({});
     const COMPONENT_NAME = usePrefixClass('anchor');

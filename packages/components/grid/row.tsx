@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs, reactive } from 'vue';
+import { defineComponent, provide, computed, toRefs, reactive, h } from 'vue';
 import props from './row-props';
 import { useRowSize } from './hooks';
 import { getRowClasses, RowProviderType, calcRowStyle } from './utils';
@@ -27,10 +27,13 @@ export default defineComponent({
 
     return () => {
       const { tag: TAG } = props;
-      return (
-        <TAG class={rowClasses.value} style={rowStyle.value}>
-          {renderTNodeJSX('default')}
-        </TAG>
+      return h(
+        TAG,
+        {
+          class: rowClasses.value,
+          style: rowStyle.value,
+        },
+        [renderTNodeJSX('default')],
       );
     };
   },

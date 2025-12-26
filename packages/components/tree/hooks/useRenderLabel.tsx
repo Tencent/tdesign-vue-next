@@ -56,22 +56,17 @@ export default function useRenderLabel(state: TypeTreeItemState) {
       if (node.isDisabled()) {
         checkboxDisabled = true;
       }
-      const itemCheckProps = {
-        ...checkProps,
-        disabled: checkboxDisabled,
-      };
 
       labelNode = (
         <TCheckBox
           class={labelClasses}
           checked={node.checked}
           indeterminate={node.indeterminate}
-          disabled={checkboxDisabled}
           name={String(node.value)}
           onChange={handleChange}
           stopLabelTrigger={shouldStopLabelTrigger.value}
-          ignore={treeProps.expandOnClickNode ? 'active' : 'expand,active'}
-          props={itemCheckProps}
+          {...checkProps}
+          disabled={checkboxDisabled}
           title={node.label}
         >
           {labelNode}

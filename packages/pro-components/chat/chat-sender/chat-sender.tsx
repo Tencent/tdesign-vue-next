@@ -1,0 +1,270 @@
+import { defineComponent, ref, computed, toRefs, reactive, Fragment } from 'vue';
+import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue-next';
+import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
+import Attachments from '../attachments';
+import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
+import { usePrefixClass, useTNodeJSX, useVModel } from '@tdesign/shared-hooks';
+import props from './chat-sender-props';
+
+import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from '../type';
+
+export default defineComponent({
+  name: 'TChatSender',
+  props: {
+    ...props,
+    attachmentsProps: {
+      type: Object,
+      // @ts-ignore
+      default: () => ({ items: [], overflow: 'scrollX' }),
+    },
+  },
+  emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus', 'fileSelect', 'remove', 'fileClick'], // declare the custom events here
+  setup(props, { emit }) {
+    const isComposition = false;
+    const senderTextarea = ref(null);
+    const COMPONENT_NAME = usePrefixClass('chat');
+    const { globalConfig } = useConfig('chat');
+    const { value, modelValue } = toRefs(props);
+    const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+
+    const focusFlag = ref(false);
+    const showStopBtn = computed(() => props.loading || props.stopDisabled);
+    const disabled = computed(() => props.disabled || false);
+    const uploadImageRef = ref(null);
+    const uploadFileRef = ref(null);
+    const renderTNodeJSX = useTNodeJSX();
+    // 点击了发送按钮
+    const sendClick = (e: MouseEvent | KeyboardEvent) => {
+      if (textValue.value && !disabled.value) {
+        emit('send', textValue.value, { e });
+      }
+    };
+    // 点击了停止按钮
+    const handleStop = (e: MouseEvent) => {
+      e.stopPropagation(); // 阻止事件冒泡
+      emit('stop', textValue.value, {
+        e,
+      });
+    };
+    const keydownFn = (value: string, context: { e: KeyboardEvent }) => {
+      const {
+        e: { key, shiftKey },
+      } = context;
+      if (key === 'Enter') {
+        if (isComposition || context.e.isComposing) {
+          return;
+        }
+        if (shiftKey) {
+          return;
+        }
+        context.e.preventDefault();
+        context.e.stopPropagation();
+        sendClick(context.e);
+      }
+    };
+    const focusFn = (value: string, context: { e: FocusEvent }) => {
+      focusFlag.value = true;
+      emit('focus', value, context);
+    };
+
+    const blurFn = (value: string, context: { e: FocusEvent }) => {
+      focusFlag.value = false;
+      emit('blur', value, context);
+    };
+
+    const textChange = (value: string, context: { e: InputEvent }) => {
+      setInnerValue(value, context);
+    };
+
+    const actionsDefault = reactive<UploadActionConfig[]>([
+      {
+        name: 'uploadImage',
+        uploadProps: {
+          multiple: true,
+          accept: 'image/*',
+        },
+        action: ({ files, name, e }) => {
+          emit('fileSelect', { files, name, e });
+        },
+      },
+      {
+        name: 'uploadAttachment',
+        action: ({ files, name, e }) => {
+          emit('fileSelect', { files, name, e });
+        },
+      },
+    ]);
+    // 默认suffixIcon
+    const getDefaultSuffixIcon = (actions = actionsDefault) => {
+      // 获取默认action处理函数
+      const getDefaultAction = (name: UploadActionType) => {
+        const defaultAction = actionsDefault.find((item) => item.name === name)?.action;
+        return defaultAction || (({ files, name, e }) => emit('fileSelect', { files, name, e }));
+      };
+      const { uploadAttachmentText, uploadImageText } = globalConfig.value;
+      const uploadAttachment = actions.find((item) => item.name === 'uploadAttachment');
+      const uploadAttachmentButton = uploadAttachment ? (
+        <Fragment>
+          <input
+            {...uploadAttachment.uploadProps}
+            ref={uploadFileRef}
+            type="file"
+            onChange={(e: InputEvent) => {
+              const files = Array.from((e.target as HTMLInputElement).files || []);
+              if (!files.length) {
+                return;
+              }
+              const action = uploadAttachment.action || getDefaultAction('uploadAttachment');
+              action({ files, name: uploadAttachment.name, e });
+              (e.target as HTMLInputElement).value = '';
+            }}
+            hidden
+          />
+          <Tooltip content={uploadAttachmentText}>
+            <Button
+              theme="default"
+              onClick={() => uploadFileRef.value?.click()}
+              shape="circle"
+              variant="text"
+              class={[`${COMPONENT_NAME.value}-sender__upload`]}
+            >
+              <FileAttachmentIcon size="20px" />
+            </Button>
+          </Tooltip>
+        </Fragment>
+      ) : null;
+
+      const uploadImage = actions.find((item) => item.name === 'uploadImage');
+      const renderUploadImageButton = uploadImage ? (
+        <Fragment>
+          <input
+            {...uploadImage.uploadProps}
+            ref={uploadImageRef}
+            type="file"
+            onChange={(e: InputEvent) => {
+              const files = Array.from((e.target as HTMLInputElement).files || []);
+              if (!files.length) {
+                return;
+              }
+              const action = uploadImage.action || getDefaultAction('uploadImage');
+              action({ files, name: uploadImage.name, e });
+              (e.target as HTMLInputElement).value = '';
+            }}
+            hidden
+          />
+          <Tooltip content={uploadImageText}>
+            <Button
+              theme="default"
+              onClick={() => uploadImageRef.value?.click()}
+              shape="circle"
+              variant="text"
+              class={[`${COMPONENT_NAME.value}-sender__upload`]}
+            >
+              <ImageIcon size="20px" />
+            </Button>
+          </Tooltip>
+        </Fragment>
+      ) : null;
+      const buttonComponents = {
+        uploadAttachment: uploadAttachmentButton,
+        uploadImage: renderUploadImageButton,
+      };
+
+      return (
+        <Fragment>
+          {actions.length > 0 &&
+            actions
+              .filter(
+                (item): item is { name: UploadActionType; action: () => void } =>
+                  item.name === 'uploadAttachment' || item.name === 'uploadImage',
+              )
+              .map((item) => buttonComponents[item.name])}
+          {!showStopBtn.value ? (
+            <Button
+              theme="default"
+              size="small"
+              variant="text"
+              class={[
+                `${COMPONENT_NAME.value}-sender__button__default`,
+                textValue.value ? '' : `${COMPONENT_NAME.value}-sender__button--disabled`,
+              ]}
+              onClick={sendClick}
+              disabled={disabled.value || showStopBtn.value || !textValue.value}
+            >
+              <SendFilledIcon />
+            </Button>
+          ) : (
+            <Button variant="text" class={`${COMPONENT_NAME.value}-sender__button__default`} onClick={handleStop}>
+              <div class={`${COMPONENT_NAME.value}-sender__button__stopicon`} />
+            </Button>
+          )}
+        </Fragment>
+      );
+    };
+    const renderSuffixIcon = () => {
+      const suffix = renderTNodeJSX('suffix', { params: { renderPresets: getDefaultSuffixIcon } });
+      // 默认没有上传附件和上传图片入口
+      return suffix ? suffix : getDefaultSuffixIcon([]);
+    };
+    const handleRemove = (e: CustomEvent) => {
+      emit('remove', e);
+    };
+    const handleFileClick = (e: CustomEvent) => {
+      emit('fileClick', e);
+    };
+    const renderHeader = () => {
+      return props.attachmentsProps.items.length > 0 ? (
+        <Attachments
+          items={props.attachmentsProps.items}
+          onRemove={handleRemove}
+          onFileClick={handleFileClick}
+          class={`${COMPONENT_NAME.value}-sender__attachment`}
+          overflow={props.attachmentsProps.overflow}
+        />
+      ) : (
+        renderTNodeJSX('header')
+      );
+    };
+    const renderInputPrefix = () => renderTNodeJSX('input-prefix') || null;
+    return () => (
+      <div class={`${COMPONENT_NAME.value}-sender`}>
+        {/* <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div> */}
+        <div
+          class={[
+            `${COMPONENT_NAME.value}-sender__textarea`,
+            focusFlag.value ? `${COMPONENT_NAME.value}-sender__textarea--focus` : '',
+          ]}
+        >
+          <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div>
+          <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderTNodeJSX('inner-header')}</div>
+          <div class={`${COMPONENT_NAME.value}-sender__textarea__wrapper`}>
+            {renderInputPrefix()}
+            <Textarea
+              ref={senderTextarea}
+              value={textValue.value}
+              onChange={textChange}
+              disabled={disabled.value}
+              {...{
+                autosize: (props.textareaProps as TdChatSenderProps['textareaProps'])?.autosize || {
+                  minRows: 2,
+                  maxRows: 5,
+                },
+                ...(props.textareaProps as TdChatSenderProps['textareaProps']),
+              }}
+              onKeydown={keydownFn}
+              onFocus={focusFn}
+              onBlur={blurFn}
+            />
+          </div>
+          <div class={`${COMPONENT_NAME.value}-sender__footer`}>
+            <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderTNodeJSX('footer-prefix')}</div>
+            <div class={`${COMPONENT_NAME.value}-sender__button`}>
+              {/* 发送按钮 */}
+              <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`}>{renderSuffixIcon()}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+});

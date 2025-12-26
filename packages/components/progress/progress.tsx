@@ -166,7 +166,7 @@ export default defineComponent({
 
     // 当文字小于进度条宽度时，文字在进度条外部，否则在内部
     const infoIsOut = ref(true);
-    const infoRef = ref<HTMLDivElement>(null);
+    const infoRef = ref<HTMLDivElement>();
 
     const separateClasses = computed(() => {
       return infoIsOut.value ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
