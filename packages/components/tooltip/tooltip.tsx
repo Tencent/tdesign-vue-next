@@ -114,11 +114,10 @@ export default defineComponent({
         <Popup
           {...omit(popupProps.value, ['content', 'default'])}
           ref={popupRef}
+          hideEmptyPopup={true}
           overlayInnerStyle={overlayInnerStyle.value}
           visible={innerVisible.value}
-          v-slots={{
-            content: () => content,
-          }}
+          v-slots={!content && !props.content ? {} : { content: () => content }}
         >
           {renderContent('default', 'triggerElement')}
         </Popup>
