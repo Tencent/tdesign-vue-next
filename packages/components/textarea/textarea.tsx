@@ -187,9 +187,7 @@ export default defineComponent({
     // watch
     watch(
       () => innerValue.value,
-      () => {
-        nextTick(() => adjustTextareaHeight());
-      },
+      () => adjustTextareaHeight(),
     );
 
     watch(refTextareaElem, (el) => {
