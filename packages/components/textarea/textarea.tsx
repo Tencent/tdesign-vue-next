@@ -69,8 +69,8 @@ export default defineComponent({
         });
       } else if (attrs.rows) {
         textareaStyle.value = { height: 'auto', minHeight: 'auto' };
-      } else if (attrs.style && refTextareaElem.value?.style?.height) {
-        textareaStyle.value = { height: refTextareaElem.value.style.height };
+      } else if (attrs.style && (attrs.style as CSSProperties)?.height) {
+        textareaStyle.value = { height: (attrs.style as CSSProperties)?.height };
       }
     };
 
@@ -130,7 +130,6 @@ export default defineComponent({
     };
 
     const emitFocus = (e: FocusEvent) => {
-      adjustTextareaHeight();
       if (disabled.value) return;
       focused.value = true;
       props.onFocus?.(innerValue.value, { e });
