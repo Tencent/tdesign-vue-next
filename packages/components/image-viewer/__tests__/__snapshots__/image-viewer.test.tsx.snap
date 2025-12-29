@@ -311,7 +311,6 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
   <div
     class="t-image-viewer__modal-index"
   >
-    <!---->
     2/3
   </div>
   <div

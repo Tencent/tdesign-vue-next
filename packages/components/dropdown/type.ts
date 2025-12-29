@@ -69,7 +69,7 @@ export interface TdDropdownProps {
     | 'right-top'
     | 'right-bottom';
   /**
-   * 透传  Popup 组件属性，方便更加自由地控制。比如使用 popupProps.overlayStyle 设置浮层样式
+   * 透传 Popup 组件全部属性，方便更加自由地控制。比如使用 popupProps.overlayStyle 设置浮层样式
    */
   popupProps?: PopupProps;
   /**
@@ -121,6 +121,17 @@ export interface TdDropdownItemProps {
    * 点击时触发
    */
   onClick?: (dropdownItem: DropdownOption, context: { e: MouseEvent }) => void;
+}
+
+export interface TdDropdownMenuProps {
+  /**
+   * 内容
+   */
+  content?: string | TNode;
+  /**
+   * 内容，同 content
+   */
+  default?: string | TNode;
 }
 
 export type DropdownOption = { children?: DropdownOption[] } & TdDropdownItemProps & Record<string, any>;
