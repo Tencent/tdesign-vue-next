@@ -307,7 +307,9 @@ export default defineComponent({
 
       return (
         <>
-          {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
+          {isPropsUsed('trigger')
+            ? renderTNodeJSX('trigger', { params: { open: openHandler } })
+            : renderDefaultTrigger()}
           <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
