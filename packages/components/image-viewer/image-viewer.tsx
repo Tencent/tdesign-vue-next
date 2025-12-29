@@ -11,6 +11,7 @@ import {
   usePopupManager,
   useConfig,
 } from '@tdesign/shared-hooks';
+import { isPropsUsed } from '@tdesign/shared-utils';
 import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';
 import Image from '../image';
 import TImageItem from './base/ImageItem';
@@ -276,7 +277,9 @@ export default defineComponent({
       if (props.mode === 'modeless') {
         return (
           <>
-            {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
+            {isPropsUsed('trigger')
+              ? renderTNodeJSX('trigger', { params: { open: openHandler } })
+              : renderDefaultTrigger()}
             <TImageViewerModal
               zIndex={zIndexValue.value}
               visible={visibleValue.value}
