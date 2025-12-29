@@ -50,39 +50,42 @@ export default defineComponent({
 
     return () => {
       const { mode, theme, itemsStatus, reverse } = TimelineProvider.value;
-      const { loading, dotColor, index } = props;
 
       const labelNode = renderTNodeJSX('label');
-      const dotElement = renderTNodeJSX('dot');
 
-      const dotContentClass = `${COMPONENT_NAME.value}__dot-content`;
-      if (dotElement?.props) {
-        const classes = dotElement?.props?.class;
-        dotElement.props.class = classes ? [dotContentClass, classes].join(' ') : dotContentClass;
-      }
+      const renderDotContent = () => {
+        const dotContent = renderTNodeJSX('dot');
+        const isLoading = !dotContent && props.loading;
 
+        return (
+          <div
+            class={{
+              [`${COMPONENT_NAME.value}__dot`]: true,
+              [`${COMPONENT_NAME.value}__dot--custom`]: !!dotContent || isLoading,
+              [`${COMPONENT_NAME.value}__dot--${props.dotColor}`]: DEFAULT_THEME.includes(props.dotColor),
+            }}
+            style={{ borderColor: !DEFAULT_THEME.includes(props.dotColor) && props.dotColor }}
+          >
+            {dotContent || isLoading ? (
+              <div class={`${COMPONENT_NAME.value}__dot-content`}>
+                {isLoading ? <Loading size="12px"></Loading> : dotContent}
+              </div>
+            ) : null}
+          </div>
+        );
+      };
       return (
         <li class={[`${COMPONENT_NAME.value}`, `${getPositionClassName(props.index)}`]} onClick={handleClick}>
           {mode === 'alternate' && labelNode && (
             <div class={[`${COMPONENT_NAME.value}__label`, `${COMPONENT_NAME.value}__label--${mode}`]}>{labelNode}</div>
           )}
           <div class={`${COMPONENT_NAME.value}__wrapper`}>
-            <div
-              class={{
-                [`${COMPONENT_NAME.value}__dot`]: true,
-                [`${COMPONENT_NAME.value}__dot--custom`]: !!dotElement || (!dotElement && loading),
-                [`${COMPONENT_NAME.value}__dot--${dotColor}`]: DEFAULT_THEME.includes(dotColor),
-              }}
-              style={{ borderColor: !DEFAULT_THEME.includes(dotColor) && dotColor }}
-            >
-              {!dotElement && loading && <Loading size="12px" class={dotContentClass} />}
-              {dotElement}
-            </div>
+            {renderDotContent()}
             <div
               class={{
                 [`${COMPONENT_NAME.value}__tail`]: true,
                 [`${COMPONENT_NAME.value}__tail--theme-${theme}`]: true,
-                [`${COMPONENT_NAME.value}__tail--status-${itemsStatus[index]}`]: reverse,
+                [`${COMPONENT_NAME.value}__tail--status-${itemsStatus[props.index]}`]: reverse,
               }}
             />
           </div>

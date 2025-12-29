@@ -16,7 +16,7 @@ export default {
   dot: {
     type: Function as PropType<TdTimelineItemProps['dot']>,
   },
-  /** 时间轴颜色，内置 `primary/warning/error/default` 四种色值，可传入 16 进制颜色码或 RGB 颜色值. */
+  /** 时间轴颜色，内置 `primary/warning/error/default` 四种色值，可传入 16 进制颜色码或 RGB 颜色值 */
   dotColor: {
     type: String as PropType<TdTimelineItemProps['dotColor']>,
     default: 'primary',

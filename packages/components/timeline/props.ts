@@ -37,7 +37,7 @@ export default {
   },
   /** 时间轴是否表现为倒序 */
   reverse: Boolean,
-  /** 步骤条风格 */
+  /** 时间轴风格 */
   theme: {
     type: String as PropType<TdTimelineProps['theme']>,
     default: 'default' as TdTimelineProps['theme'],
