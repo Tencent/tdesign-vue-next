@@ -95,7 +95,7 @@ value | String / Number / Boolean | - | 选项值 | N
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 divider | Boolean | true | 是否显示分隔线 | N
-label | String | - | 分组别名 | N
+label | String / Slot / Function | - | 分组别名。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 
 ### TScroll
 
