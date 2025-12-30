@@ -4,7 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TNode, AttachNode, AppContext } from '../common';
+import { TNode, ClassName, AttachNode, AppContext } from '../common';
 
 export interface TdNotificationProps {
   /**
@@ -43,6 +43,10 @@ export interface TdNotificationProps {
    */
   title?: string | TNode;
   /**
+   * 调用 NotificationPlugin.close 的事件回调
+   */
+  onClose?: () => void;
+  /**
    * 点击关闭按钮时触发
    */
   onCloseBtnClick?: (context: { e: MouseEvent }) => void;
@@ -50,10 +54,6 @@ export interface TdNotificationProps {
    * 计时结束时触发
    */
   onDurationEnd?: () => void;
-  /**
-   * 调用 NotificationPlugin.close  时触发
-   */
-  onClose?: () => void;
 }
 
 export interface NotificationOptions extends TdNotificationProps {
@@ -63,6 +63,10 @@ export interface NotificationOptions extends TdNotificationProps {
    */
   attach?: AttachNode;
   /**
+   * 通知框类名
+   */
+  className?: ClassName;
+  /**
    * 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10em', '8rem']
    */
   offset?: Array<string | number>;
@@ -71,6 +75,10 @@ export interface NotificationOptions extends TdNotificationProps {
    * @default top-right
    */
   placement?: NotificationPlacementList;
+  /**
+   * 通知框 style 内敛样式属性
+   */
+  style?: string | object | array;
   /**
    * 消息通知层级
    * @default 6000
