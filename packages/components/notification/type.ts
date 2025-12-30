@@ -78,7 +78,7 @@ export interface NotificationOptions extends TdNotificationProps {
   /**
    * 通知框 style 内敛样式属性
    */
-  style?: string | object | array;
+  style?: object;
   /**
    * 消息通知层级
    * @default 6000
