@@ -64,6 +64,7 @@ export interface NotificationOptions extends TdNotificationProps {
   attach?: AttachNode;
   /**
    * 通知框类名
+   * @default ''
    */
   className?: ClassName;
   /**
