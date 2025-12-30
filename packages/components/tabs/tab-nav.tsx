@@ -15,13 +15,7 @@ import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import {
-  useResizeObserver,
-  useDragSort,
-  useGlobalIcon,
-  usePrefixClass,
-  useCommonClassName,
-} from '@tdesign/shared-hooks';
+import { useResize, useDragSort, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TTabNav',
@@ -177,6 +171,8 @@ export default defineComponent({
     const getMaxScrollLeft = () => {
       nextTick(() => {
         maxScrollLeft.value = calcMaxOffset(getRefs());
+        // fix https://github.com/Tencent/tdesign-vue-next/issues/6292
+        if (maxScrollLeft.value - scrollLeft.value <= 0) setOffset(maxScrollLeft.value);
       });
     };
 
@@ -185,7 +181,7 @@ export default defineComponent({
     watch([() => props.scrollPosition], handleActiveTabScroll);
 
     // life times
-    useResizeObserver(navsContainerRef, debounce(getMaxScrollLeft));
+    useResize(debounce(getMaxScrollLeft), navsContainerRef.value);
 
     const handleAddTab = (e: MouseEvent) => {
       props.onAdd?.({ e });
