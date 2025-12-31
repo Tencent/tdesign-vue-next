@@ -52,3 +52,4 @@ describe('HeadMenu', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
   });
+});
