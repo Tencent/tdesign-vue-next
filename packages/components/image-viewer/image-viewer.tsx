@@ -57,7 +57,7 @@ export default defineComponent({
         [`${classPrefix.value}-is-show`]: isExpand.value,
       },
     ]);
-    const zIndexValue = computed(() => props.zIndex ?? 2600);
+    const zIndexValue = computed(() => props.zIndex ?? 3000);
     const toggleExpand = () => {
       isExpand.value = !isExpand.value;
     };
