@@ -53,6 +53,7 @@ export default defineComponent({
         [`${classPrefix.value}-is-show`]: isExpand.value,
       },
     ]);
+    const zIndexValue = computed(() => props.zIndex ?? 3000);
     const toggleExpand = () => {
       isExpand.value = !isExpand.value;
     };
@@ -258,7 +259,7 @@ export default defineComponent({
           <>
             {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
             <TImageViewerModal
-              zIndex={props.zIndex}
+              zIndex={zIndexValue.value}
               visible={visibleValue.value}
               index={indexValue.value}
               images={images.value}
@@ -292,7 +293,7 @@ export default defineComponent({
                   ref={divRef}
                   v-show={visibleValue.value}
                   class={wrapClass.value}
-                  style={{ zIndex: props.zIndex }}
+                  style={{ zIndex: zIndexValue.value }}
                   onWheel={onWheel}
                   tabindex={-1}
                   onKeydown={keydownHandler}
@@ -313,7 +314,7 @@ export default defineComponent({
                   )}
                   {renderCloseBtn()}
                   <TImageViewerUtils
-                    zIndex={props.zIndex + 1}
+                    zIndex={zIndexValue.value + 1}
                     onZoomIn={onZoomIn}
                     onZoomOut={onZoomOut}
                     onMirror={onMirror}
