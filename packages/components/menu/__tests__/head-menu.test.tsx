@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { MenuItem } from '@tdesign/components/menu';
+import { HeadMenu } from '@tdesign/components/menu';
 
 // every component needs four parts: props/events/slots/functions.
 describe('HeadMenu', () => {
