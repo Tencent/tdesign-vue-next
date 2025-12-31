@@ -57,8 +57,8 @@ export default defineComponent({
       if (props.enableTimePicker) {
         cacheValue.value = formatDate(date, { format: formatRef.value.format });
       } else {
-        onChange?.(formatDate(date, { format: formatRef.value.format }) as DateValue, {
-          dayjsValue: parseToDayjs(date, formatRef.value.format),
+        onChange?.(formatDate(date, { format: formatRef.value.format, defaultTime: props.defaultTime }) as DateValue, {
+          dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, props.defaultTime),
           trigger: 'pick',
         });
       }
@@ -134,9 +134,16 @@ export default defineComponent({
       onChange?.(
         formatDate(cacheValue.value, {
           format: formatRef.value.format,
+          defaultTime: props.defaultTime,
         }) as DateValue,
         {
-          dayjsValue: parseToDayjs(cacheValue.value as string, formatRef.value.format),
+          dayjsValue: parseToDayjs(
+            cacheValue.value as string,
+            formatRef.value.format,
+            undefined,
+            undefined,
+            props.defaultTime,
+          ),
           trigger: 'confirm',
         },
       );
@@ -146,10 +153,13 @@ export default defineComponent({
     // 预设
     function onPresetClick(preset: any, context: any) {
       const presetVal = isFunction(preset) ? preset() : preset;
-      onChange?.(formatDate(presetVal, { format: formatRef.value.format }) as DateValue, {
-        dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
-        trigger: 'preset',
-      });
+      onChange?.(
+        formatDate(presetVal, { format: formatRef.value.format, defaultTime: props.defaultTime }) as DateValue,
+        {
+          dayjsValue: parseToDayjs(presetVal, formatRef.value.format, undefined, undefined, props.defaultTime),
+          trigger: 'preset',
+        },
+      );
       props.onPresetClick?.(context);
     }
 

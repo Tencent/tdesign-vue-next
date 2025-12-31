@@ -6,7 +6,7 @@
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
 import { IsURLOptions } from 'validator/es/lib/isURL';
-import { TNode, FormResetEvent, FormSubmitEvent } from '../common';
+import { FormResetEvent, FormSubmitEvent, TNode } from '../common';
 
 export interface TdFormProps<FormData extends Data = Data> {
   /**
@@ -237,7 +237,7 @@ export interface FormRule {
   /**
    * 内置校验方法，校验值是否符合正则表达式匹配结果，示例：`{ pattern: /@qq.com/, message: '请输入 QQ 邮箱' }`
    */
-  pattern?: RegExp;
+  pattern?: RegExp | string;
   /**
    * 内置校验方法，校验值是否已经填写。该值为 true，默认显示必填标记，可通过设置 `requiredMark: false` 隐藏必填标记
    */
@@ -378,7 +378,7 @@ export interface FormResetParams<FormData> {
 export type FormValidateMessage<FormData> = { [field in keyof FormData]: FormItemValidateMessage[] };
 
 export interface FormItemValidateMessage {
-  type: 'warning' | 'error';
+  type: 'warning' | 'error' | 'success';
   message: string;
 }
 

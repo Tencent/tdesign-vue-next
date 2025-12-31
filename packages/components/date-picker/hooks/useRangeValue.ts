@@ -1,4 +1,4 @@
-import { ref, toRefs, watchEffect, computed, watch } from 'vue';
+import { ref, toRefs, computed, watch } from 'vue';
 import { useVModel } from '@tdesign/shared-hooks';
 import { isArray } from 'lodash-es';
 
@@ -67,31 +67,35 @@ export function useRangeValue(props: TdDateRangePickerProps) {
       if (year.value[1] < year.value[0]) {
         year.value[1] = year.value[0];
       }
-      if (month.value[1] < month.value[0]) {
+      // 只有当左右面板年份相同时，才需要比较月份大小
+      if (year.value[0] === year.value[1] && month.value[1] < month.value[0]) {
         month.value[1] = month.value[0];
       }
     },
   );
 
-  // 输入框响应 value 变化
-  watchEffect(() => {
-    if (!value.value) {
-      cacheValue.value = [];
-      return;
-    }
-    if (!isValidDate(value.value, formatRef.value.format)) return;
+  watch(
+    value,
+    (newValue) => {
+      if (!newValue) {
+        cacheValue.value = [];
+        return;
+      }
+      if (!isValidDate(newValue, formatRef.value.format)) return;
 
-    cacheValue.value = formatDate(value.value, {
-      format: formatRef.value.valueType,
-      targetFormat: formatRef.value.format,
-    });
-    time.value = formatTime(
-      value.value,
-      formatRef.value.format,
-      formatRef.value.timeFormat,
-      props.defaultTime,
-    ) as string[];
-  });
+      cacheValue.value = formatDate(newValue, {
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
+      });
+      time.value = formatTime(
+        newValue,
+        formatRef.value.format,
+        formatRef.value.timeFormat,
+        props.defaultTime,
+      ) as string[];
+    },
+    { immediate: true },
+  );
 
   return {
     year,

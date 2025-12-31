@@ -29,8 +29,7 @@ describe('Divider', () => {
           text
         </Divider>,
       );
-      expect(wrapper.classes('t-divider--with-text-left')).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot('align-vertical-left');
+      expect(wrapper.classes('t-divider--with-text-left')).toBeFalsy();
     });
 
     it(':dashed[true/false]', () => {
@@ -69,15 +68,6 @@ describe('Divider', () => {
       });
     });
 
-    it(':theme[horizontal/vertical]', () => {
-      const { validator } = props.theme;
-      expect(validator('horizontal')).toBeTruthy();
-      expect(validator('vertical')).toBeTruthy();
-      // @ts-expect-error types error
-      expect(validator('other')).toBeFalsy();
-      expect(validator(undefined)).toBeTruthy();
-    });
-
     it(':content[string/function]', () => {
       // string
       const wrapperString = mount(<Divider content="TDesign" />);
@@ -114,6 +104,20 @@ describe('Divider', () => {
       const wrapper = mount(<Divider content="prop content" v-slots={{ default: () => 'TDesign' }} />);
       expect(wrapper.text()).toBe('TDesign');
       expect(wrapper.element).toMatchSnapshot('default-priority');
+    });
+
+    it(':size[string/number]', () => {
+      // string
+      const wrapperString = mount(<Divider size="20px" />);
+      expect(wrapperString.attributes('style')).toContain('margin: 20px 0px;');
+
+      // number
+      const wrapperNumber = mount(<Divider size={30} />);
+      expect(wrapperNumber.attributes('style')).toContain('margin: 30px 0px;');
+
+      // vertical
+      const wrapperVertical = mount(<Divider layout="vertical" size="40px" />);
+      expect(wrapperVertical.attributes('style')).toContain('margin: 0px 40px;');
     });
   });
 });

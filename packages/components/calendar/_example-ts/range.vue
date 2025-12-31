@@ -1,12 +1,17 @@
 <template>
-  <t-calendar :range="range" />
+  <t-space direction="vertical">
+    <t-form layout="inline">
+      <t-form-item label="日历可选范围：">
+        <t-date-range-picker v-model="range" mode="month" :disable-date="{ before: '1970-01' }" allow-input />
+      </t-form-item>
+    </t-form>
+    <t-calendar :range="range" />
+  </t-space>
 </template>
 
 <script lang="tsx" setup>
+import { ref } from 'vue';
 import { CalendarProps } from 'tdesign-vue-next';
-const range: CalendarProps['range'] = [
-  '2018-08',
-  // new Date(2017, 7),
-  '2028-04', // new Date(2027, 3),
-];
+
+const range = ref<CalendarProps['range']>(['2018-08', '2028-04']);
 </script>

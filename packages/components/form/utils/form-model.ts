@@ -43,7 +43,10 @@ const VALIDATE_MAP = {
   enum: (val: ValueType, strs: Array<string>): boolean => strs.includes(val),
   idcard: (val: ValueType): boolean => /^(\d{18,18}|\d{15,15}|\d{17,17}x)$/i.test(val),
   telnumber: (val: ValueType): boolean => /^1[3-9]\d{9}$/.test(val),
-  pattern: (val: ValueType, regexp: RegExp): boolean => regexp.test(val),
+  pattern: (val: ValueType, regexp: RegExp | string): boolean => {
+    const reg = typeof regexp === 'string' ? new RegExp(regexp) : regexp;
+    return reg.test(String(val));
+  },
   // 自定义校验规则，可能是异步校验
   validator: (val: ValueType, validate: CustomValidator): ReturnType<CustomValidator> => validate(val),
 };

@@ -1,8 +1,12 @@
 name: auto-release
 
 on:
-  pull_request_target:
+  pull_request:
     types: [closed]
+
+permissions:
+  contents: read
+  id-token: write
 
 jobs:
   publish:
@@ -23,10 +27,9 @@ jobs:
 
       - run: pnpm run '/build:*/'
 
-      - name: Set publishing config
-        run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.TDESIGN_NPM_TOKEN}}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
 
       - uses: TDesignOteam/flow-pilot-action@develop
         with:

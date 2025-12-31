@@ -33,6 +33,7 @@ export default function useStyle(props: TdBaseTableProps) {
   const tableContentStyles = computed(() => ({
     height: formatCSSUnit(height.value),
     maxHeight: formatCSSUnit(maxHeight.value),
+    overflowAnchor: 'none',
   }));
 
   const tableElementStyles = computed(() => ({

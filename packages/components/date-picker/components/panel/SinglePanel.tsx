@@ -31,6 +31,7 @@ export default defineComponent({
     popupVisible: Boolean,
     multiple: Boolean,
     needConfirm: Boolean,
+    defaultTime: [String, Array] as PropType<TdDatePickerProps['defaultTime']>,
     onPanelClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -100,6 +101,7 @@ export default defineComponent({
       onCellMouseEnter: props.onCellMouseEnter,
       onCellMouseLeave: props.onCellMouseLeave,
       onTimePickerChange: props.onTimePickerChange,
+      defaultTime: props.defaultTime,
     }));
 
     const extraProps = computed(() => ({

@@ -2,9 +2,10 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
+
 import { TNode } from '../common';
+
 export interface TdSwiperProps {
   /**
    * 轮播切换动画效果类型：滑动、淡入淡出等
@@ -16,6 +17,11 @@ export interface TdSwiperProps {
    * @default true
    */
   autoplay?: boolean;
+  /**
+   * 卡片模式下非当前展示轮播图的缩放比例
+   * @default 210/332
+   */
+  cardScale?: number;
   /**
    * 当前轮播在哪一项（下标）
    * @default 0
@@ -60,11 +66,6 @@ export interface TdSwiperProps {
    */
   stopOnHover?: boolean;
   /**
-   * 深色模式和浅色模式
-   * @default light
-   */
-  theme?: 'light' | 'dark';
-  /**
    * 触发切换的方式：悬浮、点击等
    * @default hover
    */
@@ -74,11 +75,6 @@ export interface TdSwiperProps {
    * @default default
    */
   type?: 'default' | 'card';
-  /**
-   * 卡片模式下的缩放比例
-   * @default 210/332
-   */
-  cardScale?: number;
   /**
    * 轮播切换时触发
    */

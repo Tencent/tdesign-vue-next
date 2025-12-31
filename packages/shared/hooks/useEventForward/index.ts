@@ -27,10 +27,12 @@ export function useEventForward<T extends Record<string, any>>(
     const merged = { ...componentsProps };
 
     (Object.keys(internalHandlers ?? {}) as Array<keyof T>).forEach((key) => {
-      const userHandler = componentsProps?.[key];
+      // 用户自定义的事件回调
+      const selfDefinedHandler = componentsProps?.[key];
+      // 组件内部已存在的事件回调
       const internalHandler = internalHandlers?.[key];
 
-      if (typeof userHandler === 'function' && typeof internalHandler === 'function') {
+      if (typeof selfDefinedHandler === 'function' && typeof internalHandler === 'function') {
         merged[key] = ((...args: any[]) => {
           try {
             internalHandler(...args);
@@ -38,9 +40,9 @@ export function useEventForward<T extends Record<string, any>>(
             console.warn(`[useEventForward]: Error in component callback for ${String(key)}:`, error);
           }
           try {
-            userHandler(...args);
+            selfDefinedHandler(...args);
           } catch (error) {
-            console.warn(`[useEventForward]: Error in custom callback for ${String(key)}:`, error);
+            console.warn(`[useEventForward]: Error in self defined callback for ${String(key)}:`, error);
           }
         }) as T[keyof T];
       } else if (typeof internalHandler === 'function') {

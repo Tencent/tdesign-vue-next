@@ -169,9 +169,12 @@ export default defineComponent({
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
               autoSwap: true,
+              defaultTime: props.defaultTime,
             }) as DateValue[],
             {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              dayjsValue: nextValue.map((v, i) =>
+                parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+              ),
               trigger: 'pick',
             },
           );
@@ -179,11 +182,11 @@ export default defineComponent({
       }
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value || !activeIndex.value) {
+      if (!isFirstValueSelected.value) {
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex as 0 | 1;
-        isFirstValueSelected.value = !!nextValue[0];
+        isFirstValueSelected.value = nextValue.some((v) => !!v);
       } else {
         popupVisible.value = false;
       }
@@ -276,9 +279,12 @@ export default defineComponent({
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
               autoSwap: true,
+              defaultTime: props.defaultTime,
             }) as DateValue[],
             {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              dayjsValue: nextValue.map((v, i) =>
+                parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+              ),
               trigger: 'confirm',
             },
           );
@@ -294,11 +300,11 @@ export default defineComponent({
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value || !activeIndex.value) {
+      if (!isFirstValueSelected.value) {
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex as 0 | 1;
-        isFirstValueSelected.value = !!nextValue[0];
+        isFirstValueSelected.value = nextValue.some((v) => !!v);
       } else if (nextValue.length === 2) {
         popupVisible.value = false;
       }
@@ -318,9 +324,12 @@ export default defineComponent({
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
             autoSwap: true,
+            defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),
+            dayjsValue: presetValue.map((p, i) =>
+              parseToDayjs(p, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+            ),
             trigger: 'preset',
           },
         );
