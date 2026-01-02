@@ -56,7 +56,7 @@ export default defineComponent({
         items = props.items.map((item) => ({
           label: renderCustomNode(item.label),
           content: renderCustomNode(item.content),
-          span: item.span || 1,
+          span: item.span,
         }));
         itemsType.value = ItemsType.props;
       } else {
