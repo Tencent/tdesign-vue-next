@@ -5,6 +5,66 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.7 `2025-12-18` 
+
+### 🚀 Features
+- `ImageViewer`: 
+  - 优化下载跨域图片时的格式处理，优化通过下载获取的文件大小  @RylanBot ([common#2311](https://github.com/Tencent/tdesign-common/pull/2311))  ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
+  - 支持直接下载同域图片，避免二次转换导致体积增大和动图失效等问题 @RylanBot ([common#2311](https://github.com/Tencent/tdesign-common/pull/2311))  ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
+- 支持 .dark 类名，丰富切换深色模式的方式 @liweijie0812 ([common#2355](https://github.com/Tencent/tdesign-common/pull/2355))
+
+### 🐞 Bug Fixes
+- `Avatar`: 修复样式与设计稿不一致的问题 @liweijie0812 ([common#2364](https://github.com/Tencent/tdesign-common/pull/2364))  ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
+- `DatePicker`: 修复按需引入组件且开启时间面板时打包后丢失部分样式的问题 @uyarn ([#6257](https://github.com/Tencent/tdesign-vue-next/pull/6257))
+- `DateRangePicker`: 修复在表单中使用且携带`default-time`参数时，二次选择会置空数据的缺陷 @RSS1102 ([#6268](https://github.com/Tencent/tdesign-vue-next/pull/6268))
+- `Dropdown`: 修复编辑器提示缺少 `TDropdownMenu` 类型声明的问题 @RSS1102 ([#6238](https://github.com/Tencent/tdesign-vue-next/pull/6238))
+- `Menu`: 修复菜单选项默认边距和图标大小的问题 @liweijie0812 ([common#2369](https://github.com/Tencent/tdesign-common/pull/2369))  ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
+- `Tree`: 修复子节点为自定义的 Input 等元素时，选中文本的高亮样式被隐藏的问题 @RylanBot ([common#2370](https://github.com/Tencent/tdesign-common/pull/2370))  ([#6270](https://github.com/Tencent/tdesign-vue-next/pull/6270))
+- `Popconfirm`: 修复快速点击默认按钮时 `getComputedStyle` 报错的问题 @Copilot ([#6224](https://github.com/Tencent/tdesign-vue-next/pull/6224))
+
+### 📈 Performance 
+- 移除产物中的冗余内容 @liweijie0812 ([#6269](https://github.com/Tencent/tdesign-vue-next/pull/6269))
+
+## 🌈 1.17.6 `2025-12-01` 
+
+### 🐞 Bug Fixes
+- `DatePicker`: 修复 1.16.0 版本后，日期区间选择器跨年时右侧面板月份错误同步变化的问题 @liweijie0812 @Copilot ([#6204](https://github.com/Tencent/tdesign-vue-next/pull/6204))
+
+
+## 🌈 1.17.5 `2025-11-28` 
+
+### 🐞 Bug Fixes
+- `Tree`: 修复 `1.17.3` 版本过滤中可选节点被错误禁用的问题 @RylanBot ([common#2345](https://github.com/Tencent/tdesign-common/pull/2345))  ([#6196](https://github.com/Tencent/tdesign-vue-next/pull/6196))
+
+
+## 🌈 1.17.4 `2025-11-28` 
+
+### 🚀 Features
+- `Table`: 优化通过分页操作后 Table 内容变化时的展示效果，分页器会锚定在当前视口 @RSS1102 ([#6172](https://github.com/Tencent/tdesign-vue-next/pull/6172))
+
+### 🐞 Bug Fixes
+- `Calendar`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `DatePicker`: 优化日期范围选择器的交互问题，避免先选择结束日期后需重复操作多次的问题 @mikasayw ([#6143](https://github.com/Tencent/tdesign-vue-next/pull/6143))
+- `Description`: 修复无边框模式下`itemLayout`垂直排列的间距问题 @mikasayw  ([#6156](https://github.com/Tencent/tdesign-vue-next/pull/6156))
+- `Input`: 
+  - 修正 input 及上层 select 等组件在 safari 中初次渲染 auto-width 失效的问题 @Cat1007 ([common#2336](https://github.com/Tencent/tdesign-common/pull/2336))  ([#6188](https://github.com/Tencent/tdesign-vue-next/pull/6188))
+  - 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `SelectInput`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `Slider`: 修复初始化时精度计算错误的问题 @RylanBot ([#6183](https://github.com/Tencent/tdesign-vue-next/pull/6183))
+- `Table`: 
+  - 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+  - 修复可编辑单元格在`keepEditMode`下没有正确在validateData回调展示的问题 @uyarn ([#5490](https://github.com/Tencent/tdesign-vue-next/pull/5490))
+- `TagInput`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `TreeSelect`: 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+- `Upload`: 
+    - 优化透传组件 props 事件的处理方式，修复透传的回调函数无法触发的问题 @Wesley-0808 ([#6157](https://github.com/Tencent/tdesign-vue-next/pull/6157))
+    - 修复不支持文件数组上传的问题 @GATING  ([#6169](https://github.com/Tencent/tdesign-vue-next/pull/6169))
+- `Table`: 修复分页受控模式下 `current` 属性手动变更不触发 `onPageChange` 的问题 @RSS1102 ([#6163](https://github.com/Tencent/tdesign-vue-next/pull/6163))
+
+### 📝 Documentation
+- `Calendar`: 补充`range`参数的用法示例 @shumuuu ([#6148](https://github.com/Tencent/tdesign-vue-next/pull/6148))
+
+
 ## 🌈 1.17.3 `2025-11-14` 
 
 ### 🚀 Features

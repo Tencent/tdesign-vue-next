@@ -23,6 +23,7 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useCommonClassName,
+  useEventForward,
 } from '@tdesign/shared-hooks';
 
 dayjs.extend(customParseFormat);
@@ -156,6 +157,17 @@ export default defineComponent({
       },
     );
 
+    const rangeInputEvents = useEventForward(props.rangeInputProps, {
+      onClear: handleClear,
+      onClick: handleClick,
+      onFocus: handleFocus,
+      onBlur: handleInputBlur,
+    });
+
+    const popupEvents = useEventForward(props.popupProps, {
+      onVisibleChange: handleShowPopup,
+    });
+
     return () => (
       <div class={COMPONENT_NAME.value}>
         <RangeInputPopup
@@ -166,8 +178,7 @@ export default defineComponent({
               width: 'auto',
               padding: 0,
             },
-            onVisibleChange: handleShowPopup,
-            ...props.popupProps,
+            ...popupEvents.value,
           }}
           onInputChange={handleInputChange}
           inputValue={isShowPanel.value ? currentValue.value : innerValue.value ?? TIME_PICKER_EMPTY}
@@ -179,13 +190,9 @@ export default defineComponent({
             placeholder: props.placeholder || [globalConfig.value.placeholder, globalConfig.value.placeholder],
             borderless: props.borderless,
             suffixIcon: () => <TimeIcon />,
-            onClear: handleClear,
-            onClick: handleClick,
-            onFocus: handleFocus,
-            onBlur: handleInputBlur,
             readonly: isReadOnly.value || !allowInput.value,
             activeIndex: currentPanelIdx.value,
-            ...props.rangeInputProps,
+            ...rangeInputEvents.value,
           }}
           label={props.label}
           status={props.status}
