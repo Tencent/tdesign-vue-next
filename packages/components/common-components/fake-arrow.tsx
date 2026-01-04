@@ -1,5 +1,6 @@
 import { defineComponent, PropType, computed, CSSProperties } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
+import { isSafari } from '@tdesign/common-js/utils/helper';
 
 // 统一使用的翻转箭头组件
 export default defineComponent({
@@ -21,6 +22,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('fake-arrow');
     const classes = computed(() => [
       COMPONENT_NAME.value,
+      isSafari() ? `${COMPONENT_NAME.value}--transform` : '',
       {
         [`${COMPONENT_NAME.value}--active`]: props.isActive,
       },
