@@ -500,7 +500,6 @@ export default defineComponent({
     return () => {
       const content = renderTNodeJSX('content');
       const hidePopup = props.hideEmptyPopup && ['', undefined, null].includes(content);
-
       const overlay =
         visible.value || !props.destroyOnClose ? (
           <div
