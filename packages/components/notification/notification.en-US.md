@@ -48,6 +48,8 @@ theme | String | info | required。options: info/success/warning/error。Typescr
 options | Object | - | required。Typescript: `NotificationOptions`
 context | \- | - | Typescript: `AppContext`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
 
+插件返回值：`Promise<NotificationInstance>`
+
 ### NotificationPlugin.info
 
 同时也支持 `this.$notification.info`。
@@ -56,6 +58,8 @@ name | params | default | description
 -- | -- | -- | --
 options | Object | - | required。Typescript: `NotificationInfoOptions` `type NotificationInfoOptions = Omit<NotificationOptions, 'theme'>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/notification/type.ts)
 context | \- | - | Typescript: `AppContext`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+
+插件返回值：`Promise<NotificationInstance>`
 
 ### NotificationPlugin.warning
 
@@ -66,6 +70,8 @@ name | params | default | description
 options | Object | - | required。Typescript: `NotificationInfoOptions`
 context | \- | - | Typescript: `AppContext`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
 
+插件返回值：`Promise<NotificationInstance>`
+
 ### NotificationPlugin.error
 
 同时也支持 `this.$notification.error`。
@@ -75,6 +81,8 @@ name | params | default | description
 options | Object | - | required。Typescript: `NotificationInfoOptions`
 context | \- | - | Typescript: `AppContext`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
 
+插件返回值：`Promise<NotificationInstance>`
+
 ### NotificationPlugin.success
 
 同时也支持 `this.$notification.success`。
@@ -83,6 +91,8 @@ name | params | default | description
 -- | -- | -- | --
 options | Object | - | required。Typescript: `NotificationInfoOptions`
 context | \- | - | Typescript: `AppContext`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+
+插件返回值：`Promise<NotificationInstance>`
 
 ### NotificationPlugin.close
 
