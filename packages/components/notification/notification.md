@@ -60,7 +60,10 @@ zIndex | Number | 6000 | 消息通知层级 | N
 -- | -- | -- | --
 theme | String | info | 必需。消息类型。可选项：info/success/warning/error。TS 类型：`NotificationThemeList`
 options | Object | - | 必需。消息通知内容。TS 类型：`NotificationOptions`
-context | \- | - | 要继承的应用的上下文。。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+context | \- | - | 要继承的应用的上下文。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+
+
+插件返回值：`Promise<NotificationInstance>`
 
 ### NotificationPlugin.info
 
@@ -69,7 +72,10 @@ context | \- | - | 要继承的应用的上下文。。TS 类型：`AppContext`�
 参数名称 | 参数类型 | 参数默认值 | 参数描述
 -- | -- | -- | --
 options | Object | - | 必需。消息通知内容。TS 类型：`NotificationInfoOptions` `type NotificationInfoOptions = Omit<NotificationOptions, 'theme'>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/notification/type.ts)
-context | \- | - | 要继承的应用的上下文。。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+context | \- | - | 要继承的应用的上下文。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+
+
+插件返回值：`Promise<NotificationInstance>`
 
 ### NotificationPlugin.warning
 
@@ -78,7 +84,10 @@ context | \- | - | 要继承的应用的上下文。。TS 类型：`AppContext`�
 参数名称 | 参数类型 | 参数默认值 | 参数描述
 -- | -- | -- | --
 options | Object | - | 必需。消息通知内容。TS 类型：`NotificationInfoOptions`
-context | \- | - | 要继承的应用的上下文。。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+context | \- | - | 要继承的应用的上下文。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+
+
+插件返回值：`Promise<NotificationInstance>`
 
 ### NotificationPlugin.error
 
@@ -87,7 +96,10 @@ context | \- | - | 要继承的应用的上下文。。TS 类型：`AppContext`�
 参数名称 | 参数类型 | 参数默认值 | 参数描述
 -- | -- | -- | --
 options | Object | - | 必需。消息通知内容。TS 类型：`NotificationInfoOptions`
-context | \- | - | 要继承的应用的上下文。。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+context | \- | - | 要继承的应用的上下文。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+
+
+插件返回值：`Promise<NotificationInstance>`
 
 ### NotificationPlugin.success
 
@@ -96,7 +108,10 @@ context | \- | - | 要继承的应用的上下文。。TS 类型：`AppContext`�
 参数名称 | 参数类型 | 参数默认值 | 参数描述
 -- | -- | -- | --
 options | Object | - | 必需。消息通知内容。TS 类型：`NotificationInfoOptions`
-context | \- | - | 要继承的应用的上下文。。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+context | \- | - | 要继承的应用的上下文。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+
+
+插件返回值：`Promise<NotificationInstance>`
 
 ### NotificationPlugin.close
 
