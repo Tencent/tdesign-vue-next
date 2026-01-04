@@ -22,8 +22,8 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('fake-arrow');
     const classes = computed(() => [
       COMPONENT_NAME.value,
-      isSafari() ? `${COMPONENT_NAME.value}--transform` : '',
       {
+        [`${COMPONENT_NAME.value}--transform`]: isSafari(),
         [`${COMPONENT_NAME.value}--active`]: props.isActive,
       },
       props.overlayClassName,
