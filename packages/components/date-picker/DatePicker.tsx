@@ -248,6 +248,7 @@ export default defineComponent({
       e.stopPropagation();
       popupVisible.value = false;
       onChange?.([], { dayjsValue: dayjs(), trigger: 'clear' });
+      props.onClear?.({ e });
     }
 
     // 头部快速切换
@@ -406,6 +407,7 @@ export default defineComponent({
       presetsPlacement: props.presetsPlacement,
       popupVisible: popupVisible.value,
       needConfirm: props.needConfirm,
+      disableTime: props.disableTime,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,

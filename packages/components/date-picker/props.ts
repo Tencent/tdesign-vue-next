@@ -23,6 +23,10 @@ export default {
   disableDate: {
     type: [Object, Array, Function] as PropType<TdDatePickerProps['disableDate']>,
   },
+  /** 禁用时间项的配置函数，仅在日期时间选择器中可用 */
+  disableTime: {
+    type: Function as PropType<TdDatePickerProps['disableTime']>,
+  },
   /** 是否禁用组件 */
   disabled: {
     type: Boolean,
@@ -67,12 +71,21 @@ export default {
     type: Boolean,
     default: true,
   },
+  /** 日期选择器中年月下拉框的选中值 */
+  panelActiveDate: {
+    type: Object as PropType<TdDatePickerProps['panelActiveDate']>,
+    default: undefined as TdDatePickerProps['panelActiveDate'],
+  },
+  /** 日期选择器中年月下拉框的选中值，非受控属性 */
+  defaultPanelActiveDate: {
+    type: Object as PropType<TdDatePickerProps['defaultPanelActiveDate']>,
+  },
   /** 占位符 */
   placeholder: {
     type: [String, Array] as PropType<TdDatePickerProps['placeholder']>,
     default: undefined as TdDatePickerProps['placeholder'],
   },
-  /** 透传给 popup 组件的参数 */
+  /** 透传 Popup 组件全部属性 */
   popupProps: {
     type: Object as PropType<TdDatePickerProps['popupProps']>,
   },
@@ -92,6 +105,10 @@ export default {
       if (!val) return true;
       return ['left', 'top', 'right', 'bottom'].includes(val);
     },
+  },
+  /** 日期可选择范围。示例：['2025-01-01', '2025-12-31'] 表示'2025-01-01'至'2025-12-31'为可选日期。值为`null`表示不限制，例如['2025-01-01', null]表示可选日期从'2025-01-01'开始，不限制结束。值类型为 Function 则表示返回值为 true 的日期为可选。 与`disableDate`共用时，`disableDate`优先级更高。 */
+  range: {
+    type: [Array, Function] as PropType<TdDatePickerProps['range']>,
   },
   /** 是否只读，优先级大于 allowInput */
   readonly: {
@@ -159,12 +176,16 @@ export default {
   onBlur: Function as PropType<TdDatePickerProps['onBlur']>,
   /** 选中值发生变化时触发 */
   onChange: Function as PropType<TdDatePickerProps['onChange']>,
+  /** 清空按钮点击时触发 */
+  onClear: Function as PropType<TdDatePickerProps['onClear']>,
   /** 如果存在“确定”按钮，则点击“确定”按钮时触发 */
   onConfirm: Function as PropType<TdDatePickerProps['onConfirm']>,
   /** 输入框获得焦点时触发 */
   onFocus: Function as PropType<TdDatePickerProps['onFocus']>,
   /** 月份切换发生变化时触发 */
   onMonthChange: Function as PropType<TdDatePickerProps['onMonthChange']>,
+  /** 年月下拉框选中值变化时触发 */
+  onPanelActiveDate: Function as PropType<TdDatePickerProps['onPanelActiveDate']>,
   /** 面板选中值后触发 */
   onPick: Function as PropType<TdDatePickerProps['onPick']>,
   /** 点击预设按钮后触发 */

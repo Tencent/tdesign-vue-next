@@ -21,13 +21,13 @@ export default {
     type: Array as PropType<TdDateRangePickerProps['defaultTime']>,
     default: (): TdDateRangePickerProps['defaultTime'] => ['00:00:00', '23:59:59'],
   },
-  /** 禁用时间项的配置函数，仅在日期区间选择器中开启时间展示时可用 */
-  disableTime: {
-    type: Function as PropType<TdDateRangePickerProps['disableTime']>,
-  },
   /** 禁用日期，示例：['A', 'B'] 表示日期 A 和日期 B 会被禁用。{ from: 'A', to: 'B' } 表示在 A 到 B 之间的日期会被禁用。{ before: 'A', after: 'B' } 表示在 A 之前和在 B 之后的日期都会被禁用。其中 A = '2021-01-01'，B = '2021-02-01'。值类型为 Function 则表示返回值为 true 的日期会被禁用 */
   disableDate: {
     type: [Object, Array, Function] as PropType<TdDateRangePickerProps['disableDate']>,
+  },
+  /** 禁用时间项的配置函数，仅在日期区间选择器中开启时间展示时可用 */
+  disableTime: {
+    type: Function as PropType<TdDateRangePickerProps['disableTime']>,
   },
   /** 是否禁用组件 */
   disabled: {
@@ -67,6 +67,15 @@ export default {
     type: Boolean,
     default: true,
   },
+  /** 日期选择器中年月下拉框的选中值 */
+  panelActiveDate: {
+    type: Object as PropType<TdDateRangePickerProps['panelActiveDate']>,
+    default: undefined as TdDateRangePickerProps['panelActiveDate'],
+  },
+  /** 日期选择器中年月下拉框的选中值，非受控属性 */
+  defaultPanelActiveDate: {
+    type: Object as PropType<TdDateRangePickerProps['defaultPanelActiveDate']>,
+  },
   /** 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期 */
   panelPreselection: {
     type: Boolean,
@@ -97,15 +106,16 @@ export default {
       return ['left', 'top', 'right', 'bottom'].includes(val);
     },
   },
+  /** 日期可选择范围。值为数组则第一项是开始面板的可选范围，第二项是结束面板的可选范围。示例：['2025-01-01', '2025-12-31'] 表示'2025-01-01'至'2025-12-31'为可选日期。值为`null`表示不限制，例如['2025-01-01', null]表示可选日期从'2025-01-01'开始，不限制结束。值类型为 Function 则表示返回值为 true 的日期为可选。 与`disableDate`共用时，`disableDate`优先级更高。 */
+  range: {
+    type: [Array, Function] as PropType<TdDateRangePickerProps['range']>,
+  },
   /** 透传给范围输入框 RangeInput 组件的参数 */
   rangeInputProps: {
     type: Object as PropType<TdDateRangePickerProps['rangeInputProps']>,
   },
-  /** 只读状态 */
-  readonly: {
-    type: Boolean,
-    default: undefined,
-  },
+  /** 是否只读，优先级大于 `allowInput` */
+  readonly: Boolean,
   /** 日期分隔符，支持全局配置，默认为 '-' */
   separator: {
     type: String,
@@ -185,6 +195,8 @@ export default {
   onInput: Function as PropType<TdDateRangePickerProps['onInput']>,
   /** 月份切换发生变化时触发 */
   onMonthChange: Function as PropType<TdDateRangePickerProps['onMonthChange']>,
+  /** 年月下拉框选中值变化时触发 */
+  onPanelActiveDate: Function as PropType<TdDateRangePickerProps['onPanelActiveDate']>,
   /** 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期 */
   onPick: Function as PropType<TdDateRangePickerProps['onPick']>,
   /** 点击预设按钮后触发 */

@@ -11,6 +11,7 @@ borderless | Boolean | false | 无边框模式 | N
 clearable | Boolean | false | 是否显示清除按钮 | N
 defaultTime | String | '00:00:00' | 时间选择器默认值，当 value/defaultValue 未设置值时有效 | N
 disableDate | Object / Array / Function | - | 禁用日期，示例：['A', 'B'] 表示日期 A 和日期 B 会被禁用。`{ from: 'A', to: 'B' }` 表示在 A 到 B 之间的日期会被禁用。`{ before: 'A', after: 'B' }` 表示在 A 之前和在 B 之后的日期都会被禁用。其中 A = '2021-01-01'，B = '2021-02-01'。值类型为 Function 则表示返回值为 true 的日期会被禁用。TS 类型：`DisableDate` `type DisableDate = Array<DateValue> \| DisableDateObj \| ((date: DateValue) => boolean)` `interface DisableDateObj { from?: string; to?: string; before?: string; after?: string }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
+disableTime | Function | - | 禁用时间项的配置函数，仅在日期时间选择器中可用。TS 类型：`(time: Date) => Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number>, millisecond: Array<number> }>` | N
 disabled | Boolean | undefined | 是否禁用组件 | N
 enableTimePicker | Boolean | false | 是否显示时间选择 | N
 firstDayOfWeek | Number | 7 | 第一天从星期几开始。可选项：1/2/3/4/5/6/7 | N
@@ -20,11 +21,13 @@ label | String / Slot / Function | - | 左侧文本。TS 类型：`string \| TNo
 mode | String | date | 选择器模式。可选项：year/quarter/month/week/date | N
 multiple | Boolean | false | 支持多选日期，但不支持在range-picker中，或与enableTimePicker、allowInput 一起使用。TS 类型：`boolean` | N
 needConfirm | Boolean | true | 决定在日期时间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为`true` | N
+panelActiveDate | Object | - | 日期选择器中年月下拉框的选中值。支持语法糖 `v-model:panelActiveDate`。TS 类型：`PanelActiveDate` `interface PanelActiveDate {year?: DateValue, month?: DateValue}`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 placeholder | String / Array | undefined | 占位符。TS 类型：`string` | N
 popupProps | Object | - | 透传 Popup 组件全部属性。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 prefixIcon | Slot / Function | - | 用于自定义组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 presets | Object | - | 预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`。TS 类型：`PresetDate` `interface PresetDate { [name: string]: DateValue \| (() => DateValue) }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 presetsPlacement | String | bottom | 预设面板展示区域（包含确定按钮）。可选项：left/top/right/bottom | N
+range | Array / Function | - | 日期可选择范围。示例：['2025-01-01', '2025-12-31'] 表示'2025-01-01'至'2025-12-31'为可选日期。值为`null`表示不限制，例如['2025-01-01', null]表示可选日期从'2025-01-01'开始，不限制结束。值类型为 Function 则表示返回值为 true 的日期为可选。 与`disableDate`共用时，`disableDate`优先级更高。。TS 类型：`PickerDateRange` `type PickerDateRange = DateValue[] \| ((date: DateValue) => boolean)`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 readonly | Boolean | undefined | 是否只读，优先级大于 allowInput | N
 selectInputProps | Object | - | 透传 SelectInput 筛选器输入框组件的全部属性。TS 类型：`SelectInputProps`，[SelectInput API Documents](./select-input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 size | String | medium | 输入框尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
@@ -37,10 +40,12 @@ defaultValue | String / Number / Array / Date | '' | 选中值。非受控属性
 valueDisplay | String / Slot / Function | - | 自定义选中项呈现的内容。TS 类型：`string \| TNode<{ value: DateValue; displayValue?: DateValue }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 valueType | String | - | 用于格式化日期的值，仅支持部分格式，时间戳、日期等。⚠️ `YYYYMMDD` 这种格式不支持，请勿使用，如果希望支持可以给 `dayjs` 提个 PR。注意和 `format` 的区别，`format` 仅用于处理日期在页面中呈现的格式。`ValueTypeEnum` 即将废弃，请更为使用 `DatePickerValueType`。TS 类型：`DatePickerValueType` `type DatePickerValueType = 'time-stamp' \| 'Date' \| 'YYYY' \| 'YYYY-MM' \| 'YYYY-MM-DD' \| 'YYYY-MM-DD HH' \| 'YYYY-MM-DD HH:mm' \| 'YYYY-MM-DD HH:mm:ss' \| 'YYYY-MM-DD HH:mm:ss:SSS'` `type ValueTypeEnum = DatePickerValueType`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 onBlur | Function |  | TS 类型：`(context: { value: DateValue \| DateMultipleValue; e: FocusEvent }) => void`<br/>当输入框失去焦点时触发 | N
-onChange | Function |  | TS 类型：`(value: DateValue\| DateMultipleValue, context: { dayjsValue?: Dayjs, trigger?: DatePickerTriggerSource }) => void`<br/>选中值发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`import { Dayjs } from 'dayjs'`<br/><br/>`type DatePickerTriggerSource = 'confirm' \| 'pick' \| 'enter' \| 'preset' \| 'clear'`<br/> | N
+onChange | Function |  | TS 类型：`(value: DateValue\| DateMultipleValue, context: { dayjsValue?: Dayjs, trigger?: DatePickerTriggerSource }) => void`<br/>选中值发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`import { Dayjs } from 'dayjs'`<br/><br/>`type DatePickerTriggerSource = 'confirm' \| 'pick' \| 'enter' \| 'preset' \| 'clear' \| 'tag-remove'`<br/> | N
+onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>清空按钮点击时触发 | N
 onConfirm | Function |  | TS 类型：`(context: { date: Date, e: MouseEvent }) => void`<br/>如果存在“确定”按钮，则点击“确定”按钮时触发 | N
 onFocus | Function |  | TS 类型：`(context: { value: DateValue \| DateMultipleValue; e: FocusEvent }) => void`<br/>输入框获得焦点时触发 | N
 onMonthChange | Function |  | TS 类型：`(context: { month: number, date: Date, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger }) => void`<br/>月份切换发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerMonthChangeTrigger = 'month-select' \| 'month-arrow-next' \| 'month-arrow-previous' \| 'today'`<br/> | N
+onPanelActiveDate | Function |  | TS 类型：`(value: number \| Date, context: { trigger: DatePickerPanelActiveDate, e?: MouseEvent }) => void`<br/>年月下拉框选中值变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerPanelActiveDate = DatePickerMonthChangeTrigger \| DatePickerYearChangeTrigger`<br/> | N
 onPick | Function |  | TS 类型：`(value: DateValue) => void`<br/>面板选中值后触发 | N
 onPresetClick | Function |  | TS 类型：`(context: { preset: PresetDate, e: MouseEvent }) => void`<br/>点击预设按钮后触发 | N
 onYearChange | Function |  | TS 类型：`(context: { year: number, date: Date, trigger: DatePickerYearChangeTrigger, e?: MouseEvent }) => void`<br/>年份切换发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerYearChangeTrigger = 'year-select' \| 'year-arrow-next' \| 'year-arrow-previous' \| 'today'`<br/> | N
@@ -50,13 +55,16 @@ onYearChange | Function |  | TS 类型：`(context: { year: number, date: Date, 
 名称 | 参数 | 描述
 -- | -- | --
 blur | `(context: { value: DateValue \| DateMultipleValue; e: FocusEvent })` | 当输入框失去焦点时触发
-change | `(value: DateValue\| DateMultipleValue, context: { dayjsValue?: Dayjs, trigger?: DatePickerTriggerSource })` | 选中值发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`import { Dayjs } from 'dayjs'`<br/><br/>`type DatePickerTriggerSource = 'confirm' \| 'pick' \| 'enter' \| 'preset' \| 'clear'`<br/>
+change | `(value: DateValue\| DateMultipleValue, context: { dayjsValue?: Dayjs, trigger?: DatePickerTriggerSource })` | 选中值发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`import { Dayjs } from 'dayjs'`<br/><br/>`type DatePickerTriggerSource = 'confirm' \| 'pick' \| 'enter' \| 'preset' \| 'clear' \| 'tag-remove'`<br/>
+clear | `(context: { e: MouseEvent })` | 清空按钮点击时触发
 confirm | `(context: { date: Date, e: MouseEvent })` | 如果存在“确定”按钮，则点击“确定”按钮时触发
 focus | `(context: { value: DateValue \| DateMultipleValue; e: FocusEvent })` | 输入框获得焦点时触发
 month-change | `(context: { month: number, date: Date, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger })` | 月份切换发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerMonthChangeTrigger = 'month-select' \| 'month-arrow-next' \| 'month-arrow-previous' \| 'today'`<br/>
+panel-active-date | `(value: number \| Date, context: { trigger: DatePickerPanelActiveDate, e?: MouseEvent })` | 年月下拉框选中值变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerPanelActiveDate = DatePickerMonthChangeTrigger \| DatePickerYearChangeTrigger`<br/>
 pick | `(value: DateValue)` | 面板选中值后触发
 preset-click | `(context: { preset: PresetDate, e: MouseEvent })` | 点击预设按钮后触发
 year-change | `(context: { year: number, date: Date, trigger: DatePickerYearChangeTrigger, e?: MouseEvent })` | 年份切换发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerYearChangeTrigger = 'year-select' \| 'year-arrow-next' \| 'year-arrow-previous' \| 'today'`<br/>
+
 
 ### DateRangePicker Props
 
@@ -76,14 +84,16 @@ format | String | - | 用于格式化日期，[详细文档](https://day.js.org/
 label | String / Slot / Function | - | 左侧文本。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 mode | String | date | 选择器模式。可选项：year/quarter/month/week/date | N
 needConfirm | Boolean | true | 决定在日期时间区间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为 `true` | N
+panelActiveDate | Object | - | 日期选择器中年月下拉框的选中值。支持语法糖 `v-model:panelActiveDate`。TS 类型：`PanelActiveDate \| [PanelActiveDate, PanelActiveDate]` `interface PanelActiveDate {year?: DateValue, month?: DateValue}`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 panelPreselection | Boolean | true | 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期 | N
 placeholder | String / Array | - | 占位符，值为数组表示可分别为开始日期和结束日期设置占位符。TS 类型：`string \| Array<string>` | N
 popupProps | Object | - | 透传 Popup 组件全部属性。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 presets | Object | - | 预设快捷日期选择，示例：{ '特定日期范围': ['2021-01-01', '2022-01-01'], '本月': [dayjs().startOf('month'), dayjs().endOf('month')] }。TS 类型：`PresetRange` `interface PresetRange { [range: string]: DateRange \| (() => DateRange)}` `type DateRange = [DateValue, DateValue]`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 presetsPlacement | String | bottom | 预设面板展示区域（包含确定按钮）。可选项：left/top/right/bottom | N
-readonly | Boolean | undefined | 是否只读，优先级大于 `allowInput` | N
+range | Array / Function | - | 日期可选择范围。值为数组则第一项是开始面板的可选范围，第二项是结束面板的可选范围。示例：['2025-01-01', '2025-12-31'] 表示'2025-01-01'至'2025-12-31'为可选日期。值为`null`表示不限制，例如['2025-01-01', null]表示可选日期从'2025-01-01'开始，不限制结束。值类型为 Function 则表示返回值为 true 的日期为可选。 与`disableDate`共用时，`disableDate`优先级更高。。TS 类型：`PickerDateRange \| PickerDateRange[]` `type PickerDateRange = DateValue[] \| ((date: DateValue) => boolean)`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 rangeInputProps | Object | - | 透传给范围输入框 RangeInput 组件的参数。TS 类型：`RangeInputProps`，[RangeInput API Documents](./range-input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
+readonly | Boolean | - | 是否只读，优先级大于 `allowInput` | N
 separator | String | - | 日期分隔符，支持全局配置，默认为 '-' | N
 size | String | medium | 输入框尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 status | String | default | 输入框状态。可选项：default/success/warning/error | N
@@ -98,10 +108,12 @@ onChange | Function |  | TS 类型：`(value: DateRangeValue, context: { dayjsVa
 onConfirm | Function |  | TS 类型：`(context: { date: Date[], e: MouseEvent, partial: DateRangePickerPartial }) => void`<br/>如果存在“确定”按钮，则点击“确定”按钮时触发 | N
 onFocus | Function |  | TS 类型：`(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent }) => void`<br/>输入框获得焦点时触发 | N
 onInput | Function |  | TS 类型：`(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent }) => void`<br/>输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值 | N
-onMonthChange | Function |  | TS 类型：`(context: { month: number, date: Date[], partial: DateRangePickerPartial, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger }) => void`<br/>月份切换发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerMonthChangeTrigger = 'month-select' \| 'month-arrow-next' \| 'month-arrow-previous' \| 'today'`<br/> | N
+onMonthChange | Function |  | TS 类型：`(context: { month: number, date: Date[], partial: DateRangePickerPartial, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger }) => void`<br/>月份切换发生变化时触发 | N
+onPanelActiveDate | Function |  | TS 类型：`(value: number \| Date, context: { partial: DateRangePickerPartial, trigger: DatePickerPanelActiveDate, e?: MouseEvent }) => void`<br/>年月下拉框选中值变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerPanelActiveDate = DatePickerMonthChangeTrigger \| DatePickerYearChangeTrigger`<br/> | N
 onPick | Function |  | TS 类型：`(value: DateValue, context: PickContext) => void`<br/>选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`interface PickContext { e: MouseEvent; partial: DateRangePickerPartial }`<br/> | N
 onPresetClick | Function |  | TS 类型：`(context: { preset: PresetDate, e: MouseEvent }) => void`<br/>点击预设按钮后触发 | N
-onYearChange | Function |  | TS 类型：`(context: { year: number, date: Date[], partial: DateRangePickerPartial, trigger: DatePickerYearChangeTrigger, e?: MouseEvent }) => void`<br/>年份切换发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerYearChangeTrigger = 'year-select' \| 'year-arrow-next' \| 'year-arrow-previous' \| 'today'`<br/> | N
+onYearChange | Function |  | TS 类型：`(context: { year: number, date: Date[], partial: DateRangePickerPartial, trigger: DatePickerYearChangeTrigger, e?: MouseEvent }) => void`<br/>年份切换发生变化时触发 | N
+
 ### DateRangePicker Events
 
 名称 | 参数 | 描述
@@ -111,17 +123,19 @@ change | `(value: DateRangeValue, context: { dayjsValue?: Dayjs[], trigger?: Dat
 confirm | `(context: { date: Date[], e: MouseEvent, partial: DateRangePickerPartial })` | 如果存在“确定”按钮，则点击“确定”按钮时触发
 focus | `(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent })` | 输入框获得焦点时触发
 input | `(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent })` | 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
-month-change | `(context: { month: number, date: Date[], partial: DateRangePickerPartial, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger })` | 月份切换发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerMonthChangeTrigger = 'month-select' \| 'month-arrow-next' \| 'month-arrow-previous' \| 'today'`<br/>
+month-change | `(context: { month: number, date: Date[], partial: DateRangePickerPartial, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger })` | 月份切换发生变化时触发
+panel-active-date | `(value: number \| Date, context: { partial: DateRangePickerPartial, trigger: DatePickerPanelActiveDate, e?: MouseEvent })` | 年月下拉框选中值变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerPanelActiveDate = DatePickerMonthChangeTrigger \| DatePickerYearChangeTrigger`<br/>
 pick | `(value: DateValue, context: PickContext)` | 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`interface PickContext { e: MouseEvent; partial: DateRangePickerPartial }`<br/>
 preset-click | `(context: { preset: PresetDate, e: MouseEvent })` | 点击预设按钮后触发
-year-change | `(context: { year: number, date: Date[], partial: DateRangePickerPartial, trigger: DatePickerYearChangeTrigger, e?: MouseEvent })` | 年份切换发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerYearChangeTrigger = 'year-select' \| 'year-arrow-next' \| 'year-arrow-previous' \| 'today'`<br/>
+year-change | `(context: { year: number, date: Date[], partial: DateRangePickerPartial, trigger: DatePickerYearChangeTrigger, e?: MouseEvent })` | 年份切换发生变化时触发
+
 
 ### DatePickerPanel Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 defaultTime | String | '00:00:00' | 时间选择器默认值，当 value/defaultValue 未设置值时有效 | N
-`Pick<DatePickerProps, 'value' \| 'defaultValue' \| 'disableDate' \| 'enableTimePicker' \| 'firstDayOfWeek' \| 'format' \| 'mode' \| 'presets' \| 'presetsPlacement' \| 'timePickerProps'>` | \- | - | 继承 `Pick<DatePickerProps, 'value' \| 'defaultValue' \| 'disableDate' \| 'enableTimePicker' \| 'firstDayOfWeek' \| 'format' \| 'mode' \| 'presets' \| 'presetsPlacement' \| 'timePickerProps'>` 中的全部属性 | N
+`Pick<DatePickerProps, 'value' \| 'defaultValue' \| 'disableDate' \| 'disableTime' \| 'enableTimePicker' \| 'firstDayOfWeek' \| 'format' \| 'mode' \| 'presets' \| 'presetsPlacement' \| 'timePickerProps' \| 'needConfirm'>` | \- | - | 继承 `Pick<DatePickerProps, 'value' \| 'defaultValue' \| 'disableDate' \| 'disableTime' \| 'enableTimePicker' \| 'firstDayOfWeek' \| 'format' \| 'mode' \| 'presets' \| 'presetsPlacement' \| 'timePickerProps' \| 'needConfirm'>` 中的全部属性 | N
 onCellClick | Function |  | TS 类型：`(context: { date: Date, e: MouseEvent }) => void`<br/>点击日期单元格时触发 | N
 onChange | Function |  | TS 类型：`(value: DateValue, context: { dayjsValue?: Dayjs, e?: MouseEvent, trigger?: DatePickerTriggerSource }) => void`<br/>选中值发生变化时触发。参数 `context.trigger` 表示触发当前事件的来源，不同的模式触发来源也会不同 | N
 onConfirm | Function |  | TS 类型：`(context: { date: Date, e: MouseEvent }) => void`<br/>如果存在“确定”按钮，则点击“确定”按钮时触发 | N

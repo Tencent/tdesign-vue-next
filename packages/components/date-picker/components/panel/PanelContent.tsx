@@ -37,7 +37,7 @@ export default defineComponent({
     onTimePickerChange: Function,
     value: [String, Number, Array, Date],
     internalYear: Array as PropType<Array<number>>,
-    disableTime: Function as PropType<TdDateRangePickerProps['disableTime']>,
+    disableTime: Function,
     defaultTime: [String, Array] as PropType<TdDatePickerProps['defaultTime'] | TdDateRangePickerProps['defaultTime']>,
   },
   setup(props) {
@@ -57,12 +57,20 @@ export default defineComponent({
       const startValue = isArray(props.value) ? props.value[0] : props.value;
       const endValue = isArray(props.value) ? props.value[1] : props.value;
 
+      const isRangePicker = props.partial;
+
+      if (!isRangePicker) {
+        return props.disableTime(
+          parseToDateTime(startValue as DateValue, props.format),
+        ) as TdDatePickerProps['disableTime'];
+      }
+
       return props.disableTime(
         [parseToDateTime(startValue as DateValue, props.format), parseToDateTime(endValue as DateValue, props.format)],
         {
-          partial: props.partial as DateRangePickerPartial,
+          partial: props.partial,
         },
-      );
+      ) as TdDateRangePickerProps['disableTime'];
     };
 
     const defaultTimeValue = '00:00:00';
