@@ -3,7 +3,7 @@
 exports[`Image-viewer > :props > defaultVisible 1`] = `
 <div
   class="t-image-viewer t-image-viewer-preview-image"
-  style="z-index: 2600;"
+  style="z-index: 3000;"
   tabindex="-1"
 >
   <div
@@ -311,7 +311,6 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
   <div
     class="t-image-viewer__modal-index"
   >
-    <!---->
     2/3
   </div>
   <div
@@ -662,14 +661,14 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
         class="t-image-viewer__modal-image"
         draggable="false"
         src="https://tdesign.gtimg.com/demo/demo-image-2.png"
-        style="transform: rotate(0deg) scale(1); display: block;"
+        style="transform: rotate(0deg); display: block;"
       />
       <img
         alt="image"
         class="t-image-viewer__modal-image"
         draggable="false"
         src="https://tdesign.gtimg.com/demo/demo-image-2.png"
-        style="transform: rotate(0deg) scale(1); display: none;"
+        style="transform: rotate(0deg); display: none;"
       />
       <!---->
     </div>

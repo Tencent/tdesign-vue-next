@@ -10,7 +10,7 @@ const destPath = joinWorkspaceRoot(CATALOG_PATH);
 const yamlContent = readFileSync(sourcePath, 'utf-8');
 const documents = parse(yamlContent);
 writeFileSync(destPath, `export const catalogs = ${JSON.stringify(documents.catalogs, null, 2)}`);
-run(`npx prettier --write ${CATALOG_PATH}`, { cwd: joinWorkspaceRoot() });
+run(`pnpm exec prettier --write ${CATALOG_PATH}`, { cwd: joinWorkspaceRoot() });
 
 // 2. rollup.config.ts
-run('npx rollup -c rollup.config.ts', { cwd: joinWorkspaceRoot('internal/utils') });
+run('pnpm exec rollup -c rollup.config.ts', { cwd: joinWorkspaceRoot('internal/utils') });

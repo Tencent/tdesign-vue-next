@@ -284,6 +284,7 @@ export default defineComponent({
           firstValue.value = newVal as number;
         }
       },
+      { deep: true },
     );
 
     watch([firstValue, secondValue, dragging], (newStates, prevStates) => {
