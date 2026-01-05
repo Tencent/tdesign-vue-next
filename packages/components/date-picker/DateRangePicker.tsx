@@ -19,7 +19,7 @@ import {
   initYearMonthTime,
 } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
-import { dateCorrection } from './utils';
+import { dateCorrection, triggerMap } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePicker',
@@ -200,10 +200,6 @@ export default defineComponent({
       trigger: 'prev' | 'next' | 'current';
       partial: DateRangePickerPartial;
     }) {
-      const triggerMap = {
-        prev: 'arrow-previous',
-        next: 'arrow-next',
-      };
       const partialIndex = partial === 'start' ? 0 : 1;
 
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };

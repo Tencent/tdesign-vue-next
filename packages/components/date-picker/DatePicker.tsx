@@ -19,6 +19,7 @@ import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';
+import { triggerMap } from './utils';
 
 import type {
   TdDatePickerProps,
@@ -251,10 +252,6 @@ export default defineComponent({
 
     // 头部快速切换
     function onJumperClick({ trigger }: { trigger: 'prev' | 'next' | 'current' }) {
-      const triggerMap = {
-        prev: 'arrow-previous',
-        next: 'arrow-next',
-      };
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
 
