@@ -19,8 +19,15 @@ import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';
+import { triggerMap } from './utils';
 
-import type { TdDatePickerProps, DateMultipleValue, DateValue } from './type';
+import type {
+  TdDatePickerProps,
+  DateMultipleValue,
+  DateValue,
+  DatePickerYearChangeTrigger,
+  DatePickerMonthChangeTrigger,
+} from './type';
 import type { TagInputRemoveContext } from '../tag-input';
 
 export default defineComponent({
@@ -244,7 +251,7 @@ export default defineComponent({
     }
 
     // 头部快速切换
-    function onJumperClick({ trigger }: { trigger: string }) {
+    function onJumperClick({ trigger }: { trigger: 'prev' | 'next' | 'current' }) {
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
 
@@ -262,8 +269,29 @@ export default defineComponent({
       const nextYear = next.getFullYear();
       const nextMonth = next.getMonth();
 
+      const yearChanged = year.value !== nextYear;
+      const monthChanged = month.value !== nextMonth;
+
       year.value = nextYear;
       month.value = nextMonth;
+
+      // 触发年份变化事件
+      if (yearChanged) {
+        props.onYearChange?.({
+          year: nextYear,
+          date: new Date(nextYear, nextMonth),
+          trigger: trigger === 'current' ? 'today' : (`year-${triggerMap[trigger]}` as DatePickerYearChangeTrigger),
+        });
+      }
+
+      // 触发月份变化事件
+      if (monthChanged) {
+        props.onMonthChange?.({
+          month: nextMonth,
+          date: new Date(nextYear, nextMonth),
+          trigger: trigger === 'current' ? 'today' : (`month-${triggerMap[trigger]}` as DatePickerMonthChangeTrigger),
+        });
+      }
     }
 
     // timePicker 点击
@@ -344,10 +372,22 @@ export default defineComponent({
 
     function onYearChange(nextYear: number) {
       year.value = nextYear;
+
+      props.onYearChange?.({
+        year: nextYear,
+        date: dayjs(value.value as DateValue).toDate(),
+        trigger: 'year-select',
+      });
     }
 
     function onMonthChange(nextMonth: number) {
       month.value = nextMonth;
+
+      props.onMonthChange?.({
+        month: nextMonth,
+        date: dayjs(value.value as DateValue).toDate(),
+        trigger: 'month-select',
+      });
     }
 
     const panelProps = computed(() => ({

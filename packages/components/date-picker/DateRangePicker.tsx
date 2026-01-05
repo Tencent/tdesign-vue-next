@@ -5,7 +5,7 @@ import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks'
 import { isArray, isFunction } from 'lodash-es';
 
 import props from './date-range-picker-props';
-import { DateValue, DateRangePickerPartial } from './type';
+import { DateValue, DateRangePickerPartial, DatePickerYearChangeTrigger, DatePickerMonthChangeTrigger } from './type';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
 import TRangePanel from './components/panel/RangePanel';
@@ -19,7 +19,7 @@ import {
   initYearMonthTime,
 } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
-import { dateCorrection } from './utils';
+import { dateCorrection, triggerMap } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePicker',
@@ -193,7 +193,13 @@ export default defineComponent({
     }
 
     // 头部快速切换
-    function onJumperClick({ trigger, partial }: { trigger: string; partial: DateRangePickerPartial }) {
+    function onJumperClick({
+      trigger,
+      partial,
+    }: {
+      trigger: 'prev' | 'next' | 'current';
+      partial: DateRangePickerPartial;
+    }) {
       const partialIndex = partial === 'start' ? 0 : 1;
 
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
@@ -220,8 +226,31 @@ export default defineComponent({
       nextYear = correctedDate.nextYear;
       nextMonth = correctedDate.nextMonth;
 
+      const yearChanged = year.value[partialIndex] !== nextYear[partialIndex];
+      const monthChanged = month.value[partialIndex] !== nextMonth[partialIndex];
+
       year.value = nextYear;
       month.value = nextMonth;
+
+      // 触发年份变化事件
+      if (yearChanged) {
+        props.onYearChange?.({
+          partial,
+          year: nextYear[partialIndex],
+          date: value.value.map((v) => dayjs(v).toDate()),
+          trigger: trigger === 'current' ? 'today' : (`year-${triggerMap[trigger]}` as DatePickerYearChangeTrigger),
+        });
+      }
+
+      // 触发月份变化事件
+      if (monthChanged) {
+        props.onMonthChange?.({
+          partial,
+          month: nextMonth[partialIndex],
+          date: value.value.map((v) => dayjs(v).toDate()),
+          trigger: trigger === 'current' ? 'today' : (`month-${triggerMap[trigger]}` as DatePickerMonthChangeTrigger),
+        });
+      }
     }
 
     // time-picker 点击
@@ -355,6 +384,13 @@ export default defineComponent({
 
       year.value = nextYear;
       if (!onlyYearSelect) month.value = nextMonth;
+
+      props.onYearChange?.({
+        partial,
+        year: nextYear[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
+        trigger: 'year-select',
+      });
     }
 
     function onMonthChange(nextVal: number, { partial }: { partial: DateRangePickerPartial }) {
@@ -391,6 +427,13 @@ export default defineComponent({
       }
 
       month.value = nextMonth;
+
+      props.onMonthChange?.({
+        partial,
+        month: nextMonth[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
+        trigger: 'month-select',
+      });
     }
 
     const panelProps = computed(() => ({
