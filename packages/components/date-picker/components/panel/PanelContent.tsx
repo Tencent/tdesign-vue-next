@@ -1,7 +1,7 @@
 import { defineComponent, PropType } from 'vue';
 import { isFunction, isArray } from 'lodash-es';
 import { usePrefixClass } from '@tdesign/shared-hooks';
-import type { TdDatePickerProps, TdDateRangePickerProps, DateRangePickerPartial } from '../../type';
+import type { TdDatePickerProps, TdDateRangePickerProps } from '../../type';
 
 import TDateHeader from '../base/Header';
 import TDateTable from '../base/Table';
