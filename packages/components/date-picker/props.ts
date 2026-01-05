@@ -163,12 +163,12 @@ export default {
   onConfirm: Function as PropType<TdDatePickerProps['onConfirm']>,
   /** 输入框获得焦点时触发 */
   onFocus: Function as PropType<TdDatePickerProps['onFocus']>,
+  /** 月份切换发生变化时触发 */
+  onMonthChange: Function as PropType<TdDatePickerProps['onMonthChange']>,
   /** 面板选中值后触发 */
   onPick: Function as PropType<TdDatePickerProps['onPick']>,
   /** 点击预设按钮后触发 */
   onPresetClick: Function as PropType<TdDatePickerProps['onPresetClick']>,
-  /** 月份切换发生变化时触发 */
-  onMonthChange: Function as PropType<TdDatePickerProps['onMonthChange']>,
   /** 年份切换发生变化时触发 */
   onYearChange: Function as PropType<TdDatePickerProps['onYearChange']>,
 };
