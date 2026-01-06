@@ -456,7 +456,7 @@ export default defineComponent({
           maxWidth: 300,
           ...(props.tagProps as TdTreeSelectProps['tagProps']),
         }}
-        label={() => renderTNodeJSX('prefixIcon')}
+        label={() => renderTNodeJSX('label') || renderTNodeJSX('prefixIcon')}
         suffix={props.suffix}
         suffixIcon={() => {
           if (props.suffixIcon || slots.suffixIcon) {

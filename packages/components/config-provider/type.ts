@@ -234,9 +234,8 @@ export interface CalendarConfig {
   monthRadio?: string;
   /**
    * 语言配置，“月”选择描述文本。示例：`'{month} 月'`
-   * @default ''
    */
-  monthSelection?: string;
+  monthSelection?: string | ((data: { month: number }) => string);
   /**
    * 语言配置，“显示周末”描述文本
    * @default ''
@@ -652,15 +651,15 @@ export interface ImageViewerConfig {
    */
   originalSizeTipText?: string;
   /**
-   * 全局语言配置，默认为 “旋转”
-   * @default ''
-   */
-  rotateTipText?: string;
-  /**
    * 全局语言配置，默认为 “预览”
    * @default ''
    */
   previewText?: string;
+  /**
+   * 全局语言配置，默认为 “旋转”
+   * @default ''
+   */
+  rotateTipText?: string;
 }
 
 export interface InputConfig {
