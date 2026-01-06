@@ -408,6 +408,7 @@ export default defineComponent({
       popupVisible: popupVisible.value,
       needConfirm: props.needConfirm,
       disableTime: props.disableTime,
+      range: props.range,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,

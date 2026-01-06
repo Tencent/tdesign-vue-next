@@ -32,6 +32,7 @@ export default defineComponent({
     multiple: Boolean,
     needConfirm: Boolean,
     defaultTime: [String, Array] as PropType<TdDatePickerProps['defaultTime']>,
+    range: [Array, Function] as PropType<TdDatePickerProps['range']>,
     onPanelClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -42,7 +43,7 @@ export default defineComponent({
     onYearChange: Function,
     onMonthChange: Function,
     onTimePickerChange: Function,
-    disableTime: Function as PropType<TdDatePickerProps['disableTime']>,
+    disableTime: Function,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
@@ -64,11 +65,13 @@ export default defineComponent({
         disableDate: props.disableDate,
       }),
     );
+
     const tableData = computed(() =>
       useTableData({
         year: props.year,
         month: props.month,
         mode: props.mode,
+        range: props.range,
         start: props.value
           ? parseToDayjs(
               props.multiple ? (props.value as DateMultipleValue)[0] : (props.value as DateValue),
@@ -88,6 +91,7 @@ export default defineComponent({
       mode: props.mode,
       year: props.year,
       month: props.month,
+      range: props.range,
       firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
       tableData: tableData.value,
       popupVisible: props.popupVisible,

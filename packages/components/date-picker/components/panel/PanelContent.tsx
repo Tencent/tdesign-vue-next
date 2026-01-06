@@ -22,6 +22,7 @@ export default defineComponent({
     },
     year: Number,
     month: Number,
+    range: [Array, Function] as PropType<TdDatePickerProps['range']>,
     tableData: Array,
     time: String,
     multiple: Boolean,
@@ -82,6 +83,7 @@ export default defineComponent({
             mode={props.mode}
             year={props.year}
             month={props.month}
+            range={props.range}
             internalYear={props.internalYear}
             partial={props.partial}
             onMonthChange={(val: number) => props.onMonthChange?.(val, { partial: props.partial })}
