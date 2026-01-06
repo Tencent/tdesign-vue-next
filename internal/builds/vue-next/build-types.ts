@@ -40,11 +40,11 @@ const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
     },
   });
 
-  // 2. 替换 @tdesign/common-js 为 tdesign-vue-next/common/js
+  // 2. 替换 @tdesign/utils 为 tdesign-vue-next/common/js
   const dtsPaths = await glob(`${joinPosix(targetDir, '**/*.d.ts')}`);
   const rewrite = dtsPaths.map(async (filePath) => {
     const content = await readFile(filePath, 'utf8');
-    await writeFile(filePath, content.replace(/@tdesign\/common-js/g, `tdesign-vue-next/${target}/common/js`), 'utf8');
+    await writeFile(filePath, content.replace(/@tdesign\/utils/g, `tdesign-vue-next/${target}/common/js`), 'utf8');
   });
   await Promise.all(rewrite);
 };

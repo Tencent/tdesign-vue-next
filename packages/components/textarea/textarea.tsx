@@ -31,7 +31,7 @@ import { useLengthLimit } from '../input/hooks/useLengthLimit';
 import props from './props';
 import type { TextareaValue, TdTextareaProps } from './type';
 
-import calcTextareaHeight from '@tdesign/utils/common';
+import { calcTextareaHeight } from '@tdesign/utils/common';
 
 export default defineComponent({
   name: 'TTextarea',

@@ -4,7 +4,7 @@ import * as Vue from 'vue';
 import { Ref, SetupContext, ToRefs, VNode, PropType, ComponentPublicInstance, UnwrapNestedRefs } from 'vue';
 import { CheckboxProps } from '../../checkbox';
 import { ClassName, TScroll, Styles, TNode, TreeOptionData, TNodeReturnValue } from '../../common';
-import { TypeTreeEventState as TreeEventState } from '@tdesign/utils/tree';
+import { TypeTreeEventState as TreeEventState } from '@tdesign/utils/tree/types';
 import { TdTreeProps, TreeInstanceFunctions } from '../type';
 import {
   VirtualScrollConfig,

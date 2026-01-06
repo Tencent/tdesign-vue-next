@@ -9,7 +9,7 @@ import props from './props';
 import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import Skeleton from '../skeleton';
-import Tween from '@tdesign/utils/statistic';
+import { Tween } from '@tdesign/utils/statistic';
 import { COLOR_MAP, getFormatValue } from '@tdesign/utils/statistic';
 
 export default defineComponent({

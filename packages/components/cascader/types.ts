@@ -1,6 +1,8 @@
 import { TdCascaderProps, CascaderValue, CascaderChangeSource } from './type';
 import { TdSelectInputProps } from '../select-input/type';
-import { TreeStore, TreeNode, TreeNodeModel, TreeNodeValue } from '@tdesign/utils/tree';
+import TreeStore from '@tdesign/utils/tree/tree-store';
+import TreeNode from '@tdesign/utils/tree/tree-node';
+import { TreeNodeModel, TreeNodeValue } from '@tdesign/utils/tree/types';
 
 export * from './type';
 export interface CascaderContextType
@@ -36,7 +38,7 @@ export interface CascaderContextType
 }
 
 export { TreeNode } from '@tdesign/utils/tree';
-export type { TreeNodeValue } from '@tdesign/utils/tree';
+export type { TreeNodeValue } from '@tdesign/utils/tree/types';
 export type { TreeOptionData } from '@tdesign/utils/common';
 export type { TreeNodeModel } from '../tree';
 export type { TdSelectInputProps } from '../select-input/type';
