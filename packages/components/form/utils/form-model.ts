@@ -52,7 +52,7 @@ const VALIDATE_MAP = {
   validator: (
     val: ValueType,
     validate: CustomValidator,
-    context: { formData: FormData },
+    context: { formData: FormData; name: string },
   ): ReturnType<CustomValidator> => validate(val, context),
 };
 
@@ -64,7 +64,11 @@ export type ValidateFuncType = typeof VALIDATE_MAP[keyof typeof VALIDATE_MAP];
  * @param rule 校验规则
  * @returns 两种校验结果，一种是内置校验规则的校验结果，二种是自定义校验规则（validator）的校验结果
  */
-export async function validateOneRule(value: ValueType, rule: FormRule, data?: Data): Promise<AllValidateResult> {
+export async function validateOneRule(
+  value: ValueType,
+  rule: FormRule,
+  context?: { formData: Data; name: string },
+): Promise<AllValidateResult> {
   let validateResult: CustomValidateResolveType | ValidateResultType = { result: true };
   const keys = Object.keys(rule) as (keyof FormRule)[];
   let vOptions: undefined | FormRule[keyof FormRule];
@@ -87,7 +91,7 @@ export async function validateOneRule(value: ValueType, rule: FormRule, data?: D
   }
   if (vValidateFun) {
     // @ts-ignore
-    validateResult = await vValidateFun(value, vOptions, { formData: data || {} });
+    validateResult = await vValidateFun(value, vOptions, context);
     // 如果校验不通过，则返回校验不通过的规则
     if (isBoolean(validateResult)) {
       return { ...rule, result: validateResult };
@@ -101,8 +105,12 @@ export async function validateOneRule(value: ValueType, rule: FormRule, data?: D
 }
 
 // 单个数据进行全规则校验，校验成功也可能会有 message
-export async function validate(value: ValueType, rules: Array<FormRule>, data?: Data): Promise<AllValidateResult[]> {
-  const all = rules.map((rule) => validateOneRule(value, rule, data));
+export async function validate(
+  value: ValueType,
+  rules: Array<FormRule>,
+  context?: { formData: Data; name: string },
+): Promise<AllValidateResult[]> {
+  const all = rules.map((rule) => validateOneRule(value, rule, context));
   const r = await Promise.all(all);
   return r;
 }

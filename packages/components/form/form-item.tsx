@@ -255,7 +255,7 @@ export default defineComponent({
         return result;
       }
       result.allowSetValue = true;
-      result.resultList = await validate(value.value, result.rules, form.data);
+      result.resultList = await validate(value.value, result.rules, { formData: form.data, name: props.name });
       result.errorList = result.resultList
         .filter((item) => item.result !== true)
         .map((item: ErrorListType) => {
