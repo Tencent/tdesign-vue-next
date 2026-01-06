@@ -1,10 +1,7 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { computed, ref, nextTick } from 'vue';
+import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
-import { useSliderInput } from '../hooks/useSliderInput';
-import { useSliderMark } from '../hooks/useSliderMark';
-import { useSliderTooltip } from '../hooks/useSliderTooltip';
 import Slider from '@tdesign/components/slider';
 
 describe('Slider Hooks Tests', () => {

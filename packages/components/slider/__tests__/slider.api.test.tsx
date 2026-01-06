@@ -26,7 +26,7 @@ describe('Slider API Tests', () => {
 
       it('min value should be less than max', async () => {
         const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {});
-        const wrapper = mount({
+        mount({
           render() {
             return <Slider min={100} max={50} modelValue={60} />;
           },
@@ -76,7 +76,7 @@ describe('Slider API Tests', () => {
 
       it('step={0} should show warning', async () => {
         const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {});
-        const wrapper = mount({
+        mount({
           render() {
             return <Slider step={0} showStep />;
           },
@@ -430,7 +430,7 @@ describe('Slider API Tests', () => {
     it('handles marks outside min/max range', async () => {
       const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       const marks = [-10, 0, 50, 100, 110];
-      const wrapper = mount({
+      mount({
         render() {
           return <Slider min={0} max={100} marks={marks} />;
         },

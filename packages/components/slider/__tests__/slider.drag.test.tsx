@@ -193,7 +193,7 @@ describe('Slider Drag and MouseUp Tests', () => {
 
     it('dragging does not update if not dragging', async () => {
       const onChange = vi.fn();
-      const wrapper = mount({
+      mount({
         render() {
           return <Slider modelValue={50} onChange={onChange} />;
         },

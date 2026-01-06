@@ -222,7 +222,7 @@ describe('SliderButton Component Tests', () => {
       const button = wrapper.find('.t-slider__button-wrapper');
       await button.trigger('mousedown', { clientX: 100, clientY: 0 });
       await nextTick();
-      const buttonInner = wrapper.find('.t-slider__button');
+      wrapper.find('.t-slider__button');
       // Button should have dragging class or state
       expect(button.exists()).toBeTruthy();
     });
