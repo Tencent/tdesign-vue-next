@@ -13,9 +13,10 @@ import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
 import useAsyncLoading from './hooks/useAsyncLoading';
-import EditableCell, { EditableCellProps } from './components/editable-cell';
+import EditableCell, { EditableCellProps, EditableCellInstance } from './components/editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
+import { getCellKey } from './hooks/useRowspanAndColspan';
 
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
@@ -88,6 +89,8 @@ export default defineComponent({
     const { classPrefix, tableDraggableClasses, tableBaseClass, tableSelectedClasses, tableSortClasses } =
       useClassName();
     const { globalConfig } = useConfig('table', props.locale);
+    // EditableCell ref 映射，完全在 primary-table 中管理
+    const editableCellRefMap = ref<{ [cellKey: string]: EditableCellInstance }>({});
     const { sizeClassNames } = useStyle(props);
     const tableSize = computed(() => props.size ?? globalConfig.value.size);
     // 自定义列配置功能
@@ -151,11 +154,27 @@ export default defineComponent({
       validateTableData,
       validateTableCellData,
       onRuleChange,
-      clearValidateData,
+      clearValidateRowData,
       onUpdateEditedCell,
       getEditRowData,
       onPrimaryTableCellEditChange,
     } = useEditableRow(props);
+
+    // EditableCell 实例变化回调
+    const onCellInstanceChange = (cellKey: string, instance: EditableCellInstance | null) => {
+      if (instance) {
+        editableCellRefMap.value[cellKey] = instance;
+      } else {
+        delete editableCellRefMap.value[cellKey];
+      }
+    };
+
+    // 清除所有 EditableCell 的验证数据
+    const clearAllEditableCellData = () => {
+      Object.keys(editableCellRefMap.value).forEach((cellKey) => {
+        editableCellRefMap.value[cellKey]?.clearValidateCellData?.();
+      });
+    };
 
     const innerKeyboardRowHover = computed(() => Boolean(showExpandedRow.value || showRowSelect.value));
 
@@ -194,6 +213,11 @@ export default defineComponent({
       setFilterPrimaryTableRef(primaryTableRef.value);
       setDragSortPrimaryTableRef(primaryTableRef.value);
     });
+
+    const clearValidateData = () => {
+      clearValidateRowData();
+      clearAllEditableCellData();
+    };
 
     // 对外暴露的方法
     context.expose({
@@ -299,7 +323,16 @@ export default defineComponent({
             if (props.editableCellState) {
               cellProps.readonly = !props.editableCellState(p);
             }
-            return <EditableCell {...cellProps} v-slots={context.slots} onUpdateEditedCell={onUpdateEditedCell} />;
+            const cellKey = getCellKey(p.row, props.rowKey || 'id', p.col.colKey, p.colIndex);
+            return (
+              <EditableCell
+                {...cellProps}
+                cellKey={cellKey}
+                onCellInstanceChange={onCellInstanceChange}
+                v-slots={context.slots}
+                onUpdateEditedCell={onUpdateEditedCell}
+              />
+            );
           };
         }
         if (item.children?.length) {

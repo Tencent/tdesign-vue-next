@@ -168,7 +168,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
     }
   };
 
-  const clearValidateData = () => {
+  const clearValidateRowData = () => {
     errorListMap.value = {};
   };
 
@@ -216,7 +216,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
     validateTableCellData,
     validateRowData,
     onRuleChange,
-    clearValidateData,
+    clearValidateRowData,
     onUpdateEditedCell,
     getEditRowData,
     onPrimaryTableCellEditChange,
