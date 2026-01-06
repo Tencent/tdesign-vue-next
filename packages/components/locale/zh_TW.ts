@@ -1,3 +1,3 @@
-import zh_TW from '@tdesign/common-js/global-config/locale/zh_TW';
+import { zhTW } from '@tdesign/utils/global-config/locale';
 
-export default zh_TW;
+export default zhTW;

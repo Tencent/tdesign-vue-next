@@ -6,7 +6,7 @@ import { remove, isArray, isFunction } from 'lodash-es';
 import props from './props';
 import * as utils from './utils';
 import { useConfig, useContent } from '@tdesign/shared-hooks';
-import { handleRange } from '@tdesign/common-js/calendar/utils';
+import { handleRange } from '@tdesign/utils/calendar';
 
 import { useState, useCalendarClass, userController, useColHeaders } from './hooks';
 

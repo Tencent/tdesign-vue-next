@@ -4,7 +4,7 @@ import { useTNodeJSX, useChildSlots, usePrefixClass, useFlatChildrenSlots } from
 
 import { isArray, isNumber, isString } from 'lodash-es';
 
-import { getFlexGapPolyFill } from '@tdesign/common-js/utils/helper';
+import { getFlexGapPolyFill } from '@tdesign/utils/common';
 import { SizeEnum } from '../common';
 
 const sizeMap = { small: '8px', medium: '16px', large: '24px' };

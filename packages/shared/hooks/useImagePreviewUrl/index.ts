@@ -1,5 +1,5 @@
 import { ComputedRef, ref, Ref, watch } from 'vue';
-import { getFileUrlByFileRaw } from '@tdesign/common-js/upload/utils';
+import { getFileUrlByFileRaw } from '@tdesign/utils/upload';
 
 export function useImagePreviewUrl(imgUrl: Ref<string | File> | ComputedRef<string | File>) {
   const previewUrl = ref('');

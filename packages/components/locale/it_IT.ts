@@ -1,3 +1,3 @@
-import it_IT from '@tdesign/common-js/global-config/locale/it_IT';
+import { itIT } from '@tdesign/utils/global-config/locale';
 
-export default it_IT;
+export default itIT;

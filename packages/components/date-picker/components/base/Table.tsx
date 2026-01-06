@@ -2,7 +2,7 @@ import { defineComponent, PropType, computed } from 'vue';
 
 import TDatePickerCell from './Cell';
 import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
-import { parseToDayjs } from '@tdesign/common-js/date-picker/format';
+import { parseToDayjs } from '@tdesign/utils/date-picker';
 import { isArray } from 'lodash-es';
 
 import type { TdDatePickerProps, DateMultipleValue } from '../../type';

@@ -53,7 +53,7 @@ import {
 
 import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 import { getFormItemClassName } from './utils';
-import { template } from '@tdesign/common-js/utils/stringTemplate';
+import { template } from '@tdesign/utils/common';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 

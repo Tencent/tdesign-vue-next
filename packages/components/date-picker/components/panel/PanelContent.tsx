@@ -6,8 +6,8 @@ import type { TdDatePickerProps, TdDateRangePickerProps, DateRangePickerPartial 
 import TDateHeader from '../base/Header';
 import TDateTable from '../base/Table';
 import { TimePickerPanel } from '../../../time-picker';
-import { getDefaultFormat } from '@tdesign/common-js/date-picker/format';
-import type { DateValue } from '@tdesign/common-js/date-picker/utils';
+import { getDefaultFormat } from '@tdesign/utils/date-picker';
+import type { DateValue } from '@tdesign/utils/date-picker';
 import { parseToDateTime } from '../../utils';
 
 export default defineComponent({

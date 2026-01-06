@@ -5,7 +5,7 @@ import TToolTip from '../../tooltip';
 import { useConfig, usePrefixClass, useImagePreviewUrl } from '@tdesign/shared-hooks';
 
 import { ImageInfo } from '../type';
-import { largeNumberToFixed } from '@tdesign/common-js/input-number/large-number';
+import { largeNumberToFixed } from '@tdesign/utils/input-number';
 
 export default defineComponent({
   name: 'TImageViewerUtils',

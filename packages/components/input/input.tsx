@@ -16,7 +16,7 @@ import {
 } from '@tdesign/shared-hooks';
 
 import { useInput, useInputEventHandler, useInputWidth } from './hooks';
-import { getValidAttrs } from '@tdesign/common-js/utils/helper';
+import { getValidAttrs } from '@tdesign/utils/common';
 
 export default defineComponent({
   name: 'TInput',

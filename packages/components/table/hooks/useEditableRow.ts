@@ -2,7 +2,7 @@ import { ref, computed, watch, toRefs } from 'vue';
 import { get, set, cloneDeep, isFunction } from 'lodash-es';
 
 import { PrimaryTableProps } from '../types';
-import { getEditableKeysMap } from '@tdesign/common-js/table/utils';
+import { getEditableKeysMap } from '@tdesign/utils/table';
 import { validate } from '../../form/utils/form-model';
 
 import {

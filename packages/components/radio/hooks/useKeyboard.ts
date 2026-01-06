@@ -1,7 +1,7 @@
 import { onBeforeMount, onMounted, Ref } from 'vue';
 import { isString } from 'lodash-es';
 import { off, on } from '@tdesign/shared-utils';
-import { CHECKED_CODE_REG } from '@tdesign/common-js/common';
+import { CHECKED_CODE_REG } from '@tdesign/utils/common';
 
 /** 键盘操作 */
 export function useKeyboard(

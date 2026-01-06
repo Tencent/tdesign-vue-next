@@ -10,7 +10,7 @@ import {
   getDefaultFormat,
   initYearMonthTime,
   extractTimeFormat,
-} from '@tdesign/common-js/date-picker/format';
+} from '@tdesign/utils/date-picker';
 
 export function useRangeValue(props: TdDateRangePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);

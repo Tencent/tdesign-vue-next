@@ -6,7 +6,7 @@ import {
   getDefaultFormat,
   parseToDayjs,
   extractTimeFormat,
-} from '@tdesign/common-js/date-picker/format';
+} from '@tdesign/utils/date-picker';
 import { useVModel } from '@tdesign/shared-hooks';
 import { TdDatePickerProps, DateMultipleValue, DateValue } from '../type';
 

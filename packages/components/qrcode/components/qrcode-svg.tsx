@@ -1,11 +1,6 @@
 import { computed, defineComponent } from 'vue';
 import { QRCodeSubComponentProps } from './props';
-import {
-  DEFAULT_NEED_MARGIN,
-  DEFAULT_MINVERSION,
-  excavateModules,
-  generatePath,
-} from '@tdesign/common-js/qrcode/utils';
+import { DEFAULT_NEED_MARGIN, DEFAULT_MINVERSION, excavateModules, generatePath } from '@tdesign/utils/qrcode';
 import { useQRCode } from '../hooks/useQRCode';
 
 export default defineComponent({

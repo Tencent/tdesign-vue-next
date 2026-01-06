@@ -4,7 +4,7 @@ import * as Vue from 'vue';
 import { Ref, SetupContext, ToRefs, VNode, PropType, ComponentPublicInstance, UnwrapNestedRefs } from 'vue';
 import { CheckboxProps } from '../../checkbox';
 import { ClassName, TScroll, Styles, TNode, TreeOptionData, TNodeReturnValue } from '../../common';
-import { TypeTreeEventState as TreeEventState } from '@tdesign/common-js/tree/types';
+import { TypeTreeEventState as TreeEventState } from '@tdesign/utils/tree';
 import { TdTreeProps, TreeInstanceFunctions } from '../type';
 import {
   VirtualScrollConfig,
@@ -13,7 +13,7 @@ import {
 } from '@tdesign/shared-hooks';
 import { withInstall as tdWithInstall } from '@tdesign/shared-utils';
 
-import { TreeStore } from '@tdesign/common-js/tree/tree-store';
+import { TreeStore } from '@tdesign/utils/tree';
 
 export { ref, reactive, computed, watch, onMounted, toRefs, defineComponent, TransitionGroup } from 'vue';
 export { CaretRightSmallIcon as TdCaretRightSmallIcon } from 'tdesign-icons-vue-next';
@@ -23,7 +23,7 @@ export { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 export { useGlobalIcon } from '@tdesign/shared-hooks';
 export { useLazyLoad } from '@tdesign/shared-hooks';
 export { useVirtualScrollNew } from '@tdesign/shared-hooks';
-export { TreeNode, privateKey } from '@tdesign/common-js/tree/tree-node';
+export { TreeNode, privateKey } from '@tdesign/utils/tree';
 export type TypeVModel = ReturnType<typeof tdUseVModel>;
 
 export type TypeRef<T> = Ref<T>;

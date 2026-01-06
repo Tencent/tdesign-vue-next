@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Statistic from '@tdesign/components/statistic';
-import { COLOR_MAP } from '@tdesign/common-js/statistic/utils';
+import { COLOR_MAP } from '@tdesign/utils/statistic';
 
 describe('Statistic', () => {
   describe(':props', () => {

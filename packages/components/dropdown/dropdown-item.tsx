@@ -4,7 +4,7 @@ import { TdDropdownProps } from '../dropdown/type';
 import dropdownItemProps from './dropdown-item-props';
 import { useRipple, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
-import { pxCompat } from '@tdesign/common-js/utils/helper';
+import { pxCompat } from '@tdesign/utils/common';
 
 export default defineComponent({
   name: 'TDropdownItem',

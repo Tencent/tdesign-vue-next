@@ -8,7 +8,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { isFunction } from 'lodash-es';
 
-import { THEME_LIST, fadeIn, fadeOut } from '@tdesign/common-js/message/index';
+import { THEME_LIST, fadeIn, fadeOut } from '@tdesign/utils/message';
 import { useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 import TLoading from '../loading';
 import props from './props';

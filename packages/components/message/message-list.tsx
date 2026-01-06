@@ -1,6 +1,6 @@
 import { computed, defineComponent, ref } from 'vue';
 import type { CSSProperties } from 'vue';
-import { PLACEMENT_OFFSET } from '@tdesign/common-js/message/index';
+import { PLACEMENT_OFFSET } from '@tdesign/utils/message';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import TMessage from './message';
 import type { MessageOptions } from './type';

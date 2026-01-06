@@ -2,7 +2,7 @@ import { computed, toRefs, ref, Ref, watch } from 'vue';
 import { get, intersection } from 'lodash-es';
 
 import { TdEnhancedTableProps, TdPrimaryTableProps, TableRowData, PrimaryTableCol } from '../type';
-import { KeysType, TableTreeDataMap, TreeDataMapType } from '@tdesign/common-js/table/tree-store';
+import { KeysType, TableTreeDataMap, TreeDataMapType } from '@tdesign/utils/table';
 import { useDefaultValue } from '@tdesign/shared-hooks';
 
 export interface GetChildrenDataReturnValue {

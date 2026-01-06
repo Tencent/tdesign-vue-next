@@ -5,8 +5,8 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import { panelColProps } from './props';
-import { EPickerCols, TWELVE_HOUR_FORMAT, AM, PM, MERIDIEM_LIST } from '@tdesign/common-js/time-picker/const';
-import { closestLookup, getPickerCols } from '@tdesign/common-js/time-picker/utils';
+import { EPickerCols, TWELVE_HOUR_FORMAT, AM, PM, MERIDIEM_LIST } from '@tdesign/utils/time-picker';
+import { closestLookup, getPickerCols } from '@tdesign/utils/time-picker';
 import { useCommonClassName, useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 
 dayjs.extend(customParseFormat);

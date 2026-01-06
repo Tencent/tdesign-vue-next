@@ -1,3 +1,3 @@
-import zhCn from '@tdesign/common-js/global-config/locale/zh_CN';
+import { zhCN } from '@tdesign/utils/global-config/locale';
 
-export default zhCn;
+export default zhCN;

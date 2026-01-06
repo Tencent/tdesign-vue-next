@@ -1,6 +1,6 @@
 import { computed, ComputedRef, ref, Ref } from 'vue';
 
-import { formatLabel } from '@tdesign/common-js/slider/utils';
+import { formatLabel } from '@tdesign/utils/slider';
 import { useTNodeJSX } from '@tdesign/shared-hooks';
 
 import type { TooltipProps } from '../../tooltip';

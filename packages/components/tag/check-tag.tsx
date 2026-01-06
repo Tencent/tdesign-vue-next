@@ -4,7 +4,7 @@ import { useVModel, useContent, usePrefixClass, useCommonClassName } from '@tdes
 
 import Tag from './tag';
 import { TdCheckTagProps, TdTagProps } from './type';
-import { ENTER_REG, SPACE_REG } from '@tdesign/common-js/common';
+import { ENTER_REG, SPACE_REG } from '@tdesign/utils/common';
 
 export default defineComponent({
   name: 'TCheckTag',

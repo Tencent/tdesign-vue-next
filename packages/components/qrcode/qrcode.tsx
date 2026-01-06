@@ -1,13 +1,13 @@
 import { computed, defineComponent } from 'vue';
 import props from './props';
-import { DEFAULT_FRONT_COLOR } from '@tdesign/common-js/qrcode/utils';
+import { DEFAULT_FRONT_COLOR } from '@tdesign/utils/qrcode';
 import { usePrefixClass, useConfig, useTNodeJSX, useVariables } from '@tdesign/shared-hooks';
 
 import QRCodeCanvas from './components/qrcode-canvas';
 import QRCodeSVG from './components/qrcode-svg';
 import QRcodeStatus from './components/qrcode-status';
 
-import type { ImageSettings } from '@tdesign/common-js/qrcode/types';
+import type { ImageSettings } from '@tdesign/utils/qrcode';
 import { isNumber } from 'lodash-es';
 
 export default defineComponent({

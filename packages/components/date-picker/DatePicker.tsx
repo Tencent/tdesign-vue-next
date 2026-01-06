@@ -14,8 +14,8 @@ import {
 } from '@tdesign/shared-hooks';
 
 import { useSingle } from './hooks/useSingle';
-import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@tdesign/common-js/date-picker/utils';
+import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/utils/date-picker';
+import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@tdesign/utils/date-picker';
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';

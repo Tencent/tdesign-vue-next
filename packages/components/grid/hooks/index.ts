@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import type { Ref } from 'vue';
-import { calcSize } from '@tdesign/common-js/utils/responsive';
+import { calcSize } from '@tdesign/utils/common';
 import { useListener } from '@tdesign/shared-hooks';
 import { isServer } from '@tdesign/shared-utils';
 import { GutterObject } from '../type';

@@ -1,5 +1,5 @@
 import { computed, Ref } from 'vue';
-import { getIEVersion } from '@tdesign/common-js/utils/helper';
+import { getIEVersion } from '@tdesign/utils/common';
 import { useCommonClassName } from '@tdesign/shared-hooks';
 import { TdPaginationProps } from '../type';
 

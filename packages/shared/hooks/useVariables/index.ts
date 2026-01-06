@@ -1,8 +1,7 @@
 import { ref } from 'vue';
 import type { Ref } from 'vue';
 import { isString } from 'lodash-es';
-import { THEME_MODE } from '@tdesign/common-js/common';
-import getColorTokenColor from '@tdesign/common-js/utils/getColorTokenColor';
+import { THEME_MODE, getColorTokenColor } from '@tdesign/utils/common';
 import useMutationObservable from '../useMutationObservable';
 
 /**

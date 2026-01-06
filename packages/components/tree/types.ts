@@ -14,7 +14,7 @@ import {
   TypeTreeInstance as AdaptTypeTreeInstance,
   TypeSetupContext,
 } from './utils/adapt';
-import { TreeStore } from '@tdesign/common-js/tree/tree-store';
+import { TreeStore } from '@tdesign/utils/tree';
 
 import { TdTreeProps, TreeNodeModel, TreeNodeValue, TreeNodeState } from './type';
 

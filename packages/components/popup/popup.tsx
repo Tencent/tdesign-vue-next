@@ -18,7 +18,7 @@ import {
 import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import { off, on, once, isServer } from '@tdesign/shared-utils';
-import setStyle from '@tdesign/common-js/utils/setStyle';
+import { setStyle } from '@tdesign/utils/common';
 import Container from './container';
 import props from './props';
 import { PopupTriggerEvent, TdPopupProps } from './type';

@@ -6,7 +6,7 @@ import {
   isSupportPath2d,
   excavateModules,
   generatePath,
-} from '@tdesign/common-js/qrcode/utils';
+} from '@tdesign/utils/qrcode';
 import { useQRCode } from '../hooks/useQRCode';
 
 export default defineComponent({

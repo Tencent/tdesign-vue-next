@@ -13,11 +13,11 @@ import {
   TableRowData,
   TdPrimaryTableProps,
 } from '../type';
-import { isRowSelectedDisabled } from '@tdesign/common-js/table/utils';
+import { isRowSelectedDisabled } from '@tdesign/utils/table';
 import { TableClassName } from './useClassName';
 import Checkbox from '../../checkbox';
 import Radio from '../../radio';
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 
 export default function useRowSelect(
   props: TdPrimaryTableProps,

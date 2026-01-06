@@ -5,7 +5,7 @@ import { omit } from 'lodash-es';
 import { useConfig, useTNodeJSX, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { TdDateRangePickerProps, DateValue, DateRangePickerPartial } from '../type';
-import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
+import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/utils/date-picker';
 import { useRangeValue } from './useRangeValue';
 
 export const PARTIAL_MAP: Record<'first' | 'second', DateRangePickerPartial> = { first: 'start', second: 'end' };

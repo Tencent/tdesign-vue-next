@@ -1,15 +1,15 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import Watermark from '@tdesign/components/watermark';
-import injectStyle from '@tdesign/common-js/utils/injectStyle';
-import generateBase64Url from '@tdesign/common-js/watermark/generateBase64Url';
+import { injectStyle } from '@tdesign/utils/common';
+import { generateBase64Url } from '@tdesign/utils/watermark';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Watermark', () => {
   beforeEach(() => {
     HTMLCanvasElement.prototype.getContext = vi.fn();
-    vi.mock('@tdesign/common-js/utils/injectStyle', { spy: true });
-    vi.mock('@tdesign/common-js/watermark/generateBase64Url', { spy: true });
+    vi.mock('@tdesign/utils/common', { spy: true });
+    vi.mock('@tdesign/utils/watermark', { spy: true });
   });
 
   afterEach(() => {

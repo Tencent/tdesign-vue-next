@@ -1,3 +1,3 @@
-import ru_RU from '@tdesign/common-js/global-config/locale/ru_RU';
+import { ruRU } from '@tdesign/utils/global-config/locale';
 
-export default ru_RU;
+export default ruRU;

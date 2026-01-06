@@ -1,7 +1,7 @@
 import { computed, onMounted, TypeRef, TypeScroll, TreeNode } from '../utils/adapt';
 import { get } from 'lodash-es';
 import { TypeTreeState, TypeTimer } from '../types';
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 import { useVirtualScrollNew } from '@tdesign/shared-hooks';
 
 import type { ComponentScrollToElementParams } from '../../common';

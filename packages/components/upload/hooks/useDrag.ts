@@ -1,5 +1,5 @@
 import { Ref, ref } from 'vue';
-import { getFileList } from '@tdesign/common-js/upload/utils';
+import { getFileList } from '@tdesign/utils/upload';
 import { TdUploadProps } from '../type';
 
 export interface UploadDragEvents {

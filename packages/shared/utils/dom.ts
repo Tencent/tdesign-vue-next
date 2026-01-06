@@ -7,7 +7,7 @@ import { ComponentPublicInstance, VNode, isVNode, Comment } from 'vue';
 import raf from 'raf';
 import { isArray, isString, isFunction } from 'lodash-es';
 
-import { easeInOutCubic, EasingFunction } from '@tdesign/common-js/utils/easing';
+import { easeInOutCubic, EasingFunction } from '@tdesign/utils/common';
 import { ScrollContainer, ScrollContainerElement } from '../../components/common';
 
 export const isServer = typeof window === 'undefined';

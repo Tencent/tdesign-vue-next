@@ -13,8 +13,8 @@ import {
 import { isObject, merge, omit } from 'lodash-es';
 
 import { FormItemInjectionKey } from '../form/consts';
-import setStyle from '@tdesign/common-js/utils/setStyle';
-import { getCharacterLength, getValidAttrs } from '@tdesign/common-js/utils/helper';
+import { setStyle } from '@tdesign/utils/common';
+import { getCharacterLength, getValidAttrs } from '@tdesign/utils/common';
 
 // hooks
 import {
@@ -31,7 +31,7 @@ import { useLengthLimit } from '../input/hooks/useLengthLimit';
 import props from './props';
 import type { TextareaValue, TdTextareaProps } from './type';
 
-import calcTextareaHeight from '@tdesign/common-js/utils/calcTextareaHeight';
+import calcTextareaHeight from '@tdesign/utils/common';
 
 export default defineComponent({
   name: 'TTextarea',

@@ -12,13 +12,13 @@ import {
 } from 'vue';
 import { get, pick, xorWith, debounce } from 'lodash-es';
 
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 import { ClassName, Styles } from '../../common';
 import { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '../type';
-import { getScrollbarWidthWithCSS } from '@tdesign/common-js/utils/getScrollbarWidth';
+import { getScrollbarWidthWithCSS } from '@tdesign/utils/common';
 import { on, off } from '@tdesign/shared-utils';
 import { FixedColumnInfo, TableRowFixedClasses, RowAndColFixedPosition, TableColFixedClasses } from '../types';
-import { getIEVersion } from '@tdesign/common-js/utils/helper';
+import { getIEVersion } from '@tdesign/utils/common';
 
 // 固定列相关类名处理
 export function getColumnFixedStyles(

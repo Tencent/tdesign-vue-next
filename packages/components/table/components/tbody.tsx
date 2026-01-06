@@ -11,7 +11,7 @@ import useRowspanAndColspan from '../hooks/useRowspanAndColspan';
 import { BaseTableProps, RowAndColFixedPosition } from '../types';
 import { TdBaseTableProps } from '../type';
 import type { VirtualScrollConfig } from '@tdesign/shared-hooks';
-import type { CamelCase } from '@tdesign/common-js/utils/types';
+import type { CamelCase } from '@tdesign/utils/common';
 
 export const ROW_AND_TD_LISTENERS = [...ROW_LISTENERS, 'cell-click'];
 export interface TableBodyProps extends BaseTableProps {

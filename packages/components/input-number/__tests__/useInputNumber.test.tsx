@@ -6,7 +6,7 @@ import useInputNumber from '../hooks/useInputNumber';
 import type { TdInputNumberProps } from '../type';
 
 // Mock the common-js functions
-vi.mock('@tdesign/common-js/input-number/number', () => ({
+vi.mock('@tdesign/utils/input-number', () => ({
   canAddNumber: vi.fn((value, max) => value == null || value < max),
   canReduceNumber: vi.fn((value, min) => value == null || value > min),
   canInputNumber: vi.fn(() => true),

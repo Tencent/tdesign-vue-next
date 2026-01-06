@@ -1,6 +1,6 @@
 import { ref, watch, Ref } from 'vue';
 import { get } from 'lodash-es';
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 import { BaseTableCellParams, BaseTableCol, TableRowData, TableRowspanAndColspanFunc } from '../type';
 
 export interface SkipSpansValue {

@@ -19,7 +19,7 @@ import {
   usePrefixClass,
   filterCommentNode,
 } from '@tdesign/shared-hooks';
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 
 export default defineComponent({
   name: 'TAlert',

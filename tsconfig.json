@@ -43,6 +43,7 @@
       "tdesign-vue-next/es/config-provider/hooks": [ "packages/components/config-provider/hooks" ],
       "@tdesign-vue-next/chat":["packages/pro-components/chat"],
       "@common/*": ["packages/common/*"],
+      "@tdesign/utils/*": ["packages/common/js/*"],
       "@test/utils": ["test/utils"]
     }
   },

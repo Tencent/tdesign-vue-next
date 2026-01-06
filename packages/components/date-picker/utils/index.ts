@@ -1,5 +1,5 @@
 import { isNil } from 'lodash-es';
-import { parseToDayjs } from '@tdesign/common-js/date-picker/format';
+import { parseToDayjs } from '@tdesign/utils/date-picker';
 
 // 用于头部日期切换修正
 export function dateCorrection(

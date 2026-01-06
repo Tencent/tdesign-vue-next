@@ -9,8 +9,8 @@ import props from './props';
 import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import Skeleton from '../skeleton';
-import Tween from '@tdesign/common-js/statistic/tween';
-import { COLOR_MAP, getFormatValue } from '@tdesign/common-js/statistic/utils';
+import Tween from '@tdesign/utils/statistic';
+import { COLOR_MAP, getFormatValue } from '@tdesign/utils/statistic';
 
 export default defineComponent({
   name: 'TStatistic',

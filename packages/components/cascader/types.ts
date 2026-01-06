@@ -1,8 +1,6 @@
 import { TdCascaderProps, CascaderValue, CascaderChangeSource } from './type';
 import { TdSelectInputProps } from '../select-input/type';
-import TreeStore from '@tdesign/common-js/tree/tree-store';
-import TreeNode from '@tdesign/common-js/tree/tree-node';
-import { TreeNodeModel, TreeNodeValue } from '@tdesign/common-js/tree/types';
+import { TreeStore, TreeNode, TreeNodeModel, TreeNodeValue } from '@tdesign/utils/tree';
 
 export * from './type';
 export interface CascaderContextType
@@ -37,9 +35,9 @@ export interface CascaderContextType
   isParentFilterable: boolean;
 }
 
-export { TreeNode } from '@tdesign/common-js/tree/tree-node';
-export type { TreeNodeValue } from '@tdesign/common-js/tree/types';
-export type { TreeOptionData } from '@tdesign/common-js/common';
+export { TreeNode } from '@tdesign/utils/tree';
+export type { TreeNodeValue } from '@tdesign/utils/tree';
+export type { TreeOptionData } from '@tdesign/utils/common';
 export type { TreeNodeModel } from '../tree';
 export type { TdSelectInputProps } from '../select-input/type';
 

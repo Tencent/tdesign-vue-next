@@ -1,6 +1,6 @@
 import { defineComponent, PropType, computed, CSSProperties } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
-import { isSafari } from '@tdesign/common-js/utils/helper';
+import { isSafari } from '@tdesign/utils/common';
 
 // 统一使用的翻转箭头组件
 export default defineComponent({

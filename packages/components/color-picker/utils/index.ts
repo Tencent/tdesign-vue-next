@@ -1,1 +1,1 @@
-export * from '@tdesign/common-js/color-picker/index';
+export * from '@tdesign/utils/color-picker';

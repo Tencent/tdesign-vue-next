@@ -12,7 +12,7 @@ import {
 } from 'vue';
 import { isArray, isNumber } from 'lodash-es';
 
-import { formatPrecision, formatSliderValue, getStopStyle } from '@tdesign/common-js/slider/utils';
+import { formatPrecision, formatSliderValue, getStopStyle } from '@tdesign/utils/slider';
 import { useCommonClassName, useDisabled, usePrefixClass, useVModel } from '@tdesign/shared-hooks';
 
 import { sliderPropsInjectKey } from './consts';

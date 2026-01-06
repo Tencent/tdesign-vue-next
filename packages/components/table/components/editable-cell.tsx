@@ -13,7 +13,7 @@ import { TableClassName } from '../hooks/useClassName';
 import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 import { renderCell } from './tr';
 import { validate } from '../../form/utils/form-model';
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 import { AllValidateResult } from '../../form/type';
 import { on, off } from '@tdesign/shared-utils';
 

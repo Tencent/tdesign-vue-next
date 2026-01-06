@@ -8,10 +8,10 @@ import {
   getTriggerTextField,
   getDisplayFiles,
   formatToUploadFile,
-} from '@tdesign/common-js/upload/main';
-import { getFileList } from '@tdesign/common-js/upload/utils';
+} from '@tdesign/utils/upload';
+import { getFileList } from '@tdesign/utils/upload';
 import { useVModel, useConfig } from '@tdesign/shared-hooks';
-import { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '@tdesign/common-js/upload/types';
+import { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '@tdesign/utils/upload';
 
 export type ValidateParams = Parameters<TdUploadProps['onValidate']>[0];
 

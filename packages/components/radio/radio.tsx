@@ -13,7 +13,7 @@ import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './consts';
 
 // hooks
 
-import { getValidAttrs } from '@tdesign/common-js/utils/helper';
+import { getValidAttrs } from '@tdesign/utils/common';
 
 export default defineComponent({
   name: 'TRadio',

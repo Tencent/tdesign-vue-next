@@ -1,8 +1,8 @@
 import { computed, Ref, VNode } from 'vue';
 import { cloneDeep, isArray } from 'lodash-es';
 
-import log from '@tdesign/common-js/log/log';
-import { getStopStyle } from '@tdesign/common-js/slider/utils';
+import { log } from '@tdesign/utils/log';
+import { getStopStyle } from '@tdesign/utils/slider';
 import TSliderMark from '../slider-mark';
 
 import type { TNode } from '../../common';

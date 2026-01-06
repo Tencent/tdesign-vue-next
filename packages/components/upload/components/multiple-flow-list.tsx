@@ -30,7 +30,7 @@ import {
   FILE_WORD_REGEXP,
   FILE_PPT_REGEXP,
   VIDEO_REGEXP,
-} from '@tdesign/common-js/upload/utils';
+} from '@tdesign/utils/upload';
 import TLoading from '../../loading';
 
 import Link from '../../link';

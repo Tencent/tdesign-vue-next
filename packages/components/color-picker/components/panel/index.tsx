@@ -9,7 +9,7 @@ import {
   GradientColorPoint,
   initColorFormat,
   TD_COLOR_USED_COLORS_MAX_SIZE,
-} from '@tdesign/common-js/color-picker/index';
+} from '@tdesign/utils/color-picker';
 import { useCommonClassName, useConfig, useDefaultValue, useVModel } from '@tdesign/shared-hooks';
 import props from '../../color-picker-panel-props';
 import { useBaseClassName } from '../../hooks';

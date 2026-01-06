@@ -1,7 +1,7 @@
 import { InjectionKey, ComputedRef } from 'vue';
 import { mergeWith as _mergeWith, merge, isArray } from 'lodash-es';
-import defaultConfig from '@tdesign/common-js/global-config/default-config';
-import defaultZhLocale from '@tdesign/common-js/global-config/locale/zh_CN';
+import { defaultConfig } from '@tdesign/utils/global-config';
+import { zhCN as defaultZhLocale } from '@tdesign/utils/global-config/locale';
 import { GlobalConfigProvider } from '../type';
 
 export enum EAnimationType {

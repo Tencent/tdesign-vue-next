@@ -4,11 +4,11 @@ import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs'
 import { isFunction } from 'lodash-es';
 import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
 import useClassName from './useClassName';
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 import { hasClass } from '@tdesign/shared-utils';
-import swapDragArrayElement from '@tdesign/common-js/utils/swapDragArrayElement';
+import { swapDragArrayElement } from '@tdesign/utils/common';
 import { BaseTableColumns, SimplePageInfo } from '../types';
-import { getColumnDataByKey, getColumnIndexByKey } from '@tdesign/common-js/table/utils';
+import { getColumnDataByKey, getColumnIndexByKey } from '@tdesign/utils/table';
 
 function removeNode(node: HTMLElement) {
   if (node.parentElement !== null) {

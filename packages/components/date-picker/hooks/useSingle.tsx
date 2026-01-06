@@ -5,13 +5,7 @@ import { omit } from 'lodash-es';
 import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { TdDatePickerProps, DateValue } from '../type';
-import {
-  isValidDate,
-  formatDate,
-  formatTime,
-  getDefaultFormat,
-  parseToDayjs,
-} from '@tdesign/common-js/date-picker/format';
+import { isValidDate, formatDate, formatTime, getDefaultFormat, parseToDayjs } from '@tdesign/utils/date-picker';
 import { useSingleValue } from './useSingleValue';
 
 export function useSingle(props: TdDatePickerProps) {

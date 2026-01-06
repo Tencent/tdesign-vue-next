@@ -9,7 +9,7 @@ import {
   getSlotFirst,
   isCommentVNode,
 } from '@tdesign/shared-utils';
-import { hasOwn } from '@tdesign/common-js/utils/general';
+import { hasOwn } from '@tdesign/utils/common';
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
 function handleSlots(instance: ComponentInternalInstance, name: string, params: Record<string, any>) {

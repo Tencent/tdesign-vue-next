@@ -12,7 +12,7 @@ import {
   useConfig,
 } from '@tdesign/shared-hooks';
 import { isPropsUsed } from '@tdesign/shared-utils';
-import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';
+import { downloadImage, formatImages } from '@tdesign/utils/image-viewer';
 import Image from '../image';
 import TImageItem from './base/ImageItem';
 import TImageViewerIcon from './base/ImageModalIcon';

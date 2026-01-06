@@ -26,9 +26,9 @@ import THead from './components/thead';
 import TFoot from './components/tfoot';
 import { getAffixProps } from './utils';
 import { Styles, ComponentScrollToElementParams } from '../common';
-import { getIEVersion } from '@tdesign/common-js/utils/helper';
+import { getIEVersion } from '@tdesign/utils/common';
 import { BaseTableInstanceFunctions } from './type';
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 import { useRowHighlight } from './hooks/useRowHighlight';
 import useHoverKeyboardEvent from './hooks/useHoverKeyboardEvent';
 

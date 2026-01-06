@@ -2,7 +2,7 @@ import { defineComponent, PropType, computed } from 'vue';
 import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
-import { getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
+import { getDefaultFormat, parseToDayjs } from '@tdesign/utils/date-picker';
 import { useTableData, useDisableDate } from '../../hooks';
 
 import type { TdDatePickerProps, DateMultipleValue, DateValue } from '../../type';

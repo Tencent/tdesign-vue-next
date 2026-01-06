@@ -1,3 +1,3 @@
-import enUs from '@tdesign/common-js/global-config/locale/en_US';
+import { enUS } from '@tdesign/utils/global-config/locale';
 
-export default enUs;
+export default enUS;

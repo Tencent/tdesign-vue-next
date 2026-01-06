@@ -9,7 +9,7 @@ import {
   InfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import { Fragment, nextTick } from 'vue';
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 import { Alert } from '@tdesign/components/alert';
 
 const mock = vi.hoisted(() => {

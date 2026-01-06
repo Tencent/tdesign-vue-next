@@ -3,7 +3,7 @@ import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { TdDateRangePickerProps } from '../../type';
-import { getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
+import { getDefaultFormat, parseToDayjs } from '@tdesign/utils/date-picker';
 import { useTableData, useDisableDate } from '../../hooks';
 import { isFunction } from 'lodash-es';
 

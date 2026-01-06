@@ -7,7 +7,7 @@ import isEmail from 'validator/lib/isEmail';
 
 import isURL from 'validator/lib/isURL';
 
-import { getCharacterLength } from '@tdesign/common-js/utils/helper';
+import { getCharacterLength } from '@tdesign/utils/common';
 import {
   CustomValidator,
   FormRule,

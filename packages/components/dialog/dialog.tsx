@@ -15,7 +15,7 @@ import props from './props';
 import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/shared-hooks';
 import { useSameTarget } from './hooks';
 
-import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
+import { getScrollbarWidth } from '@tdesign/utils/common';
 
 import { getCSSValue } from './utils';
 import TDialogCard from './dialog-card';

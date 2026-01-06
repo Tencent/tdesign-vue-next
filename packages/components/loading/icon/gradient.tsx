@@ -1,6 +1,6 @@
 import { defineComponent, onMounted, nextTick, ref } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
-import circleAdapter from '@tdesign/common-js/loading/circle-adapter';
+import { circleAdapter } from '@tdesign/utils/loading';
 
 export default defineComponent({
   name: 'TLoadingGradient',

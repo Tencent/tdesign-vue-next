@@ -11,7 +11,7 @@ import {
 } from '@tdesign/shared-hooks';
 
 import { isServer } from '@tdesign/shared-utils';
-import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
+import { getScrollbarWidth } from '@tdesign/utils/common';
 import props from './props';
 import { DrawerCloseContext } from './type';
 import { useAction } from '../dialog/hooks';

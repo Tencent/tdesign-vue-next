@@ -1,6 +1,6 @@
 import { Ref, computed } from 'vue';
 
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 import { useVirtualScrollNew } from '@tdesign/shared-hooks';
 import { TdListProps } from '../type';
 import { Styles, type ComponentScrollToElementParams } from '../../common';

@@ -1,6 +1,6 @@
-import { QrCode, QrSegment } from '@tdesign/common-js/qrcode/qrcodegen';
-import type { CrossOrigin, ErrorCorrectionLevel, Excavation, ImageSettings } from '@tdesign/common-js/qrcode/types';
-import { ERROR_LEVEL_MAP, getImageSettings, getMarginSize } from '@tdesign/common-js/qrcode/utils';
+import { QrCode, QrSegment } from '@tdesign/utils/qrcode';
+import type { CrossOrigin, ErrorCorrectionLevel, Excavation, ImageSettings } from '@tdesign/utils/qrcode';
+import { ERROR_LEVEL_MAP, getImageSettings, getMarginSize } from '@tdesign/utils/qrcode';
 import { computed, ComputedRef } from 'vue';
 
 interface Options {

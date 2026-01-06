@@ -1,6 +1,6 @@
 import { computed, ComputedRef, toRefs } from 'vue';
 import type { TdBreadcrumbItemProps, TdBreadcrumbProps } from '../type';
-import log from '@tdesign/common-js/log/index';
+import { log } from '@tdesign/utils/log';
 import type { TNode } from '../../common';
 
 function valueIsZeroOrUndefined(val: number | string) {

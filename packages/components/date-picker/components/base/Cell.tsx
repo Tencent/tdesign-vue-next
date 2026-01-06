@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
-import { extractTimeObj } from '@tdesign/common-js/date-picker/utils';
+import { extractTimeObj } from '@tdesign/utils/date-picker';
 import { Dayjs } from 'dayjs';
 
 export default defineComponent({

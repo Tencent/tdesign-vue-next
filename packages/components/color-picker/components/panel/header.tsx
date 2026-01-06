@@ -1,6 +1,6 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
 
-import { COLOR_MODES } from '@tdesign/common-js/color-picker/constants';
+import { COLOR_MODES } from '@tdesign/utils/color-picker';
 import { useConfig } from '@tdesign/shared-hooks';
 import { RadioButton as TRadioButton, RadioGroup as TRadioGroup } from '../../../radio';
 import props from '../../color-picker-panel-props';

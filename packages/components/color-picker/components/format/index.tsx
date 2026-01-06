@@ -1,5 +1,5 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
-import { Color, getColorFormatOptions } from '@tdesign/common-js/color-picker/index';
+import { Color, getColorFormatOptions } from '@tdesign/utils/color-picker';
 import type { TdColorPickerProps } from '../../type';
 import props from '../../props';
 import { Select as TSelect, Option as TOption } from '../../../select';

@@ -1,3 +1,3 @@
-import arKW from '@tdesign/common-js/global-config/locale/ar_KW';
+import { arKW } from '@tdesign/utils/global-config/locale';
 
 export default arKW;
