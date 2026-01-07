@@ -23,7 +23,17 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
   componentName: T = undefined,
   componentLocale?: GlobalConfigProvider[T],
 ) {
-  const injectGlobalConfig = getCurrentInstance() ? inject(configProviderInjectKey, null) : globalConfigCopy;
+  let injectGlobalConfig = null;
+  if (getCurrentInstance()) {
+    injectGlobalConfig = inject(configProviderInjectKey, null);
+    if (!injectGlobalConfig) {
+      // This handles cases where the component is created outside the ConfigProvider
+      // (e.g., LoadingPlugin, MessagePlugin, DialogPlugin, etc.)
+      injectGlobalConfig = globalConfigCopy;
+    }
+  } else {
+    injectGlobalConfig = globalConfigCopy;
+  }
   const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
   const globalConfig = computed(() => Object.assign({}, mergedGlobalConfig.value[componentName], componentLocale));
 
