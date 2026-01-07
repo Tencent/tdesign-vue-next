@@ -13,7 +13,7 @@ import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
 import useAsyncLoading from './hooks/useAsyncLoading';
-import EditableCell, { EditableCellProps, EditableCellInstance } from './components/editable-cell';
+import EditableCell, { EditableCellProps } from './components/editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
 import { getCellKey } from './hooks/useRowspanAndColspan';
@@ -89,8 +89,6 @@ export default defineComponent({
     const { classPrefix, tableDraggableClasses, tableBaseClass, tableSelectedClasses, tableSortClasses } =
       useClassName();
     const { globalConfig } = useConfig('table', props.locale);
-    // EditableCell ref 映射，完全在 primary-table 中管理
-    const editableCellRefMap = ref<{ [cellKey: string]: EditableCellInstance }>({});
     const { sizeClassNames } = useStyle(props);
     const tableSize = computed(() => props.size ?? globalConfig.value.size);
     // 自定义列配置功能
@@ -155,26 +153,12 @@ export default defineComponent({
       validateTableCellData,
       onRuleChange,
       clearValidateRowData,
+      clearAllEditableCellData,
+      onCellInstanceChange,
       onUpdateEditedCell,
       getEditRowData,
       onPrimaryTableCellEditChange,
     } = useEditableRow(props);
-
-    // EditableCell 实例变化回调
-    const onCellInstanceChange = (cellKey: string, instance: EditableCellInstance | null) => {
-      if (instance) {
-        editableCellRefMap.value[cellKey] = instance;
-      } else {
-        delete editableCellRefMap.value[cellKey];
-      }
-    };
-
-    // 清除所有 EditableCell 的验证数据
-    const clearAllEditableCellData = () => {
-      Object.keys(editableCellRefMap.value).forEach((cellKey) => {
-        editableCellRefMap.value[cellKey]?.clearValidateCellData?.();
-      });
-    };
 
     const innerKeyboardRowHover = computed(() => Boolean(showExpandedRow.value || showRowSelect.value));
 
@@ -238,7 +222,6 @@ export default defineComponent({
       baseTableRef: primaryTableRef,
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const onEditableCellChange: EditableCellProps['onChange'] = (params) => {
       props.onRowEdit?.(params);
       const rowValue = get(params.editedRow, props.rowKey || 'id');
