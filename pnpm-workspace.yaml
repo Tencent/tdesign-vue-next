@@ -88,7 +88,7 @@ catalogs:
     lint-staged: ^13.2.3
     prettier: ^2.8.1
   tdesign:
-    '@tdesign/site-components': ^0.17.0
+    '@tdesign/site-components': ^0.17.5
     '@tdesign/theme-generator': ^1.2.0
     tdesign-icons-vue-next: ~0.4.1
     tdesign-publish-cli: ^0.0.12

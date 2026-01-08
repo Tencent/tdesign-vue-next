@@ -1,5 +1,5 @@
 import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
-import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
+import { Teleport, Transition, computed, defineComponent, nextTick, onBeforeUnmount, ref, toRefs, watch } from 'vue';
 import { isNumber } from 'lodash-es';
 
 import {
@@ -11,6 +11,7 @@ import {
   usePopupManager,
   useConfig,
 } from '@tdesign/shared-hooks';
+import { isPropsUsed } from '@tdesign/shared-utils';
 import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';
 import Image from '../image';
 import TImageItem from './base/ImageItem';
@@ -56,7 +57,7 @@ export default defineComponent({
         [`${classPrefix.value}-is-show`]: isExpand.value,
       },
     ]);
-    const zIndexValue = computed(() => props.zIndex ?? 2600);
+    const zIndexValue = computed(() => props.zIndex ?? 3000);
     const toggleExpand = () => {
       isExpand.value = !isExpand.value;
     };
@@ -163,6 +164,11 @@ export default defineComponent({
       },
     );
 
+    // Clean up timer when component is unmounted to prevent memory leaks and errors
+    onBeforeUnmount(() => {
+      clearTimeout(animationTimer.value);
+    });
+
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const { deltaY } = e;
@@ -204,6 +210,17 @@ export default defineComponent({
         </div>
       </div>
     );
+
+    const renderTitle = () => {
+      const titleContent = renderTNodeJSX('title');
+
+      return (
+        <div class={`${COMPONENT_NAME.value}__modal-index`}>
+          {titleContent ? titleContent : `${indexValue.value + 1}/${images.value.length}`}
+        </div>
+      );
+    };
+
     const renderNavigationArrow = (type: 'prev' | 'next') => {
       const rotateDeg = type === 'prev' ? 0 : 180;
       const icon = renderTNodeJSX(
@@ -260,7 +277,9 @@ export default defineComponent({
       if (props.mode === 'modeless') {
         return (
           <>
-            {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
+            {isPropsUsed('trigger')
+              ? renderTNodeJSX('trigger', { params: { open: openHandler } })
+              : renderDefaultTrigger()}
             <TImageViewerModal
               zIndex={zIndexValue.value}
               visible={visibleValue.value}
@@ -279,7 +298,7 @@ export default defineComponent({
               onDownload={onDownloadClick}
               draggable={props.draggable}
               showOverlay={showOverlayValue.value}
-              title={props.title}
+              title={renderTitle}
               imageReferrerpolicy={imageReferrerpolicy.value}
             />
           </>
@@ -288,7 +307,9 @@ export default defineComponent({
 
       return (
         <>
-          {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
+          {isPropsUsed('trigger')
+            ? renderTNodeJSX('trigger', { params: { open: openHandler } })
+            : renderDefaultTrigger()}
           <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
@@ -307,10 +328,7 @@ export default defineComponent({
                   {images.value.length > 1 && (
                     <>
                       {renderHeader()}
-                      <div class={`${COMPONENT_NAME.value}__modal-index`}>
-                        {props.title && renderTNodeJSX('title')}
-                        {`${indexValue.value + 1}/${images.value.length}`}
-                      </div>
+                      {renderTitle()}
                       {renderNavigationArrow('prev')}
                       {renderNavigationArrow('next')}
                     </>

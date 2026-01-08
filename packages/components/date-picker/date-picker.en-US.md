@@ -40,20 +40,23 @@ onBlur | Function |  | Typescript：`(context: { value: DateValue \| DateMultipl
 onChange | Function |  | Typescript：`(value: DateValue\| DateMultipleValue, context: { dayjsValue?: Dayjs, trigger?: DatePickerTriggerSource }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`import { Dayjs } from 'dayjs'`<br/><br/>`type DatePickerTriggerSource = 'confirm' \| 'pick' \| 'enter' \| 'preset' \| 'clear'`<br/> | N
 onConfirm | Function |  | Typescript：`(context: { date: Date, e: MouseEvent }) => void`<br/> | N
 onFocus | Function |  | Typescript：`(context: { value: DateValue \| DateMultipleValue; e: FocusEvent }) => void`<br/> | N
+onMonthChange | Function | | Typescript: `(context: { month: number, date: Date, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerMonthChangeTrigger = 'month-select' \| 'month-arrow-next' \| 'month-arrow-previous' \| 'today'`<br/> | N
 onPick | Function |  | Typescript：`(value: DateValue) => void`<br/> | N
 onPresetClick | Function |  | Typescript：`(context: { preset: PresetDate, e: MouseEvent }) => void`<br/> | N
+onYearChange | Function | | Typescript: `(context: { year: number, date: Date, trigger: DatePickerYearChangeTrigger, e?: MouseEvent }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerYearChangeTrigger = 'year-select' \| 'year-arrow-next' \| 'year-arrow-previous' \| 'today'`<br/> | N
 
 ### DatePicker Events
 
 name | params | description
 -- | -- | --
 blur | `(context: { value: DateValue \| DateMultipleValue; e: FocusEvent })` | \-
-change | `(value: DateValue\| DateMultipleValue, context: { dayjsValue?: Dayjs, trigger?: DatePickerTriggerSource })` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`import { Dayjs } from 'dayjs'`<br/><br/>`type DatePickerTriggerSource = 'confirm' \| 'pick' \| 'enter' \| 'preset' \| 'clear'`<br/>
+change | `(value: DateValue\| DateMultipleValue, context: { dayjsValue?: Dayjs, trigger?: DatePickerTriggerSource })` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`import { Dayjs } from 'dayjs'`<br/><br/>`type DatePickerTriggerSource = 'confirm' \| 'pick' \| 'enter' \| 'preset' \| 'clear'`
 confirm | `(context: { date: Date, e: MouseEvent })` | \-
 focus | `(context: { value: DateValue \| DateMultipleValue; e: FocusEvent })` | \-
+month-change | `(context: { month: number, date: Date, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger })` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerMonthChangeTrigger = 'month-select' \| 'month-arrow-next' \| 'month-arrow-previous' \| 'today'`
 pick | `(value: DateValue)` | \-
 preset-click | `(context: { preset: PresetDate, e: MouseEvent })` | \-
-
+year-change | `(context: { year: number, date: Date, trigger: DatePickerYearChangeTrigger, e?: MouseEvent })` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerYearChangeTrigger = 'year-select' \| 'year-arrow-next' \| 'year-arrow-previous' \| 'today'`
 
 ### DateRangePicker Props
 
@@ -95,8 +98,10 @@ onChange | Function |  | Typescript：`(value: DateRangeValue, context: { dayjsV
 onConfirm | Function |  | Typescript：`(context: { date: Date[], e: MouseEvent, partial: DateRangePickerPartial }) => void`<br/> | N
 onFocus | Function |  | Typescript：`(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent }) => void`<br/> | N
 onInput | Function |  | Typescript：`(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent }) => void`<br/> | N
+onMonthChange | Function | | Typescript: `(context: { month: number, date: Date[], partial: DateRangePickerPartial, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger }) => void`<br/> | N
 onPick | Function |  | Typescript：`(value: DateValue, context: PickContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`interface PickContext { e: MouseEvent; partial: DateRangePickerPartial }`<br/> | N
 onPresetClick | Function |  | Typescript：`(context: { preset: PresetDate, e: MouseEvent }) => void`<br/> | N
+onYearChange | Function | | Typescript: `(context: { year: number, date: Date[], partial: DateRangePickerPartial, trigger: DatePickerYearChangeTrigger, e?: MouseEvent }) => void`<br/> | N
 
 ### DateRangePicker Events
 
@@ -107,9 +112,10 @@ change | `(value: DateRangeValue, context: { dayjsValue?: Dayjs[], trigger?: Dat
 confirm | `(context: { date: Date[], e: MouseEvent, partial: DateRangePickerPartial })` | \-
 focus | `(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent })` | \-
 input | `(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent })` | \-
+month-change | `(context: { month: number, date: Date[], partial: DateRangePickerPartial, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger })` | \-
 pick | `(value: DateValue, context: PickContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`interface PickContext { e: MouseEvent; partial: DateRangePickerPartial }`<br/>
 preset-click | `(context: { preset: PresetDate, e: MouseEvent })` | \-
-
+year-change | `(context: { year: number, date: Date[], partial: DateRangePickerPartial, trigger: DatePickerYearChangeTrigger, e?: MouseEvent })` | \-
 
 ### DatePickerPanel Props
 

@@ -133,7 +133,7 @@ fillWithZero | Boolean | true | 当日期数字小于 10 时，是否使用 '0' 
 firstDayOfWeek | Number | 1 | 第一天从星期几开始。可选项：1/2/3/4/5/6/7 | N
 hideWeekend | String | - | 语言配置，“隐藏周末”描述文本 | N
 monthRadio | String | - | 语言配置，模式切换时的“月”描述文本 | N
-monthSelection | String | - | 语言配置，“月”选择描述文本。示例：`'{month} 月'` | N
+monthSelection | String / Function | - | 语言配置，“月”选择描述文本。示例：`'{month} 月'`。TS 类型：`string \| (( data: { month: number })=>string)` | N
 showWeekend | String | - | 语言配置，“显示周末”描述文本 | N
 thisMonth | String | - | 语言配置，“本月”描述文本 | N
 today | String | - | 语言配置，“今天”描述文本 | N
@@ -252,8 +252,8 @@ replaceImageSrc | Function | - | 统一替换图片 `src` 地址，参数为组�
 errorText | String | - | 全局语言配置，默认为 “图片加载失败，可尝试重新加载” | N
 mirrorTipText | String | - | 全局语言配置，默认为 “镜像” | N
 originalSizeTipText | String | - | 全局语言配置，默认为 “原始大小” | N
-rotateTipText | String | - | 全局语言配置，默认为 “旋转” | N
 previewText | String | - | 全局语言配置，默认为 “预览” | N
+rotateTipText | String | - | 全局语言配置，默认为 “旋转” | N
 
 ### InputConfig
 

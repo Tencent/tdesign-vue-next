@@ -5,6 +5,48 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.0 `2026-01-08` 
+
+### 🚀 New Features
+- `DialogPlugin`: Supports receiving global configurations from the `ConfigProvider` @Wesley-0808 @uyarn @Copilot ([#6212](https://github.com/Tencent/tdesign-vue-next/pull/6212)).
+- `DrawerPlugin`: Supports receiving global configurations from the `ConfigProvider` @Wesley-0808 @uyarn @Copilot ([#6212](https://github.com/Tencent/tdesign-vue-next/pull/6212)).
+- `Form`: The custom validation method `validator` now includes a `context` callback parameter, which includes `formData` and `name` for use in generative form scenarios based on JSON Schema @uyarn ([#6321](https://github.com/Tencent/tdesign-vue-next/pull/6321)).
+- `LoadingPlugin`: Supports receiving global configurations from the `ConfigProvider` @Wesley-0808 @uyarn @Copilot ([#6212](https://github.com/Tencent/tdesign-vue-next/pull/6212)).
+- `MessagePlugin`: Supports receiving global configurations from the `ConfigProvider` @Wesley-0808 @uyarn @Copilot ([#6212](https://github.com/Tencent/tdesign-vue-next/pull/6212)).
+- `NotificationPlugin`: 
+  - Added `className` and `style` APIs to allow customizing the notification box class and inline styles @Wesley-0808 ([#6307](https://github.com/Tencent/tdesign-vue-next/pull/6307)).
+  - Supports receiving global configurations from the `ConfigProvider` @Wesley-0808 @uyarn @Copilot ([#6212](https://github.com/Tencent/tdesign-vue-next/pull/6212)).
+- `TagInput`: Fixed an issue where the scroll bar position became abnormal when adding or removing options in horizontal scroll mode @liweijie0812 @Copilot ([#6213](https://github.com/Tencent/tdesign-vue-next/pull/6213)).
+- `Upload`: Added support for file types such as `.ai`, `.ps`, and `.eps` @uyarn ([common#2374](https://github.com/Tencent/tdesign-common/pull/2374)) ([#6324](https://github.com/Tencent/tdesign-vue-next/pull/6324)).
+- `Calendar`: The `range` API now allows setting either the start or end range separately @shumuuu ([#6211](https://github.com/Tencent/tdesign-vue-next/pull/6211)).
+
+### 🐞 Bug Fixes
+- `Cascader`: Fixed an issue where clicking the expand icon in the Safari had no effect @liweijie0812 ([#6312](https://github.com/Tencent/tdesign-vue-next/pull/6312)).
+- `EnhancedTable`: Fixed an issue where the table header would not be selected when a row was selected and then collapsed @Copilot ([#6208](https://github.com/Tencent/tdesign-vue-next/pull/6208)).
+- `Image`: Fixed an issue with the font size in the loading and error states @Nero978 @RADWIMPS426.  ([common#2383](https://github.com/Tencent/tdesign-common/pull/2383))
+- `ImageViewer`: 
+  - Fixed an issue where the component could not be used in scenarios where no trigger configuration was provided @uyarn ([#6302](https://github.com/Tencent/tdesign-vue-next/pull/6302)).
+  - Fixed an issue where it was not possible to use slots to customize the preview title @betavs ([#6277](https://github.com/Tencent/tdesign-vue-next/pull/6277)).
+  - Optimized the behavior when `close-on-overlay` was enabled, so that the additional blank space that appeared after the image was reduced would not prevent the preview from closing properly @QuentinHsu ([#6235](https://github.com/Tencent/tdesign-vue-next/pull/6235)).
+  - Corrected the default `zIndex` value to 3000 @liweijie0812 ([#6128](https://github.com/Tencent/tdesign-vue-next/pull/6128)).
+- `List`: Fixed issues with the default margin of `ListItem` elements and the extra bottom separator line @Nero978 @liweijie0812 ([common#2386](https://github.com/Tencent/tdesign-common/pull/2386)) ([common#2382](https://github.com/Tencent/tdesign-common/pull/2382)) ([#6324](https://github.com/Tencent/tdesign-vue-next/pull/6324)).
+- `Menu`: Fixed an issue where clicking the expand icon in the Safari had no effect @liweijie0812 ([#6312](https://github.com/Tencent/tdesign-vue-next/pull/6312)).
+- `Select`: Fixed an issue where clicking the expand icon in the Safari had no effect @liweijie0812 ([#6312](https://github.com/Tencent/tdesign-vue-next/pull/6312)).
+- `Slider`: Fixed an issue where the component's responsiveness would fail when the `v-model` was used to modify individual elements of an array @RSS1102 ([#6313](https://github.com/Tencent/tdesign-vue-next/pull/6313)).
+- `Swiper`: Fixed an issue with unstable width calculations when the `type='card'` option was used @RylanBot ([#6185](https://github.com/Tencent/tdesign-vue-next/pull/6185)).
+- `Table`: Fixed an issue where the callback event was not triggered when the column configuration popup was opened @tuzixiangs ([#6174](https://github.com/Tencent/tdesign-vue-next/pull/6174)).
+- `Tabs`: Fixed an issue where the scroll state would not be cleared when the width became sufficient to display all tabs @wesley-0808 @Copilot ([#6293](https://github.com/Tencent/tdesign-vue-next/pull/6293)).
+- `Textarea`: Fixed an issue where it was not possible to directly set the height of a `Textarea` element using the `height` property @engvuchen ([#6040](https://github.com/Tencent/tdesign-vue-next/pull/6040)).
+- `Tooltip`: Fixed an issue where the `Tooltip` function did not work correctly when used with a `Textarea` element that contained no content @engvuchen ([#6040](https://github.com/Tencent/tdesign-vue-next/pull/6040)).
+- `TreeSelect`: Fixed an issue where clicking the expand icon in the Safari had no effect @liweijie0812 ([#6312](https://github.com/Tencent/tdesign-vue-next/pull/6312)).
+- `HeadMenu`: Fixed a console warning that occurred when `MenuItem` elements were dynamically rendered using JSX @Copilot ([#6221](https://github.com/Tencent/tdesign-vue-next/pull/6221)).
+- `Popup`: Fixed an issue where the `onScrollToBottom` event would not be triggered after the page size was changed @Copilot ([#6205](https://github.com/Tencent/tdesign-vue-next/pull/6205)).
+- `Table`: 
+  - Fixed an issue where the `activeRowList` array was not cleared correctly when a row's highlighting was removed in single-selection mode @Copilot ([#6222](https://github.com/Tencent/tdesign-vue-next/pull/6222)).
+  - The component instance method `clearValidateData` was updated to clear validation error results from editable cells @RSS1102 ([#6186](https://github.com/Tencent/tdesign-vue-next/pull/6186)).
+- `TreeSelect`: Fixed an issue where the `label` slot did not function as expected @RSS1102 ([#6294](https://github.com/Tencent/tdesign-vue-next/pull/6294)).
+- `Upload`: Fixed an issue where clicking the custom upload button defined in version `1.17.4` had no effect if the click event was not defined @Wesley-0808 ([#6280](https://github.com/Tencent/tdesign-vue-next/pull/6280)).
+
 ## 🌈 1.17.7 `2025-12-18` 
 
 ### 🚀 Features
