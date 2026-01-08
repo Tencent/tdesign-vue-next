@@ -34,7 +34,7 @@ attach | String / Function | 'body' | Typescript: `AttachNode`。[see more ts de
 className | String | - | \- | N
 offset | Array | - | Typescript: `Array<string \| number>` | N
 placement | String | top-right | options: top-left/top-right/bottom-left/bottom-right。Typescript: `NotificationPlacementList` `type NotificationPlacementList = 'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/notification/type.ts) | N
-style | Object | - | Typescript: `CSSProperties` | N
+style | String / Object | - | Typescript: `string \| Styles`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 zIndex | Number | 6000 | \- | N
 `NotificationProps` | \- | - | extends `NotificationProps` | N
 
@@ -47,8 +47,6 @@ name | params | default | description
 theme | String | info | required。options: info/success/warning/error。Typescript: `NotificationThemeList`
 options | Object | - | required。Typescript: `NotificationOptions`
 context | \- | - | Typescript: `AppContext`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
-
-插件返回值：`Promise<NotificationInstance>`
 
 ### NotificationPlugin.info
 

@@ -48,7 +48,7 @@ attach | String / Function | 'body' | 指定消息通知挂载的父节点。数
 className | String | - | 通知框类名 | N
 offset | Array | - | 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10em', '8rem']。TS 类型：`Array<string \| number>` | N
 placement | String | top-right | 消息弹出位置。可选项：top-left/top-right/bottom-left/bottom-right。TS 类型：`NotificationPlacementList` `type NotificationPlacementList = 'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/notification/type.ts) | N
-style | Object | - | 通知框 style 内敛样式属性。TS 类型：`CSSProperties` | N
+style | String / Object | - | 通知框 style 属性，输入 [CSSStyleDeclaration.cssText](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/cssText)。TS 类型：`string \| Styles`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 zIndex | Number | 6000 | 消息通知层级 | N
 `NotificationProps` | \- | - | 继承 `NotificationProps` 中的全部属性 | N
 
@@ -62,8 +62,6 @@ theme | String | info | 必需。消息类型。可选项：info/success/warning
 options | Object | - | 必需。消息通知内容。TS 类型：`NotificationOptions`
 context | \- | - | 要继承的应用的上下文。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
 
-
-插件返回值：`Promise<NotificationInstance>`
 
 ### NotificationPlugin.info
 
