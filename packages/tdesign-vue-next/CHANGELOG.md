@@ -5,6 +5,49 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.0 `2026-01-08` 
+
+### 🚀 Features
+- `DialogPlugin`: 支持接收 ConfigProvider 的全局配置，如自定义前缀 @Wesley-0808 @uyarn @Copilot ([#6212](https://github.com/Tencent/tdesign-vue-next/pull/6212))
+- `DrawerPlugin`: 支持接收 ConfigProvider 的全局配置，如自定义前缀 @Wesley-0808 @uyarn @Copilot ([#6212](https://github.com/Tencent/tdesign-vue-next/pull/6212))
+- `Form`: 自定义校验方法 `validator` 新增 `context` 回调参数，包括 `formData` 和 `name` 用于 JSON Schema 等生成式表单场景 @uyarn ([#6321](https://github.com/Tencent/tdesign-vue-next/pull/6321))
+- `LoadingPlugin`: 支持接收 ConfigProvider 的全局配置，如自定义前缀 @Wesley-0808 @uyarn @Copilot ([#6212](https://github.com/Tencent/tdesign-vue-next/pull/6212))
+- `MessagePlugin`: 支持接收 ConfigProvider 的全局配置，如自定义前缀 @Wesley-0808 @uyarn @Copilot ([#6212](https://github.com/Tencent/tdesign-vue-next/pull/6212))
+- `NotificationPlugin`: 
+  - 新增 `className` 和 `style` API，支持自定义通知框类、内联样式 @Wesley-0808 ([#6307](https://github.com/Tencent/tdesign-vue-next/pull/6307))
+  - 支持接收 ConfigProvider 的全局配置，如自定义前缀 @Wesley-0808 @uyarn @Copilot ([#6212](https://github.com/Tencent/tdesign-vue-next/pull/6212))
+- `TagInput`: 修复横向滚动模式下增删选项滚动条位置异常的问题 @liweijie0812 @Copilot ([#6213](https://github.com/Tencent/tdesign-vue-next/pull/6213))
+- `Upload`: 新增支持 .ai、.ps、.eps 等支持的文件类型 @uyarn  ([common#2374](https://github.com/Tencent/tdesign-common/pull/2374))  ([#6324](https://github.com/Tencent/tdesign-vue-next/pull/6324))
+- `Calendar`: `range` API 支持单独设置开始范围或结束范围 @shumuuu ([#6211](https://github.com/Tencent/tdesign-vue-next/pull/6211))
+
+### 🐞 Bug Fixes
+- `Cascader`: 修复在 Safari 浏览器中点击展开图标没有变换方向的问题 @liweijie0812 ([#6312](https://github.com/Tencent/tdesign-vue-next/pull/6312))
+- `EnhancedTable`: 修复行选中收缩后, 表格头全选状态异常的问题 @Copilot ([#6208](https://github.com/Tencent/tdesign-vue-next/pull/6208))
+- `Image`: 修复 loading 和 error 状态下的字体大小问题 @Nero978 @RADWIMPS426 ([common#2383](https://github.com/Tencent/tdesign-common/pull/2383))
+- `ImageViewer`: 
+  - 修复不支持 trigger 配置无触发器的场景使用的问题 @uyarn ([#6302](https://github.com/Tencent/tdesign-vue-next/pull/6302))
+  - 修复无法使用插槽自定义预览标题的问题 @betavs ([#6277](https://github.com/Tencent/tdesign-vue-next/pull/6277))
+  - 优化开启 `close-on-overlay`时，缩小图片后新增的空白区域无法正常关闭预览的问题 @QuentinHsu ([#6235](https://github.com/Tencent/tdesign-vue-next/pull/6235))
+  - 修正 `zIndex` 默认值为 3000，此前为错误的 2600，如有涉及层级覆盖请注意此变更 ⚠️ @liweijie0812 ([#6128](https://github.com/Tencent/tdesign-vue-next/pull/6128))
+- `List`: 修复 ListItem 的默认边距和多余底部分割线问题 @Nero978 @liweijie0812  ([common#2386](https://github.com/Tencent/tdesign-common/pull/2386))  ([common#2382](https://github.com/Tencent/tdesign-common/pull/2382))  ([#6324](https://github.com/Tencent/tdesign-vue-next/pull/6324))
+- `Menu`: 修复在 Safari 浏览器中点击展开图标没有变换方向的问题  @liweijie0812 ([#6312](https://github.com/Tencent/tdesign-vue-next/pull/6312))
+- `Select`: 修复在 Safari 浏览器中点击展开图标没有变换方向的问题  @liweijie0812 ([#6312](https://github.com/Tencent/tdesign-vue-next/pull/6312))
+- `Slider`: 修复 `v-model` 修改数组单个元素时响应式失效的问题 @RSS1102 ([#6313](https://github.com/Tencent/tdesign-vue-next/pull/6313))
+- `Swiper`: 修复 `type='card'` 时，宽度计算不稳定的问题 @RylanBot ([#6185](https://github.com/Tencent/tdesign-vue-next/pull/6185))
+- `Table`: 修复列配置弹窗打开时不触发回调事件的问题 @tuzixiangs ([#6174](https://github.com/Tencent/tdesign-vue-next/pull/6174))
+- `Tabs`: 修复当宽度增加到足以适合所有标签时，滚动状态不会取消的问题 @wesley-0808 @Copilot ([#6293](https://github.com/Tencent/tdesign-vue-next/pull/6293))
+- `Textarea`: 修复无法直接通过 height 配置高度的问题 @engvuchen ([#6040](https://github.com/Tencent/tdesign-vue-next/pull/6040))
+- `Tooltip`: 修复`Tooltip` 配合`Textarea` 使用在空内容下的错误 @engvuchen ([#6040](https://github.com/Tencent/tdesign-vue-next/pull/6040))
+- `TreeSelect`: 修复在 Safari 浏览器中点击展开图标没有变换方向的问题  @liweijie0812 ([#6312](https://github.com/Tencent/tdesign-vue-next/pull/6312))
+- `HeadMenu`: 修复使用 JSX 动态渲染 MenuItem 时控制台警告的问题 @Copilot ([#6221](https://github.com/Tencent/tdesign-vue-next/pull/6221))
+- `Popup`: 修复页面缩放后 onScrollToBottom 事件无法触发的问题 @Copilot ([#6205](https://github.com/Tencent/tdesign-vue-next/pull/6205))
+- `Table`: 
+  - 修复单选模式下取消行高亮时 `activeRowList` 未正确清空的问题 @Copilot ([#6222](https://github.com/Tencent/tdesign-vue-next/pull/6222))
+  - 修复组件实例方法 `clearValidateData` 没有清理可编辑单元格验证结果的问题 @RSS1102 ([#6186](https://github.com/Tencent/tdesign-vue-next/pull/6186))
+- `TreeSelect`: 修复 `label` 插槽不生效的问题 @RSS1102 ([#6294](https://github.com/Tencent/tdesign-vue-next/pull/6294))
+- `Upload`: 修复 `1.17.4` 自定义上传按钮但未定义点击事件时，点击按钮无效的问题 @Wesley-0808 ([#6280](https://github.com/Tencent/tdesign-vue-next/pull/6280))
+
+
 ## 🌈 1.17.7 `2025-12-18` 
 
 ### 🚀 Features
