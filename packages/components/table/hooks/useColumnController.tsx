@@ -150,12 +150,12 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   // };
 
   const handleToggleColumnController = () => {
+    if (columnControllerVisible.value !== undefined) {
+      props.onColumnControllerVisibleChange?.(true, { trigger: 'open' });
+      context.emit('update:columnControllerVisible', true);
+    }
     if (dialogInstance.value) {
       dialogInstance.value.show();
-      if (columnControllerVisible.value !== undefined) {
-        props.onColumnControllerVisibleChange?.(true, { trigger: 'open' });
-        context.emit('update:columnControllerVisible', true);
-      }
       return;
     }
     dialogInstance.value = DialogPlugin.confirm({
@@ -233,10 +233,6 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
       },
       ...(columnController.value?.dialogProps || {}),
     });
-    if (columnControllerVisible.value !== undefined) {
-      props.onColumnControllerVisibleChange?.(true, { trigger: 'open' });
-      context.emit('update:columnControllerVisible', true);
-    }
   };
 
   // columnControllerVisible 一般应用于不包含列配置按钮的场景，有外部直接控制弹框的显示或隐藏
