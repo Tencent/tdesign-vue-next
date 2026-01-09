@@ -46,7 +46,6 @@
 
 <script setup>
 import { ref } from 'vue';
-import dayjs from 'dayjs';
 
 // 统一的范围：按月/季/年粒度比较
 const periodRange = ['2025-03-15', '2025-12-01'];
