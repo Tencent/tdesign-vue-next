@@ -9,6 +9,7 @@ import {
   ComputedRef,
   onBeforeUnmount,
   Ref,
+  nextTick,
 } from 'vue';
 import { get, pick, xorWith, debounce } from 'lodash-es';
 
@@ -386,29 +387,36 @@ export default function useFixed(
       isFixedRightColumn.value = fixedInfo.hasFixedRight;
     }
     setIsLastOrFirstFixedCol(levelNodes);
-    const timer = setTimeout(() => {
+    // 使用 nextTick 确保 DOM 已更新，同时避免多个 setTimeout 导致多次独立渲染
+    nextTick(() => {
       if (fixedInfo.hasFixedColumn || fixedRows.value?.length) {
         updateRowAndColFixedPosition(tableContentRef.value, newColumnsMap);
       }
-      clearTimeout(timer);
-    }, 0);
-    return () => {
-      clearTimeout(timer);
-    };
+    });
   };
 
   const updateFixedHeader = () => {
-    const timer = setTimeout(() => {
+    // 使用 nextTick 确保 DOM 已更新，同时与其他更新批量处理
+    nextTick(() => {
       if (!tableContentRef.value) return;
-      isFixedHeader.value = tableContentRef.value.scrollHeight > tableContentRef.value.clientHeight;
-      isWidthOverflow.value = tableContentRef.value.scrollWidth > tableContentRef.value.clientWidth;
+      const newIsFixedHeader = tableContentRef.value.scrollHeight > tableContentRef.value.clientHeight;
+      const newIsWidthOverflow = tableContentRef.value.scrollWidth > tableContentRef.value.clientWidth;
+      // 只在值变化时更新，避免触发不必要的响应式更新
+      if (isFixedHeader.value !== newIsFixedHeader) {
+        isFixedHeader.value = newIsFixedHeader;
+      }
+      if (isWidthOverflow.value !== newIsWidthOverflow) {
+        isWidthOverflow.value = newIsWidthOverflow;
+      }
       const pos = tableContentRef.value.getBoundingClientRect();
-      virtualScrollHeaderPos.value = {
-        top: pos.top,
-        left: pos.left,
-      };
-      clearTimeout(timer);
-    }, 0);
+      // 只有当位置真正变化时才更新，避免不必要的响应式更新
+      if (virtualScrollHeaderPos.value.top !== pos.top || virtualScrollHeaderPos.value.left !== pos.left) {
+        virtualScrollHeaderPos.value = {
+          top: pos.top,
+          left: pos.left,
+        };
+      }
+    });
   };
 
   const setTableElmWidth = (width: number) => {
@@ -421,7 +429,10 @@ export default function useFixed(
     if (!rect) return;
     // 存在纵向滚动条，且固定表头时，需去除滚动条宽度
     const reduceWidth = isFixedHeader.value ? scrollbarWidth.value : 0;
-    tableWidth.value = rect.width - reduceWidth - (props.bordered ? 1 : 0);
+    const newTableWidth = rect.width - reduceWidth - (props.bordered ? 1 : 0);
+    if (tableWidth.value !== newTableWidth) {
+      tableWidth.value = newTableWidth;
+    }
     const elmRect = tableElmRef?.value?.getBoundingClientRect();
     elmRect?.width && setTableElmWidth(elmRect.width);
   };
@@ -451,7 +462,12 @@ export default function useFixed(
   const updateThWidthList = (trList: HTMLCollection | { [colKey: string]: number }) => {
     if (trList instanceof HTMLCollection) {
       if (columnResizable.value) return;
-      thWidthList.value = calculateThWidthList(trList);
+      const newWidthList = calculateThWidthList(trList);
+      // 检查是否有变化
+      const hasChange = Object.keys(newWidthList).some((key) => thWidthList.value[key] !== newWidthList[key]);
+      if (hasChange || Object.keys(thWidthList.value).length !== Object.keys(newWidthList).length) {
+        thWidthList.value = newWidthList;
+      }
     } else {
       thWidthList.value = thWidthList.value || {};
       Object.entries(trList).forEach(([colKey, width]) => {
@@ -462,14 +478,14 @@ export default function useFixed(
   };
 
   const updateThWidthListHandler = () => {
-    const timer = setTimeout(() => {
+    // 使用 nextTick 替代 setTimeout(0)，可以与其他 nextTick 批量处理
+    nextTick(() => {
       updateTableWidth();
       if (notNeedThWidthList.value) return;
       const thead = tableContentRef.value?.querySelector('thead');
       if (!thead) return;
       updateThWidthList(thead.children);
-      clearTimeout(timer);
-    }, 0);
+    });
   };
 
   const resetThWidthList = () => {
@@ -493,19 +509,10 @@ export default function useFixed(
     return thWidthList.value || {};
   };
 
+  // 注意：isFixedHeader 和 isWidthOverflow 是派生状态，不应该作为触发 updateFixedStatus 的依赖
+  // 否则会导致链式触发：updateFixedHeader 更新这些值 -> 触发此 watch -> 再次渲染
   watch(
-    [
-      data,
-      columns,
-      bordered,
-      tableLayout,
-      tableContentWidth,
-      isFixedHeader,
-      isWidthOverflow,
-      fixedRows,
-      firstFullRow,
-      lastFullRow,
-    ],
+    [data, columns, bordered, tableLayout, tableContentWidth, fixedRows, firstFullRow, lastFullRow],
     updateFixedStatus,
     { immediate: true },
   );
@@ -513,12 +520,11 @@ export default function useFixed(
   watch(
     [isFixedColumn, columns],
     () => {
-      const timer = setTimeout(() => {
+      nextTick(() => {
         if (isFixedColumn.value) {
           updateColumnFixedShadow(tableContentRef.value);
         }
-        clearTimeout(timer);
-      }, 0);
+      });
     },
     { immediate: true },
   );
@@ -538,15 +544,29 @@ export default function useFixed(
     resetThWidthList();
   });
 
+  // 标记是否已经完成初始化
+  let isInitialized = false;
+
   // 影响表头宽度的元素
+  // 注意：isFixedHeader 是派生状态，不应该作为触发依赖，否则会导致链式触发
   watch(
-    [data, bordered, tableLayout, fixedRows, isFixedHeader, headerAffixedTop, footerAffixedBottom, tableContentWidth],
+    [data, bordered, tableLayout, fixedRows, headerAffixedTop, footerAffixedBottom, tableContentWidth],
     () => {
-      const timer = setTimeout(() => {
-        updateThWidthListHandler();
-        updateAffixPosition();
-        clearTimeout(timer);
-      }, 60);
+      // 初始化时使用 nextTick，后续变化使用 debounce
+      if (!isInitialized) {
+        nextTick(() => {
+          updateThWidthListHandler();
+          updateAffixPosition();
+          isInitialized = true;
+        });
+      } else {
+        // 使用 debounce 合并多次调用，避免多次触发
+        const timer = setTimeout(() => {
+          updateThWidthListHandler();
+          updateAffixPosition();
+          clearTimeout(timer);
+        }, 60);
+      }
     },
     { immediate: true },
   );
@@ -630,6 +650,8 @@ export default function useFixed(
   });
 
   const setData = (dataSource: TableRowData[]) => {
+    // 只有当数据引用真正变化时才更新，避免不必要的响应式更新
+    if (data.value === dataSource) return;
     data.value = dataSource;
   };
 
