@@ -24,9 +24,17 @@ export default function usePagination(
     if (t) {
       const start = (current - 1) * pageSize;
       const end = current * pageSize;
-      dataSource.value = data.slice(start, end);
+      const newData = data.slice(start, end);
+      // 只有当数据真正变化时才更新，避免不必要的响应式更新
+      if (dataSource.value !== newData && JSON.stringify(dataSource.value) !== JSON.stringify(newData)) {
+        dataSource.value = newData;
+      }
     } else {
-      dataSource.value = data;
+      // 当不分页时，只有当引用不同且内容不同时才更新
+      // 避免每次都触发响应式更新
+      if (dataSource.value !== data) {
+        dataSource.value = data;
+      }
     }
   };
 
@@ -37,8 +45,10 @@ export default function usePagination(
       if (!pagination.value || !pagination.value.current) return;
       const { current, pageSize } = pagination.value;
 
-      const newPageInfo = { current, pageSize };
-      innerPagination.value = newPageInfo;
+      // 只有当值真正变化时才更新，避免不必要的响应式更新
+      if (innerPagination.value?.current !== current || innerPagination.value?.pageSize !== pageSize) {
+        innerPagination.value = { current, pageSize };
+      }
       updateDataSourceAndPaginate(
         pagination.value.current,
         pagination.value.pageSize || pagination.value.defaultPageSize,
