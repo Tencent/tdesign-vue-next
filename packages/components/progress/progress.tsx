@@ -21,6 +21,7 @@ export default defineComponent({
   props,
   setup(props) {
     const renderTNodeJSX = useTNodeJSX();
+    const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('progress');
     const { CloseCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon, CheckIcon, ErrorIcon } =
       useGlobalIcon({
@@ -192,7 +193,13 @@ export default defineComponent({
       return (
         <div class={COMPONENT_NAME.value}>
           {props.theme === PRO_THEME.LINE && (
-            <div class={`${COMPONENT_NAME.value}--thin ${COMPONENT_NAME.value}--status--${statusStyle.value}`}>
+            <div
+              class={[
+                `${COMPONENT_NAME.value}--thin`,
+                `${COMPONENT_NAME.value}--status--${statusStyle.value}`,
+                { [`${classPrefix.value}-size-s`]: props.size === 'small' },
+              ]}
+            >
               <div class={`${COMPONENT_NAME.value}__bar`} style={trackBgStyle.value}>
                 <div class={`${COMPONENT_NAME.value}__inner`} style={barStyle.value}></div>
               </div>
@@ -205,6 +212,7 @@ export default defineComponent({
               class={[
                 `${COMPONENT_NAME.value}__bar ${COMPONENT_NAME.value}--plump ${separateClasses.value}`,
                 { [`${COMPONENT_NAME.value}--status--${statusStyle.value}`]: statusStyle.value },
+                { [`${classPrefix.value}-size-s`]: props.size === 'small' },
               ]}
               style={trackBgStyle.value}
             >
