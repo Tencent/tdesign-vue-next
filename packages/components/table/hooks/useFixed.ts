@@ -144,23 +144,28 @@ export default function useFixed(
     levelNodes: FixedColumnInfo[][] = [],
     level = 0,
     parent?: FixedColumnInfo,
+    fixedInfo: { hasFixedColumn: boolean; hasFixedLeft: boolean; hasFixedRight: boolean } = {
+      hasFixedColumn: false,
+      hasFixedLeft: false,
+      hasFixedRight: false,
+    },
   ) {
     for (let i = 0, len = columns.length; i < len; i++) {
       const col = columns[i];
       if (['left', 'right'].includes(col.fixed)) {
-        isFixedColumn.value = true;
+        fixedInfo.hasFixedColumn = true;
       }
       if (col.fixed === 'right') {
-        isFixedRightColumn.value = true;
+        fixedInfo.hasFixedRight = true;
       }
       if (col.fixed === 'left') {
-        isFixedLeftColumn.value = true;
+        fixedInfo.hasFixedLeft = true;
       }
       const key = col.colKey || i;
       const columnInfo: FixedColumnInfo = { col, parent, index: i };
       map.set(key, columnInfo);
       if (col.children?.length) {
-        getColumnMap(col.children, map, levelNodes, level + 1, columnInfo);
+        getColumnMap(col.children, map, levelNodes, level + 1, columnInfo, fixedInfo);
       }
       if (levelNodes[level]) {
         levelNodes[level].push(columnInfo);
@@ -172,6 +177,7 @@ export default function useFixed(
     return {
       newColumnsMap: map,
       levelNodes,
+      fixedInfo,
     };
   }
 
@@ -288,9 +294,36 @@ export default function useFixed(
     }
   };
 
+  // 比较两个 Map 的内容是否相同
+  const isMapEqual = (map1: RowAndColFixedPosition, map2: RowAndColFixedPosition): boolean => {
+    if (map1.size !== map2.size) return false;
+    for (const [key, value] of map1) {
+      const otherValue = map2.get(key);
+      if (!otherValue) return false;
+      // 比较关键属性
+      if (
+        value.left !== otherValue.left ||
+        value.right !== otherValue.right ||
+        value.top !== otherValue.top ||
+        value.bottom !== otherValue.bottom ||
+        value.width !== otherValue.width ||
+        value.height !== otherValue.height ||
+        value.lastLeftFixedCol !== otherValue.lastLeftFixedCol ||
+        value.firstRightFixedCol !== otherValue.firstRightFixedCol
+      ) {
+        return false;
+      }
+    }
+    return true;
+  };
+
   const updateRowAndColFixedPosition = (tableContentElm: HTMLElement, initialColumnMap: RowAndColFixedPosition) => {
-    rowAndColFixedPosition.value.clear();
-    if (!tableContentElm) return;
+    if (!tableContentElm) {
+      if (rowAndColFixedPosition.value.size > 0) {
+        rowAndColFixedPosition.value = new Map();
+      }
+      return;
+    }
     const thead = tableContentElm.querySelector('thead');
     // 处理固定列
     thead && setFixedColPosition(thead.children, initialColumnMap);
@@ -298,8 +331,10 @@ export default function useFixed(
     const tbody = tableContentElm.querySelector('tbody');
     const tfoot = tableContentElm.querySelector('tfoot');
     tbody && setFixedRowPosition(tbody.children, initialColumnMap, thead, tfoot);
-    // 更新最终 Map
-    rowAndColFixedPosition.value = initialColumnMap;
+    // 只有当内容真正变化时才更新，避免不必要的渲染
+    if (!isMapEqual(rowAndColFixedPosition.value, initialColumnMap)) {
+      rowAndColFixedPosition.value = initialColumnMap;
+    }
   };
 
   let shadowLastScrollLeft: number;
@@ -339,10 +374,20 @@ export default function useFixed(
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const updateFixedStatus = () => {
-    const { newColumnsMap, levelNodes } = getColumnMap(columns.value);
+    const { newColumnsMap, levelNodes, fixedInfo } = getColumnMap(columns.value);
+    // 只在值变化时更新，避免触发不必要的响应式更新
+    if (isFixedColumn.value !== fixedInfo.hasFixedColumn) {
+      isFixedColumn.value = fixedInfo.hasFixedColumn;
+    }
+    if (isFixedLeftColumn.value !== fixedInfo.hasFixedLeft) {
+      isFixedLeftColumn.value = fixedInfo.hasFixedLeft;
+    }
+    if (isFixedRightColumn.value !== fixedInfo.hasFixedRight) {
+      isFixedRightColumn.value = fixedInfo.hasFixedRight;
+    }
     setIsLastOrFirstFixedCol(levelNodes);
     const timer = setTimeout(() => {
-      if (isFixedColumn.value || fixedRows.value?.length) {
+      if (fixedInfo.hasFixedColumn || fixedRows.value?.length) {
         updateRowAndColFixedPosition(tableContentRef.value, newColumnsMap);
       }
       clearTimeout(timer);
@@ -457,7 +502,6 @@ export default function useFixed(
       tableContentWidth,
       isFixedHeader,
       isWidthOverflow,
-      isFixedColumn,
       fixedRows,
       firstFullRow,
       lastFullRow,
