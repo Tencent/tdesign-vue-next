@@ -1,5 +1,5 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
-import { get, omit } from 'lodash-es';
+import { get, omit, set } from 'lodash-es';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
@@ -8,7 +8,13 @@ import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';
 import useRowSelect from './hooks/useRowSelect';
-import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams } from './type';
+import {
+  TdPrimaryTableProps,
+  PrimaryTableCol,
+  TableRowData,
+  PrimaryTableCellParams,
+  PrimaryTableRowEditContext,
+} from './type';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
@@ -230,6 +236,55 @@ export default defineComponent({
       });
     };
 
+    const onUpdateEditedCellWithEvent = (rowValue: any, lastRowData: TableRowData, data: { [key: string]: any }) => {
+      // First update the edited cell data
+      onUpdateEditedCell(rowValue, lastRowData, data);
+
+      // Then trigger row-edit event for each updated column
+      if (props.onRowEdit) {
+        Object.entries(data).forEach(([colKey, value]) => {
+          // Find the column definition
+          const findColumnByKey = (
+            cols: PrimaryTableCol<TableRowData>[],
+            key: string,
+          ): PrimaryTableCol<TableRowData> | null => {
+            for (const col of cols) {
+              if (col.colKey === key) return col;
+              if (col.children?.length) {
+                const found = findColumnByKey(col.children, key);
+                if (found) return found;
+              }
+            }
+            return null;
+          };
+
+          const col = findColumnByKey(columns.value, colKey);
+          if (col) {
+            // Find the row index
+            const rowIndex = props.data.findIndex((row) => get(row, props.rowKey || 'id') === rowValue);
+            const colIndex = columns.value.findIndex((c) => c.colKey === col.colKey);
+
+            // Get the editedRow from editedFormData to include all edits
+            const editedRow = { ...lastRowData };
+            // Apply all changes from data object to get the complete edited row
+            Object.entries(data).forEach(([key, val]) => {
+              set(editedRow, key, val);
+            });
+
+            const context: PrimaryTableRowEditContext<TableRowData> = {
+              row: lastRowData,
+              rowIndex,
+              col,
+              colIndex,
+              value,
+              editedRow,
+            };
+            props.onRowEdit(context);
+          }
+        });
+      }
+    };
+
     // 1. 影响列数量的因素有：自定义列配置、展开/收起行、多级表头；2. 影响表头内容的因素有：排序图标、筛选图标
     const getColumns = (columns: PrimaryTableCol<TableRowData>[], parentDisplay = false) => {
       const arr: PrimaryTableCol<TableRowData>[] = [];
@@ -313,7 +368,7 @@ export default defineComponent({
                 cellKey={cellKey}
                 onCellInstanceChange={onCellInstanceChange}
                 v-slots={context.slots}
-                onUpdateEditedCell={onUpdateEditedCell}
+                onUpdateEditedCell={onUpdateEditedCellWithEvent}
               />
             );
           };
