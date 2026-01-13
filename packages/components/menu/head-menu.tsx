@@ -6,12 +6,14 @@ import {
   reactive,
   watch,
   onMounted,
+  onBeforeUnmount,
   watchEffect,
   toRefs,
   h,
   VNode,
   Component,
   getCurrentInstance,
+  nextTick,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isArray, isFunction } from 'lodash-es';
@@ -114,10 +116,34 @@ export default defineComponent({
       },
     );
 
+    // 监听窗口大小变化，重新计算菜单布局
+    let resizeObserver: ResizeObserver | null = null;
     onMounted(() => {
       activeValues.value = vMenu.select(activeValue.value);
       if (expandValues.value?.length > 0) {
         handleSubmenuExpand(expandValues.value[0]); // 顶部导航只能同时展开一个子菜单
+      }
+      // 等待 DOM 渲染完成后标记菜单已挂载
+      nextTick(() => {
+        isMenuMounted.value = true;
+      });
+
+      if (innerRef.value) {
+        resizeObserver = new ResizeObserver(() => {
+          // 触发响应式更新以重新计算 formatContent
+          isMenuMounted.value = false;
+          nextTick(() => {
+            isMenuMounted.value = true;
+          });
+        });
+        resizeObserver.observe(innerRef.value);
+      }
+    });
+
+    onBeforeUnmount(() => {
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+        resizeObserver = null;
       }
     });
 
@@ -153,6 +179,7 @@ export default defineComponent({
     const innerRef = ref<HTMLDivElement>();
     const logoRef = ref<HTMLDivElement>();
     const operationRef = ref<HTMLDivElement>();
+    const isMenuMounted = ref(false);
 
     const getComputedCss = (el: Element, cssProperty: keyof CSSStyleDeclaration) =>
       getComputedStyle(el)[cssProperty] ?? '';
@@ -161,6 +188,8 @@ export default defineComponent({
       Number.parseInt(String(getComputedCss(el, cssProperty)), 10);
 
     const calcMenuWidth = () => {
+      if (!menuRef.value || !innerRef.value) return 0;
+
       const menuPaddingLeft = getComputedCssValue(menuRef.value, 'paddingLeft');
       const menuPaddingRight = getComputedCssValue(menuRef.value, 'paddingRight');
       let totalWidth = innerRef.value.clientWidth;
@@ -179,11 +208,10 @@ export default defineComponent({
       return totalWidth - menuPaddingLeft - menuPaddingRight;
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const formatContent = () => {
       let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
-      if (menuRef.value && innerRef.value) {
+      if (isMenuMounted.value && menuRef.value && innerRef.value) {
         const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
           (item) => item.nodeName !== '#text' || item.nodeValue,
         ) as HTMLElement[];
@@ -237,9 +265,7 @@ export default defineComponent({
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
 
-      // TODO: 判断逻辑不够完善 影响封装组件的子菜单样式渲染 暂时先不执行 待调整实现方案
-      // const content = formatContent();
-      const content = ctx.slots.default?.() || ctx.slots.content?.() || [];
+      const content = formatContent();
       initVMenu(content);
 
       return (
