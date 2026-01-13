@@ -152,6 +152,7 @@ export default defineComponent({
 
     // 可编辑行
     const {
+      editedFormData,
       errorListMap,
       editableKeysMap,
       validateRowData,
@@ -243,13 +244,14 @@ export default defineComponent({
       // Then trigger row-edit event for each updated column
       if (props.onRowEdit) {
         Object.entries(data).forEach(([colKey, value]) => {
-          // Find the column definition
+          // Find the column definition recursively
           const findColumnByKey = (
             cols: PrimaryTableCol<TableRowData>[],
             key: string,
-          ): PrimaryTableCol<TableRowData> | null => {
-            for (const col of cols) {
-              if (col.colKey === key) return col;
+          ): { col: PrimaryTableCol<TableRowData>; colIndex: number } | null => {
+            for (let i = 0; i < cols.length; i++) {
+              const col = cols[i];
+              if (col.colKey === key) return { col, colIndex: i };
               if (col.children?.length) {
                 const found = findColumnByKey(col.children, key);
                 if (found) return found;
@@ -258,18 +260,24 @@ export default defineComponent({
             return null;
           };
 
-          const col = findColumnByKey(columns.value, colKey);
-          if (col) {
+          const result = findColumnByKey(columns.value, colKey);
+          if (result) {
+            const { col, colIndex } = result;
             // Find the row index
             const rowIndex = props.data.findIndex((row) => get(row, props.rowKey || 'id') === rowValue);
-            const colIndex = columns.value.findIndex((c) => c.colKey === col.colKey);
 
-            // Get the editedRow from editedFormData to include all edits
-            const editedRow = { ...lastRowData };
-            // Apply all changes from data object to get the complete edited row
-            Object.entries(data).forEach(([key, val]) => {
-              set(editedRow, key, val);
-            });
+            // Get the complete editedRow with all previous and current edits
+            let editedRow: TableRowData;
+            if (editedFormData.value[rowValue]) {
+              // Use editedFormData which contains all edits
+              editedRow = { ...editedFormData.value[rowValue] };
+            } else {
+              // Fallback: apply current changes to lastRowData
+              editedRow = { ...lastRowData };
+              Object.entries(data).forEach(([key, val]) => {
+                set(editedRow, key, val);
+              });
+            }
 
             const context: PrimaryTableRowEditContext<TableRowData> = {
               row: lastRowData,
