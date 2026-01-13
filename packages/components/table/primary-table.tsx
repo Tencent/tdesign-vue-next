@@ -245,29 +245,31 @@ export default defineComponent({
       if (props.onRowEdit) {
         Object.entries(data).forEach(([colKey, value]) => {
           // Find the column definition recursively
-          // Note: For nested columns, colIndex represents the position in the top-level array
-          // which may not be exact, but col.colKey is the primary identifier
           const findColumnByKey = (
             cols: PrimaryTableCol<TableRowData>[],
             key: string,
-            startIndex = 0,
-          ): { col: PrimaryTableCol<TableRowData>; colIndex: number } | null => {
-            for (let i = 0; i < cols.length; i++) {
-              const col = cols[i];
-              if (col.colKey === key) return { col, colIndex: startIndex + i };
+          ): PrimaryTableCol<TableRowData> | null => {
+            for (const col of cols) {
+              if (col.colKey === key) return col;
               if (col.children?.length) {
-                const found = findColumnByKey(col.children, key, startIndex + i);
+                const found = findColumnByKey(col.children, key);
                 if (found) return found;
               }
             }
             return null;
           };
 
-          const result = findColumnByKey(columns.value, colKey);
-          if (result) {
-            const { col, colIndex } = result;
+          const col = findColumnByKey(columns.value, colKey);
+          if (col) {
             // Find the row index
             const rowIndex = props.data.findIndex((row) => get(row, props.rowKey || 'id') === rowValue);
+
+            // Skip if row not found
+            if (rowIndex === -1) return;
+
+            // For colIndex, try to find in top-level columns. For nested columns, use -1
+            // The col.colKey is the primary identifier, so colIndex is supplementary
+            const colIndex = columns.value.findIndex((c) => c.colKey === col.colKey);
 
             // Get the complete editedRow with all edits from editedFormData
             // After onUpdateEditedCell is called, editedFormData[rowValue] is guaranteed to exist
@@ -277,7 +279,7 @@ export default defineComponent({
               row: lastRowData,
               rowIndex,
               col,
-              colIndex,
+              colIndex: colIndex !== -1 ? colIndex : -1,
               value,
               editedRow,
             };
