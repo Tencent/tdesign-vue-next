@@ -205,7 +205,7 @@ describe('Descriptions', () => {
 
       const tbody = wrapper.find('tbody');
       const firstTr = tbody.findAll('tr')[0];
-      // 检查 第 0 个 td 是否为空
+      // 检查 第 1 个 td 是否为空
       expect(firstTr.findAll('td')[0].text()).toBe('');
 
       // 检查 第 4 个 td 是否为空
