@@ -272,8 +272,11 @@ export default defineComponent({
             const colIndex = columns.value.findIndex((c) => c.colKey === col.colKey);
 
             // Get the complete editedRow with all edits from editedFormData
-            // After onUpdateEditedCell is called, editedFormData[rowValue] is guaranteed to exist
-            const editedRow = { ...editedFormData.value[rowValue] };
+            // After onUpdateEditedCell is called, editedFormData[rowValue] should exist
+            // Fallback to lastRowData with current changes if not found (defensive programming)
+            const editedRow = editedFormData.value[rowValue]
+              ? { ...editedFormData.value[rowValue] }
+              : { ...lastRowData, [colKey]: value };
 
             const context: PrimaryTableRowEditContext<TableRowData> = {
               row: lastRowData,
