@@ -6,7 +6,6 @@ import {
   reactive,
   watch,
   onMounted,
-  onBeforeUnmount,
   watchEffect,
   toRefs,
   h,
@@ -26,7 +25,7 @@ import { Tabs, TabPanel } from '../tabs';
 import Submenu from './submenu';
 import { VMenu } from './utils';
 
-import { useVModel, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
+import { useVModel, usePrefixClass, useDefaultValue, useResizeObserver } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'THeadMenu',
@@ -116,37 +115,6 @@ export default defineComponent({
       },
     );
 
-    // 监听窗口大小变化，重新计算菜单布局
-    let resizeObserver: ResizeObserver | null = null;
-    onMounted(() => {
-      activeValues.value = vMenu.select(activeValue.value);
-      if (expandValues.value?.length > 0) {
-        handleSubmenuExpand(expandValues.value[0]); // 顶部导航只能同时展开一个子菜单
-      }
-      // 等待 DOM 渲染完成后标记菜单已挂载
-      nextTick(() => {
-        isMenuMounted.value = true;
-      });
-
-      if (innerRef.value) {
-        resizeObserver = new ResizeObserver(() => {
-          // 触发响应式更新以重新计算 formatContent
-          isMenuMounted.value = false;
-          nextTick(() => {
-            isMenuMounted.value = true;
-          });
-        });
-        resizeObserver.observe(innerRef.value);
-      }
-    });
-
-    onBeforeUnmount(() => {
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-        resizeObserver = null;
-      }
-    });
-
     const handleClickSubMenuItem = (value: MenuValue) => {
       const activeMenuItem = submenu.find((v) => v.value === value);
       activeMenuItem.onClick?.({ value });
@@ -180,6 +148,7 @@ export default defineComponent({
     const logoRef = ref<HTMLDivElement>();
     const operationRef = ref<HTMLDivElement>();
     const isMenuMounted = ref(false);
+    const formattedSlots = ref<VNode[]>([]);
 
     const getComputedCss = (el: Element, cssProperty: keyof CSSStyleDeclaration) =>
       getComputedStyle(el)[cssProperty] ?? '';
@@ -208,42 +177,65 @@ export default defineComponent({
       return totalWidth - menuPaddingLeft - menuPaddingRight;
     };
 
-    const formatContent = () => {
-      let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
+    const formatContentSlots = (slots: VNode[]) => {
+      if (!menuRef.value || !innerRef.value) {
+        formattedSlots.value = slots;
+        return;
+      }
 
-      if (isMenuMounted.value && menuRef.value && innerRef.value) {
-        const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
-          (item) => item.nodeName !== '#text' || item.nodeValue,
-        ) as HTMLElement[];
+      const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
+        (item) => item.nodeName !== '#text' || item.nodeValue,
+      ) as HTMLElement[];
 
-        const menuWidth = calcMenuWidth();
-        const menuItemMinWidth = 104;
+      const menuWidth = calcMenuWidth();
+      const menuItemMinWidth = 104;
 
-        let remainWidth = menuWidth;
-        let sliceIndex = validNodes.length;
+      let remainWidth = menuWidth;
+      let sliceIndex = validNodes.length;
 
-        for (let index = 0; index < validNodes.length; index++) {
-          const element = validNodes[index];
-          remainWidth -= element.offsetWidth || 0;
-          if (remainWidth < menuItemMinWidth) {
-            sliceIndex = index;
-            break;
-          }
-        }
-
-        const defaultSlot = slot.slice(0, sliceIndex);
-        const subMore = slot.slice(sliceIndex);
-
-        if (subMore.length) {
-          slot = defaultSlot.concat(
-            <Submenu expandType="popup" title={() => <EllipsisIcon />}>
-              {subMore}
-            </Submenu>,
-          );
+      for (let index = 0; index < validNodes.length; index++) {
+        const element = validNodes[index];
+        remainWidth -= element.offsetWidth || 0;
+        if (remainWidth < menuItemMinWidth) {
+          sliceIndex = index;
+          break;
         }
       }
-      return slot;
+
+      const defaultSlot = slots.slice(0, sliceIndex);
+      const subMore = slots.slice(sliceIndex);
+
+      if (subMore.length) {
+        formattedSlots.value = defaultSlot.concat(
+          <Submenu expandType="popup" title={() => <EllipsisIcon />}>
+            {subMore}
+          </Submenu>,
+        );
+      } else {
+        formattedSlots.value = slots;
+      }
     };
+
+    // 监听容器大小变化，重新计算菜单布局
+    useResizeObserver(innerRef, () => {
+      if (isMenuMounted.value) {
+        nextTick(() => {
+          formatContentSlots(ctx.slots.default?.() || ctx.slots.content?.() || []);
+        });
+      }
+    });
+
+    onMounted(() => {
+      activeValues.value = vMenu.select(activeValue.value);
+      if (expandValues.value?.length > 0) {
+        handleSubmenuExpand(expandValues.value[0]); // 顶部导航只能同时展开一个子菜单
+      }
+      // 等待 DOM 渲染完成后标记菜单已挂载并初始化格式化
+      nextTick(() => {
+        isMenuMounted.value = true;
+        formatContentSlots(ctx.slots.default?.() || ctx.slots.content?.() || []);
+      });
+    });
 
     const initVMenu = (slots: VNode[], parentValue?: string) => {
       slots.forEach((node) => {
@@ -265,7 +257,7 @@ export default defineComponent({
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
 
-      const content = formatContent();
+      const content = isMenuMounted.value ? formattedSlots.value : ctx.slots.default?.() || ctx.slots.content?.() || [];
       initVMenu(content);
 
       return (
