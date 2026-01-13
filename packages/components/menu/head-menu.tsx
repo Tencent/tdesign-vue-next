@@ -12,7 +12,6 @@ import {
   VNode,
   Component,
   getCurrentInstance,
-  nextTick,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isArray, isFunction } from 'lodash-es';
@@ -33,6 +32,7 @@ export default defineComponent({
   setup(props, ctx) {
     const classPrefix = usePrefixClass();
     const { proxy } = getCurrentInstance();
+    const uid = getCurrentInstance().uid;
     watchEffect(() => {
       if (ctx.slots.options) {
         log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
@@ -115,6 +115,13 @@ export default defineComponent({
       },
     );
 
+    onMounted(() => {
+      activeValues.value = vMenu.select(activeValue.value);
+      if (expandValues.value?.length > 0) {
+        handleSubmenuExpand(expandValues.value[0]); // 顶部导航只能同时展开一个子菜单
+      }
+    });
+
     const handleClickSubMenuItem = (value: MenuValue) => {
       const activeMenuItem = submenu.find((v) => v.value === value);
       activeMenuItem.onClick?.({ value });
@@ -147,9 +154,9 @@ export default defineComponent({
     const innerRef = ref<HTMLDivElement>();
     const logoRef = ref<HTMLDivElement>();
     const operationRef = ref<HTMLDivElement>();
-    const isMenuMounted = ref(false);
-    const formattedSlots = ref<VNode[]>([]);
-    const originalSlots = ref<VNode[]>([]);
+
+    const itemWidths = ref<number[]>([]);
+    const sliceIndex = ref(-1);
 
     const getComputedCss = (el: Element, cssProperty: keyof CSSStyleDeclaration) =>
       getComputedStyle(el)[cssProperty] ?? '';
@@ -158,8 +165,6 @@ export default defineComponent({
       Number.parseInt(String(getComputedCss(el, cssProperty)), 10);
 
     const calcMenuWidth = () => {
-      if (!menuRef.value || !innerRef.value) return 0;
-
       const menuPaddingLeft = getComputedCssValue(menuRef.value, 'paddingLeft');
       const menuPaddingRight = getComputedCssValue(menuRef.value, 'paddingRight');
       let totalWidth = innerRef.value.clientWidth;
@@ -178,64 +183,84 @@ export default defineComponent({
       return totalWidth - menuPaddingLeft - menuPaddingRight;
     };
 
-    const formatContentSlots = () => {
-      if (!menuRef.value || !innerRef.value || originalSlots.value.length === 0) {
-        formattedSlots.value = originalSlots.value;
-        return;
-      }
-
-      const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
+    const updateItemWidths = () => {
+      if (!menuRef.value) return;
+      const validNodes = Array.from(menuRef.value.querySelector('.t-menu__content-wrapper')?.children || []).filter(
         (item) => item.nodeName !== '#text' || item.nodeValue,
       ) as HTMLElement[];
+      itemWidths.value = validNodes.map((node) => {
+        // use offsetWidth or getBoundingClientRect
+        const style = getComputedStyle(node);
+        const marginLeft = parseFloat(style.marginLeft) || 0;
+        const marginRight = parseFloat(style.marginRight) || 0;
+        return node.offsetWidth + marginLeft + marginRight;
+      });
+    };
 
+    const updateSlice = () => {
+      if (!menuRef.value || !innerRef.value || itemWidths.value.length === 0) return;
       const menuWidth = calcMenuWidth();
-      const menuItemMinWidth = 104;
+      const moreBtnWidth = 60; // Estimated width
+      let acc = 0;
+      let index = itemWidths.value.length;
 
-      let remainWidth = menuWidth;
-      let sliceIndex = validNodes.length;
-
-      for (let index = 0; index < validNodes.length; index++) {
-        const element = validNodes[index];
-        remainWidth -= element.offsetWidth || 0;
-        if (remainWidth < menuItemMinWidth) {
-          sliceIndex = index;
+      for (let i = 0; i < itemWidths.value.length; i++) {
+        acc += itemWidths.value[i];
+        if (acc > menuWidth) {
+          index = i;
           break;
         }
       }
 
-      const defaultSlot = originalSlots.value.slice(0, sliceIndex);
-      const subMore = originalSlots.value.slice(sliceIndex);
-
-      if (subMore.length) {
-        formattedSlots.value = defaultSlot.concat(
-          <Submenu expandType="popup" title={() => <EllipsisIcon />}>
-            {subMore}
-          </Submenu>,
-        );
+      if (index < itemWidths.value.length) {
+        // Re-calculate with more button
+        acc = 0;
+        index = 0;
+        for (let i = 0; i < itemWidths.value.length; i++) {
+          acc += itemWidths.value[i];
+          if (acc + moreBtnWidth > menuWidth) {
+            break;
+          }
+          index = i + 1;
+        }
+        sliceIndex.value = index;
       } else {
-        formattedSlots.value = originalSlots.value;
+        sliceIndex.value = -1;
       }
     };
 
-    // 监听容器大小变化，重新计算菜单布局
     useResizeObserver(innerRef, () => {
-      if (isMenuMounted.value) {
-        nextTick(() => {
-          formatContentSlots();
-        });
-      }
+      updateSlice();
     });
 
     onMounted(() => {
-      activeValues.value = vMenu.select(activeValue.value);
-      if (expandValues.value?.length > 0) {
-        handleSubmenuExpand(expandValues.value[0]); // 顶部导航只能同时展开一个子菜单
+      // Measure initially
+      // Need nextTick to ensure render
+      // If fonts are loading, might need retry?
+      setTimeout(() => {
+        updateItemWidths();
+        updateSlice();
+      }, 100);
+
+      // Add MutationObserver to re-measure if content changes
+      if (menuRef.value) {
+        const wrapper = menuRef.value.querySelector('.t-menu__content-wrapper');
+        if (wrapper) {
+          const observer = new MutationObserver(() => {
+            // If mutations happen, we might need to reset sliceIndex to measure properly?
+            // But measuring works if display is not none.
+            // Our CSS hides items using display: none.
+            // So if we need to re-measure, we must unhide.
+            // We can do this by setting sliceIndex to -1 temporarily.
+            sliceIndex.value = -1;
+            setTimeout(() => {
+              updateItemWidths();
+              updateSlice();
+            }, 0);
+          });
+          observer.observe(wrapper, { childList: true, subtree: true, characterData: true });
+        }
       }
-      // 等待 DOM 渲染完成后标记菜单已挂载并初始化格式化
-      nextTick(() => {
-        isMenuMounted.value = true;
-        formatContentSlots();
-      });
     });
 
     const initVMenu = (slots: VNode[], parentValue?: string) => {
@@ -258,24 +283,51 @@ export default defineComponent({
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
 
-      const slots = ctx.slots.default?.() || ctx.slots.content?.() || [];
-
-      // 保存原始插槽引用,用于后续格式化计算
-      originalSlots.value = slots;
-
-      const content = isMenuMounted.value ? formattedSlots.value : slots;
+      const content = ctx.slots.default?.() || ctx.slots.content?.() || [];
       initVMenu(content);
+
+      const overflowContent = (
+        <Submenu
+          expandType="popup"
+          title={() => <EllipsisIcon />}
+          popupProps={{ overlayClassName: `t-head-menu__popup--overflow-${uid}` }}
+        >
+          {content}
+        </Submenu>
+      );
 
       return (
         <div class={menuClass.value}>
-          <div class={`${classPrefix.value}-head-menu__inner`} ref={innerRef}>
+          {sliceIndex.value !== -1 && (
+            <style>
+              {`
+                .t-head-menu__popup--overflow-${uid} .${classPrefix.value}-menu__popup-wrapper > *:nth-child(-n+${
+                sliceIndex.value
+              }) {
+                  display: none;
+                }
+                .t-head-menu__inner--${uid} .${classPrefix.value}-menu .t-menu__content-wrapper > *:nth-child(n+${
+                sliceIndex.value + 1
+              }) {
+                  display: none;
+                }
+              `}
+            </style>
+          )}
+          <div
+            class={`${classPrefix.value}-head-menu__inner ${classPrefix.value}-head-menu__inner--${uid}`}
+            ref={innerRef}
+          >
             {logo && (
               <div class={`${classPrefix.value}-menu__logo`} ref={logoRef}>
                 {logo}
               </div>
             )}
             <ul class={`${classPrefix.value}-menu`} ref={menuRef}>
-              {content}
+              <div class="t-menu__content-wrapper" style="display: contents">
+                {content}
+              </div>
+              {sliceIndex.value !== -1 && overflowContent}
             </ul>
             {operations && (
               <div class={`${classPrefix.value}-menu__operations`} ref={operationRef}>
