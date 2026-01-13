@@ -149,6 +149,7 @@ export default defineComponent({
     const operationRef = ref<HTMLDivElement>();
     const isMenuMounted = ref(false);
     const formattedSlots = ref<VNode[]>([]);
+    const originalSlots = ref<VNode[]>([]);
 
     const getComputedCss = (el: Element, cssProperty: keyof CSSStyleDeclaration) =>
       getComputedStyle(el)[cssProperty] ?? '';
@@ -177,9 +178,9 @@ export default defineComponent({
       return totalWidth - menuPaddingLeft - menuPaddingRight;
     };
 
-    const formatContentSlots = (slots: VNode[]) => {
-      if (!menuRef.value || !innerRef.value) {
-        formattedSlots.value = slots;
+    const formatContentSlots = () => {
+      if (!menuRef.value || !innerRef.value || originalSlots.value.length === 0) {
+        formattedSlots.value = originalSlots.value;
         return;
       }
 
@@ -202,8 +203,8 @@ export default defineComponent({
         }
       }
 
-      const defaultSlot = slots.slice(0, sliceIndex);
-      const subMore = slots.slice(sliceIndex);
+      const defaultSlot = originalSlots.value.slice(0, sliceIndex);
+      const subMore = originalSlots.value.slice(sliceIndex);
 
       if (subMore.length) {
         formattedSlots.value = defaultSlot.concat(
@@ -212,7 +213,7 @@ export default defineComponent({
           </Submenu>,
         );
       } else {
-        formattedSlots.value = slots;
+        formattedSlots.value = originalSlots.value;
       }
     };
 
@@ -220,7 +221,7 @@ export default defineComponent({
     useResizeObserver(innerRef, () => {
       if (isMenuMounted.value) {
         nextTick(() => {
-          formatContentSlots(ctx.slots.default?.() || ctx.slots.content?.() || []);
+          formatContentSlots();
         });
       }
     });
@@ -233,7 +234,7 @@ export default defineComponent({
       // 等待 DOM 渲染完成后标记菜单已挂载并初始化格式化
       nextTick(() => {
         isMenuMounted.value = true;
-        formatContentSlots(ctx.slots.default?.() || ctx.slots.content?.() || []);
+        formatContentSlots();
       });
     });
 
@@ -257,7 +258,12 @@ export default defineComponent({
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
 
-      const content = isMenuMounted.value ? formattedSlots.value : ctx.slots.default?.() || ctx.slots.content?.() || [];
+      const slots = ctx.slots.default?.() || ctx.slots.content?.() || [];
+
+      // 保存原始插槽引用,用于后续格式化计算
+      originalSlots.value = slots;
+
+      const content = isMenuMounted.value ? formattedSlots.value : slots;
       initVMenu(content);
 
       return (
