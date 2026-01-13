@@ -1,5 +1,5 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
-import { get, omit, set } from 'lodash-es';
+import { get, omit } from 'lodash-es';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
@@ -245,15 +245,18 @@ export default defineComponent({
       if (props.onRowEdit) {
         Object.entries(data).forEach(([colKey, value]) => {
           // Find the column definition recursively
+          // Note: For nested columns, colIndex represents the position in the top-level array
+          // which may not be exact, but col.colKey is the primary identifier
           const findColumnByKey = (
             cols: PrimaryTableCol<TableRowData>[],
             key: string,
+            startIndex = 0,
           ): { col: PrimaryTableCol<TableRowData>; colIndex: number } | null => {
             for (let i = 0; i < cols.length; i++) {
               const col = cols[i];
-              if (col.colKey === key) return { col, colIndex: i };
+              if (col.colKey === key) return { col, colIndex: startIndex + i };
               if (col.children?.length) {
-                const found = findColumnByKey(col.children, key);
+                const found = findColumnByKey(col.children, key, startIndex + i);
                 if (found) return found;
               }
             }
@@ -266,18 +269,9 @@ export default defineComponent({
             // Find the row index
             const rowIndex = props.data.findIndex((row) => get(row, props.rowKey || 'id') === rowValue);
 
-            // Get the complete editedRow with all previous and current edits
-            let editedRow: TableRowData;
-            if (editedFormData.value[rowValue]) {
-              // Use editedFormData which contains all edits
-              editedRow = { ...editedFormData.value[rowValue] };
-            } else {
-              // Fallback: apply current changes to lastRowData
-              editedRow = { ...lastRowData };
-              Object.entries(data).forEach(([key, val]) => {
-                set(editedRow, key, val);
-              });
-            }
+            // Get the complete editedRow with all edits from editedFormData
+            // After onUpdateEditedCell is called, editedFormData[rowValue] is guaranteed to exist
+            const editedRow = { ...editedFormData.value[rowValue] };
 
             const context: PrimaryTableRowEditContext<TableRowData> = {
               row: lastRowData,
