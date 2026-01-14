@@ -23,7 +23,7 @@ export default {
     type: Number,
     default: 0,
   },
-  /** 进度条尺寸，示例：small/medium/large/240。small 值为 72； medium 值为 112；large 值为 160 */
+  /** 进度条尺寸，示例：small/medium/large/240。line 和 plump 只支持 small/medium。circle的尺寸值 small 值为 72； medium 值为 112；large 值为 160 */
   size: {
     type: [String, Number] as PropType<TdProgressProps['size']>,
     default: 'medium' as TdProgressProps['size'],
