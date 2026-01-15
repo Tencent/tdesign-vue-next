@@ -150,6 +150,10 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   // };
 
   const handleToggleColumnController = () => {
+    if (columnControllerVisible.value !== undefined) {
+      props.onColumnControllerVisibleChange?.(true, { trigger: 'open' });
+      context.emit('update:columnControllerVisible', true);
+    }
     if (dialogInstance.value) {
       dialogInstance.value.show();
       return;
@@ -234,8 +238,9 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   // columnControllerVisible 一般应用于不包含列配置按钮的场景，有外部直接控制弹框的显示或隐藏
   watch(
     [columnControllerVisible],
-    ([visible]) => {
+    ([visible], [oldVisible]) => {
       if (visible === undefined) return;
+      if (visible === oldVisible) return; // 新增：值未变化时跳过
       if (dialogInstance.value) {
         visible ? dialogInstance.value.show() : dialogInstance.value.hide();
       } else {

@@ -254,8 +254,8 @@ catalogs:
       version: 2.8.1
   tdesign:
     '@tdesign/site-components':
-      specifier: ^0.17.0
-      version: 0.17.4
+      specifier: ^0.17.5
+      version: 0.17.5
     '@tdesign/theme-generator':
       specifier: ^1.2.1
       version: 1.2.1
@@ -886,8 +886,8 @@ importers:
         specifier: workspace:^
         version: link:../tdesign-vue-next
       tdesign-web-components:
-        specifier: 1.2.10-alpha.2
-        version: 1.2.10-alpha.2
+        specifier: 1.2.11-alpha.9
+        version: 1.2.11-alpha.9
       vue:
         specifier: '>=3.1.0'
         version: 3.3.9(typescript@5.8.3)
@@ -915,7 +915,7 @@ importers:
         version: link:../../pro-components/chat
       '@tdesign/site-components':
         specifier: catalog:tdesign
-        version: 0.17.4
+        version: 0.17.5
       '@tdesign/theme-generator':
         specifier: catalog:tdesign
         version: 1.2.1
@@ -969,8 +969,8 @@ importers:
   packages/tdesign-vue-next/site:
     dependencies:
       '@tdesign/site-components':
-        specifier: 0.18.0-alpha.7
-        version: 0.18.0-alpha.7
+        specifier: 0.18.0-alpha.8
+        version: 0.18.0-alpha.8
       '@tdesign/theme-generator':
         specifier: catalog:tdesign
         version: 1.2.1
@@ -2516,11 +2516,11 @@ packages:
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
 
-  '@tdesign/site-components@0.17.4':
-    resolution: {integrity: sha512-zHuv3QlFc0WxZPc0p6WgdATeiHt5kC1M4pc//SOpmYWvnlaHL4oq9BAOZ+r8w87QV1pXlrviMr4NEMvJlHZWEA==}
+  '@tdesign/site-components@0.17.5':
+    resolution: {integrity: sha512-WIqqQHVEuoM6bW4vhwrxn8ZGxLiLTFiSDJ3kTwqr4L5zXeXOUZO03GZg4PyFYwVQI7i48OzgSCURtwjrk0vpdA==}
 
-  '@tdesign/site-components@0.18.0-alpha.7':
-    resolution: {integrity: sha512-8SDWKMaxUDkRzg4XVoemMJ8BWF6dBlE9jujvpEDL+Jej+k659f1iV4saqxpQK8UF9lNQZzJxwlHuTdC8tSOhBg==}
+  '@tdesign/site-components@0.18.0-alpha.8':
+    resolution: {integrity: sha512-upjXxb1oAP47FI5OQyHgFSp/TD5nUSIJEw/QnMIG0cJXeiE2YryocLYrQ8ASzJIrFHFofU46/W0/FjSvYASYHA==}
 
   '@tdesign/theme-generator@1.2.1':
     resolution: {integrity: sha512-e+1IrBcnB8CYRkBqRV1yIi1RN1Bcsw3hud64aeLkIGRWxj3jI9E7OkFxdoiadiEBH6C+zBKQ/Ab+n0900nAM4Q==}
@@ -7509,8 +7509,8 @@ packages:
     peerDependencies:
       vue: ~2.7.14
 
-  tdesign-web-components@1.2.10-alpha.2:
-    resolution: {integrity: sha512-p941JsABRukVLfBl4VGS51eRRsUORo55HsW3337/vFIO+02JkfJjVas3Oy0EwNK9kxcc9+46si6S2WOZpWvWDA==}
+  tdesign-web-components@1.2.11-alpha.9:
+    resolution: {integrity: sha512-8DF1zJyj/eQYHoiUZm5jm8wE/X5HkoyCeaYT7GClABYas/A89KEULUy19xpBBkC0q0jBusagffE13OrgwU3R3g==}
 
   temp-dir@2.0.0:
     resolution: {integrity: sha512-aoBAniQmmwtcKp/7BzsH8Cxzv8OL736p7v1ihGb5e9DJ9kTwGWHrQrVB5+lfVDzfGrdRzXch+ig7LHaY1JTOrg==}
@@ -8091,6 +8091,7 @@ packages:
   whatwg-encoding@2.0.0:
     resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
     engines: {node: '>=12'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
@@ -9970,7 +9971,7 @@ snapshots:
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.12
 
-  '@tdesign/site-components@0.17.4':
+  '@tdesign/site-components@0.17.5':
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
@@ -9979,7 +9980,7 @@ snapshots:
       qrcode: 1.5.4
       tdesign-icons-svg: 0.0.1
 
-  '@tdesign/site-components@0.18.0-alpha.7':
+  '@tdesign/site-components@0.18.0-alpha.8':
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
@@ -15770,7 +15771,7 @@ snapshots:
       validator: 13.15.23
       vue: 2.7.14
 
-  tdesign-web-components@1.2.10-alpha.2:
+  tdesign-web-components@1.2.11-alpha.9:
     dependencies:
       '@babel/runtime': 7.27.6
       '@popperjs/core': 2.11.8
