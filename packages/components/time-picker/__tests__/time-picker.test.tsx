@@ -89,6 +89,36 @@ describe('TimePicker', () => {
       panelNode.parentNode.removeChild(panelNode);
     });
 
+    it('millisecond format works fine', async () => {
+      const wrapper = mount(TimePicker, {
+        props: {
+          popupProps: {
+            visible: false,
+          },
+          format: 'HH:mm:ss:SSS',
+        },
+      });
+      await wrapper.setProps({
+        popupProps: {
+          visible: true,
+        },
+      });
+      const panelNode = document.querySelector('.t-time-picker__panel');
+      // format为HH:mm:ss:SSS 展示四列 即时分秒毫秒
+      expect(panelNode.querySelectorAll('.t-time-picker__panel-body-scroll').length).toBe(4);
+
+      const timeCols = panelNode.querySelectorAll('.t-time-picker__panel-body-scroll');
+      const millisecondCells = timeCols[3].querySelectorAll('.t-time-picker__panel-body-scroll-item');
+
+      // 验证毫秒列是否使用3位填充
+      expect(millisecondCells[0].innerHTML).toBe('000');
+      expect(millisecondCells[1].innerHTML).toBe('001');
+      expect(millisecondCells[100].innerHTML).toBe('100');
+      expect(millisecondCells[421].innerHTML).toBe('421');
+      expect(millisecondCells[999].innerHTML).toBe('999');
+      panelNode.parentNode.removeChild(panelNode);
+    });
+
     it('steps works fine', async () => {
       const wrapper = mount(TimePicker, {
         props: {
