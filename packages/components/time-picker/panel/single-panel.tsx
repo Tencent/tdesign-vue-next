@@ -124,7 +124,9 @@ export default defineComponent({
         else if (col === EPickerCols.milliSecond) count = 999; // 毫秒最大为999
         else count = 59;
 
-        const colList = range(0, count + 1, Number(colStep)).map((v) => padStart(String(v), 2, '0')) || [];
+        // 毫秒使用3位填充，其他时间单位使用2位填充
+        const padLength = col === EPickerCols.milliSecond ? 3 : 2;
+        const colList = range(0, count + 1, Number(colStep)).map((v) => padStart(String(v), padLength, '0')) || [];
         return props.hideDisabledTime && !!props.disableTime
           ? colList.filter((t) => {
               const params: [number, number, number, number] = [
@@ -149,7 +151,9 @@ export default defineComponent({
         // eslint-disable-next-line no-param-reassign
         (time as number) %= 12; // 一定是数字，直接cast
 
-      const itemIdx = getColList(col).indexOf(padStart(String(time), 2, '0'));
+      // 毫秒使用3位填充，其他时间单位使用2位填充
+      const padLength = col === EPickerCols.milliSecond ? 3 : 2;
+      const itemIdx = getColList(col).indexOf(padStart(String(time), padLength, '0'));
       const { offsetHeight, margin } = getItemHeight();
       const timeItemTotalHeight = offsetHeight + margin;
       const distance = Math.abs(Math.max(0, itemIdx) * timeItemTotalHeight);
