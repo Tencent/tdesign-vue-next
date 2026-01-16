@@ -104,7 +104,7 @@ watch(
           error: error as Error,
         };
       }
-    } else if (props.toolCall.eventType === 'TOOL_CALL_END') {
+    } else if (props.toolCall.eventType === 'TOOL_CALL_END' || props.toolCall.eventType === 'TOOL_CALL_RESULT') {
       // 🔑 关键修复：工具调用已结束（无 result 的情况，如 show_progress）
       actionState.value = { status: 'complete' };
     } else {
