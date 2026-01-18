@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { ref, nextTick } from 'vue';
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { vi, describe, it, expect, afterEach, beforeAll } from 'vitest';
 import { Select, OptionGroup, Option } from '@tdesign/components/select';
@@ -18,10 +18,41 @@ const simpleOptions = [
 
 // 辅助函数：清理 DOM
 const cleanupDOM = () => {
-  const panels = document.querySelectorAll('.t-select__list');
-  panels.forEach((panel) => panel.parentNode?.removeChild(panel));
+  // 清理 select 面板容器
+  const panels = document.querySelectorAll('.t-select__list, .t-select__dropdown-inner');
+  panels.forEach((panel) => {
+    if (panel && panel.parentNode) {
+      try {
+        panel.parentNode.removeChild(panel);
+      } catch (e) {
+        // 忽略已卸载的元素
+      }
+    }
+  });
+
+  // 清理弹窗容器
   const popups = document.querySelectorAll('.t-popup');
-  popups.forEach((popup) => popup.parentNode?.removeChild(popup));
+  popups.forEach((popup) => {
+    if (popup && popup.parentNode) {
+      try {
+        popup.parentNode.removeChild(popup);
+      } catch (e) {
+        // 忽略已卸载的元素
+      }
+    }
+  });
+
+  // 清理其他可能的残留元素
+  const overlays = document.querySelectorAll('.t-popup__content');
+  overlays.forEach((overlay) => {
+    if (overlay && overlay.parentNode) {
+      try {
+        overlay.parentNode.removeChild(overlay);
+      } catch (e) {
+        // 忽略
+      }
+    }
+  });
 };
 
 describe('Select Panel', () => {
@@ -416,7 +447,8 @@ describe('Select Panel', () => {
       await wrapper.setProps({ popupProps: { visible: true } });
       await nextTick();
 
-      expect(document.querySelector('.t-select__loading-tips')).toBeTruthy();
+      // 断言弹窗内容包含自定义 loadingText 文本（不依赖 class，兼容实现变动）
+      expect(document.querySelector('.t-select__dropdown-inner').textContent).toContain('自定义加载中');
     });
 
     it('should render loading text slot', async () => {

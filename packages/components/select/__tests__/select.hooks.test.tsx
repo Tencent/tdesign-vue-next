@@ -1,11 +1,8 @@
 // @ts-nocheck
 import { ref, nextTick, computed } from 'vue';
 import { mount } from '@vue/test-utils';
-import { vi, describe, it, expect, afterEach, beforeAll, beforeEach } from 'vitest';
+import { vi, describe, it, expect, afterEach, beforeAll } from 'vitest';
 import { Select } from '@tdesign/components/select';
-import { useKeyboardControl } from '../hooks/useKeyboardControl';
-import { usePanelVirtualScroll } from '../hooks/usePanelVirtualScroll';
-import { useSelectOptions } from '../hooks/useSelectOptions';
 import { getNewMultipleValue, getSingleContent, getMultipleContent } from '../utils';
 
 // Mock scrollTo for jsdom
@@ -36,10 +33,41 @@ const optionsWithCheckAll = [
 
 // 辅助函数：清理 DOM
 const cleanupDOM = () => {
-  const panels = document.querySelectorAll('.t-select__list');
-  panels.forEach((panel) => panel.parentNode?.removeChild(panel));
+  // 清理 select 面板容器
+  const panels = document.querySelectorAll('.t-select__list, .t-select__dropdown-inner');
+  panels.forEach((panel) => {
+    if (panel && panel.parentNode) {
+      try {
+        panel.parentNode.removeChild(panel);
+      } catch (e) {
+        // 忽略已卸载的元素
+      }
+    }
+  });
+
+  // 清理弹窗容器
   const popups = document.querySelectorAll('.t-popup');
-  popups.forEach((popup) => popup.parentNode?.removeChild(popup));
+  popups.forEach((popup) => {
+    if (popup && popup.parentNode) {
+      try {
+        popup.parentNode.removeChild(popup);
+      } catch (e) {
+        // 忽略已卸载的元素
+      }
+    }
+  });
+
+  // 清理其他可能的残留元素
+  const overlays = document.querySelectorAll('.t-popup__content');
+  overlays.forEach((overlay) => {
+    if (overlay && overlay.parentNode) {
+      try {
+        overlay.parentNode.removeChild(overlay);
+      } catch (e) {
+        // 忽略
+      }
+    }
+  });
 };
 
 describe('Select Hooks - useKeyboardControl', () => {
