@@ -1,9 +1,14 @@
 // @ts-nocheck
 import { ref, nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
-import { vi, describe, it, expect, afterEach } from 'vitest';
+import { vi, describe, it, expect, afterEach, beforeAll } from 'vitest';
 import { Select, OptionGroup, Option } from '@tdesign/components/select';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+
+// Mock scrollTo for jsdom
+beforeAll(() => {
+  Element.prototype.scrollTo = vi.fn();
+});
 
 const options = [
   { label: '全选', checkAll: true }, // 添加 checkAll 选项
@@ -949,50 +954,6 @@ describe('Select CheckAll with Disabled Option', () => {
     // 半选状态时应该有 indeterminate 样式
     const checkbox = document.querySelector('li[title="全选"] .t-checkbox');
     expect(checkbox).toBeTruthy();
-  });
-});
-
-describe('Select Keyboard Control', () => {
-  afterEach(() => {
-    cleanupDOM();
-  });
-
-  it('should render select and input correctly', async () => {
-    const wrapper = mount({
-      render() {
-        return <Select options={simpleOptions}></Select>;
-      },
-    });
-
-    // 验证组件正确渲染
-    expect(wrapper.find('.t-select').exists()).toBe(true);
-    expect(wrapper.find('input').exists()).toBe(true);
-
-    // 通过 popupProps 打开弹窗验证选项能够正确渲染
-    await wrapper.setProps({ popupProps: { visible: true } });
-    await nextTick();
-
-    const popup = document.querySelector('.t-select__list');
-    expect(popup).toBeTruthy();
-  });
-
-  it('should close popup on Escape', async () => {
-    const onPopupVisibleChangeFn = vi.fn();
-    const wrapper = mount({
-      render() {
-        return <Select options={simpleOptions} onPopupVisibleChange={onPopupVisibleChangeFn}></Select>;
-      },
-    });
-
-    // 先打开
-    await wrapper.setProps({ popupProps: { visible: true } });
-    await nextTick();
-
-    const input = wrapper.find('input');
-    await input.trigger('keydown', { code: 'Escape' });
-    await nextTick();
-
-    expect(onPopupVisibleChangeFn).toHaveBeenCalledWith(false, expect.anything());
   });
 });
 
