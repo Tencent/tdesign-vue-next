@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
 import { getTimelineDefaultMount, getTimelineItemMount } from './mount';
@@ -16,9 +15,7 @@ describe('Timeline', () => {
         right: 't-timeline-right',
       };
       Object.entries(labelAlignClassNameMap).forEach(([enumValue, expectedClassName]) => {
-        let propValue = { true: true, false: false }[enumValue];
-        propValue = propValue === undefined ? enumValue : propValue;
-        const wrapper = getTimelineDefaultMount({ labelAlign: propValue });
+        const wrapper = getTimelineDefaultMount({ labelAlign: enumValue });
         expect(wrapper.classes(expectedClassName)).toBeTruthy();
       });
     });
@@ -83,6 +80,7 @@ describe('Timeline', () => {
       // @ts-expect-error
       expect(validator('invalid')).toBeFalsy();
       expect(validator(undefined)).toBeTruthy();
+      // @ts-expect-error
       expect(validator('')).toBeTruthy();
     });
 
@@ -93,6 +91,7 @@ describe('Timeline', () => {
       // @ts-expect-error
       expect(validator('invalid')).toBeFalsy();
       expect(validator(undefined)).toBeTruthy();
+      // @ts-expect-error
       expect(validator('')).toBeTruthy();
     });
 
@@ -103,6 +102,7 @@ describe('Timeline', () => {
       // @ts-expect-error
       expect(validator('invalid')).toBeFalsy();
       expect(validator(undefined)).toBeTruthy();
+      // @ts-expect-error
       expect(validator('')).toBeTruthy();
     });
 
@@ -113,6 +113,7 @@ describe('Timeline', () => {
       // @ts-expect-error
       expect(validator('invalid')).toBeFalsy();
       expect(validator(undefined)).toBeTruthy();
+      // @ts-expect-error
       expect(validator('')).toBeTruthy();
     });
 
@@ -305,9 +306,7 @@ describe('TimelineItem', () => {
         default: 't-timeline-item__dot--default',
       };
       Object.entries(dotColorClassNameMap).forEach(([enumValue, expectedClassName]) => {
-        let propValue = { true: true, false: false }[enumValue];
-        propValue = propValue === undefined ? enumValue : propValue;
-        const wrapper = mount(<TimelineItem dotColor={propValue}></TimelineItem>).find('.t-timeline-item__dot');
+        const wrapper = mount(<TimelineItem dotColor={enumValue}></TimelineItem>).find('.t-timeline-item__dot');
         expect(wrapper.classes(expectedClassName)).toBeTruthy();
       });
     });
@@ -371,6 +370,7 @@ describe('TimelineItem', () => {
       // @ts-expect-error
       expect(validator('invalid')).toBeFalsy();
       expect(validator(undefined)).toBeTruthy();
+      // @ts-expect-error
       expect(validator('')).toBeTruthy();
     });
 
