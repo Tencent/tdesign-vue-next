@@ -314,7 +314,7 @@ describe('TimelineItem', () => {
     it(':dotColor[custom color]', () => {
       const wrapper = mount(<TimelineItem dotColor={'yellowgreen'}></TimelineItem>);
       const domWrapper = wrapper.find('.t-timeline-item__dot');
-      expect(domWrapper.element.style.borderColor).toBe('yellowgreen');
+      expect((domWrapper.element as HTMLElement).style.borderColor).toBe('yellowgreen');
     });
 
     it(':label[function]', () => {
