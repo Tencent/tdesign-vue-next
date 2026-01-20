@@ -211,6 +211,153 @@ describe('Descriptions', () => {
       // 检查 第 4 个 td 是否为空
       expect(firstTr.findAll('td')[3].text()).toBe('');
     });
+
+    it(':items:span', () => {
+      const items = [
+        { label: 1, content: 'TDesign', span: 1 },
+        { label: 2, content: 'TDesign', span: 2 },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Descriptions items={items} />;
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      // 检查 是否有 2 个 td 元素
+      expect(firstTr.findAll('td')).toHaveLength(2);
+
+      // 检查 第 1 个 td元素 colspan 属性是否正确
+      expect(firstTr.findAll('td')[0].element.getAttribute('colspan')).toBe('1');
+    });
+
+    it(':items:span:null:undefined', () => {
+      const items = [
+        { label: 1, content: 'TDesign', span: undefined },
+        { label: 2, content: 'TDesign', span: null },
+        { label: 3, content: 'TDesign', span: 2 },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Descriptions items={items} />;
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      const lastTr = tbody.findAll('tr')[1];
+      // 检查 是否有 6 个 td 元素
+      expect(tbody.findAll('td')).toHaveLength(6);
+
+      // 检查 第 2 个 td元素 是否正确显示内容
+      expect(lastTr.findAll('td')[1].text()).toBe('TDesign');
+      // 检查 第 2 个 td元素 colspan 属性是否正确
+      expect(lastTr.findAll('td')[1].element.getAttribute('colspan')).toBe('3');
+    });
+
+    it(':items:span:span>column', () => {
+      const items = [
+        { label: 1, content: 'TDesign', span: 2 },
+        { label: 2, content: 'TDesign', span: 2 },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Descriptions items={items} column={1} />;
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      // 检查 是否有 2 个 td 元素
+      expect(firstTr.findAll('td')).toHaveLength(2);
+
+      // 检查 第 1 个 td元素 colspan 属性是否正确设置
+      expect(firstTr.findAll('td')[0].element.getAttribute('colspan')).toBe('1');
+    });
+
+    it(':items:span:span<column', () => {
+      const items = [
+        { label: 1, content: 'TDesign', span: 2 },
+        { label: 2, content: 'TDesign', span: 2 },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Descriptions items={items} column={5} />;
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      // 检查 是否有 4 个 td 元素
+      expect(firstTr.findAll('td')).toHaveLength(4);
+
+      // 检查 第 1 个 td元素 colspan 属性是否正确设置
+      expect(firstTr.findAll('td')[0].element.getAttribute('colspan')).toBe('1');
+    });
+
+    it(':itemLayout:validator', () => {
+      const layoutList = ['horizontal', 'vertical'];
+      layoutList.forEach((layout) => {
+        mount({
+          render() {
+            return <Descriptions itemLayout={layout} />;
+          },
+        });
+
+        // 验证 validator：手动调用 validator 函数
+        const itemLayoutProp = Descriptions.props.itemLayout;
+        expect(itemLayoutProp.validator(layout)).toBe(true);
+        expect(itemLayoutProp.validator('')).toBe(true);
+      });
+    });
+
+    it(':layout:validator', () => {
+      const layoutList = ['horizontal', 'vertical'];
+      layoutList.forEach((layout) => {
+        mount({
+          render() {
+            return <Descriptions layout={layout} />;
+          },
+        });
+
+        // 验证 validator 逻辑
+        const layoutProp = Descriptions.props.layout;
+        expect(layoutProp.validator(layout)).toBe(true);
+        expect(layoutProp.validator(undefined)).toBe(true);
+      });
+    });
+
+    it(':size:validator', () => {
+      const sizeList = ['small', 'medium', 'large'];
+      sizeList.forEach((size) => {
+        mount({
+          render() {
+            return <Descriptions size={size} />;
+          },
+        });
+
+        // 验证 validator 逻辑
+        const sizeProp = Descriptions.props.size;
+        expect(sizeProp.validator(size)).toBe(true);
+        expect(sizeProp.validator(null)).toBe(true);
+      });
+    });
+
+    it(':tableLayout:validator', () => {
+      const tableLayoutList = ['fixed', 'auto'];
+      tableLayoutList.forEach((layout) => {
+        mount({
+          render() {
+            return <Descriptions tableLayout={layout} />;
+          },
+        });
+
+        // 验证 validator
+        const tableLayoutProp = Descriptions.props.tableLayout;
+        expect(tableLayoutProp.validator(layout)).toBe(true);
+        expect(tableLayoutProp.validator(null)).toBe(true);
+      });
+    });
   });
 
   describe(':slots', () => {
