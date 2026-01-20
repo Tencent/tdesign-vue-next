@@ -60,7 +60,7 @@ describe('Select Panel', () => {
     cleanupDOM();
   });
 
-  describe('Rendering', () => {
+  describe(':base', () => {
     it('should render panel with options', async () => {
       const wrapper = mount({
         render() {
@@ -115,7 +115,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Panel size', () => {
+  describe(':props.size', () => {
     it('should apply small size class', async () => {
       const wrapper = mount({
         render() {
@@ -153,7 +153,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Panel content slots', () => {
+  describe(':slots.panel', () => {
     it('should render panelTopContent', async () => {
       const wrapper = mount({
         render() {
@@ -210,7 +210,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Grouped options rendering', () => {
+  describe(':props.options.group', () => {
     it('should render grouped options', async () => {
       const groupedOptions = [
         {
@@ -259,7 +259,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Virtual scroll panel', () => {
+  describe(':props.scroll', () => {
     it('should render virtual scroll panel', async () => {
       const manyOptions = Array.from({ length: 150 }, (_, i) => ({
         label: `选项${i + 1}`,
@@ -314,7 +314,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Keys handling', () => {
+  describe(':props.keys', () => {
     it('should handle custom keys', async () => {
       const customOptions = [
         { name: '选项1', id: '1' },
@@ -352,7 +352,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Multiple mode checkbox rendering', () => {
+  describe(':props.multiple', () => {
     it('should render checkboxes in multiple mode', async () => {
       const wrapper = mount({
         render() {
@@ -383,7 +383,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Custom content rendering', () => {
+  describe(':props.options.content', () => {
     it('should render option with custom content function', async () => {
       const optionsWithContent = [
         {
@@ -404,7 +404,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Disabled options rendering', () => {
+  describe(':props.options.disabled', () => {
     it('should render disabled options', async () => {
       const optionsWithDisabled = [
         { label: '选项1', value: '1' },
@@ -423,7 +423,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Custom empty slot', () => {
+  describe(':slots.empty', () => {
     it('should render custom empty content', async () => {
       const wrapper = mount({
         render() {
@@ -437,7 +437,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Custom loading text', () => {
+  describe(':props.loadingText', () => {
     it('should render custom loading text', async () => {
       const wrapper = mount({
         render() {
@@ -468,7 +468,7 @@ describe('Select Panel', () => {
     });
   });
 
-  describe('Filter state rendering', () => {
+  describe(':props.filterable', () => {
     it('should render filtered options', async () => {
       const wrapper = mount({
         render() {

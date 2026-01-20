@@ -33,776 +33,986 @@ const optionsWithCheckAll = [
 
 // 辅助函数：清理 DOM
 const cleanupDOM = () => {
-  // 清理 select 面板容器
-  const panels = document.querySelectorAll('.t-select__list, .t-select__dropdown-inner');
-  panels.forEach((panel) => {
-    if (panel && panel.parentNode) {
-      try {
-        panel.parentNode.removeChild(panel);
-      } catch (e) {
-        // 忽略已卸载的元素
-      }
-    }
-  });
-
-  // 清理弹窗容器
-  const popups = document.querySelectorAll('.t-popup');
-  popups.forEach((popup) => {
-    if (popup && popup.parentNode) {
-      try {
-        popup.parentNode.removeChild(popup);
-      } catch (e) {
-        // 忽略已卸载的元素
-      }
-    }
-  });
-
-  // 清理其他可能的残留元素
-  const overlays = document.querySelectorAll('.t-popup__content');
-  overlays.forEach((overlay) => {
-    if (overlay && overlay.parentNode) {
-      try {
-        overlay.parentNode.removeChild(overlay);
-      } catch (e) {
-        // 忽略
-      }
-    }
+  const selectors = ['.t-select__list', '.t-select__dropdown-inner', '.t-popup', '.t-popup__content'];
+  selectors.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.parentNode?.removeChild(el);
+    });
   });
 };
 
-describe('Select Hooks - useKeyboardControl', () => {
+// 创建 hook 测试上下文的工厂函数
+const createKeyboardControlContext = (overrides = {}) => {
+  const scrollToMock = vi.fn();
+  const mockPopupContent = { scrollTo: scrollToMock };
+  const mockSelectPanelRef = {
+    isVirtual: false,
+    innerRef: {
+      querySelector: () => ({ clientHeight: 32 }),
+    },
+  };
+
+  const defaults = {
+    displayOptions: computed(() => simpleOptions),
+    optionsList: computed(() => simpleOptions),
+    innerPopupVisible: ref(true),
+    setInnerPopupVisible: vi.fn(),
+    selectPanelRef: ref(mockSelectPanelRef),
+    isFilterable: computed(() => false),
+    isRemoteSearch: computed(() => false),
+    getSelectedOptions: vi.fn().mockReturnValue([{ label: '选项1', value: '1' }]),
+    setInnerValue: vi.fn(),
+    onCheckAllChange: vi.fn(),
+    isCheckAll: computed(() => false),
+    innerValue: ref([]),
+    popupContentRef: computed(() => mockPopupContent as unknown as HTMLElement),
+    multiple: false,
+    max: 0,
+  };
+
+  return { ...defaults, ...overrides, scrollToMock };
+};
+
+describe('Select Hooks', () => {
   afterEach(() => {
     cleanupDOM();
   });
 
-  describe('ArrowUp navigation', () => {
-    it('should set index to 0 when hoverIndex is -1', async () => {
-      // 覆盖行 56-57: if (hoverIndex.value === -1) { newIndex = 0; }
-      const wrapper = mount({
-        render() {
-          return <Select options={simpleOptions}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // 按 ArrowUp（hoverIndex 为 -1）
-      await input.trigger('keydown', { code: 'ArrowUp' });
-      await nextTick();
-
-      // 弹窗应该保持打开
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-    });
-
-    it('should go to last option when hoverIndex is 0', async () => {
-      // 覆盖行 58-59: if (hoverIndex.value === 0 || hoverIndex.value > displayOptions.value.length - 1)
-      const wrapper = mount({
-        render() {
-          return <Select options={simpleOptions}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // 先 ArrowDown 到第一项
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await nextTick();
-      // 再 ArrowUp，应该循环到最后
-      await input.trigger('keydown', { code: 'ArrowUp' });
-      await nextTick();
-
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-    });
-
-    it('should decrement index normally in ArrowUp', async () => {
-      // 覆盖行 60-61: else { newIndex--; }
-      const wrapper = mount({
-        render() {
-          return <Select options={simpleOptions}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // 先 ArrowDown 两次
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await nextTick();
-      // 再 ArrowUp 一次，应该回到上一项
-      await input.trigger('keydown', { code: 'ArrowUp' });
-      await nextTick();
-
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-    });
-
-    it('should skip disabled option in ArrowUp', async () => {
-      // 覆盖行 63-65: if (optionsList.value[newIndex]?.disabled) { newIndex--; }
-      const wrapper = mount({
-        render() {
-          return <Select options={optionsWithDisabled}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // 移动到最后一项
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await nextTick();
-
-      // ArrowUp 应该跳过 disabled 项
-      await input.trigger('keydown', { code: 'ArrowUp' });
-      await nextTick();
-
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-    });
-  });
-
-  describe('ArrowDown navigation', () => {
-    it('should skip disabled option in ArrowDown', async () => {
-      // 覆盖行 76-78: if (optionsList.value[newIndex]?.disabled) { newIndex++; }
-      const wrapper = mount({
-        render() {
-          return <Select options={optionsWithDisabled}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // ArrowDown 到第一项
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await nextTick();
-      // 再 ArrowDown，应该跳过 disabled 到第三项
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await nextTick();
-
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-    });
-  });
-
-  describe('Enter key handling', () => {
-    it('should break when hoverIndex is -1 on Enter', async () => {
-      // 覆盖行 82: if (hoverIndex.value === -1) break;
-      const value = ref('');
-      const wrapper = mount({
-        render() {
-          return <Select v-model={value.value} options={simpleOptions}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // 直接按 Enter（hoverIndex 为 -1）
-      await input.trigger('keydown', { code: 'Enter' });
-      await nextTick();
-
-      // 值不应该改变
-      expect(value.value).toBe('');
-    });
-
-    it('should use virtualFilteredOptions when virtual scroll and filterable', async () => {
-      // 覆盖行 84-86: selectPanelRef.value.isVirtual && isFilterable.value && virtualFilteredOptions.value.length
-      const manyOptions = Array.from({ length: 150 }, (_, i) => ({
-        label: `选项${i + 1}`,
-        value: `${i + 1}`,
-      }));
-      const value = ref('');
-      const wrapper = mount({
-        render() {
-          return (
-            <Select
-              v-model={value.value}
-              options={manyOptions}
-              filterable
-              scroll={{ type: 'virtual', threshold: 100 }}
-            ></Select>
-          );
-        },
-      });
-
-      // 打开弹窗
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      // 验证虚拟滚动已激活
-      expect(document.querySelector('.t-select__dropdown-inner')).toBeTruthy();
-
-      // 直接点击选项来验证选择功能
-      const options = document.querySelectorAll('.t-select-option');
-      if (options.length > 0) {
-        (options[0] as HTMLElement).click();
+  describe('useKeyboardControl', () => {
+    describe('ArrowUp', () => {
+      it('sets index to 0 when hoverIndex is -1', async () => {
+        const wrapper = mount({
+          render() {
+            return <Select options={simpleOptions}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
         await nextTick();
-        expect(value.value).toBeTruthy();
-      }
-    });
 
-    it('should use optionsList when isRemoteSearch', async () => {
-      // 覆盖行 87-88: isRemoteSearch.value ? optionsList.value
-      const onSearchFn = vi.fn();
-      const value = ref('');
-      const wrapper = mount({
-        render() {
-          return <Select v-model={value.value} options={simpleOptions} filterable onSearch={onSearchFn}></Select>;
-        },
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'ArrowUp' });
+        await nextTick();
+
+        expect(document.querySelector('.t-select__list')).toBeTruthy();
       });
 
-      // 打开弹窗
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
+      it('goes to last option when hoverIndex is 0', async () => {
+        const wrapper = mount({
+          render() {
+            return <Select options={simpleOptions}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
 
-      // 直接点击选项来验证远程搜索模式下的选择功能
-      const options = document.querySelectorAll('.t-select-option');
-      expect(options.length).toBe(3);
-      (options[0] as HTMLElement).click();
-      await nextTick();
-      expect(value.value).toBe('1');
-    });
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await nextTick();
+        await input.trigger('keydown', { code: 'ArrowUp' });
+        await nextTick();
 
-    it('should fallback to optionsList when finalOptions is empty', async () => {
-      // 覆盖行 91: if (!finalOptions.length) finalOptions = optionsList.value;
-      const value = ref('');
-      const wrapper = mount({
-        render() {
-          return <Select v-model={value.value} options={simpleOptions}></Select>;
-        },
+        expect(document.querySelector('.t-select__list')).toBeTruthy();
       });
 
-      // 打开弹窗
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
+      it('decrements index normally', async () => {
+        const wrapper = mount({
+          render() {
+            return <Select options={simpleOptions}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
 
-      // 直接点击选项来验证选择功能
-      const options = document.querySelectorAll('.t-select-option');
-      if (options.length > 0) {
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await nextTick();
+        await input.trigger('keydown', { code: 'ArrowUp' });
+        await nextTick();
+
+        expect(document.querySelector('.t-select__list')).toBeTruthy();
+      });
+
+      it('skips disabled option', async () => {
+        const wrapper = mount({
+          render() {
+            return <Select options={optionsWithDisabled}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await nextTick();
+        await input.trigger('keydown', { code: 'ArrowUp' });
+        await nextTick();
+
+        expect(document.querySelector('.t-select__list')).toBeTruthy();
+      });
+
+      it('decrements hoverIndex directly (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext();
+        const { hoverIndex, handleKeyDown } = useKeyboardControl(ctx);
+
+        hoverIndex.value = 2;
+        await nextTick();
+
+        handleKeyDown({ code: 'ArrowUp', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+        expect(hoverIndex.value).toBe(1);
+      });
+
+      it('skips disabled option (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext({
+          optionsList: computed(() => optionsWithDisabled),
+          displayOptions: computed(() => optionsWithDisabled),
+        });
+        const { hoverIndex, handleKeyDown } = useKeyboardControl(ctx);
+
+        hoverIndex.value = 2;
+        await nextTick();
+
+        handleKeyDown({ code: 'ArrowUp', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+        expect(hoverIndex.value).toBe(0);
+      });
+    });
+
+    describe('ArrowDown', () => {
+      it('skips disabled option', async () => {
+        const wrapper = mount({
+          render() {
+            return <Select options={optionsWithDisabled}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await nextTick();
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await nextTick();
+
+        expect(document.querySelector('.t-select__list')).toBeTruthy();
+      });
+    });
+
+    describe('Enter', () => {
+      it('breaks when hoverIndex is -1', async () => {
+        const value = ref('');
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} options={simpleOptions}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'Enter' });
+        await nextTick();
+
+        expect(value.value).toBe('');
+      });
+
+      it('uses virtualFilteredOptions when virtual scroll and filterable', async () => {
+        const manyOptions = Array.from({ length: 150 }, (_, i) => ({
+          label: `选项${i + 1}`,
+          value: `${i + 1}`,
+        }));
+        const value = ref('');
+        const wrapper = mount({
+          render() {
+            return (
+              <Select
+                v-model={value.value}
+                options={manyOptions}
+                filterable
+                scroll={{ type: 'virtual', threshold: 100 }}
+              ></Select>
+            );
+          },
+        });
+
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        expect(document.querySelector('.t-select__dropdown-inner')).toBeTruthy();
+
+        const options = document.querySelectorAll('.t-select-option');
+        if (options.length > 0) {
+          (options[0] as HTMLElement).click();
+          await nextTick();
+          expect(value.value).toBeTruthy();
+        }
+      });
+
+      it('uses optionsList when isRemoteSearch', async () => {
+        const onSearchFn = vi.fn();
+        const value = ref('');
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} options={simpleOptions} filterable onSearch={onSearchFn}></Select>;
+          },
+        });
+
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const options = document.querySelectorAll('.t-select-option');
+        expect(options.length).toBe(3);
         (options[0] as HTMLElement).click();
         await nextTick();
         expect(value.value).toBe('1');
-      } else {
-        // 如果选项未渲染，至少验证弹窗打开
+      });
+
+      it('fallbacks to optionsList when finalOptions is empty', async () => {
+        const value = ref('');
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} options={simpleOptions}></Select>;
+          },
+        });
+
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const options = document.querySelectorAll('.t-select-option');
+        if (options.length > 0) {
+          (options[0] as HTMLElement).click();
+          await nextTick();
+          expect(value.value).toBe('1');
+        } else {
+          expect(document.querySelector('.t-select__list')).toBeTruthy();
+        }
+      });
+
+      it('opens popup when not visible', async () => {
+        const onPopupVisibleChangeFn = vi.fn();
+        const wrapper = mount({
+          render() {
+            return <Select options={simpleOptions} onPopupVisibleChange={onPopupVisibleChangeFn}></Select>;
+          },
+        });
+
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+        await wrapper.setProps({ popupProps: { visible: false } });
+        await nextTick();
+
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await nextTick();
+        await input.trigger('keydown', { code: 'Enter' });
+        await nextTick();
+
+        expect(onPopupVisibleChangeFn).toHaveBeenCalled();
+      });
+
+      it('selects and closes popup in single mode', async () => {
+        const value = ref('');
+        const onChangeFn = vi.fn();
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} options={simpleOptions} onChange={onChangeFn}></Select>;
+          },
+        });
+
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const options = document.querySelectorAll('.t-select-option');
+        expect(options.length).toBe(3);
+        (options[0] as HTMLElement).click();
+        await nextTick();
+        expect(value.value).toBe('1');
+        expect(onChangeFn).toHaveBeenCalled();
+      });
+
+      it('returns early when hoverIndex is -1 in multiple mode', async () => {
+        const value = ref(['1']);
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} options={simpleOptions} multiple></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+        await wrapper.setProps({ popupProps: { visible: false } });
+        await nextTick();
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'Enter' });
+        await nextTick();
+
+        expect(value.value).toEqual(['1']);
+      });
+
+      it('handles checkAll option in multiple mode', async () => {
+        const value = ref([]);
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} options={optionsWithCheckAll} multiple></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await nextTick();
+        await input.trigger('keydown', { code: 'Enter' });
+        await nextTick();
+
         expect(document.querySelector('.t-select__list')).toBeTruthy();
-      }
-    });
-
-    it('should open popup when not visible', async () => {
-      // 覆盖行 92-95: if (!innerPopupVisible.value) { setInnerPopupVisible(true, { e }); break; }
-      const onPopupVisibleChangeFn = vi.fn();
-      const wrapper = mount({
-        render() {
-          return <Select options={simpleOptions} onPopupVisibleChange={onPopupVisibleChangeFn}></Select>;
-        },
       });
 
-      // 先打开再关闭
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-      await wrapper.setProps({ popupProps: { visible: false } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // 先 ArrowDown 使 hoverIndex 不为 -1
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await nextTick();
-      // 按 Enter 应该打开弹窗
-      await input.trigger('keydown', { code: 'Enter' });
-      await nextTick();
-
-      expect(onPopupVisibleChangeFn).toHaveBeenCalled();
-    });
-
-    it('should select and close popup in single mode', async () => {
-      // 覆盖行 97-105: if (!multiple) { ... setInnerPopupVisible(false, { e }); }
-      const value = ref('');
-      const onChangeFn = vi.fn();
-      const wrapper = mount({
-        render() {
-          return <Select v-model={value.value} options={simpleOptions} onChange={onChangeFn}></Select>;
-        },
-      });
-
-      // 打开弹窗
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      // 直接点击选项来验证单选模式下的选择和关闭弹窗功能
-      const options = document.querySelectorAll('.t-select-option');
-      expect(options.length).toBe(3);
-      (options[0] as HTMLElement).click();
-      await nextTick();
-      expect(value.value).toBe('1');
-      expect(onChangeFn).toHaveBeenCalled();
-    });
-
-    it('should return early when hoverIndex is -1 in multiple mode', async () => {
-      // 覆盖行 107: if (hoverIndex.value === -1) return;
-      const value = ref(['1']);
-      const wrapper = mount({
-        render() {
-          return <Select v-model={value.value} options={simpleOptions} multiple></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      // 关闭再打开，重置 hoverIndex
-      await wrapper.setProps({ popupProps: { visible: false } });
-      await nextTick();
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // 直接按 Enter（hoverIndex 为 -1）
-      await input.trigger('keydown', { code: 'Enter' });
-      await nextTick();
-
-      // 值不应该改变
-      expect(value.value).toEqual(['1']);
-    });
-
-    it('should handle checkAll option in multiple mode', async () => {
-      // 覆盖行 109-112: if (finalOptions[hoverIndex.value].checkAll) { onCheckAllChange(!isCheckAll.value); return; }
-      const value = ref([]);
-      const wrapper = mount({
-        render() {
-          return <Select v-model={value.value} options={optionsWithCheckAll} multiple></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // 移动到全选选项
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await nextTick();
-      // 按 Enter 触发全选
-      await input.trigger('keydown', { code: 'Enter' });
-      await nextTick();
-
-      // 验证全选被触发
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-    });
-
-    it('should return early when optionValue is undefined', async () => {
-      // 覆盖行 116: if (!optionValue) return;
-      const optionsWithUndefined = [
-        { label: '空值选项', value: undefined },
-        { label: '选项1', value: '1' },
-      ];
-      const value = ref([]);
-      const wrapper = mount({
-        render() {
-          return <Select v-model={value.value} options={optionsWithUndefined} multiple></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await nextTick();
-      await input.trigger('keydown', { code: 'Enter' });
-      await nextTick();
-
-      // 值不应该改变（因为 optionValue 为 undefined）
-      expect(value.value).toEqual([]);
-    });
-
-    it('should respect max limit in multiple mode', async () => {
-      // 覆盖行 119: if (max > 0 && newValue.value.length > max) return;
-      const value = ref(['1', '2']);
-      const wrapper = mount({
-        render() {
-          return <Select v-model={value.value} options={simpleOptions} multiple max={2}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // 移动到第三个选项
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await nextTick();
-      // 尝试按 Enter 选中，应该被 max 限制
-      await input.trigger('keydown', { code: 'Enter' });
-      await nextTick();
-
-      expect(value.value.length).toBe(2);
-    });
-
-    it('should toggle value and clear filteredOptions in multiple mode', async () => {
-      // 覆盖行 117-128: const newValue = getNewMultipleValue(...); ... filteredOptions.value = [];
-      const value = ref([]);
-      const wrapper = mount({
-        render() {
-          return <Select v-model={value.value} options={simpleOptions} multiple></Select>;
-        },
-      });
-
-      // 打开弹窗
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      // 直接点击选项来验证多选模式下的值切换功能
-      const options = document.querySelectorAll('.t-select-option');
-      expect(options.length).toBe(3);
-      (options[0] as HTMLElement).click();
-      await nextTick();
-      expect(value.value).toContain('1');
-    });
-  });
-
-  describe('Watch handlers', () => {
-    it('should reset hoverIndex when popup opens', async () => {
-      // 覆盖行 136-142: watch(innerPopupVisible, ...)
-      const wrapper = mount({
-        render() {
-          return <Select options={simpleOptions}></Select>;
-        },
-      });
-
-      // 打开弹窗
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const input = wrapper.find('input');
-      // 移动到某个选项
-      await input.trigger('keydown', { code: 'ArrowDown' });
-      await nextTick();
-
-      // 关闭再打开
-      await wrapper.setProps({ popupProps: { visible: false } });
-      await nextTick();
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      // hoverIndex 应该被重置
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-    });
-
-    it('should scroll to hovered option', async () => {
-      // 直接测试 useKeyboardControl hook 的 scrollTo 功能
-      // 通过 mock popupContentRef 来确保测试的可靠性
-
-      const scrollToMock = vi.fn();
-
-      // 创建 mock 的 popupContentRef
-      const mockPopupContent = {
-        scrollTo: scrollToMock,
-      };
-
-      // 创建 mock 的 selectPanelRef
-      const mockSelectPanelRef = {
-        isVirtual: false,
-        innerRef: {
-          querySelector: () => ({
-            clientHeight: 32,
-          }),
-        },
-      };
-
-      // 直接导入并调用 hook
-      const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
-
-      const displayOptions = computed(() => simpleOptions);
-      const optionsList = computed(() => simpleOptions);
-      const innerPopupVisible = ref(true);
-      const setInnerPopupVisible = vi.fn();
-      const selectPanelRef = ref(mockSelectPanelRef);
-      const isFilterable = computed(() => false);
-      const isRemoteSearch = computed(() => false);
-      const getSelectedOptions = vi.fn().mockReturnValue([]);
-      const setInnerValue = vi.fn();
-      const onCheckAllChange = vi.fn();
-      const isCheckAll = computed(() => false);
-      const innerValue = ref([]);
-      const popupContentRef = computed(() => mockPopupContent as unknown as HTMLElement);
-
-      const { hoverIndex } = useKeyboardControl({
-        displayOptions,
-        optionsList,
-        innerPopupVisible,
-        setInnerPopupVisible,
-        selectPanelRef,
-        isFilterable,
-        isRemoteSearch,
-        getSelectedOptions,
-        setInnerValue,
-        onCheckAllChange,
-        isCheckAll,
-        innerValue,
-        popupContentRef,
-        multiple: false,
-        max: 0,
-      });
-
-      // 改变 hoverIndex 触发 scrollTo
-      hoverIndex.value = 1;
-      await nextTick();
-
-      expect(scrollToMock).toHaveBeenCalledWith({
-        top: 32,
-        behavior: 'smooth',
-      });
-    });
-  });
-});
-
-describe('Select Hooks - usePanelVirtualScroll', () => {
-  afterEach(() => {
-    cleanupDOM();
-  });
-
-  describe('Virtual scroll activation', () => {
-    it('should not activate virtual scroll when options below threshold', async () => {
-      // 覆盖行 11-13: isVirtual computed
-      const wrapper = mount({
-        render() {
-          return <Select options={simpleOptions} scroll={{ type: 'virtual', threshold: 100 }}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      // 选项少于阈值，不启用虚拟滚动
-      expect(document.querySelectorAll('.t-select-option').length).toBe(3);
-    });
-
-    it('should activate virtual scroll when options exceed threshold', async () => {
-      const manyOptions = Array.from({ length: 150 }, (_, i) => ({
-        label: `选项${i + 1}`,
-        value: `${i + 1}`,
-      }));
-      const wrapper = mount({
-        render() {
-          return <Select options={manyOptions} scroll={{ type: 'virtual', threshold: 100 }}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      expect(document.querySelector('.t-select__dropdown-inner')).toBeTruthy();
-    });
-  });
-
-  describe('Scroll event handling', () => {
-    it('should return early when isVirtual is false', async () => {
-      // 覆盖行 35-37: if (!isVirtual.value) { return; }
-      const wrapper = mount({
-        render() {
-          return <Select options={simpleOptions}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      // 模拟滚动事件
-      const scrollContainer = document.querySelector('.t-popup__content');
-      if (scrollContainer) {
-        scrollContainer.dispatchEvent(new Event('scroll'));
-      }
-      await nextTick();
-
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-    });
-
-    it('should skip scroll when delta is less than 5px', async () => {
-      // 覆盖行 44-46: lastScrollY = -1
-      const manyOptions = Array.from({ length: 150 }, (_, i) => ({
-        label: `选项${i + 1}`,
-        value: `${i + 1}`,
-      }));
-      const wrapper = mount({
-        render() {
-          return <Select options={manyOptions} scroll={{ type: 'virtual', threshold: 100 }}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const scrollContainer = document.querySelector('.t-popup__content');
-      if (scrollContainer) {
-        // 模拟小幅度滚动（小于 5px）
-        Object.defineProperty(scrollContainer, 'scrollTop', { value: 2, writable: true });
-        scrollContainer.dispatchEvent(new Event('scroll'));
+      it('returns early when optionValue is undefined', async () => {
+        const optionsWithUndefined = [
+          { label: '空值选项', value: undefined },
+          { label: '选项1', value: '1' },
+        ];
+        const value = ref([]);
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} options={optionsWithUndefined} multiple></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
         await nextTick();
 
-        // 再次小幅度滚动
-        Object.defineProperty(scrollContainer, 'scrollTop', { value: 3, writable: true });
-        scrollContainer.dispatchEvent(new Event('scroll'));
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'ArrowDown' });
         await nextTick();
-      }
-
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-    });
-
-    it('should handle scroll when delta exceeds 5px', async () => {
-      // 覆盖行 41-43: handleVirtualScroll(); lastScrollY = top;
-      const manyOptions = Array.from({ length: 150 }, (_, i) => ({
-        label: `选项${i + 1}`,
-        value: `${i + 1}`,
-      }));
-      const wrapper = mount({
-        render() {
-          return <Select options={manyOptions} scroll={{ type: 'virtual', threshold: 100 }}></Select>;
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const scrollContainer = document.querySelector('.t-popup__content');
-      if (scrollContainer) {
-        // 模拟大幅度滚动（大于 5px）
-        Object.defineProperty(scrollContainer, 'scrollTop', { value: 100, writable: true });
-        scrollContainer.dispatchEvent(new Event('scroll'));
+        await input.trigger('keydown', { code: 'Enter' });
         await nextTick();
-      }
 
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-    });
-  });
-});
-
-describe('Select Hooks - useSelectOptions', () => {
-  afterEach(() => {
-    cleanupDOM();
-  });
-
-  describe('Group options handling', () => {
-    it('should handle grouped options', async () => {
-      // 覆盖行 60: if (!isArray(res)) continue;
-      const groupedOptions = [
-        {
-          group: '分组1',
-          children: [
-            { label: '选项1', value: '1' },
-            { label: '选项2', value: '2' },
-          ],
-        },
-      ];
-      const wrapper = mount({
-        render() {
-          return <Select options={groupedOptions}></Select>;
-        },
+        expect(value.value).toEqual([]);
       });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
 
-      expect(document.querySelectorAll('.t-select-option-group').length).toBe(1);
-    });
-  });
+      it('respects max limit in multiple mode', async () => {
+        const value = ref(['1', '2']);
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} options={simpleOptions} multiple max={2}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
 
-  describe('Filter methods', () => {
-    it('should use custom filter function', async () => {
-      // 覆盖行 111-113: if (isFunction(props.filter)) { return props.filter(...) }
-      const customFilter = vi.fn((filterWords, option) => option.value === '1');
-      const wrapper = mount({
-        render() {
-          return <Select options={simpleOptions} filter={customFilter}></Select>;
-        },
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await nextTick();
+        await input.trigger('keydown', { code: 'Enter' });
+        await nextTick();
+
+        expect(value.value.length).toBe(2);
       });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
 
-      const input = wrapper.find('input');
-      await input.setValue('any');
-      await nextTick();
+      it('toggles value and clears filteredOptions in multiple mode', async () => {
+        const value = ref([]);
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} options={simpleOptions} multiple></Select>;
+          },
+        });
 
-      expect(customFilter).toHaveBeenCalled();
-      expect(document.querySelectorAll('.t-select-option').length).toBe(1);
-    });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
 
-    it('should checkAll option stay visible when filter returns false', async () => {
-      // 覆盖行 121-122: if (option.checkAll) return;
-      const wrapper = mount({
-        render() {
-          return <Select options={optionsWithCheckAll} filterable multiple></Select>;
-        },
+        const options = document.querySelectorAll('.t-select-option');
+        expect(options.length).toBe(3);
+        (options[0] as HTMLElement).click();
+        await nextTick();
+        expect(value.value).toContain('1');
       });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
 
-      const input = wrapper.find('input');
-      await input.setValue('选项1');
-      await nextTick();
+      it('uses virtualFilteredOptions (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const virtualOptions = [{ label: '虚拟选项', value: 'virtual' }];
+        const mockSelectPanelRef = {
+          isVirtual: true,
+          innerRef: { querySelector: () => ({ clientHeight: 32 }) },
+        };
 
-      const checkAllOption = document.querySelector('li[title="全选"]');
-      expect(checkAllOption).toBeTruthy();
+        const ctx = createKeyboardControlContext({
+          selectPanelRef: ref(mockSelectPanelRef),
+          isFilterable: computed(() => true),
+        });
+        const { hoverIndex, handleKeyDown, virtualFilteredOptions } = useKeyboardControl(ctx);
+
+        virtualFilteredOptions.value = virtualOptions;
+        hoverIndex.value = 0;
+        await nextTick();
+
+        handleKeyDown({ code: 'Enter', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerValue).toHaveBeenCalledWith('virtual', expect.any(Object));
+      });
+
+      it('uses optionsList when isRemoteSearch (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext({
+          isRemoteSearch: computed(() => true),
+        });
+        const { hoverIndex, handleKeyDown, filteredOptions } = useKeyboardControl(ctx);
+
+        filteredOptions.value = [];
+        hoverIndex.value = 0;
+        await nextTick();
+
+        handleKeyDown({ code: 'Enter', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerValue).toHaveBeenCalledWith('1', expect.any(Object));
+      });
+
+      it('uses filteredOptions in normal case (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const filtered = [{ label: '过滤选项', value: 'filtered' }];
+        const ctx = createKeyboardControlContext();
+        const { hoverIndex, handleKeyDown, filteredOptions } = useKeyboardControl(ctx);
+
+        filteredOptions.value = filtered;
+        hoverIndex.value = 0;
+        await nextTick();
+
+        handleKeyDown({ code: 'Enter', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerValue).toHaveBeenCalledWith('filtered', expect.any(Object));
+      });
+
+      it('fallbacks to optionsList when finalOptions is empty (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext();
+        const { hoverIndex, handleKeyDown, filteredOptions } = useKeyboardControl(ctx);
+
+        filteredOptions.value = [];
+        hoverIndex.value = 0;
+        await nextTick();
+
+        handleKeyDown({ code: 'Enter', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerValue).toHaveBeenCalledWith('1', expect.any(Object));
+      });
+
+      it('opens popup when not visible (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext({
+          innerPopupVisible: ref(false),
+        });
+        const { hoverIndex, handleKeyDown } = useKeyboardControl(ctx);
+
+        hoverIndex.value = 0;
+        await nextTick();
+
+        const event = { code: 'Enter', preventDefault: vi.fn() };
+        handleKeyDown(event as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerPopupVisible).toHaveBeenCalledWith(true, { e: event });
+      });
+
+      it('selects and closes popup in single mode (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext({ multiple: false });
+        const { hoverIndex, handleKeyDown } = useKeyboardControl(ctx);
+
+        hoverIndex.value = 0;
+        await nextTick();
+
+        const event = { code: 'Enter', preventDefault: vi.fn() };
+        handleKeyDown(event as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerValue).toHaveBeenCalledWith('1', expect.objectContaining({ trigger: 'check' }));
+        expect(ctx.setInnerPopupVisible).toHaveBeenCalledWith(false, { e: event });
+      });
+
+      it('handles checkAll in multiple mode (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext({
+          multiple: true,
+          optionsList: computed(() => optionsWithCheckAll),
+          displayOptions: computed(() => optionsWithCheckAll),
+        });
+        const { hoverIndex, handleKeyDown } = useKeyboardControl(ctx);
+
+        hoverIndex.value = 0;
+        await nextTick();
+
+        handleKeyDown({ code: 'Enter', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+
+        expect(ctx.onCheckAllChange).toHaveBeenCalledWith(true);
+      });
+
+      it('returns early when optionValue is undefined (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const optionsWithUndef = [{ label: '无值', value: undefined }];
+        const ctx = createKeyboardControlContext({
+          multiple: true,
+          optionsList: computed(() => optionsWithUndef),
+          displayOptions: computed(() => optionsWithUndef),
+        });
+        const { hoverIndex, handleKeyDown } = useKeyboardControl(ctx);
+
+        hoverIndex.value = 0;
+        await nextTick();
+
+        handleKeyDown({ code: 'Enter', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerValue).not.toHaveBeenCalled();
+      });
+
+      it('respects max limit in multiple mode (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext({
+          multiple: true,
+          max: 2,
+          innerValue: ref(['1', '2']),
+        });
+        const { hoverIndex, handleKeyDown } = useKeyboardControl(ctx);
+
+        hoverIndex.value = 2;
+        await nextTick();
+
+        handleKeyDown({ code: 'Enter', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerValue).not.toHaveBeenCalled();
+      });
+
+      it('toggles value in multiple mode (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext({
+          multiple: true,
+          innerValue: ref([]),
+        });
+        const { hoverIndex, handleKeyDown, filteredOptions } = useKeyboardControl(ctx);
+
+        hoverIndex.value = 0;
+        await nextTick();
+
+        handleKeyDown({ code: 'Enter', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerValue).toHaveBeenCalledWith(['1'], expect.objectContaining({ trigger: 'check' }));
+        expect(filteredOptions.value).toEqual([]);
+      });
+
+      it('unchecks value in multiple mode when already selected (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext({
+          multiple: true,
+          innerValue: ref(['1']),
+        });
+        const { hoverIndex, handleKeyDown } = useKeyboardControl(ctx);
+
+        hoverIndex.value = 0;
+        await nextTick();
+
+        handleKeyDown({ code: 'Enter', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerValue).toHaveBeenCalledWith([], expect.objectContaining({ trigger: 'uncheck' }));
+      });
+
+      it('returns early when hoverIndex is -1 in multiple mode (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext({
+          multiple: true,
+          innerValue: ref([]),
+        });
+        const { hoverIndex, handleKeyDown } = useKeyboardControl(ctx);
+
+        hoverIndex.value = -1;
+        await nextTick();
+
+        handleKeyDown({ code: 'Enter', preventDefault: vi.fn() } as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerValue).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('Escape', () => {
+      it('closes popup on Escape key', async () => {
+        const onPopupVisibleChangeFn = vi.fn();
+        const wrapper = mount({
+          render() {
+            return <Select options={simpleOptions} onPopupVisibleChange={onPopupVisibleChangeFn}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'Escape' });
+        await nextTick();
+
+        expect(onPopupVisibleChangeFn).toHaveBeenCalled();
+      });
+
+      it('closes popup (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext();
+        const { handleKeyDown } = useKeyboardControl(ctx);
+
+        const event = { code: 'Escape', preventDefault: vi.fn() };
+        handleKeyDown(event as unknown as KeyboardEvent);
+
+        expect(ctx.setInnerPopupVisible).toHaveBeenCalledWith(false, { e: event });
+      });
+    });
+
+    describe('watch', () => {
+      it('resets hoverIndex when popup opens', async () => {
+        const wrapper = mount({
+          render() {
+            return <Select options={simpleOptions}></Select>;
+          },
+        });
+
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const input = wrapper.find('input');
+        await input.trigger('keydown', { code: 'ArrowDown' });
+        await nextTick();
+
+        await wrapper.setProps({ popupProps: { visible: false } });
+        await nextTick();
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        expect(document.querySelector('.t-select__list')).toBeTruthy();
+      });
+
+      it('scrolls to hovered option', async () => {
+        const scrollToMock = vi.fn();
+        const mockPopupContent = { scrollTo: scrollToMock };
+        const mockSelectPanelRef = {
+          isVirtual: false,
+          innerRef: { querySelector: () => ({ clientHeight: 32 }) },
+        };
+
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+
+        const { hoverIndex } = useKeyboardControl({
+          displayOptions: computed(() => simpleOptions),
+          optionsList: computed(() => simpleOptions),
+          innerPopupVisible: ref(true),
+          setInnerPopupVisible: vi.fn(),
+          selectPanelRef: ref(mockSelectPanelRef),
+          isFilterable: computed(() => false),
+          isRemoteSearch: computed(() => false),
+          getSelectedOptions: vi.fn().mockReturnValue([]),
+          setInnerValue: vi.fn(),
+          onCheckAllChange: vi.fn(),
+          isCheckAll: computed(() => false),
+          innerValue: ref([]),
+          popupContentRef: computed(() => mockPopupContent as unknown as HTMLElement),
+          multiple: false,
+          max: 0,
+        });
+
+        hoverIndex.value = 1;
+        await nextTick();
+
+        expect(scrollToMock).toHaveBeenCalledWith({ top: 32, behavior: 'smooth' });
+      });
     });
   });
-});
 
-describe('Select Utils', () => {
-  describe('getNewMultipleValue', () => {
-    it('should add new value when not exists', () => {
-      // 覆盖行 38-39: value.push(optionValue);
-      const result = getNewMultipleValue(['1', '2'], '3');
-      expect(result.value).toContain('3');
-      expect(result.isCheck).toBe(true);
+  describe('usePanelVirtualScroll', () => {
+    describe('isVirtual', () => {
+      it('does not activate when options below threshold', async () => {
+        const wrapper = mount({
+          render() {
+            return <Select options={simpleOptions} scroll={{ type: 'virtual', threshold: 100 }}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        expect(document.querySelectorAll('.t-select-option').length).toBe(3);
+      });
+
+      it('activates when options exceed threshold', async () => {
+        const manyOptions = Array.from({ length: 150 }, (_, i) => ({
+          label: `选项${i + 1}`,
+          value: `${i + 1}`,
+        }));
+        const wrapper = mount({
+          render() {
+            return <Select options={manyOptions} scroll={{ type: 'virtual', threshold: 100 }}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        expect(document.querySelector('.t-select__dropdown-inner')).toBeTruthy();
+      });
+
+      it('uses default threshold when not specified', async () => {
+        const manyOptions = Array.from({ length: 150 }, (_, i) => ({
+          label: `选项${i + 1}`,
+          value: `${i + 1}`,
+        }));
+        const wrapper = mount({
+          render() {
+            return <Select options={manyOptions} scroll={{ type: 'virtual' }}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        expect(document.querySelector('.t-select__dropdown-inner')).toBeTruthy();
+      });
+
+      it('does not enable when scroll type is not virtual', async () => {
+        const manyOptions = Array.from({ length: 150 }, (_, i) => ({
+          label: `选项${i + 1}`,
+          value: `${i + 1}`,
+        }));
+        const wrapper = mount({
+          render() {
+            return <Select options={manyOptions} scroll={{ type: 'lazy' as any }}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        expect(document.querySelector('.t-select__list')).toBeTruthy();
+      });
     });
 
-    it('should remove value when exists', () => {
-      // 覆盖行 41: value.splice(valueIndex, 1);
-      const result = getNewMultipleValue(['1', '2', '3'], '2');
-      expect(result.value).not.toContain('2');
-      expect(result.isCheck).toBe(false);
+    describe('onScroll', () => {
+      it('returns early when isVirtual is false', async () => {
+        const wrapper = mount({
+          render() {
+            return <Select options={simpleOptions}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const scrollContainer = document.querySelector('.t-popup__content');
+        if (scrollContainer) {
+          scrollContainer.dispatchEvent(new Event('scroll'));
+        }
+        await nextTick();
+
+        expect(document.querySelector('.t-select__list')).toBeTruthy();
+      });
+
+      it('skips scroll when delta is less than 5px', async () => {
+        const manyOptions = Array.from({ length: 150 }, (_, i) => ({
+          label: `选项${i + 1}`,
+          value: `${i + 1}`,
+        }));
+        const wrapper = mount({
+          render() {
+            return <Select options={manyOptions} scroll={{ type: 'virtual', threshold: 100 }}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const scrollContainer = document.querySelector('.t-popup__content');
+        if (scrollContainer) {
+          Object.defineProperty(scrollContainer, 'scrollTop', { value: 2, writable: true });
+          scrollContainer.dispatchEvent(new Event('scroll'));
+          await nextTick();
+
+          Object.defineProperty(scrollContainer, 'scrollTop', { value: 3, writable: true });
+          scrollContainer.dispatchEvent(new Event('scroll'));
+          await nextTick();
+        }
+
+        expect(document.querySelector('.t-select__list')).toBeTruthy();
+      });
+
+      it('handles scroll when delta exceeds 5px', async () => {
+        const manyOptions = Array.from({ length: 150 }, (_, i) => ({
+          label: `选项${i + 1}`,
+          value: `${i + 1}`,
+        }));
+        const wrapper = mount({
+          render() {
+            return <Select options={manyOptions} scroll={{ type: 'virtual', threshold: 100 }}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const scrollContainer = document.querySelector('.t-popup__content');
+        if (scrollContainer) {
+          Object.defineProperty(scrollContainer, 'scrollTop', { value: 100, writable: true });
+          scrollContainer.dispatchEvent(new Event('scroll'));
+          await nextTick();
+        }
+
+        expect(document.querySelector('.t-select__list')).toBeTruthy();
+      });
     });
   });
 
-  describe('getSingleContent', () => {
-    it('should return label from options map', () => {
-      // 覆盖行 15-16
-      const optionsMap = computed(() => new Map([['1', { label: '选项1', value: '1' }]]));
-      const searchDisplayOptions = computed(() => []);
-      const result = getSingleContent('1', false, searchDisplayOptions, optionsMap);
-      expect(result).toBe('选项1');
+  describe('useSelectOptions', () => {
+    describe('groupOptions', () => {
+      it('handles grouped options', async () => {
+        const groupedOptions = [
+          {
+            group: '分组1',
+            children: [
+              { label: '选项1', value: '1' },
+              { label: '选项2', value: '2' },
+            ],
+          },
+        ];
+        const wrapper = mount({
+          render() {
+            return <Select options={groupedOptions}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        expect(document.querySelectorAll('.t-select-option-group').length).toBe(1);
+      });
     });
 
-    it('should return value string when option not found', () => {
-      // 覆盖行 16: value?.toString()
-      const optionsMap = computed(() => new Map());
-      const searchDisplayOptions = computed(() => []);
-      const result = getSingleContent('not-exist', false, searchDisplayOptions, optionsMap);
-      expect(result).toBe('not-exist');
-    });
+    describe('filter', () => {
+      it('uses custom filter function', async () => {
+        const customFilter = vi.fn((filterWords, option) => option.value === '1');
+        const wrapper = mount({
+          render() {
+            return <Select options={simpleOptions} filter={customFilter}></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
 
-    it('should search in searchDisplayOptions when isRemote', () => {
-      // 覆盖行 11-12
-      const optionsMap = computed(() => new Map());
-      const searchDisplayOptions = computed(() => [{ label: '远程选项', value: 'remote' }]);
-      const result = getSingleContent('remote', true, searchDisplayOptions, optionsMap);
-      expect(result).toBe('远程选项');
+        const input = wrapper.find('input');
+        await input.setValue('any');
+        await nextTick();
+
+        expect(customFilter).toHaveBeenCalled();
+        expect(document.querySelectorAll('.t-select-option').length).toBe(1);
+      });
+
+      it('keeps checkAll option visible when filtering', async () => {
+        const wrapper = mount({
+          render() {
+            return <Select options={optionsWithCheckAll} filterable multiple></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const input = wrapper.find('input');
+        await input.setValue('选项1');
+        await nextTick();
+
+        const checkAllOption = document.querySelector('li[title="全选"]');
+        expect(checkAllOption).toBeTruthy();
+      });
+
+      it('filters children in grouped options', async () => {
+        const groupedOptions = [
+          {
+            group: '分组1',
+            children: [
+              { label: '苹果', value: 'apple' },
+              { label: '香蕉', value: 'banana' },
+              { label: '橙子', value: 'orange' },
+            ],
+          },
+          {
+            group: '分组2',
+            children: [
+              { label: '西瓜', value: 'watermelon' },
+              { label: '葡萄', value: 'grape' },
+            ],
+          },
+        ];
+        const wrapper = mount({
+          render() {
+            return <Select options={groupedOptions} filterable></Select>;
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+        await nextTick();
+
+        const input = wrapper.find('input');
+        await input.setValue('苹');
+        await nextTick();
+
+        const options = document.querySelectorAll('.t-select-option');
+        expect(options.length).toBeGreaterThanOrEqual(1);
+      });
     });
   });
 
-  describe('getMultipleContent', () => {
-    it('should return array of labels', () => {
-      // 覆盖行 25-32
-      const optionsMap = computed(
-        () =>
-          new Map([
-            ['1', { label: '选项1', value: '1' }],
-            ['2', { label: '选项2', value: '2' }],
-          ]),
-      );
-      const searchDisplayOptions = computed(() => []);
-      const result = getMultipleContent(['1', '2'], false, searchDisplayOptions, optionsMap);
-      expect(result).toEqual(['选项1', '选项2']);
+  describe('utils', () => {
+    describe('getNewMultipleValue', () => {
+      it('adds new value when not exists', () => {
+        const result = getNewMultipleValue(['1', '2'], '3');
+        expect(result.value).toContain('3');
+        expect(result.isCheck).toBe(true);
+      });
+
+      it('removes value when exists', () => {
+        const result = getNewMultipleValue(['1', '2', '3'], '2');
+        expect(result.value).not.toContain('2');
+        expect(result.isCheck).toBe(false);
+      });
     });
 
-    it('should skip undefined labels', () => {
-      // 覆盖行 28-30: if (resLabel) { res.push(resLabel); }
-      const optionsMap = computed(() => new Map([['1', { label: '选项1', value: '1' }]]));
-      const searchDisplayOptions = computed(() => []);
-      const result = getMultipleContent(['1', 'not-exist'], false, searchDisplayOptions, optionsMap);
-      expect(result.length).toBe(2);
+    describe('getSingleContent', () => {
+      it('returns label from options map', () => {
+        const optionsMap = computed(() => new Map([['1', { label: '选项1', value: '1' }]]));
+        const searchDisplayOptions = computed(() => []);
+        const result = getSingleContent('1', false, searchDisplayOptions, optionsMap);
+        expect(result).toBe('选项1');
+      });
+
+      it('returns value string when option not found', () => {
+        const optionsMap = computed(() => new Map());
+        const searchDisplayOptions = computed(() => []);
+        const result = getSingleContent('not-exist', false, searchDisplayOptions, optionsMap);
+        expect(result).toBe('not-exist');
+      });
+
+      it('searches in searchDisplayOptions when isRemote', () => {
+        const optionsMap = computed(() => new Map());
+        const searchDisplayOptions = computed(() => [{ label: '远程选项', value: 'remote' }]);
+        const result = getSingleContent('remote', true, searchDisplayOptions, optionsMap);
+        expect(result).toBe('远程选项');
+      });
+    });
+
+    describe('getMultipleContent', () => {
+      it('returns array of labels', () => {
+        const optionsMap = computed(
+          () =>
+            new Map([
+              ['1', { label: '选项1', value: '1' }],
+              ['2', { label: '选项2', value: '2' }],
+            ]),
+        );
+        const searchDisplayOptions = computed(() => []);
+        const result = getMultipleContent(['1', '2'], false, searchDisplayOptions, optionsMap);
+        expect(result).toEqual(['选项1', '选项2']);
+      });
+
+      it('skips undefined labels', () => {
+        const optionsMap = computed(() => new Map([['1', { label: '选项1', value: '1' }]]));
+        const searchDisplayOptions = computed(() => []);
+        const result = getMultipleContent(['1', 'not-exist'], false, searchDisplayOptions, optionsMap);
+        expect(result.length).toBe(2);
+      });
     });
   });
 });

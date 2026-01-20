@@ -492,7 +492,7 @@ describe('Select', () => {
     });
   });
 
-  describe('keys', () => {
+  describe(':keys', () => {
     const contentOptions = [
       { name: '架构云', content: '1' },
       { name: '大数据', content: '2' },
@@ -547,7 +547,7 @@ describe('Select', () => {
     });
   });
 
-  describe('filterable', () => {
+  describe(':props.filterable', () => {
     it('should filter options based on input', async () => {
       const wrapper = mount({
         render() {
@@ -626,7 +626,7 @@ describe('Select', () => {
     });
   });
 
-  describe('creatable', () => {
+  describe(':props.creatable', () => {
     it('should show create option when creatable is true', async () => {
       const wrapper = mount({
         render() {
@@ -666,7 +666,7 @@ describe('Select', () => {
     });
   });
 
-  describe('valueType object', () => {
+  describe(':props.valueType', () => {
     it('should return object value when valueType is object', async () => {
       const value = ref<any>(undefined);
       const wrapper = mount({
@@ -702,7 +702,7 @@ describe('Select', () => {
     });
   });
 
-  describe('value validation', () => {
+  describe(':value.validation', () => {
     it('should reset value when single mode receives array value', async () => {
       const value = ref(['1', '2']);
       mount({
@@ -730,7 +730,7 @@ describe('Select', () => {
     });
   });
 
-  describe('loading state', () => {
+  describe(':props.loading', () => {
     it('should show loading text when loading is true', async () => {
       const wrapper = mount({
         render() {
@@ -759,7 +759,7 @@ describe('Select', () => {
     });
   });
 
-  describe('panelTopContent and panelBottomContent', () => {
+  describe(':slots.panelContent', () => {
     it('should render panelTopContent', async () => {
       const wrapper = mount({
         render() {
@@ -931,7 +931,7 @@ describe('Select OptionGroup', () => {
     });
   });
 });
-describe('Select CheckAll with Disabled Option', () => {
+describe('Select CheckAll', () => {
   afterEach(() => {
     cleanupDOM();
   });
@@ -999,7 +999,7 @@ describe('Select CheckAll with Disabled Option', () => {
   });
 });
 
-describe('Select with Group Options', () => {
+describe('Select GroupOptions', () => {
   afterEach(() => {
     cleanupDOM();
   });
@@ -1055,7 +1055,7 @@ describe('Select with Group Options', () => {
   });
 });
 
-describe('Select edge cases', () => {
+describe('Select EdgeCases', () => {
   afterEach(() => {
     cleanupDOM();
   });
