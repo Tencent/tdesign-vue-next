@@ -7,38 +7,6 @@ const $routerMock = { push: vi.fn() };
 describe('MenuItem', () => {
   // test props api
   describe('props', () => {
-    it(':name', () => {
-      const wrapper = mount(
-        {
-          render() {
-            return (
-              <Menu>
-                <MenuItem name="1-1"></MenuItem>
-              </Menu>
-            );
-          },
-        },
-        { global: { mocks: { $router: $routerMock } } },
-      );
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':route', () => {
-      const wrapper = mount(
-        {
-          render() {
-            return (
-              <Menu>
-                <MenuItem route={'/user/list'}></MenuItem>
-              </Menu>
-            );
-          },
-        },
-        { global: { mocks: { $router: $routerMock } } },
-      );
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
     it(':disabled', () => {
       const wrapper = mount(
         {

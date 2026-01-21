@@ -1,0 +1,177 @@
+<template>
+  <div style="margin-top: -18px; height: 408px; display: flex; flex-direction: column">
+    <t-chat-list ref="listRef" :clear-history="false">
+      <t-chat-message
+        v-for="(message, idx) in messages"
+        :key="message.id"
+        v-bind="messageProps[message.role]"
+        :role="message.role"
+        :content="message.content"
+        allow-content-segment-custom
+      >
+        <template v-for="(item, index) in message.content" :key="index">
+          <template v-if="item.type === 'reasoning'">
+            <template v-for="(subItem, subIndex) in item.data" :key="`toolcall-${index}-${subIndex}`">
+              <div :slot="`reasoning-toolcall-${subIndex}`" class="toolcall-wrapper">
+                <CustomToolCallRenderer
+                  v-if="subItem.type === 'toolcall'"
+                  :tool-call="subItem.data"
+                  :status="subItem.status"
+                />
+              </div>
+            </template>
+          </template>
+        </template>
+
+        <template #actionbar>
+          <t-chat-actionbar
+            v-if="isAIMessage(message) && message.status === 'complete'"
+            :action-bar="getChatActionBar(idx === messages.length - 1)"
+            :content="getMessageContentForCopy(message)"
+            :comment="message.comment || ''"
+            @actions="(name: string) => actionHandler(name, { message, idx })"
+          />
+        </template>
+      </t-chat-message>
+    </t-chat-list>
+
+    <t-chat-sender
+      ref="inputRef"
+      v-model="inputValue"
+      placeholder="请输入内容"
+      :loading="senderLoading"
+      @change="inputChangeHandler"
+      @send="sendHandler"
+      @stop="stopHandler"
+    >
+      <template #suffix="{ renderPresets }">
+        <!-- 在这里可以进行自由的组合使用，或者新增预设 -->
+        <!-- 不需要附件操作的使用方式 -->
+        <component :is="renderPresets([])" />
+      </template>
+    </t-chat-sender>
+  </div>
+</template>
+
+<script setup lang="tsx">
+import { ref, computed } from 'vue';
+import {
+  type ChatRequestParams,
+  type TdChatActionsName,
+  type TdChatListApi,
+  type TdChatSenderApi,
+  isAIMessage,
+  getMessageContentForCopy,
+  useChat,
+} from '@tdesign-vue-next/chat';
+import { MessagePlugin } from 'tdesign-vue-next';
+import CustomToolCallRenderer from './components/Toolcall.vue';
+
+const listRef = ref<TdChatListApi | null>(null);
+const inputRef = ref<TdChatSenderApi | null>(null);
+const inputValue = ref<string>('AG-UI协议的作用是什么');
+
+const { chatEngine, messages, status } = useChat({
+  defaultMessages: [],
+  // 聊天服务配置
+  chatServiceConfig: {
+    // 对话服务地址
+    endpoint: `https://1257786608-9i9j1kpa67.ap-guangzhou.tencentscf.com/sse/agui-simple`,
+    // 开启agui协议解析支持
+    protocol: 'agui',
+    stream: true,
+    onStart: (chunk) => {
+      console.log('onStart', chunk);
+    },
+    // 流式对话结束（aborted为true时，表示用户主动结束对话，params为请求参数）
+    onComplete: (aborted: boolean, params: RequestInit, event) => {
+      console.log('onComplete', aborted, params, event);
+    },
+    // 流式对话过程中出错业务自定义行为
+    onError: (err: Error | Response) => {
+      console.error('Chatservice Error:', err);
+    },
+    // 流式对话过程中用户主动结束对话业务自定义行为
+    onAbort: async () => {},
+    // 自定义请求参数
+    onRequest: (innerParams: ChatRequestParams) => {
+      const { prompt } = innerParams;
+      return {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: JSON.stringify({
+          uid: 'agent_uid',
+          prompt,
+        }),
+      };
+    },
+  },
+});
+
+const senderLoading = computed(() => {
+  if (status.value === 'pending' || status.value === 'streaming') {
+    return true;
+  }
+  return false;
+});
+
+const getChatActionBar = (isLast: boolean): TdChatActionsName[] => {
+  let filterActions: TdChatActionsName[] = ['replay', 'good', 'bad', 'copy'];
+  if (!isLast) {
+    // 只有最后一条AI消息才能重新生成
+    filterActions = filterActions.filter((item) => item !== 'replay');
+  }
+  return filterActions;
+};
+
+const actionHandler = (name: string, { message, idx }: { message: any; idx: number }) => {
+  switch (name) {
+    case 'replay': {
+      chatEngine.value?.regenerateAIMessage();
+      return;
+    }
+    case 'good':
+    case 'bad':
+      // 设置comment状态
+      if (idx !== undefined && messages.value[idx]) {
+        const curMessage = message;
+        curMessage.comment = curMessage.comment === name ? '' : name;
+      }
+      break;
+    default:
+      console.log('触发action', name, 'data', message);
+  }
+};
+
+const sendUserMessage = async (requestParams: ChatRequestParams) => {
+  await chatEngine.value?.sendUserMessage(requestParams);
+  listRef.value?.scrollToBottom();
+};
+
+// 输入变更处理
+const inputChangeHandler = (value: string) => {
+  inputValue.value = value;
+};
+
+// 发送处理
+const sendHandler = async (params) => {
+  if (senderLoading.value) {
+    MessagePlugin.error('回答输出中，请稍后操作或点击停止回答');
+  } else {
+    await sendUserMessage({ prompt: params });
+    inputValue.value = '';
+  }
+};
+
+// 停止处理
+const stopHandler = () => {
+  chatEngine.value?.abortChat();
+};
+</script>
+
+<style scoped>
+.toolcall-wrapper {
+  margin: 8px 0;
+}
+</style>

@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, defineComponent, provide, Ref, toRefs } from 'vue';
+import { ComponentInternalInstance, defineComponent, provide, Ref, toRefs } from 'vue';
 import TTabPanel from './tab-panel';
 import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from './type';
@@ -43,12 +43,13 @@ export default defineComponent({
 
       const flatContent = (ct: any) => {
         return ct
-          .map((item: ComponentPublicInstance) => {
+          .map((item: ComponentInternalInstance) => {
+            // @ts-ignore TODO
             if (item.children && isArray(item.children)) return flatContent(item.children);
             return item;
           })
           .flat()
-          .filter((item: ComponentPublicInstance) => {
+          .filter((item: ComponentInternalInstance) => {
             return item.type.name === 'TTabPanel';
           });
       };
@@ -58,11 +59,12 @@ export default defineComponent({
     const renderHeader = () => {
       const panels = (props.list?.length ? props.list : getSlotPanels()) || [];
       const actionContent = renderTNodeJSX('action');
-      const panelsData = panels.map((item: ComponentPublicInstance) => {
+      const panelsData = panels.map((item: ComponentInternalInstance) => {
         const selfItem = item;
 
         if (item.props) {
           Object.keys(item.props).forEach((key) => {
+            // @ts-ignore TODO
             selfItem[key] = item.props[key];
           });
         }

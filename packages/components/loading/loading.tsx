@@ -105,7 +105,7 @@ export default defineComponent({
     return () => {
       const { fullScreenClasses, baseClasses, withContentClasses, attachClasses, normalClasses } = classes.value;
 
-      const defaultIndicator = <GradientIcon size={props.size} />;
+      const defaultIndicator = <GradientIcon />;
       const indicator = loading.value && renderTNodeJSX('indicator', defaultIndicator);
       const text = showText.value && <div class={`${classPrefix.value}-loading__text`}>{renderTNodeJSX('text')}</div>;
 

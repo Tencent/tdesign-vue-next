@@ -12,8 +12,8 @@ export default defineComponent({
   name: 'TImage',
   props,
   setup(props) {
-    const divRef = ref<HTMLElement>(null);
-    const imgRef = ref<HTMLImageElement>(null);
+    const divRef = ref<HTMLElement>();
+    const imgRef = ref<HTMLImageElement>();
     let io: IntersectionObserver = null;
 
     const { src } = toRefs(props);

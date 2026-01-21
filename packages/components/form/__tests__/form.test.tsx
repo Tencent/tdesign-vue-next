@@ -14,6 +14,7 @@ describe('Form', () => {
   describe('props', () => {
     let wrapper: VueWrapper<InstanceType<typeof Form>> | null = null;
     beforeEach(() => {
+      // @ts-ignore
       wrapper = mount(
         <Form>
           <FormItem label="姓名" name="name">

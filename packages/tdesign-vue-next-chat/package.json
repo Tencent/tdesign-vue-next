@@ -1,6 +1,6 @@
 {
   "name": "@tdesign-vue-next/chat",
-  "version": "0.4.6",
+  "version": "0.5.0-alpha.10",
   "title": "@tdesign-vue-next/chat",
   "description": "AI Chat Component for Vue 3",
   "repository": {
@@ -42,7 +42,12 @@
     "marked": "catalog:deps",
     "marked-highlight": "catalog:docs",
     "tdesign-icons-vue-next": "catalog:tdesign",
-    "tdesign-vue-next": "workspace:^"
+    "tdesign-vue-next": "workspace:^",
+    "tdesign-web-components": "1.2.11-alpha.9",
+    "omi-vueify": "^0.0.12"
+  },
+  "devDependencies": {
+    "tvision-charts-vue-next": "^3.3.13"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"

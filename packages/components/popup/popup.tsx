@@ -107,10 +107,10 @@ export default defineComponent({
     let showTimeout: any;
     let hideTimeout: any;
 
-    const triggerEl = ref<HTMLElement>(null);
-    const overlayEl = ref<HTMLElement>(null);
-    const popperEl = ref<HTMLElement>(null);
-    const containerRef = ref<typeof Container>(null);
+    const triggerEl = ref<HTMLElement>();
+    const overlayEl = ref<HTMLElement>();
+    const popperEl = ref<HTMLElement>();
+    const containerRef = ref<typeof Container>();
     const isOverlayHover = ref(false);
 
     const arrowStyle = ref<CSSProperties>({});

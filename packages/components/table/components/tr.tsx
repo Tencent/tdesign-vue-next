@@ -157,6 +157,7 @@ export default defineComponent({
     tableElm: {},
     // eslint-disable-next-line
     tableContentElm: {},
+    onRowMounted: Function,
   },
   emits: ['row-mounted'],
   setup(props: TrProps, context: SetupContext) {

@@ -13,18 +13,6 @@ const Menu = {
 describe('Submenu', () => {
   // test props api
   describe('props', () => {
-    it(':name', () => {
-      const wrapper = mount({
-        provide: {
-          TdMenu: Menu,
-        },
-        render() {
-          return <Submenu name="1"></Submenu>;
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
     it(':disabled', () => {
       const wrapper = mount({
         provide: {

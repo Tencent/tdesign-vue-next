@@ -31,7 +31,7 @@ export function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<st
   const isHover = ref(false);
   const focused = ref(false);
   const renderType = ref(props.type);
-  const inputRef = ref<HTMLInputElement>(null);
+  const inputRef = ref<HTMLInputElement>();
 
   const limitParams = computed(() => ({
     value: [undefined, null].includes(innerValue.value) ? undefined : String(innerValue.value),

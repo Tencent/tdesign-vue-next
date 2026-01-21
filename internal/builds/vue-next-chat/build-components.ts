@@ -180,7 +180,7 @@ export const buildEs = async () => {
       input: [...inputList, `!${joinProComponentsChatRoot('index-lib.ts')}`],
       // 为了保留 style/css.js
       treeshake: false,
-      external: esExternal,
+      external: (id) => esExternal.some((dep) => id === dep || id.startsWith(`${dep}/`) || id.endsWith('.css')),
       plugins: [multiInput({ relative: joinProComponentsChatRoot() }), ...getPlugins({ cssBuildType: 'multi' })],
     });
     bundle.write({
@@ -202,9 +202,11 @@ export const buildEs = async () => {
 };
 
 export const buildEsm = async () => {
+  const externalDeps = [...esExternalDeps, externalPeerDeps, /@tdesign\/common-style/];
   const bundle = await rollup({
     input: [...inputList, `!${joinProComponentsChatRoot('index-lib.ts')}`],
-    external: [...externalDeps, ...externalPeerDeps, /@tdesign\/common-style/],
+    external: (id) =>
+      externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`) || id.endsWith('.css') || id.endsWith('.less')),
     plugins: [multiInput({ relative: joinProComponentsChatRoot() }), ...getPlugins({ cssBuildType: 'source' })],
   });
   await bundle.write({

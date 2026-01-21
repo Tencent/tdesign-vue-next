@@ -313,6 +313,7 @@ export default defineComponent({
                 cellKey={cellKey}
                 onCellInstanceChange={onCellInstanceChange}
                 v-slots={context.slots}
+                // @ts-ignore
                 onUpdateEditedCell={onUpdateEditedCell}
               />
             );

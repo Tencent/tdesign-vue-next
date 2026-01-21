@@ -13,9 +13,8 @@ describe('QRCode', () => {
     const defaultFgColor = '#000000'; // 实际使用时为 rgba(0, 0, 0, .9)
     const defaultSize = 160;
     beforeEach(() => {
-      wrapper = mount(<QRCode value="https://tdesign.tencent.com/"></QRCode>) as VueWrapper<
-        InstanceType<typeof QRCode>
-      >;
+      // @ts-ignore
+      wrapper = mount(<QRCode value="https://tdesign.tencent.com/"></QRCode>);
     });
 
     it(':bgColor[string]', async () => {

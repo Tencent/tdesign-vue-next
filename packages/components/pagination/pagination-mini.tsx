@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, VNode } from 'vue';
 import { isObject } from 'lodash-es';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,
@@ -47,7 +47,7 @@ export default defineComponent({
       return { prev: false, current: false, next: false };
     });
 
-    const renderWithTooltip = (content: string | undefined, node: JSX.Element) => {
+    const renderWithTooltip = (content: string | undefined, node: VNode) => {
       if (!content) return node;
       return (
         <TTooltip content={content} showArrow={false}>

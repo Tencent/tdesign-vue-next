@@ -6,7 +6,7 @@ const ANIMATION_TIME = 100;
 
 export function useInputWidth(props: TdInputProps, inputRef: Ref<HTMLInputElement>, innerValue: Ref<InputValue>) {
   const { autoWidth, placeholder } = toRefs(props);
-  const inputPreRef = ref<HTMLSpanElement>(null);
+  const inputPreRef = ref<HTMLSpanElement>();
   const observerTimer = ref(null);
 
   const updateInputWidth = () => {
