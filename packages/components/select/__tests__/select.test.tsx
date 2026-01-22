@@ -75,8 +75,8 @@ describe('Select', () => {
     cleanupDOM();
   });
 
-  describe(':base', () => {
-    it(':render single', async () => {
+  describe('base', () => {
+    it('render single', async () => {
       const wrapper = mount({
         render() {
           return <Select options={options}></Select>;
@@ -90,7 +90,7 @@ describe('Select', () => {
       expect(document.querySelectorAll('p').length).toBe(1);
     });
 
-    it(':render multiple', async () => {
+    it('render multiple', async () => {
       const wrapper = mount({
         render() {
           return <Select options={options} multiple></Select>;
@@ -101,7 +101,7 @@ describe('Select', () => {
       expect(document.querySelectorAll('.t-checkbox').length).toBe(7);
     });
 
-    it(':render with empty options', async () => {
+    it('render with empty options', async () => {
       const wrapper = mount({
         render() {
           return <Select options={[]}></Select>;
@@ -113,7 +113,7 @@ describe('Select', () => {
       expect(document.querySelector('.t-select__empty')).toBeTruthy();
     });
 
-    it(':render with default value', async () => {
+    it('render with default value', async () => {
       const wrapper = mount({
         render() {
           return <Select options={simpleOptions} defaultValue="1"></Select>;
@@ -122,7 +122,7 @@ describe('Select', () => {
       expect(wrapper.find('.t-input__inner').element.value).toBe('选项1');
     });
 
-    it(':render with multiple default values', async () => {
+    it('render with multiple default values', async () => {
       const wrapper = mount({
         render() {
           return <Select options={simpleOptions} multiple defaultValue={['1', '2']}></Select>;
@@ -132,11 +132,9 @@ describe('Select', () => {
     });
   });
 
-  // old
-
   // test props api
-  describe(':props', () => {
-    it(':disabled', () => {
+  describe('props', () => {
+    it('props[disabled]', () => {
       const wrapper = mount({
         render() {
           return <Select disabled={true}></Select>;
@@ -144,7 +142,7 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':size', () => {
+    it('props[size]', () => {
       const wrapper = mount({
         render() {
           return <Select size="large"></Select>;
@@ -152,7 +150,7 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':clearable', () => {
+    it('props[clearable]', () => {
       const wrapper = mount({
         render() {
           return <Select clearable={true}></Select>;
@@ -160,7 +158,7 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':multiple', () => {
+    it('props[multiple]', () => {
       const wrapper = mount({
         render() {
           return <Select multiple={true}></Select>;
@@ -168,7 +166,7 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':placeholder', () => {
+    it('props[placeholder]', () => {
       const wrapper = mount({
         render() {
           return <Select placeholder="please select"></Select>;
@@ -176,7 +174,7 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':creatable', () => {
+    it('props[creatable]', () => {
       const wrapper = mount({
         render() {
           return <Select creatable={true}></Select>;
@@ -184,7 +182,7 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':remote', () => {
+    it('props[remote]', () => {
       const wrapper = mount({
         render() {
           return <Select remote={true}></Select>;
@@ -192,7 +190,7 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':loading', () => {
+    it('props[loading]', () => {
       const wrapper = mount({
         render() {
           return <Select loading={true}></Select>;
@@ -200,7 +198,7 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':labelInValue', () => {
+    it('props[labelInValue]', () => {
       const wrapper = mount({
         render() {
           return <Select labelInValue={false}></Select>;
@@ -208,7 +206,7 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':reserveKeyword', () => {
+    it('props[reserveKeyword]', () => {
       const wrapper = mount({
         render() {
           return <Select reserveKeyword={false}></Select>;
@@ -216,7 +214,7 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':borderless', () => {
+    it('props[borderless]', () => {
       const wrapper = mount({
         render() {
           return <Select borderless={true}></Select>;
@@ -225,7 +223,7 @@ describe('Select', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':autoWidth', () => {
+    it('props[autoWidth]', () => {
       const wrapper = mount({
         render() {
           return <Select autoWidth={true} options={simpleOptions} defaultValue="1"></Select>;
@@ -234,7 +232,7 @@ describe('Select', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':readonly', () => {
+    it('props[readonly]', () => {
       const wrapper = mount({
         render() {
           return <Select readonly={true} options={simpleOptions} defaultValue="1"></Select>;
@@ -243,7 +241,7 @@ describe('Select', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':max in multiple mode', async () => {
+    it('props[max] in multiple mode', async () => {
       const value = ref(['1']);
       const wrapper = mount({
         render() {
@@ -269,7 +267,7 @@ describe('Select', () => {
       expect(value.value.length).toBe(2);
     });
 
-    it(':minCollapsedNum', async () => {
+    it('props[minCollapsedNum]', async () => {
       const wrapper = mount({
         render() {
           return <Select options={simpleOptions} multiple defaultValue={['1', '2', '3']} minCollapsedNum={2}></Select>;
@@ -280,7 +278,7 @@ describe('Select', () => {
       expect(tags.length).toBeGreaterThanOrEqual(2);
     });
 
-    it(':status', () => {
+    it('props[status]', () => {
       const statuses = ['default', 'success', 'warning', 'error'];
       statuses.forEach((status) => {
         const wrapper = mount({
@@ -292,7 +290,7 @@ describe('Select', () => {
       });
     });
 
-    it(':showArrow false', () => {
+    it('props[showArrow] false', () => {
       const wrapper = mount({
         render() {
           return <Select showArrow={false}></Select>;
@@ -302,8 +300,8 @@ describe('Select', () => {
     });
   });
 
-  describe('@event', () => {
-    describe('onClear', () => {
+  describe('events', () => {
+    describe('event[onClear]', () => {
       const triggerClear = async (wrapper) => {
         const input = wrapper.find('.t-input');
         await input.trigger('mouseenter');
@@ -359,7 +357,7 @@ describe('Select', () => {
         expect(value.value).toEqual([]);
       });
     });
-    describe('onChange #5779', () => {
+    describe('event[onChange]', () => {
       it('should trigger onChange with correct data', async () => {
         const onChangeFn = vi.fn();
         const value = ref('');
@@ -387,7 +385,7 @@ describe('Select', () => {
       });
     });
 
-    describe('onFocus and onBlur', () => {
+    describe('event[onFocus] and event[onBlur]', () => {
       it('should trigger onFocus', async () => {
         const onFocusFn = vi.fn();
         const wrapper = mount({
@@ -415,7 +413,7 @@ describe('Select', () => {
       });
     });
 
-    describe('onPopupVisibleChange', () => {
+    describe('event[onPopupVisibleChange]', () => {
       it('should show popup when visible is set (受控属性不会触发 onPopupVisibleChange 回调，详见注释)', async () => {
         const onPopupVisibleChangeFn = vi.fn();
         const wrapper = mount({
@@ -437,7 +435,7 @@ describe('Select', () => {
       });
     });
 
-    describe('onRemove', () => {
+    describe('event[onRemove]', () => {
       it('should trigger onRemove when tag is removed in multiple mode', async () => {
         const onRemoveFn = vi.fn();
         const value = ref(['1', '2']);
@@ -457,7 +455,7 @@ describe('Select', () => {
       });
     });
 
-    describe('onEnter', () => {
+    describe('event[onEnter]', () => {
       it('should trigger onEnter when Enter key is pressed', async () => {
         const onEnterFn = vi.fn();
         const wrapper = mount({
@@ -474,7 +472,7 @@ describe('Select', () => {
       });
     });
 
-    describe('onSearch', () => {
+    describe('event[onSearch]', () => {
       it('should trigger onSearch when input value changes with filterable', async () => {
         const onSearchFn = vi.fn();
         const wrapper = mount({
@@ -492,7 +490,7 @@ describe('Select', () => {
     });
   });
 
-  describe(':keys', () => {
+  describe('props[keys]', () => {
     const contentOptions = [
       { name: '架构云', content: '1' },
       { name: '大数据', content: '2' },
@@ -547,7 +545,7 @@ describe('Select', () => {
     });
   });
 
-  describe(':props.filterable', () => {
+  describe('props[filterable]', () => {
     it('should filter options based on input', async () => {
       const wrapper = mount({
         render() {
@@ -626,7 +624,7 @@ describe('Select', () => {
     });
   });
 
-  describe(':props.creatable', () => {
+  describe('props[creatable]', () => {
     it('should show create option when creatable is true', async () => {
       const wrapper = mount({
         render() {
@@ -666,7 +664,7 @@ describe('Select', () => {
     });
   });
 
-  describe(':props.valueType', () => {
+  describe('props[valueType]', () => {
     it('should return object value when valueType is object', async () => {
       const value = ref<any>(undefined);
       const wrapper = mount({
@@ -702,7 +700,7 @@ describe('Select', () => {
     });
   });
 
-  describe(':value.validation', () => {
+  describe('props[value]', () => {
     it('should reset value when single mode receives array value', async () => {
       const value = ref(['1', '2']);
       mount({
@@ -730,7 +728,7 @@ describe('Select', () => {
     });
   });
 
-  describe(':props.loading', () => {
+  describe('props[loading]', () => {
     it('should show loading text when loading is true', async () => {
       const wrapper = mount({
         render() {
@@ -759,7 +757,7 @@ describe('Select', () => {
     });
   });
 
-  describe(':slots.panelContent', () => {
+  describe('slots[panelContent]', () => {
     it('should render panelTopContent', async () => {
       const wrapper = mount({
         render() {
@@ -800,47 +798,46 @@ describe('Select Option', () => {
     cleanupDOM();
   });
 
-  // test props api
-  describe(':props', () => {
-    it(':value', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <Option value={'1'} label={'1'}></Option>
-            </Select>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
+  it('props[value]', () => {
+    const value = '1';
+    const wrapper = mount({
+      render() {
+        return (
+          <Select v-model={value}>
+            <Option value={'1'} label={'1'}></Option>
+          </Select>
+        );
+      },
     });
-    it(':label', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <Option value={'1'} label={'1'}></Option>
-            </Select>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('props[label]', () => {
+    const value = '1';
+    const wrapper = mount({
+      render() {
+        return (
+          <Select v-model={value}>
+            <Option value={'1'} label={'1'}></Option>
+          </Select>
+        );
+      },
     });
-    it(':disabled', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <Option value={'1'} label={'1'} disabled={true}></Option>
-            </Select>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('props[disabled]', () => {
+    const value = '1';
+    const wrapper = mount({
+      render() {
+        return (
+          <Select v-model={value}>
+            <Option value={'1'} label={'1'} disabled={true}></Option>
+          </Select>
+        );
+      },
     });
+    expect(wrapper.element).toMatchSnapshot();
   });
 });
 
@@ -849,37 +846,33 @@ describe('Select OptionGroup', () => {
     cleanupDOM();
   });
 
-  // test props api
-  describe(':props', () => {
-    it(':value', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <OptionGroup label={'num'}>
-                <Option value={'1'} label={'1'}></Option>
-              </OptionGroup>
-              <OptionGroup label={'abc'}>
-                <Option value={'a'} label={'a'}></Option>
-              </OptionGroup>
-            </Select>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
+  it('props[label]', () => {
+    const value = '1';
+    const wrapper = mount({
+      render() {
+        return (
+          <Select v-model={value}>
+            <OptionGroup label={'num'}>
+              <Option value={'1'} label={'1'}></Option>
+            </OptionGroup>
+            <OptionGroup label={'abc'}>
+              <Option value={'a'} label={'a'}></Option>
+            </OptionGroup>
+          </Select>
+        );
+      },
     });
+    expect(wrapper.element).toMatchSnapshot();
   });
 
-  describe(':base', () => {
-    it('v-for and option works fine', async () => {
-      const Comp = {
-        components: {
-          TSelect: Select,
-          TOptionGroup: OptionGroup,
-          TOption: Option,
-        },
-        template: `
+  it('v-for and option works fine', async () => {
+    const Comp = {
+      components: {
+        TSelect: Select,
+        TOptionGroup: OptionGroup,
+        TOption: Option,
+      },
+      template: `
           <t-select>
             <t-option-group label='test'>
               <t-option v-for='i in ["1", "2"]' :key='i' :label='i' :value='i'></t-option>
@@ -895,43 +888,41 @@ describe('Select OptionGroup', () => {
             </t-option-group>
           </t-select>
         `,
-      };
+    };
 
-      const wrapper = mount(Comp);
-      await wrapper.setProps({ popupProps: { visible: true } });
+    const wrapper = mount(Comp);
+    await wrapper.setProps({ popupProps: { visible: true } });
 
-      expect(document.querySelector('.t-select__list')).toBeTruthy();
-      const groupNode = document.querySelectorAll('.t-select-option-group');
-      expect(groupNode.length).toBe(3);
-      groupNode.forEach((item) => {
-        const option = item.querySelectorAll('.t-select-option');
-        expect(option.length).toBe(3);
-      });
+    expect(document.querySelector('.t-select__list')).toBeTruthy();
+    const groupNode = document.querySelectorAll('.t-select-option-group');
+    expect(groupNode.length).toBe(3);
+    groupNode.forEach((item) => {
+      const option = item.querySelectorAll('.t-select-option');
+      expect(option.length).toBe(3);
     });
   });
 
-  describe(':divider', () => {
-    it('should render divider when divider prop is true', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Select>
-              <OptionGroup label="group1" divider>
-                <Option value="1" label="1"></Option>
-              </OptionGroup>
-            </Select>
-          );
-        },
-      });
-      await wrapper.setProps({ popupProps: { visible: true } });
-      await nextTick();
-
-      const dividerGroup = document.querySelector('.t-select-option-group__divider');
-      expect(dividerGroup).toBeTruthy();
+  it('props[divider]', async () => {
+    const wrapper = mount({
+      render() {
+        return (
+          <Select>
+            <OptionGroup label="group1" divider>
+              <Option value="1" label="1"></Option>
+            </OptionGroup>
+          </Select>
+        );
+      },
     });
+    await wrapper.setProps({ popupProps: { visible: true } });
+    await nextTick();
+
+    const dividerGroup = document.querySelector('.t-select-option-group__divider');
+    expect(dividerGroup).toBeTruthy();
   });
 });
-describe('Select CheckAll', () => {
+
+describe('Select props[checkAll]', () => {
   afterEach(() => {
     cleanupDOM();
   });
@@ -999,7 +990,7 @@ describe('Select CheckAll', () => {
   });
 });
 
-describe('Select GroupOptions', () => {
+describe('Select props[options.group]', () => {
   afterEach(() => {
     cleanupDOM();
   });

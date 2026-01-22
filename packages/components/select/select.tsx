@@ -594,7 +594,7 @@ export default defineComponent({
               size: props.size,
               autofocus: props.autofocus,
               ...props.inputProps,
-              onKeydown: (_: string, { e }: { e: KeyboardEvent }) => handleKeyDown(e),
+              onkeydown: handleKeyDown,
             }}
             tagInputProps={{
               size: props.size,

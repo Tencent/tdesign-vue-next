@@ -78,8 +78,8 @@ describe('Select Hooks', () => {
     cleanupDOM();
   });
 
-  describe('useKeyboardControl', () => {
-    describe('ArrowUp', () => {
+  describe('hooks[useKeyboardControl]', () => {
+    describe('keyboard[ArrowUp]', () => {
       it('sets index to 0 when hoverIndex is -1', async () => {
         const wrapper = mount({
           render() {
@@ -181,7 +181,7 @@ describe('Select Hooks', () => {
       });
     });
 
-    describe('ArrowDown', () => {
+    describe('keyboard[ArrowDown]', () => {
       it('skips disabled option', async () => {
         const wrapper = mount({
           render() {
@@ -201,7 +201,7 @@ describe('Select Hooks', () => {
       });
     });
 
-    describe('Enter', () => {
+    describe('keyboard[Enter]', () => {
       it('breaks when hoverIndex is -1', async () => {
         const value = ref('');
         const wrapper = mount({
@@ -636,7 +636,7 @@ describe('Select Hooks', () => {
       });
     });
 
-    describe('Escape', () => {
+    describe('keyboard[Escape]', () => {
       it('closes popup on Escape key', async () => {
         const onPopupVisibleChangeFn = vi.fn();
         const wrapper = mount({
@@ -666,7 +666,7 @@ describe('Select Hooks', () => {
       });
     });
 
-    describe('watch', () => {
+    describe('watcher', () => {
       it('resets hoverIndex when popup opens', async () => {
         const wrapper = mount({
           render() {
@@ -725,8 +725,8 @@ describe('Select Hooks', () => {
     });
   });
 
-  describe('usePanelVirtualScroll', () => {
-    describe('isVirtual', () => {
+  describe('hooks[usePanelVirtualScroll]', () => {
+    describe('computed[isVirtual]', () => {
       it('does not activate when options below threshold', async () => {
         const wrapper = mount({
           render() {
@@ -788,7 +788,7 @@ describe('Select Hooks', () => {
       });
     });
 
-    describe('onScroll', () => {
+    describe('method[onScroll]', () => {
       it('returns early when isVirtual is false', async () => {
         const wrapper = mount({
           render() {
@@ -859,8 +859,8 @@ describe('Select Hooks', () => {
     });
   });
 
-  describe('useSelectOptions', () => {
-    describe('groupOptions', () => {
+  describe('hooks[useSelectOptions]', () => {
+    describe('computed[groupOptions]', () => {
       it('handles grouped options', async () => {
         const groupedOptions = [
           {
@@ -883,7 +883,7 @@ describe('Select Hooks', () => {
       });
     });
 
-    describe('filter', () => {
+    describe('method[filter]', () => {
       it('uses custom filter function', async () => {
         const customFilter = vi.fn((filterWords, option) => option.value === '1');
         const wrapper = mount({
@@ -956,7 +956,7 @@ describe('Select Hooks', () => {
   });
 
   describe('utils', () => {
-    describe('getNewMultipleValue', () => {
+    describe('function[getNewMultipleValue]', () => {
       it('adds new value when not exists', () => {
         const result = getNewMultipleValue(['1', '2'], '3');
         expect(result.value).toContain('3');
@@ -970,7 +970,7 @@ describe('Select Hooks', () => {
       });
     });
 
-    describe('getSingleContent', () => {
+    describe('function[getSingleContent]', () => {
       it('returns label from options map', () => {
         const optionsMap = computed(() => new Map([['1', { label: '选项1', value: '1' }]]));
         const searchDisplayOptions = computed(() => []);
@@ -993,7 +993,7 @@ describe('Select Hooks', () => {
       });
     });
 
-    describe('getMultipleContent', () => {
+    describe('function[getMultipleContent]', () => {
       it('returns array of labels', () => {
         const optionsMap = computed(
           () =>
