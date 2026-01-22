@@ -548,9 +548,7 @@ export default defineComponent({
           props.onClear?.({ e });
         },
         onEnter: (val, { e }) => {
-          // Input 组件在 Enter 键时只触发 onEnter，不触发 onKeydown，所以需要手动调用 handleKeyDown
-          handleKeyDown({ ...e, code: 'Enter' } as KeyboardEvent);
-          // 延迟执行用户的 onEnter 回调和创建逻辑
+          // onEnter和handleKeyDown的Enter事件同时触发，需要通过setTimeout设置先后
           setTimeout(() => {
             props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
             handleCreate();
@@ -594,6 +592,7 @@ export default defineComponent({
               size: props.size,
               autofocus: props.autofocus,
               ...props.inputProps,
+              // fix me, onkeydown should be onKeydown
               onkeydown: handleKeyDown,
             }}
             tagInputProps={{
