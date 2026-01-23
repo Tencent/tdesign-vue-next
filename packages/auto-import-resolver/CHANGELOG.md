@@ -1,3 +1,10 @@
+## 🌈 0.1.5 `2026-01-23`
+
+### 🚀 Features
+
+- 解析图标导入新增 217 个与人工智能、文档、徽标和文件相关的图标 @uyarn ([#6367](https://github.com/Tencent/tdesign-vue-next/pull/6367))
+- 新增解析 `useChat` `useAgentToolcall` `useAgentState` 三个 Hook 方法 @liweijie0812 ([#6272](https://github.com/Tencent/tdesign-vue-next/pull/6272))
+
 ## 🌈 0.1.4 `2025-11-18` 
 
 ### 🐞 Bug Fixes
