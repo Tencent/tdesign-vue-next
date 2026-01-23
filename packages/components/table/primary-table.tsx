@@ -16,6 +16,7 @@ import useAsyncLoading from './hooks/useAsyncLoading';
 import EditableCell, { EditableCellProps } from './components/editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
+import { getCellKey } from './hooks/useRowspanAndColspan';
 
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
@@ -151,7 +152,9 @@ export default defineComponent({
       validateTableData,
       validateTableCellData,
       onRuleChange,
-      clearValidateData,
+      clearValidateRowData,
+      clearAllEditableCellData,
+      onCellInstanceChange,
       onUpdateEditedCell,
       getEditRowData,
       onPrimaryTableCellEditChange,
@@ -195,6 +198,11 @@ export default defineComponent({
       setDragSortPrimaryTableRef(primaryTableRef.value);
     });
 
+    const clearValidateData = () => {
+      clearValidateRowData();
+      clearAllEditableCellData();
+    };
+
     // 对外暴露的方法
     context.expose({
       validateRowData,
@@ -214,7 +222,6 @@ export default defineComponent({
       baseTableRef: primaryTableRef,
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const onEditableCellChange: EditableCellProps['onChange'] = (params) => {
       props.onRowEdit?.(params);
       const rowValue = get(params.editedRow, props.rowKey || 'id');
@@ -299,7 +306,16 @@ export default defineComponent({
             if (props.editableCellState) {
               cellProps.readonly = !props.editableCellState(p);
             }
-            return <EditableCell {...cellProps} v-slots={context.slots} onUpdateEditedCell={onUpdateEditedCell} />;
+            const cellKey = getCellKey(p.row, props.rowKey || 'id', p.col.colKey, p.colIndex);
+            return (
+              <EditableCell
+                {...cellProps}
+                cellKey={cellKey}
+                onCellInstanceChange={onCellInstanceChange}
+                v-slots={context.slots}
+                onUpdateEditedCell={onUpdateEditedCell}
+              />
+            );
           };
         }
         if (item.children?.length) {

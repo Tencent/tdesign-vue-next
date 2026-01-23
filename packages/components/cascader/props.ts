@@ -78,7 +78,7 @@ export default {
   },
   /** 是否允许多选 */
   multiple: Boolean,
-  /** 自定义单个级联选项 */
+  /** 自定义单个级联选项, item 是选项本身的值，index 是下标，onChange 用于触发当前节点选中，onExpand 用于触发当前节点展开 */
   option: {
     type: Function as PropType<TdCascaderProps['option']>,
   },
@@ -116,7 +116,10 @@ export default {
     default: undefined,
   },
   /** 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 */
-  reserveKeyword: Boolean,
+  reserveKeyword: {
+    type: Boolean,
+    default: true,
+  },
   /** 透传 SelectInput 筛选器输入框组件的全部属性 */
   selectInputProps: {
     type: Object as PropType<TdCascaderProps['selectInputProps']>,

@@ -49,17 +49,17 @@ footer | Boolean / Slot / Function | true | Typescript：`boolean \| TNode`。[s
 header | String / Boolean / Slot / Function | true | Typescript：`string \| boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 theme | String | default | options: default/info/warning/danger/success | N
 `Pick<DialogProps, 'body' \| 'cancelBtn' \| 'closeBtn' \| 'confirmBtn' \| 'footer' \| 'header' \| 'theme' \| 'onCancel' \| 'onCloseBtnClick' \| 'onConfirm' \| 'confirmLoading'>` | String / Slot / Function | - | extends `Pick<DialogProps, 'body' \| 'cancelBtn' \| 'closeBtn' \| 'confirmBtn' \| 'footer' \| 'header' \| 'theme' \| 'onCancel' \| 'onCloseBtnClick' \| 'onConfirm' \| 'confirmLoading'>`。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-onCancel | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>options: default/info/warning/danger/success | N
-onCloseBtnClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>options: default/info/warning/danger/success | N
-onConfirm | Function |  | Typescript：`(context: { e: MouseEvent \| KeyboardEvent }) => void`<br/>options: default/info/warning/danger/success | N
+onCancel | Function |  | Typescript：`(context: { e: MouseEvent }) => void` | N
+onCloseBtnClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void` | N
+onConfirm | Function |  | Typescript：`(context: { e: MouseEvent \| KeyboardEvent }) => void` | N
 
 ### DialogCard Events
 
 name | params | description
 -- | -- | --
-cancel | `(context: { e: MouseEvent })` | options: default/info/warning/danger/success
-close-btn-click | `(context: { e: MouseEvent })` | options: default/info/warning/danger/success
-confirm | `(context: { e: MouseEvent \| KeyboardEvent })` | options: default/info/warning/danger/success
+cancel | `(context: { e: MouseEvent })` | 
+close-btn-click | `(context: { e: MouseEvent })` | 
+confirm | `(context: { e: MouseEvent \| KeyboardEvent })` | 
 
 
 ### Dialog Props

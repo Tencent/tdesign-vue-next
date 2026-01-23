@@ -35,6 +35,7 @@ export default defineComponent({
     month: Array as PropType<Array<number>>,
     time: Array as PropType<Array<string>>,
     cancelRangeSelectLimit: Boolean,
+    defaultTime: Array as PropType<TdDateRangePickerProps['defaultTime']>,
     onClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -148,6 +149,7 @@ export default defineComponent({
       onCellMouseLeave: props.onCellMouseLeave,
       onTimePickerChange: props.onTimePickerChange,
       disableTime: props.disableTime,
+      defaultTime: props.defaultTime,
     }));
 
     return () => (

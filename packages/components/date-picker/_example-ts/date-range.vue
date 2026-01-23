@@ -1,13 +1,30 @@
 <template>
   <t-space direction="vertical">
-    <t-date-range-picker allow-input clearable @pick="onPick" @change="onChange" />
-    <t-date-range-picker enable-time-picker allow-input clearable @pick="onPick" @change="onChange" />
+    <t-date-range-picker
+      allow-input
+      clearable
+      @pick="onPick"
+      @change="onChange"
+      @month-change="onMonthChange"
+      @year-change="onYearChange"
+    />
+    <t-date-range-picker
+      enable-time-picker
+      allow-input
+      clearable
+      @pick="onPick"
+      @change="onChange"
+      @month-change="onMonthChange"
+      @year-change="onYearChange"
+    />
   </t-space>
 </template>
 
 <script lang="ts" setup>
 import { DateRangePickerProps } from 'tdesign-vue-next';
+
 const onPick: DateRangePickerProps['onPick'] = (value, context) => console.log('onPick:', value, context);
+
 const onChange: DateRangePickerProps['onChange'] = (value, context) => {
   console.log('onChange:', value, context);
   console.log(
@@ -18,5 +35,13 @@ const onChange: DateRangePickerProps['onChange'] = (value, context) => {
     'YYYYMMDD:',
     context.dayjsValue.map((d) => d.format('YYYYMMDD')),
   );
+};
+
+const onMonthChange: DateRangePickerProps['onMonthChange'] = (context) => {
+  console.log('onMonthChange:', context);
+};
+
+const onYearChange: DateRangePickerProps['onYearChange'] = (context) => {
+  console.log('onYearChange:', context);
 };
 </script>

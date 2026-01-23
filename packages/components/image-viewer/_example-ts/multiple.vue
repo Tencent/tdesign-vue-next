@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-image-viewer v-for="(img, index) in images" :key="img" :default-index="index" :images="images">
+    <t-image-viewer v-for="(img, index) in images" :key="img" :default-index="index" :images="images" :z-index="10000">
       <template #trigger="{ open }">
         <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
           <img alt="test" :src="img" class="tdesign-demo-image-viewer__ui-image--img" />

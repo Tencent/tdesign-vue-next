@@ -1,4 +1,4 @@
-import { VNode, isVNode, Fragment } from 'vue';
+import { VNode, isVNode, Fragment, getCurrentInstance } from 'vue';
 import { isArray, isString, isObject } from 'lodash-es';
 
 // TODO:PAOPAO move? i have no idea
@@ -50,4 +50,13 @@ export function getParams(options?: OptionsType) {
 // and only hooks tnode import this one, so, can we move it to tnode hooks directly????
 export function getSlotFirst(options?: OptionsType): boolean {
   return isObject(options) && 'slotFirst' in options ? options.slotFirst : false;
+}
+
+export function isPropsUsed(propsName?: string): boolean {
+  const { vnode, slots } = getCurrentInstance();
+  const vProps = vnode.props || {};
+
+  if (Object.prototype.hasOwnProperty.call(vProps, propsName)) return true;
+  if (slots && Object.prototype.hasOwnProperty.call(slots, propsName)) return true;
+  return false;
 }

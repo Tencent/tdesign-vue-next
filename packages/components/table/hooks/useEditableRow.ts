@@ -14,7 +14,7 @@ import {
   PrimaryTableCellParams,
 } from '../type';
 import { getCellKey, getRowKeyFromCell } from './useRowspanAndColspan';
-import { OnEditableChangeContext } from '../components/editable-cell';
+import { OnEditableChangeContext, EditableCellInstance } from '../components/editable-cell';
 
 export interface TablePromiseErrorData {
   errors: ErrorListObjectType<TableRowData>[];
@@ -32,6 +32,8 @@ export default function useRowEdit(props: PrimaryTableProps) {
   const editingCells = ref<{ [cellKey: string]: OnEditableChangeContext<TableRowData> }>({});
   // 编辑状态的数据
   const editedFormData = ref<{ [rowValue: string]: { [colKey: string]: any } }>({});
+  // EditableCell ref 映射
+  const editableCellRefMap = ref<{ [cellKey: string]: EditableCellInstance }>({});
 
   const getErrorListMapByErrors = (errors: ErrorListObjectType<TableRowData>[]): TableErrorListMap => {
     const errorMap: TableErrorListMap = {};
@@ -168,8 +170,24 @@ export default function useRowEdit(props: PrimaryTableProps) {
     }
   };
 
-  const clearValidateData = () => {
+  const clearValidateRowData = () => {
     errorListMap.value = {};
+  };
+
+  // EditableCell 实例变化回调
+  const onCellInstanceChange = (cellKey: string, instance: EditableCellInstance | null) => {
+    if (instance) {
+      editableCellRefMap.value[cellKey] = instance;
+    } else {
+      delete editableCellRefMap.value[cellKey];
+    }
+  };
+
+  // 清除所有 EditableCell 的验证数据
+  const clearAllEditableCellData = () => {
+    Object.keys(editableCellRefMap.value).forEach((cellKey) => {
+      editableCellRefMap.value[cellKey]?.clearValidateCellData?.();
+    });
   };
 
   const onPrimaryTableCellEditChange = (params: OnEditableChangeContext<TableRowData>) => {
@@ -216,7 +234,9 @@ export default function useRowEdit(props: PrimaryTableProps) {
     validateTableCellData,
     validateRowData,
     onRuleChange,
-    clearValidateData,
+    clearValidateRowData,
+    clearAllEditableCellData,
+    onCellInstanceChange,
     onUpdateEditedCell,
     getEditRowData,
     onPrimaryTableCellEditChange,

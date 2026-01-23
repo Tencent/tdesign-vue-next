@@ -1,6 +1,6 @@
 <template>
   <div class="tdesign-demo-image-viewer__base">
-    <t-image-viewer :images="[img]"></t-image-viewer>
+    <t-image-viewer :images="[img]" :z-index="10000"></t-image-viewer>
   </div>
 </template>
 <script lang="ts" setup>

@@ -3,7 +3,7 @@ import { expect, it } from 'vitest';
 import Tooltip from '@tdesign/components/tooltip';
 
 const text = '这是一段内容';
-const tootipClass = '.t-popup';
+const tooltipClass = '.t-popup';
 
 describe('Tooltip', () => {
   it('', async () => {
@@ -16,7 +16,7 @@ describe('Tooltip', () => {
     await new Promise((resolve) => {
       timer = setTimeout(resolve, 250);
     });
-    const tooltipContent = document.querySelector(tootipClass);
+    const tooltipContent = document.querySelector(tooltipClass);
     expect(tooltipContent).toBeTruthy();
     clearTimeout(timer);
   });
@@ -31,7 +31,7 @@ describe('Tooltip', () => {
     await new Promise((resolve) => {
       timer = setTimeout(resolve, 250);
     });
-    const arrow = document.querySelector(`${tootipClass} .t-popup__arrow`);
+    const arrow = document.querySelector(`${tooltipClass} .t-popup__arrow`);
     expect(arrow).toBeTruthy();
     clearTimeout(timer);
   });

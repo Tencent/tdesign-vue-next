@@ -15,6 +15,7 @@ import {
   useTNodeJSX,
   usePrefixClass,
   useDefaultValue,
+  useEventForward,
 } from '@tdesign/shared-hooks';
 
 import { getSingleContent, getMultipleContent } from './utils';
@@ -527,6 +528,40 @@ export default defineComponent({
     provide('updateScrollTop', updateScrollTop);
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
+
+      const popupEvents = useEventForward(restPopupProps, {
+        onScrollToBottom: handlerPopupScrollToBottom,
+      });
+      const selectInputEvents = useEventForward(props.selectInputProps, {
+        onTagChange: (val, ctx) => {
+          removeTag(ctx.index, ctx);
+        },
+        onPopupVisibleChange: handlerPopupVisibleChange,
+        onInputChange: handlerInputChange,
+        onClear: ({ e }) => {
+          setInnerValue(props.multiple ? [] : undefined, {
+            option: null,
+            selectedOptions: getSelectedOptions(props.multiple ? [] : undefined),
+            trigger: 'clear',
+            e,
+          });
+          props.onClear?.({ e });
+        },
+        onEnter: (val, { e }) => {
+          // onEnter和handleKeyDown的Enter事件同时触发，需要通过setTimeout设置先后
+          setTimeout(() => {
+            props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
+            handleCreate();
+          }, 0);
+        },
+        onBlur: (val, { e }) => {
+          props.onBlur?.({ e, value: innerValue.value });
+        },
+        onFocus: (val, { e }) => {
+          props.onFocus?.({ e, value: innerValue.value });
+        },
+      });
+
       return (
         <div class={`${COMPONENT_NAME.value}__wrap`}>
           <SelectInput
@@ -556,21 +591,18 @@ export default defineComponent({
             inputProps={{
               size: props.size,
               autofocus: props.autofocus,
-              ...(props.inputProps as TdSelectProps['inputProps']),
+              ...props.inputProps,
+              // fix me, onkeydown should be onKeydown
               onkeydown: handleKeyDown,
             }}
             tagInputProps={{
               size: props.size,
               ...(props.tagInputProps as TdSelectProps['tagInputProps']),
             }}
-            onTagChange={(val, ctx) => {
-              removeTag(ctx.index, ctx);
-            }}
             tagProps={{ ...(props.tagProps as TdSelectProps['tagProps']) }}
             popupProps={{
               overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, overlayClassName],
-              ...restPopupProps,
-              onScrollToBottom: handlerPopupScrollToBottom,
+              ...popupEvents.value,
             }}
             label={props.label}
             prefixIcon={props.prefixIcon}
@@ -590,31 +622,7 @@ export default defineComponent({
               );
             }}
             valueDisplay={renderValueDisplay}
-            onPopupVisibleChange={handlerPopupVisibleChange}
-            onInputChange={handlerInputChange}
-            onClear={({ e }) => {
-              setInnerValue(props.multiple ? [] : undefined, {
-                option: null,
-                selectedOptions: getSelectedOptions(props.multiple ? [] : undefined),
-                trigger: 'clear',
-                e,
-              });
-              props.onClear?.({ e });
-            }}
-            onEnter={(inputValue, { e }) => {
-              // onEnter和handleKeyDown的Enter事件同时触发，需要通过setTimeout设置先后
-              setTimeout(() => {
-                props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
-                handleCreate();
-              }, 0);
-            }}
-            onBlur={(inputValue, { e }) => {
-              props.onBlur?.({ e, value: innerValue.value });
-            }}
-            onFocus={(inputValue, { e }) => {
-              props.onFocus?.({ e, value: innerValue.value });
-            }}
-            {...(props.selectInputProps as TdSelectProps['selectInputProps'])}
+            {...selectInputEvents.value}
             v-slots={{
               label: slots.label,
               prefixIcon: slots.prefixIcon,

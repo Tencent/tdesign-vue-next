@@ -110,18 +110,14 @@ export default defineComponent({
     });
     return () => {
       const content = renderTNodeJSX('content');
-      if (!content && !props.content) {
-        return renderContent('default', 'triggerElement');
-      }
       return (
         <Popup
           {...omit(popupProps.value, ['content', 'default'])}
           ref={popupRef}
+          hideEmptyPopup={true}
           overlayInnerStyle={overlayInnerStyle.value}
           visible={innerVisible.value}
-          v-slots={{
-            content: () => content,
-          }}
+          v-slots={!content && !props.content ? {} : { content: () => content }}
         >
           {renderContent('default', 'triggerElement')}
         </Popup>

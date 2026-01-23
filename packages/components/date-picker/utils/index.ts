@@ -68,3 +68,8 @@ export function parseToDateTime(
 
   return dayjs.toDate();
 }
+
+export const triggerMap = {
+  prev: 'arrow-previous',
+  next: 'arrow-next',
+};

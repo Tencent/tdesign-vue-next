@@ -48,13 +48,15 @@ const onValidate: FormProps['onValidate'] = ({ validateResult, firstError }) => 
     console.log('Validate Errors: ', firstError, validateResult);
   }
 };
-const rePassword: CustomValidator = (val) =>
-  new Promise((resolve) => {
+const rePassword: CustomValidator = (val, context) => {
+  console.log(context, 'context');
+  return new Promise((resolve) => {
     const timer = setTimeout(() => {
       resolve(formData.password === val);
       clearTimeout(timer);
     });
   });
+};
 const passwordValidator: CustomValidator = (val) => {
   if (val.length > 0 && val.length <= 2) {
     return {

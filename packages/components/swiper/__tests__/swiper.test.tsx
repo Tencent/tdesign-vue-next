@@ -140,19 +140,6 @@ describe('Swiper', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    it(':theme', () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Swiper theme={'dark'}>
-              <SwiperItem>1</SwiperItem>
-              <SwiperItem>2</SwiperItem>
-            </Swiper>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
     it(':type', () => {
       const wrapper = mount({
         render() {

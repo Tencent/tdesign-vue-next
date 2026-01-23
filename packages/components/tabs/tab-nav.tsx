@@ -171,6 +171,8 @@ export default defineComponent({
     const getMaxScrollLeft = () => {
       nextTick(() => {
         maxScrollLeft.value = calcMaxOffset(getRefs());
+        // fix https://github.com/Tencent/tdesign-vue-next/issues/6292
+        if (maxScrollLeft.value - scrollLeft.value <= 0) setOffset(maxScrollLeft.value);
       });
     };
 

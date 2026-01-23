@@ -26,7 +26,7 @@ loadingText | String / Slot / Function | - | 远程加载时显示的文字，�
 max | Number | 0 | 用于控制多选数量，值为 0 则不限制 | N
 minCollapsedNum | Number | 0 | 最小折叠数量，用于多选情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠 | N
 multiple | Boolean | false | 是否允许多选 | N
-option | Slot / Function | - | 自定义单个级联选项。TS 类型：`TNode<{ item: CascaderOption; index: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+option | Slot / Function | - | 自定义单个级联选项, item 是选项本身的值，index 是下标，onChange 用于触发当前节点选中，onExpand 用于触发当前节点展开。TS 类型：`TNode<{ item: CascaderOption; index: number; onChange: ()=> void; onExpand: ()=> void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 options | Array | [] | 可选项数据源。TS 类型：`Array<CascaderOption>` | N
 panelBottomContent | String / Slot / Function | - | 面板内的底部内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 panelTopContent | String / Slot / Function | - | 面板内的顶部内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
@@ -36,7 +36,7 @@ popupVisible | Boolean | - | 是否显示下拉框 | N
 defaultPopupVisible | Boolean | - | 是否显示下拉框。非受控属性 | N
 prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 readonly | Boolean | undefined | 只读状态，值为真会隐藏输入框，且无法打开下拉框 | N
-reserveKeyword | Boolean | false | 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 | N
+reserveKeyword | Boolean | true | 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 | N
 selectInputProps | Object | - | 透传 SelectInput 筛选器输入框组件的全部属性。TS 类型：`SelectInputProps`，[SelectInput API Documents](./select-input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/cascader/type.ts) | N
 showAllLevels | Boolean | true | 选中值使用完整路径，输入框在单选时也显示完整路径 | N
 size | String | medium | 组件尺寸。可选项：large/medium/small。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N

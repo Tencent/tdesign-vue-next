@@ -17,7 +17,7 @@ import {
 } from 'vue';
 import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
-import { off, on, once } from '@tdesign/shared-utils';
+import { off, on, once, isServer } from '@tdesign/shared-utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 import Container from './container';
 import props from './props';
@@ -212,7 +212,7 @@ export default defineComponent({
       () => visible.value,
       (visible) => {
         if (visible) {
-          on(document, 'mousedown', onDocumentMouseDown, true);
+          !isServer && on(document, 'mousedown', onDocumentMouseDown, true);
           if (props.trigger === 'focus') {
             once(triggerEl.value, 'keydown', (ev: KeyboardEvent) => {
               const code = typeof process !== 'undefined' && process.env?.TEST ? '27' : 'Escape';
@@ -223,7 +223,7 @@ export default defineComponent({
           }
           return;
         }
-        off(document, 'mousedown', onDocumentMouseDown, true);
+        !isServer && off(document, 'mousedown', onDocumentMouseDown, true);
       },
       { immediate: true },
     );
@@ -249,6 +249,7 @@ export default defineComponent({
       getOverlayState: () => ({
         hover: isOverlayHover.value,
       }),
+      getPopper: () => popper,
       /** close is going to be deprecated. visible is enough */
       close: () => hide(),
     });
@@ -488,8 +489,9 @@ export default defineComponent({
       // 防止多次触发添加截流
       const debounceOnScrollBottom = debounce((e) => props.onScrollToBottom?.({ e }), 100);
 
-      // windows 下 scrollTop 会出现小数，这里取整
-      if (clientHeight + Math.floor(scrollTop) === scrollHeight) {
+      // 页面缩放时，scrollTop/clientHeight/scrollHeight 可能出现小数，使用容差值进行比较
+      // When page is zoomed, scrollTop/clientHeight/scrollHeight may have decimal values, use tolerance for comparison
+      if (Math.abs(clientHeight + scrollTop - scrollHeight) < 1) {
         // touch bottom
         debounceOnScrollBottom(e);
       }
@@ -499,7 +501,6 @@ export default defineComponent({
     return () => {
       const content = renderTNodeJSX('content');
       const hidePopup = props.hideEmptyPopup && ['', undefined, null].includes(content);
-
       const overlay =
         visible.value || !props.destroyOnClose ? (
           <div

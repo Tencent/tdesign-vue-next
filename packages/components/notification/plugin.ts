@@ -41,6 +41,7 @@ const NotificationFunction = (options: NotificationOptions, context?: AppContext
 
     const instance = createVNode(NotificationList, {
       placement: hackOptions.placement,
+      offset: hackOptions.offset,
     });
 
     // eslint-disable-next-line no-underscore-dangle

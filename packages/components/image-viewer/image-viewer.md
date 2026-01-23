@@ -24,7 +24,7 @@ trigger | String / Slot / Function | - | 触发图片预览的元素，可能是
 viewerScale | Object | - | 限制预览器缩放的最小宽度和最小高度，仅 `mode=modeless` 时有效。TS 类型：`ImageViewerScale` `interface ImageViewerScale { minWidth: number; minHeight: number }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/image-viewer/type.ts) | N
 visible | Boolean | false | 隐藏/显示预览。支持语法糖 `v-model` 或 `v-model:visible` | N
 defaultVisible | Boolean | false | 隐藏/显示预览。非受控属性 | N
-zIndex | Number | - | 层级，默认为 2000 | N
+zIndex | Number | - | 层级，默认为 3000 | N
 onClose | Function |  | TS 类型：`(context: { trigger: 'close-btn' \| 'overlay' \| 'esc'; e: MouseEvent \| KeyboardEvent }) => void`<br/>关闭时触发，事件参数包含触发关闭的来源：关闭按钮、遮罩层、ESC 键 | N
 onDownload | Function |  | TS 类型：`(url: string \| File) => void`<br/>自定义预览图片下载操作，url为图片链接 | N
 onIndexChange | Function |  | TS 类型：`(index: number, context: { trigger: 'prev' \| 'next' \| 'current' }) => void`<br/>预览图片切换时触发，`context.prev` 切换到上一张图片，`context.next` 切换到下一张图片 | N

@@ -23,10 +23,11 @@ export const docs = [
       },
       {
         title: '更新日志',
-        titleEn: 'CHANGELOG',
+        titleEn: 'Changelog',
         name: 'changelog',
         path: '/vue-next/changelog',
         component: () => import('@tdesign/vue-next/CHANGELOG.md'),
+        componentEn: () => import('@tdesign/vue-next/CHANGELOG.en-US.md'),
       },
       {
         title: '组件概览',
@@ -56,16 +57,16 @@ export const docs = [
         titleEn: 'Theme Customization',
         name: 'custom-theme',
         path: '/vue-next/custom-theme',
-        component: () => import('@tdesign/common/theme.md'),
-        componentEn: () => import('@tdesign/common/theme.en-US.md'),
+        component: () => import('@tdesign/common/docs/web/theme.md'),
+        componentEn: () => import('@tdesign/common/docs/web/theme.en-US.md'),
       },
       {
         title: '深色模式',
         titleEn: 'Dark Mode',
         name: 'dark-mode',
         path: '/vue-next/dark-mode',
-        component: () => import('@tdesign/common/dark-mode.md'),
-        componentEn: () => import('@tdesign/common/dark-mode.en-US.md'),
+        component: () => import('@tdesign/common/docs/dark-mode.md'),
+        componentEn: () => import('@tdesign/common/docs/dark-mode.en-US.md'),
       },
     ],
   },
@@ -713,6 +714,7 @@ const enDocs = docs.map((doc) => {
         path: `${child.path}-en`,
         meta: { lang: 'en' },
         component: child.componentEn || child.component,
+        redirect: child.redirect,
       };
     }),
   };

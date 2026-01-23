@@ -16,7 +16,7 @@ import TRangePanel from './components/panel/RangePanel';
 import { useRangeValue } from './hooks/useRangeValue';
 import { formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
-import { dateCorrection } from './utils';
+import { dateCorrection, triggerMap } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePickerPanel',
@@ -111,9 +111,12 @@ export default defineComponent({
           formatDate(nextValue, {
             format: formatRef.value.format,
             autoSwap: true,
+            defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+            dayjsValue: nextValue.map((v, i) =>
+              parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+            ),
             trigger: 'pick',
           },
         );
@@ -133,10 +136,6 @@ export default defineComponent({
     }) {
       const partialIndex = partial === 'start' ? 0 : 1;
 
-      const triggerMap = {
-        prev: 'arrow-previous',
-        next: 'arrow-next',
-      };
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
       const current = new Date(year.value[partialIndex], month.value[partialIndex]);
@@ -225,9 +224,12 @@ export default defineComponent({
           formatDate(nextValue, {
             format: formatRef.value.format,
             autoSwap: true,
+            defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+            dayjsValue: nextValue.map((v, i) =>
+              parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+            ),
             trigger: 'confirm',
           },
         );
@@ -254,9 +256,12 @@ export default defineComponent({
           formatDate(presetValue, {
             format: formatRef.value.format,
             autoSwap: true,
+            defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),
+            dayjsValue: presetValue.map((p, i) =>
+              parseToDayjs(p, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+            ),
             trigger: 'preset',
           },
         );

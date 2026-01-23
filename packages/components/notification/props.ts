@@ -48,10 +48,10 @@ export default {
   title: {
     type: [String, Function] as PropType<TdNotificationProps['title']>,
   },
+  /** 调用 NotificationPlugin.close 的事件回调 */
+  onClose: Function as PropType<TdNotificationProps['onClose']>,
   /** 点击关闭按钮时触发 */
   onCloseBtnClick: Function as PropType<TdNotificationProps['onCloseBtnClick']>,
   /** 计时结束时触发 */
   onDurationEnd: Function as PropType<TdNotificationProps['onDurationEnd']>,
-  /** 调用 NotificationPlugin.close 时触发 */
-  onClose: Function as PropType<TdNotificationProps['onClose']>,
 };

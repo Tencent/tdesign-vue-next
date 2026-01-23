@@ -5,6 +5,7 @@
       :title="title"
       :images="images"
       :index="index"
+      :z-index="10000"
       @index-change="onIndexChange"
     >
       <template #trigger>

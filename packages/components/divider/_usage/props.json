@@ -38,20 +38,5 @@
         "value": "vertical"
       }
     ]
-  },
-  {
-    "name": "theme",
-    "type": "enum",
-    "defaultValue": "horizontal",
-    "options": [
-      {
-        "label": "horizontal",
-        "value": "horizontal"
-      },
-      {
-        "label": "vertical",
-        "value": "vertical"
-      }
-    ]
   }
 ]
