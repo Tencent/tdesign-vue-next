@@ -16,6 +16,7 @@ export default defineComponent({
   props: {
     ...props,
     placement: String, // just for animation
+    className: String,
   },
   setup(props, { slots, expose }) {
     const COMPONENT_NAME = usePrefixClass('notification');
@@ -106,7 +107,12 @@ export default defineComponent({
 
     expose({ close });
     return () => (
-      <div ref={notificationRef} class={`${COMPONENT_NAME.value}`} onMouseenter={clearTimer} onMouseleave={setTimer}>
+      <div
+        ref={notificationRef}
+        class={[COMPONENT_NAME.value, props.className]}
+        onMouseenter={clearTimer}
+        onMouseleave={setTimer}
+      >
         {renderIcon()}
         <div class={`${COMPONENT_NAME.value}__main`}>
           <div class={`${COMPONENT_NAME.value}__title__wrap`}>

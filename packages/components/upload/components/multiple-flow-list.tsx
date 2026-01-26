@@ -12,7 +12,7 @@ import {
   FileIcon as TdFileIcon,
   VideoIcon as TdVideoIcon,
 } from 'tdesign-icons-vue-next';
-import { isObject, isFunction } from 'lodash-es';
+import { isFunction } from 'lodash-es';
 
 import { useTNodeJSX, useGlobalIcon, useEventForward } from '@tdesign/shared-hooks';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
@@ -395,23 +395,14 @@ export default defineComponent({
       const hasCancelUploadTNode = slots.uploadButton || isFunction(props.uploadButton);
       const uploadButtonDisabled = Boolean(disabled.value || uploading.value || !displayFiles.value.length);
       const hasUploadButtonTNode = slots.cancelUploadButton || isFunction(props.cancelUploadButton);
-      const cancelButtonProps = useEventForward(
-        props.cancelUploadButton as TdButtonProps,
-        isObject(props.cancelUploadButton)
-          ? {}
-          : {
-              onClick: (e) => props.cancelUpload?.({ e }),
-            },
-      );
+      const cancelButtonProps = useEventForward(props.cancelUploadButton as TdButtonProps, {
+        onClick: (e) => props.cancelUpload?.({ e }),
+      });
 
-      const uploadButtonProps = useEventForward(
-        props.uploadButton as TdButtonProps,
-        isObject(props.uploadButton)
-          ? {}
-          : {
-              onClick: () => props.uploadFiles?.(),
-            },
-      );
+      const uploadButtonProps = useEventForward(props.uploadButton as TdButtonProps, {
+        onClick: () => props.uploadFiles?.(),
+      });
+
       return (
         <div class={`${uploadPrefix.value}__flow ${uploadPrefix.value}__flow-${props.theme}`}>
           <div class={`${uploadPrefix.value}__flow-op`}>

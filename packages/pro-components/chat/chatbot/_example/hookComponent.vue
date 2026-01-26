@@ -44,7 +44,6 @@ import {
   type TdChatMessageConfig,
   type AIMessageContent,
   type ChatRequestParams,
-  type ChatMessagesData,
   type TdChatActionsName,
   TdChatListApi,
   TdChatSenderApi,

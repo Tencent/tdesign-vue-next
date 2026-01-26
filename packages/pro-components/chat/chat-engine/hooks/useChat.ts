@@ -46,7 +46,7 @@ export const useChat = (options: {
   // 监听 defaultMessages 变化
   watch(
     () => options.defaultMessages,
-    (newMessages, oldMessages) => {
+    (newMessages) => {
       // 检查 defaultMessages 是否真的发生了变化
       const hasChanged = JSON.stringify(prevInitialMessages.value) !== JSON.stringify(newMessages);
 

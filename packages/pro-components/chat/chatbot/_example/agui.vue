@@ -56,15 +56,12 @@
 <script setup lang="tsx">
 import { ref, computed } from 'vue';
 import {
-  type TdChatMessageConfig,
   type ChatRequestParams,
-  type ChatMessagesData,
   type TdChatActionsName,
   type TdChatListApi,
   type TdChatSenderApi,
   isAIMessage,
   getMessageContentForCopy,
-  AGUIAdapter,
   useChat,
 } from '@tdesign-vue-next/chat';
 import { MessagePlugin } from 'tdesign-vue-next';
@@ -73,7 +70,6 @@ import CustomToolCallRenderer from './components/Toolcall.vue';
 const listRef = ref<TdChatListApi | null>(null);
 const inputRef = ref<TdChatSenderApi | null>(null);
 const inputValue = ref<string>('AG-UI协议的作用是什么');
-const loadingHistory = ref<boolean>(false);
 
 const { chatEngine, messages, status } = useChat({
   defaultMessages: [],
@@ -119,52 +115,6 @@ const senderLoading = computed(() => {
   }
   return false;
 });
-
-// 加载历史消息
-const loadHistoryMessages = async () => {
-  loadingHistory.value = true;
-  try {
-    const response = await fetch(`http://127.0.0.1:3000/api/conversation/history?type=simple`);
-    const result = await response.json();
-    if (result.success && result.data) {
-      const messages = AGUIAdapter.convertHistoryMessages(result.data);
-      chatEngine.value?.setMessages(messages);
-      listRef.value?.scrollToBottom();
-    }
-  } catch (error) {
-    console.error('加载历史消息出错:', error);
-    MessagePlugin.error('加载历史消息出错');
-  } finally {
-    loadingHistory.value = false;
-  }
-};
-
-// 清空消息
-const clearMessages = () => {
-  chatEngine.value?.clearMessages();
-  MessagePlugin.success('已清空消息');
-};
-
-// 消息属性配置
-const messageProps: TdChatMessageConfig = {
-  user: {
-    variant: 'base',
-    placement: 'right',
-  },
-  assistant: {
-    placement: 'left',
-    // 内置的消息渲染配置
-    chatContentProps: {
-      thinking: {
-        maxHeight: 300,
-      },
-      reasoning: {
-        maxHeight: 300,
-        defaultCollapsed: false,
-      },
-    },
-  },
-};
 
 const getChatActionBar = (isLast: boolean): TdChatActionsName[] => {
   let filterActions: TdChatActionsName[] = ['replay', 'good', 'bad', 'copy'];

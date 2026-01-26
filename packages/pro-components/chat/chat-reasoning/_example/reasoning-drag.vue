@@ -81,10 +81,7 @@ const loading = ref(false);
 const isStreamLoad = ref(false);
 const visibleModelessDrag = ref(false);
 const inputValue = ref('');
-// 滚动到底部
-const operation = function (type, options) {
-  console.log(type, options);
-};
+
 const selectOptions = [
   {
     label: '默认模型',

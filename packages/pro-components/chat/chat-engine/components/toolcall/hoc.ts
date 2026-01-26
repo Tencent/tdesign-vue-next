@@ -16,6 +16,7 @@ export const withAgentStateToolcall1 = <P extends object = any>(
   Component: DefineComponent<WithAgentStateProps<P>>,
 ): DefineComponent<P> => {
   //@ts-ignore
+  // eslint-disable-next-line vue/one-component-per-file
   return defineComponent({
     name: `withAgentState(${Component.name || 'Component'})`,
     props: Component.props,
@@ -43,6 +44,7 @@ export const withAgentStateToolcall = <P extends object = any>(
   subscribeKeyExtractor?: (props: P) => string | undefined,
 ): DefineComponent<P> => {
   // @ts-ignore
+  // eslint-disable-next-line vue/one-component-per-file
   return defineComponent({
     name: `withAgentState(${Component.name || 'Component'})`,
     props: Component.props,

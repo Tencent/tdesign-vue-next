@@ -16,7 +16,7 @@ import TRangePanel from './components/panel/RangePanel';
 import { useRangeValue } from './hooks/useRangeValue';
 import { formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
-import { dateCorrection } from './utils';
+import { dateCorrection, triggerMap } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePickerPanel',
@@ -136,10 +136,6 @@ export default defineComponent({
     }) {
       const partialIndex = partial === 'start' ? 0 : 1;
 
-      const triggerMap = {
-        prev: 'arrow-previous',
-        next: 'arrow-next',
-      };
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
       const current = new Date(year.value[partialIndex], month.value[partialIndex]);

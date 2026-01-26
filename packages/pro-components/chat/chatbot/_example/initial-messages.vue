@@ -27,7 +27,6 @@ import { ref } from 'vue';
 import {
   type SSEChunkData,
   type AIMessageContent,
-  type ChatRequestParams,
   type ChatMessagesData,
   type ChatServiceConfig,
   type TdChatbotApi,

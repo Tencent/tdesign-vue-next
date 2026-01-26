@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="tsx">
-import { ref, computed, onMounted, onUnmounted, watch, type Ref } from 'vue';
+import { ref, computed, onMounted, watch, type Ref } from 'vue';
 import type { ToolCall } from 'tdesign-web-components/lib/chat-engine';
 import { isNonInteractiveConfig, type ToolcallComponentProps } from './types';
 import { agentToolcallRegistry } from './registry';
@@ -47,6 +47,7 @@ const args = computed(() => {
 const handleRespond = (response: any) => {
   if (props.onRespond) {
     props.onRespond(props.toolCall, response);
+    // 使用对象展开确保触发响应式更新
     actionState.value = {
       ...actionState.value,
       status: 'complete',
@@ -57,7 +58,7 @@ const handleRespond = (response: any) => {
 
 // 执行 handler（如果存在）
 watch(
-  () => [config.value, args.value, props.toolCall.result],
+  () => [config.value, args.value, props.toolCall.result, props.toolCall.eventType],
   async () => {
     if (!config.value) return;
 
@@ -103,8 +104,11 @@ watch(
           error: error as Error,
         };
       }
+    } else if (props.toolCall.eventType === 'TOOL_CALL_END' || props.toolCall.eventType === 'TOOL_CALL_RESULT') {
+      // 🔑 关键修复：工具调用已结束（无 result 的情况，如 show_progress）
+      actionState.value = { status: 'complete' };
     } else {
-      // 等待用户交互
+      // 等待用户交互或工具执行中
       actionState.value = { status: 'executing' };
     }
   },

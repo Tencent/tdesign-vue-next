@@ -22,13 +22,13 @@ import { DesktopIcon, LockOnIcon } from 'tdesign-icons-vue-next';
 export default defineComponent({
   name: 'LoginForm',
   setup() {
-    const onSubmit: Parameters<typeof Form>[0]['onSubmit'] = (e) => {
+    const onSubmit: Parameters<typeof Form>[0]['onSubmit'] = () => {
       if (e.validateResult === true) {
         MessagePlugin.info('提交成功');
       }
     };
 
-    const onReset: Parameters<typeof Form>[0]['onReset'] = (e) => {
+    const onReset: Parameters<typeof Form>[0]['onReset'] = () => {
       MessagePlugin.info('重置成功');
     };
 

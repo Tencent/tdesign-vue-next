@@ -73,7 +73,7 @@ const loading = ref(false);
 const allowToolTip = ref(false);
 const chatSenderRef = ref(null);
 const inputValue = ref('');
-const scene = ref(1);
+
 const selectOptions = [
   {
     label: '默认模型',

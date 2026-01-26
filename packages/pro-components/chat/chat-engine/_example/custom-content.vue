@@ -19,7 +19,7 @@
             </template>
             <t-space v-else break-line :size="8">
               <t-image-viewer
-                v-for="(img, index) in item.data.map((img) => img.url)"
+                v-for="img in item.data.map((img) => img.url)"
                 :key="img"
                 :default-index="index"
                 :images="item.data.map((img) => img.url)"

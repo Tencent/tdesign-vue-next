@@ -36,6 +36,7 @@
             $notify.info({
               title: '标题名称',
               content: '用户表示操作引起严重后果的消息通知',
+              className: 'custom-class',
               duration: 0,
               closeBtn: true,
             })
@@ -64,7 +65,9 @@
         </t-button>
         <t-button
           variant="outline"
-          @click="NotifyPlugin('warning', { title: '标题', content: '用户表示操作引起一定后果' })"
+          @click="
+            NotifyPlugin('warning', { title: '标题', className: 'custom-class', content: '用户表示操作引起一定后果' })
+          "
         >
           warning
         </t-button>
