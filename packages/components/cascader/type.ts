@@ -127,6 +127,26 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   panelTopContent?: string | TNode;
   /**
+   * 面板内的标题
+   */
+  panelHeader?: TNode<{
+    panelIndex: number;
+    options: CascaderOption[];
+    /**
+     * 过滤当前面板选项的回调函数
+     * @param filter - 过滤条件，可以是字符串或自定义过滤函数
+     * @param options - 配置项，cascade 为 true 时启用级联过滤（搜索某级后，后续级别只显示匹配项的子节点）
+     */
+    onFilter: (
+      filter: string | ((node: CascaderOption, panelIndex: number) => boolean),
+      options?: { cascade?: boolean },
+    ) => void;
+  }>;
+  /**
+   * 面板内的页脚
+   */
+  panelFooter?: TNode<{ panelIndex: number }>;
+  /**
    * 占位符
    */
   placeholder?: string;
