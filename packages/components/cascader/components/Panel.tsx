@@ -147,7 +147,13 @@ export default defineComponent({
             },
           })}
           {displayNodes.map((node: TreeNode) => renderItem(node, index))}
-          {renderTNodeJSX('panelFooter', { params: { panelIndex: index } })}
+          {renderTNodeJSX('panelFooter', {
+            params: {
+              panelIndex: index,
+              options: treeNodes,
+              onFilter: (filter: string, opts?: { cascade?: boolean }) => handleFilter(index, filter, opts),
+            },
+          })}
         </ul>
       );
     };
