@@ -21,6 +21,42 @@
         />
       </template>
     </t-cascader>
+
+    <!-- 基础搜索 + 底部搜索框（位置不同但功能相同） -->
+    <t-cascader v-model="value3" :options="options">
+      <template #panelHeader="{ panelIndex, onFilter }">
+        <t-input
+          v-model="searchValues3[panelIndex]"
+          :placeholder="'搜索第' + (panelIndex + 1) + '级（顶部）'"
+          @change="(val) => onFilter(val)"
+        />
+      </template>
+      <template #panelFooter="{ panelIndex, onFilter }">
+        <t-input
+          v-model="searchValues3[panelIndex]"
+          :placeholder="'搜索第' + (panelIndex + 1) + '级（底部）'"
+          @change="(val) => onFilter(val)"
+        />
+      </template>
+    </t-cascader>
+
+    <!-- 级联搜索 + 底部搜索框（位置不同但功能相同） -->
+    <t-cascader v-model="value4" :options="options">
+      <template #panelHeader="{ panelIndex, onFilter }">
+        <t-input
+          v-model="searchValues4[panelIndex]"
+          :placeholder="'搜索第' + (panelIndex + 1) + '级（级联-顶部）'"
+          @change="(val) => onFilter(val, { cascade: true })"
+        />
+      </template>
+      <template #panelFooter="{ panelIndex, onFilter }">
+        <t-input
+          v-model="searchValues4[panelIndex]"
+          :placeholder="'搜索第' + (panelIndex + 1) + '级（级联-底部）'"
+          @change="(val) => onFilter(val, { cascade: true })"
+        />
+      </template>
+    </t-cascader>
   </t-space>
 </template>
 
@@ -80,8 +116,12 @@ const options = [
 
 const value = ref('1.1.1');
 const value2 = ref('1.1.1');
+const value3 = ref('1.1.1');
+const value4 = ref('1.1.1');
 
 // 使用 reactive 维护搜索状态
 const searchValues1 = reactive({});
 const searchValues2 = reactive({});
+const searchValues3 = reactive({});
+const searchValues4 = reactive({});
 </script>
