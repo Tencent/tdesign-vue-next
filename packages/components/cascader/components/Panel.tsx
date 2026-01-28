@@ -40,6 +40,12 @@ export default defineComponent({
     // 过滤状态 - 惰性初始化，不使用时为 null，无性能开销
     const filterState = shallowRef<FilterState | null>(null);
 
+    // 计算属性：是否有激活的过滤状态
+    const hasActiveFilter = computed(() => {
+      const state = filterState.value;
+      return state && (Object.keys(state.filters).length > 0 || state.cascade);
+    });
+
     // 获取过滤后的节点 - 直接应用搜索词或过滤函数，确保父级变化后子级搜索仍生效
     const getFilteredNodes = (nodes: TreeNode[], index: number): TreeNode[] => {
       const state = filterState.value;
@@ -136,7 +142,7 @@ export default defineComponent({
     // 判断面板是否应该显示
     const shouldShowPanel = (index: number): boolean => {
       const state = filterState.value;
-      if (!state?.cascade || state.maxLevel < 0) return true;
+      if (!hasActiveFilter.value || !state?.cascade || state.maxLevel < 0) return true;
       // 只显示 maxLevel 范围内的面板
       return index <= state.maxLevel;
     };
@@ -192,7 +198,7 @@ export default defineComponent({
     };
 
     const renderList = (treeNodes: TreeNode[], isFilter = false, segment = true, index = 0) => {
-      const displayNodes = filterState.value ? getFilteredNodes(treeNodes, index) : treeNodes;
+      const displayNodes = hasActiveFilter.value ? getFilteredNodes(treeNodes, index) : treeNodes;
 
       return (
         <ul
