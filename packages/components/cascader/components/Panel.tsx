@@ -3,13 +3,14 @@ import { defineComponent, PropType, computed, h, shallowRef } from 'vue';
 import Item from './Item';
 import { TreeNode, CascaderContextType } from '../types';
 import CascaderProps from '../props';
+import { TreeOptionData } from '../types';
 import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@tdesign/shared-hooks';
 
 import { getDefaultNode } from '@tdesign/shared-utils';
 import { getPanels, expandClickEffect, valueChangeEffect } from '../utils';
 
 interface FilterState {
-  filters: Record<number, string>;
+  filters: Record<number, string | ((node: TreeOptionData, panelIndex: number) => boolean)>;
   cascade: boolean;
   maxLevel: number;
 }
@@ -39,35 +40,97 @@ export default defineComponent({
     // 过滤状态 - 惰性初始化，不使用时为 null，无性能开销
     const filterState = shallowRef<FilterState | null>(null);
 
-    // 处理过滤
-    const handleFilter = (index: number, keyword: string, options?: { cascade?: boolean }) => {
-      const prev = filterState.value;
-      const cascade = options?.cascade ?? prev?.cascade ?? false;
-      const filters = { ...prev?.filters, [index]: keyword };
-
-      let maxLevel = prev?.maxLevel ?? -1;
-      if (cascade) {
-        // 有新搜索词时重置 maxLevel；全部清空时重置为 -1
-        if (keyword?.trim()) {
-          maxLevel = index;
-        } else if (!Object.values(filters).some((f) => f?.trim())) {
-          maxLevel = -1;
-        }
-      }
-
-      filterState.value = { filters, cascade, maxLevel };
-    };
-
-    // 获取过滤后的节点 - 直接应用搜索词，确保父级变化后子级搜索仍生效
+    // 获取过滤后的节点 - 直接应用搜索词或过滤函数，确保父级变化后子级搜索仍生效
     const getFilteredNodes = (nodes: TreeNode[], index: number): TreeNode[] => {
       const state = filterState.value;
       if (!state) return nodes;
 
-      // 直接应用当前层级的搜索词（无论级联模式还是基础模式）
-      const keyword = state.filters[index]?.trim().toLowerCase();
-      if (!keyword) return nodes;
+      // 应用当前层级的搜索词或过滤函数
+      const filter = state.filters[index];
+      if (!filter) return nodes;
 
-      return nodes.filter((n) => n.label?.toLowerCase().includes(keyword));
+      if (typeof filter === 'string') {
+        const keyword = filter.trim().toLowerCase();
+        if (!keyword) return nodes;
+        return nodes.filter((n) => n.label?.toLowerCase().includes(keyword));
+      } else {
+        // 函数类型的过滤
+        return nodes.filter((n) => filter(n.data, index));
+      }
+    };
+
+    // 处理过滤
+    const handleFilter = (
+      index: number,
+      filter: string | ((node: TreeOptionData, panelIndex: number) => boolean),
+      options?: { cascade?: boolean },
+    ) => {
+      const prev = filterState.value;
+      const cascade = options?.cascade ?? prev?.cascade ?? false;
+      let filters = { ...prev?.filters, [index]: filter };
+
+      let maxLevel = prev?.maxLevel ?? -1;
+      if (cascade) {
+        // 有搜索词时检查是否有匹配项，无匹配时才关闭子面板
+        if (typeof filter === 'string' ? filter?.trim() : filter !== undefined) {
+          // 检查当前面板是否有匹配项
+          const currentNodes = panels.value[index] || [];
+          const hasMatches = getFilteredNodes(currentNodes, index).length > 0;
+
+          if (hasMatches) {
+            // 有匹配项时，检查第一个面板是否有选中的项
+            if (index === 0) {
+              const filteredNodes = getFilteredNodes(currentNodes, index);
+              const hasSelectedInFiltered = filteredNodes.some((node) => node.checked);
+
+              // 如果第一个面板的搜索结果中没有选中的项，则隐藏子级面板
+              if (!hasSelectedInFiltered) {
+                maxLevel = index;
+              }
+            }
+            // 有匹配时保持当前maxLevel，允许展开子面板
+          } else {
+            // 无匹配时关闭子面板
+            maxLevel = index;
+          }
+        } else if (!Object.values(filters).some((f) => (typeof f === 'string' ? f?.trim() : f !== undefined))) {
+          // 所有搜索词都清空时，恢复显示所有面板
+          maxLevel = -1;
+        } else {
+          // 部分搜索词清空时，重新检查剩余搜索词是否有匹配
+          const hasActiveFilters = Object.values(filters).some((f) =>
+            typeof f === 'string' ? f?.trim() : f !== undefined,
+          );
+          if (hasActiveFilters) {
+            // 检查当前面板是否有匹配项
+            const currentNodes = panels.value[index] || [];
+            const hasMatches = getFilteredNodes(currentNodes, index).length > 0;
+
+            if (hasMatches) {
+              // 有匹配项时，检查第一个面板是否有选中的项
+              if (index === 0) {
+                const filteredNodes = getFilteredNodes(currentNodes, index);
+                const hasSelectedInFiltered = filteredNodes.some((node) => node.checked);
+
+                // 如果第一个面板的搜索结果中没有选中的项，则隐藏子级面板
+                if (!hasSelectedInFiltered) {
+                  maxLevel = index;
+                }
+              }
+            } else {
+              // 无匹配时关闭子面板
+              maxLevel = index;
+            }
+          }
+        }
+      }
+
+      // 当maxLevel减少时，清理超出范围的过滤器数据
+      if (maxLevel < (prev?.maxLevel ?? -1)) {
+        filters = Object.fromEntries(Object.entries(filters).filter(([panelIndex]) => Number(panelIndex) <= maxLevel));
+      }
+
+      filterState.value = { filters, cascade, maxLevel };
     };
 
     // 判断面板是否应该显示
@@ -93,7 +156,11 @@ export default defineComponent({
       ) {
         const childLevel = level + 1;
         if (childLevel > state.maxLevel) {
-          filterState.value = { ...state, maxLevel: childLevel };
+          // 清理超出新maxLevel的面板的过滤器数据，避免过时数据残留
+          const cleanedFilters = Object.fromEntries(
+            Object.entries(state.filters).filter(([panelIndex]) => Number(panelIndex) <= childLevel),
+          );
+          filterState.value = { ...state, filters: cleanedFilters, maxLevel: childLevel };
         }
       }
 
@@ -143,7 +210,10 @@ export default defineComponent({
             params: {
               panelIndex: index,
               options: treeNodes,
-              onFilter: (filter: string, opts?: { cascade?: boolean }) => handleFilter(index, filter, opts),
+              onFilter: (
+                filter: string | ((node: TreeOptionData, panelIndex: number) => boolean),
+                opts?: { cascade?: boolean },
+              ) => handleFilter(index, filter, opts),
             },
           })}
           {displayNodes.map((node: TreeNode) => renderItem(node, index))}
@@ -151,7 +221,10 @@ export default defineComponent({
             params: {
               panelIndex: index,
               options: treeNodes,
-              onFilter: (filter: string, opts?: { cascade?: boolean }) => handleFilter(index, filter, opts),
+              onFilter: (
+                filter: string | ((node: TreeOptionData, panelIndex: number) => boolean),
+                opts?: { cascade?: boolean },
+              ) => handleFilter(index, filter, opts),
             },
           })}
         </ul>
