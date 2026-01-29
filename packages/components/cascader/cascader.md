@@ -30,6 +30,8 @@ option | Slot / Function | - | 自定义单个级联选项, item 是选项本身
 options | Array | [] | 可选项数据源。TS 类型：`Array<CascaderOption>` | N
 panelBottomContent | String / Slot / Function | - | 面板内的底部内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 panelTopContent | String / Slot / Function | - | 面板内的顶部内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+popupFooter | Slot / Function | - | 弹出层内每一列的页脚，支持自定义渲染。`panelIndex` 表示当前列索引，`options` 表示当前列选项，`onFilter` 用于过滤当前列选项。TS 类型：`TNode<{ panelIndex: number; options: TreeOptionData[]; onFilter: (filter: string \| ((node: TreeOptionData, panelIndex: number) => boolean), opts?: { cascade?: boolean }) => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+popupHeader | Slot / Function | - | 弹出层内每一列的标题，支持自定义渲染。`panelIndex` 表示当前列索引，`options` 表示当前列选项，`onFilter` 用于过滤当前列选项。TS 类型：`TNode<{ panelIndex: number; options: TreeOptionData[]; onFilter: (filter: string \| ((node: TreeOptionData, panelIndex: number) => boolean), opts?: { cascade?: boolean }) => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 placeholder | String | undefined | 占位符 | N
 popupProps | Object | - | 参考 popup 组件 API。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/cascader/type.ts) | N
 popupVisible | Boolean | - | 是否显示下拉框 | N

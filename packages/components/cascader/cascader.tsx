@@ -194,8 +194,8 @@ export default defineComponent({
                     option: slots.option,
                     empty: slots.empty,
                     loadingText: slots.loadingText,
-                    panelHeader: slots.panelHeader,
-                    panelFooter: slots.panelFooter,
+                    popupHeader: slots.popupHeader,
+                    popupFooter: slots.popupFooter,
                   }}
                 />
                 {renderTNodeJSX('panelBottomContent')}

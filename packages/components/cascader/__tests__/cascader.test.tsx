@@ -124,8 +124,8 @@ describe('Cascader', () => {
   });
 
   describe(':slots', () => {
-    describe('panelHeader', () => {
-      it('should render panelHeader slot for each panel', async () => {
+    describe('popupHeader', () => {
+      it('should render popupHeader slot for each panel', async () => {
         const wrapper = mount({
           render() {
             return (
@@ -133,7 +133,7 @@ describe('Cascader', () => {
                 options={options}
                 value="1.1"
                 v-slots={{
-                  panelHeader: ({ panelIndex }) => <div class="custom-header">Header {panelIndex}</div>,
+                  popupHeader: ({ panelIndex }) => <div class="custom-header">Header {panelIndex}</div>,
                 }}
               ></Cascader>
             );
@@ -148,7 +148,7 @@ describe('Cascader', () => {
         cleanupPanel();
       });
 
-      it('should render panelHeader with filter functionality', async () => {
+      it('should render popupHeader with filter functionality', async () => {
         let filterFn = null;
         const wrapper = mount({
           render() {
@@ -156,7 +156,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="custom-header">Filter</div>;
                   },
@@ -179,8 +179,8 @@ describe('Cascader', () => {
       });
     });
 
-    describe('panelFooter', () => {
-      it('should render panelFooter slot for each panel', async () => {
+    describe('popupFooter', () => {
+      it('should render popupFooter slot for each panel', async () => {
         const wrapper = mount({
           render() {
             return (
@@ -188,7 +188,7 @@ describe('Cascader', () => {
                 options={options}
                 value="1.1"
                 v-slots={{
-                  panelFooter: ({ panelIndex }) => <div class="custom-footer">Footer {panelIndex}</div>,
+                  popupFooter: ({ panelIndex }) => <div class="custom-footer">Footer {panelIndex}</div>,
                 }}
               ></Cascader>
             );
@@ -203,7 +203,7 @@ describe('Cascader', () => {
         cleanupPanel();
       });
 
-      it('should render panelFooter with panel options context', async () => {
+      it('should render popupFooter with panel options context', async () => {
         const wrapper = mount({
           render() {
             return (
@@ -211,7 +211,7 @@ describe('Cascader', () => {
                 options={options}
                 value="1.1"
                 v-slots={{
-                  panelFooter: ({ panelIndex, options }) => (
+                  popupFooter: ({ panelIndex, options }) => (
                     <div class="custom-footer">
                       Footer {panelIndex} - {options.length} items
                     </div>
@@ -231,7 +231,7 @@ describe('Cascader', () => {
       });
     });
 
-    it('should render both panelHeader and panelFooter slots', async () => {
+    it('should render both popupHeader and popupFooter slots', async () => {
       const wrapper = mount({
         render() {
           return (
@@ -239,8 +239,8 @@ describe('Cascader', () => {
               options={options}
               value="1.1"
               v-slots={{
-                panelHeader: ({ panelIndex }) => <div class="custom-header">Header {panelIndex}</div>,
-                panelFooter: ({ panelIndex }) => <div class="custom-footer">Footer {panelIndex}</div>,
+                popupHeader: ({ panelIndex }) => <div class="custom-header">Header {panelIndex}</div>,
+                popupFooter: ({ panelIndex }) => <div class="custom-footer">Footer {panelIndex}</div>,
               }}
             ></Cascader>
           );
@@ -264,7 +264,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -292,7 +292,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -319,7 +319,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -348,7 +348,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -374,7 +374,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -402,7 +402,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -432,7 +432,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -464,7 +464,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -491,7 +491,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -524,7 +524,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -551,7 +551,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },
@@ -580,7 +580,7 @@ describe('Cascader', () => {
               <Cascader
                 options={options}
                 v-slots={{
-                  panelHeader: ({ onFilter }) => {
+                  popupHeader: ({ onFilter }) => {
                     filterFn = onFilter;
                     return <div class="filter-header">Filter</div>;
                   },

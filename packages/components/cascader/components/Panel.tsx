@@ -212,7 +212,7 @@ export default defineComponent({
           ]}
           key={`${COMPONENT_NAME}__menu${index}`}
         >
-          {renderTNodeJSX('panelHeader', {
+          {renderTNodeJSX('popupHeader', {
             params: {
               panelIndex: index,
               options: treeNodes,
@@ -223,7 +223,7 @@ export default defineComponent({
             },
           })}
           {displayNodes.map((node: TreeNode) => renderItem(node, index))}
-          {renderTNodeJSX('panelFooter', {
+          {renderTNodeJSX('popupFooter', {
             params: {
               panelIndex: index,
               options: treeNodes,

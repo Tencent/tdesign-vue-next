@@ -127,9 +127,9 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   panelTopContent?: string | TNode;
   /**
-   * 面板内的标题
+   * 弹出层内每一列的标题
    */
-  panelHeader?: TNode<{
+  popupHeader?: TNode<{
     panelIndex: number;
     options: CascaderOption[];
     /**
@@ -143,9 +143,9 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
     ) => void;
   }>;
   /**
-   * 面板内的页脚
+   * 弹出层内每一列的页脚
    */
-  panelFooter?: TNode<{
+  popupFooter?: TNode<{
     panelIndex: number;
     options: CascaderOption[];
     /**
