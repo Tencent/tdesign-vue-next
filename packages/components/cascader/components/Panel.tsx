@@ -1,6 +1,12 @@
 import { defineComponent, PropType, computed, h, shallowRef } from 'vue';
 
 import Item from './Item';
+
+/**
+ * Constant indicating filter is inactive (no level restriction).
+ * When maxLevel equals this value, all panels are shown normally.
+ */
+const FILTER_INACTIVE_LEVEL = -1;
 import { TreeNode, CascaderContextType } from '../types';
 import CascaderProps from '../props';
 import { TreeOptionData } from '../types';
@@ -12,7 +18,58 @@ import { getPanels, expandClickEffect, valueChangeEffect } from '../utils';
 interface FilterState {
   filters: Record<number, string | ((node: TreeOptionData, panelIndex: number) => boolean)>;
   cascade: boolean;
+  /** Maximum visible panel level. FILTER_INACTIVE_LEVEL (-1) means no restriction. */
   maxLevel: number;
+}
+
+/**
+ * Check if the filter level is active (has level restriction).
+ * @param level - The maxLevel value from FilterState
+ * @returns true if filter is actively restricting panel visibility
+ */
+function isFilterLevelActive(level: number): boolean {
+  return level !== FILTER_INACTIVE_LEVEL;
+}
+
+/** Filter value type: string keyword or custom filter function */
+type FilterValue = string | ((node: TreeOptionData, panelIndex: number) => boolean);
+
+/**
+ * Check if a single option matches the given keyword.
+ * @param option - The tree node to check
+ * @param keyword - The search keyword (lowercase)
+ * @returns true if the option label contains the keyword
+ */
+function checkOptionMatchKeyword(option: TreeNode, keyword: string): boolean {
+  return Boolean(option.label?.toLowerCase().includes(keyword));
+}
+
+/**
+ * Check if filter value is active (non-empty string or defined function).
+ * @param filter - The filter value to check
+ * @returns true if filter is active
+ */
+function isFilterActive(filter: FilterValue | undefined): boolean {
+  if (filter === undefined) return false;
+  if (typeof filter === 'string') return Boolean(filter.trim());
+  return true;
+}
+
+/**
+ * Filter options by the given filter value.
+ * @param nodes - The tree nodes to filter
+ * @param filter - Filter keyword or custom filter function
+ * @param panelIndex - Current panel index (for custom filter function)
+ * @returns Filtered array of tree nodes
+ */
+function filterOptions(nodes: TreeNode[], filter: FilterValue, panelIndex: number): TreeNode[] {
+  if (typeof filter === 'string') {
+    const keyword = filter.trim().toLowerCase();
+    if (!keyword) return nodes;
+    return nodes.filter((node) => checkOptionMatchKeyword(node, keyword));
+  }
+  // Custom filter function
+  return nodes.filter((node) => filter(node.data, panelIndex));
 }
 
 export default defineComponent({
@@ -46,126 +103,135 @@ export default defineComponent({
       return state && (Object.keys(state.filters).length > 0 || state.cascade);
     });
 
-    // 获取过滤后的节点 - 直接应用搜索词或过滤函数，确保父级变化后子级搜索仍生效
+    // Get filtered nodes - apply search keyword or filter function
     const getFilteredNodes = (nodes: TreeNode[], index: number): TreeNode[] => {
       const state = filterState.value;
       if (!state) return nodes;
 
-      // 应用当前层级的搜索词或过滤函数
       const filter = state.filters[index];
       if (!filter) return nodes;
 
-      if (typeof filter === 'string') {
-        const keyword = filter.trim().toLowerCase();
-        if (!keyword) return nodes;
-        return nodes.filter((n) => n.label?.toLowerCase().includes(keyword));
-      } else {
-        // 函数类型的过滤
-        return nodes.filter((n) => filter(n.data, index));
-      }
+      return filterOptions(nodes, filter, index);
     };
 
-    // 处理过滤
-    const handleFilter = (
-      index: number,
-      filter: string | ((node: TreeOptionData, panelIndex: number) => boolean),
-      options?: { cascade?: boolean },
-    ) => {
-      const prev = filterState.value;
-      const cascade = options?.cascade ?? prev?.cascade ?? false;
-      let filters = { ...prev?.filters, [index]: filter };
+    /**
+     * Check if any filter in the filters record is active.
+     */
+    const hasAnyActiveFilter = (filters: Record<number, FilterValue>): boolean => {
+      return Object.values(filters).some((f) => isFilterActive(f));
+    };
 
-      let maxLevel = prev?.maxLevel ?? -1;
-      if (cascade) {
-        // 有搜索词时检查是否有匹配项，无匹配时才关闭子面板
-        if (typeof filter === 'string' ? filter?.trim() : filter !== undefined) {
-          // 检查当前面板是否有匹配项
-          const currentNodes = panels.value[index] || [];
-          const hasMatches = getFilteredNodes(currentNodes, index).length > 0;
+    /**
+     * Clear expired filters beyond the specified maxLevel.
+     * @param filters - Current filters record
+     * @param maxLevel - Maximum level to keep
+     * @returns New filters record with expired entries removed
+     */
+    const clearExpiredFilters = (
+      filters: Record<number, FilterValue>,
+      maxLevel: number,
+    ): Record<number, FilterValue> => {
+      return Object.fromEntries(Object.entries(filters).filter(([panelIndex]) => Number(panelIndex) <= maxLevel));
+    };
 
-          if (hasMatches) {
-            // 有匹配项时，检查第一个面板是否有选中的项
-            if (index === 0) {
-              const filteredNodes = getFilteredNodes(currentNodes, index);
-              const hasSelectedInFiltered = filteredNodes.some((node) => node.checked);
+    /**
+     * Calculate maxLevel for cascade mode based on filter matches.
+     * @param panelIndex - Current panel index being filtered
+     * @param filteredNodes - Nodes after filter applied
+     * @param currentMaxLevel - Current maxLevel value
+     * @returns Updated maxLevel value
+     */
+    const calculateCascadeMaxLevel = (
+      panelIndex: number,
+      filteredNodes: TreeNode[],
+      currentMaxLevel: number,
+    ): number => {
+      const hasMatches = filteredNodes.length > 0;
 
-              // 如果第一个面板的搜索结果中没有选中的项，则隐藏子级面板
-              if (!hasSelectedInFiltered) {
-                maxLevel = index;
-              }
-            }
-            // 有匹配时保持当前maxLevel，允许展开子面板
-          } else {
-            // 无匹配时关闭子面板
-            maxLevel = index;
-          }
-        } else if (!Object.values(filters).some((f) => (typeof f === 'string' ? f?.trim() : f !== undefined))) {
-          // 所有搜索词都清空时，恢复显示所有面板
-          maxLevel = -1;
-        } else {
-          // 部分搜索词清空时，重新检查剩余搜索词是否有匹配
-          const hasActiveFilters = Object.values(filters).some((f) =>
-            typeof f === 'string' ? f?.trim() : f !== undefined,
-          );
-          if (hasActiveFilters) {
-            // 检查当前面板是否有匹配项
-            const currentNodes = panels.value[index] || [];
-            const hasMatches = getFilteredNodes(currentNodes, index).length > 0;
+      if (!hasMatches) {
+        // No matches: close child panels
+        return panelIndex;
+      }
 
-            if (hasMatches) {
-              // 有匹配项时，检查第一个面板是否有选中的项
-              if (index === 0) {
-                const filteredNodes = getFilteredNodes(currentNodes, index);
-                const hasSelectedInFiltered = filteredNodes.some((node) => node.checked);
-
-                // 如果第一个面板的搜索结果中没有选中的项，则隐藏子级面板
-                if (!hasSelectedInFiltered) {
-                  maxLevel = index;
-                }
-              }
-            } else {
-              // 无匹配时关闭子面板
-              maxLevel = index;
-            }
-          }
+      // Has matches: check if first panel has selected item
+      if (panelIndex === 0) {
+        const hasSelectedInFiltered = filteredNodes.some((node) => node.checked);
+        if (!hasSelectedInFiltered) {
+          return panelIndex;
         }
       }
 
-      // 当maxLevel减少时，清理超出范围的过滤器数据
-      if (maxLevel < (prev?.maxLevel ?? -1)) {
-        filters = Object.fromEntries(Object.entries(filters).filter(([panelIndex]) => Number(panelIndex) <= maxLevel));
+      // Keep current maxLevel, allow expanding child panels
+      return currentMaxLevel;
+    };
+
+    /**
+     * Handle filter change for a panel.
+     * Triggers: User input in popupHeader search, or custom filter function call.
+     * Side effects: Updates filterState which affects panel visibility and displayed options.
+     */
+    const handleFilter = (index: number, filter: FilterValue, options?: { cascade?: boolean }) => {
+      const prev = filterState.value;
+      const cascade = options?.cascade ?? prev?.cascade ?? false;
+      let filters: Record<number, FilterValue> = { ...prev?.filters, [index]: filter };
+      let maxLevel = prev?.maxLevel ?? FILTER_INACTIVE_LEVEL;
+
+      if (cascade) {
+        if (isFilterActive(filter)) {
+          // Active filter: calculate maxLevel based on matches
+          const currentNodes = panels.value[index] || [];
+          const filteredNodes = getFilteredNodes(currentNodes, index);
+          maxLevel = calculateCascadeMaxLevel(index, filteredNodes, maxLevel);
+        } else if (!hasAnyActiveFilter(filters)) {
+          // All filters cleared: restore to show all panels
+          maxLevel = FILTER_INACTIVE_LEVEL;
+        } else {
+          // Partial clear: recalculate based on remaining filters
+          const currentNodes = panels.value[index] || [];
+          const filteredNodes = getFilteredNodes(currentNodes, index);
+          maxLevel = calculateCascadeMaxLevel(index, filteredNodes, maxLevel);
+        }
+      }
+
+      // Clean up expired filters when maxLevel decreases
+      if (maxLevel < (prev?.maxLevel ?? FILTER_INACTIVE_LEVEL)) {
+        filters = clearExpiredFilters(filters, maxLevel);
       }
 
       filterState.value = { filters, cascade, maxLevel };
     };
 
-    // 判断面板是否应该显示
+    // Check if panel should be displayed
     const shouldShowPanel = (index: number): boolean => {
       const state = filterState.value;
-      if (!hasActiveFilter.value || !state?.cascade || state.maxLevel < 0) return true;
-      // 只显示 maxLevel 范围内的面板
+      if (!hasActiveFilter.value || !state?.cascade || !isFilterLevelActive(state.maxLevel)) {
+        return true;
+      }
+      // Only show panels within maxLevel range
       return index <= state.maxLevel;
     };
 
-    // 处理节点展开
+    /**
+     * Handle node expand event.
+     * Triggers: User clicks or hovers on a node.
+     * Side effects: In cascade mode, may update maxLevel and clean expired filters.
+     */
     const handleExpand = (node: TreeNode, trigger: 'hover' | 'click', level: number) => {
       const state = filterState.value;
 
-      // 级联模式下更新 maxLevel 以显示子级面板
+      // In cascade mode, update maxLevel to show child panels
       const { children } = node;
       if (
         state?.cascade &&
-        state.maxLevel >= 0 &&
+        isFilterLevelActive(state.maxLevel) &&
         props.trigger === trigger &&
         Array.isArray(children) &&
         children.length
       ) {
         const childLevel = level + 1;
         if (childLevel > state.maxLevel) {
-          // 清理超出新maxLevel的面板的过滤器数据，避免过时数据残留
-          const cleanedFilters = Object.fromEntries(
-            Object.entries(state.filters).filter(([panelIndex]) => Number(panelIndex) <= childLevel),
-          );
+          // Clean expired filter data beyond new maxLevel
+          const cleanedFilters = clearExpiredFilters(state.filters, childLevel);
           filterState.value = { ...state, filters: cleanedFilters, maxLevel: childLevel };
         }
       }
@@ -199,6 +265,9 @@ export default defineComponent({
 
     const renderList = (treeNodes: TreeNode[], isFilter = false, segment = true, index = 0) => {
       const displayNodes = hasActiveFilter.value ? getFilteredNodes(treeNodes, index) : treeNodes;
+      // Convert TreeNode[] to CascaderOption[] (TreeOptionData[]) for slot params
+      const filteredOptionsData = displayNodes.map((node) => node.data);
+      const originalOptionsData = treeNodes.map((node) => node.data);
 
       return (
         <ul
@@ -215,7 +284,8 @@ export default defineComponent({
           {renderTNodeJSX('popupHeader', {
             params: {
               panelIndex: index,
-              options: treeNodes,
+              options: originalOptionsData,
+              filteredOptions: filteredOptionsData,
               onFilter: (
                 filter: string | ((node: TreeOptionData, panelIndex: number) => boolean),
                 opts?: { cascade?: boolean },
@@ -226,7 +296,8 @@ export default defineComponent({
           {renderTNodeJSX('popupFooter', {
             params: {
               panelIndex: index,
-              options: treeNodes,
+              options: originalOptionsData,
+              filteredOptions: filteredOptionsData,
               onFilter: (
                 filter: string | ((node: TreeOptionData, panelIndex: number) => boolean),
                 opts?: { cascade?: boolean },

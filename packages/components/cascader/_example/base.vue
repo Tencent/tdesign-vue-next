@@ -2,7 +2,7 @@
   <t-space direction="vertical" style="width: 100%">
     <!-- 基础搜索：每个层级独立过滤 -->
     <t-cascader v-model="value" :options="options">
-      <template #panelHeader="{ panelIndex, onFilter }">
+      <template #popupHeader="{ panelIndex, onFilter }">
         <t-input
           v-model="searchValues1[panelIndex]"
           :placeholder="`搜索第${panelIndex + 1}级`"
@@ -13,7 +13,7 @@
 
     <!-- 级联搜索：搜索某级后，后续级别只显示匹配项的子节点 -->
     <t-cascader v-model="value2" :options="options">
-      <template #panelHeader="{ panelIndex, onFilter }">
+      <template #popupHeader="{ panelIndex, onFilter }">
         <t-input
           v-model="searchValues2[panelIndex]"
           :placeholder="`搜索第${panelIndex + 1}级（级联）`"
@@ -24,14 +24,14 @@
 
     <!-- 基础搜索 + 底部搜索框（位置不同但功能相同） -->
     <t-cascader v-model="value3" :options="options">
-      <template #panelHeader="{ panelIndex, onFilter }">
+      <template #popupHeader="{ panelIndex, onFilter }">
         <t-input
           v-model="searchValues3[panelIndex]"
           :placeholder="'搜索第' + (panelIndex + 1) + '级（顶部）'"
           @change="(val) => onFilter(val)"
         />
       </template>
-      <template #panelFooter="{ panelIndex, onFilter }">
+      <template #popupFooter="{ panelIndex, onFilter }">
         <t-input
           v-model="searchValues3[panelIndex]"
           :placeholder="'搜索第' + (panelIndex + 1) + '级（底部）'"
@@ -42,14 +42,14 @@
 
     <!-- 级联搜索 + 底部搜索框（位置不同但功能相同） -->
     <t-cascader v-model="value4" :options="options">
-      <template #panelHeader="{ panelIndex, onFilter }">
+      <template #popupHeader="{ panelIndex, onFilter }">
         <t-input
           v-model="searchValues4[panelIndex]"
           :placeholder="'搜索第' + (panelIndex + 1) + '级（级联-顶部）'"
           @change="(val) => onFilter(val, { cascade: true })"
         />
       </template>
-      <template #panelFooter="{ panelIndex, onFilter }">
+      <template #popupFooter="{ panelIndex, onFilter }">
         <t-input
           v-model="searchValues4[panelIndex]"
           :placeholder="'搜索第' + (panelIndex + 1) + '级（级联-底部）'"

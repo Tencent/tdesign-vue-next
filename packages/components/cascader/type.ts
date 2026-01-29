@@ -130,8 +130,12 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 弹出层内每一列的标题
    */
   popupHeader?: TNode<{
+    /** 当前面板的索引（从 0 开始） */
     panelIndex: number;
+    /** 当前面板的原始选项列表 */
     options: CascaderOption[];
+    /** 当前面板过滤后的选项列表（未过滤时与 options 相同） */
+    filteredOptions: CascaderOption[];
     /**
      * 过滤当前面板选项的回调函数
      * @param filter - 过滤条件，可以是字符串或自定义过滤函数
@@ -146,8 +150,12 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 弹出层内每一列的页脚
    */
   popupFooter?: TNode<{
+    /** 当前面板的索引（从 0 开始） */
     panelIndex: number;
+    /** 当前面板的原始选项列表 */
     options: CascaderOption[];
+    /** 当前面板过滤后的选项列表（未过滤时与 options 相同） */
+    filteredOptions: CascaderOption[];
     /**
      * 过滤当前面板选项的回调函数
      * @param filter - 过滤条件，可以是字符串或自定义过滤函数
