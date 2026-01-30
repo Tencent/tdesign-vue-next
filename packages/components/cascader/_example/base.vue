@@ -1,74 +1,85 @@
 <template>
   <t-space direction="vertical" style="width: 100%">
-    <!-- 基础搜索：每个层级独立过滤 -->
-    <t-cascader v-model="value" :options="options1">
-      <template #popupHeader="{ panelIndex, onFilter }">
-        <t-input
-          v-model="searchValues1[panelIndex]"
-          :placeholder="`搜索第${panelIndex + 1}级`"
-          @change="(val) => onFilter(val)"
-        />
-      </template>
-    </t-cascader>
+    <!-- 示例1: 基础搜索 -->
+    <div class="demo-item">
+      <div class="demo-title">示例1: 基础搜索</div>
+      <div class="demo-desc">每个层级独立过滤，输入关键词只影响当前面板</div>
+      <t-cascader v-model="value" :options="options1">
+        <template #popupHeader="{ panelIndex, onFilter }">
+          <t-input
+            v-model="searchValues1[panelIndex]"
+            :placeholder="`搜索第${panelIndex + 1}级`"
+            @change="(val) => onFilter(val)"
+          />
+        </template>
+      </t-cascader>
+    </div>
 
-    <!-- 级联搜索：搜索某级后，后续级别只显示匹配项的子节点 -->
-    <t-cascader v-model="value2" :options="options2">
-      <template #popupHeader="{ panelIndex, onFilter }">
-        <t-input
-          v-model="searchValues2[panelIndex]"
-          :placeholder="`搜索第${panelIndex + 1}级（级联）`"
-          @change="(val) => onFilter(val, { cascade: true })"
-        />
-      </template>
-    </t-cascader>
+    <!-- 示例2: 级联搜索 -->
+    <div class="demo-item">
+      <div class="demo-title">示例2: 级联搜索</div>
+      <div class="demo-desc">搜索某级后，后续级别只显示匹配项的子节点（使用 cascade: true）</div>
+      <t-cascader v-model="value2" :options="options2">
+        <template #popupHeader="{ panelIndex, onFilter }">
+          <t-input
+            v-model="searchValues2[panelIndex]"
+            :placeholder="`搜索第${panelIndex + 1}级（级联）`"
+            @change="(val) => onFilter(val, { cascade: true })"
+          />
+        </template>
+      </t-cascader>
+    </div>
 
-    <!-- 基础搜索 + 底部搜索框（位置不同但功能相同） -->
-    <t-cascader v-model="value3" :options="options3">
-      <template #popupHeader="{ panelIndex, onFilter }">
-        <t-input
-          v-model="searchValues3[panelIndex]"
-          :placeholder="'搜索第' + (panelIndex + 1) + '级（顶部）'"
-          @change="(val) => onFilter(val)"
-        />
-      </template>
-      <template #popupFooter="{ panelIndex, onFilter }">
-        <t-input
-          v-model="searchValues3[panelIndex]"
-          :placeholder="'搜索第' + (panelIndex + 1) + '级（底部）'"
-          @change="(val) => onFilter(val)"
-        />
-      </template>
-    </t-cascader>
+    <!-- 示例3: 顶部 + 底部搜索框 -->
+    <div class="demo-item">
+      <div class="demo-title">示例3: 顶部 + 底部搜索框</div>
+      <div class="demo-desc">同时使用 popupHeader 和 popupFooter 两个 slot，位置不同但功能相同</div>
+      <t-cascader v-model="value3" :options="options3">
+        <template #popupHeader="{ panelIndex, onFilter }">
+          <t-input
+            v-model="searchValues3[panelIndex]"
+            :placeholder="'搜索第' + (panelIndex + 1) + '级（顶部）'"
+            @change="(val) => onFilter(val)"
+          />
+        </template>
+        <template #popupFooter="{ panelIndex, onFilter }">
+          <t-input
+            v-model="searchValues3[panelIndex]"
+            :placeholder="'搜索第' + (panelIndex + 1) + '级（底部）'"
+            @change="(val) => onFilter(val)"
+          />
+        </template>
+      </t-cascader>
+    </div>
 
-    <!-- 级联搜索 + 底部搜索框（位置不同但功能相同） -->
-    <t-cascader v-model="value4" :options="options4">
-      <template #popupHeader="{ panelIndex, onFilter }">
-        <t-input
-          v-model="searchValues4[panelIndex]"
-          :placeholder="'搜索第' + (panelIndex + 1) + '级（级联-顶部）'"
-          @change="(val) => onFilter(val, { cascade: true })"
-        />
-      </template>
-      <template #popupFooter="{ panelIndex, onFilter }">
-        <t-input
-          v-model="searchValues4[panelIndex]"
-          :placeholder="'搜索第' + (panelIndex + 1) + '级（级联-底部）'"
-          @change="(val) => onFilter(val, { cascade: true })"
-        />
-      </template>
-    </t-cascader>
+    <!-- 示例4: 级联搜索 + 顶部底部搜索框 -->
+    <div class="demo-item">
+      <div class="demo-title">示例4: 级联搜索 + 顶部底部搜索框</div>
+      <div class="demo-desc">结合级联过滤（cascade: true）与双 slot 位置</div>
+      <t-cascader v-model="value4" :options="options4">
+        <template #popupHeader="{ panelIndex, onFilter }">
+          <t-input
+            v-model="searchValues4[panelIndex]"
+            :placeholder="'搜索第' + (panelIndex + 1) + '级（级联-顶部）'"
+            @change="(val) => onFilter(val, { cascade: true })"
+          />
+        </template>
+        <template #popupFooter="{ panelIndex, onFilter }">
+          <t-input
+            v-model="searchValues4[panelIndex]"
+            :placeholder="'搜索第' + (panelIndex + 1) + '级（级联-底部）'"
+            @change="(val) => onFilter(val, { cascade: true })"
+          />
+        </template>
+      </t-cascader>
+    </div>
   </t-space>
 </template>
 
 <script setup>
 import { ref, reactive } from 'vue';
 
-/**
- * Factory function to create options data.
- * Each Cascader instance should use its own options copy to ensure complete independence.
- * While the current implementation doesn't mutate options, using separate copies is a best practice
- * that prevents potential issues if options were ever modified.
- */
+// 创建选项数据
 const createOptions = () => [
   {
     label: '选项一',
@@ -120,21 +131,62 @@ const createOptions = () => [
   },
 ];
 
-// Each Cascader instance has independent state: value ref, options copy, and search state
+// 各实例独立的选中值
 const value = ref('1.1.1');
 const value2 = ref('1.1.1');
 const value3 = ref('1.1.1');
 const value4 = ref('1.1.1');
+const value5 = ref('1.1.1');
+const value6 = ref('1.1.1');
 
-// Independent options for each instance (created from factory function)
+// 各实例独立的选项数据
 const options1 = createOptions();
 const options2 = createOptions();
 const options3 = createOptions();
 const options4 = createOptions();
+const options5 = createOptions();
+const options6 = createOptions();
 
-// Independent search state for each instance using reactive objects
+// 各实例独立的搜索状态
 const searchValues1 = reactive({});
 const searchValues2 = reactive({});
 const searchValues3 = reactive({});
 const searchValues4 = reactive({});
+const searchValues5 = reactive({});
+const searchValues6 = reactive({});
+
+// 创建大小写敏感的过滤函数
+const createCaseSensitiveFilter = (keyword) => {
+  if (!keyword || !keyword.trim()) {
+    return '';
+  }
+  return (node) => {
+    return node.label && node.label.includes(keyword);
+  };
+};
+
+// 清除指定面板的过滤
+const clearFilter = (panelIndex, onFilter) => {
+  searchValues5[panelIndex] = '';
+  onFilter('');
+};
 </script>
+
+<style scoped>
+.demo-item {
+  margin-bottom: 16px;
+}
+
+.demo-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.demo-desc {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+</style>

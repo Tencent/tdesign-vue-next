@@ -1,4 +1,4 @@
-import { defineComponent, PropType, computed, h, shallowRef } from 'vue';
+import { defineComponent, PropType, computed, h, shallowRef, onUnmounted } from 'vue';
 
 import Item from './Item';
 import { TreeNode, CascaderContextType } from '../types';
@@ -9,72 +9,42 @@ import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@tdesig
 import { getDefaultNode } from '@tdesign/shared-utils';
 import { getPanels, expandClickEffect, valueChangeEffect } from '../utils';
 
-/**
- * Constant indicating filter is inactive (no level restriction).
- * When maxLevel equals this value, all panels are shown normally.
- */
+/** 过滤未激活标记，maxLevel 为此值时显示所有面板 */
 const FILTER_INACTIVE_LEVEL = -1;
 
 interface FilterState {
   filters: Record<number, string | ((node: TreeOptionData, panelIndex: number) => boolean)>;
   cascade: boolean;
-  /** Maximum visible panel level. FILTER_INACTIVE_LEVEL (-1) means no restriction. */
+  /** 最大可见面板层级，FILTER_INACTIVE_LEVEL 表示无限制 */
   maxLevel: number;
 }
 
-/**
- * Check if the filter level is active (has level restriction).
- * @param level - The maxLevel value from FilterState
- * @returns true if filter is actively restricting panel visibility
- */
 function isFilterLevelActive(level: number): boolean {
   return level !== FILTER_INACTIVE_LEVEL;
 }
 
-/** Filter value type: string keyword or custom filter function */
 type FilterValue = string | ((node: TreeOptionData, panelIndex: number) => boolean);
 
-/**
- * Check if option label contains the search keyword.
- * @param option - The tree node to check
- * @param keyword - The search keyword (lowercase)
- * @returns true if the option label contains the keyword
- */
+/** 检查选项是否匹配关键词（大小写不敏感） */
 function checkOptionMatchKeyword(option: TreeNode, keyword: string): boolean {
-  // Empty labels should not match any keyword (including empty keyword)
-  if (!option.label) return false;
-  // Empty keyword should not match (caller should handle this case)
-  if (!keyword) return false;
+  if (!option.label || !keyword) return false;
   return option.label.toLowerCase().includes(keyword);
 }
-/**
- * Check if filter value is active (non-empty string or defined function).
- * @param filter - The filter value to check
- * @returns true if filter is active
- */
+
+/** 检查过滤值是否激活 */
 function isFilterActive(filter: FilterValue | undefined): boolean {
   if (filter === undefined) return false;
   if (typeof filter === 'string') return Boolean(filter.trim());
   return true;
 }
 
-/**
- * Filter options by the given filter value.
- * When filter is a string, performs case-insensitive substring matching on option labels.
- * For case-sensitive or custom matching logic, pass a custom filter function.
- * @param nodes - The tree nodes to filter
- * @param filter - Filter keyword (case-insensitive) or custom filter function
- * @param panelIndex - Current panel index (for custom filter function)
- * @returns Filtered array of tree nodes
- */
+/** 过滤选项列表 */
 function filterOptions(nodes: TreeNode[], filter: FilterValue, panelIndex: number): TreeNode[] {
   if (typeof filter === 'string') {
-    // Case-insensitive matching: convert both keyword and label to lowercase
     const keyword = filter.trim().toLowerCase();
     if (!keyword) return nodes;
     return nodes.filter((node) => checkOptionMatchKeyword(node, keyword));
   }
-  // Custom filter function for case-sensitive or custom matching logic
   return nodes.filter((node) => filter(node.data, panelIndex));
 }
 
@@ -100,39 +70,27 @@ export default defineComponent({
 
     const panels = computed(() => getPanels(props.cascaderContext.treeNodes));
 
-    // 过滤状态 - 惰性初始化，不使用时为 null，无性能开销
+    // 过滤状态，惰性初始化
     const filterState = shallowRef<FilterState | null>(null);
 
-    // 计算属性：是否有激活的过滤状态
     const hasActiveFilter = computed(() => {
       const state = filterState.value;
       return state && (Object.keys(state.filters).length > 0 || state.cascade);
     });
 
-    // Get filtered nodes - apply search keyword or filter function
     const getFilteredNodes = (nodes: TreeNode[], index: number): TreeNode[] => {
       const state = filterState.value;
       if (!state) return nodes;
-
       const filter = state.filters[index];
       if (!filter) return nodes;
-
       return filterOptions(nodes, filter, index);
     };
 
-    /**
-     * Check if any filter in the filters record is active.
-     */
     const hasAnyActiveFilter = (filters: Record<number, FilterValue>): boolean => {
       return Object.values(filters).some((f) => isFilterActive(f));
     };
 
-    /**
-     * Clear expired filters beyond the specified maxLevel.
-     * @param filters - Current filters record
-     * @param maxLevel - Maximum level to keep
-     * @returns New filters record with expired entries removed
-     */
+    /** 清理超出 maxLevel 的过期过滤器 */
     const clearExpiredFilters = (
       filters: Record<number, FilterValue>,
       maxLevel: number,
@@ -140,49 +98,24 @@ export default defineComponent({
       return Object.fromEntries(Object.entries(filters).filter(([panelIndex]) => Number(panelIndex) <= maxLevel));
     };
 
-    /**
-     * Calculate maxLevel for cascade mode based on filter matches.
-     * @param panelIndex - Current panel index being filtered
-     * @param filteredNodes - Nodes after filter applied
-     * @param currentMaxLevel - Current maxLevel value
-     * @returns Updated maxLevel value
-     *
-     * Behavior:
-     * - If no matches: restrict to current panel only (hide child panels)
-     * - If has matches: restrict to current panel initially, but user can expand
-     *   child panels by clicking/hovering on nodes (handled by handleExpand)
-     */
+    /** 计算级联模式下的 maxLevel */
     const calculateCascadeMaxLevel = (
       panelIndex: number,
       filteredNodes: TreeNode[],
       currentMaxLevel: number,
     ): number => {
-      const hasMatches = filteredNodes.length > 0;
-
-      if (!hasMatches) {
-        // No matches: close child panels
+      if (filteredNodes.length === 0) {
         return panelIndex;
       }
-
-      // Has matches: show current panel, user can expand child panels via click/hover.
-      // We return panelIndex to initially restrict to current level,
-      // allowing handleExpand to expand maxLevel when user interacts with nodes.
-      // If currentMaxLevel is already higher (user has expanded), keep it.
       return Math.max(panelIndex, currentMaxLevel);
     };
 
-    /**
-     * Handle filter change for a panel.
-     * Triggers: User input in popupHeader search, or custom filter function call.
-     * Side effects: Updates filterState which affects panel visibility and displayed options.
-     */
+    /** 处理面板过滤变化 */
     const handleFilter = (index: number, filter: FilterValue, options?: { cascade?: boolean }) => {
       const prev = filterState.value;
       const cascade = options?.cascade ?? prev?.cascade ?? false;
 
-      // Build new filters object, removing inactive filters to prevent memory accumulation.
-      // When users filter and clear many panels over time, we don't want to keep
-      // inactive filter entries (empty strings, whitespace-only strings) in memory.
+      // 构建新的过滤器对象，移除未激活的过滤器
       let filters: Record<number, FilterValue> = { ...prev?.filters };
       if (isFilterActive(filter)) {
         filters[index] = filter;
@@ -194,25 +127,15 @@ export default defineComponent({
 
       if (cascade) {
         if (isFilterActive(filter)) {
-          // Active filter: calculate maxLevel based on matches
-          // Note: Use filterOptions directly with the new filter value, not getFilteredNodes,
-          // because filterState hasn't been updated yet at this point.
           const currentNodes = panels.value[index] || [];
           const filteredNodes = filterOptions(currentNodes, filter, index);
           maxLevel = calculateCascadeMaxLevel(index, filteredNodes, maxLevel);
         } else if (!hasAnyActiveFilter(filters)) {
-          // All filters cleared: restore to show all panels
           maxLevel = FILTER_INACTIVE_LEVEL;
         }
-        // Note: No else branch needed. When filter is inactive but other filters remain active,
-        // we keep maxLevel unchanged. The remaining filters will control panel visibility.
       }
 
-      // Clean up expired filters when maxLevel decreases.
-      // When prev is null (first filter application), prev?.maxLevel defaults to FILTER_INACTIVE_LEVEL (-1).
-      // Since any valid active maxLevel (>=0) is greater than -1, the condition is false,
-      // which is correct because there are no expired filters to clean on first activation.
-      // This cleanup only triggers when transitioning from a higher maxLevel to a lower one.
+      // maxLevel 减小时清理过期过滤器
       if (maxLevel < (prev?.maxLevel ?? FILTER_INACTIVE_LEVEL)) {
         filters = clearExpiredFilters(filters, maxLevel);
       }
@@ -220,25 +143,19 @@ export default defineComponent({
       filterState.value = { filters, cascade, maxLevel };
     };
 
-    // Check if panel should be displayed
     const shouldShowPanel = (index: number): boolean => {
       const state = filterState.value;
       if (!hasActiveFilter.value || !state?.cascade || !isFilterLevelActive(state.maxLevel)) {
         return true;
       }
-      // Only show panels within maxLevel range
       return index <= state.maxLevel;
     };
 
-    /**
-     * Handle node expand event.
-     * Triggers: User clicks or hovers on a node.
-     * Side effects: In cascade mode, may update maxLevel and clean expired filters.
-     */
+    /** 处理节点展开事件 */
     const handleExpand = (node: TreeNode, trigger: 'hover' | 'click', level: number) => {
       const state = filterState.value;
 
-      // In cascade mode, update maxLevel to show child panels
+      // 级联模式下更新 maxLevel 以显示子面板
       const { children } = node;
       if (
         state?.cascade &&
@@ -249,7 +166,6 @@ export default defineComponent({
       ) {
         const childLevel = level + 1;
         if (childLevel > state.maxLevel) {
-          // Clean expired filter data beyond new maxLevel
           const cleanedFilters = clearExpiredFilters(state.filters, childLevel);
           filterState.value = { ...state, filters: cleanedFilters, maxLevel: childLevel };
         }
@@ -258,12 +174,7 @@ export default defineComponent({
       expandClickEffect(props.trigger, trigger, node, props.cascaderContext);
     };
 
-    /**
-     * Stable callback factory for slot's onFilter prop.
-     * Returns a memoized function that accepts (filter, opts) and delegates to handleFilter.
-     * This avoids creating new function references on every render, preventing unnecessary
-     * re-renders of slot content (which may be complex user components).
-     */
+    // 稳定的回调缓存，避免每次渲染创建新函数引用
     const onFilterCallbacks = new Map<number, (filter: FilterValue, opts?: { cascade?: boolean }) => void>();
     const getOnFilterCallback = (index: number) => {
       let callback = onFilterCallbacks.get(index);
@@ -273,6 +184,10 @@ export default defineComponent({
       }
       return callback;
     };
+
+    onUnmounted(() => {
+      onFilterCallbacks.clear();
+    });
 
     const renderItem = (node: TreeNode, index: number) => {
       const optionChild = node.data.content
@@ -300,7 +215,6 @@ export default defineComponent({
 
     const renderList = (treeNodes: TreeNode[], isFilter = false, segment = true, index = 0) => {
       const displayNodes = hasActiveFilter.value ? getFilteredNodes(treeNodes, index) : treeNodes;
-      // Convert TreeNode[] to CascaderOption[] (TreeOptionData[]) for slot params
       const filteredOptionsData = displayNodes.map((node) => node.data);
       const originalOptionsData = treeNodes.map((node) => node.data);
 
@@ -337,15 +251,7 @@ export default defineComponent({
       );
     };
 
-    /**
-     * Render filtered list for built-in filterable mode (inputVal present).
-     * When the built-in filterable prop is active, the component renders a flattened
-     * list of all matching nodes. In this mode, popupHeader/popupFooter slots are NOT
-     * rendered because:
-     * 1. panelIndex has no meaning in a flattened list
-     * 2. The onFilter callback would conflict with the built-in filter
-     * 3. Having two filtering mechanisms active simultaneously causes confusing behavior
-     */
+    /** 渲染内置过滤模式下的扁平列表（不含 popupHeader/popupFooter） */
     const renderFilteredList = (treeNodes: TreeNode[]) => {
       return (
         <ul
@@ -359,8 +265,7 @@ export default defineComponent({
 
     const renderPanels = () => {
       const { inputVal, treeNodes } = props.cascaderContext;
-      // When built-in filterable is active, render a flattened filtered list
-      // without popupHeader/popupFooter slots to avoid conflicting filter mechanisms
+      // 内置过滤激活时渲染扁平列表，不含 popupHeader/popupFooter 以避免冲突
       if (inputVal) return renderFilteredList(treeNodes);
 
       const result = [];
