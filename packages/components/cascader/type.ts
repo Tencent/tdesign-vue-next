@@ -127,7 +127,9 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   panelTopContent?: string | TNode;
   /**
-   * 弹出层内每一列的标题
+   * 弹出层内每一列的标题。
+   * 注意：当内置搜索功能（filterable）激活时，此插槽不会渲染，
+   * 因为面板会被扁平化为单一过滤列表，panelIndex 和 onFilter 回调没有意义。
    */
   popupHeader?: TNode<{
     /** 当前面板的索引（从 0 开始） */
@@ -138,7 +140,9 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
     filteredOptions: CascaderOption[];
     /**
      * 过滤当前面板选项的回调函数
-     * @param filter - 过滤条件，可以是字符串或自定义过滤函数
+     * @param filter - 过滤条件，可以是字符串或自定义过滤函数。
+     *   当传入字符串时，内置过滤会执行大小写不敏感的子串匹配（即 'abc' 可以匹配 'ABC'、'Abc' 等）。
+     *   如需大小写敏感或其他自定义匹配逻辑，请传入自定义过滤函数。
      * @param options - 配置项，cascade 为 true 时启用级联过滤（搜索某级后，后续级别只显示匹配项的子节点）
      */
     onFilter: (
@@ -147,7 +151,9 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
     ) => void;
   }>;
   /**
-   * 弹出层内每一列的页脚
+   * 弹出层内每一列的页脚。
+   * 注意：当内置搜索功能（filterable）激活时，此插槽不会渲染，
+   * 因为面板会被扁平化为单一过滤列表，panelIndex 和 onFilter 回调没有意义。
    */
   popupFooter?: TNode<{
     /** 当前面板的索引（从 0 开始） */
@@ -158,7 +164,9 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
     filteredOptions: CascaderOption[];
     /**
      * 过滤当前面板选项的回调函数
-     * @param filter - 过滤条件，可以是字符串或自定义过滤函数
+     * @param filter - 过滤条件，可以是字符串或自定义过滤函数。
+     *   当传入字符串时，内置过滤会执行大小写不敏感的子串匹配（即 'abc' 可以匹配 'ABC'、'Abc' 等）。
+     *   如需大小写敏感或其他自定义匹配逻辑，请传入自定义过滤函数。
      * @param options - 配置项，cascade 为 true 时启用级联过滤（搜索某级后，后续级别只显示匹配项的子节点）
      */
     onFilter: (

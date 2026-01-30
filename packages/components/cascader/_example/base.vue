@@ -1,7 +1,7 @@
 <template>
   <t-space direction="vertical" style="width: 100%">
     <!-- 基础搜索：每个层级独立过滤 -->
-    <t-cascader v-model="value" :options="options">
+    <t-cascader v-model="value" :options="options1">
       <template #popupHeader="{ panelIndex, onFilter }">
         <t-input
           v-model="searchValues1[panelIndex]"
@@ -12,7 +12,7 @@
     </t-cascader>
 
     <!-- 级联搜索：搜索某级后，后续级别只显示匹配项的子节点 -->
-    <t-cascader v-model="value2" :options="options">
+    <t-cascader v-model="value2" :options="options2">
       <template #popupHeader="{ panelIndex, onFilter }">
         <t-input
           v-model="searchValues2[panelIndex]"
@@ -23,7 +23,7 @@
     </t-cascader>
 
     <!-- 基础搜索 + 底部搜索框（位置不同但功能相同） -->
-    <t-cascader v-model="value3" :options="options">
+    <t-cascader v-model="value3" :options="options3">
       <template #popupHeader="{ panelIndex, onFilter }">
         <t-input
           v-model="searchValues3[panelIndex]"
@@ -41,7 +41,7 @@
     </t-cascader>
 
     <!-- 级联搜索 + 底部搜索框（位置不同但功能相同） -->
-    <t-cascader v-model="value4" :options="options">
+    <t-cascader v-model="value4" :options="options4">
       <template #popupHeader="{ panelIndex, onFilter }">
         <t-input
           v-model="searchValues4[panelIndex]"
@@ -63,7 +63,13 @@
 <script setup>
 import { ref, reactive } from 'vue';
 
-const options = [
+/**
+ * Factory function to create options data.
+ * Each Cascader instance should use its own options copy to ensure complete independence.
+ * While the current implementation doesn't mutate options, using separate copies is a best practice
+ * that prevents potential issues if options were ever modified.
+ */
+const createOptions = () => [
   {
     label: '选项一',
     value: '1',
@@ -114,12 +120,19 @@ const options = [
   },
 ];
 
+// Each Cascader instance has independent state: value ref, options copy, and search state
 const value = ref('1.1.1');
 const value2 = ref('1.1.1');
 const value3 = ref('1.1.1');
 const value4 = ref('1.1.1');
 
-// 使用 reactive 维护搜索状态
+// Independent options for each instance (created from factory function)
+const options1 = createOptions();
+const options2 = createOptions();
+const options3 = createOptions();
+const options4 = createOptions();
+
+// Independent search state for each instance using reactive objects
 const searchValues1 = reactive({});
 const searchValues2 = reactive({});
 const searchValues3 = reactive({});

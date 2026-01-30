@@ -177,6 +177,48 @@ describe('Cascader', () => {
         expect(items[0].textContent).toContain('选项一');
         cleanupPanel();
       });
+
+      it('should provide filteredOptions in popupHeader slot', async () => {
+        let filterFn: ((filter: string) => void) | null = null;
+        let capturedOptionsLength = 0;
+        let capturedFilteredOptionsLength = 0;
+
+        const wrapper = mount({
+          render() {
+            return (
+              <Cascader
+                options={options}
+                v-slots={{
+                  popupHeader: ({ options, filteredOptions, onFilter }) => {
+                    filterFn = onFilter;
+                    capturedOptionsLength = options.length;
+                    capturedFilteredOptionsLength = filteredOptions.length;
+                    return (
+                      <div class="custom-header">
+                        Options: {options.length}, Filtered: {filteredOptions.length}
+                      </div>
+                    );
+                  },
+                }}
+              ></Cascader>
+            );
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+
+        // Before filtering
+        expect(capturedOptionsLength).toBe(2);
+        expect(capturedFilteredOptionsLength).toBe(2);
+
+        // Apply filter
+        filterFn!('选项一');
+        await nextTick();
+
+        // After filtering
+        expect(capturedOptionsLength).toBe(2);
+        expect(capturedFilteredOptionsLength).toBe(1);
+        cleanupPanel();
+      });
     });
 
     describe('popupFooter', () => {
@@ -227,6 +269,120 @@ describe('Cascader', () => {
         expect(footers.length).toBe(2);
         expect(footers[0].textContent).toContain('Footer 0 - 2 items');
         expect(footers[1].textContent).toContain('Footer 1 - 3 items');
+        cleanupPanel();
+      });
+
+      it('should provide filteredOptions equal to options when no filter is applied', async () => {
+        let capturedOptions: { label: string; value: string }[] = [];
+        let capturedFilteredOptions: { label: string; value: string }[] = [];
+
+        const wrapper = mount({
+          render() {
+            return (
+              <Cascader
+                options={options}
+                v-slots={{
+                  popupFooter: ({ options, filteredOptions }) => {
+                    capturedOptions = options;
+                    capturedFilteredOptions = filteredOptions;
+                    return (
+                      <div class="custom-footer">
+                        Options: {options.length}, Filtered: {filteredOptions.length}
+                      </div>
+                    );
+                  },
+                }}
+              ></Cascader>
+            );
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+
+        // When no filter is applied, filteredOptions should contain the same items as options
+        expect(capturedOptions.length).toBe(2);
+        expect(capturedFilteredOptions.length).toBe(2);
+        expect(capturedFilteredOptions.map((o) => o.value)).toEqual(capturedOptions.map((o) => o.value));
+        expect(capturedFilteredOptions.map((o) => o.label)).toEqual(capturedOptions.map((o) => o.label));
+        cleanupPanel();
+      });
+
+      it('should provide correct filteredOptions when filter is applied', async () => {
+        let filterFn: ((filter: string) => void) | null = null;
+        let capturedOptionsLength = 0;
+        let capturedFilteredOptionsLength = 0;
+        let capturedFilteredLabels: string[] = [];
+
+        const wrapper = mount({
+          render() {
+            return (
+              <Cascader
+                options={options}
+                v-slots={{
+                  popupFooter: ({ options, filteredOptions, onFilter }) => {
+                    filterFn = onFilter;
+                    capturedOptionsLength = options.length;
+                    capturedFilteredOptionsLength = filteredOptions.length;
+                    capturedFilteredLabels = filteredOptions.map((opt: { label: string }) => opt.label);
+                    return (
+                      <div class="custom-footer">
+                        Options: {options.length}, Filtered: {filteredOptions.length}
+                      </div>
+                    );
+                  },
+                }}
+              ></Cascader>
+            );
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+
+        // Before filtering: options and filteredOptions should be equal
+        expect(capturedOptionsLength).toBe(2);
+        expect(capturedFilteredOptionsLength).toBe(2);
+
+        // Apply filter
+        filterFn!('选项一');
+        await nextTick();
+
+        // After filtering: options should remain unchanged, filteredOptions should be filtered
+        expect(capturedOptionsLength).toBe(2);
+        expect(capturedFilteredOptionsLength).toBe(1);
+        expect(capturedFilteredLabels).toContain('选项一');
+        expect(capturedFilteredLabels).not.toContain('选项二');
+        cleanupPanel();
+      });
+
+      it('should reset filteredOptions to options when filter is cleared', async () => {
+        let filterFn: ((filter: string) => void) | null = null;
+        let capturedFilteredOptionsLength = 0;
+
+        const wrapper = mount({
+          render() {
+            return (
+              <Cascader
+                options={options}
+                v-slots={{
+                  popupFooter: ({ filteredOptions, onFilter }) => {
+                    filterFn = onFilter;
+                    capturedFilteredOptionsLength = filteredOptions.length;
+                    return <div class="custom-footer">Filtered: {filteredOptions.length}</div>;
+                  },
+                }}
+              ></Cascader>
+            );
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+
+        // Apply filter
+        filterFn!('选项一');
+        await nextTick();
+        expect(capturedFilteredOptionsLength).toBe(1);
+
+        // Clear filter
+        filterFn!('');
+        await nextTick();
+        expect(capturedFilteredOptionsLength).toBe(2);
         cleanupPanel();
       });
     });
@@ -421,6 +577,41 @@ describe('Cascader', () => {
         expect(items.length).toBe(2);
         cleanupPanel();
       });
+
+      it('should not match options with empty labels', async () => {
+        // Options with some empty/missing labels
+        const optionsWithEmptyLabels = [
+          { label: '选项一', value: '1' },
+          { label: '', value: '2' }, // Empty string label
+          { label: '选项三', value: '3' },
+        ];
+
+        let filterFn = null;
+        const wrapper = mount({
+          render() {
+            return (
+              <Cascader
+                options={optionsWithEmptyLabels}
+                v-slots={{
+                  popupHeader: ({ onFilter }) => {
+                    filterFn = onFilter;
+                    return <div class="filter-header">Filter</div>;
+                  },
+                }}
+              ></Cascader>
+            );
+          },
+        });
+        await wrapper.setProps({ popupProps: { visible: true } });
+
+        // Filtering with a keyword should not match empty label options
+        filterFn('选项');
+        await nextTick();
+
+        const items = document.querySelectorAll('.t-cascader__item');
+        expect(items.length).toBe(2); // Only '选项一' and '选项三', not the empty label
+        cleanupPanel();
+      });
     });
 
     describe('filter in cascade mode', () => {
@@ -573,16 +764,20 @@ describe('Cascader', () => {
       });
 
       it('should handle multiple panel filtering with independent filters', async () => {
-        let filterFn = null;
+        // Store filter functions for each panel index
+        const panelFilterFns: Record<
+          number,
+          (filter: string | ((node: any, panelIndex: number) => boolean), opts?: { cascade?: boolean }) => void
+        > = {};
         const wrapper = mount({
           render() {
             return (
               <Cascader
                 options={options}
                 v-slots={{
-                  popupHeader: ({ onFilter }) => {
-                    filterFn = onFilter;
-                    return <div class="filter-header">Filter</div>;
+                  popupHeader: ({ panelIndex, onFilter }) => {
+                    panelFilterFns[panelIndex] = onFilter;
+                    return <div class="filter-header">Filter {panelIndex}</div>;
                   },
                 }}
               ></Cascader>
@@ -591,7 +786,8 @@ describe('Cascader', () => {
         });
         await wrapper.setProps({ popupProps: { visible: true } });
 
-        filterFn('选项一');
+        // Filter first panel (panel 0) using its specific filter function
+        panelFilterFns[0]('选项一');
         await nextTick();
 
         const menus = document.querySelectorAll('.t-cascader__menu');
@@ -599,14 +795,20 @@ describe('Cascader', () => {
         expect(parentItems.length).toBe(1);
         expect(parentItems[0].textContent).toContain('选项一');
 
-        filterFn('');
+        // Clear filter on panel 0
+        panelFilterFns[0]('');
         await nextTick();
 
+        // Expand first item to show child panel
         const firstItem = document.querySelector('.t-cascader__item');
         firstItem.click();
         await nextTick();
 
-        filterFn('子选项一');
+        // Now panel 1 should be visible and have its own filter function
+        expect(panelFilterFns[1]).toBeDefined();
+
+        // Filter second panel (panel 1) using its specific filter function
+        panelFilterFns[1]('子选项一');
         await nextTick();
 
         const updatedMenus = document.querySelectorAll('.t-cascader__menu');

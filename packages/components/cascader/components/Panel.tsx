@@ -1,12 +1,6 @@
 import { defineComponent, PropType, computed, h, shallowRef } from 'vue';
 
 import Item from './Item';
-
-/**
- * Constant indicating filter is inactive (no level restriction).
- * When maxLevel equals this value, all panels are shown normally.
- */
-const FILTER_INACTIVE_LEVEL = -1;
 import { TreeNode, CascaderContextType } from '../types';
 import CascaderProps from '../props';
 import { TreeOptionData } from '../types';
@@ -14,6 +8,12 @@ import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@tdesig
 
 import { getDefaultNode } from '@tdesign/shared-utils';
 import { getPanels, expandClickEffect, valueChangeEffect } from '../utils';
+
+/**
+ * Constant indicating filter is inactive (no level restriction).
+ * When maxLevel equals this value, all panels are shown normally.
+ */
+const FILTER_INACTIVE_LEVEL = -1;
 
 interface FilterState {
   filters: Record<number, string | ((node: TreeOptionData, panelIndex: number) => boolean)>;
@@ -35,15 +35,18 @@ function isFilterLevelActive(level: number): boolean {
 type FilterValue = string | ((node: TreeOptionData, panelIndex: number) => boolean);
 
 /**
- * Check if a single option matches the given keyword.
+ * Check if option label contains the search keyword.
  * @param option - The tree node to check
  * @param keyword - The search keyword (lowercase)
  * @returns true if the option label contains the keyword
  */
 function checkOptionMatchKeyword(option: TreeNode, keyword: string): boolean {
-  return Boolean(option.label?.toLowerCase().includes(keyword));
+  // Empty labels should not match any keyword (including empty keyword)
+  if (!option.label) return false;
+  // Empty keyword should not match (caller should handle this case)
+  if (!keyword) return false;
+  return option.label.toLowerCase().includes(keyword);
 }
-
 /**
  * Check if filter value is active (non-empty string or defined function).
  * @param filter - The filter value to check
@@ -57,18 +60,21 @@ function isFilterActive(filter: FilterValue | undefined): boolean {
 
 /**
  * Filter options by the given filter value.
+ * When filter is a string, performs case-insensitive substring matching on option labels.
+ * For case-sensitive or custom matching logic, pass a custom filter function.
  * @param nodes - The tree nodes to filter
- * @param filter - Filter keyword or custom filter function
+ * @param filter - Filter keyword (case-insensitive) or custom filter function
  * @param panelIndex - Current panel index (for custom filter function)
  * @returns Filtered array of tree nodes
  */
 function filterOptions(nodes: TreeNode[], filter: FilterValue, panelIndex: number): TreeNode[] {
   if (typeof filter === 'string') {
+    // Case-insensitive matching: convert both keyword and label to lowercase
     const keyword = filter.trim().toLowerCase();
     if (!keyword) return nodes;
     return nodes.filter((node) => checkOptionMatchKeyword(node, keyword));
   }
-  // Custom filter function
+  // Custom filter function for case-sensitive or custom matching logic
   return nodes.filter((node) => filter(node.data, panelIndex));
 }
 
@@ -140,6 +146,11 @@ export default defineComponent({
      * @param filteredNodes - Nodes after filter applied
      * @param currentMaxLevel - Current maxLevel value
      * @returns Updated maxLevel value
+     *
+     * Behavior:
+     * - If no matches: restrict to current panel only (hide child panels)
+     * - If has matches: restrict to current panel initially, but user can expand
+     *   child panels by clicking/hovering on nodes (handled by handleExpand)
      */
     const calculateCascadeMaxLevel = (
       panelIndex: number,
@@ -153,16 +164,11 @@ export default defineComponent({
         return panelIndex;
       }
 
-      // Has matches: check if first panel has selected item
-      if (panelIndex === 0) {
-        const hasSelectedInFiltered = filteredNodes.some((node) => node.checked);
-        if (!hasSelectedInFiltered) {
-          return panelIndex;
-        }
-      }
-
-      // Keep current maxLevel, allow expanding child panels
-      return currentMaxLevel;
+      // Has matches: show current panel, user can expand child panels via click/hover.
+      // We return panelIndex to initially restrict to current level,
+      // allowing handleExpand to expand maxLevel when user interacts with nodes.
+      // If currentMaxLevel is already higher (user has expanded), keep it.
+      return Math.max(panelIndex, currentMaxLevel);
     };
 
     /**
@@ -173,27 +179,40 @@ export default defineComponent({
     const handleFilter = (index: number, filter: FilterValue, options?: { cascade?: boolean }) => {
       const prev = filterState.value;
       const cascade = options?.cascade ?? prev?.cascade ?? false;
-      let filters: Record<number, FilterValue> = { ...prev?.filters, [index]: filter };
+
+      // Build new filters object, removing inactive filters to prevent memory accumulation.
+      // When users filter and clear many panels over time, we don't want to keep
+      // inactive filter entries (empty strings, whitespace-only strings) in memory.
+      let filters: Record<number, FilterValue> = { ...prev?.filters };
+      if (isFilterActive(filter)) {
+        filters[index] = filter;
+      } else {
+        delete filters[index];
+      }
+
       let maxLevel = prev?.maxLevel ?? FILTER_INACTIVE_LEVEL;
 
       if (cascade) {
         if (isFilterActive(filter)) {
           // Active filter: calculate maxLevel based on matches
+          // Note: Use filterOptions directly with the new filter value, not getFilteredNodes,
+          // because filterState hasn't been updated yet at this point.
           const currentNodes = panels.value[index] || [];
-          const filteredNodes = getFilteredNodes(currentNodes, index);
+          const filteredNodes = filterOptions(currentNodes, filter, index);
           maxLevel = calculateCascadeMaxLevel(index, filteredNodes, maxLevel);
         } else if (!hasAnyActiveFilter(filters)) {
           // All filters cleared: restore to show all panels
           maxLevel = FILTER_INACTIVE_LEVEL;
-        } else {
-          // Partial clear: recalculate based on remaining filters
-          const currentNodes = panels.value[index] || [];
-          const filteredNodes = getFilteredNodes(currentNodes, index);
-          maxLevel = calculateCascadeMaxLevel(index, filteredNodes, maxLevel);
         }
+        // Note: No else branch needed. When filter is inactive but other filters remain active,
+        // we keep maxLevel unchanged. The remaining filters will control panel visibility.
       }
 
-      // Clean up expired filters when maxLevel decreases
+      // Clean up expired filters when maxLevel decreases.
+      // When prev is null (first filter application), prev?.maxLevel defaults to FILTER_INACTIVE_LEVEL (-1).
+      // Since any valid active maxLevel (>=0) is greater than -1, the condition is false,
+      // which is correct because there are no expired filters to clean on first activation.
+      // This cleanup only triggers when transitioning from a higher maxLevel to a lower one.
       if (maxLevel < (prev?.maxLevel ?? FILTER_INACTIVE_LEVEL)) {
         filters = clearExpiredFilters(filters, maxLevel);
       }
@@ -237,6 +256,22 @@ export default defineComponent({
       }
 
       expandClickEffect(props.trigger, trigger, node, props.cascaderContext);
+    };
+
+    /**
+     * Stable callback factory for slot's onFilter prop.
+     * Returns a memoized function that accepts (filter, opts) and delegates to handleFilter.
+     * This avoids creating new function references on every render, preventing unnecessary
+     * re-renders of slot content (which may be complex user components).
+     */
+    const onFilterCallbacks = new Map<number, (filter: FilterValue, opts?: { cascade?: boolean }) => void>();
+    const getOnFilterCallback = (index: number) => {
+      let callback = onFilterCallbacks.get(index);
+      if (!callback) {
+        callback = (filter: FilterValue, opts?: { cascade?: boolean }) => handleFilter(index, filter, opts);
+        onFilterCallbacks.set(index, callback);
+      }
+      return callback;
     };
 
     const renderItem = (node: TreeNode, index: number) => {
@@ -286,10 +321,7 @@ export default defineComponent({
               panelIndex: index,
               options: originalOptionsData,
               filteredOptions: filteredOptionsData,
-              onFilter: (
-                filter: string | ((node: TreeOptionData, panelIndex: number) => boolean),
-                opts?: { cascade?: boolean },
-              ) => handleFilter(index, filter, opts),
+              onFilter: getOnFilterCallback(index),
             },
           })}
           {displayNodes.map((node: TreeNode) => renderItem(node, index))}
@@ -298,19 +330,38 @@ export default defineComponent({
               panelIndex: index,
               options: originalOptionsData,
               filteredOptions: filteredOptionsData,
-              onFilter: (
-                filter: string | ((node: TreeOptionData, panelIndex: number) => boolean),
-                opts?: { cascade?: boolean },
-              ) => handleFilter(index, filter, opts),
+              onFilter: getOnFilterCallback(index),
             },
           })}
         </ul>
       );
     };
 
+    /**
+     * Render filtered list for built-in filterable mode (inputVal present).
+     * When the built-in filterable prop is active, the component renders a flattened
+     * list of all matching nodes. In this mode, popupHeader/popupFooter slots are NOT
+     * rendered because:
+     * 1. panelIndex has no meaning in a flattened list
+     * 2. The onFilter callback would conflict with the built-in filter
+     * 3. Having two filtering mechanisms active simultaneously causes confusing behavior
+     */
+    const renderFilteredList = (treeNodes: TreeNode[]) => {
+      return (
+        <ul
+          class={[`${COMPONENT_NAME.value}__menu`, 'narrow-scrollbar', `${COMPONENT_NAME.value}__menu--filter`]}
+          key={`${COMPONENT_NAME}__menu--filtered`}
+        >
+          {treeNodes.map((node: TreeNode) => renderItem(node, 0))}
+        </ul>
+      );
+    };
+
     const renderPanels = () => {
       const { inputVal, treeNodes } = props.cascaderContext;
-      if (inputVal) return renderList(treeNodes, true);
+      // When built-in filterable is active, render a flattened filtered list
+      // without popupHeader/popupFooter slots to avoid conflicting filter mechanisms
+      if (inputVal) return renderFilteredList(treeNodes);
 
       const result = [];
       const len = panels.value.length;
