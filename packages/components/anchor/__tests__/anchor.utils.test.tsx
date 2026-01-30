@@ -1,5 +1,4 @@
 import { vi } from 'vitest';
-import * as utils from '../utils';
 
 // Mock clipboard module
 vi.mock('clipboard', () => {
@@ -10,9 +9,18 @@ vi.mock('clipboard', () => {
   };
 });
 
-import Clipboard from 'clipboard';
-
 describe('Anchor Utils', () => {
+  let utils: any;
+  let Clipboard: any;
+
+  beforeEach(async () => {
+    vi.resetModules();
+    utils = await import('../utils');
+    // Handle both ESM and CommonJS mock exports
+    const clipboardModule = await import('clipboard');
+    Clipboard = clipboardModule.default || clipboardModule;
+  });
+
   it('ANCHOR_SHARP_REGEXP matches correct patterns', () => {
     const { ANCHOR_SHARP_REGEXP } = utils;
 

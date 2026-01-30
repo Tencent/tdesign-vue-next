@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils';
-import { AnchorTarget } from '@tdesign/components/anchor';
 import { vi } from 'vitest';
 import { FileCopyIcon } from 'tdesign-icons-vue-next';
 
@@ -15,10 +14,19 @@ vi.mock('@tdesign/components/message/plugin', () => ({
   },
 }));
 
-import { copyText } from '../utils';
 import Message from '@tdesign/components/message/plugin';
 
 describe('AnchorTarget', () => {
+  let AnchorTarget: any;
+  let copyText: any;
+
+  beforeEach(async () => {
+    vi.resetModules();
+    AnchorTarget = (await import('../anchor-target')).default;
+    const utils = await import('../utils');
+    copyText = utils.copyText;
+  });
+
   it('props: id', () => {
     const wrapper = mount(AnchorTarget, {
       props: {
