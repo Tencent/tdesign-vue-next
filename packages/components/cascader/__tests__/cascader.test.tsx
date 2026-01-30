@@ -211,7 +211,8 @@ describe('Cascader', () => {
         expect(capturedFilteredOptionsLength).toBe(2);
 
         // Apply filter
-        filterFn!('选项一');
+        expect(filterFn).not.toBeNull();
+        if (filterFn) filterFn('选项一');
         await nextTick();
 
         // After filtering
@@ -341,7 +342,8 @@ describe('Cascader', () => {
         expect(capturedFilteredOptionsLength).toBe(2);
 
         // Apply filter
-        filterFn!('选项一');
+        expect(filterFn).not.toBeNull();
+        if (filterFn) filterFn('选项一');
         await nextTick();
 
         // After filtering: options should remain unchanged, filteredOptions should be filtered
@@ -375,12 +377,13 @@ describe('Cascader', () => {
         await wrapper.setProps({ popupProps: { visible: true } });
 
         // Apply filter
-        filterFn!('选项一');
+        expect(filterFn).not.toBeNull();
+        if (filterFn) filterFn('选项一');
         await nextTick();
         expect(capturedFilteredOptionsLength).toBe(1);
 
         // Clear filter
-        filterFn!('');
+        if (filterFn) filterFn('');
         await nextTick();
         expect(capturedFilteredOptionsLength).toBe(2);
         cleanupPanel();
