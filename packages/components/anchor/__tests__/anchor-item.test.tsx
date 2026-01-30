@@ -138,4 +138,16 @@ describe('AnchorItem', () => {
     expect(mockAnchor.unregisterLink).toHaveBeenCalledWith('#test1');
     expect(mockAnchor.registerLink).toHaveBeenCalledWith('#test2');
   });
+
+  it('handles empty href gracefully', () => {
+    const wrapper = mount(AnchorItem, {
+      props: { href: '' },
+      global: {
+        provide: {
+          [AnchorInjectionKey as symbol]: mockAnchor,
+        },
+      },
+    });
+    expect(wrapper.exists()).toBe(true);
+  });
 });

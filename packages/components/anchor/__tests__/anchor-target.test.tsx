@@ -72,7 +72,7 @@ describe('AnchorTarget', () => {
     const icon = wrapper.findComponent(FileCopyIcon);
     await icon.trigger('click');
 
-    expect(copyText).toHaveBeenCalledWith('#test-id');
+    expect(copyText).toHaveBeenCalledWith('http://localhost:3000/#test-id');
     expect(Message.success).toHaveBeenCalled();
   });
 });

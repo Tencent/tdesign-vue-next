@@ -138,4 +138,18 @@ describe('Anchor Utils', () => {
 
     createElementSpy.mockRestore();
   });
+
+  it('copyText passes correct text to Clipboard', () => {
+    // Clear previous calls
+    (Clipboard as any).mockClear();
+
+    utils.copyText('test text');
+
+    const clipboardCall = (Clipboard as any).mock.calls[0];
+    const options = clipboardCall[1];
+
+    expect(options).toHaveProperty('text');
+    expect(typeof options.text).toBe('function');
+    expect(options.text()).toBe('test text');
+  });
 });

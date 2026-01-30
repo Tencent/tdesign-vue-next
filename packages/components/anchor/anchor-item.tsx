@@ -29,10 +29,10 @@ export default defineComponent({
     const register = () => {
       anchor.registerLink(props.href as string);
     };
-    const unregister = () => {
-      const { href } = props;
-      if (!href) return;
-      anchor.unregisterLink(href);
+    const unregister = (hrefVal?: string) => {
+      const val = hrefVal || props.href;
+      if (!val) return;
+      anchor.unregisterLink(val);
     };
     const handleClick = (e: MouseEvent) => {
       const { href, title } = props;
@@ -54,8 +54,8 @@ export default defineComponent({
     };
     watch(
       () => props.href,
-      () => {
-        unregister();
+      (newVal, oldVal) => {
+        unregister(oldVal);
         register();
       },
       { immediate: true },
