@@ -5,10 +5,12 @@
 
 import { isFunction } from 'lodash-es';
 import { onMounted, onUnmounted, ref, toRefs } from 'vue';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import { TdTagInputProps } from '../type';
 
 export function useTagScroll(props: TdTagInputProps) {
   const tagInputRef = ref();
+  const classPrefix = usePrefixClass();
   const { excessTagsDisplayType, readonly, disabled } = toRefs(props);
   // 允许向右滚动的最大距离
   const scrollDistance = ref(0);
@@ -17,8 +19,9 @@ export function useTagScroll(props: TdTagInputProps) {
   const isScrollable = ref(false); // 设置可滚动
 
   const updateScrollElement = (element: HTMLElement) => {
-    const inputElement = element.children[0] as HTMLElement;
-    scrollElement.value = inputElement;
+    // 获取 .t-input__prefix 元素，这是真正需要滚动的容器
+    const prefixElement = element.querySelector(`.${classPrefix.value}-input__prefix`) as HTMLElement;
+    scrollElement.value = prefixElement;
   };
 
   const updateScrollDistance = () => {
@@ -31,25 +34,38 @@ export function useTagScroll(props: TdTagInputProps) {
   };
 
   const scrollToRight = () => {
-    updateScrollDistance();
-    scrollTo(scrollDistance.value);
+    // 重新获取滚动元素，确保元素引用是最新的
+    const element = tagInputRef.value?.$el;
+    if (element) {
+      updateScrollElement(element);
+    }
+    if (!scrollElement.value) return;
+
+    // 使用 setTimeout 确保 DOM 布局完成后再计算滚动距离
     setTimeout(() => {
-      isScrollable.value = true;
-    }, 200);
+      updateScrollDistance();
+      scrollTo(scrollDistance.value);
+      setTimeout(() => {
+        isScrollable.value = true;
+      }, 200);
+    }, 0);
   };
 
   const scrollToLeft = () => {
     scrollTo(0);
   };
 
-  // TODO：MAC 电脑横向滚动，Windows 纵向滚动。当前只处理了横向滚动
+  // MAC 电脑横向滚动使用 deltaX，Windows 纵向滚动使用 deltaY
   const onWheel = ({ e }: { e: WheelEvent }) => {
     if (readonly.value || disabled.value) return;
     if (!scrollElement.value) return;
-    if (e.deltaX > 0) {
+    // 使用 deltaX 或 deltaY 来判断滚动方向，优先使用绝对值更大的
+    const delta = Math.abs(e.deltaX) >= Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (delta > 0) {
+      updateScrollDistance();
       const distance = Math.min(scrollElement.value.scrollLeft + 120, scrollDistance.value);
       scrollTo(distance);
-    } else {
+    } else if (delta < 0) {
       const distance = Math.max(scrollElement.value.scrollLeft - 120, 0);
       scrollTo(distance);
     }

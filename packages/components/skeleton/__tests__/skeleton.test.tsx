@@ -13,8 +13,8 @@ describe('Skeleton', () => {
       const cols = wrapper.findAll('.t-skeleton__col');
       expect(wrapper.exists()).toBe(true);
       expect(wrapper.classes()).toContain('t-skeleton');
-      expect(rows.length).toBe(4);
-      expect(cols.length).toBe(4);
+      expect(rows.length).toBe(1);
+      expect(cols.length).toBe(1);
     });
 
     it(':theme:text', () => {
@@ -123,7 +123,7 @@ describe('Skeleton', () => {
           <div class="text">加载完成的内容</div>
         </Skeleton>
       ));
-      expect(wrapper.findAll('.t-skeleton__row').length).toBe(4);
+      expect(wrapper.findAll('.t-skeleton__row').length).toBe(1);
       loading.value = false;
       await nextTick();
       expect(wrapper.findAll('.t-skeleton__row').length).toBe(0);

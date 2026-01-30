@@ -5,7 +5,13 @@ import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
 import usePagination from './hooks/usePagination';
-import { useConfig, useTNodeJSX, useVirtualScrollNew, useElementLazyRender } from '@tdesign/shared-hooks';
+import {
+  useConfig,
+  useTNodeJSX,
+  useVirtualScrollNew,
+  useElementLazyRender,
+  useEventForward,
+} from '@tdesign/shared-hooks';
 import useAffix from './hooks/useAffix';
 import Loading from '../loading';
 import TBody, { extendTableProps } from './components/tbody';
@@ -44,7 +50,7 @@ export default defineComponent({
     onLeafColumnsChange: Function as PropType<BaseTableProps['onLeafColumnsChange']>,
     thDraggable: Boolean,
   },
-  emits: ['show-element-change'],
+  emits: ['show-element-change', 'update:activeRowKeys'],
   setup(props: BaseTableProps, context: SetupContext) {
     const { lazyLoad } = toRefs(props);
     const renderTNode = useTNodeJSX();
@@ -113,7 +119,11 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
     } = useAffix(props);
 
-    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(props, context);
+    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(
+      props,
+      context,
+      tableContentRef,
+    );
 
     // 列宽拖拽逻辑
     const columnResizeParams = useColumnResize({
@@ -246,7 +256,11 @@ export default defineComponent({
       const domRect = thDom.getBoundingClientRect();
       const contentRect = tableContentRef.value.getBoundingClientRect();
       const distance = domRect.left - contentRect.left - totalWidth;
-      tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
+      if (tableContentRef.value.scrollTo) {
+        tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
+      } else {
+        tableContentRef.value.scrollLeft = distance;
+      }
     };
 
     watch(tableContentRef, () => {
@@ -382,15 +396,15 @@ export default defineComponent({
 
       const renderAffixedHeader = () => {
         if (props.showHeader === false) return null;
+
+        const affixHeaderEvents = useEventForward(getAffixProps(props.headerAffixedTop), {
+          onFixedChange: onFixedChange,
+        });
+
         return (
           !!(virtualConfig.isVirtualScroll.value || props.headerAffixedTop) &&
           (props.headerAffixedTop ? (
-            <Affix
-              offsetTop={0}
-              {...getAffixProps(props.headerAffixedTop)}
-              onFixedChange={onFixedChange}
-              ref={headerTopAffixRef}
-            >
+            <Affix ref={headerTopAffixRef} offsetTop={0} {...affixHeaderEvents.value}>
               {affixHeaderWithWrap}
             </Affix>
           ) : (
@@ -508,14 +522,16 @@ export default defineComponent({
       // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
       const showFooter = Boolean(virtualConfig.isVirtualScroll.value || props.footerAffixedBottom);
       const hasFooter = props.footData?.length || props.footerSummary || context.slots['footerSummary'];
+      const affixFooterEvents = useEventForward(getAffixProps(props.footerAffixedBottom), {
+        onFixedChange: onFixedChange,
+      });
       const affixedFooter = Boolean(showFooter && hasFooter && tableWidth.value) && (
         <Affix
-          class={tableBaseClass.affixedFooterWrap}
-          onFixedChange={onFixedChange}
-          offsetBottom={marginScrollbarWidth || 0}
-          {...getAffixProps(props.footerAffixedBottom)}
-          style={{ marginTop: `${-1 * ((tableFootHeight.value ?? 0) + marginScrollbarWidth)}px` }}
           ref={footerBottomAffixRef}
+          class={tableBaseClass.affixedFooterWrap}
+          offsetBottom={marginScrollbarWidth || 0}
+          style={{ marginTop: `${-1 * ((tableFootHeight.value ?? 0) + marginScrollbarWidth)}px` }}
+          {...affixFooterEvents.value}
         >
           <div
             ref={affixFooterRef}
@@ -589,7 +605,7 @@ export default defineComponent({
         <div
           ref={tableContentRef}
           class={tableBaseClass.content}
-          style={tableContentStyles.value}
+          style={{ ...tableContentStyles.value, overflowAnchor: 'none' }}
           onScroll={onInnerVirtualScroll}
         >
           {virtualConfig.isVirtualScroll.value && <div class={virtualScrollClasses.cursor} style={virtualStyle} />}

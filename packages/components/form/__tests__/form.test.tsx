@@ -370,6 +370,20 @@ describe('Form', () => {
         formData.value.name = 'test@qq.com';
         res = await validate();
         expectToSuccess(res);
+
+        rules.value = { name: [{ pattern: '[a-zA-Z]{8}' }] };
+        formData.value.name = 'abcdefg';
+        res = await validate();
+        expectToFailure(res);
+
+        rules.value = { name: [{ pattern: '[a-zA-Z]{8}' }] };
+        formData.value.name = '12345678';
+        res = await validate();
+        expectToFailure(res);
+
+        formData.value.name = 'abcdefgh';
+        res = await validate();
+        expectToSuccess(res);
       });
 
       it('required', async () => {
@@ -491,7 +505,7 @@ describe('Form', () => {
       expect(wrapper.find('.t-input__extra').exists()).eq(false);
     });
 
-    it(':statusIcon[boolean]', async () => {
+    it(':statusIcon[boolean/function]', async () => {
       const rules = { name: [{ required: true }] };
       const formData = ref({ name: '' });
 

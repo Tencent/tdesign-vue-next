@@ -33,13 +33,19 @@
         after: dayjs().add(5, 'day').format(),
       }"
     />
+    <t-date-range-picker
+      placeholder="禁用日期精确到时间"
+      enable-time-picker
+      :disable-date="{ before: dayjs().subtract(1, 'day').format() }"
+      :disable-time="getDisableTime"
+    />
   </t-space>
 </template>
 
 <script lang="ts" setup>
 import dayjs from 'dayjs';
 import { ref, computed } from 'vue';
-import { DatePickerProps } from 'tdesign-vue-next';
+import { DatePickerProps, DateRangePickerProps } from 'tdesign-vue-next';
 const pickDate = ref();
 const timePickerProps = computed<DatePickerProps['timePickerProps']>(() => {
   return {
@@ -57,4 +63,15 @@ const onPick: DatePickerProps['onPick'] = (date) => {
   pickDate.value = dayjs(date).format('YYYY-MM-DD');
 };
 const disableDate: DatePickerProps['disableDate'] = (date) => dayjs(date).day() === 6;
+
+const getDisableTime: DateRangePickerProps['disableTime'] = (value, { partial }) => {
+  if (partial === 'start') {
+    return {
+      hour: [10, 11],
+    };
+  }
+  return {
+    hour: [12, 13],
+  };
+};
 </script>

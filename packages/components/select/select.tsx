@@ -15,6 +15,7 @@ import {
   useTNodeJSX,
   usePrefixClass,
   useDefaultValue,
+  useEventForward,
 } from '@tdesign/shared-hooks';
 
 import { getSingleContent, getMultipleContent } from './utils';
@@ -59,18 +60,15 @@ export default defineComponent({
       value: props.keys?.value || 'value',
       disabled: props.keys?.disabled || 'disabled',
     }));
-    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods } = useSelectOptions(
-      props,
-      keys,
-      innerInputValue,
-    );
+
+    const isObjectType = computed(() => props.valueType === 'object');
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
       if (orgValue.value === undefined) {
         return props.multiple ? [] : undefined;
       }
-      if (props.valueType === 'object') {
+      if (isObjectType.value) {
         return !props.multiple
           ? // @ts-ignore
             // TODO optimize SelectValue
@@ -82,8 +80,11 @@ export default defineComponent({
       return orgValue.value;
     });
 
+    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods, searchDisplayOptions } =
+      useSelectOptions(props, keys, innerInputValue, innerValue);
+
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
-      if (props.valueType === 'object') {
+      if (isObjectType.value) {
         const { value, label } = keys.value;
         const getOption = (val: SelectValue) => {
           if (val === undefined) {
@@ -126,7 +127,9 @@ export default defineComponent({
 
     const placeholderText = computed(
       () =>
-        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsMap)) ||
+        ((!props.multiple &&
+          innerPopupVisible.value &&
+          getSingleContent(innerValue.value, isRemoteSearch.value, currentSelectOptions, optionsMap)) ||
           props.placeholder) ??
         t(globalConfig.value.placeholder),
     );
@@ -134,8 +137,8 @@ export default defineComponent({
     // selectInput 展示值
     const displayText = computed(() =>
       props.multiple
-        ? getMultipleContent(innerValue.value as SelectValue[], optionsMap)
-        : getSingleContent(innerValue.value, optionsMap),
+        ? getMultipleContent(innerValue.value as SelectValue[], isRemoteSearch.value, currentSelectOptions, optionsMap)
+        : getSingleContent(innerValue.value, isRemoteSearch.value, currentSelectOptions, optionsMap),
     );
 
     // valueDisplayParams参数
@@ -189,6 +192,7 @@ export default defineComponent({
         // 如果最后一个为disabled，则应删除前一项（非disabled的）
         let closest = -1;
         let len = index;
+
         const currentSelected = getCurrentSelectedOptions();
         while (len >= 0) {
           if (!currentSelected[len]?.disabled) {
@@ -264,15 +268,19 @@ export default defineComponent({
     };
 
     //  获取当前选中的选项，和 getSelectedOptions 的区别是 这个会保持选择的先后顺序
-    const getCurrentSelectedOptions = (selectValue: SelectValue[] | SelectValue = innerValue.value) => {
+    const getCurrentSelectedOptions = () => {
       const options: TdOptionProps[] = [];
-      const values = isArray(selectValue) ? selectValue : [selectValue];
+
+      // 需要处理 objectType 的情况
+      const selectedValue = isObjectType.value ? orgValue.value : innerValue.value;
+      const values = isArray(selectedValue) ? selectedValue : [selectedValue];
 
       values.forEach((value) => {
-        const option = optionsMap.value.get(value);
+        const option = optionsMap.value.get(isObjectType.value ? value.value : value);
         if (option) options.push(option);
+        // 处理不存在选项的值的场景，也需要推入
+        else options.push(isObjectType.value ? value : { value });
       });
-
       return options;
     };
 
@@ -293,10 +301,9 @@ export default defineComponent({
       });
 
       const activeValues = optionalList.value.map((option) => option.value);
-      const formattedOrgValue =
-        props.valueType === 'object'
-          ? (orgValue.value as Array<SelectValue>).map((v) => get(v, value))
-          : orgValue.value;
+      const formattedOrgValue = isObjectType.value
+        ? (orgValue.value as Array<SelectValue>).map((v) => get(v, value))
+        : orgValue.value;
 
       const values = checked
         ? [...new Set([...(formattedOrgValue as Array<SelectValue>), ...activeValues, ...lockedValues])]
@@ -307,7 +314,9 @@ export default defineComponent({
     // 全选
     const isCheckAll = computed<boolean>(() => {
       if (intersectionLen.value === 0) return false;
-      return intersectionLen.value === optionalList.value.length;
+      return (
+        intersectionLen.value === (isRemoteSearch.value ? searchDisplayOptions.value.length : optionalList.value.length)
+      );
     });
 
     const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
@@ -469,19 +478,24 @@ export default defineComponent({
       });
     };
 
+    /**
+     * 获取当前选中的选项 —— 远程搜索数据和本地传入的数据
+     */
+    const currentSelectOptions = computed(() => {
+      return isRemoteSearch.value ? searchDisplayOptions.value : getCurrentSelectedOptions();
+    });
+
     const renderValueDisplay = () => {
       const renderTag = () => {
-        if (!props.multiple || !props.selectInputProps?.multiple) {
+        if (!props.multiple || props.selectInputProps?.multiple === false) {
           return undefined;
         }
-        const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);
+
         return innerValue.value
           .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
           .map?.((v: string, key: number) => {
-            let tagIndex: number;
-            const option = currentSelectedOptions.find((item, index) => {
+            const option = currentSelectOptions.value.find((item) => {
               if (item.value === v) {
-                tagIndex = index;
                 return true;
               }
             });
@@ -489,13 +503,13 @@ export default defineComponent({
             return (
               <Tag
                 key={key}
-                closable={!option?.disabled && !props.disabled && !props.readonly}
+                closable={!option?.disabled && !isDisabled.value && !isReadonly.value}
                 size={props.size}
                 {...props.tagProps}
                 onClose={({ e }: { e: MouseEvent }) => {
                   e.stopPropagation();
                   props.tagProps?.onClose?.({ e });
-                  removeTag(tagIndex);
+                  removeTag(key);
                 }}
               >
                 {option ? option.label ?? option?.value : v}
@@ -514,6 +528,40 @@ export default defineComponent({
     provide('updateScrollTop', updateScrollTop);
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
+
+      const popupEvents = useEventForward(restPopupProps, {
+        onScrollToBottom: handlerPopupScrollToBottom,
+      });
+      const selectInputEvents = useEventForward(props.selectInputProps, {
+        onTagChange: (val, ctx) => {
+          removeTag(ctx.index, ctx);
+        },
+        onPopupVisibleChange: handlerPopupVisibleChange,
+        onInputChange: handlerInputChange,
+        onClear: ({ e }) => {
+          setInnerValue(props.multiple ? [] : undefined, {
+            option: null,
+            selectedOptions: getSelectedOptions(props.multiple ? [] : undefined),
+            trigger: 'clear',
+            e,
+          });
+          props.onClear?.({ e });
+        },
+        onEnter: (val, { e }) => {
+          // onEnter和handleKeyDown的Enter事件同时触发，需要通过setTimeout设置先后
+          setTimeout(() => {
+            props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
+            handleCreate();
+          }, 0);
+        },
+        onBlur: (val, { e }) => {
+          props.onBlur?.({ e, value: innerValue.value });
+        },
+        onFocus: (val, { e }) => {
+          props.onFocus?.({ e, value: innerValue.value });
+        },
+      });
+
       return (
         <div class={`${COMPONENT_NAME.value}__wrap`}>
           <SelectInput
@@ -525,7 +573,7 @@ export default defineComponent({
               clearable: props.clearable,
               loading: props.loading,
               status: props.status,
-              tips: renderTNodeJSX('tips'),
+              tips: () => renderTNodeJSX('tips'),
               minCollapsedNum: props.minCollapsedNum,
               autofocus: props.autofocus,
               suffix: props.suffix,
@@ -543,21 +591,18 @@ export default defineComponent({
             inputProps={{
               size: props.size,
               autofocus: props.autofocus,
-              ...(props.inputProps as TdSelectProps['inputProps']),
+              ...props.inputProps,
+              // fix me, onkeydown should be onKeydown
               onkeydown: handleKeyDown,
             }}
             tagInputProps={{
               size: props.size,
               ...(props.tagInputProps as TdSelectProps['tagInputProps']),
             }}
-            onTagChange={(val, ctx) => {
-              removeTag(ctx.index, ctx);
-            }}
             tagProps={{ ...(props.tagProps as TdSelectProps['tagProps']) }}
             popupProps={{
               overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, overlayClassName],
-              ...restPopupProps,
-              onScrollToBottom: handlerPopupScrollToBottom,
+              ...popupEvents.value,
             }}
             label={props.label}
             prefixIcon={props.prefixIcon}
@@ -577,31 +622,7 @@ export default defineComponent({
               );
             }}
             valueDisplay={renderValueDisplay}
-            onPopupVisibleChange={handlerPopupVisibleChange}
-            onInputChange={handlerInputChange}
-            onClear={({ e }) => {
-              setInnerValue(props.multiple ? [] : undefined, {
-                option: null,
-                selectedOptions: getSelectedOptions(props.multiple ? [] : undefined),
-                trigger: 'clear',
-                e,
-              });
-              props.onClear?.({ e });
-            }}
-            onEnter={(inputValue, { e }) => {
-              // onEnter和handleKeyDown的Enter事件同时触发，需要通过setTimeout设置先后
-              setTimeout(() => {
-                props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
-                handleCreate();
-              }, 0);
-            }}
-            onBlur={(inputValue, { e }) => {
-              props.onBlur?.({ e, value: innerValue.value });
-            }}
-            onFocus={(inputValue, { e }) => {
-              props.onFocus?.({ e, value: innerValue.value });
-            }}
-            {...(props.selectInputProps as TdSelectProps['selectInputProps'])}
+            {...selectInputEvents.value}
             v-slots={{
               label: slots.label,
               prefixIcon: slots.prefixIcon,
@@ -610,7 +631,6 @@ export default defineComponent({
                 <SelectPanel
                   ref={selectPanelRef}
                   {...picker(props, [
-                    'size',
                     'multiple',
                     'empty',
                     'loading',
@@ -621,6 +641,7 @@ export default defineComponent({
                     'panelBottomContent',
                     'filter',
                     'scroll',
+                    'keys',
                   ])}
                   inputValue={innerInputValue.value}
                   v-slots={slots}

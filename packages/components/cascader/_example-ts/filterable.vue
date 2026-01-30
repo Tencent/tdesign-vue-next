@@ -3,6 +3,7 @@
     <t-cascader v-model="value" :options="options" filterable clearable />
     <t-cascader v-model="value2" :options="options" filterable clearable multiple :min-collapsed-num="2" />
     <t-cascader v-model="value3" :filter="filterMethod" :options="options" clearable :min-collapsed-num="2" />
+    <t-cascader v-model="value4" filterable :options="options" clearable multiple check-strictly />
   </t-space>
 </template>
 
@@ -46,6 +47,8 @@ const options: CascaderProps['options'] = [
 const value = ref('');
 const value2 = ref(['1.1']);
 const value3 = ref('');
+const value4 = ref([]);
+
 const filterMethod: CascaderProps['filter'] = (search, node) => {
   console.log('filter:', search, node.label);
   return node.label.indexOf(search) !== -1;

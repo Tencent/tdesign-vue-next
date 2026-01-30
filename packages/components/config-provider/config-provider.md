@@ -90,6 +90,7 @@ list | Object | - | 列表组件全局配置。TS 类型：`ListConfig` | N
 message | Object | - | 消息组件全局配置。TS 类型：`MessageConfig` | N
 pagination | Object | - | 分页组件全局配置。TS 类型：`PaginationConfig` | N
 popconfirm | Object | - | 气泡确认框全局配置。TS 类型：`PopconfirmConfig` | N
+qrcode | Object | - | 二维码全局配置。TS 类型：`QRCodeConfig` | N
 rate | Object | - | 评分全局配置。TS 类型：`RateConfig` | N
 select | Object | - | 选择器组件全局配置。TS 类型：`SelectConfig` | N
 steps | Object | - | 步骤条组件全局配置。TS 类型：`StepsConfig` | N
@@ -132,7 +133,7 @@ fillWithZero | Boolean | true | 当日期数字小于 10 时，是否使用 '0' 
 firstDayOfWeek | Number | 1 | 第一天从星期几开始。可选项：1/2/3/4/5/6/7 | N
 hideWeekend | String | - | 语言配置，“隐藏周末”描述文本 | N
 monthRadio | String | - | 语言配置，模式切换时的“月”描述文本 | N
-monthSelection | String | - | 语言配置，“月”选择描述文本。示例：`'{month} 月'` | N
+monthSelection | String / Function | - | 语言配置，“月”选择描述文本。示例：`'{month} 月'`。TS 类型：`string \| (( data: { month: number })=>string)` | N
 showWeekend | String | - | 语言配置，“显示周末”描述文本 | N
 thisMonth | String | - | 语言配置，“本月”描述文本 | N
 today | String | - | 语言配置，“今天”描述文本 | N
@@ -251,6 +252,7 @@ replaceImageSrc | Function | - | 统一替换图片 `src` 地址，参数为组�
 errorText | String | - | 全局语言配置，默认为 “图片加载失败，可尝试重新加载” | N
 mirrorTipText | String | - | 全局语言配置，默认为 “镜像” | N
 originalSizeTipText | String | - | 全局语言配置，默认为 “原始大小” | N
+previewText | String | - | 全局语言配置，默认为 “预览” | N
 rotateTipText | String | - | 全局语言配置，默认为 “旋转” | N
 
 ### InputConfig
@@ -289,6 +291,14 @@ total | String | - | 语言配置，数据总条数文本，示例：`'共 {tota
 cancel | String / Object | - | 语言配置，“取消”描述文本。TS 类型：`string \| ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 confirm | String / Object | - | 语言配置，“确定”描述文本。TS 类型：`string \| ButtonProps` | N
 confirmBtnTheme | Object | - | 确认按钮主题色，即 Popconfirm 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }。TS 类型：`{ default: string; warning: string; danger: string; }` | N
+
+### QRCodeConfig
+
+名称 | 类型 | 默认值 | 描述 | 必传
+-- | -- | -- | -- | --
+expiredText | String | - | 语言配置，“二维码过期”描述文本 | N
+refreshText | String | - | 语言配置，“点击刷新”描述文本 | N
+scannedText | String | - | 语言配置，“已扫描”描述文本 | N
 
 ### RateConfig
 

@@ -1,5 +1,6 @@
 /** Vue3 特有全局类型 */
 type VNode = import('vue').VNode;
+export type AppContext = import('vue').AppContext;
 export type ScopedSlot = () => SlotReturnValue;
 export type SlotReturnValue = VNode | string | boolean | null | undefined | SlotReturnArray;
 export type SlotReturnArray = Array<SlotReturnValue>;
@@ -40,9 +41,6 @@ export interface UploadDisplayDragEvents {
 
 export type ImageEvent = Event;
 
-/**
- * 通用全局类型
- * */
 export type PlainObject = { [key: string]: any };
 
 export type OptionData = {
@@ -62,6 +60,9 @@ export type TreeOptionData<T = string | number> = {
   content?: string | TNode;
 } & PlainObject;
 
+/**
+ * 通用全局类型
+ * */
 export type SizeEnum = 'small' | 'medium' | 'large';
 
 export type ShapeEnum = 'circle' | 'round';

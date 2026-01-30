@@ -3,7 +3,15 @@ import dayjs from 'dayjs';
 import { isFunction, isDate } from 'lodash-es';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
-import { useConfig, useTNodeJSX, useDisabled, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+import {
+  useConfig,
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  useGlobalIcon,
+  usePrefixClass,
+  useEventForward,
+} from '@tdesign/shared-hooks';
 
 import { useSingle } from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';
@@ -11,8 +19,15 @@ import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';
+import { triggerMap } from './utils';
 
-import type { TdDatePickerProps, DateMultipleValue, DateValue } from './type';
+import type {
+  TdDatePickerProps,
+  DateMultipleValue,
+  DateValue,
+  DatePickerYearChangeTrigger,
+  DatePickerMonthChangeTrigger,
+} from './type';
 import type { TagInputRemoveContext } from '../tag-input';
 
 export default defineComponent({
@@ -70,9 +85,16 @@ export default defineComponent({
             formatDate(inputValue.value, {
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
+              defaultTime: props.defaultTime,
             }) as DateValue,
             {
-              dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
+              dayjsValue: parseToDayjs(
+                inputValue.value as string,
+                formatRef.value.format,
+                undefined,
+                undefined,
+                props.defaultTime,
+              ),
               trigger: 'confirm',
             },
           );
@@ -143,9 +165,9 @@ export default defineComponent({
         });
       } else {
         if (props.multiple) {
-          const newDate = processDate(date);
+          const newDate = processDate(date, props.defaultTime);
           onChange(newDate, {
-            dayjsValue: parseToDayjs(date, formatRef.value.format),
+            dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, props.defaultTime),
             trigger: 'pick',
           });
           return;
@@ -155,9 +177,10 @@ export default defineComponent({
           formatDate(date, {
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
+            defaultTime: props.defaultTime,
           }) as DateValue,
           {
-            dayjsValue: parseToDayjs(date, formatRef.value.format),
+            dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, props.defaultTime),
             trigger: 'pick',
           },
         );
@@ -167,7 +190,7 @@ export default defineComponent({
       props.onPick?.(date);
     }
 
-    function processDate(date: Date) {
+    function processDate(date: Date, defaultTime?: string | string[]) {
       let isSameDate: boolean;
       const currentValue = (value.value || []) as DateMultipleValue;
       const { dayjsLocale } = globalConfig.value;
@@ -183,23 +206,40 @@ export default defineComponent({
 
       if (!isSameDate) {
         currentDate = currentValue.concat(
-          formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
+          formatDate(date, {
+            format: formatRef.value.format,
+            targetFormat: formatRef.value.valueType,
+            defaultTime,
+          }),
         );
       } else {
         currentDate = currentValue.filter(
           (val) =>
-            formatDate(val, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }) !==
-            formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
+            formatDate(val, {
+              format: formatRef.value.format,
+              targetFormat: formatRef.value.valueType,
+              defaultTime,
+            }) !==
+            formatDate(date, {
+              format: formatRef.value.format,
+              targetFormat: formatRef.value.valueType,
+              defaultTime,
+            }),
         );
       }
       return currentDate;
     }
 
     function onTagRemoveClick(ctx: TagInputRemoveContext) {
+      if (['week', 'quarter'].includes(props.mode)) {
+        onChange?.(ctx.value, { trigger: 'tag-remove' });
+        return;
+      }
+
       const removeDate = dayjs(ctx.item).toDate();
-      const newDate = processDate(removeDate);
+      const newDate = processDate(removeDate, props.defaultTime);
       onChange?.(newDate, {
-        dayjsValue: parseToDayjs(removeDate, formatRef.value.format),
+        dayjsValue: parseToDayjs(removeDate, formatRef.value.format, undefined, undefined, props.defaultTime),
         trigger: 'tag-remove',
       });
     }
@@ -211,7 +251,7 @@ export default defineComponent({
     }
 
     // 头部快速切换
-    function onJumperClick({ trigger }: { trigger: string }) {
+    function onJumperClick({ trigger }: { trigger: 'prev' | 'next' | 'current' }) {
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
 
@@ -229,8 +269,29 @@ export default defineComponent({
       const nextYear = next.getFullYear();
       const nextMonth = next.getMonth();
 
+      const yearChanged = year.value !== nextYear;
+      const monthChanged = month.value !== nextMonth;
+
       year.value = nextYear;
       month.value = nextMonth;
+
+      // 触发年份变化事件
+      if (yearChanged) {
+        props.onYearChange?.({
+          year: nextYear,
+          date: new Date(nextYear, nextMonth),
+          trigger: trigger === 'current' ? 'today' : (`year-${triggerMap[trigger]}` as DatePickerYearChangeTrigger),
+        });
+      }
+
+      // 触发月份变化事件
+      if (monthChanged) {
+        props.onMonthChange?.({
+          month: nextMonth,
+          date: new Date(nextYear, nextMonth),
+          trigger: trigger === 'current' ? 'today' : (`month-${triggerMap[trigger]}` as DatePickerMonthChangeTrigger),
+        });
+      }
     }
 
     // timePicker 点击
@@ -268,9 +329,16 @@ export default defineComponent({
           formatDate(inputValue.value, {
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
+            defaultTime: props.defaultTime,
           }) as DateValue,
           {
-            dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
+            dayjsValue: parseToDayjs(
+              inputValue.value as string,
+              formatRef.value.format,
+              undefined,
+              undefined,
+              props.defaultTime,
+            ),
             trigger: 'confirm',
           },
         );
@@ -291,7 +359,7 @@ export default defineComponent({
           targetFormat: formatRef.value.valueType,
         }) as DateValue,
         {
-          dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
+          dayjsValue: parseToDayjs(presetVal, formatRef.value.format, undefined, undefined, props.defaultTime),
           trigger: 'preset',
         },
       );
@@ -304,10 +372,22 @@ export default defineComponent({
 
     function onYearChange(nextYear: number) {
       year.value = nextYear;
+
+      props.onYearChange?.({
+        year: nextYear,
+        date: dayjs(value.value as DateValue).toDate(),
+        trigger: 'year-select',
+      });
     }
 
     function onMonthChange(nextMonth: number) {
       month.value = nextMonth;
+
+      props.onMonthChange?.({
+        month: nextMonth,
+        date: dayjs(value.value as DateValue).toDate(),
+        trigger: 'month-select',
+      });
     }
 
     const panelProps = computed(() => ({
@@ -338,6 +418,10 @@ export default defineComponent({
       onPanelClick: () => inputRef.value?.focus?.(),
     }));
 
+    const selectInputEvents = useEventForward(props.selectInputProps as TdDatePickerProps['selectInputProps'], {
+      onClear: onTagClearClick,
+    });
+
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
@@ -358,14 +442,13 @@ export default defineComponent({
           popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
           needConfirm={props.needConfirm}
-          {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
           panel={() => <TSinglePanel {...panelProps.value} />}
           tagInputProps={{
             onRemove: onTagRemoveClick,
           }}
-          onClear={onTagClearClick}
           prefixIcon={() => renderTNodeJSX('prefixIcon')}
           suffixIcon={() => renderTNodeJSX('suffixIcon') || <CalendarIcon />}
+          {...selectInputEvents.value}
         />
       </div>
     );

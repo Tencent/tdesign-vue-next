@@ -34,6 +34,7 @@ export default async function mdToVue(options) {
             slot="doc-header"
             ref="tdDocHeader"
             spline="${mdSegment.spline}"
+            changelog="false"
             ${mdSegment.isComponent ? `component-name="${mdSegment.componentName}"` : ''}
           >
           </td-doc-header>`

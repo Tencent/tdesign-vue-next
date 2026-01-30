@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
-      <t-image-viewer v-model:visible="visible1" :images="images">
+      <t-image-viewer v-model:visible="visible1" :images="images" :z-index="10000">
         <template #trigger>
           <div class="tdesign-demo-image-viewer__ui-image">
             <img alt="test" :src="img" class="tdesign-demo-image-viewer__ui-image--img" />

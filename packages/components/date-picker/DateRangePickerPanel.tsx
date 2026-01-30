@@ -16,7 +16,7 @@ import TRangePanel from './components/panel/RangePanel';
 import { useRangeValue } from './hooks/useRangeValue';
 import { formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
-import { dateCorrection } from './utils';
+import { dateCorrection, triggerMap } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePickerPanel',
@@ -88,12 +88,6 @@ export default defineComponent({
 
     // 日期点击
     function onCellClick(date: Date, { e }: { e: MouseEvent }) {
-      props.onCellClick?.({
-        e,
-        partial: activeIndex.value ? 'end' : 'start',
-        date: value.value.map((v) => dayjs(v).toDate()),
-      });
-
       isHoverCell.value = false;
       isSelected.value = true;
 
@@ -103,6 +97,11 @@ export default defineComponent({
       }) as string;
       cacheValue.value = nextValue;
 
+      props.onCellClick?.({
+        e,
+        partial: activeIndex.value ? 'end' : 'start',
+        date: nextValue.map((v) => dayjs(v).toDate()),
+      });
       // 有时间选择器走 confirm 逻辑
       if (props.enableTimePicker) return;
 
@@ -112,9 +111,12 @@ export default defineComponent({
           formatDate(nextValue, {
             format: formatRef.value.format,
             autoSwap: true,
+            defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+            dayjsValue: nextValue.map((v, i) =>
+              parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+            ),
             trigger: 'pick',
           },
         );
@@ -134,10 +136,6 @@ export default defineComponent({
     }) {
       const partialIndex = partial === 'start' ? 0 : 1;
 
-      const triggerMap = {
-        prev: 'arrow-previous',
-        next: 'arrow-next',
-      };
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
       const current = new Date(year.value[partialIndex], month.value[partialIndex]);
@@ -226,9 +224,12 @@ export default defineComponent({
           formatDate(nextValue, {
             format: formatRef.value.format,
             autoSwap: true,
+            defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+            dayjsValue: nextValue.map((v, i) =>
+              parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+            ),
             trigger: 'confirm',
           },
         );
@@ -255,9 +256,12 @@ export default defineComponent({
           formatDate(presetValue, {
             format: formatRef.value.format,
             autoSwap: true,
+            defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),
+            dayjsValue: presetValue.map((p, i) =>
+              parseToDayjs(p, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+            ),
             trigger: 'preset',
           },
         );

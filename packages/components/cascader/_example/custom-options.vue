@@ -31,6 +31,22 @@
       :option="optionRender"
     >
     </t-cascader>
+    <t-cascader
+      v-model="value4"
+      :popup-props="{ overlayClassName: 'tdesign-demo-select__overlay-option' }"
+      :options="options"
+      multiple
+    >
+      <template #option="{ item, onChange }">
+        <div class="tdesign-demo__user-option" @click="(e) => handleClick(item, onChange)">
+          <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
+          <div class="tdesign-demo__user-option-info">
+            <div>{{ item.label }}</div>
+            <div>{{ item.value }}</div>
+          </div>
+        </div>
+      </template>
+    </t-cascader>
   </t-space>
 </template>
 <script setup lang="jsx">
@@ -74,6 +90,7 @@ const options = [
 const value1 = ref('');
 const value2 = ref('');
 const value3 = ref('');
+const value4 = ref([]);
 
 const optionRender = (h, { item }) => (
   <div class="tdesign-demo__user-option">
@@ -96,6 +113,10 @@ const getDeepOptions = (options) => {
 };
 
 const optionsData = computed(() => getDeepOptions(options));
+
+const handleClick = (item, changeCallback) => {
+  if (Array.isArray(item.children) && !item.children?.length) changeCallback();
+};
 </script>
 <style>
 .tdesign-demo__user-option {

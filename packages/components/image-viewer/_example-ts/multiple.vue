@@ -1,30 +1,10 @@
 <template>
   <div>
-    <t-image-viewer :key="img1" v-model:visible="visible" :default-index="0" :images="images">
-      <template #trigger>
+    <t-image-viewer v-for="(img, index) in images" :key="img" :default-index="index" :images="images" :z-index="10000">
+      <template #trigger="{ open }">
         <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
-          <img alt="test" :src="img1" class="tdesign-demo-image-viewer__ui-image--img" />
-          <div class="tdesign-demo-image-viewer__ui-image--hover" @click="onOpen">
-            <span><BrowseIcon size="1.4em" /> 预览</span>
-          </div>
-        </div>
-      </template>
-    </t-image-viewer>
-    <t-image-viewer :key="1" v-model:visible="visible2" :default-index="1" :images="images">
-      <template #trigger>
-        <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
-          <img alt="test" :src="img2" class="tdesign-demo-image-viewer__ui-image--img" />
-          <div class="tdesign-demo-image-viewer__ui-image--hover" @click="onOpen2">
-            <span><BrowseIcon size="1.4em" /> 预览</span>
-          </div>
-        </div>
-      </template>
-    </t-image-viewer>
-    <t-image-viewer :key="2" v-model:visible="visible3" :default-index="2" :images="images">
-      <template #trigger>
-        <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
-          <img alt="test" :src="img3" class="tdesign-demo-image-viewer__ui-image--img" />
-          <div class="tdesign-demo-image-viewer__ui-image--hover" @click="onOpen3">
+          <img alt="test" :src="img" class="tdesign-demo-image-viewer__ui-image--img" />
+          <div class="tdesign-demo-image-viewer__ui-image--hover" @click="open(index)">
             <span><BrowseIcon size="1.4em" /> 预览</span>
           </div>
         </div>
@@ -35,18 +15,13 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { ImageViewerProps } from 'tdesign-vue-next';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
-const visible = ref(false);
-const visible2 = ref(false);
-const visible3 = ref(false);
-const onOpen = () => (visible.value = true);
-const onOpen2 = () => (visible2.value = true);
-const onOpen3 = () => (visible3.value = true);
+
 const img3 = 'https://tdesign.gtimg.com/demo/demo-image-3.png';
 const img2 = 'https://tdesign.gtimg.com/demo/demo-image-2.png';
 const img1 = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
-const images: ImageViewerProps['images'] = [img1, img2, img3];
+
+const images = ref([img1, img2, img3]);
 </script>
 <style scoped>
 .tdesign-demo-image-viewer__ui-image {

@@ -5,6 +5,39 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.4.6 `2025-09-12` 
+
+### 🐞 Bug Fixes
+- `ChatInput`: 修复 `suffixIcon` 传值不是插槽，响应式无效 @liweijie0812 ([#5905](https://github.com/Tencent/tdesign-vue-next/pull/5905))
+
+
+## 🌈 0.4.5 `2025-07-31` 
+
+### 🐞 Bug Fixes
+- `Chat`: 修复`0.4.3` 版本后多语言功能没有正确响应切换的问题 @uyarn ([#5828](https://github.com/Tencent/tdesign-vue-next/pull/5828))
+
+## 🌈 0.4.4 `2025-07-31` 
+
+### 🐞 Bug Fixes
+- `ChatContent`: 错误使用变量导致文案显示异常 @BelinChung ([#5817](https://github.com/Tencent/tdesign-vue-next/pull/5817))
+
+
+## 🌈 0.4.3 `2025-07-18` 
+
+### 🐞 Bug Fixes
+- `ChatInput`: 修复使用含 shift 的快捷键导致输入框失焦后，shift 标识未取消的问题 @Lyan-u ([#5710](https://github.com/Tencent/tdesign-vue-next/pull/5710))
+- `Locale`: 修复多语言切换响应式失效 @liweijie0812 ([#5704](https://github.com/Tencent/tdesign-vue-next/pull/5704))
+
+## 🌈 0.4.2 `2025-07-03` 
+
+### 🚀 Features
+- 支持在`Volar`中提供类型提示 @liweijie0812 ([#5612](https://github.com/Tencent/tdesign-vue-next/pull/5612))
+
+### 🐞 Bug Fixes
+- `Chat`: 修复用户消息字体样式 @Nero978  ([#5617](https://github.com/Tencent/tdesign-vue-next/pull/5617))
+- `ChatSender`: 
+  - 修复 windows 中文输入法（微软拼音）下使用 `shift +组合键` 先松开 shift 键再松开组合键之后，未同步取消 shift 功能的问题 @verynong ([#5608](https://github.com/Tencent/tdesign-vue-next/pull/5608))
+
 ## 🌈 0.4.1 `2025-06-12` 
 
 ### 🚀 Features

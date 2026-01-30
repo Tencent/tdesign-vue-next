@@ -3,7 +3,7 @@
  */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-undef */
-import { ComponentPublicInstance, VNode } from 'vue';
+import { ComponentPublicInstance, VNode, isVNode, Comment } from 'vue';
 import raf from 'raf';
 import { isArray, isString, isFunction } from 'lodash-es';
 
@@ -373,3 +373,14 @@ export function getWindowSize(): { width: number; height: number } {
   const doc = document.documentElement;
   return { width: doc.clientWidth, height: doc.clientHeight };
 }
+
+/**
+ * 判断一个 VNode 是否是注释节点（Comment）
+ * Vue 3 中注释节点的 type 是 Comment
+ *
+ * @param node - 任意节点
+ * @returns 是否为注释类型的 VNode
+ */
+export const isCommentVNode = (node: unknown): node is VNode => {
+  return isVNode(node) && node.type === Comment;
+};

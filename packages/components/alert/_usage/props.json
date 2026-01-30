@@ -1,6 +1,6 @@
 [
   {
-    "name": "close",
+    "name": "closeBtn",
     "type": "Boolean",
     "defaultValue": false,
     "options": []

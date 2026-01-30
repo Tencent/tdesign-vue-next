@@ -21,6 +21,10 @@ export default {
     type: Array as PropType<TdDateRangePickerProps['defaultTime']>,
     default: (): TdDateRangePickerProps['defaultTime'] => ['00:00:00', '23:59:59'],
   },
+  /** 禁用时间项的配置函数，仅在日期区间选择器中开启时间展示时可用 */
+  disableTime: {
+    type: Function as PropType<TdDateRangePickerProps['disableTime']>,
+  },
   /** 禁用日期，示例：['A', 'B'] 表示日期 A 和日期 B 会被禁用。{ from: 'A', to: 'B' } 表示在 A 到 B 之间的日期会被禁用。{ before: 'A', after: 'B' } 表示在 A 之前和在 B 之后的日期都会被禁用。其中 A = '2021-01-01'，B = '2021-02-01'。值类型为 Function 则表示返回值为 true 的日期会被禁用 */
   disableDate: {
     type: [Object, Array, Function] as PropType<TdDateRangePickerProps['disableDate']>,
@@ -179,8 +183,12 @@ export default {
   onFocus: Function as PropType<TdDateRangePickerProps['onFocus']>,
   /** 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值 */
   onInput: Function as PropType<TdDateRangePickerProps['onInput']>,
+  /** 月份切换发生变化时触发 */
+  onMonthChange: Function as PropType<TdDateRangePickerProps['onMonthChange']>,
   /** 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期 */
   onPick: Function as PropType<TdDateRangePickerProps['onPick']>,
   /** 点击预设按钮后触发 */
   onPresetClick: Function as PropType<TdDateRangePickerProps['onPresetClick']>,
+  /** 年份切换发生变化时触发 */
+  onYearChange: Function as PropType<TdDateRangePickerProps['onYearChange']>,
 };

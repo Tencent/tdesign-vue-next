@@ -4,11 +4,19 @@
 
 Icons are published and managed as a separate npm package. If you want to use it directly in your project, please install `tdesign-icons-vue-next`. At the same time, `tdesign-vue-next` also includes icons and supports direct use through `t-icon`.
 
+On-demand icon importing is recommended to reduce the output size. Additionally, icons imported on-demand support arbitrary weight adjustments and up to four color fills, providing a better user experience.
+
+<div style="background: #ecf2fe; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
+  Visit <a style="margin: 0 4px" href='/icons-en'> TDesign Icons </a> to view and experience all supported icons.
+</div>
+
+
 ### Import on-demand
 
 SVG icons can be imported on demand. When using the Icon component in component development, SVG icons are imported on demand.
 
 {{ single }}
+
 ### Full import
 
 The icon size supports multiple units, such as 'small', 'medium', 'large', '35px', '3em', etc. 
@@ -55,19 +63,18 @@ You can get all the name of icon by import manifest from the bundle `import { ma
 #### the usage of full import needs network. What if my project is in a no-network scenario?
 
 if your project is in a **no-network scenario**, please use **on-demand loading** of icons. For example,`<t-icon name="add" />` should be changed to `<AddIcon />`
-### All Icons
-
-<div style="background: #ecf2fe; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
-  <svg fill="none" viewBox="0 0 16 16" width="16px" height="16px" style="margin-right: 5px">
-    <path fill="#0052d9" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillOpacity="0.9"></path>
-  </svg>
-<p style="flex:1">Most icons were added to the icon library after version 0.3.0. If you find that the icon cannot be displayed normally after being imported, please check the version of tdesign-icons-vue-next you have installed. Supports Chinese and English search. If you think other keyword prompts can be added, feel free to submit a Pull Request to <a href="https://github.com/Tencent/tdesign-icons/blob/develop/packages/view/src/manifest.js" target="_blank"> the Icon Repository</a> to help us complete it together. </p>
-</div>
-
-
-<td-icons-view />
 
 ## API
+
+### Icon Props
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+size | String | undefined | size of icon | N
+onClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
+strokeWidth | Number | width of icon stroke，default is 2
+strokeColor | String / Array | stroke color of the outlined icon, default value is `currentColor`, supporting up to two stroke colors at most
+fillColor | String / Array | fill color for outlined icons and the fill color for filled icons. For outlined icons, the default is transparent, while for filled icons, the default is currentColor, supporting up to two fill colors at most
 
 ### IconSVG Props
 

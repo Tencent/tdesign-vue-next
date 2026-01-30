@@ -140,6 +140,33 @@ export default defineComponent({
       if (customList) return customList;
 
       const cardItemClasses = `${classPrefix.value}-upload__card-item ${classPrefix.value}-is-background`;
+      const renderTrigger = () => {
+        return (
+          renderTNodeJSX('trigger', {
+            params: {
+              triggerUpload: props.triggerUpload,
+            },
+          }) || (
+            <li class={cardItemClasses} onClick={props.triggerUpload}>
+              <div
+                class={[
+                  `${classPrefix.value}-upload__image-add`,
+                  `${classPrefix.value}-upload__card-container`,
+                  `${classPrefix.value}-upload__card-box`,
+                  {
+                    [`${classPrefix.value}-is-disabled`]: props.disabled,
+                  },
+                ]}
+              >
+                <AddIcon />
+                <p class={[`${classPrefix.value}-size-s`, `${classPrefix.value}-upload__add-text`]}>
+                  {locale.value?.triggerUploadText?.image}
+                </p>
+              </div>
+            </li>
+          )
+        );
+      };
       return (
         <div>
           <ul class={`${classPrefix.value}-upload__card`}>
@@ -172,25 +199,7 @@ export default defineComponent({
               );
             })}
 
-            {showTrigger.value && (
-              <li class={cardItemClasses} onClick={props.triggerUpload}>
-                <div
-                  class={[
-                    `${classPrefix.value}-upload__image-add`,
-                    `${classPrefix.value}-upload__card-container`,
-                    `${classPrefix.value}-upload__card-box`,
-                    {
-                      [`${classPrefix.value}-is-disabled`]: props.disabled,
-                    },
-                  ]}
-                >
-                  <AddIcon />
-                  <p class={[`${classPrefix.value}-size-s`, `${classPrefix.value}-upload__add-text`]}>
-                    {locale.value?.triggerUploadText?.image}
-                  </p>
-                </div>
-              </li>
-            )}
+            {showTrigger.value && renderTrigger()}
           </ul>
         </div>
       );

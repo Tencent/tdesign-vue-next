@@ -1,16 +1,12 @@
 <template>
-  <t-row class="t-skeleton-demo">
-    <t-col v-for="(theme, index) in themes" :key="`theme-${index}`">
-      <section class="t-skeleton-demo-card">
-        <div class="header">
-          {{ theme.label }}
-        </div>
-        <div class="content">
-          <t-skeleton :theme="theme.value"></t-skeleton>
-        </div>
-      </section>
-    </t-col>
-  </t-row>
+  <div className="t-skeleton-demo">
+    <div v-for="(theme, index) in themes" :key="`theme-${index}`" className="t-skeleton-demo-card">
+      <div className="header">{{ theme.label }}</div>
+      <div className="content">
+        <t-skeleton :theme="theme.value"></t-skeleton>
+      </div>
+    </div>
+  </div>
 </template>
 <script setup>
 const themes = [

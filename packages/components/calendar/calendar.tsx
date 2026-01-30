@@ -6,6 +6,7 @@ import { remove, isArray, isFunction } from 'lodash-es';
 import props from './props';
 import * as utils from './utils';
 import { useConfig, useContent } from '@tdesign/shared-hooks';
+import { handleRange } from '@tdesign/common-js/calendar/utils';
 
 import { useState, useCalendarClass, userController, useColHeaders } from './hooks';
 
@@ -49,32 +50,23 @@ export default defineComponent({
     const controller = userController(props, state);
 
     // 年\月份下拉框
-    const rangeFromTo = computed<CalendarRange>(() => {
-      if (!props.range || props.range.length < 2) {
-        return null;
-      }
-      const [v1, v2] = props.range;
-      if (dayjs(v1).isBefore(dayjs(v2))) {
-        return {
-          from: v1,
-          to: v2,
-        };
-      }
-      return {
-        from: v2,
-        to: v1,
-      };
-    });
+    const rangeFromTo = computed<CalendarRange>(() => handleRange(props.range));
     function checkMonthAndYearSelectedDisabled(year: number, month: number): boolean {
       let disabled = false;
       if (rangeFromTo.value && rangeFromTo.value.from && rangeFromTo.value.to) {
+        // 读取起止年份
         const beginYear = dayjs(rangeFromTo.value.from).year();
         const endYear = dayjs(rangeFromTo.value.to).year();
-        if (year === beginYear) {
-          const beginMon = parseInt(dayjs(rangeFromTo.value.from).format('M'), 10);
+        // 读取起止月份
+        const beginMon = parseInt(dayjs(rangeFromTo.value.from).format('M'), 10);
+        const endMon = parseInt(dayjs(rangeFromTo.value.to).format('M'), 10);
+
+        if (beginYear === endYear) {
+          // 同一年内，禁用开始月份至结束月份之外的月份选项
+          disabled = month < beginMon || month > endMon;
+        } else if (year === beginYear) {
           disabled = month < beginMon;
         } else if (year === endYear) {
-          const endMon = parseInt(dayjs(rangeFromTo.value.to).format('M'), 10);
           disabled = month > endMon;
         }
       }

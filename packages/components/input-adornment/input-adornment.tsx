@@ -7,7 +7,6 @@ import props from './props';
 
 export default defineComponent({
   name: 'TInputAdornment',
-  inheritAttrs: false,
   props,
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('input-adornment');

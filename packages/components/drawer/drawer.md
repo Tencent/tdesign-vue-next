@@ -139,3 +139,6 @@ update | `(props: DrawerOptions)` | \- | 更新抽屉内容
 参数名称 | 参数类型 | 参数默认值 | 参数描述
 -- | -- | -- | --
 options | \- | - | TS 类型：`DrawerOptions`
+context | \- | - | TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
+
+插件返回值：`DrawerInstance`

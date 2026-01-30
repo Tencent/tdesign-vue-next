@@ -13,7 +13,15 @@ export interface TdSkeletonProps {
    */
   animation?: 'gradient' | 'flashed' | 'none';
   /**
-   * 【开发中】延迟显示加载效果的时间，用于防止请求速度过快引起的加载闪烁，单位：毫秒
+   * 加载完成的内容
+   */
+  content?: string | TNode;
+  /**
+   * 加载完成的内容，同 content
+   */
+  default?: string | TNode;
+  /**
+   * 延迟显示加载效果的时间，用于防止请求速度过快引起的加载闪烁，单位：毫秒
    * @default 0
    */
   delay?: number;
@@ -33,7 +41,7 @@ export interface TdSkeletonProps {
   theme?: 'text' | 'avatar' | 'paragraph' | 'avatar-text' | 'tab' | 'article';
 }
 
-export type SkeletonRowCol = Array<Number | SkeletonRowColObj | Array<SkeletonRowColObj>>;
+export type SkeletonRowCol = Array<number | SkeletonRowColObj | Array<SkeletonRowColObj>>;
 
 export interface SkeletonRowColObj {
   width?: string;

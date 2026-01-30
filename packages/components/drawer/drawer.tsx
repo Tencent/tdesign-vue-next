@@ -196,7 +196,14 @@ export default defineComponent({
           setTimeout(() => (isVisible.value = true));
         } else {
           isVisible.value = false;
-          setTimeout(() => (destroyOnCloseVisible.value = true), 200);
+          // immediate 的 watch 的第一次触发，会将设置为 true 的行为延后
+          // 插件场景下，watch -> create 方法 的立刻调用，导致 destroyOnCloseVisible 被 watch 的第一次触发覆盖
+          // 所以关闭时候，默认先置为 false
+          // 后续考虑移除 immediate 的 watch ?
+          if (destroyOnCloseVisible.value) {
+            destroyOnCloseVisible.value = false;
+          }
+          setTimeout(() => (destroyOnCloseVisible.value = true), 300);
         }
         return;
       }

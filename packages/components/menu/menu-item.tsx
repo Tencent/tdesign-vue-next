@@ -60,6 +60,10 @@ export default defineComponent({
     // lifetimes
     onMounted(() => {
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default, ...props });
+      const activeValues = menu.activeValues.value;
+      if (activeValues.includes(props.value) && !activeValues.includes(submenu?.value)) {
+        activeValues.push(submenu?.value);
+      }
     });
 
     return () => {

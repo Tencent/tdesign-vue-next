@@ -26,12 +26,10 @@ export default defineComponent({
       return defaultClass;
     });
 
-    const headerCls = computed(() => {
-      const defaultClass = [`${COMPONENT_NAME.value}__header`];
-      return props.headerBordered
-        ? defaultClass.concat(`${COMPONENT_NAME.value}__title--bordered`)
-        : [`${COMPONENT_NAME.value}__header`];
-    });
+    const headerCls = computed(() => [
+      `${COMPONENT_NAME.value}__header`,
+      props.headerBordered && `${COMPONENT_NAME.value}__title--bordered`,
+    ]);
 
     const headerWrapperCls = usePrefixClass('card__header-wrapper');
     const headerAvatarCls = usePrefixClass('card__avatar');
@@ -78,9 +76,14 @@ export default defineComponent({
 
     // 头部区域渲染逻辑
     const renderHeader = () => {
-      if (showHeader.value) return <div class={headerCls.value}>{renderTNodeJSX('header')}</div>;
+      if (showHeader.value)
+        return (
+          <div class={[headerCls.value, props.headerClassName]} style={props.headerStyle}>
+            {renderTNodeJSX('header')}
+          </div>
+        );
       return (
-        <div class={headerCls.value}>
+        <div class={[headerCls.value, props.headerClassName]} style={props.headerStyle}>
           <div class={headerWrapperCls.value}>
             {showAvatar.value && <div class={headerAvatarCls.value}>{renderTNodeJSX('avatar')}</div>}
             <div>
@@ -107,10 +110,12 @@ export default defineComponent({
           {isHeaderRender.value ? renderHeader() : null}
           {showCover.value ? renderCover() : null}
           {showContent.value && (
-            <div class={bodyCls.value}>{renderTNodeJSX('default') || renderTNodeJSX('content')}</div>
+            <div class={[bodyCls.value, props.bodyClassName]} style={props.bodyStyle}>
+              {renderTNodeJSX('default') || renderTNodeJSX('content')}
+            </div>
           )}
           {isFooterRender.value && (
-            <div class={footerCls.value}>
+            <div class={[footerCls.value, props.footerClassName]} style={props.footerStyle}>
               <div class={footerWrapperCls.value}>{renderTNodeJSX('footer')}</div>
               {showActions.value && isPoster2.value && <div class={actionsCls.value}>{renderTNodeJSX('actions')}</div>}
             </div>

@@ -25,7 +25,9 @@ export default {
   max: {
     type: Number,
   },
-  /** 头像右上角提示信息 */
+  /**
+   * 【开发中】头像右上角提示信息
+   */
   popupProps: {
     type: Object as PropType<TdAvatarGroupProps['popupProps']>,
   },

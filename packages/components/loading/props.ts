@@ -2,17 +2,16 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdLoadingProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 挂载元素，默认挂载到组件本身所在的位置。仅全屏加载模式下有效。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
+  /** 挂载元素，默认挂载到组件本身所在的位置。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
   attach: {
     type: [String, Function] as PropType<TdLoadingProps['attach']>,
-    default: '',
+    default: '' as TdLoadingProps['attach'],
   },
   /** 子元素 */
   content: {
@@ -32,7 +31,7 @@ export default {
   /** 加载指示符，值为 true 显示默认指示符，值为 false 则不显示，也可以自定义指示符 */
   indicator: {
     type: [Boolean, Function] as PropType<TdLoadingProps['indicator']>,
-    default: true,
+    default: true as TdLoadingProps['indicator'],
   },
   /** 是否继承父元素颜色 */
   inheritColor: Boolean,

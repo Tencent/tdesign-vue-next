@@ -1,6 +1,6 @@
 <template>
   <t-space>
-    <t-tree-select v-model="value" :data="options" clearable placeholder="请选择">
+    <t-tree-select v-model="value" :data="options" clearable placeholder="请选择" filterable>
       <template #valueDisplay="{ value: valueDisplay }"> {{ valueDisplay.label }}({{ valueDisplay.value }}) </template>
     </t-tree-select>
     <t-tree-select v-model="mulValue" :data="options" multiple clearable filterable placeholder="请选择">

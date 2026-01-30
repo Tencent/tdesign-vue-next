@@ -42,9 +42,10 @@ export default defineComponent({
         return;
       }
       const left = Math.round((props.value / props.maxValue) * 100);
+      const color = props.type === 'hue' ? `hsl(${props.color.hue}, 100%, 50%)` : props.color.rgba;
       return {
         left: `${left}%`,
-        color: props.color.rgb,
+        color,
       };
     });
 

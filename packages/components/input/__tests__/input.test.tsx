@@ -394,6 +394,32 @@ describe('Input Component', () => {
     expect(onEnterFn1.mock.calls[0][1].e.type).toBe('keydown');
   });
 
+  it('events.enter should not trigger during IME composition', async () => {
+    const onEnterFn = vi.fn();
+    const wrapper = mount(<Input value="text" onEnter={onEnterFn}></Input>);
+    const input = wrapper.find('input');
+
+    // 模拟中文输入法开始
+    input.trigger('compositionstart');
+    await wrapper.vm.$nextTick();
+
+    // 在输入法激活状态下按回车键，不应该触发 onEnter 事件
+    input.trigger('keydown.enter');
+    await wrapper.vm.$nextTick();
+    expect(onEnterFn).not.toHaveBeenCalled();
+
+    // 模拟中文输入法结束
+    input.trigger('compositionend');
+    await wrapper.vm.$nextTick();
+
+    // 输入法结束后按回车键，应该正常触发 onEnter 事件
+    input.trigger('keydown.enter');
+    await wrapper.vm.$nextTick();
+    expect(onEnterFn).toHaveBeenCalled(1);
+    expect(onEnterFn.mock.calls[0][0]).toBe('text');
+    expect(onEnterFn.mock.calls[0][1].e.type).toBe('keydown');
+  });
+
   it('events.focus works fine', async () => {
     const onFocusFn = vi.fn();
     const wrapper = mount(<Input onFocus={onFocusFn}></Input>);

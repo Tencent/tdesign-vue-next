@@ -25,6 +25,7 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
       allowExternal: true,
+      reportOnFailure: true,
       include: [await joinComponentsRoot()],
     },
   },

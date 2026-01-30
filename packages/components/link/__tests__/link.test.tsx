@@ -1,136 +1,133 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Link } from '@tdesign/components/link';
+import { Link, LinkProps } from '@tdesign/components/link';
 
-describe('Link Component', () => {
-  it('props.content works fine', () => {
-    const wrapper = mount(<Link content={() => <span class="custom-node">TNode</span>}></Link>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
+describe('Link', () => {
+  describe('props', () => {
+    it('content[function]', () => {
+      const wrapper = mount(<Link content={() => 'content test'}></Link>);
+      expect(wrapper.find('.t-link').text()).toBe('content test');
+    });
 
-  it('slots.content works fine', () => {
-    const wrapper = mount(<Link v-slots={{ content: () => <span class="custom-node">TNode</span> }}></Link>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
+    it('content[slot]', () => {
+      const wrapper = mount(<Link v-slots={{ content: () => 'content test' }}></Link>);
+      expect(wrapper.find('.t-link').text()).toBe('content test');
+    });
 
-  it('props.default works fine', () => {
-    const wrapper = mount(<Link default={() => <span class="custom-node">TNode</span>}></Link>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
+    it('default[function]', () => {
+      const wrapper = mount(<Link default={() => 'default test'}></Link>);
+      expect(wrapper.find('.t-link').text()).toBe('default test');
+    });
 
-  it('slots.default works fine', () => {
-    const wrapper = mount(<Link v-slots={{ default: () => <span class="custom-node">TNode</span> }}></Link>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
+    it('default[slot]', () => {
+      const wrapper = mount(<Link v-slots={{ default: () => 'default test' }}></Link>);
+      expect(wrapper.find('.t-link').text()).toBe('default test');
+    });
 
-  it('props.disabled works fine', () => {
-    // disabled default value is
-    const wrapper1 = mount(<Link>Text</Link>);
-    expect(wrapper1.classes('t-is-disabled')).toBeFalsy();
-    // disabled = true
-    const wrapper2 = mount(<Link disabled={true}>Text</Link>);
-    expect(wrapper2.classes('t-is-disabled')).toBeTruthy();
-    expect(wrapper2.element).toMatchSnapshot();
-    // disabled = false
-    const wrapper3 = mount(<Link disabled={false}>Text</Link>);
-    expect(wrapper3.classes('t-is-disabled')).toBeFalsy();
-    expect(wrapper3.element).toMatchSnapshot();
-  });
+    it('disabled[boolean]', () => {
+      // disabled default value is
+      const wrapper1 = mount(<Link>Text</Link>);
+      expect(wrapper1.classes('t-is-disabled')).toBeFalsy();
+      // disabled = true
+      const wrapper2 = mount(<Link disabled={true}>Text</Link>);
+      expect(wrapper2.classes('t-is-disabled')).toBeTruthy();
+      expect(wrapper2.element).toMatchSnapshot();
+      // disabled = false
+      const wrapper3 = mount(<Link disabled={false}>Text</Link>);
+      expect(wrapper3.classes('t-is-disabled')).toBeFalsy();
+      expect(wrapper3.element).toMatchSnapshot();
+    });
 
-  ['color', 'underline'].forEach((item) => {
-    it(`props.hover is equal to ${item}`, () => {
-      const wrapper = mount(<Link hover={item}>Text</Link>);
-      expect(wrapper.classes(`t-link--hover-${item}`)).toBeTruthy();
+    it('hover[string]', () => {
+      const hoverList: Array<LinkProps['hover']> = ['color', 'underline'];
+      hoverList.forEach((item) => {
+        const wrapper = mount(<Link hover={item}>Text</Link>);
+        expect(wrapper.classes(`t-link--hover-${item}`)).toBeTruthy();
+        expect(wrapper.element).toMatchSnapshot();
+      });
+    });
+
+    it('href[string]', () => {
+      const wrapper = mount(<Link href={'https://tdesign.tencent.com/'}>Text</Link>);
+      expect(wrapper.attributes('href')).toBe('https://tdesign.tencent.com/');
       expect(wrapper.element).toMatchSnapshot();
     });
-  });
 
-  it('props.href works fine', () => {
-    const wrapper = mount(<Link href={'https://tdesign.tencent.com/'}>Text</Link>);
-    expect(wrapper.attributes('href')).toBe('https://tdesign.tencent.com/');
-    expect(wrapper.element).toMatchSnapshot();
-  });
+    it('prefixIcon[function]', () => {
+      const wrapper = mount(<Link prefixIcon={() => 'prefixIcon'}></Link>);
+      expect(wrapper.find('.t-link__prefix-icon').text()).toBe('prefixIcon');
+    });
 
-  it('props.prefixIcon works fine', () => {
-    const wrapper = mount(<Link prefixIcon={() => <span class="custom-node">TNode</span>}></Link>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
+    it('prefixIcon[slot]', () => {
+      const wrapper = mount(<Link v-slots={{ prefixIcon: () => 'prefixIcon' }}></Link>);
+      expect(wrapper.find('.t-link__prefix-icon').text()).toBe('prefixIcon');
+    });
 
-  it('slots.prefixIcon works fine', () => {
-    const wrapper = mount(<Link v-slots={{ prefixIcon: () => <span class="custom-node">TNode</span> }}></Link>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-  it('slots.prefix-icon works fine', () => {
-    const wrapper = mount(<Link v-slots={{ 'prefix-icon': () => <span class="custom-node">TNode</span> }}></Link>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
+    it('prefix-icon[slot]', () => {
+      const wrapper = mount(<Link v-slots={{ 'prefix-icon': () => 'prefixIcon' }}></Link>);
+      expect(wrapper.find('.t-link__prefix-icon').text()).toBe('prefixIcon');
+    });
 
-  const sizeClassNameList = ['t-size-s', { 't-size-m': false }, 't-size-l'];
-  ['small', 'medium', 'large'].forEach((item, index) => {
-    it(`props.size is equal to ${item}`, () => {
-      const wrapper = mount(<Link size={item}>Text</Link>);
-      if (typeof sizeClassNameList[index] === 'string') {
-        expect(wrapper.classes(sizeClassNameList[index])).toBeTruthy();
-      } else if (typeof sizeClassNameList[index] === 'object') {
-        const classNameKey = Object.keys(sizeClassNameList[index])[0];
-        expect(wrapper.classes(classNameKey)).toBeFalsy();
-      }
+    it('size[string]', () => {
+      const wrapperSmall = mount(<Link size={'small'}>Text</Link>);
+      expect(wrapperSmall.classes('t-size-s')).toBeTruthy();
+
+      const wrapperMedium = mount(<Link size={'medium'}>Text</Link>);
+      expect(wrapperMedium.classes('t-size-m')).toBeFalsy();
+
+      const wrapperLarge = mount(<Link size={'large'}>Text</Link>);
+      expect(wrapperLarge.classes('t-size-l')).toBeTruthy();
+    });
+
+    it('suffixIcon[function]', () => {
+      const wrapper = mount(<Link suffixIcon={() => 'suffixIcon'}></Link>);
+      expect(wrapper.find('.t-link__suffix-icon').text()).toBe('suffixIcon');
+    });
+
+    it('suffixIcon[slot]', () => {
+      const wrapper = mount(<Link v-slots={{ suffixIcon: () => 'suffixIcon' }}></Link>);
+      expect(wrapper.find('.t-link__suffix-icon').text()).toBe('suffixIcon');
+    });
+    it('suffix-icon[slot]', () => {
+      const wrapper = mount(<Link v-slots={{ 'suffix-icon': () => 'suffix-icon' }}></Link>);
+      expect(wrapper.find('.t-link__suffix-icon').text()).toBe('suffix-icon');
+    });
+
+    it('target[string]', () => {
+      const wrapper = mount(<Link target={'_blank'}>Text</Link>);
+      expect(wrapper.attributes('target')).toBe('_blank');
       expect(wrapper.element).toMatchSnapshot();
     });
-  });
 
-  it('props.suffixIcon works fine', () => {
-    const wrapper = mount(<Link suffixIcon={() => <span class="custom-node">TNode</span>}></Link>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
+    it('theme[string]', () => {
+      const themeList: Array<LinkProps['theme']> = ['default', 'primary', 'danger', 'warning', 'success'];
+      themeList.forEach((item) => {
+        const wrapper = mount(<Link theme={item}>Text</Link>);
+        expect(wrapper.classes(`t-link--theme-${item}`)).toBeTruthy();
+      });
+    });
 
-  it('slots.suffixIcon works fine', () => {
-    const wrapper = mount(<Link v-slots={{ suffixIcon: () => <span class="custom-node">TNode</span> }}></Link>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-  it('slots.suffix-icon works fine', () => {
-    const wrapper = mount(<Link v-slots={{ 'suffix-icon': () => <span class="custom-node">TNode</span> }}></Link>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('props.target works fine', () => {
-    const wrapper = mount(<Link target={'_blank'}>Text</Link>);
-    expect(wrapper.attributes('target')).toBe('_blank');
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  ['default', 'primary', 'danger', 'warning', 'success'].forEach((item) => {
-    it(`props.theme is equal to ${item}`, () => {
-      const wrapper = mount(<Link theme={item}>Text</Link>);
-      expect(wrapper.classes(`t-link--theme-${item}`)).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
+    it('underline[boolean]', () => {
+      // underline default value is
+      const wrapper1 = mount(<Link>Text</Link>);
+      expect(wrapper1.classes('t-is-underline')).toBeFalsy();
+      // underline = true
+      const wrapper2 = mount(<Link underline={true}>Text</Link>);
+      expect(wrapper2.classes('t-is-underline')).toBeTruthy();
+      // underline = false
+      const wrapper3 = mount(<Link underline={false}>Text</Link>);
+      expect(wrapper3.classes('t-is-underline')).toBeFalsy();
     });
   });
-
-  it('props.underline works fine', () => {
-    // underline default value is
-    const wrapper1 = mount(<Link>Text</Link>);
-    expect(wrapper1.classes('t-is-underline')).toBeFalsy();
-    // underline = true
-    const wrapper2 = mount(<Link underline={true}>Text</Link>);
-    expect(wrapper2.classes('t-is-underline')).toBeTruthy();
-    // underline = false
-    const wrapper3 = mount(<Link underline={false}>Text</Link>);
-    expect(wrapper3.classes('t-is-underline')).toBeFalsy();
-  });
-
-  it('Link Event: click', async () => {
-    const fn = vi.fn();
-    const wrapper = mount(<Link onClick={fn}></Link>);
-    wrapper.findComponent(Link).trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(fn).toHaveBeenCalled();
-    expect(fn.mock.calls[0][0].stopPropagation).toBeTruthy();
-    expect(fn.mock.calls[0][0].type).toBe('click');
+  describe('event', () => {
+    it('onClick', async () => {
+      const fn = vi.fn();
+      const wrapper = mount(<Link onClick={fn}></Link>);
+      wrapper.findComponent(Link).trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(fn).toHaveBeenCalled();
+      expect(fn.mock.calls[0][0].stopPropagation).toBeTruthy();
+      expect(fn.mock.calls[0][0].type).toBe('click');
+    });
   });
 });

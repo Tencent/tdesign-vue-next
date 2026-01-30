@@ -110,9 +110,9 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   multiple?: boolean;
   /**
-   * 自定义单个级联选项
+   * 自定义单个级联选项, item 是选项本身的值，index 是下标，onChange 用于触发当前节点选中，onExpand 用于触发当前节点展开
    */
-  option?: TNode<{ item: CascaderOption; index: number }>;
+  option?: TNode<{ item: CascaderOption; index: number; onChange: () => void; onExpand: () => void }>;
   /**
    * 可选项数据源
    * @default []

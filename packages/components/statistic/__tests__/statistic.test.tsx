@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Statistic from '@tdesign/components/statistic';
+import { COLOR_MAP } from '@tdesign/common-js/statistic/utils';
 
 describe('Statistic', () => {
   describe(':props', () => {
@@ -109,6 +110,52 @@ describe('Statistic', () => {
       const trendIconElement = wrapper.find('.t-icon.t-icon-arrow-triangle-down-filled');
       expect(trendIconElement.exists()).toBe(true);
       expect(trendIconElement.element.tagName).toBe('svg');
+    });
+
+    it('color:#ff0000', () => {
+      const wrapper = mount(Statistic, {
+        propsData: {
+          title: 'Total Sales',
+          value: 1000,
+          color: '#ff0000',
+        },
+      });
+
+      const contentElement = wrapper.find('.t-statistic-content');
+      expect(contentElement.exists()).toBe(true);
+      expect(contentElement.attributes('style')).toContain('color: rgb(255, 0, 0)');
+    });
+
+    it('color:yellow', () => {
+      const wrapper = mount(Statistic, {
+        propsData: {
+          title: 'Total Sales',
+          value: 1000,
+          color: 'yellow',
+        },
+      });
+
+      const contentElement = wrapper.find('.t-statistic-content');
+      expect(contentElement.exists()).toBe(true);
+      expect(contentElement.attributes('style')).toContain('color: yellow');
+    });
+
+    it('colors: colorKeys', async () => {
+      Object.keys(COLOR_MAP).map((color) => {
+        const wrapper = mount(Statistic, {
+          props: {
+            title: 'Total Sales',
+            value: 1000,
+            color,
+          },
+        });
+
+        const contentElement = wrapper.find('.t-statistic-content');
+        const vm = wrapper.vm as any;
+        expect(contentElement.exists()).toBe(true);
+        const expectedColor = COLOR_MAP[color as keyof typeof COLOR_MAP];
+        expect(vm.contentStyle).toEqual({ color: expectedColor });
+      });
     });
   });
 });

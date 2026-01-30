@@ -26,7 +26,7 @@ loadingText | String / Slot / Function | - | Typescript：`string \| TNode`。[s
 max | Number | 0 | \- | N
 minCollapsedNum | Number | 0 | \- | N
 multiple | Boolean | false | \- | N
-option | Slot / Function | - | customize one option。Typescript：`TNode<{ item: CascaderOption; index: number }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+option | Slot / Function | - | customize one option。Typescript：`TNode<{ item: CascaderOption; index: number; onChange: ()=> void; onExpand: ()=> void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 options | Array | [] | Typescript：`Array<CascaderOption>` | N
 panelBottomContent | String / Slot / Function | - | bottom content of the cascader panel。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 panelTopContent | String / Slot / Function | - | top content of the cascader panel。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
@@ -36,7 +36,7 @@ popupVisible | Boolean | - | \- | N
 defaultPopupVisible | Boolean | - | uncontrolled property | N
 prefixIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 readonly | Boolean | undefined | \- | N
-reserveKeyword | Boolean | false | \- | N
+reserveKeyword | Boolean | true | \- | N
 selectInputProps | Object | - | Typescript：`SelectInputProps`，[SelectInput API Documents](./select-input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/cascader/type.ts) | N
 showAllLevels | Boolean | true | \- | N
 size | String | medium | options: large/medium/small。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N

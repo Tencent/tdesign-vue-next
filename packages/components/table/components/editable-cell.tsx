@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
+import { computed, defineComponent, onMounted, onUnmounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
 import { get, set, isFunction, cloneDeep, isObject } from 'lodash-es';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
 import {
@@ -22,6 +22,11 @@ export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T
   validateEdit: (trigger: 'self' | 'parent') => Promise<true | AllValidateResult[]>;
 }
 
+/** EditableCell 实例类型，包含暴露的方法 */
+export interface EditableCellInstance {
+  clearValidateCellData: () => void;
+}
+
 export interface EditableCellProps {
   rowKey: string;
   row: TableRowData;
@@ -35,6 +40,10 @@ export interface EditableCellProps {
   readonly?: boolean;
   errors?: AllValidateResult[];
   cellEmptyContent?: TdBaseTableProps['cellEmptyContent'];
+  /** 单元格唯一标识，用于实例注册 */
+  cellKey?: string;
+  /** 单元格实例变化回调，用于注册/注销实例 */
+  onCellInstanceChange?: (cellKey: string, instance: EditableCellInstance | null) => void;
   /** 编辑数据时触发 */
   onChange?: (context: PrimaryTableRowEditContext<TableRowData>) => void;
   /** 校验结束后触发 */
@@ -71,15 +80,17 @@ export default defineComponent({
     onValidate: Function as PropType<EditableCellProps['onValidate']>,
     onRuleChange: Function as PropType<EditableCellProps['onRuleChange']>,
     onEditableChange: Function as PropType<EditableCellProps['onEditableChange']>,
+    cellKey: String,
+    onCellInstanceChange: Function as PropType<EditableCellProps['onCellInstanceChange']>,
   },
 
   emits: ['update-edited-cell'],
 
   setup(props: EditableCellProps, context: SetupContext) {
     const { row, col } = toRefs(props);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const tableEditableCellRef = ref(null);
     const isKeepEditMode = computed(() => col.value.edit?.keepEditMode);
+    // 标志位：用于阻止 clearValidateCellData 执行时 documentClickHandler 的触发
+    const isClearingValidate = ref(false);
     const isEdit = ref(isKeepEditMode.value || props.col.edit?.defaultEditable || false);
     const editValue = ref();
     const errorList = ref<AllValidateResult[]>();
@@ -186,8 +197,10 @@ export default defineComponent({
           trigger,
         };
         const rules = isFunction(col.value.edit.rules) ? col.value.edit.rules(cellParams.value) : col.value.edit.rules;
+
         if (!col.value.edit || !rules || !rules.length) {
           props.onValidate?.(params);
+
           resolve(true);
           return;
         }
@@ -200,6 +213,7 @@ export default defineComponent({
             resolve(true);
           } else {
             errorList.value = list;
+
             resolve(list);
           }
         });
@@ -222,13 +236,12 @@ export default defineComponent({
           editValue.value = oldValue;
           outsideAbortEvent?.(...args);
         }
+        if (isKeepEditMode.value) return;
         editOnListeners.value[eventName]?.(args[2]);
         // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清除不及时引起的其他问题
         const timer = setTimeout(() => {
-          if (!isKeepEditMode.value) {
-            isEdit.value = false;
-          }
           errorList.value = [];
+          isEdit.value = false;
           props.onEditableChange?.({
             ...cellParams.value,
             value: editValue.value,
@@ -300,6 +313,11 @@ export default defineComponent({
     };
 
     const documentClickHandler = (e: MouseEvent) => {
+      // 标志位为 true 时跳过执行，避免 clearValidateCellData 时触发
+      if (isClearingValidate.value) {
+        isClearingValidate.value = false;
+        return;
+      }
       if (!col.value.edit || !col.value.edit.component) return;
       if (!isEdit.value) return;
       // @ts-ignore some browser is also only support e.path
@@ -307,6 +325,7 @@ export default defineComponent({
       const node = path.find((node: HTMLElement) => node.classList?.contains(`${classPrefix.value}-popup__content`));
       if (node) return;
       const outsideAbortEvent = col.value.edit.onEdited;
+
       updateAndSaveAbort(outsideAbortEvent, '', {
         ...cellParams.value,
         trigger: 'document',
@@ -330,9 +349,30 @@ export default defineComponent({
       e.stopPropagation();
     };
 
+    const clearValidateCellData = () => {
+      isClearingValidate.value = true;
+      errorList.value = [];
+    };
+
+    // 暴露给父组件的实例
+    const exposedInstance: EditableCellInstance = {
+      clearValidateCellData,
+    };
+
     onMounted(() => {
-      if (props.col.edit?.defaultEditable) {
+      if (props.col.edit?.defaultEditable || props.col.edit?.keepEditMode) {
         enterEdit();
+      }
+      // 注册实例到父组件
+      if (props.cellKey && props.onCellInstanceChange) {
+        props.onCellInstanceChange(props.cellKey, exposedInstance);
+      }
+    });
+
+    onUnmounted(() => {
+      // 注销实例
+      if (props.cellKey && props.onCellInstanceChange) {
+        props.onCellInstanceChange(props.cellKey, null);
       }
     });
 
@@ -384,6 +424,8 @@ export default defineComponent({
       },
     );
 
+    context.expose(exposedInstance);
+
     return () => {
       if (props.readonly) {
         return cellNode.value;
@@ -419,7 +461,6 @@ export default defineComponent({
           onClick={(e: MouseEvent) => {
             e.stopPropagation();
           }}
-          ref="tableEditableCellRef"
         >
           <Component
             status={errorMessage ? errorList.value?.[0]?.type || 'error' : undefined}

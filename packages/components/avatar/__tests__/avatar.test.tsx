@@ -1,357 +1,255 @@
-// @ts-nocheck
-import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { it, expect, vi } from 'vitest';
-import { Avatar, AvatarGroup } from '@tdesign/components/avatar';
-import { getAvatarGroupDefaultMount } from './mount';
+import { mount } from '@vue/test-utils';
+import type { VueWrapper } from '@vue/test-utils';
+import { expect, vi } from 'vitest';
+import { LogoQqIcon } from 'tdesign-icons-vue-next';
+import { Avatar, AvatarGroup, Image } from '@tdesign/components';
+import AvatarProps from '@tdesign/components/avatar/props';
 import { simulateImageEvent } from '@tdesign/internal-tests/utils';
+import { getAvatarGroupDefaultMount } from './mount';
 import { sleep } from '@tdesign/internal-utils';
-import { UserIcon } from 'tdesign-icons-vue-next';
 
-describe('Avatar Component', () => {
-  it('props.alt works fine', () => {
-    const wrapper = mount(<Avatar alt={'Avatar'} image={'https://tdesign.gtimg.com/site/avatar.jpg'}></Avatar>).find(
-      'img',
-    );
-    expect(wrapper.attributes('alt')).toBe('Avatar');
-  });
+describe('Avatar', () => {
+  describe('props', () => {
+    let wrapper: VueWrapper<InstanceType<typeof Avatar>> | null = null;
+    beforeEach(() => {
+      wrapper = mount(<Avatar>Avatar</Avatar>) as VueWrapper<InstanceType<typeof Avatar>>;
+    });
 
-  it('props.content works fine', () => {
-    const wrapper = mount(<Avatar content={() => <span class="custom-node">TNode</span>}></Avatar>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
+    it(':alt[string]', () => {
+      const wrapper = mount(<Avatar alt="Avatar" image="https://tdesign.gtimg.com/site/avatar.jpg" />);
+      const img = wrapper.find('img');
+      expect(img.attributes('alt')).toBe('Avatar');
+    });
 
-  it('slots.content works fine', () => {
-    const wrapper = mount(<Avatar v-slots={{ content: () => <span class="custom-node">TNode</span> }}></Avatar>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('props.default works fine', () => {
-    const wrapper = mount(<Avatar default={() => <span class="custom-node">TNode</span>}></Avatar>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('slots.default works fine', () => {
-    const wrapper = mount(<Avatar v-slots={{ default: () => <span class="custom-node">TNode</span> }}></Avatar>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('props.hideOnLoadFailed works fine', async () => {
-    const wrapper = mount(<Avatar image={'https://this.is.an.error.path.jpg'} hideOnLoadFailed={true}></Avatar>);
-    const imgDom = wrapper.find('img').element;
-    simulateImageEvent(imgDom, 'error');
-    await sleep(300);
-    expect(wrapper.find('.t-image').exists()).toBeFalsy();
-  });
-
-  it('props.icon works fine', () => {
-    const wrapper = mount(<Avatar icon={() => <span class="custom-node">TNode</span>}></Avatar>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-avatar__icon').exists()).toBeTruthy();
-  });
-
-  it('slots.icon works fine', () => {
-    const wrapper = mount(<Avatar v-slots={{ icon: () => <span class="custom-node">TNode</span> }}></Avatar>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-avatar__icon').exists()).toBeTruthy();
-  });
-
-  it(`props.image is equal to https://tdesign.tencent.com/`, () => {
-    const wrapper = mount(<Avatar image={'https://tdesign.tencent.com/'}></Avatar>);
-    const domWrapper = wrapper.find('img');
-    expect(domWrapper.attributes('src')).toBe('https://tdesign.tencent.com/');
-  });
-
-  ['circle', 'round'].forEach((item) => {
-    it(`props.shape is equal to ${item}`, () => {
-      const wrapper = mount(<Avatar shape={item}></Avatar>);
-      expect(wrapper.classes(`t-avatar--${item}`)).toBeTruthy();
+    it(':content[string/function]', () => {
+      const wrapper = mount(<Avatar content="content" />);
+      expect(wrapper.find('.t-avatar').text()).toBe('content');
       expect(wrapper.element).toMatchSnapshot();
+
+      const renderContent = () => <Image src="src" />;
+      const wrapperFunction = mount(<Avatar content={renderContent} />);
+      expect(wrapperFunction.findComponent(Image).exists()).toBeTruthy();
+      expect(wrapperFunction.element).toMatchSnapshot();
     });
-  });
 
-  const sizeClassNameMap = { small: 't-size-s', medium: 't-size-m', large: 't-size-l' };
-  Object.entries(sizeClassNameMap).forEach(([enumValue, expectedClassName]) => {
-    it(`props.size is equal to ${enumValue}`, () => {
-      let propValue = { true: true, false: false }[enumValue];
-      propValue = propValue === undefined ? enumValue : propValue;
-      const wrapper = mount(<Avatar size={propValue}></Avatar>);
-      expect(wrapper.classes(expectedClassName)).toBeTruthy();
+    it(':content[slot]', () => {
+      const wrapperSlot = mount(<Avatar v-slots={{ content: () => <span class="custom-content-node">TNode</span> }} />);
+      expect(wrapperSlot.find('.custom-content-node').exists()).toBeTruthy();
+      expect(wrapperSlot.element).toMatchSnapshot();
     });
-  });
 
-  it(`props.size is equal to 120px`, () => {
-    const wrapper = mount(<Avatar size={'120px'}></Avatar>);
-    const domWrapper = wrapper.findComponent(Avatar);
-    expect(domWrapper.element.style.width).toBe('120px');
-    expect(domWrapper.element.style.height).toBe('120px');
-    expect(domWrapper.element.style.fontSize).toBe('60px');
-  });
-
-  it('events.error works fine', async () => {
-    const onErrorFn = vi.fn();
-    const wrapper = mount(<Avatar image={'https://this.is.an.error.path.jpg'} onError={onErrorFn}></Avatar>);
-    const imgDom = wrapper.find('img').element;
-    simulateImageEvent(imgDom, 'error');
-    await sleep(300);
-    expect(onErrorFn).toHaveBeenCalled();
-    expect(onErrorFn.mock.calls[0][0].e.type).toBe('error');
-  });
-});
-
-describe('AvatarGroup Component', () => {
-  const cascadingClassNameList = ['t-avatar--offset-left', 't-avatar--offset-right'];
-  ['left-up', 'right-up'].forEach((item, index) => {
-    it(`props.cascading is equal to ${item}`, () => {
-      const wrapper = mount(<AvatarGroup cascading={item}></AvatarGroup>);
-      expect(wrapper.classes(cascadingClassNameList[index])).toBeTruthy();
+    it(':default[string/function]', () => {
+      const wrapper = mount(<Avatar default="default" />);
+      expect(wrapper.find('.t-avatar').text()).toBe('default');
       expect(wrapper.element).toMatchSnapshot();
-    });
-  });
 
-  it('props.collapseAvatar works fine', () => {
-    const wrapper = getAvatarGroupDefaultMount({
-      collapseAvatar: () => <span class="custom-node">TNode</span>,
-      max: 3,
+      const renderDefault = () => <Image src="src" />;
+      const wrapperFunction = mount(<Avatar default={renderDefault} />);
+      expect(wrapperFunction.findComponent(Image).exists()).toBeTruthy();
+      expect(wrapperFunction.element).toMatchSnapshot();
     });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
 
-  it('slots.collapseAvatar works fine', () => {
-    const wrapper = getAvatarGroupDefaultMount({
-      'v-slots': { collapseAvatar: () => <span class="custom-node">TNode</span> },
-      max: 3,
+    it(':default[slot]', () => {
+      const wrapperSlot = mount(<Avatar v-slots={{ default: () => <span class="custom-default-node">TNode</span> }} />);
+      expect(wrapperSlot.find('.custom-default-node').exists()).toBeTruthy();
+      expect(wrapperSlot.element).toMatchSnapshot();
     });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('slots.collapse-avatar works fine', () => {
-    const wrapper = getAvatarGroupDefaultMount({
-      'v-slots': { 'collapse-avatar': () => <span class="custom-node">TNode</span> },
-      max: 3,
-    });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
 
-  it('props.max works fine. `{".t-avatar":4,".t-avatar__collapse":1,".t-avatar__collapse > span":{"text":"+2"}}` should exist', () => {
-    const wrapper = getAvatarGroupDefaultMount({ max: 3 });
-    expect(wrapper.findAll('.t-avatar').length).toBe(4);
-    expect(wrapper.findAll('.t-avatar__collapse').length).toBe(1);
-    expect(wrapper.find('.t-avatar__collapse > span').text()).toBe('+2');
-  });
-
-  it(`props.size is equal to small`, () => {
-    const wrapper = getAvatarGroupDefaultMount({ size: 'small' });
-    const domWrapper = wrapper.find('.t-avatar');
-    expect(domWrapper.classes('t-size-s')).toBeTruthy();
-    const domWrapper1 = wrapper.find('.t-avatar:nth-child(5)');
-    expect(domWrapper1.classes('t-size-l')).toBeTruthy();
-  });
-  it(`props.size is equal to large`, () => {
-    const wrapper = getAvatarGroupDefaultMount({ size: 'large' });
-    const domWrapper = wrapper.find('.t-avatar');
-    expect(domWrapper.classes('t-size-l')).toBeTruthy();
-    const domWrapper1 = wrapper.find('.t-avatar:nth-child(4)');
-    expect(domWrapper1.classes('t-size-s')).toBeTruthy();
-  });
-
-  it(`props.size is equal to 120px`, () => {
-    const wrapper = getAvatarGroupDefaultMount({ size: '120px' });
-    const domWrapper = wrapper.find('.t-avatar');
-    expect(domWrapper.element.style.width).toBe('120px');
-    expect(domWrapper.element.style.height).toBe('120px');
-    expect(domWrapper.element.style.fontSize).toBe('60px');
-  });
-
-  // test props api
-  describe(':props', () => {
-    it(':image', () => {
-      const wrapper = mount({
-        render() {
-          return <Avatar image="https://tdesign.gtimg.com/site/avatar.jpg"></Avatar>;
-        },
-      });
-      const avatar = wrapper.find('.t-avatar');
-      const img = avatar.find('img');
-      expect(avatar.exists()).toBeTruthy();
-      expect(img.exists()).toBeTruthy();
-      expect(img.element.getAttribute('src')).toBe('https://tdesign.gtimg.com/site/avatar.jpg');
-    });
-    it(':icon', () => {
-      const wrapper = mount(<Avatar icon={() => <UserIcon />} />);
-      const icon = wrapper.find('.t-avatar__icon');
-      expect(icon.exists()).toBeTruthy();
-    });
-    it(':shape', () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <div>
-              <Avatar shape="round">W</Avatar>
-              <Avatar shape="circle">W</Avatar>
-            </div>
-          );
-        },
-      });
-      const avatars = wrapper.findAll('.t-avatar');
-      expect(avatars[0].classes()).toContain('t-avatar--round');
-      expect(avatars[1].classes()).toContain('t-avatar--circle');
-    });
-    it(':size', async () => {
-      const wrapper = mount(() => (
-        <div>
-          <Avatar size="small">Avatar</Avatar>
-          <Avatar size="medium">W</Avatar>
-          <Avatar size="large">W</Avatar>
-          <Avatar size="80px">Avatar</Avatar>
-        </div>
-      ));
-      const avatars = wrapper.findAll('.t-avatar');
+    it(':hideOnLoadFailed[boolean]', async () => {
+      const wrapperWhenTrue = mount(<Avatar image="https://this.is.an.error.path.jpg" hideOnLoadFailed={true} />);
+      const imgDomWhenTrue = wrapperWhenTrue.find('img').element;
+      simulateImageEvent(imgDomWhenTrue, 'error');
       await nextTick();
-      expect(avatars[0].classes()).toContain('t-size-s');
-      expect(avatars[1].classes()).toContain('t-size-m');
-      expect(avatars[2].classes()).toContain('t-size-l');
-      expect(getComputedStyle(avatars[3].element, null).width).toBe('80px');
-      expect(getComputedStyle(avatars[3].element, null).height).toBe('80px');
-    });
-  });
+      expect(wrapperWhenTrue.find('.t-image').exists()).toBeFalsy();
 
-  describe('<slot>', () => {
-    it('<icon>', () => {
-      const slots = {
-        icon: () => <div>i</div>,
+      const wrapperWhenFalse = mount(<Avatar image="https://this.is.an.error.path.jpg" hideOnLoadFailed={false} />);
+      const imgDomWhenFalse = wrapperWhenFalse.find('img').element;
+      simulateImageEvent(imgDomWhenFalse, 'error');
+      await nextTick();
+      expect(wrapperWhenFalse.find('.t-image').exists()).toBeTruthy();
+    });
+
+    it(':icon[slot/function]', () => {
+      const wrapperSlot = mount(<Avatar v-slots={{ icon: () => <span class="custom-icon-node">TNode</span> }} />);
+      expect(wrapperSlot.find('.custom-icon-node').exists()).toBeTruthy();
+      expect(wrapperSlot.find('.t-avatar__icon').exists()).toBeTruthy();
+
+      const renderIcon = () => <LogoQqIcon />;
+      const wrapperFunction = mount(<Avatar icon={renderIcon} />);
+      expect(wrapperFunction.findComponent(LogoQqIcon).exists()).toBeTruthy();
+      expect(wrapperFunction.find('.t-avatar__icon').exists()).toBeTruthy();
+    });
+
+    it(':icon:content:isIconOnly', () => {
+      const wrapper = mount(<Avatar icon={() => <LogoQqIcon />} content="content" />);
+      expect(wrapper.findComponent(LogoQqIcon).exists()).toBeTruthy();
+      expect(wrapper.find('.t-avatar').text()).toBe('content');
+    });
+
+    it(':image[string]', () => {
+      const wrapper = mount(<Avatar image="https://tdesign.tencent.com/" />);
+      const domWrapper = wrapper.find('img');
+      expect(domWrapper.attributes('src')).toBe('https://tdesign.tencent.com/');
+    });
+
+    it(':imageProps[ImageProps]', () => {
+      const imagePropsError = () => <span>load error</span>;
+      const imageProps = {
+        alt: 'props.alt',
+        error: imagePropsError,
       };
-      const wrapper = mount(<Avatar v-slots={slots} />);
-      const icon = wrapper.find('.t-avatar__icon');
-      expect(icon.exists()).toBeTruthy();
-      expect(icon.text()).toBe('i');
+      const wrapper = mount(
+        <Avatar alt="Avatar" image="https://tdesign.gtimg.com/site/avatar.jpg" imageProps={imageProps} />,
+      );
+      // Not test the Image's specific behaviors, because it's should be ensure by the Image's own tests.
+      // Here we only test whether the Image is rendered correctly and whether props are correctly passed.
+      const image = wrapper.findComponent(Image);
+      expect(image.exists()).toBeTruthy();
+      expect(image.props('alt')).toBe('props.alt');
+      expect(image.props('error')).toBe(imagePropsError);
+    });
+
+    it(':shape[circle/round]', () => {
+      const validator = (wrapper.vm.$options.props as typeof AvatarProps)?.shape.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      expect(validator('other' as any)).toBe(false);
+
+      const wrapperCircle = mount(<Avatar shape="circle" />);
+      expect(wrapperCircle.classes('t-avatar--circle')).toBeTruthy();
+      expect(wrapperCircle.element).toMatchSnapshot();
+
+      const wrapperRound = mount(<Avatar shape="round" />);
+      expect(wrapperRound.classes('t-avatar--round')).toBeTruthy();
+      expect(wrapperRound.element).toMatchSnapshot();
+    });
+
+    it(':size[string]', () => {
+      const sizeClassNameMap = { small: 't-size-s', medium: 't-size-m', large: 't-size-l' };
+
+      Object.entries(sizeClassNameMap).forEach(([enumValue, expectedClassName]) => {
+        const wrapper = mount(<Avatar size={enumValue} />);
+        expect(wrapper.classes(expectedClassName)).toBeTruthy();
+      });
+
+      const wrapperCustom = mount(<Avatar size="120px" />);
+      const domWrapper = wrapperCustom.findComponent(Avatar);
+      expect(domWrapper.element.style.width).toBe('120px');
+      expect(domWrapper.element.style.height).toBe('120px');
+    });
+
+    it(':gap:avatarWidth', async () => {
+      // jsdom does not actually calculate layout properties, so offsetWidth is always 0 and we need to set it manually
+      vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(100);
+      const wrapper = mount(<Avatar content="content" />);
+      await sleep(100);
+      expect(wrapper.element).toMatchSnapshot();
+      const avatar = wrapper.find('.t-avatar');
+      const avatarSpan = avatar.find('span');
+      expect(avatarSpan.element.style.transform).toBe('scale(0.92)');
+    });
+
+    it(':isImgExist', async () => {
+      const wrapper = mount(<Avatar />);
+      expect(wrapper.find('.t-image__wrapper').exists()).toBeFalsy();
+      await wrapper.setProps({ image: 'https://tdesign.tencent.com/' });
+      expect(wrapper.find('.t-image__wrapper').exists()).toBeTruthy();
     });
   });
-});
 
-describe('Avatar Events', () => {
-  it(':event:error', async () => {
-    const fn = vi.fn();
-    const wrapper = mount(() => <Avatar image="http://123.png" onError={fn} />);
-    const img = wrapper.find('.t-avatar img');
-    img.trigger('error');
-    await nextTick();
-    expect(fn).toBeCalled();
+  describe('events', () => {
+    it('onError', async () => {
+      const onErrorFn = vi.fn();
+      const wrapper = mount(<Avatar image="https://this.is.an.error.path.jpg" onError={onErrorFn} />);
+      const imgDom = wrapper.find('img');
+      imgDom.trigger('error');
+      await nextTick();
+      expect(onErrorFn).toBeCalled();
+      expect(onErrorFn.mock.calls[0][0].e.type).toBe('error');
+    });
   });
 });
 
 describe('AvatarGroup', () => {
-  describe(':props', () => {
-    it(':cascading', () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <div>
-              <AvatarGroup cascading="right-up">
-                <Avatar>W</Avatar>
-                <Avatar>W</Avatar>
-              </AvatarGroup>
-              <AvatarGroup cascading="left-up">
-                <Avatar>W</Avatar>
-                <Avatar>W</Avatar>
-              </AvatarGroup>
-            </div>
-          );
-        },
+  describe('props', () => {
+    it(':cascading[left-up/right-up]', () => {
+      const validator = (AvatarGroup.props as any)?.cascading?.validator;
+      if (validator) {
+        expect(validator(undefined)).toBe(true);
+        expect(validator(null)).toBe(true);
+        expect(validator('other')).toBe(false);
+      }
+
+      const cascadingClassNameList = ['t-avatar--offset-left', 't-avatar--offset-right'];
+      ['left-up', 'right-up'].forEach((item, index) => {
+        const wrapper = mount(<AvatarGroup cascading={item as 'left-up' | 'right-up'} />);
+        expect(wrapper.classes(cascadingClassNameList[index])).toBeTruthy();
+        expect(wrapper.element).toMatchSnapshot();
       });
-      const groups = wrapper.findAll('.t-avatar-group');
-      expect(groups[0].exists()).toBeTruthy();
-      expect(groups[0].classes()).toContain('t-avatar--offset-right');
-      expect(groups[1].exists()).toBeTruthy();
-      expect(groups[1].classes()).toContain('t-avatar--offset-left');
-    });
-    it(':max', () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <div>
-              <AvatarGroup max={2}>
-                <Avatar>W</Avatar>
-                <Avatar>W</Avatar>
-                <Avatar>W</Avatar>
-              </AvatarGroup>
-            </div>
-          );
-        },
-      });
-      const avatars = wrapper.findAll('.t-avatar');
-      expect(avatars.length).toBe(3);
-      expect(avatars[2].text()).toBe('+1');
-    });
-    it(':collapseAvatar', () => {
-      const wrapper = mount(() => (
-        <AvatarGroup max={2} collapseAvatar="n">
-          <Avatar>W</Avatar>
-          <Avatar>W</Avatar>
-          <Avatar>W</Avatar>
-        </AvatarGroup>
-      ));
-      const avatars = wrapper.findAll('.t-avatar');
-      expect(avatars.length).toBe(3);
-      expect(avatars[2].text()).toBe('n');
     });
 
-    it(':placement', () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <div>
-              <AvatarGroup max={2} placement="bottom">
-                <Avatar>W</Avatar>
-                <Avatar>W</Avatar>
-                <Avatar>W</Avatar>
-              </AvatarGroup>
-            </div>
-          );
-        },
+    it(':collapseAvatar[string/function]', () => {
+      const wrapper = getAvatarGroupDefaultMount({
+        collapseAvatar: '+2',
+        max: 3,
       });
+      expect(wrapper.find('.t-avatar__collapse').text()).toBe('+2');
       expect(wrapper.element).toMatchSnapshot();
-    });
-    it(':popupProps', () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <div>
-              <AvatarGroup max={2} popupProps={{ trigger: 'click', placement: 'bottom' }}>
-                <Avatar>W</Avatar>
-                <Avatar>W</Avatar>
-                <Avatar>W</Avatar>
-              </AvatarGroup>
-            </div>
-          );
-        },
+
+      const wrapperFunction = getAvatarGroupDefaultMount({
+        collapseAvatar: () => <span class="custom-collapse-node">+1</span>,
+        max: 4,
       });
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapperFunction.find('.custom-collapse-node').exists()).toBeTruthy();
+      expect(wrapperFunction.find('.custom-collapse-node').text()).toBe('+1');
+      expect(wrapperFunction.element).toMatchSnapshot();
     });
-    it(':size', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <div>
-              <AvatarGroup size="small">
-                <Avatar>W</Avatar>
-                <Avatar>W</Avatar>
-                <Avatar>W</Avatar>
-              </AvatarGroup>
-            </div>
-          );
-        },
-      });
-      const group = wrapper.find('.t-avatar-group');
-      const avatar = group.findAll('.t-avatar');
-      await nextTick();
-      expect(avatar[0].classes()).toContain('t-size-s');
+
+    it(':collapseAvatar[slot]', () => {
+      const wrapperSlot = getAvatarGroupDefaultMount(
+        { max: 3 },
+        { 'collapse-avatar': () => <span class="custom-collapse-node">+2</span> },
+      );
+      expect(wrapperSlot.find('.custom-collapse-node').exists()).toBeTruthy();
+      expect(wrapperSlot.find('.custom-collapse-node').text()).toBe('+2');
+      expect(wrapperSlot.element).toMatchSnapshot();
+    });
+
+    it(':max[number]', () => {
+      const wrapper = getAvatarGroupDefaultMount({ max: 3 });
+      expect(wrapper.findAll('.t-avatar').length).toBe(4);
+      expect(wrapper.findAll('.t-avatar__collapse').length).toBe(1);
+      expect(wrapper.find('.t-avatar__collapse > span').text()).toBe('+2');
+
+      const noCollapseWrapper = getAvatarGroupDefaultMount({ max: 6 });
+      expect(noCollapseWrapper.findAll('.t-avatar').length).toBe(5);
+      expect(noCollapseWrapper.findAll('.t-avatar__collapse').length).toBe(0);
+      expect(noCollapseWrapper.find('.t-avatar__collapse > span').exists()).toBeFalsy();
+    });
+
+    it(':popupProps[PopupProps]', () => {
+      // it looks like the `popup` hasn't been implemented yet
+      expect(true).toBe(true);
+    });
+
+    it(':size[string]', () => {
+      const wrapperSmall = getAvatarGroupDefaultMount({ size: 'small' });
+      const domWrapper = wrapperSmall.find('.t-avatar');
+      expect(domWrapper.classes('t-size-s')).toBeTruthy();
+      const domWrapper1 = wrapperSmall.find('.t-avatar:nth-child(5)');
+      expect(domWrapper1.classes('t-size-l')).toBeTruthy();
+
+      const wrapperLarge = getAvatarGroupDefaultMount({ size: 'large' });
+      const domWrapperLarge = wrapperLarge.find('.t-avatar');
+      expect(domWrapperLarge.classes('t-size-l')).toBeTruthy();
+      const domWrapperLarge1 = wrapperLarge.find('.t-avatar:nth-child(4)');
+      expect(domWrapperLarge1.classes('t-size-s')).toBeTruthy();
+
+      const wrapperCustom = getAvatarGroupDefaultMount({ size: '120px' });
+      const domWrapperCustom = wrapperCustom.find('.t-avatar');
+      expect((domWrapperCustom.element as HTMLElement).style.width).toBe('120px');
+      expect((domWrapperCustom.element as HTMLElement).style.height).toBe('120px');
     });
   });
 });

@@ -1,0 +1,718 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Loading > props > :content[slot] 1`] = `
+<div
+  class="t-loading__parent"
+>
+  
+  <span
+    class="custom-content-node"
+  >
+    TNode
+  </span>
+  
+  <div
+    class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 12 12"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="0"
+        y="0"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Loading > props > :content[string/function] 1`] = `
+<div
+  class="t-loading__parent"
+>
+  content
+  <div
+    class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 12 12"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="0"
+        y="0"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Loading > props > :content[string/function] 2`] = `
+<div
+  class="t-loading__parent"
+>
+  <span
+    class="custom-content-node"
+  >
+    TNode
+  </span>
+  <div
+    class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 12 12"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="0"
+        y="0"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Loading > props > :default[slot] 1`] = `
+<div
+  class="t-loading__parent"
+>
+  
+  <span
+    class="custom-default-node"
+  >
+    TNode
+  </span>
+  
+  <div
+    class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 12 12"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="0"
+        y="0"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Loading > props > :default[string/function] 1`] = `
+<div
+  class="t-loading__parent"
+>
+  default
+  <div
+    class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 12 12"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="0"
+        y="0"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Loading > props > :default[string/function] 2`] = `
+<div
+  class="t-loading__parent"
+>
+  <span
+    class="custom-default-node"
+  >
+    TNode
+  </span>
+  <div
+    class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 12 12"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="0"
+        y="0"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Loading > props > :fullscreen[boolean] 1`] = `<!--teleport start-->`;
+
+exports[`Loading > props > :fullscreen[boolean] 2`] = `
+<div
+  attachto="[object HTMLBodyElement]"
+  class="t-loading--center t-size-m t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :indicator[boolean/function] 1`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :indicator[boolean/function] 2`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :indicator[boolean/function] 3`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <span
+    class="custom-indicator-node"
+  >
+    TNode
+  </span>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :indicator[slot] 1`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  
+  <span
+    class="custom-indicator-node"
+  >
+    TNode
+  </span>
+  
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :inheritColor[boolean] 1`] = `
+<div
+  class="t-loading--center t-size-m t-loading--inherit-color t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :inheritColor[boolean] 2`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :loading[boolean] 1`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :loading[boolean] 2`] = `<!---->`;
+
+exports[`Loading > props > :showOverlay[boolean] 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="t-loading__parent"
+  >
+    
+    <div>
+      Wrapped content
+    </div>
+    
+    <div
+      class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+    >
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 12 12"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="0"
+          y="0"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Loading > props > :showOverlay[boolean] 2`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :size[string] 1`] = `
+<div
+  class="t-loading--center t-size-s t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="small"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :size[string] 2`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :size[string] 3`] = `
+<div
+  class="t-loading--center t-size-l t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="large"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :size[string] 4`] = `
+<div
+  class="t-loading--center t-loading"
+  style="font-size: 50px;"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="50px"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;
+
+exports[`Loading > props > :text[slot] 1`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <div
+    class="t-loading__text"
+  >
+    
+    <span
+      class="custom-text-node"
+    >
+      TNode
+    </span>
+    
+  </div>
+</div>
+`;
+
+exports[`Loading > props > :text[string/function] 1`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <div
+    class="t-loading__text"
+  >
+    Loading...
+  </div>
+</div>
+`;
+
+exports[`Loading > props > :text[string/function] 2`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <div
+    class="t-loading__text"
+  >
+    <span
+      class="custom-text-node"
+    >
+      TNode
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Loading > props > :zIndex[number] 1`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+  style="z-index: 2022;"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+  <!---->
+</div>
+`;

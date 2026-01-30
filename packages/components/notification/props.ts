@@ -11,7 +11,7 @@ export default {
   /** 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例 */
   closeBtn: {
     type: [String, Boolean, Function] as PropType<TdNotificationProps['closeBtn']>,
-    default: undefined,
+    default: undefined as TdNotificationProps['closeBtn'],
   },
   /** 自定义内容 */
   content: {
@@ -33,7 +33,7 @@ export default {
   /** 用于自定义消息通知前面的图标，优先级大于 theme 设定的图标。值为 false 则不显示图标，值为 true 显示 theme 设定图标 */
   icon: {
     type: [Boolean, Function] as PropType<TdNotificationProps['icon']>,
-    default: true,
+    default: true as TdNotificationProps['icon'],
   },
   /** 消息类型 */
   theme: {
@@ -48,6 +48,8 @@ export default {
   title: {
     type: [String, Function] as PropType<TdNotificationProps['title']>,
   },
+  /** 调用 NotificationPlugin.close 的事件回调 */
+  onClose: Function as PropType<TdNotificationProps['onClose']>,
   /** 点击关闭按钮时触发 */
   onCloseBtnClick: Function as PropType<TdNotificationProps['onCloseBtnClick']>,
   /** 计时结束时触发 */

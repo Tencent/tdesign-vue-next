@@ -1,26 +1,24 @@
-import { defineComponent, h, onBeforeMount, onMounted, computed, ref } from 'vue';
+import { computed, defineComponent, h, onBeforeMount, onMounted, ref } from 'vue';
 import {
-  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  CloseIcon as TdCloseIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
-  CloseIcon as TdCloseIcon,
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-
-import TLoading from '../loading';
-import { THEME_LIST } from './consts';
-import props from './props';
-import { useContent, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
-
-import { fadeIn, fadeOut } from './utils';
-
 import { isFunction } from 'lodash-es';
+
+import { THEME_LIST, fadeIn, fadeOut } from '@tdesign/common-js/message/index';
+import { useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
+import TLoading from '../loading';
+import props from './props';
 
 export default defineComponent({
   name: 'TMessage',
   props: {
     ...props,
     placement: String, // just for animation
+    className: String,
   },
   setup(props, { slots, expose }) {
     const COMPONENT_NAME = usePrefixClass('message');
@@ -49,6 +47,7 @@ export default defineComponent({
         {
           [`${classPrefix.value}-is-closable`]: props.closeBtn || slots.closeBtn,
         },
+        props.className,
       ];
     });
 

@@ -40,7 +40,11 @@ export default defineComponent({
     ]);
     return () => {
       if (!isMount.value) return null;
-      return <div class={tabPanelClass.value}>{renderTNodeContent('default', 'panel')}</div>;
+      return (
+        <div key={props.value} class={tabPanelClass.value}>
+          {renderTNodeContent('default', 'panel')}
+        </div>
+      );
     };
   },
 });

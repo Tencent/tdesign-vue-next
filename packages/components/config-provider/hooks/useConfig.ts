@@ -1,9 +1,11 @@
 // TODO 应当提取到公共 hooks 中
 import { computed, h, inject, getCurrentInstance, ref, provide } from 'vue';
-import { cloneDeep, isFunction, isString } from 'lodash-es';
+import { cloneDeep, isFunction } from 'lodash-es';
 
 import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from '../utils/context';
 import { GlobalConfigProvider, TdConfigProviderProps } from '../type';
+
+import { t as commonT } from '@tdesign/common-js/global-config/t';
 
 // 这是为了解决在非component里调用useConfig hook时发出的警告
 // https://github.com/Tencent/tdesign-vue-next/issues/2025
@@ -21,7 +23,17 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
   componentName: T = undefined,
   componentLocale?: GlobalConfigProvider[T],
 ) {
-  const injectGlobalConfig = getCurrentInstance() ? inject(configProviderInjectKey, null) : globalConfigCopy;
+  let injectGlobalConfig = null;
+  if (getCurrentInstance()) {
+    injectGlobalConfig = inject(configProviderInjectKey, null);
+    if (!injectGlobalConfig) {
+      // This handles cases where the component is created outside the ConfigProvider
+      // (e.g., LoadingPlugin, MessagePlugin, DialogPlugin, etc.)
+      injectGlobalConfig = globalConfigCopy;
+    }
+  } else {
+    injectGlobalConfig = globalConfigCopy;
+  }
   const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
   const globalConfig = computed(() => Object.assign({}, mergedGlobalConfig.value[componentName], componentLocale));
 
@@ -31,24 +43,14 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
 
   // 处理正则表达式
   const t = function <T>(pattern: T, ...args: any[]) {
-    const [data] = args;
-    if (isString(pattern)) {
-      if (!data) return pattern;
-      const regular = /\{\s*([\w-]+)\s*\}/g;
-      const translated = pattern.replace(regular, (match, key) => {
-        if (data) {
-          return String(data[key]);
-        }
-        return '';
-      });
-      return translated;
-    }
     if (isFunction(pattern)) {
       // 重要：组件的渲染必须存在参数 h，不能移除
       if (!args.length) return pattern(h);
       return pattern(...args);
     }
-    return '';
+    // 使用公共翻译函数，以支持复数处理
+    // @ts-expect-error be passed to rest parameter
+    return commonT(pattern, ...args);
   };
 
   return {

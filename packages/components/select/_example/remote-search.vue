@@ -1,105 +1,78 @@
 <template>
   <t-space direction="vertical" :style="{ width: '350px' }">
     <t-select
-      v-model="value"
+      v-model="singleValue"
       filterable
       placeholder="请选择"
-      :loading="loading"
-      :options="options"
-      @search="remoteMethod"
+      :loading="singleLoading"
+      :options="singleOptions"
+      @search="remoteMethodSingle"
     />
+
     <t-select
       v-model="multipleValue"
-      filterable
-      placeholder="请选择"
-      :loading="multipleLoading"
-      :options="multipleOptions"
       multiple
-      value-type="object"
-      reserve-keyword
-      @search="remoteMultipleMethod"
-      @change="onChange"
-    />
+      remote
+      filterable
+      :loading="multipleLoading"
+      @search="remoteMethodMultiple"
+    >
+      <t-option v-for="{ label, value } in multipleOptions" :key="value" :value="value" :label="label"> </t-option>
+    </t-select>
   </t-space>
 </template>
-
 <script setup>
-import { ref, toRaw } from 'vue';
+import { ref, onMounted } from 'vue';
 
-const options = ref([]);
-const value = ref('');
-const loading = ref(false);
+// 模拟远程全部数据
+const wholeOptions = Array.from({ length: 20 }).map((_, i) => ({
+  value: `test${i + 1}`,
+  label: `腾讯_test${i + 1}`,
+}));
 
-const multipleOptions = ref([]);
-const multipleValue = ref([]);
+// --- 单选选择器的状态 ---
+const singleLoading = ref(false);
+const singleOptions = ref([]);
+const singleValue = ref('test1');
+
+// --- 多选选择器的状态 ---
 const multipleLoading = ref(false);
+const multipleOptions = ref([]);
+const multipleValue = ref(['test1', 'test8']);
 
-const remoteMethod = (search) => {
-  console.log('search', search);
-  if (search) {
-    loading.value = true;
-    setTimeout(() => {
-      loading.value = false;
-      options.value = [
-        {
-          value: `腾讯_test1`,
-          label: `腾讯_test1`,
-        },
-        {
-          value: `腾讯_test2`,
-          label: `腾讯_test2`,
-        },
-        {
-          value: `腾讯_test3`,
-          label: `腾讯_test3`,
-        },
-      ].filter((item) => item.label.includes(search));
-    }, 500);
-  }
+// 初始值
+const initMultipleValue = () => {
+  singleLoading.value = true;
+  multipleLoading.value = true;
+
+  setTimeout(() => {
+    singleOptions.value = wholeOptions;
+    singleLoading.value = false;
+
+    multipleOptions.value = wholeOptions;
+    multipleLoading.value = false;
+  }, 500);
 };
 
-const remoteMultipleMethod = (search) => {
-  console.log('search', search);
-  if (search) {
-    multipleLoading.value = true;
-    setTimeout(() => {
-      multipleLoading.value = false;
-      const remoteOptions = [
-        {
-          value: `腾讯_test1`,
-          label: `腾讯_test1`,
-        },
-        {
-          value: `腾讯_test2`,
-          label: `腾讯_test2`,
-        },
-        {
-          value: `腾讯_test3`,
-          label: `腾讯_test3`,
-        },
-        {
-          value: `腾讯_test1_1`,
-          label: `腾讯_test1_1`,
-        },
-        {
-          value: `腾讯_test2_2`,
-          label: `腾讯_test2_2`,
-        },
-        {
-          value: `腾讯_test3_3`,
-          label: `腾讯_test3_3`,
-        },
-      ].filter((item) => item.label.includes(search));
+// 单选选择器的远程搜索方法
+const remoteMethodSingle = (search) => {
+  singleLoading.value = true;
+  setTimeout(() => {
+    singleOptions.value = wholeOptions.slice(5, 15).filter((item) => item.label.includes(search));
+    singleLoading.value = false;
+  }, 500);
+};
 
-      const rawMultipleValue = multipleValue.value.map((item) => toRaw(item));
-      const mergedOptions = [...remoteOptions, ...rawMultipleValue];
-      multipleOptions.value = Array.from(new Map(mergedOptions.map((item) => [item.value, item])).values());
-    }, 500);
-  } else {
-    multipleOptions.value = multipleValue.value;
-  }
+// 多选选择器的远程搜索方法
+const remoteMethodMultiple = (search) => {
+  multipleLoading.value = true;
+  setTimeout(() => {
+    multipleOptions.value = wholeOptions.slice(5, 15).filter((item) => item.label.includes(search));
+    multipleLoading.value = false;
+  }, 500);
 };
-const onChange = (value) => {
-  console.log('mergedOptions', value);
-};
+
+onMounted(() => {
+  initMultipleValue();
+});
 </script>

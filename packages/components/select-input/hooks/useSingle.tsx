@@ -3,7 +3,14 @@ import { pick, isObject } from 'lodash-es';
 
 import Input, { StrInputProps } from '../../input';
 import Loading from '../../loading';
-import { useTNodeJSX, useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
+import {
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  usePrefixClass,
+  useDefaultValue,
+  useEventForward,
+} from '@tdesign/shared-hooks';
 
 import { PopupInstanceFunctions } from '../../popup';
 import { TdSelectInputProps } from '../type';
@@ -85,6 +92,7 @@ export function useSingle(
     const singleValueDisplay = renderTNode('valueDisplay');
     const displayedValue = popupVisible && props.allowInput ? inputValue.value : getInputValue(value.value, keys.value);
     const prefixContent = renderPrefixContent(singleValueDisplay, popupVisible);
+
     const inputProps = {
       ...commonInputProps.value,
       value: renderInputDisplay(singleValueDisplay, displayedValue, popupVisible),
@@ -124,19 +132,20 @@ export function useSingle(
       props.onBlur?.(value.value, { ...context, inputValue: val });
     };
 
+    const inputEvent = useEventForward(inputProps, {
+      onChange: onInnerInputChange,
+      onClear: onInnerClear,
+      onEnter,
+      onFocus,
+      onBlur,
+    });
+
     return (
       <Input
         ref={inputRef}
         style={context.attrs?.style}
         v-slots={slots}
-        {...{
-          onChange: onInnerInputChange,
-          onClear: onInnerClear,
-          onEnter,
-          onFocus,
-          onBlur,
-          ...inputProps,
-        }}
+        {...inputEvent.value}
         inputClass={inputClassProps}
       />
     );
@@ -154,8 +163,9 @@ export function useSingle(
 
     if (singleValueDisplay) {
       if (
-        (props.valueDisplayOptions?.usePlaceholder && !value.value) ||
-        (props.valueDisplayOptions?.useInputDisplay && popupVisible)
+        !value.value ||
+        (props.valueDisplayOptions?.useInputDisplay && popupVisible) ||
+        (popupVisible && props.allowInput)
       ) {
         return [label];
       }
@@ -165,20 +175,27 @@ export function useSingle(
 
   const renderInputDisplay = (singleValueDisplay: any, displayedValue: any, popupVisible: boolean) => {
     // 使用valueDisplay插槽时，如用户传入useInputDisplay使用自带输入回显实现，未传则认为用户自行实现。
-    if (singleValueDisplay)
+    if (singleValueDisplay) {
+      if (popupVisible && props.allowInput) {
+        return displayedValue;
+      }
       if (
         !props.valueDisplayOptions?.useInputDisplay ||
         (props.valueDisplayOptions?.useInputDisplay && !popupVisible)
       ) {
         return undefined;
       }
+    }
+
     return displayedValue;
   };
 
   const renderPlaceholder = (singleValueDisplay: any) => {
     // 使用valueDisplay插槽时，如用户传入usePlaceholder使用自带占位符实现，未传则认为用户自行实现。
     // 如果当前存在value（对应直接使用组件和select组件调用时），不显示占位符。
+
     if (singleValueDisplay) {
+      if (!value.value || (props.allowInput && props.popupVisible)) return props.placeholder;
       if (!props.valueDisplayOptions?.usePlaceholder || (props.valueDisplayOptions?.usePlaceholder && value.value)) {
         return '';
       }

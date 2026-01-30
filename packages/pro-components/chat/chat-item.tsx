@@ -24,7 +24,6 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { loadingText, loadingEndText } = globalConfig.value;
     const renderTNodeJSX = useTNodeJSX();
     const role = computed(() => renderTNodeJSX('role'));
     const variant = computed(() => renderTNodeJSX('variant'));
@@ -63,6 +62,7 @@ export default defineComponent({
       // 内置操作按钮，assistantActions和插槽判断 t-chat注入的属性获取不到默认为false
       const showActions = computed(() => renderTNodeJSX('actions'));
       const renderHeader = () => {
+        const { loadingText, loadingEndText } = globalConfig.value;
         if (reasoningLoading) {
           return <ChatLoading text={loadingText} />;
         }

@@ -2,6 +2,7 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { Select, Pagination } from '@tdesign/components';
+import TPaginationMini from '../pagination-mini';
 
 const defaultPaginationProps = {
   total: 100,
@@ -369,5 +370,46 @@ describe('Pagination', () => {
       });
       expect(wrapper.find('[data-testid="total-content"]').text()).toEqual('TOTAL');
     });
+  });
+});
+
+describe('TPaginationMini with Tooltip', () => {
+  it('should render Tooltip with correct content when tips enabled', () => {
+    const wrapper = mount(TPaginationMini, {
+      props: {
+        tips: { prev: '上一页', current: '当前页', next: '下一页' },
+        showCurrent: true,
+      },
+    });
+
+    const tooltips = wrapper.findAllComponents({ name: 'TTooltip' });
+    expect(tooltips).toHaveLength(3);
+    expect(tooltips[0].props('content')).toBe('上一页');
+    expect(tooltips[1].props('content')).toBe('当前页');
+    expect(tooltips[2].props('content')).toBe('下一页');
+  });
+
+  it('should not render Tooltip when tips is false', () => {
+    const wrapper = mount(TPaginationMini, {
+      props: {
+        tips: false,
+        showCurrent: true,
+      },
+    });
+
+    const tooltips = wrapper.findAllComponents({ name: 'TTooltip' });
+    expect(tooltips.length).toBe(0);
+  });
+
+  it('should pass showArrow=false to Tooltip', () => {
+    const wrapper = mount(TPaginationMini, {
+      props: {
+        tips: { prev: '上一页' },
+      },
+    });
+
+    const tooltip = wrapper.findComponent({ name: 'TTooltip' });
+    expect(tooltip.exists()).toBe(true);
+    expect(tooltip.props('showArrow')).toBe(false);
   });
 });

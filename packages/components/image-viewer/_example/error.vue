@@ -10,7 +10,14 @@
           <div>图片无法显示</div>
         </div>
       </div>
-      <t-image-viewer v-else :visible="visible[index]" :images="images" :default-index="index" @close="onClose(index)">
+      <t-image-viewer
+        v-else
+        :visible="visible[index]"
+        :images="images"
+        :default-index="index"
+        :z-index="10000"
+        @close="onClose(index)"
+      >
         <template #trigger>
           <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
             <img alt="test" :src="image" class="tdesign-demo-image-viewer__ui-image--img" @error="onError(index)" />

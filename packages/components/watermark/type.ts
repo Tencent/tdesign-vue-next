@@ -30,6 +30,11 @@ export interface TdWatermarkProps {
    */
   isRepeat?: boolean;
   /**
+   * 水印的布局方式，rectangular：矩形，即横平竖直的水印；hexagonal：六边形，即错位的水印
+   * @default rectangular
+   */
+  layout?: 'rectangular' | 'hexagonal';
+  /**
    * 行间距，只作用在多行（`content` 配置为数组）情况下
    * @default 16
    */

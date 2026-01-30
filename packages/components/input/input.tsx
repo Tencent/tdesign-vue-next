@@ -70,7 +70,7 @@ export default defineComponent({
 
     const { inputPreRef } = useInputWidth(props, inputRef, innerValue);
 
-    const inputEventHandler = useInputEventHandler(props, isHover);
+    const inputEventHandler = useInputEventHandler(props, isHover, isComposition);
 
     const tPlaceholder = computed(() => props.placeholder ?? globalConfig.value.placeholder);
     const inputAttrs = computed(() => {

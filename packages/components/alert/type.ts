@@ -2,17 +2,21 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode } from '../common';
 
 export interface TdAlertProps {
   /**
-   * 关闭按钮。值为 true 则显示默认关闭按钮；值为 false 则不显示按钮；值类型为 string 则直接显示；值类型为 Function 则可以自定关闭按钮
+   * 即将废弃，请使用 closeBtn 属性。关闭按钮。值为 true 则显示默认关闭按钮；值为 false 则不显示按钮；值类型为 string 则直接显示；值类型为 Function 则可以自定关闭按钮
    * @default false
    */
   close?: string | boolean | TNode;
+  /**
+   * 关闭按钮。值为 true 则显示默认关闭按钮；值为 false 则不显示按钮；值类型为 string 则直接显示；值类型为 Function 则可以自定关闭按钮
+   * @default false
+   */
+  closeBtn?: string | boolean | TNode;
   /**
    * 内容，同 message
    */
