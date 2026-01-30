@@ -136,40 +136,18 @@ const value = ref('1.1.1');
 const value2 = ref('1.1.1');
 const value3 = ref('1.1.1');
 const value4 = ref('1.1.1');
-const value5 = ref('1.1.1');
-const value6 = ref('1.1.1');
 
 // 各实例独立的选项数据
 const options1 = createOptions();
 const options2 = createOptions();
 const options3 = createOptions();
 const options4 = createOptions();
-const options5 = createOptions();
-const options6 = createOptions();
 
 // 各实例独立的搜索状态
 const searchValues1 = reactive({});
 const searchValues2 = reactive({});
 const searchValues3 = reactive({});
 const searchValues4 = reactive({});
-const searchValues5 = reactive({});
-const searchValues6 = reactive({});
-
-// 创建大小写敏感的过滤函数
-const createCaseSensitiveFilter = (keyword) => {
-  if (!keyword || !keyword.trim()) {
-    return '';
-  }
-  return (node) => {
-    return node.label && node.label.includes(keyword);
-  };
-};
-
-// 清除指定面板的过滤
-const clearFilter = (panelIndex, onFilter) => {
-  searchValues5[panelIndex] = '';
-  onFilter('');
-};
 </script>
 
 <style scoped>
