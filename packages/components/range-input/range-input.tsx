@@ -1,5 +1,6 @@
 import { defineComponent, ref, toRefs, computed, Fragment } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { isArray } from 'lodash-es';
 
 import Input, { TdInputProps } from '../input';
 import props from './props';
@@ -16,8 +17,6 @@ import {
   useCommonClassName,
   useEventForward,
 } from '@tdesign/shared-hooks';
-
-import { isArray } from 'lodash-es';
 
 function calcArrayValue(value: unknown | Array<unknown>) {
   if (isArray(value)) {
@@ -178,7 +177,7 @@ export default defineComponent({
             COMPONENT_NAME.value,
             {
               [SIZE.value[props.size]]: props.size !== 'medium',
-              [STATUS.value.disabled]: isDisabled.value,
+              [STATUS.value.disabled]: isArray(isDisabled.value) ? isDisabled.value.every(Boolean) : isDisabled.value,
               [STATUS.value.focused]: focused.value,
               [STATUS.value.success]: props.status === 'success',
               [STATUS.value.warning]: props.status === 'warning',
@@ -201,7 +200,7 @@ export default defineComponent({
                 [`${classPrefix.value}-is-focused`]: props.activeIndex === 0,
               }}
               placeholder={placeholder.value[0]}
-              disabled={isDisabled.value}
+              disabled={isArray(isDisabled.value) ? isDisabled.value[0] : isDisabled.value}
               readonly={isReadonly.value}
               format={format.value[0]}
               value={innerValue.value?.[0]}
@@ -217,7 +216,7 @@ export default defineComponent({
                 [`${classPrefix.value}-is-focused`]: props.activeIndex === 1,
               }}
               placeholder={placeholder.value[1]}
-              disabled={isDisabled.value}
+              disabled={isArray(isDisabled.value) ? isDisabled.value[1] : isDisabled.value}
               readonly={isReadonly.value}
               format={format.value[1]}
               value={innerValue.value?.[1]}
