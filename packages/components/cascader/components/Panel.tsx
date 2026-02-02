@@ -229,8 +229,13 @@ export default defineComponent({
 
     const renderList = (treeNodes: TreeNode[], isFilter = false, segment = true, index = 0) => {
       const displayNodes = hasActiveFilter.value ? getFilteredNodes(treeNodes, index) : treeNodes;
-      const filteredOptionsData = displayNodes.map((node) => node.data);
-      const originalOptionsData = treeNodes.map((node) => node.data);
+
+      const headerFooterParams = {
+        panelIndex: index,
+        options: treeNodes.map((node) => node.data),
+        filteredOptions: displayNodes.map((node) => node.data),
+        onFilter: getOnFilterCallback(index),
+      };
 
       return (
         <ul
@@ -244,23 +249,9 @@ export default defineComponent({
           ]}
           key={`${COMPONENT_NAME}__menu${index}`}
         >
-          {renderTNodeJSX('popupHeader', {
-            params: {
-              panelIndex: index,
-              options: originalOptionsData,
-              filteredOptions: filteredOptionsData,
-              onFilter: getOnFilterCallback(index),
-            },
-          })}
+          {renderTNodeJSX('popupHeader', { params: headerFooterParams })}
           {displayNodes.map((node: TreeNode) => renderItem(node, index))}
-          {renderTNodeJSX('popupFooter', {
-            params: {
-              panelIndex: index,
-              options: originalOptionsData,
-              filteredOptions: filteredOptionsData,
-              onFilter: getOnFilterCallback(index),
-            },
-          })}
+          {renderTNodeJSX('popupFooter', { params: headerFooterParams })}
         </ul>
       );
     };
