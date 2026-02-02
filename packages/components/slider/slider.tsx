@@ -16,7 +16,7 @@ import { isArray, isNumber } from 'lodash-es';
 import { formatPrecision, formatSliderValue, getStopStyle } from '@tdesign/common-js/slider/utils';
 import { useCommonClassName, useDisabled, usePrefixClass, useVModel } from '@tdesign/shared-hooks';
 
-import { sliderPropsInjectKey } from './consts';
+import { sliderPropsInjectKey } from './constants';
 import { useSliderInput } from './hooks/useSliderInput';
 import { useSliderMark } from './hooks/useSliderMark';
 import props from './props';
