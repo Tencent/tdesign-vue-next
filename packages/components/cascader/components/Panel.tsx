@@ -1,9 +1,8 @@
 import { defineComponent, PropType, computed, h, shallowRef, onUnmounted, watch } from 'vue';
 
 import Item from './Item';
-import { TreeNode, CascaderContextType } from '../types';
+import { TreeNode, CascaderContextType, CascaderOption } from '../types';
 import CascaderProps from '../props';
-import { TreeOptionData } from '../types';
 import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@tdesign/shared-hooks';
 
 import { getDefaultNode } from '@tdesign/shared-utils';
@@ -13,7 +12,7 @@ import { getPanels, expandClickEffect, valueChangeEffect } from '../utils';
 const FILTER_INACTIVE_LEVEL = -1;
 
 interface FilterState {
-  filters: Record<number, string | ((node: TreeOptionData, panelIndex: number) => boolean)>;
+  filters: Record<number, string | ((node: CascaderOption, panelIndex: number) => boolean)>;
   cascade: boolean;
   /** 最大可见面板层级，FILTER_INACTIVE_LEVEL 表示无限制 */
   maxLevel: number;
@@ -23,7 +22,7 @@ function isFilterLevelActive(level: number): boolean {
   return level !== FILTER_INACTIVE_LEVEL;
 }
 
-type FilterValue = string | ((node: TreeOptionData, panelIndex: number) => boolean);
+type FilterValue = string | ((node: CascaderOption, panelIndex: number) => boolean);
 
 /** 检查选项是否匹配关键词（大小写不敏感） */
 function checkOptionMatchKeyword(option: TreeNode, keyword: string): boolean {
