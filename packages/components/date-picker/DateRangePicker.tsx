@@ -61,6 +61,8 @@ export default defineComponent({
     watch(popupVisible, (visible) => {
       // 面板展开重置数据
       if (visible) {
+        if (isArray(props.disabled)) activeIndex.value = props.disabled[0] ? 1 : 0;
+
         isSelected.value = false;
         cacheValue.value = formatDate(value.value || [], {
           format: formatRef.value.valueType,
@@ -330,8 +332,10 @@ export default defineComponent({
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value) {
+      if (Array.isArray(props.disabled)) {
+        popupVisible.value = false;
+      } else if (!isFirstValueSelected.value) {
+        // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex as 0 | 1;
