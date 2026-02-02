@@ -1,4 +1,4 @@
-import { defineComponent, PropType, computed, h, shallowRef, onUnmounted } from 'vue';
+import { defineComponent, PropType, computed, h, shallowRef, onUnmounted, watch } from 'vue';
 
 import Item from './Item';
 import { TreeNode, CascaderContextType } from '../types';
@@ -75,7 +75,7 @@ export default defineComponent({
 
     const hasActiveFilter = computed(() => {
       const state = filterState.value;
-      return state && (Object.keys(state.filters).length > 0 || state.cascade);
+      return state && hasAnyActiveFilter(state.filters);
     });
 
     const getFilteredNodes = (nodes: TreeNode[], index: number): TreeNode[] => {
@@ -184,6 +184,20 @@ export default defineComponent({
       }
       return callback;
     };
+
+    // 当面板数量变化时清理过期的回调
+    watch(
+      panels,
+      (newPanels) => {
+        const maxIndex = newPanels.length - 1;
+        for (const [index] of onFilterCallbacks) {
+          if (index > maxIndex) {
+            onFilterCallbacks.delete(index);
+          }
+        }
+      },
+      { flush: 'post' },
+    );
 
     onUnmounted(() => {
       onFilterCallbacks.clear();
