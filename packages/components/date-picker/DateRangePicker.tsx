@@ -43,7 +43,7 @@ export default defineComponent({
       onChange,
     } = useRange(props);
 
-    const isDisabled = useDisabled() as ComputedRef<boolean>;
+    const isDisabled = useDisabled() as ComputedRef<boolean | Array<boolean>>;
     const isReadOnly = useReadonly();
 
     const formatRef = computed(() =>
@@ -180,6 +180,8 @@ export default defineComponent({
           );
         }
       }
+
+      if (Array.isArray(props.disabled)) return;
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (!isFirstValueSelected.value) {
@@ -448,6 +450,7 @@ export default defineComponent({
       presets: props.presets,
       time: time.value,
       disableDate: props.disableDate,
+      disabled: isDisabled.value,
       disableTime: props.disableTime,
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,

@@ -5,7 +5,7 @@ import TExtraContent from './ExtraContent';
 import { TdDateRangePickerProps } from '../../type';
 import { getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { useTableData, useDisableDate } from '../../hooks';
-import { isFunction } from 'lodash-es';
+import { isArray, isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TRangePanel',
@@ -13,6 +13,9 @@ export default defineComponent({
     hoverValue: Array as PropType<Array<string>>,
     activeIndex: Number,
     isFirstValueSelected: Boolean,
+    disabled: {
+      type: [Boolean, Array] as PropType<TdDateRangePickerProps['disabled']>,
+    },
     disableDate: [Object, Array, Function] as PropType<TdDateRangePickerProps['disableDate']>,
     disableTime: Function as PropType<TdDateRangePickerProps['disableTime']>,
     mode: {
@@ -64,21 +67,32 @@ export default defineComponent({
     // 是否隐藏预选状态,只有 value 有值的时候需要隐藏
     const hidePreselection = !props.panelPreselection && props.value.length === 2;
 
-    const disableDateOptions = computed(() =>
-      useDisableDate({
+    const disableDateOptions = computed(() => {
+      let start =
+        props.isFirstValueSelected && props.activeIndex === 1
+          ? new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0))
+          : undefined;
+      let end =
+        props.isFirstValueSelected && props.activeIndex === 0
+          ? new Date(parseToDayjs(props.value[1], format.value).toDate().setHours(23, 59, 59))
+          : undefined;
+
+      if (props.disabled && isArray(props.disabled)) {
+        if (props.disabled[0]) {
+          start = new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0));
+        } else if (props.disabled[1]) {
+          end = new Date(parseToDayjs(props.value[1], format.value).toDate().setHours(23, 59, 59));
+        }
+      }
+
+      return useDisableDate({
         format: format.value,
         mode: props.mode,
         disableDate: props.disableDate,
-        start:
-          props.isFirstValueSelected && props.activeIndex === 1
-            ? new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0))
-            : undefined,
-        end:
-          props.isFirstValueSelected && props.activeIndex === 0
-            ? new Date(parseToDayjs(props.value[1], format.value).toDate().setHours(23, 59, 59))
-            : undefined,
-      }),
-    );
+        start,
+        end,
+      });
+    });
 
     const startTableData = computed(() => {
       const disableDate = isFunction(props.disableDate)
