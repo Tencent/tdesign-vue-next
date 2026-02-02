@@ -316,7 +316,7 @@ export default defineComponent({
           overlayClassName={[...overlayClassName.value]}
           visible={popupVisible.value}
           placement={placement}
-          popperOptions={popperOptions as any}
+          popperOptions={popperOptions}
           v-slots={slots}
         >
           <div ref={submenuRef} class={submenuClass.value}>
