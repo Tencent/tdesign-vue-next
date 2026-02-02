@@ -68,21 +68,14 @@ export default defineComponent({
     const hidePreselection = !props.panelPreselection && props.value.length === 2;
 
     const disableDateOptions = computed(() => {
-      let start =
-        props.isFirstValueSelected && props.activeIndex === 1
-          ? new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0))
-          : undefined;
-      let end =
-        props.isFirstValueSelected && props.activeIndex === 0
-          ? new Date(parseToDayjs(props.value[1], format.value).toDate().setHours(23, 59, 59))
-          : undefined;
+      const startDateValue = new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0));
+      const endDateValue = new Date(parseToDayjs(props.value[1], format.value, 'end').toDate().setHours(23, 59, 59));
+      let start = props.isFirstValueSelected && props.activeIndex === 1 ? startDateValue : undefined;
+      let end = props.isFirstValueSelected && props.activeIndex === 0 ? endDateValue : undefined;
 
       if (props.disabled && isArray(props.disabled)) {
-        if (props.disabled[0]) {
-          start = new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0));
-        } else if (props.disabled[1]) {
-          end = new Date(parseToDayjs(props.value[1], format.value).toDate().setHours(23, 59, 59));
-        }
+        if (props.disabled[0]) start = startDateValue;
+        else if (props.disabled[1]) end = endDateValue;
       }
 
       return useDisableDate({
