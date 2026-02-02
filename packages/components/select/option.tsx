@@ -16,7 +16,7 @@ import Checkbox from '../checkbox/index';
 import { useRipple, useContent, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import { getNewMultipleValue } from './utils';
-import { selectInjectKey } from './consts';
+import { selectInjectKey } from './constants';
 import { SelectValue } from './type';
 
 export default defineComponent({
