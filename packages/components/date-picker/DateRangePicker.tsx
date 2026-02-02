@@ -106,12 +106,11 @@ export default defineComponent({
         activeIndex.value = 0;
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
-        if (props.needConfirm) {
-          inputValue.value = formatDate(value.value, {
-            format: formatRef.value.valueType,
-            targetFormat: formatRef.value.format,
-          });
-        } else {
+        inputValue.value = formatDate(value.value, {
+          format: formatRef.value.valueType,
+          targetFormat: formatRef.value.format,
+        });
+        if (!props.needConfirm) {
           confirmValueChange();
         }
       }
