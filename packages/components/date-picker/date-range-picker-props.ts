@@ -32,7 +32,7 @@ export default {
   /** 是否禁用组件 */
   disabled: {
     type: [Boolean, Array] as PropType<TdDateRangePickerProps['disabled']>,
-    default: undefined as TdDateRangePickerProps['disabled'],
+    default: undefined,
   },
   /** 是否显示时间选择 */
   enableTimePicker: Boolean,

@@ -30,7 +30,7 @@ export default {
   /** 是否禁用组件 */
   disabled: {
     type: Boolean,
-    default: undefined as TdDatePickerProps['disabled'],
+    default: undefined,
   },
   /** 是否显示时间选择 */
   enableTimePicker: Boolean,
