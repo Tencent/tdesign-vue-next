@@ -21,7 +21,7 @@ label | String / Slot / Function | - | Typescript: `string \| TNode`。[see more
 mode | String | date | options: year/quarter/month/week/date | N
 multiple | Boolean | false | support multiple date，but not support being use together with range-picker、enableTimePicker and allowInput。Typescript: `boolean` | N
 needConfirm | Boolean | true | whether a confirmation button needs to be clicked to complete the action in the date-time picker scenario, default is true | N
-panelActiveDate | Object | - | `v-model:panelActiveDate` is supported。Typescript: `PanelActiveDate` `interface PanelActiveDate {year?: DateValue, month?: DateValue}`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
+panelActiveDate | Object | - | Typescript: `PanelActiveDate` `interface PanelActiveDate {year?: DateValue, month?: DateValue}`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 placeholder | String / Array | undefined | Typescript: `string` | N
 popupProps | Object | - | Typescript: `PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 prefixIcon | Slot / Function | - | Typescript: `TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
@@ -82,7 +82,7 @@ format | String | - | \- | N
 label | String / Slot / Function | - | Typescript: `string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 mode | String | date | options: year/quarter/month/week/date | N
 needConfirm | Boolean | true | whether a confirmation button needs to be clicked to complete the action in the date-time range picker scenario, default is true | N
-panelActiveDate | Object | - | `v-model:panelActiveDate` is supported。Typescript: `PanelActiveDate \| [PanelActiveDate, PanelActiveDate]` `interface PanelActiveDate {year?: DateValue, month?: DateValue}`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
+panelActiveDate | Object | - | Typescript: `PanelActiveDate \| [PanelActiveDate, PanelActiveDate]` `interface PanelActiveDate {year?: DateValue, month?: DateValue}`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 panelPreselection | Boolean | true | \- | N
 placeholder | String / Array | - | Typescript: `string \| Array<string>` | N
 popupProps | Object | - | Typescript: `PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N

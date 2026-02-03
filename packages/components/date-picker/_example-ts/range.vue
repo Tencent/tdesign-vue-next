@@ -25,11 +25,11 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import dayjs from 'dayjs';
 
 // 仅允许今天到未来 90 天（返回 true 表示可选）
-const rangeFn = (d) => {
+const rangeFn = (d: Date) => {
   const now = dayjs().startOf('day');
   const target = dayjs(d).startOf('day');
   const diff = target.diff(now, 'day');

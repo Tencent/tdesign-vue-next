@@ -110,9 +110,11 @@ export default defineComponent({
             }
 
             const leftYear = (startPanelActiveDate?.year ?? startYearFromRange) as number;
-            const leftMonth = (startPanelActiveDate?.month ?? startMonthFromRange) as number;
+            const leftMonth = startPanelActiveDate?.month
+              ? Number(startPanelActiveDate?.month) - 1
+              : startMonthFromRange;
             const rightYear = (endPanelActiveDate?.year ?? endYearFromRange) as number;
-            const rightMonth = (endPanelActiveDate?.month ?? endMonthFromRange) as number;
+            const rightMonth = endPanelActiveDate?.month ? Number(endPanelActiveDate?.month) - 1 : endMonthFromRange;
 
             // 获取默认值作为兜底
             const { year: defaultYear, month: defaultMonth } = initYearMonthTime({

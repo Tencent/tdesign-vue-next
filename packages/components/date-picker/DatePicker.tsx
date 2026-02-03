@@ -128,7 +128,7 @@ export default defineComponent({
           const yearFromRange = rangeBounds.min?.getFullYear() ?? rangeBounds.max?.getFullYear();
           const monthFromRange = rangeBounds.min?.getMonth() ?? rangeBounds.max?.getMonth();
           year.value = (props.panelActiveDate?.year ?? yearFromRange) as number;
-          month.value = (props.panelActiveDate?.month ?? monthFromRange) as number;
+          month.value = props.panelActiveDate?.month ? Number(props.panelActiveDate?.month) - 1 : monthFromRange;
         } else {
           year.value = parseToDayjs(value.value as DateValue, formatRef.value.valueType).year();
           month.value = parseToDayjs(value.value as DateValue, formatRef.value.format).month();

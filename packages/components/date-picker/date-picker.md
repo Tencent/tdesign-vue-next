@@ -21,7 +21,7 @@ label | String / Slot / Function | - | 左侧文本。TS 类型：`string \| TNo
 mode | String | date | 选择器模式。可选项：year/quarter/month/week/date | N
 multiple | Boolean | false | 支持多选日期，但不支持在range-picker中，或与enableTimePicker、allowInput 一起使用。TS 类型：`boolean` | N
 needConfirm | Boolean | true | 决定在日期时间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为`true` | N
-panelActiveDate | Object | - | 日期选择器中年月下拉框的选中值。支持语法糖 `v-model:panelActiveDate`。TS 类型：`PanelActiveDate` `interface PanelActiveDate {year?: DateValue, month?: DateValue}`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
+panelActiveDate | Object | - | 日期选择器中年月下拉框的选中值。TS 类型：`PanelActiveDate` `interface PanelActiveDate {year?: DateValue, month?: DateValue}`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 placeholder | String / Array | undefined | 占位符。TS 类型：`string` | N
 popupProps | Object | - | 透传 Popup 组件全部属性。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 prefixIcon | Slot / Function | - | 用于自定义组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
