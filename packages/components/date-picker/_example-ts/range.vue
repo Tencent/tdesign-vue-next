@@ -1,9 +1,5 @@
 <template>
   <t-space direction="vertical">
-    <!-- 未来 90 天 -->
-    <t-date-picker :range="rangeFn" placeholder="未来 90 天" />
-    <t-date-range-picker :range="rangeFn" placeholder="未来 90 天" />
-
     <t-date-picker
       :range="['2000-01-01', '2010-12-31']"
       :panel-active-date="{ year: 2005, month: 10 }"
@@ -22,6 +18,10 @@
     <!-- 2026开始，不限制结束 -->
     <t-date-picker :range="['2026-01-01', null]" placeholder="2026开始，不限制结束" />
     <t-date-range-picker :range="['2026-01-01', null]" placeholder="2026开始，不限制结束" />
+
+    <!-- 未来 90 天 -->
+    <t-date-picker :range="rangeFn" placeholder="未来 90 天" />
+    <t-date-range-picker :range="rangeFn" placeholder="未来 90 天" />
   </t-space>
 </template>
 
