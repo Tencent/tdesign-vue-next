@@ -88,10 +88,6 @@ export interface TdDatePickerProps {
    */
   panelActiveDate?: PanelActiveDate;
   /**
-   * 日期选择器中年月下拉框的选中值，非受控属性
-   */
-  defaultPanelActiveDate?: PanelActiveDate;
-  /**
    * 占位符
    */
   placeholder?: string;
@@ -289,10 +285,6 @@ export interface TdDateRangePickerProps {
    * 日期选择器中年月下拉框的选中值
    */
   panelActiveDate?: PanelActiveDate | [PanelActiveDate, PanelActiveDate];
-  /**
-   * 日期选择器中年月下拉框的选中值，非受控属性
-   */
-  defaultPanelActiveDate?: PanelActiveDate | [PanelActiveDate, PanelActiveDate];
   /**
    * 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期
    * @default true

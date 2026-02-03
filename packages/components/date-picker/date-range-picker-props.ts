@@ -72,10 +72,6 @@ export default {
     type: Object as PropType<TdDateRangePickerProps['panelActiveDate']>,
     default: undefined as TdDateRangePickerProps['panelActiveDate'],
   },
-  /** 日期选择器中年月下拉框的选中值，非受控属性 */
-  defaultPanelActiveDate: {
-    type: Object as PropType<TdDateRangePickerProps['defaultPanelActiveDate']>,
-  },
   /** 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期 */
   panelPreselection: {
     type: Boolean,
