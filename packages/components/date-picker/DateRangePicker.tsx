@@ -460,6 +460,7 @@ export default defineComponent({
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
       popupVisible: popupVisible.value,
+      range: props.range,
       panelPreselection: props.panelPreselection,
       cancelRangeSelectLimit: props.cancelRangeSelectLimit,
       needConfirm: props.needConfirm,

@@ -513,6 +513,7 @@ export interface TdDateRangePickerPanelProps
     | 'presetsPlacement'
     | 'panelPreselection'
     | 'timePickerProps'
+    | 'range'
   > {
   /**
    * 时间选择器默认值，当 value/defaultValue 未设置值时有效
