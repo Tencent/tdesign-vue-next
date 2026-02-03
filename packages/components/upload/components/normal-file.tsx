@@ -12,7 +12,7 @@ import { useTNodeJSX, useGlobalIcon } from '@tdesign/shared-hooks';
 import { UploadFile } from '../type';
 import { abridgeName } from '@tdesign/common-js/upload/utils';
 import { CommonDisplayFileProps } from '../types';
-import { commonProps } from '../consts';
+import { commonProps } from '../constants';
 import { UploadConfig } from '../../config-provider';
 
 export interface NormalFileProps extends CommonDisplayFileProps {

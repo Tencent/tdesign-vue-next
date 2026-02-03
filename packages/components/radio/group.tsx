@@ -18,7 +18,7 @@ import props from './radio-group-props';
 import type { RadioOptionObj, RadioOption, TdRadioGroupProps } from './type';
 import TRadio from './radio';
 import TRadioButton from './radio-button';
-import { RadioGroupInjectionKey } from './consts';
+import { RadioGroupInjectionKey } from './constants';
 import {
   useVModel,
   usePrefixClass,

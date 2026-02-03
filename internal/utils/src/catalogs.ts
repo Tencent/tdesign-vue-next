@@ -89,7 +89,7 @@ export const catalogs = {
     prettier: '^2.8.1',
   },
   tdesign: {
-    '@tdesign/site-components': '^0.17.5',
+    '@tdesign/site-components': '^0.18.2',
     '@tdesign/theme-generator': '^1.2.0',
     'tdesign-icons-vue-next': '~0.4.2',
     'tdesign-publish-cli': '^0.0.12',

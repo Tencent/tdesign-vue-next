@@ -10,7 +10,7 @@ import TdSelectProps from '../props';
 import { useConfig, useTNodeJSX, usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
 
 import { usePanelVirtualScroll } from '../hooks';
-import { selectInjectKey } from '../consts';
+import { selectInjectKey } from '../constants';
 import type { TdSelectProps as SelectProps } from '../type';
 
 export default defineComponent({

@@ -39,6 +39,17 @@
       :disable-date="{ before: dayjs().subtract(1, 'day').format() }"
       :disable-time="getDisableTime"
     />
+    <t-date-range-picker
+      placeholder="禁用起始区间或结束区间"
+      :disabled="[true, false]"
+      :default-value="['2026-01-01', '2026-01-10']"
+    />
+    <t-date-range-picker
+      placeholder="禁用起始区间或结束区间"
+      :disabled="[false, true]"
+      enable-time-picker
+      :default-value="['2026-01-01 00:00:00', '2026-01-10 23:59:59']"
+    />
   </t-space>
 </template>
 
