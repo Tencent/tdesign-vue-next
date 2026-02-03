@@ -5,7 +5,13 @@ import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks'
 import { isArray, isFunction } from 'lodash-es';
 
 import props from './date-range-picker-props';
-import { DateValue, DateRangePickerPartial, DatePickerYearChangeTrigger, DatePickerMonthChangeTrigger } from './type';
+import {
+  DateValue,
+  DateRangePickerPartial,
+  DatePickerYearChangeTrigger,
+  DatePickerMonthChangeTrigger,
+  PickerDateRange,
+} from './type';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
 import TRangePanel from './components/panel/RangePanel';
@@ -19,7 +25,7 @@ import {
   initYearMonthTime,
 } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
-import { dateCorrection, triggerMap } from './utils';
+import { dateCorrection, triggerMap, getRangeBounds } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePicker',
@@ -77,14 +83,66 @@ export default defineComponent({
 
         // 空数据重置为当前年月
         if (!value.value.length) {
-          const { year: defaultYear, month: defaultMonth } = initYearMonthTime({
-            value: value.value,
-            mode: props.mode,
-            format: formatRef.value.format,
-            enableTimePicker: props.enableTimePicker,
-          });
-          year.value = defaultYear;
-          month.value = defaultMonth;
+          if ((props.range && isArray(props.range)) || props.panelActiveDate) {
+            let startRange = props.range as PickerDateRange;
+            let endRange = props.range as PickerDateRange;
+            if (isArray(props.range)) {
+              const [first, second] = props.range;
+              if (isArray(first) || isFunction(first) || isArray(second) || isFunction(second)) {
+                startRange = first as PickerDateRange;
+                endRange = second as PickerDateRange;
+              }
+            }
+
+            const startRangeBounds = getRangeBounds(startRange);
+            const endRangeBounds = getRangeBounds(endRange);
+
+            const startYearFromRange = startRangeBounds.min?.getFullYear() ?? startRangeBounds.max?.getFullYear();
+            const startMonthFromRange = startRangeBounds.min?.getMonth() ?? startRangeBounds.max?.getMonth();
+
+            const endYearFromRange = endRangeBounds.min?.getFullYear() ?? endRangeBounds.max?.getFullYear();
+            const endMonthFromRange = endRangeBounds.min?.getMonth() ?? endRangeBounds.max?.getMonth();
+
+            let startPanelActiveDate = props.panelActiveDate as any;
+            let endPanelActiveDate = props.panelActiveDate as any;
+            if (isArray(props.panelActiveDate)) {
+              [startPanelActiveDate, endPanelActiveDate] = props.panelActiveDate;
+            }
+
+            const leftYear = (startPanelActiveDate?.year ?? startYearFromRange) as number;
+            const leftMonth = (startPanelActiveDate?.month ?? startMonthFromRange) as number;
+            const rightYear = (endPanelActiveDate?.year ?? endYearFromRange) as number;
+            const rightMonth = (endPanelActiveDate?.month ?? endMonthFromRange) as number;
+
+            // 获取默认值作为兜底
+            const { year: defaultYear, month: defaultMonth } = initYearMonthTime({
+              value: value.value,
+              mode: props.mode,
+              format: formatRef.value.format,
+              enableTimePicker: props.enableTimePicker,
+            });
+
+            year.value = [leftYear ?? defaultYear[0], rightYear ?? defaultYear[1]];
+            month.value = [leftMonth ?? defaultMonth[0], rightMonth ?? defaultMonth[1]];
+
+            // 修正：如果左右面板年月完全一致且未显式指定不同范围，则偏移面板
+            if (year.value[0] === year.value[1] && month.value[0] === month.value[1] && !props.enableTimePicker) {
+              if (startRange === endRange) {
+                if (props.mode === 'year') year.value[1] += 10;
+                else if (props.mode === 'month' || props.mode === 'quarter') year.value[1] += 1;
+                else month.value[1] += 1;
+              }
+            }
+          } else {
+            const { year: defaultYear, month: defaultMonth } = initYearMonthTime({
+              value: value.value,
+              mode: props.mode,
+              format: formatRef.value.format,
+              enableTimePicker: props.enableTimePicker,
+            });
+            year.value = defaultYear;
+            month.value = defaultMonth;
+          }
         } else if (value.value.length === 2 && !props.enableTimePicker) {
           // 确保右侧面板月份比左侧大 避免两侧面板月份一致
           const nextMonth = value.value.map((v: string) => parseToDayjs(v, formatRef.value.format).month());
