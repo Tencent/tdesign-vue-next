@@ -44,7 +44,7 @@ export default defineComponent({
         props.creatable &&
         props.filterable &&
         props.inputValue &&
-        !find(tSelect.value.displayOptions, (item: SelectOption) => item.value === props.inputValue)
+        !find(tSelect.value.displayOptions, (item: TdOptionProps) => item.value === props.inputValue)
       );
     });
     const displayOptions = computed(() => tSelect.value.displayOptions);
