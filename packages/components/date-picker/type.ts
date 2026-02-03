@@ -106,7 +106,7 @@ export interface TdDatePickerProps {
   /**
    * 预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`
    */
-  presets?: PresetDate;
+  presets?: TNode | PresetDate;
   /**
    * 预设面板展示区域（包含确定按钮）
    * @default bottom
@@ -202,10 +202,6 @@ export interface TdDatePickerProps {
     e?: MouseEvent;
     trigger: DatePickerMonthChangeTrigger;
   }) => void;
-  /**
-   * 年月下拉框选中值变化时触发
-   */
-  onPanelActiveDate?: (value: number | Date, context: { trigger: DatePickerPanelActiveDate; e?: MouseEvent }) => void;
   /**
    * 面板选中值后触发
    */
@@ -317,7 +313,7 @@ export interface TdDateRangePickerProps {
   /**
    * 预设快捷日期选择，示例：{ '特定日期范围': ['2021-01-01', '2022-01-01'], '本月': [dayjs().startOf('month'), dayjs().endOf('month')] }
    */
-  presets?: PresetRange;
+  presets?: TNode | PresetRange;
   /**
    * 预设面板展示区域（包含确定按钮）
    * @default bottom
@@ -420,13 +416,6 @@ export interface TdDateRangePickerProps {
     e?: MouseEvent;
     trigger: DatePickerMonthChangeTrigger;
   }) => void;
-  /**
-   * 年月下拉框选中值变化时触发
-   */
-  onPanelActiveDate?: (
-    value: number | Date,
-    context: { partial: DateRangePickerPartial; trigger: DatePickerPanelActiveDate; e?: MouseEvent },
-  ) => void;
   /**
    * 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期
    */
@@ -630,8 +619,6 @@ export type ValueTypeEnum = DatePickerValueType;
 export type DatePickerTriggerSource = 'confirm' | 'pick' | 'enter' | 'preset' | 'clear' | 'tag-remove';
 
 export type DatePickerMonthChangeTrigger = 'month-select' | 'month-arrow-next' | 'month-arrow-previous' | 'today';
-
-export type DatePickerPanelActiveDate = DatePickerMonthChangeTrigger | DatePickerYearChangeTrigger;
 
 export type DatePickerYearChangeTrigger = 'year-select' | 'year-arrow-next' | 'year-arrow-previous' | 'today';
 

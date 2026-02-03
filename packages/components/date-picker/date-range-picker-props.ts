@@ -32,7 +32,7 @@ export default {
   /** 是否禁用组件 */
   disabled: {
     type: [Boolean, Array] as PropType<TdDateRangePickerProps['disabled']>,
-    default: undefined,
+    default: undefined as TdDateRangePickerProps['disabled'],
   },
   /** 是否显示时间选择 */
   enableTimePicker: Boolean,
@@ -95,7 +95,7 @@ export default {
   },
   /** 预设快捷日期选择，示例：{ '特定日期范围': ['2021-01-01', '2022-01-01'], '本月': [dayjs().startOf('month'), dayjs().endOf('month')] } */
   presets: {
-    type: Object as PropType<TdDateRangePickerProps['presets']>,
+    type: [Object, Function] as PropType<TdDateRangePickerProps['presets']>,
   },
   /** 预设面板展示区域（包含确定按钮） */
   presetsPlacement: {
@@ -198,8 +198,6 @@ export default {
   onInput: Function as PropType<TdDateRangePickerProps['onInput']>,
   /** 月份切换发生变化时触发 */
   onMonthChange: Function as PropType<TdDateRangePickerProps['onMonthChange']>,
-  /** 年月下拉框选中值变化时触发 */
-  onPanelActiveDate: Function as PropType<TdDateRangePickerProps['onPanelActiveDate']>,
   /** 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期 */
   onPick: Function as PropType<TdDateRangePickerProps['onPick']>,
   /** 点击预设按钮后触发 */

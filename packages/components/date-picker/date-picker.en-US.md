@@ -12,7 +12,7 @@ clearable | Boolean | false | \- | N
 defaultTime | String | '00:00:00' | Time selector default value | N
 disableDate | Object / Array / Function | - | Typescript: `DisableDate` `type DisableDate = Array<DateValue> \| DisableDateObj \| ((date: DateValue) => boolean)` `interface DisableDateObj { from?: string; to?: string; before?: string; after?: string }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 disableTime | Function | - | disable time config function。Typescript: `(time: Date) => Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number>, millisecond: Array<number> }>` | N
-disabled | Boolean | undefined | make DatePicker to be disabled | N
+disabled | Boolean | undefined | make DatePicker to be disabled。Typescript: `boolean` | N
 enableTimePicker | Boolean | false | \- | N
 firstDayOfWeek | Number | 7 | options: 1/2/3/4/5/6/7 | N
 format | String | 'YYYY-MM-DD' | \- | N
@@ -25,7 +25,7 @@ panelActiveDate | Object | - | `v-model:panelActiveDate` is supported。Typescri
 placeholder | String / Array | undefined | Typescript: `string` | N
 popupProps | Object | - | Typescript: `PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 prefixIcon | Slot / Function | - | Typescript: `TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-presets | Object | - | Typescript: `PresetDate` `interface PresetDate { [name: string]: DateValue \| (() => DateValue) }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
+presets | Object / Slot / Function | - | Typescript: `TNode \| PresetDate` `interface PresetDate { [name: string]: DateValue \| (() => DateValue) }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 presetsPlacement | String | bottom | options: left/top/right/bottom | N
 range | Array / Function | - | Typescript: `PickerDateRange` `type PickerDateRange = DateValue[] \| ((date: DateValue) => boolean)`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 readonly | Boolean | undefined | Whether it is read only, the priority is greater than allowInput | N
@@ -45,7 +45,6 @@ onClear | Function |  | Typescript: `(context: { e: MouseEvent }) => void`<br/>T
 onConfirm | Function |  | Typescript: `(context: { date: Date, e: MouseEvent }) => void`<br/> | N
 onFocus | Function |  | Typescript: `(context: { value: DateValue \| DateMultipleValue; e: FocusEvent }) => void`<br/> | N
 onMonthChange | Function |  | Typescript: `(context: { month: number, date: Date, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerMonthChangeTrigger = 'month-select' \| 'month-arrow-next' \| 'month-arrow-previous' \| 'today'`<br/> | N
-onPanelActiveDate | Function |  | Typescript: `(value: number \| Date, context: { trigger: DatePickerPanelActiveDate, e?: MouseEvent }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerPanelActiveDate = DatePickerMonthChangeTrigger \| DatePickerYearChangeTrigger`<br/> | N
 onPick | Function |  | Typescript: `(value: DateValue) => void`<br/> | N
 onPresetClick | Function |  | Typescript: `(context: { preset: PresetDate, e: MouseEvent }) => void`<br/> | N
 onYearChange | Function |  | Typescript: `(context: { year: number, date: Date, trigger: DatePickerYearChangeTrigger, e?: MouseEvent }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerYearChangeTrigger = 'year-select' \| 'year-arrow-next' \| 'year-arrow-previous' \| 'today'`<br/> | N
@@ -60,7 +59,6 @@ clear | `(context: { e: MouseEvent })` | Triggered when the clear button is clic
 confirm | `(context: { date: Date, e: MouseEvent })` | \-
 focus | `(context: { value: DateValue \| DateMultipleValue; e: FocusEvent })` | \-
 month-change | `(context: { month: number, date: Date, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger })` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerMonthChangeTrigger = 'month-select' \| 'month-arrow-next' \| 'month-arrow-previous' \| 'today'`<br/>
-panel-active-date | `(value: number \| Date, context: { trigger: DatePickerPanelActiveDate, e?: MouseEvent })` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerPanelActiveDate = DatePickerMonthChangeTrigger \| DatePickerYearChangeTrigger`<br/>
 pick | `(value: DateValue)` | \-
 preset-click | `(context: { preset: PresetDate, e: MouseEvent })` | \-
 year-change | `(context: { year: number, date: Date, trigger: DatePickerYearChangeTrigger, e?: MouseEvent })` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerYearChangeTrigger = 'year-select' \| 'year-arrow-next' \| 'year-arrow-previous' \| 'today'`<br/>
@@ -77,7 +75,7 @@ clearable | Boolean | false | \- | N
 defaultTime | Array | ["00:00:00", "23:59:59"] | Time selector default value。Typescript: `string[]` | N
 disableDate | Object / Array / Function | - | Typescript: `DisableRangeDate` `type DisableRangeDate = Array<DateValue> \| DisableDateObj \| ((context: { date: DateRangeValue; partial: DateRangePickerPartial }) => boolean)` `interface DisableDateObj { from?: string; to?: string; before?: string; after?: string }` `type DateRangePickerPartial = 'start' \| 'end'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 disableTime | Function | - | disable time config function。Typescript: `(times: Array<Date \| null>, context: { partial: DateRangePickerPartial }) => Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number> }>` | N
-disabled | Boolean | undefined | \- | N
+disabled | Boolean / Array | undefined | Typescript: `boolean \| Array<boolean>` | N
 enableTimePicker | Boolean | false | \- | N
 firstDayOfWeek | Number | - | options: 1/2/3/4/5/6/7 | N
 format | String | - | \- | N
@@ -89,7 +87,7 @@ panelPreselection | Boolean | true | \- | N
 placeholder | String / Array | - | Typescript: `string \| Array<string>` | N
 popupProps | Object | - | Typescript: `PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 prefixIcon | Slot / Function | - | Typescript: `TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-presets | Object | - | Typescript: `PresetRange` `interface PresetRange { [range: string]: DateRange \| (() => DateRange)}` `type DateRange = [DateValue, DateValue]`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
+presets | Object / Slot / Function | - | Typescript: `TNode \| PresetRange` `interface PresetRange { [range: string]: DateRange \| (() => DateRange)}` `type DateRange = [DateValue, DateValue]`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 presetsPlacement | String | bottom | options: left/top/right/bottom | N
 range | Array / Function | - | Typescript: `PickerDateRange \| PickerDateRange[]` `type PickerDateRange = DateValue[] \| ((date: DateValue) => boolean)`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
 rangeInputProps | Object | - | Typescript: `RangeInputProps`，[RangeInput API Documents](./range-input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts) | N
@@ -109,7 +107,6 @@ onConfirm | Function |  | Typescript: `(context: { date: Date[], e: MouseEvent, 
 onFocus | Function |  | Typescript: `(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent }) => void`<br/> | N
 onInput | Function |  | Typescript: `(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent }) => void`<br/> | N
 onMonthChange | Function |  | Typescript: `(context: { month: number, date: Date[], partial: DateRangePickerPartial, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger }) => void`<br/> | N
-onPanelActiveDate | Function |  | Typescript: `(value: number \| Date, context: { partial: DateRangePickerPartial, trigger: DatePickerPanelActiveDate, e?: MouseEvent }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerPanelActiveDate = DatePickerMonthChangeTrigger \| DatePickerYearChangeTrigger`<br/> | N
 onPick | Function |  | Typescript: `(value: DateValue, context: PickContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`interface PickContext { e: MouseEvent; partial: DateRangePickerPartial }`<br/> | N
 onPresetClick | Function |  | Typescript: `(context: { preset: PresetDate, e: MouseEvent }) => void`<br/> | N
 onYearChange | Function |  | Typescript: `(context: { year: number, date: Date[], partial: DateRangePickerPartial, trigger: DatePickerYearChangeTrigger, e?: MouseEvent }) => void`<br/> | N
@@ -124,7 +121,6 @@ confirm | `(context: { date: Date[], e: MouseEvent, partial: DateRangePickerPart
 focus | `(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent })` | \-
 input | `(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent })` | \-
 month-change | `(context: { month: number, date: Date[], partial: DateRangePickerPartial, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger })` | \-
-panel-active-date | `(value: number \| Date, context: { partial: DateRangePickerPartial, trigger: DatePickerPanelActiveDate, e?: MouseEvent })` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`type DatePickerPanelActiveDate = DatePickerMonthChangeTrigger \| DatePickerYearChangeTrigger`<br/>
 pick | `(value: DateValue, context: PickContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/date-picker/type.ts)。<br/>`interface PickContext { e: MouseEvent; partial: DateRangePickerPartial }`<br/>
 preset-click | `(context: { preset: PresetDate, e: MouseEvent })` | \-
 year-change | `(context: { year: number, date: Date[], partial: DateRangePickerPartial, trigger: DatePickerYearChangeTrigger, e?: MouseEvent })` | \-
