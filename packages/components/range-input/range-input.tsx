@@ -198,6 +198,7 @@ export default defineComponent({
               class={`${COMPONENT_NAME.value}__inner-left`}
               inputClass={{
                 [`${classPrefix.value}-is-focused`]: props.activeIndex === 0,
+                [`${classPrefix.value}-is-disabled`]: isArray(isDisabled.value) && isDisabled.value[0],
               }}
               placeholder={placeholder.value[0]}
               disabled={isArray(isDisabled.value) ? isDisabled.value[0] : isDisabled.value}
@@ -214,6 +215,7 @@ export default defineComponent({
               class={`${COMPONENT_NAME.value}__inner-right`}
               inputClass={{
                 [`${classPrefix.value}-is-focused`]: props.activeIndex === 1,
+                [`${classPrefix.value}-is-disabled`]: isArray(isDisabled.value) && isDisabled.value[1],
               }}
               placeholder={placeholder.value[1]}
               disabled={isArray(isDisabled.value) ? isDisabled.value[1] : isDisabled.value}

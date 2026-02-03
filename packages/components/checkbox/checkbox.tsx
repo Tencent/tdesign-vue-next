@@ -11,7 +11,7 @@ import {
   useCommonClassName,
 } from '@tdesign/shared-hooks';
 
-import { CheckboxGroupInjectionKey } from './consts';
+import { CheckboxGroupInjectionKey } from './constants';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
 

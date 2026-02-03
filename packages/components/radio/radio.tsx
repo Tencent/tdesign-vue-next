@@ -9,7 +9,7 @@ import {
 } from '@tdesign/shared-hooks';
 import { omit, isString } from 'lodash-es';
 import props from './props';
-import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './consts';
+import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 
 // hooks
 
