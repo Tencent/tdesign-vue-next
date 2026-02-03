@@ -95,13 +95,13 @@ export default {
   panelTopContent: {
     type: [String, Function] as PropType<TdCascaderProps['panelTopContent']>,
   },
-  /** 弹出层内每一列的标题 */
-  popupHeader: {
-    type: Function as PropType<TdCascaderProps['popupHeader']>,
+  /** 面板内容顶部（每一列的顶部内容） */
+  panelContentTop: {
+    type: Function as PropType<TdCascaderProps['panelContentTop']>,
   },
-  /** 弹出层内每一列的页脚 */
-  popupFooter: {
-    type: Function as PropType<TdCascaderProps['popupFooter']>,
+  /** 面板内容底部（每一列的底部内容） */
+  panelContentBottom: {
+    type: Function as PropType<TdCascaderProps['panelContentBottom']>,
   },
   /** 占位符 */
   placeholder: {

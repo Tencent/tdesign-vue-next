@@ -248,14 +248,14 @@ export default defineComponent({
           ]}
           key={`${COMPONENT_NAME}__menu${index}`}
         >
-          {renderTNodeJSX('popupHeader', { params: headerFooterParams })}
+          {renderTNodeJSX('panelContentTop', { params: headerFooterParams })}
           {displayNodes.map((node: TreeNode) => renderItem(node, index))}
-          {renderTNodeJSX('popupFooter', { params: headerFooterParams })}
+          {renderTNodeJSX('panelContentBottom', { params: headerFooterParams })}
         </ul>
       );
     };
 
-    /** 渲染内置过滤模式下的扁平列表（不含 popupHeader/popupFooter） */
+    /** 渲染内置过滤模式下的扁平列表（不含 panelContentTop/panelContentBottom） */
     const renderFilteredList = (treeNodes: TreeNode[]) => {
       return (
         <ul
@@ -269,7 +269,7 @@ export default defineComponent({
 
     const renderPanels = () => {
       const { inputVal, treeNodes } = props.cascaderContext;
-      // 内置过滤激活时渲染扁平列表，不含 popupHeader/popupFooter 以避免冲突
+      // 内置过滤激活时渲染扁平列表，不含 panelContentTop/panelContentBottom 以避免冲突
       if (inputVal) return renderFilteredList(treeNodes);
 
       const result = [];

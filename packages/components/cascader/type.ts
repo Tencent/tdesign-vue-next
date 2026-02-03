@@ -127,10 +127,10 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   panelTopContent?: string | TNode;
   /**
-   * 弹出层内每一列的标题。
+   * 面板内容顶部（每一列的顶部内容）。
    * 注意：内置搜索（filterable）激活时不渲染此插槽。
    */
-  popupHeader?: TNode<{
+  panelContentTop?: TNode<{
     /** 当前面板索引（从 0 开始） */
     panelIndex: number;
     /** 原始选项列表 */
@@ -146,10 +146,10 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
     ) => void;
   }>;
   /**
-   * 弹出层内每一列的页脚。
+   * 面板内容底部（每一列的底部内容）。
    * 注意：内置搜索（filterable）激活时不渲染此插槽。
    */
-  popupFooter?: TNode<{
+  panelContentBottom?: TNode<{
     /** 当前面板索引（从 0 开始） */
     panelIndex: number;
     /** 原始选项列表 */
