@@ -19,7 +19,7 @@ import {
 } from '@tdesign/shared-hooks';
 
 import { getSingleContent, getMultipleContent } from './utils';
-import { selectInjectKey } from './consts';
+import { selectInjectKey } from './constants';
 import { useSelectOptions, useKeyboardControl } from './hooks';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputChangeContext, SelectInputValueChangeContext } from '../select-input';

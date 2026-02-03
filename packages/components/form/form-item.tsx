@@ -49,7 +49,7 @@ import {
   SuccessListType,
   useCLASSNAMES,
   ValidateStatus,
-} from './consts';
+} from './constants';
 
 import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 import { getFormItemClassName } from './utils';
