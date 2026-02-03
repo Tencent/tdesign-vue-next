@@ -1,9 +1,8 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { it, expect, describe, vi } from 'vitest';
+import { it, expect, describe } from 'vitest';
 import { Row, Col } from '@tdesign/components/grid';
 import rowProps from '@tdesign/components/grid/row-props';
-import colProps from '@tdesign/components/grid/col-props';
 
 const alignList = ['start', 'end', 'center', 'stretch', 'baseline', 'top', 'middle', 'bottom'];
 const justifyList = ['start', 'end', 'center', 'space-around', 'space-between'];
