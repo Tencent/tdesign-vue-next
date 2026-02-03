@@ -115,7 +115,10 @@ export default {
     type: Object as PropType<TdDateRangePickerProps['rangeInputProps']>,
   },
   /** 是否只读，优先级大于 `allowInput` */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 日期分隔符，支持全局配置，默认为 '-' */
   separator: {
     type: String,
