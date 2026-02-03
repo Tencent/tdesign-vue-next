@@ -8,7 +8,7 @@ import type {
   TdChatSuggestionContentProps,
 } from 'tdesign-web-components';
 
-export const ChatBot = omiVueify('t-chatbot', {
+export const Chatbot = omiVueify('t-chatbot', {
   // TODO: 这里可以补充TdChatbotApi里需要暴露出来的方法（ref实例上的方法）
   methodNames: [
     'addPrompt',
@@ -36,4 +36,4 @@ export const ChatSuggestionContentComponent = omiVueify('t-chat-suggestion-conte
 export const ChatListComponent = omiVueify('t-chat-list', {
   methodNames: ['scrollToBottom'],
 }) as DefineComponent<TdChatListProps>;
-export default ChatBot;
+export default Chatbot;
