@@ -2,16 +2,7 @@ import { computed, type Ref } from 'vue';
 import { isArray, isFunction } from 'lodash-es';
 
 import type { PickerDateRange, TdDatePickerProps } from '../type';
-
-// 解析 range（数组）为边界日期，自动纠正顺序
-export function getRangeBounds(range: PickerDateRange): { min: Date | null; max: Date | null } {
-  if (!isArray(range)) return { min: null, max: null };
-  const [rawMin, rawMax] = range;
-  const min = rawMin == null ? null : new Date(rawMin);
-  const max = rawMax == null ? null : new Date(rawMax);
-  if (min && max && min > max) return { min: max, max: min };
-  return { min, max };
-}
+import { getRangeBounds } from '../utils';
 
 // 判断某年某月是否存在可选日期（根据 range）
 export function monthHasAnyAllowed(range: PickerDateRange, year: number, month: number): boolean {

@@ -1,6 +1,6 @@
 import { defineComponent, computed, watch, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
-import { isFunction, isDate } from 'lodash-es';
+import { isFunction, isDate, isArray } from 'lodash-es';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
 import {
@@ -19,7 +19,7 @@ import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';
-import { triggerMap } from './utils';
+import { triggerMap, getRangeBounds } from './utils';
 
 import type {
   TdDatePickerProps,
@@ -123,8 +123,17 @@ export default defineComponent({
 
       // 面板展开重置数据
       if (visible) {
-        year.value = parseToDayjs(value.value as DateValue, formatRef.value.valueType).year();
-        month.value = parseToDayjs(value.value as DateValue, formatRef.value.format).month();
+        if (((props.range && isArray(props.range)) || props.panelActiveDate) && !value.value) {
+          const rangeBounds = getRangeBounds(props.range);
+          const yearFromRange = rangeBounds.min?.getFullYear() ?? rangeBounds.max?.getFullYear();
+          const monthFromRange = rangeBounds.min?.getMonth() ?? rangeBounds.max?.getMonth();
+          year.value = (props.panelActiveDate?.year ?? yearFromRange) as number;
+          month.value = (props.panelActiveDate?.month ?? monthFromRange) as number;
+        } else {
+          year.value = parseToDayjs(value.value as DateValue, formatRef.value.valueType).year();
+          month.value = parseToDayjs(value.value as DateValue, formatRef.value.format).month();
+        }
+
         time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
       } else {
         isHoverCell.value = false;

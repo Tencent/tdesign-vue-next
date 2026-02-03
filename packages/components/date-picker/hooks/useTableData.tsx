@@ -1,8 +1,8 @@
 import { useConfig } from '@tdesign/shared-hooks';
 import { isArray, isFunction } from 'lodash-es';
 import dayjs from 'dayjs';
-import { getRangeBounds, monthHasAnyAllowed as monthAllowed, yearHasAnyAllowed as yearAllowed } from './useSelectRange';
-
+import { monthHasAnyAllowed as monthAllowed, yearHasAnyAllowed as yearAllowed } from './useSelectRange';
+import { getRangeBounds } from '../utils';
 import { getWeeks, getYears, getMonths, getQuarters, flagActive } from '@tdesign/common-js/date-picker/utils';
 
 export function useTableData(props: any) {

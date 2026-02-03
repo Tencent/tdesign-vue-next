@@ -65,7 +65,6 @@ export default defineComponent({
         disableDate: props.disableDate,
       }),
     );
-
     const tableData = computed(() =>
       useTableData({
         year: props.year,
