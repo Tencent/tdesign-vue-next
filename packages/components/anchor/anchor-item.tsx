@@ -2,7 +2,7 @@ import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch }
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
 import { usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
-import { AnchorInjectionKey } from './consts';
+import { AnchorInjectionKey } from './constants';
 import { isString, isFunction } from 'lodash-es';
 
 const localProps = {

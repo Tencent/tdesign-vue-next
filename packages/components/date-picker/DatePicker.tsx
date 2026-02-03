@@ -1,4 +1,4 @@
-import { defineComponent, computed, watch } from 'vue';
+import { defineComponent, computed, watch, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
 import { isFunction, isDate } from 'lodash-es';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
@@ -51,7 +51,7 @@ export default defineComponent({
       onChange,
     } = useSingle(props);
 
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('datePicker');
     const isReadOnly = useReadonly();
@@ -426,7 +426,7 @@ export default defineComponent({
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
           borderless={props.borderless}
-          disabled={disabled.value}
+          disabled={isDisabled.value}
           value={inputValue.value}
           label={() => renderTNodeJSX('label')}
           status={props.status}

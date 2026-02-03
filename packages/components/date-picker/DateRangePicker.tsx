@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, watch } from 'vue';
+import { defineComponent, computed, ref, watch, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
 import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 
@@ -43,7 +43,7 @@ export default defineComponent({
       onChange,
     } = useRange(props);
 
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean | Array<boolean>>;
     const isReadOnly = useReadonly();
 
     const formatRef = computed(() =>
@@ -61,6 +61,8 @@ export default defineComponent({
     watch(popupVisible, (visible) => {
       // 面板展开重置数据
       if (visible) {
+        if (isArray(props.disabled)) activeIndex.value = props.disabled[0] ? 1 : 0;
+
         isSelected.value = false;
         cacheValue.value = formatDate(value.value || [], {
           format: formatRef.value.valueType,
@@ -106,12 +108,11 @@ export default defineComponent({
         activeIndex.value = 0;
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
-        if (props.needConfirm) {
-          inputValue.value = formatDate(value.value, {
-            format: formatRef.value.valueType,
-            targetFormat: formatRef.value.format,
-          });
-        } else {
+        inputValue.value = formatDate(value.value, {
+          format: formatRef.value.valueType,
+          targetFormat: formatRef.value.format,
+        });
+        if (!props.needConfirm) {
           confirmValueChange();
         }
       }
@@ -180,6 +181,8 @@ export default defineComponent({
           );
         }
       }
+
+      if (Array.isArray(props.disabled)) return;
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (!isFirstValueSelected.value) {
@@ -328,8 +331,10 @@ export default defineComponent({
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value) {
+      if (Array.isArray(props.disabled)) {
+        popupVisible.value = false;
+      } else if (!isFirstValueSelected.value) {
+        // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex as 0 | 1;
@@ -448,6 +453,7 @@ export default defineComponent({
       presets: props.presets,
       time: time.value,
       disableDate: props.disableDate,
+      disabled: isDisabled.value,
       disableTime: props.disableTime,
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
@@ -472,7 +478,7 @@ export default defineComponent({
       <div class={COMPONENT_NAME.value}>
         <TRangeInputPopup
           readonly={isReadOnly.value}
-          disabled={disabled.value}
+          disabled={isDisabled.value}
           label={props.label}
           status={props.status}
           tips={props.tips || slots.tips}

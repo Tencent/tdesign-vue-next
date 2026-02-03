@@ -5,7 +5,7 @@ import { defineComponent, provide, ref } from 'vue';
 import { useTNodeJSX, usePrefixClass, useCommonClassName, useChildComponentSlots } from '@tdesign/shared-hooks';
 
 import props from './props';
-import { descriptionsKey } from './consts';
+import { descriptionsKey } from './constants';
 import { TdDescriptionsProps } from './type';
 import DescriptionsRow from './descriptions-row';
 import { renderCustomNode, itemTypeIsProps } from './utils';
