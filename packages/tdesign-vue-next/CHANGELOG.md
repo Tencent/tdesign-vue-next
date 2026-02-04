@@ -5,6 +5,36 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.1 `2026-02-04`
+
+### 🚀 Features
+
+- `DatePicker`: 
+  - 新增 `onClear` 清空按钮点击时触发事件 @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
+  - `presets` 支持自定义渲染，用于配置精确时分秒等预设场景 @uyarn ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
+  - 新增 `disableTime` API，用于配置时间选择器中被禁用的时间 @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
+  - 新增 `range` 和 `panelActiveDate` API，用于支持定义日期选择范围，具体使用请参考示例 @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
+- `DateRangePicker`: 
+  - `disabled` API 新增支持数组类型，用于单独禁用开始日期或结束日期 @uyarn ([#6390](https://github.com/Tencent/tdesign-vue-next/pull/6390))
+  - 新增 `range` 和 `panelActiveDate` API，用于支持定义日期选择范围，具体使用请参考示例 @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
+- `Icon`: 新增 217 个与人工智能、文档、徽标和文件相关的图标 @RADWIMPS426 @uyarn ([#6367](https://github.com/Tencent/tdesign-vue-next/pull/6367))
+- `Menu`: 支持菜单面板在空间不足时的自动反转 @RSS1102 ([#6392](https://github.com/Tencent/tdesign-vue-next/pull/6392))
+- `RangeInput`: `disabled` 支持数组形式配置，用于单独禁用左区间或右区间 @RSS1102 ([#5648](https://github.com/Tencent/tdesign-vue-next/pull/5648))
+
+### 🐞 Bug Fixes
+
+- `Cascader`: 修复 useCascaderContext 传递 disabled 失效问题 @liweijie0812 ([#6332](https://github.com/Tencent/tdesign-vue-next/pull/6332))
+- `DatePicker`: 修复 `needConfirm` 为 false，点击预设无效的问题 @liweijie0812 ([#6388](https://github.com/Tencent/tdesign-vue-next/pull/6388))
+- `Drawer`: 优化开启 `sizeDraggable` 功能时，调整当前抽屉尺寸后没有实时计算的问题 @yrc2333 ([#6328](https://github.com/Tencent/tdesign-vue-next/pull/6328))
+- `InputNumber`: 修复大数计算前导零被错误清除的问题 @Liumingxun ([common#2394](https://github.com/Tencent/tdesign-common/pull/2394))  
+- `Menu`: 修复侧边导航菜单收起时，内容为插槽方式 Tooltip 无法生效的问题 @liweijie0812 ([#6341](https://github.com/Tencent/tdesign-vue-next/pull/6341))
+- `Table`: 修复远程分页场景下全选逻辑错误，在 `1.18.0` 版本的问题 @RSS1102 ([#6393](https://github.com/Tencent/tdesign-vue-next/pull/6393))
+- `Transfer`: 修复 `disabled` 为数组时功能不生效的问题 @RSS1102 ([#5648](https://github.com/Tencent/tdesign-vue-next/pull/5648))
+
+### 📝 Documentation
+
+- `Dialog`: 补充与嵌套弹窗相关使用问题的文档 @engvuchen ([#5847](https://github.com/Tencent/tdesign-vue-next/pull/5847))
+
 ## 🌈 1.18.0 `2026-01-08`
 
 ### 🚀 Features
