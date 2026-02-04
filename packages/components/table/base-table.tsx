@@ -323,7 +323,7 @@ export default defineComponent({
     const scrollToElement = (params: ComponentScrollToElementParams) => {
       let { index } = params;
       if (!index && index !== 0) {
-        if (!params.key) {
+        if (params.key == null) {
           log.error('Table', 'scrollToElement: one of `index` or `key` must exist.');
           return;
         }
@@ -333,7 +333,7 @@ export default defineComponent({
         }
       }
       if (virtualConfig.isVirtualScroll.value) {
-        virtualConfig.scrollToElement({ ...params, index: index + 1 });
+        virtualConfig.scrollToElement({ ...params, index });
       } else {
         // 执行普通的滚动
         // 获取 tbody

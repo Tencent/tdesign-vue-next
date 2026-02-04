@@ -93,7 +93,7 @@ export default defineComponent({
     const scrollToElement = (params: ComponentScrollToElementParams) => {
       let { index } = params;
       if (!index && index !== 0) {
-        if (!params.key) {
+        if (params.key == null) {
           log.error('Table', 'scrollToElement: one of `index` or `key` must exist.');
           return;
         }
