@@ -613,5 +613,41 @@ TABLES.forEach((TTable) => {
         }
       });
     });
+
+    // Test scrollToElement with key=0 (first row)
+    describe('scrollToElement', () => {
+      const scrollData = new Array(100).fill(null).map((item, index) => ({
+        id: index,
+        index,
+        instance: `JQTest${index + 1}`,
+        status: index % 2,
+      }));
+
+      it('should accept key=0 without error', () => {
+        const wrapper = mount({
+          render() {
+            return <TTable rowKey="id" data={scrollData} columns={SIMPLE_COLUMNS} height={300}></TTable>;
+          },
+        });
+        const instance = wrapper.vm;
+        // This should not throw an error
+        expect(() => {
+          instance.scrollToElement({ key: 0, top: 0 });
+        }).not.toThrow();
+      });
+
+      it('should accept index=0 without error', () => {
+        const wrapper = mount({
+          render() {
+            return <TTable rowKey="id" data={scrollData} columns={SIMPLE_COLUMNS} height={300}></TTable>;
+          },
+        });
+        const instance = wrapper.vm;
+        // This should not throw an error
+        expect(() => {
+          instance.scrollToElement({ index: 0, top: 0 });
+        }).not.toThrow();
+      });
+    });
   });
 });
