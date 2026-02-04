@@ -24,11 +24,11 @@ docClass: timeline
 ### 🐞 Bug Fixes
 
 - `Cascader`: 修复 useCascaderContext 传递 disabled 失效问题 @liweijie0812 ([#6332](https://github.com/Tencent/tdesign-vue-next/pull/6332))
-- `DatePicker`: 修复 needConfirm 为 false，点击预设无效 @liweijie0812 ([#6388](https://github.com/Tencent/tdesign-vue-next/pull/6388))
-- `Drawer`: 优化开启`sizeDraggable `功能时，调整当前抽屉尺寸后没有实时计算的问题 @yrc2333 ([#6328](https://github.com/Tencent/tdesign-vue-next/pull/6328))
+- `DatePicker`: 修复 `needConfirm` 为 false，点击预设无效的问题 @liweijie0812 ([#6388](https://github.com/Tencent/tdesign-vue-next/pull/6388))
+- `Drawer`: 优化开启 `sizeDraggable` 功能时，调整当前抽屉尺寸后没有实时计算的问题 @yrc2333 ([#6328](https://github.com/Tencent/tdesign-vue-next/pull/6328))
 - `InputNumber`: 修复大数计算前导零被错误清除的问题 @Liumingxun ([common#2394](https://github.com/Tencent/tdesign-common/pull/2394))  
-- `Menu`: 修复侧边导航菜单收起时，内容为插槽方式 Tooltip 无法无效 @liweijie0812 ([#6341](https://github.com/Tencent/tdesign-vue-next/pull/6341))
-- `Table`: 修复远程分页场景下全选逻辑错误，在 v1.18.0 (https://github.com/Tencent/tdesign-vue-next/pull/6208) 引起的问题 @RSS1102 ([#6393](https://github.com/Tencent/tdesign-vue-next/pull/6393))
+- `Menu`: 修复侧边导航菜单收起时，内容为插槽方式 Tooltip 无法生效的问题 @liweijie0812 ([#6341](https://github.com/Tencent/tdesign-vue-next/pull/6341))
+- `Table`: 修复远程分页场景下全选逻辑错误，在 1.18.0 版本的问题 @RSS1102 ([#6393](https://github.com/Tencent/tdesign-vue-next/pull/6393))
 - `Transfer`: 修复 `disabled` 为数组时功能不生效的问题 @RSS1102 ([#5648](https://github.com/Tencent/tdesign-vue-next/pull/5648))
 
 ### 📝 Documentation
