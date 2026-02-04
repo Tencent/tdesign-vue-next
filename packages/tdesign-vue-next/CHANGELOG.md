@@ -13,10 +13,10 @@ docClass: timeline
   - 新增 `onClear` 清空按钮点击时触发事件 @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
   - `presets` 支持自定义渲染，用于配置精确时分秒等预设场景 @uyarn ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
   - 新增 `disableTime` API，用于配置时间选择器中被禁用的时间 @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
-  - 新增 `range` 和  `panelActiveDate` API，用于支持定义日期选择范围，具体使用请参考示例 @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
+  - 新增 `range` 和 `panelActiveDate` API，用于支持定义日期选择范围，具体使用请参考示例 @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
 - `DateRangePicker`: 
   - `disabled` API 新增支持数组类型，用于单独禁用开始日期或结束日期 @uyarn ([#6390](https://github.com/Tencent/tdesign-vue-next/pull/6390))
-  - 新增 `range` 和  `panelActiveDate` API，用于支持定义日期选择范围，具体使用请参考示例 @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
+  - 新增 `range` 和 `panelActiveDate` API，用于支持定义日期选择范围，具体使用请参考示例 @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
 - `Icon`: 新增 217 个与人工智能、文档、徽标和文件相关的图标 @RADWIMPS426 @uyarn ([#6367](https://github.com/Tencent/tdesign-vue-next/pull/6367))
 - `Menu`: 支持菜单面板在空间不足时的自动反转 @RSS1102 ([#6392](https://github.com/Tencent/tdesign-vue-next/pull/6392))
 - `RangeInput`: `disabled` 支持数组形式配置，用于单独禁用左区间或右区间 @RSS1102 ([#5648](https://github.com/Tencent/tdesign-vue-next/pull/5648))
