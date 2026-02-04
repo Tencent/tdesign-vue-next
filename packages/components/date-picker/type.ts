@@ -38,6 +38,12 @@ export interface TdDatePickerProps {
    */
   disableDate?: DisableDate;
   /**
+   * 禁用时间项的配置函数，仅在日期时间选择器中可用
+   */
+  disableTime?: (
+    time: Date,
+  ) => Partial<{ hour: Array<number>; minute: Array<number>; second: Array<number>; millisecond: Array<number> }>;
+  /**
    * 是否禁用组件
    */
   disabled?: boolean;
@@ -78,6 +84,10 @@ export interface TdDatePickerProps {
    */
   needConfirm?: boolean;
   /**
+   * 日期选择器中年月下拉框的选中值
+   */
+  panelActiveDate?: PanelActiveDate;
+  /**
    * 占位符
    */
   placeholder?: string;
@@ -92,12 +102,16 @@ export interface TdDatePickerProps {
   /**
    * 预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`
    */
-  presets?: PresetDate;
+  presets?: TNode | PresetDate;
   /**
    * 预设面板展示区域（包含确定按钮）
    * @default bottom
    */
   presetsPlacement?: 'left' | 'top' | 'right' | 'bottom';
+  /**
+   * 日期可选择范围。示例：`['2025-01-01', '2025-12-31']` 表示'2025-01-01'至'2025-12-31'为可选日期。值为`null`表示不限制；`['2025-01-01', null]` 表示可选日期从'2025-01-01'开始，不限制结束。类型为 Function 则函数返回值为 `true` 的日期为可选。⚠️ 此参数应与 `panelActiveDate` 一起使用，若未设置 `panelActiveDate` 则以 `range` 左区间为默认面板展示，如果没有左区间，则以右区间为默认展示。与`disableDate`共用时，`disableDate`优先级更高。
+   */
+  range?: PickerDateRange;
   /**
    * 是否只读，优先级大于 allowInput
    */
@@ -163,6 +177,10 @@ export interface TdDatePickerProps {
     value: DateValue | DateMultipleValue,
     context: { dayjsValue?: Dayjs; trigger?: DatePickerTriggerSource },
   ) => void;
+  /**
+   * 清空按钮点击时触发
+   */
+  onClear?: (context: { e: MouseEvent }) => void;
   /**
    * 如果存在“确定”按钮，则点击“确定”按钮时触发
    */
@@ -264,6 +282,10 @@ export interface TdDateRangePickerProps {
    */
   needConfirm?: boolean;
   /**
+   * 日期选择器中年月下拉框的选中值
+   */
+  panelActiveDate?: PanelActiveDate | [PanelActiveDate, PanelActiveDate];
+  /**
    * 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期
    * @default true
    */
@@ -283,12 +305,16 @@ export interface TdDateRangePickerProps {
   /**
    * 预设快捷日期选择，示例：{ '特定日期范围': ['2021-01-01', '2022-01-01'], '本月': [dayjs().startOf('month'), dayjs().endOf('month')] }
    */
-  presets?: PresetRange;
+  presets?: TNode | PresetRange;
   /**
    * 预设面板展示区域（包含确定按钮）
    * @default bottom
    */
   presetsPlacement?: 'left' | 'top' | 'right' | 'bottom';
+  /**
+   * 日期可选择范围。值为数组则第一项是开始面板的可选范围，第二项是结束面板的可选范围。示例：`['2025-01-01', '2025-12-31']` 表示'2025-01-01'至'2025-12-31'为可选日期。值为`null`表示不限制；`['2025-01-01', null]` 表示可选日期从'2025-01-01'开始，不限制结束。`[['2025-01-01', '2025-02-01'], ['2025-12-31', '2026-01-01']]` 表示开始面板的'2025-01-01'至'2025-02-01'为可选日期，结束面板的'2025-12-31'至'2026-01-01'为可选日期。类型为 Function 则函数返回值为 `true` 的日期为可选。⚠️ 此API应与 `panelActiveDate` 一起使用，若未设置 `panelActiveDate` 则以 `range` 左区间为默认面板展示，如果没有左区间，则以右区间为默认展示。与`disableDate`共用时，`disableDate`优先级更高。
+   */
+  range?: PickerDateRange | PickerDateRange[];
   /**
    * 透传给范围输入框 RangeInput 组件的参数
    */
@@ -408,6 +434,7 @@ export interface TdDatePickerPanelProps
     | 'value'
     | 'defaultValue'
     | 'disableDate'
+    | 'disableTime'
     | 'enableTimePicker'
     | 'firstDayOfWeek'
     | 'format'
@@ -478,6 +505,7 @@ export interface TdDateRangePickerPanelProps
     | 'presetsPlacement'
     | 'panelPreselection'
     | 'timePickerProps'
+    | 'range'
   > {
   /**
    * 时间选择器默认值，当 value/defaultValue 未设置值时有效
@@ -553,9 +581,16 @@ export interface DisableDateObj {
   after?: string;
 }
 
+export interface PanelActiveDate {
+  year?: DateValue;
+  month?: DateValue;
+}
+
 export interface PresetDate {
   [name: string]: DateValue | (() => DateValue);
 }
+
+export type PickerDateRange = DateValue[] | ((date: DateValue) => boolean);
 
 export type DateValue = string | number | Date;
 
@@ -575,6 +610,10 @@ export type DatePickerValueType =
 export type ValueTypeEnum = DatePickerValueType;
 
 export type DatePickerTriggerSource = 'confirm' | 'pick' | 'enter' | 'preset' | 'clear' | 'tag-remove';
+
+export type DatePickerMonthChangeTrigger = 'month-select' | 'month-arrow-next' | 'month-arrow-previous' | 'today';
+
+export type DatePickerYearChangeTrigger = 'year-select' | 'year-arrow-next' | 'year-arrow-previous' | 'today';
 
 export type DisableRangeDate =
   | Array<DateValue>
@@ -596,8 +635,4 @@ export interface PickContext {
   partial: DateRangePickerPartial;
 }
 
-export type DatePickerMonthChangeTrigger = 'month-select' | 'month-arrow-next' | 'month-arrow-previous' | 'today';
-
 export type DatePickerTimeChangeTrigger = 'time-hour' | 'time-minute' | 'time-second';
-
-export type DatePickerYearChangeTrigger = 'year-select' | 'year-arrow-next' | 'year-arrow-previous' | 'today';
