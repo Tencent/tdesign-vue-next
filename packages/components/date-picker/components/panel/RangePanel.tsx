@@ -2,17 +2,22 @@ import { defineComponent, PropType, computed } from 'vue';
 import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
-import { TdDateRangePickerProps } from '../../type';
+import { TdDateRangePickerProps, PickerDateRange } from '../../type';
 import { getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { useTableData, useDisableDate } from '../../hooks';
-import { isFunction } from 'lodash-es';
+import { isArray, isFunction } from 'lodash-es';
+import log from '@tdesign/common-js/log/index';
 
 export default defineComponent({
   name: 'TRangePanel',
   props: {
     hoverValue: Array as PropType<Array<string>>,
+    range: [Array, Function] as PropType<TdDateRangePickerProps['range']>,
     activeIndex: Number,
     isFirstValueSelected: Boolean,
+    disabled: {
+      type: [Boolean, Array] as PropType<TdDateRangePickerProps['disabled']>,
+    },
     disableDate: [Object, Array, Function] as PropType<TdDateRangePickerProps['disableDate']>,
     disableTime: Function as PropType<TdDateRangePickerProps['disableTime']>,
     mode: {
@@ -64,21 +69,50 @@ export default defineComponent({
     // 是否隐藏预选状态,只有 value 有值的时候需要隐藏
     const hidePreselection = !props.panelPreselection && props.value.length === 2;
 
-    const disableDateOptions = computed(() =>
-      useDisableDate({
+    const disableDateOptions = computed(() => {
+      const startDateValue = new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0));
+      const endDateValue = new Date(parseToDayjs(props.value[1], format.value, 'end').toDate().setHours(23, 59, 59));
+      let start = props.isFirstValueSelected && props.activeIndex === 1 ? startDateValue : undefined;
+      let end = props.isFirstValueSelected && props.activeIndex === 0 ? endDateValue : undefined;
+
+      if (props.disabled && isArray(props.disabled)) {
+        if (props.disabled[0]) start = startDateValue;
+        else if (props.disabled[1]) end = endDateValue;
+      }
+
+      return useDisableDate({
         format: format.value,
         mode: props.mode,
         disableDate: props.disableDate,
-        start:
-          props.isFirstValueSelected && props.activeIndex === 1
-            ? new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0))
-            : undefined,
-        end:
-          props.isFirstValueSelected && props.activeIndex === 0
-            ? new Date(parseToDayjs(props.value[1], format.value).toDate().setHours(23, 59, 59))
-            : undefined,
-      }),
-    );
+        start,
+        end,
+      });
+    });
+
+    // 处理 range 参数
+    // - 如果 range 是数组并且其元素为函数或数组（表示左右面板分别的范围），则拆分为 startRange / endRange；
+    // - 否则将整个 range 视为单一范围，左右面板共用。
+    const rangeValue = computed(() => {
+      let startRange = props.range as PickerDateRange;
+      let endRange = props.range as PickerDateRange;
+
+      if (isArray(props.range)) {
+        if (props.range.length !== 2) {
+          log.warn('DateRangePicker', '`range` length must be 2 when `range` is an array.');
+        }
+        const first = props.range[0];
+        const second = props.range[1];
+        if ((isArray(first) || isFunction(first)) && (isArray(second) || isFunction(second))) {
+          startRange = first;
+          endRange = second;
+        }
+      }
+
+      return {
+        start: startRange,
+        end: endRange,
+      };
+    });
 
     const startTableData = computed(() => {
       const disableDate = isFunction(props.disableDate)
@@ -100,6 +134,7 @@ export default defineComponent({
         month: props.month[0],
         mode: props.mode,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
+        range: rangeValue.value.start,
         ...disableDateOptions.value,
         disableDate,
         cancelRangeSelectLimit: props.cancelRangeSelectLimit,
@@ -127,6 +162,7 @@ export default defineComponent({
         month: props.month[1],
         mode: props.mode,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
+        range: rangeValue.value.end,
         ...disableDateOptions.value,
         disableDate,
         cancelRangeSelectLimit: props.cancelRangeSelectLimit,
@@ -184,6 +220,7 @@ export default defineComponent({
                 time={props.time[props.activeIndex]}
                 value={props.value}
                 tableData={startTableData.value}
+                range={rangeValue.value.start}
                 {...panelContentProps.value}
               />,
               <TPanelContent
@@ -194,6 +231,7 @@ export default defineComponent({
                 time={props.time[props.activeIndex]}
                 value={props.value}
                 tableData={endTableData.value}
+                range={rangeValue.value.end}
                 {...panelContentProps.value}
               />,
             ]
@@ -206,6 +244,7 @@ export default defineComponent({
               time={props.activeIndex ? props.time[1] : props.time[0]}
               value={props.value}
               tableData={props.activeIndex ? endTableData.value : startTableData.value}
+              range={props.activeIndex ? rangeValue.value.end : rangeValue.value.start}
               {...panelContentProps.value}
             />
           )}
