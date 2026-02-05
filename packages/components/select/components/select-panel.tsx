@@ -68,7 +68,7 @@ export default defineComponent({
           {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }, index) => {
             if (item.children) {
               return (
-                <OptionGroup label={item.group} divider={item.divider}>
+                <OptionGroup label={item.group} divider={item.divider} v-slots={item.slots}>
                   {renderOptionsContent(item.children)}
                 </OptionGroup>
               );
