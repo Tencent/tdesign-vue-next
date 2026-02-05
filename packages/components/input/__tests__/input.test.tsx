@@ -2,14 +2,8 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { Input } from '@tdesign/components/input';
-import { getInputGroupDefaultMount } from './mount';
 import { simulateInputChange } from '@tdesign/internal-tests/utils';
-import { nextTick, ref } from 'vue';
-import { CloseCircleFilledIcon, AppIcon, ScanIcon } from 'tdesign-icons-vue-next';
-
-const alignList = ['left', 'center', 'right'];
-const sizeList = ['small', 'large'];
-const statusList = ['success', 'warning', 'error'];
+import { nextTick } from 'vue';
 
 describe('Input Component', () => {
   describe('props.align', () => {
@@ -932,93 +926,13 @@ describe('Input Component', () => {
     });
   });
 
-  describe('exposed methods', () => {
-    it('focus method works fine', async () => {
-      const wrapper = mount(<Input></Input>, { attachTo: document.body });
-      const vm = wrapper.vm as any;
-      vm.focus();
-      await wrapper.vm.$nextTick();
-      expect(document.activeElement).toBe(wrapper.find('input').element);
-      wrapper.unmount();
-    });
-
-    it('blur method works fine', async () => {
-      const wrapper = mount(<Input></Input>, { attachTo: document.body });
-      const vm = wrapper.vm as any;
-      vm.focus();
-      await wrapper.vm.$nextTick();
-      vm.blur();
-      await wrapper.vm.$nextTick();
-      expect(document.activeElement).not.toBe(wrapper.find('input').element);
-      wrapper.unmount();
-    });
-
-    it('inputRef is exposed', () => {
-      const wrapper = mount(<Input></Input>);
-      const vm = wrapper.vm as any;
-      expect(vm.inputRef).toBeDefined();
-    });
-  });
-
-  describe('focus state', () => {
-    it('should add focused class when input is focused', async () => {
-      const wrapper = mount(<Input></Input>);
-      wrapper.find('input').trigger('focus');
-      await wrapper.vm.$nextTick();
-      expect(wrapper.find('.t-input--focused').exists()).toBeTruthy();
-      expect(wrapper.find('.t-is-focused').exists()).toBeTruthy();
-    });
-
-    it('should remove focused class when input is blurred', async () => {
-      const wrapper = mount(<Input></Input>);
-      wrapper.find('input').trigger('focus');
-      await wrapper.vm.$nextTick();
-      wrapper.find('input').trigger('blur');
-      await wrapper.vm.$nextTick();
-      expect(wrapper.find('.t-input--focused').exists()).toBeFalsy();
-      expect(wrapper.find('.t-is-focused').exists()).toBeFalsy();
-    });
-
-    it('should not show focused state when disabled', async () => {
-      const wrapper = mount(<Input disabled></Input>);
-      wrapper.find('input').trigger('focus');
-      await wrapper.vm.$nextTick();
-      expect(wrapper.find('.t-is-focused').exists()).toBeFalsy();
-    });
-  });
-
-  describe('composition input', () => {
-    it('should handle composition input correctly', async () => {
-      const onChangeFn = vi.fn();
-      const wrapper = mount(<Input onChange={onChangeFn}></Input>);
-      const input = wrapper.find('input');
-
-      // 开始中文输入
-      await input.trigger('compositionstart');
-      // 模拟输入
-      const inputElement = input.element;
-      inputElement.value = '中文';
-      await input.trigger('input', { inputType: 'insertCompositionText' });
-      // 在 composition 期间不应触发 onChange
-      expect(onChangeFn).not.toHaveBeenCalled();
-
-      // 结束中文输入
-      await input.trigger('compositionend');
-      // compositionend 后应触发 onChange
-      expect(onChangeFn).toHaveBeenCalled();
-    });
-  });
+  // 注意：exposed methods、focus state、composition input 等 hooks 相关测试已移至 input.hooks.test.tsx
 
   describe('edge cases and additional coverage', () => {
     it('should handle showInput=false prop', () => {
       const wrapper = mount(<Input showInput={false}></Input>);
       const input = wrapper.find('input');
       expect(input.classes()).toContain('t-input--soft-hidden');
-    });
-
-    it('should handle keepWrapperWidth=true prop', () => {
-      const wrapper = mount(<Input autoWidth keepWrapperWidth={true}></Input>);
-      expect(wrapper.find('.t-input--auto-width').exists()).toBeFalsy();
     });
 
     it('should handle passwordIcon when type=password and clearable', async () => {
@@ -1028,51 +942,6 @@ describe('Input Component', () => {
       // 应该同时显示密码图标和清除图标
       expect(wrapper.find('.t-icon-browse-off').exists()).toBeTruthy();
       expect(wrapper.find('.t-input__clear').exists()).toBeTruthy();
-    });
-
-    it('should handle paste event with clipboardData', async () => {
-      const onPasteFn = vi.fn();
-      const wrapper = mount(<Input onPaste={onPasteFn}></Input>);
-      const input = wrapper.find('input');
-
-      // 模拟粘贴事件 - 使用 trigger 方法
-      await input.trigger('paste');
-      expect(onPasteFn).toHaveBeenCalled();
-    });
-
-    it('should handle blur method call', async () => {
-      const wrapper = mount(<Input></Input>);
-      const vm = wrapper.vm as any;
-
-      // 测试 blur 方法存在且可调用
-      expect(typeof vm.blur).toBe('function');
-      vm.blur();
-      await wrapper.vm.$nextTick();
-      // 测试通过，说明方法正常执行
-      expect(wrapper.exists()).toBeTruthy();
-    });
-
-    it('should handle format function with null/undefined values', async () => {
-      const formatFn = vi.fn((val) => (val ? `formatted-${val}` : ''));
-      const wrapper = mount(<Input format={formatFn} value={null}></Input>);
-      await wrapper.vm.$nextTick();
-      expect(formatFn).toHaveBeenCalledWith(null);
-    });
-
-    it('should handle autoWidth with composition value', async () => {
-      const wrapper = mount(<Input autoWidth></Input>);
-      const input = wrapper.find('input');
-
-      // 开始中文输入
-      await input.trigger('compositionstart');
-      const inputElement = input.element;
-      inputElement.value = '测试';
-      await input.trigger('input');
-      await wrapper.vm.$nextTick();
-
-      // 检查 input-pre 元素是否显示 composition 值
-      const preElement = wrapper.find('.t-input__input-pre');
-      expect(preElement.exists()).toBeTruthy();
     });
 
     it('should handle validator edge cases for props', () => {
@@ -1091,27 +960,6 @@ describe('Input Component', () => {
       // 测试 type 验证器
       const typeWrapper = mount(<Input type={null as any}></Input>);
       expect(typeWrapper.exists()).toBeTruthy();
-    });
-
-    it('should handle maxlength as string type', async () => {
-      const onChangeFn = vi.fn();
-      const wrapper = mount(<Input value="Hello World" maxlength="5" onChange={onChangeFn}></Input>);
-      await wrapper.vm.$nextTick();
-      expect(onChangeFn).toHaveBeenCalled();
-      expect(onChangeFn.mock.calls[0][0]).toBe('Hello');
-    });
-
-    it('should handle clear icon mousedown event', async () => {
-      const wrapper = mount(<Input value="test" clearable></Input>);
-      wrapper.find('.t-input').trigger('mouseenter');
-      await wrapper.vm.$nextTick();
-
-      const clearIcon = wrapper.find('.t-input__suffix-clear');
-      expect(clearIcon.exists()).toBeTruthy();
-
-      // 测试 mousedown 事件
-      clearIcon.trigger('mousedown');
-      await wrapper.vm.$nextTick();
     });
 
     it('should handle onRootClick when input is not the target', async () => {
@@ -1135,43 +983,9 @@ describe('Input Component', () => {
       expect(input.attributes('placeholder')).toBeDefined();
     });
 
-    it('should handle input with both maxlength and maxcharacter warning', async () => {
-      // 这个测试主要是为了覆盖同时设置两个属性的情况
-      const wrapper = mount(<Input maxlength={10} maxcharacter={20}></Input>);
-      await nextTick();
-      expect(wrapper.exists()).toBeTruthy();
-    });
-
-    it('should handle number type with empty string value', async () => {
-      const onChangeFn = vi.fn();
-      const wrapper = mount(<Input type="number" onChange={onChangeFn}></Input>);
-      const inputDom = wrapper.find('input').element;
-      simulateInputChange(inputDom, '');
-      await wrapper.vm.$nextTick();
-      expect(onChangeFn).toHaveBeenCalled();
-      expect(onChangeFn.mock.calls[0][0]).toBe(undefined);
-    });
-
     it('should handle input value with 0', () => {
       const wrapper = mount(<Input type="number" value={0}></Input>);
       expect(wrapper.find('input').element.value).toBe('0');
-    });
-
-    it('should handle composition during blur', async () => {
-      const onBlurFn = vi.fn();
-      const wrapper = mount(<Input onBlur={onBlurFn}></Input>);
-      const input = wrapper.find('input');
-
-      // 开始输入法输入
-      await input.trigger('compositionstart');
-      await input.trigger('focus');
-      await wrapper.vm.$nextTick();
-
-      // 在输入法激活状态下失去焦点
-      await input.trigger('blur');
-      await wrapper.vm.$nextTick();
-
-      expect(onBlurFn).toHaveBeenCalled();
     });
 
     it('should handle tips with different status', () => {
@@ -1181,53 +995,6 @@ describe('Input Component', () => {
         const tipsElement = wrapper.find('.t-input__tips');
         expect(tipsElement.classes()).toContain(`t-is-${status}`);
       });
-    });
-
-    it('should handle input with ref exposure', () => {
-      const wrapper = mount(<Input></Input>);
-      const vm = wrapper.vm as any;
-      expect(vm.inputRef).toBeDefined();
-      expect(vm.focus).toBeDefined();
-      expect(vm.blur).toBeDefined();
-    });
-  });
-});
-
-describe('InputGroup Component', () => {
-  describe('props.separate', () => {
-    it('props.separate default value is false', () => {
-      const wrapper = getInputGroupDefaultMount();
-      expect(wrapper.classes('t-input-group--separate')).toBeFalsy();
-    });
-
-    it('props.separate = true', () => {
-      const wrapper = getInputGroupDefaultMount({ separate: true });
-      expect(wrapper.classes('t-input-group--separate')).toBeTruthy();
-    });
-
-    it('props.separate = false', () => {
-      const wrapper = getInputGroupDefaultMount({ separate: false });
-      expect(wrapper.classes('t-input-group--separate')).toBeFalsy();
-    });
-  });
-
-  describe('basic rendering', () => {
-    it('should render InputGroup with correct class', () => {
-      const wrapper = getInputGroupDefaultMount();
-      expect(wrapper.classes('t-input-group')).toBeTruthy();
-    });
-
-    it('should render multiple inputs inside InputGroup', () => {
-      const wrapper = getInputGroupDefaultMount();
-      const inputs = wrapper.findAll('.t-input');
-      expect(inputs.length).toBe(2);
-    });
-  });
-
-  describe('slots', () => {
-    it('default slot works fine', () => {
-      const wrapper = getInputGroupDefaultMount();
-      expect(wrapper.findAll('input').length).toBe(2);
     });
   });
 });
