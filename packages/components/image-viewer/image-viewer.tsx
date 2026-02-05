@@ -19,7 +19,7 @@ import TImageViewerIcon from './base/ImageModalIcon';
 import TImageViewerModal from './base/ImageViewerModal';
 import TImageViewerUtils from './base/ImageViewerUtils';
 import { EVENT_CODE } from './constants';
-import { useMirror, useRotate, useScale } from './hooks';
+import { useMirror, useRotate, useScale, useDrag } from './hooks';
 import props from './props';
 import { ImageScale, TdImageViewerProps } from './type';
 import { getOverlay } from './utils';
@@ -65,10 +65,55 @@ export default defineComponent({
     const { mirror, onMirror, resetMirror } = useMirror();
     const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale as ImageScale);
     const { rotate, onRotate, resetRotate } = useRotate();
+
+    // 用于区分点击和拖拽
+    const isDragging = ref(false);
+    const dragDistance = ref(0);
+
+    const handleDragStart = () => {
+      isDragging.value = true;
+      dragDistance.value = 0;
+    };
+
+    const handleDragEnd = (distance: number) => {
+      isDragging.value = false;
+      dragDistance.value = distance;
+    };
+
+    // 拖拽功能
+    const {
+      transform: dragTransform,
+      mouseDownHandler: imageDragHandler,
+      resetTransform: resetDragTransform,
+    } = useDrag({ translateX: 0, translateY: 0 }, handleDragStart, handleDragEnd, {
+      maxTranslateX: 2000,
+      maxTranslateY: 2000,
+    });
+
     const onRest = () => {
       resetMirror();
       resetScale();
       resetRotate();
+      resetDragTransform();
+    };
+
+    // 包装缩放函数，用于工具栏按钮和键盘快捷键，自动处理位移重置
+    const handleZoomIn = () => {
+      const result = onZoomIn();
+      if (result?.shouldResetTranslate) {
+        resetDragTransform();
+      } else if (result?.newTranslate) {
+        dragTransform.value = result.newTranslate;
+      }
+    };
+
+    const handleZoomOut = () => {
+      const result = onZoomOut();
+      if (result?.shouldResetTranslate) {
+        resetDragTransform();
+      } else if (result?.newTranslate) {
+        dragTransform.value = result.newTranslate;
+      }
     };
 
     const images = computed(() => formatImages(props.images));
@@ -113,9 +158,14 @@ export default defineComponent({
       onClose({ e, trigger: 'close-btn' });
     };
     const clickOverlayHandler = (e: MouseEvent) => {
-      if (props.closeOnOverlay) {
+      // 如果拖拽距离小于 5px，则认为是点击，否则认为是拖拽
+      if (props.closeOnOverlay && dragDistance.value < 5) {
         onClose({ e, trigger: 'overlay' });
       }
+    };
+    // 重置拖拽距离（在鼠标按下时）
+    const resetDragDistance = () => {
+      dragDistance.value = 0;
     };
 
     const keydownHandler = (e: KeyboardEvent) => {
@@ -129,10 +179,10 @@ export default defineComponent({
           nextImage();
           break;
         case EVENT_CODE.up:
-          onZoomIn();
+          handleZoomIn();
           break;
         case EVENT_CODE.down:
-          onZoomOut();
+          handleZoomOut();
           break;
         case EVENT_CODE.esc:
           if (props.closeOnEscKeydown && isTopInteractivePopup()) {
@@ -145,6 +195,8 @@ export default defineComponent({
     };
 
     const divRef = ref<HTMLDivElement>();
+    const imageItemRef = ref<{ modalBoxRef?: HTMLDivElement }>();
+
     watch(
       () => visibleValue.value,
       (val) => {
@@ -171,8 +223,63 @@ export default defineComponent({
 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const { deltaY } = e;
-      deltaY > 0 ? onZoomOut() : onZoomIn();
+      const { deltaY, clientX, clientY } = e;
+
+      // 获取容器和图片元素
+      const container = divRef.value;
+      const modalBox = imageItemRef.value?.modalBoxRef;
+      let zoomOptions = {};
+
+      if (container) {
+        let mouseOffsetX = 0;
+        let mouseOffsetY = 0;
+        const isMouseOnImage = modalBox && isPointInElement(clientX, clientY, modalBox);
+
+        if (isMouseOnImage) {
+          // 鼠标在图片上，以图片边界为参考
+          const rect = modalBox.getBoundingClientRect();
+          const imageCenterX = rect.left + rect.width / 2;
+          const imageCenterY = rect.top + rect.height / 2;
+
+          mouseOffsetX = clientX - imageCenterX;
+          mouseOffsetY = clientY - imageCenterY;
+        } else {
+          // 鼠标在图片外，以容器边界为参考
+          const rect = container.getBoundingClientRect();
+          const containerCenterX = rect.left + rect.width / 2;
+          const containerCenterY = rect.top + rect.height / 2;
+
+          mouseOffsetX = clientX - containerCenterX;
+          mouseOffsetY = clientY - containerCenterY;
+        }
+
+        zoomOptions = {
+          mouseOffsetX,
+          mouseOffsetY,
+          currentTranslate: dragTransform.value,
+          isOnImage: isMouseOnImage,
+        };
+      }
+
+      // 执行缩放并获取新的位移值
+      const result = deltaY > 0 ? onZoomOut(zoomOptions) : onZoomIn(zoomOptions);
+
+      // 如果缩放比例回到了默认值，重置位移到原点
+      if (result?.shouldResetTranslate) {
+        resetDragTransform();
+      }
+      // 否则应用新的位移值（替换，而不是累加）
+      else if (result?.newTranslate) {
+        dragTransform.value = result.newTranslate;
+      }
+    };
+
+    /**
+     * 检测点是否在元素边界内
+     */
+    const isPointInElement = (x: number, y: number, element: HTMLElement): boolean => {
+      const rect = element.getBoundingClientRect();
+      return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
     };
 
     const transStyle = computed(() => ({
@@ -290,8 +397,8 @@ export default defineComponent({
               mirror={mirror.value}
               currentImage={currentImage.value}
               onRotate={onRotate}
-              onZoomIn={onZoomIn}
-              onZoomOut={onZoomOut}
+              onZoomIn={handleZoomIn}
+              onZoomOut={handleZoomOut}
               onMirror={onMirror}
               onReset={onRest}
               onClose={onClose}
@@ -300,6 +407,8 @@ export default defineComponent({
               showOverlay={showOverlayValue.value}
               title={renderTitle}
               imageReferrerpolicy={imageReferrerpolicy.value}
+              transform={dragTransform.value}
+              mouseDownHandler={imageDragHandler}
             />
           </>
         );
@@ -323,7 +432,19 @@ export default defineComponent({
                   onKeydown={keydownHandler}
                 >
                   {!!showOverlayValue.value && (
-                    <div class={`${COMPONENT_NAME.value}__modal-mask`} onClick={clickOverlayHandler} />
+                    <div
+                      class={`${COMPONENT_NAME.value}__modal-mask`}
+                      onClick={clickOverlayHandler}
+                      onMousedown={
+                        props.draggableOverlay
+                          ? (e: MouseEvent) => {
+                              e.preventDefault();
+                              resetDragDistance();
+                              imageDragHandler(e);
+                            }
+                          : undefined
+                      }
+                    />
                   )}
                   {images.value.length > 1 && (
                     <>
@@ -336,8 +457,8 @@ export default defineComponent({
                   {renderCloseBtn()}
                   <TImageViewerUtils
                     zIndex={zIndexValue.value + 1}
-                    onZoomIn={onZoomIn}
-                    onZoomOut={onZoomOut}
+                    onZoomIn={handleZoomIn}
+                    onZoomOut={handleZoomOut}
                     onMirror={onMirror}
                     onReset={onRest}
                     onRotate={onRotate}
@@ -346,6 +467,7 @@ export default defineComponent({
                     currentImage={currentImage.value}
                   />
                   <TImageItem
+                    ref={imageItemRef}
                     scale={scale.value}
                     rotate={rotate.value}
                     mirror={mirror.value}
@@ -353,6 +475,8 @@ export default defineComponent({
                     placementSrc={currentImage.value.thumbnail}
                     isSvg={currentImage.value.isSvg}
                     imageReferrerpolicy={imageReferrerpolicy.value}
+                    transform={dragTransform.value}
+                    mouseDownHandler={imageDragHandler}
                   />
                 </div>
               )}
