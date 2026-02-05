@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.2 `2026-02-05`
+
+### 🐞 Bug Fixes
+
+- fix(DateRangePicker): Fixed issue in `1.18.1` where `needConfirm` was set to false, causing modifications to be reverted
+
 ## 🌈 1.18.1 `2026-02-04`
 
 ### 🚀 New Features

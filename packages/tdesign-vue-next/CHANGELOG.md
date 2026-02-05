@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.2 `2026-02-05`
+
+### 🐞 Bug Fixes
+
+- fix(DateRangePicker): 修复 `1.18.1`，`needConfirm` 为 false , 修改被还原
+
 ## 🌈 1.18.1 `2026-02-04`
 
 ### 🚀 Features
