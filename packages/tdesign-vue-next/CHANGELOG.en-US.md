@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.2 `2026-02-05`
+
+### 🐞 Bug Fixes
+
+- fix(DateRangePicker): Fixed issue in `1.18.1` where `needConfirm` was set to false, causing modifications to be reverted
+
 ## 🌈 1.18.1 `2026-02-04`
 
 ### 🚀 New Features
@@ -17,14 +23,14 @@ docClass: timeline
 - **DateRangePicker**:
   - The `disabled` API now supports array values, allowing you to disable either the start date or the end date individually. @uyarn ([#6390](https://github.com/Tencent/tdesign-vue-next/pull/6390))
   - The `range` and `panelActiveDate` APIs were added to define date selection ranges. For details, see the examples provided. @Wesley-0808 ([#6316](https://github.com/Tencent/tdesign-vue-next/pull/6316))
-- **Icon**: 217 new icons related to artificial intelligence, documentation, logos, and files have been added.  @RADWIMPS426 @uyarn ([#6367](https://github.com/Tencent/tdesign-vue-next/pull/6367))
+- **Icon**: 217 new icons related to artificial intelligence, documentation, logos, and files have been added. @RADWIMPS426 @uyarn ([#6367](https://github.com/Tencent/tdesign-vue-next/pull/6367))
 - **Menu**: The menu panel now automatically reverses its orientation when there isn’t enough space. @RSS1102 ([#6392](https://github.com/Tencent/tdesign-vue-next/pull/6392))
 - **RangeInput**: The `disabled` property now supports array values, allowing you to disable either the left or right range separately. @RSS1102 ([#5648](https://github.com/Tencent/tdesign-vue-next/pull/5648))
 
 ### 🐞 Bug Fixes
 
 - **Cascader**: Fixed an issue where using `useCascaderContext` with the `disabled` parameter didn’t work as expected. @liweijie0812 ([#6332](https://github.com/Tencent/tdesign-vue-next/pull/6332))
-- **DatePicker**: Fixed an issue where clicking on a preset option wasn’t effective when `needConfirm` was set to `false`. @liweijie0812 ([#6388](https://github.com/Tencent/tdesign-vue-next/pull/6388))
+- **DateRangePicker**: Fixed an issue where clicking on a preset option wasn’t effective when `needConfirm` was set to `false`. @liweijie0812 ([#6388](https://github.com/Tencent/tdesign-vue-next/pull/6388))
 - **Drawer**: Optimized the behavior when the `sizeDraggable` function is enabled. The size of the current drawer wouldn’t update in real time after adjustments. @yrc2333 ([#6328](https://github.com/Tencent/tdesign-vue-next/pull/6328))
 - **InputNumber**: Fixed an issue where leading zeros were incorrectly removed when calculating large numbers. @Liumingxun ([common#2394](https://github.com/Tencent/tdesign-common/pull/2394))
 - **Menu**: Fixed an issue where Tooltips displayed as slots didn’t disappear when the side navigation menu was closed. @liweijie0812 ([#6341](https://github.com/Tencent/tdesign-vue-next/pull/6341))
