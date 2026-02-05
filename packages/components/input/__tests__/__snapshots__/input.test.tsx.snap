@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Input Component > props.align is equal to center 1`] = `
+exports[`Input Component > props.align > props.align is equal to center 1`] = `
 <div
   class="t-input t-align-center"
 >
@@ -20,7 +20,7 @@ exports[`Input Component > props.align is equal to center 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.align is equal to left 1`] = `
+exports[`Input Component > props.align > props.align is equal to left 1`] = `
 <div
   class="t-input"
 >
@@ -40,7 +40,7 @@ exports[`Input Component > props.align is equal to left 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.align is equal to right 1`] = `
+exports[`Input Component > props.align > props.align is equal to right 1`] = `
 <div
   class="t-input t-align-right"
 >
@@ -60,7 +60,7 @@ exports[`Input Component > props.align is equal to right 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.label works fine 1`] = `
+exports[`Input Component > props.label > props.label works fine with TNode 1`] = `
 <div
   class="t-input__wrap"
 >
@@ -93,7 +93,42 @@ exports[`Input Component > props.label works fine 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.status is equal to default 1`] = `
+exports[`Input Component > props.label > slots.label works fine 1`] = `
+<div
+  class="t-input__wrap"
+>
+  <div
+    class="t-input t-input--prefix"
+  >
+    <!---->
+    <div
+      class="t-input__prefix"
+    >
+      
+      <span
+        class="custom-node"
+      >
+        TNode
+      </span>
+      
+    </div>
+    <input
+      class="t-input__inner"
+      placeholder="请输入"
+      spellcheck="false"
+      type="text"
+      unselectable="off"
+    />
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Input Component > props.status > props.status is equal to default 1`] = `
 <div
   class="t-input"
 >
@@ -113,7 +148,7 @@ exports[`Input Component > props.status is equal to default 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.status is equal to error 1`] = `
+exports[`Input Component > props.status > props.status is equal to error 1`] = `
 <div
   class="t-input t-is-error"
 >
@@ -133,7 +168,7 @@ exports[`Input Component > props.status is equal to error 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.status is equal to success 1`] = `
+exports[`Input Component > props.status > props.status is equal to success 1`] = `
 <div
   class="t-input t-is-success"
 >
@@ -153,7 +188,7 @@ exports[`Input Component > props.status is equal to success 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.status is equal to warning 1`] = `
+exports[`Input Component > props.status > props.status is equal to warning 1`] = `
 <div
   class="t-input t-is-warning"
 >
@@ -173,7 +208,7 @@ exports[`Input Component > props.status is equal to warning 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.suffix works fine 1`] = `
+exports[`Input Component > props.suffix > props.suffix works fine with TNode 1`] = `
 <div
   class="t-input__wrap"
 >
@@ -207,75 +242,7 @@ exports[`Input Component > props.suffix works fine 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.suffixIcon works fine 1`] = `
-<div
-  class="t-input__wrap"
->
-  <div
-    class="t-input t-input--suffix"
-  >
-    <!---->
-    <!---->
-    <input
-      class="t-input__inner"
-      placeholder="请输入"
-      spellcheck="false"
-      type="text"
-      unselectable="off"
-    />
-    <!---->
-    <!---->
-    <!---->
-    <span
-      class="t-input__suffix t-input__suffix-icon"
-    >
-      <span
-        class="custom-node"
-      >
-        TNode
-      </span>
-    </span>
-  </div>
-  <!---->
-</div>
-`;
-
-exports[`Input Component > slots.label works fine 1`] = `
-<div
-  class="t-input__wrap"
->
-  <div
-    class="t-input t-input--prefix"
-  >
-    <!---->
-    <div
-      class="t-input__prefix"
-    >
-      
-      <span
-        class="custom-node"
-      >
-        TNode
-      </span>
-      
-    </div>
-    <input
-      class="t-input__inner"
-      placeholder="请输入"
-      spellcheck="false"
-      type="text"
-      unselectable="off"
-    />
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-  </div>
-  <!---->
-</div>
-`;
-
-exports[`Input Component > slots.suffix works fine 1`] = `
+exports[`Input Component > props.suffix > slots.suffix works fine 1`] = `
 <div
   class="t-input__wrap"
 >
@@ -311,7 +278,40 @@ exports[`Input Component > slots.suffix works fine 1`] = `
 </div>
 `;
 
-exports[`Input Component > slots.suffix-icon works fine 1`] = `
+exports[`Input Component > props.suffixIcon > props.suffixIcon works fine 1`] = `
+<div
+  class="t-input__wrap"
+>
+  <div
+    class="t-input t-input--suffix"
+  >
+    <!---->
+    <!---->
+    <input
+      class="t-input__inner"
+      placeholder="请输入"
+      spellcheck="false"
+      type="text"
+      unselectable="off"
+    />
+    <!---->
+    <!---->
+    <!---->
+    <span
+      class="t-input__suffix t-input__suffix-icon"
+    >
+      <span
+        class="custom-node"
+      >
+        TNode
+      </span>
+    </span>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Input Component > props.suffixIcon > slots.suffix-icon works fine 1`] = `
 <div
   class="t-input__wrap"
 >
@@ -346,7 +346,7 @@ exports[`Input Component > slots.suffix-icon works fine 1`] = `
 </div>
 `;
 
-exports[`Input Component > slots.suffixIcon works fine 1`] = `
+exports[`Input Component > props.suffixIcon > slots.suffixIcon works fine 1`] = `
 <div
   class="t-input__wrap"
 >
