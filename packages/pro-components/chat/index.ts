@@ -11,7 +11,7 @@ import _ChatActionbar from './chat-actionbar';
 import _ChatSender from './chat-sender';
 import _Attachments from './attachments';
 import _ChatThinking from './chat-thinking';
-import _ChatBot from './chatbot';
+import _Chatbot from './chatbot';
 import _ChatMarkdown from './chat-markdown';
 import { ChatSearchContentComponent, ChatSuggestionContentComponent } from './chatbot';
 
@@ -54,7 +54,7 @@ export const ChatActionbar = withInstall(_ChatActionbar);
 export const ChatLoading = withInstall(_ChatLoading);
 export const Attachments = withInstall(_Attachments);
 export const ChatThinking = withInstall(_ChatThinking, 't-chat-thinking');
-export const ChatBot = withInstall(_ChatBot, 't-chatbot');
+export const Chatbot = withInstall(_Chatbot, 't-chatbot');
 export const ChatMessage = withInstall(_ChatMessage, 't-chat-message');
 export const ChatContent = withInstall(_ChatContent);
 export const ChatSearchContent = withInstall(ChatSearchContentComponent, 't-chat-search-content');
@@ -78,7 +78,7 @@ export { ToolCallRenderer };
 
 export default {
   install(app: App, config?: Record<string, unknown>) {
-    app.use(ChatBot, config);
+    app.use(Chatbot, config);
     app.use(ChatList, config);
     app.use(ChatContent, config);
     app.use(ChatMarkdown, config);
