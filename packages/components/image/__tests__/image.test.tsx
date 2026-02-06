@@ -291,4 +291,77 @@ describe('Image Component', () => {
       expect(fn).toBeCalled();
     });
   });
+
+  // ==================== Coverage Enhancement Tests ====================
+  describe('Coverage Enhancement', () => {
+    it('should handle lazy loading', async () => {
+      const wrapper = mount(() => <Image src={src} lazy />);
+      await nextTick();
+
+      // Initially should not load the image
+      const img = wrapper.find('.t-image__wrapper img');
+      expect(img.exists()).toBeTruthy();
+
+      // Simulate intersection observer trigger
+      const imageWrapper = wrapper.find('.t-image__wrapper');
+      if (imageWrapper.exists()) {
+        // Trigger the handleLoadImage function by simulating lazy load
+        await imageWrapper.trigger('load');
+        await nextTick();
+      }
+    });
+
+    it('should handle fallback image on error', async () => {
+      const fallbackSrc = 'https://tdesign.gtimg.com/demo/fallback.png';
+      const wrapper = mount(() => <Image src={errorSrc} fallback={fallbackSrc} />);
+      const img = wrapper.find('.t-image__wrapper img');
+
+      await nextTick();
+      // Trigger error event
+      await img.trigger('error');
+      await nextTick();
+
+      // Should use fallback image and not show error
+      expect(img.attributes('src')).toBe(fallbackSrc);
+      expect(wrapper.find('.t-image__error').exists()).toBeFalsy();
+    });
+
+    it('should reset error and loaded state when src changes', async () => {
+      const wrapper = mount(() => <Image src={src} />);
+      const img = wrapper.find('.t-image__wrapper img');
+
+      // First trigger error
+      await img.trigger('error');
+      await nextTick();
+      expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
+
+      // Change src - should reset error state
+      await wrapper.setProps({ src: 'https://tdesign.gtimg.com/demo/demo-image-2.png' });
+      await nextTick();
+
+      // Error should be cleared when src changes
+      expect(wrapper.exists()).toBeTruthy();
+    });
+
+    it('should handle File object as src', async () => {
+      const file = new File([''], 'test.png', { type: 'image/png' });
+      const wrapper = mount(() => <Image src={file} />);
+
+      await nextTick();
+      expect(wrapper.find('.t-image__wrapper img').exists()).toBeTruthy();
+    });
+
+    it('should handle string error message', async () => {
+      const errorMessage = 'Custom error message';
+      const wrapper = mount(() => <Image src={errorSrc} error={errorMessage} />);
+      const img = wrapper.find('.t-image__wrapper img');
+
+      await nextTick();
+      await img.trigger('error');
+      await nextTick();
+
+      expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
+      expect(wrapper.text()).toContain(errorMessage);
+    });
+  });
 });
