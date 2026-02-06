@@ -4,12 +4,17 @@
       <t-chat-thinking
         :content="{
           title: title,
-          text: displayText,
         }"
         :status="status"
         :layout="layout"
         :animation="animation"
-      />
+      >
+        <template #content>
+          <div class="content-box">
+            {{ displayText }}
+          </div>
+        </template>
+      </t-chat-thinking>
     </t-space>
   </div>
 </template>
@@ -101,5 +106,8 @@ export default defineComponent({
 <style scoped>
 .chat-thinking-demo {
   padding: 16px;
+  .content-box {
+    padding: var(--td-chat-item-think-inner-padding);
+  }
 }
 </style>
