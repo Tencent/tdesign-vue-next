@@ -9,7 +9,7 @@ docClass: timeline
 
 ### 🐞 Bug Fixes
 
-- fix(DateRangePicker): 修复 `1.18.1`，`needConfirm` 为 false , 修改被还原
+- fix(DateRangePicker): 修复 `1.18.1` 版本 `needConfirm` 为 false 时，修改被还原的问题
 
 ## 🌈 1.18.1 `2026-02-04`
 
