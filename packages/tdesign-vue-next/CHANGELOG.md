@@ -9,7 +9,7 @@ docClass: timeline
 
 ### 🐞 Bug Fixes
 
-- fix(DateRangePicker): 修复 `1.18.1`，`needConfirm` 为 false , 修改被还原
+- fix(DateRangePicker): 修复 `1.18.1` 中，`needConfirm` 参数为 `false` 时, 修改被还原的问题 @liweijie0812 ([#6410](https://github.com/Tencent/tdesign-vue-next/pull/6410))
 
 ## 🌈 1.18.1 `2026-02-04`
 
