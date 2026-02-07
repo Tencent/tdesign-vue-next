@@ -9,7 +9,7 @@ docClass: timeline
 
 ### 🐞 Bug Fixes
 
-- fix(DateRangePicker): Fixed issue in `1.18.1` where `needConfirm` was set to false, causing modifications to be reverted
+- fix(DateRangePicker): Fixed issue in `1.18.1` where `needConfirm` was set to `false`, causing modifications to be reverted. @liweijie0812 ([#6410](https://github.com/Tencent/tdesign-vue-next/pull/6410))
 
 ## 🌈 1.18.1 `2026-02-04`
 
