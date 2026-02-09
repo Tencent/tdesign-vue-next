@@ -1,46 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Input Component > props.align > props.align is equal to center 1`] = `
-<div
-  class="t-input t-align-center"
->
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    placeholder="请输入"
-    spellcheck="false"
-    type="text"
-    unselectable="off"
-  />
-  <!---->
-  <!---->
-  <!---->
-  <!---->
-</div>
-`;
-
-exports[`Input Component > props.align > props.align is equal to left 1`] = `
-<div
-  class="t-input"
->
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    placeholder="请输入"
-    spellcheck="false"
-    type="text"
-    unselectable="off"
-  />
-  <!---->
-  <!---->
-  <!---->
-  <!---->
-</div>
-`;
-
-exports[`Input Component > props.align > props.align is equal to right 1`] = `
+exports[`Input > props > :align[string] 1`] = `
 <div
   class="t-input t-align-right"
 >
@@ -60,7 +20,7 @@ exports[`Input Component > props.align > props.align is equal to right 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.label > props.label works fine with TNode 1`] = `
+exports[`Input > props > :label[TNode] 1`] = `
 <div
   class="t-input__wrap"
 >
@@ -93,7 +53,7 @@ exports[`Input Component > props.label > props.label works fine with TNode 1`] =
 </div>
 `;
 
-exports[`Input Component > props.label > slots.label works fine 1`] = `
+exports[`Input > props > :label[slot] 1`] = `
 <div
   class="t-input__wrap"
 >
@@ -128,27 +88,7 @@ exports[`Input Component > props.label > slots.label works fine 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.status > props.status is equal to default 1`] = `
-<div
-  class="t-input"
->
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    placeholder="请输入"
-    spellcheck="false"
-    type="text"
-    unselectable="off"
-  />
-  <!---->
-  <!---->
-  <!---->
-  <!---->
-</div>
-`;
-
-exports[`Input Component > props.status > props.status is equal to error 1`] = `
+exports[`Input > props > :status[string] 1`] = `
 <div
   class="t-input t-is-error"
 >
@@ -168,47 +108,7 @@ exports[`Input Component > props.status > props.status is equal to error 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.status > props.status is equal to success 1`] = `
-<div
-  class="t-input t-is-success"
->
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    placeholder="请输入"
-    spellcheck="false"
-    type="text"
-    unselectable="off"
-  />
-  <!---->
-  <!---->
-  <!---->
-  <!---->
-</div>
-`;
-
-exports[`Input Component > props.status > props.status is equal to warning 1`] = `
-<div
-  class="t-input t-is-warning"
->
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    placeholder="请输入"
-    spellcheck="false"
-    type="text"
-    unselectable="off"
-  />
-  <!---->
-  <!---->
-  <!---->
-  <!---->
-</div>
-`;
-
-exports[`Input Component > props.suffix > props.suffix works fine with TNode 1`] = `
+exports[`Input > props > :suffix[TNode] 1`] = `
 <div
   class="t-input__wrap"
 >
@@ -242,7 +142,7 @@ exports[`Input Component > props.suffix > props.suffix works fine with TNode 1`]
 </div>
 `;
 
-exports[`Input Component > props.suffix > slots.suffix works fine 1`] = `
+exports[`Input > props > :suffix[slot] 1`] = `
 <div
   class="t-input__wrap"
 >
@@ -278,7 +178,7 @@ exports[`Input Component > props.suffix > slots.suffix works fine 1`] = `
 </div>
 `;
 
-exports[`Input Component > props.suffixIcon > props.suffixIcon works fine 1`] = `
+exports[`Input > props > :suffixIcon[TNode] 1`] = `
 <div
   class="t-input__wrap"
 >
@@ -311,7 +211,7 @@ exports[`Input Component > props.suffixIcon > props.suffixIcon works fine 1`] = 
 </div>
 `;
 
-exports[`Input Component > props.suffixIcon > slots.suffix-icon works fine 1`] = `
+exports[`Input > props > :suffixIcon[slot suffix-icon] 1`] = `
 <div
   class="t-input__wrap"
 >
@@ -346,7 +246,7 @@ exports[`Input Component > props.suffixIcon > slots.suffix-icon works fine 1`] =
 </div>
 `;
 
-exports[`Input Component > props.suffixIcon > slots.suffixIcon works fine 1`] = `
+exports[`Input > props > :suffixIcon[slot] 1`] = `
 <div
   class="t-input__wrap"
 >
