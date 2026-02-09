@@ -46,7 +46,7 @@ export default defineComponent({
       error.value = false;
       loaded.value = false;
       if (isSvg.value) {
-        createSvgShadow(mainImagePreviewUrl.value);
+        createSvgShadow(mainImagePreviewUrl.value).catch(() => {});
       }
     };
 
@@ -115,7 +115,11 @@ export default defineComponent({
 
     onMounted(async () => {
       if (isSvg.value) {
-        await createSvgShadow(mainImagePreviewUrl.value);
+        try {
+          await createSvgShadow(mainImagePreviewUrl.value);
+        } catch {
+          // 错误已通过 error.value = true 记录，此处忽略避免未处理的拒绝
+        }
       }
     });
 
