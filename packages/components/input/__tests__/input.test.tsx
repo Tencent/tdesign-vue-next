@@ -1,17 +1,19 @@
-import { mount } from '@vue/test-utils';
-import type { VueWrapper } from '@vue/test-utils';
-import { expect, vi } from 'vitest';
 import { nextTick } from 'vue';
+import type { VueWrapper } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { expect, vi } from 'vitest';
 import { Input } from '@tdesign/components/input';
 import InputProps from '@tdesign/components/input/props';
 import { simulateInputChange } from '@tdesign/internal-tests/utils';
 
 describe('Input', () => {
   describe('props', () => {
-    let wrapper: VueWrapper;
+    let wrapper: VueWrapper<InstanceType<typeof Input>> | null = null;
 
     beforeEach(() => {
-      wrapper = mount(<Input></Input>);
+      wrapper = mount(Input, {
+        props: {},
+      }) as VueWrapper<InstanceType<typeof Input>>;
     });
 
     it(':align[string]', async () => {
@@ -38,26 +40,30 @@ describe('Input', () => {
       const onChangeFn = vi.fn();
 
       // default: false, should truncate to maxlength
-      const wrapper1 = mount(<Input defaultValue="" maxlength={5} onChange={onChangeFn}></Input>);
+      const wrapper1 = mount(Input, {
+        props: { defaultValue: '', maxlength: 5, onChange: onChangeFn },
+      });
       simulateInputChange(wrapper1.find('input').element, 'Hello TDesign');
       await wrapper1.vm.$nextTick();
       expect(onChangeFn).toHaveBeenCalled();
-      expect(onChangeFn.mock.calls[0][0]).toBe('Hello');
+      expect(onChangeFn.mock.calls[0][0]).eq('Hello');
 
       // allowInputOverMax = true, value should not change
-      const wrapper2 = mount(<Input value="Hello" maxlength={5} allowInputOverMax={true}></Input>);
+      const wrapper2 = mount(Input, {
+        props: { value: 'Hello', maxlength: 5, allowInputOverMax: true },
+      });
       simulateInputChange(wrapper2.find('input').element, 'Hello TDesign');
       await wrapper2.vm.$nextTick();
-      expect(wrapper2.find('input').element.value).toBe('Hello');
+      expect(wrapper2.find('input').element.value).eq('Hello');
 
       // allowInputOverMax with maxcharacter
       const onChangeFn2 = vi.fn();
-      const wrapper3 = mount(
-        <Input value="测试" maxcharacter={4} allowInputOverMax={true} onChange={onChangeFn2}></Input>,
-      );
+      const wrapper3 = mount(Input, {
+        props: { value: '测试', maxcharacter: 4, allowInputOverMax: true, onChange: onChangeFn2 },
+      });
       simulateInputChange(wrapper3.find('input').element, '测试文本长度');
       await wrapper3.vm.$nextTick();
-      expect(wrapper3.find('input').element.value).toBe('测试');
+      expect(wrapper3.find('input').element.value).eq('测试');
     });
 
     it(':autoWidth[boolean]', async () => {
@@ -100,7 +106,9 @@ describe('Input', () => {
 
     it(':clearable[boolean]', async () => {
       // default: false
-      const wrapper = mount(<Input value="Default Keyword"></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'Default Keyword' },
+      });
       wrapper.find('.t-input').trigger('mouseenter');
       await wrapper.vm.$nextTick();
       expect(wrapper.find('.t-input__suffix-clear').exists()).eq(false);
@@ -115,9 +123,9 @@ describe('Input', () => {
     it(':clearable click clear icon', async () => {
       const onClearFn = vi.fn();
       const onChangeFn = vi.fn();
-      const wrapper = mount(
-        <Input value="Default Keyword" clearable={true} onClear={onClearFn} onChange={onChangeFn}></Input>,
-      );
+      const wrapper = mount(Input, {
+        props: { value: 'Default Keyword', clearable: true, onClear: onClearFn, onChange: onChangeFn },
+      });
       wrapper.find('.t-input').trigger('mouseenter');
       await wrapper.vm.$nextTick();
       expect(wrapper.find('.t-input__suffix-clear').exists()).eq(true);
@@ -133,7 +141,9 @@ describe('Input', () => {
     });
 
     it(':clearable with type=password', async () => {
-      const wrapper = mount(<Input type="password" value="this is my password" clearable={true}></Input>);
+      const wrapper = mount(Input, {
+        props: { type: 'password', value: 'this is my password', clearable: true },
+      });
       await wrapper.vm.$nextTick();
       expect(wrapper.find('.t-icon-browse-off').exists()).eq(true);
       wrapper.find('.t-input').trigger('mouseenter');
@@ -143,13 +153,17 @@ describe('Input', () => {
 
     it(':clearable should not show when disabled or readonly', async () => {
       // disabled
-      const wrapper1 = mount(<Input value="Default Keyword" clearable={true} disabled></Input>);
+      const wrapper1 = mount(Input, {
+        props: { value: 'Default Keyword', clearable: true, disabled: true },
+      });
       wrapper1.find('.t-input').trigger('mouseenter');
       await wrapper1.vm.$nextTick();
       expect(wrapper1.find('.t-input__suffix-clear').exists()).eq(false);
 
       // readonly
-      const wrapper2 = mount(<Input value="Default Keyword" clearable={true} readonly></Input>);
+      const wrapper2 = mount(Input, {
+        props: { value: 'Default Keyword', clearable: true, readonly: true },
+      });
       wrapper2.find('.t-input').trigger('mouseenter');
       await wrapper2.vm.$nextTick();
       expect(wrapper2.find('.t-input__suffix-clear').exists()).eq(false);
@@ -157,7 +171,9 @@ describe('Input', () => {
 
     it(':clearable type=number should return undefined when cleared', async () => {
       const onChangeFn = vi.fn();
-      const wrapper = mount(<Input type="number" value={123} clearable={true} onChange={onChangeFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { type: 'number', value: 123, clearable: true, onChange: onChangeFn },
+      });
       wrapper.find('.t-input').trigger('mouseenter');
       await wrapper.vm.$nextTick();
       wrapper.find('.t-input__suffix-clear').trigger('click');
@@ -177,7 +193,9 @@ describe('Input', () => {
     });
 
     it(':disabled password toggle should not work', async () => {
-      const wrapper = mount(<Input type="password" disabled={true}></Input>);
+      const wrapper = mount(Input, {
+        props: { type: 'password', disabled: true },
+      });
       expect(wrapper.find('.t-icon-browse-off').exists()).eq(true);
       await wrapper.find('.t-icon-browse-off').trigger('click');
       await wrapper.vm.$nextTick();
@@ -189,9 +207,9 @@ describe('Input', () => {
       const onKeydownFn = vi.fn();
       const onKeyupFn = vi.fn();
       const onKeypressFn = vi.fn();
-      const wrapper = mount(
-        <Input disabled={true} onKeydown={onKeydownFn} onKeyup={onKeyupFn} onKeypress={onKeypressFn}></Input>,
-      );
+      const wrapper = mount(Input, {
+        props: { disabled: true, onKeydown: onKeydownFn, onKeyup: onKeyupFn, onKeypress: onKeypressFn },
+      });
       await wrapper.find('input').trigger('keydown');
       await wrapper.find('input').trigger('keyup');
       await wrapper.find('input').trigger('keypress');
@@ -201,7 +219,9 @@ describe('Input', () => {
     });
 
     it(':format[function]', async () => {
-      const wrapper = mount(<Input format={(val) => `${val} 元`} value="100"></Input>);
+      const wrapper = mount(Input, {
+        props: { format: (val) => `${val} 元`, value: '100' },
+      });
       wrapper.find('input').trigger('focus');
       await wrapper.vm.$nextTick();
       expect(wrapper.find('input').element.value).eq('100');
@@ -212,13 +232,17 @@ describe('Input', () => {
     });
 
     it(':format initial value should be formatted', async () => {
-      const wrapper = mount(<Input format={(val) => `$${val}`} defaultValue="100"></Input>);
+      const wrapper = mount(Input, {
+        props: { format: (val) => `$${val}`, defaultValue: '100' },
+      });
       await wrapper.vm.$nextTick();
       expect(wrapper.find('input').element.value).eq('$100');
     });
 
     it(':format should work with defaultValue', async () => {
-      const wrapper = mount(<Input format={(val) => val?.toUpperCase()} defaultValue="hello"></Input>);
+      const wrapper = mount(Input, {
+        props: { format: (val) => val?.toUpperCase(), defaultValue: 'hello' },
+      });
       await wrapper.vm.$nextTick();
       expect(wrapper.find('input').element.value).eq('HELLO');
     });
@@ -247,14 +271,18 @@ describe('Input', () => {
     });
 
     it(':label[TNode]', () => {
-      const wrapper = mount(<Input label={() => <span class="custom-node">TNode</span>}></Input>);
+      const wrapper = mount(Input, {
+        props: { label: () => <span class="custom-node">TNode</span> },
+      });
       expect(wrapper.find('.custom-node').exists()).eq(true);
       expect(wrapper.find('.t-input__prefix').exists()).eq(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':label[slot]', () => {
-      const wrapper = mount(<Input v-slots={{ label: () => <span class="custom-node">TNode</span> }}></Input>);
+      const wrapper = mount(Input, {
+        slots: { label: () => <span class="custom-node">TNode</span> },
+      });
       expect(wrapper.find('.custom-node').exists()).eq(true);
       expect(wrapper.find('.t-input__prefix').exists()).eq(true);
       expect(wrapper.element).toMatchSnapshot();
@@ -262,7 +290,9 @@ describe('Input', () => {
 
     it(':maxcharacter[number]', async () => {
       const onChangeFn = vi.fn();
-      mount(<Input value="你好 TDesign" maxcharacter={4} onChange={onChangeFn}></Input>);
+      mount(Input, {
+        props: { value: '你好 TDesign', maxcharacter: 4, onChange: onChangeFn },
+      });
       await nextTick();
       expect(onChangeFn).toHaveBeenCalledTimes(1);
       expect(onChangeFn.mock.calls[0][0]).eq('你好');
@@ -271,7 +301,9 @@ describe('Input', () => {
 
     it(':maxcharacter Chinese character counts as 2', async () => {
       const onChangeFn = vi.fn();
-      const wrapper = mount(<Input value="你好" maxcharacter={4} onChange={onChangeFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: '你好', maxcharacter: 4, onChange: onChangeFn },
+      });
       await wrapper.vm.$nextTick();
       expect(onChangeFn).not.toHaveBeenCalled();
       expect(wrapper.find('input').element.value).eq('你好');
@@ -280,7 +312,9 @@ describe('Input', () => {
     it(':maxcharacter mixed Chinese and English', async () => {
       const onChangeFn = vi.fn();
       // 你(2) + 好(2) + a(1) = 5 > 4
-      mount(<Input value="你好a" maxcharacter={4} onChange={onChangeFn}></Input>);
+      mount(Input, {
+        props: { value: '你好a', maxcharacter: 4, onChange: onChangeFn },
+      });
       await nextTick();
       expect(onChangeFn).toHaveBeenCalled();
       expect(onChangeFn.mock.calls[0][0]).eq('你好');
@@ -288,7 +322,9 @@ describe('Input', () => {
 
     it(':maxlength[number]', async () => {
       const onChangeFn = vi.fn();
-      mount(<Input value="Hello TDesign" maxlength={5} onChange={onChangeFn}></Input>);
+      mount(Input, {
+        props: { value: 'Hello TDesign', maxlength: 5, onChange: onChangeFn },
+      });
       await nextTick();
       expect(onChangeFn).toHaveBeenCalledTimes(1);
       expect(onChangeFn.mock.calls[0][0]).eq('Hello');
@@ -296,13 +332,17 @@ describe('Input', () => {
     });
 
     it(':maxlength should not set native maxlength attribute', () => {
-      const wrapper = mount(<Input maxlength={10}></Input>);
+      const wrapper = mount(Input, {
+        props: { maxlength: 10 },
+      });
       expect(wrapper.find('input').attributes('maxlength')).eq(undefined);
     });
 
     it(':maxlength[string]', async () => {
       const onChangeFn = vi.fn();
-      mount(<Input value="Hello TDesign" maxlength="5" onChange={onChangeFn}></Input>);
+      mount(Input, {
+        props: { value: 'Hello TDesign', maxlength: '5', onChange: onChangeFn },
+      });
       await nextTick();
       expect(onChangeFn).toHaveBeenCalled();
       expect(onChangeFn.mock.calls[0][0]).eq('Hello');
@@ -324,19 +364,25 @@ describe('Input', () => {
     });
 
     it(':prefixIcon[TNode]', () => {
-      const wrapper = mount(<Input prefixIcon={() => <span class="custom-node">TNode</span>}></Input>);
+      const wrapper = mount(Input, {
+        props: { prefixIcon: () => <span class="custom-node">TNode</span> },
+      });
       expect(wrapper.find('.custom-node').exists()).eq(true);
       expect(wrapper.find('.t-input__prefix-icon').exists()).eq(true);
     });
 
     it(':prefixIcon[slot]', () => {
-      const wrapper = mount(<Input v-slots={{ prefixIcon: () => <span class="custom-node">TNode</span> }}></Input>);
+      const wrapper = mount(Input, {
+        slots: { prefixIcon: () => <span class="custom-node">TNode</span> },
+      });
       expect(wrapper.find('.custom-node').exists()).eq(true);
       expect(wrapper.find('.t-input__prefix-icon').exists()).eq(true);
     });
 
     it(':prefixIcon[slot prefix-icon]', () => {
-      const wrapper = mount(<Input v-slots={{ 'prefix-icon': () => <span class="custom-node">TNode</span> }}></Input>);
+      const wrapper = mount(Input, {
+        slots: { 'prefix-icon': () => <span class="custom-node">TNode</span> },
+      });
       expect(wrapper.find('.custom-node').exists()).eq(true);
       expect(wrapper.find('.t-input__prefix-icon').exists()).eq(true);
     });
@@ -373,7 +419,9 @@ describe('Input', () => {
 
     it(':showLimitNumber[boolean]', async () => {
       // default: false
-      const wrapper = mount(<Input maxlength={5} value="TD"></Input>);
+      const wrapper = mount(Input, {
+        props: { maxlength: 5, value: 'TD' },
+      });
       expect(wrapper.find('.t-input__limit-number').exists()).eq(false);
 
       await wrapper.setProps({ showLimitNumber: true });
@@ -381,17 +429,23 @@ describe('Input', () => {
     });
 
     it(':showLimitNumber with maxcharacter', () => {
-      const wrapper = mount(<Input showLimitNumber={true} maxcharacter={10} value="你好"></Input>);
+      const wrapper = mount(Input, {
+        props: { showLimitNumber: true, maxcharacter: 10, value: '你好' },
+      });
       expect(wrapper.find('.t-input__limit-number').text()).eq('4/10');
     });
 
     it(':showLimitNumber shows 0/n when empty', () => {
-      const wrapper = mount(<Input showLimitNumber={true} maxlength={10}></Input>);
+      const wrapper = mount(Input, {
+        props: { showLimitNumber: true, maxlength: 10 },
+      });
       expect(wrapper.find('.t-input__limit-number').text()).eq('0/10');
     });
 
     it(':showLimitNumber disabled state', () => {
-      const wrapper = mount(<Input showLimitNumber={true} maxlength={5} value="TD" disabled></Input>);
+      const wrapper = mount(Input, {
+        props: { showLimitNumber: true, maxlength: 5, value: 'TD', disabled: true },
+      });
       expect(wrapper.find('.t-input__limit-number').classes('t-is-disabled')).eq(true);
     });
 
@@ -452,35 +506,45 @@ describe('Input', () => {
     });
 
     it(':suffix[TNode]', () => {
-      const wrapper = mount(<Input suffix={() => <span class="custom-node">TNode</span>}></Input>);
+      const wrapper = mount(Input, {
+        props: { suffix: () => <span class="custom-node">TNode</span> },
+      });
       expect(wrapper.find('.custom-node').exists()).eq(true);
       expect(wrapper.find('.t-input__suffix').exists()).eq(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':suffix[slot]', () => {
-      const wrapper = mount(<Input v-slots={{ suffix: () => <span class="custom-node">TNode</span> }}></Input>);
+      const wrapper = mount(Input, {
+        slots: { suffix: () => <span class="custom-node">TNode</span> },
+      });
       expect(wrapper.find('.custom-node').exists()).eq(true);
       expect(wrapper.find('.t-input__suffix').exists()).eq(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':suffixIcon[TNode]', () => {
-      const wrapper = mount(<Input suffixIcon={() => <span class="custom-node">TNode</span>}></Input>);
+      const wrapper = mount(Input, {
+        props: { suffixIcon: () => <span class="custom-node">TNode</span> },
+      });
       expect(wrapper.find('.custom-node').exists()).eq(true);
       expect(wrapper.find('.t-input__suffix-icon').exists()).eq(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':suffixIcon[slot]', () => {
-      const wrapper = mount(<Input v-slots={{ suffixIcon: () => <span class="custom-node">TNode</span> }}></Input>);
+      const wrapper = mount(Input, {
+        slots: { suffixIcon: () => <span class="custom-node">TNode</span> },
+      });
       expect(wrapper.find('.custom-node').exists()).eq(true);
       expect(wrapper.find('.t-input__suffix-icon').exists()).eq(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':suffixIcon[slot suffix-icon]', () => {
-      const wrapper = mount(<Input v-slots={{ 'suffix-icon': () => <span class="custom-node">TNode</span> }}></Input>);
+      const wrapper = mount(Input, {
+        slots: { 'suffix-icon': () => <span class="custom-node">TNode</span> },
+      });
       expect(wrapper.find('.custom-node').exists()).eq(true);
       expect(wrapper.find('.t-input__suffix-icon').exists()).eq(true);
       expect(wrapper.element).toMatchSnapshot();
@@ -493,13 +557,17 @@ describe('Input', () => {
     });
 
     it(':tips[TNode]', () => {
-      const wrapper = mount(<Input tips={() => <span class="custom-tips">Custom Tips</span>}></Input>);
+      const wrapper = mount(Input, {
+        props: { tips: () => <span class="custom-tips">Custom Tips</span> },
+      });
       expect(wrapper.find('.custom-tips').exists()).eq(true);
     });
 
     it(':tips style changes with status', () => {
       (['default', 'success', 'warning', 'error'] as const).forEach((status) => {
-        const wrapper = mount(<Input tips="tip" status={status}></Input>);
+        const wrapper = mount(Input, {
+          props: { tips: 'tip', status },
+        });
         expect(wrapper.find('.t-input__tips').classes(`t-is-${status}`)).eq(true);
       });
     });
@@ -522,7 +590,9 @@ describe('Input', () => {
     });
 
     it(':type=password toggle visibility', async () => {
-      const wrapper = mount(<Input type="password"></Input>);
+      const wrapper = mount(Input, {
+        props: { type: 'password' },
+      });
       expect(wrapper.findAll('.t-icon-browse-off')).toHaveLength(1);
 
       wrapper.find('.t-icon-browse-off').trigger('click');
@@ -537,13 +607,17 @@ describe('Input', () => {
     });
 
     it(':type=hidden should hide the input wrapper', () => {
-      const wrapper = mount(<Input type="hidden"></Input>);
+      const wrapper = mount(Input, {
+        props: { type: 'hidden' },
+      });
       expect(wrapper.find('.t-input__wrap').isVisible()).eq(false);
     });
 
     it(':type=number should return number value', async () => {
       const onChangeFn = vi.fn();
-      const wrapper = mount(<Input type="number" onChange={onChangeFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { type: 'number', onChange: onChangeFn },
+      });
       simulateInputChange(wrapper.find('input').element, '123');
       await wrapper.vm.$nextTick();
       expect(onChangeFn).toHaveBeenCalled();
@@ -551,18 +625,24 @@ describe('Input', () => {
     });
 
     it(':value[string]', () => {
-      const wrapper = mount(<Input value="test value"></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'test value' },
+      });
       expect(wrapper.find('input').element.value).eq('test value');
     });
 
     it(':defaultValue[string]', () => {
-      const wrapper = mount(<Input defaultValue="default value"></Input>);
+      const wrapper = mount(Input, {
+        props: { defaultValue: 'default value' },
+      });
       expect(wrapper.find('input').element.value).eq('default value');
     });
 
     it(':value controlled mode', async () => {
       const onChangeFn = vi.fn();
-      const wrapper = mount(<Input value="controlled" onChange={onChangeFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'controlled', onChange: onChangeFn },
+      });
       simulateInputChange(wrapper.find('input').element, 'new value');
       await wrapper.vm.$nextTick();
       // 受控模式下，值不会改变
@@ -572,7 +652,9 @@ describe('Input', () => {
 
     it(':defaultValue uncontrolled mode', async () => {
       const onChangeFn = vi.fn();
-      const wrapper = mount(<Input defaultValue="uncontrolled" onChange={onChangeFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { defaultValue: 'uncontrolled', onChange: onChangeFn },
+      });
       simulateInputChange(wrapper.find('input').element, 'new value');
       await wrapper.vm.$nextTick();
       // 非受控模式下，值会改变
@@ -581,18 +663,58 @@ describe('Input', () => {
     });
 
     it(':value[number]', () => {
-      const wrapper = mount(<Input value={123} type="number"></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 123, type: 'number' },
+      });
       expect(wrapper.find('input').element.value).eq('123');
     });
 
     it(':value with 0', () => {
-      const wrapper = mount(<Input type="number" value={0}></Input>);
+      const wrapper = mount(Input, {
+        props: { type: 'number', value: 0 },
+      });
       expect(wrapper.find('input').element.value).eq('0');
     });
 
     it(':showInput[boolean]', () => {
-      const wrapper = mount(<Input showInput={false}></Input>);
+      const wrapper = mount(Input, {
+        props: { showInput: false },
+      });
       expect(wrapper.find('input').classes()).toContain('t-input--soft-hidden');
+    });
+
+    it(':keepWrapperWidth[boolean]', async () => {
+      await wrapper.setProps({ autoWidth: true, keepWrapperWidth: true });
+      expect(wrapper.find('.t-input--auto-width').exists()).eq(false);
+    });
+
+    it(':label not provided', async () => {
+      await wrapper.setProps({ label: undefined });
+      expect(wrapper.find('.t-input__prefix').exists()).eq(false);
+    });
+
+    it(':prefixIcon not provided', () => {
+      const wrapper = mount(Input, {
+        props: { prefixIcon: undefined },
+      });
+      expect(wrapper.find('.t-input__prefix-icon').exists()).eq(false);
+    });
+
+    it(':suffix not provided', async () => {
+      await wrapper.setProps({ suffix: undefined });
+      expect(wrapper.find('.t-input__suffix').exists()).eq(false);
+    });
+
+    it(':suffixIcon not provided', () => {
+      const wrapper = mount(Input, {
+        props: { suffixIcon: undefined },
+      });
+      expect(wrapper.find('.t-input__suffix-icon').exists()).eq(false);
+    });
+
+    it(':tips not provided', async () => {
+      await wrapper.setProps({ tips: undefined });
+      expect(wrapper.find('.t-input__tips').exists()).eq(false);
     });
   });
 
@@ -600,7 +722,9 @@ describe('Input', () => {
     it('blur', async () => {
       const onFocusFn = vi.fn();
       const onBlurFn = vi.fn();
-      const wrapper = mount(<Input value="initial-input-value" onFocus={onFocusFn} onBlur={onBlurFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'initial-input-value', onFocus: onFocusFn, onBlur: onBlurFn },
+      });
 
       wrapper.find('input').trigger('focus');
       await wrapper.vm.$nextTick();
@@ -617,7 +741,9 @@ describe('Input', () => {
 
     it('change: empty value could trigger change event', async () => {
       const onChangeFn = vi.fn();
-      const wrapper = mount(<Input onChange={onChangeFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { onChange: onChangeFn },
+      });
       simulateInputChange(wrapper.find('input').element, 'initial value');
       await wrapper.vm.$nextTick();
       expect(onChangeFn).toHaveBeenCalledTimes(1);
@@ -627,7 +753,9 @@ describe('Input', () => {
 
     it('change: controlled value test', async () => {
       const onChangeFn = vi.fn();
-      const wrapper = mount(<Input value="TDesign" onChange={onChangeFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'TDesign', onChange: onChangeFn },
+      });
       simulateInputChange(wrapper.find('input').element, 'Hello TDesign');
       await wrapper.vm.$nextTick();
       expect(wrapper.find('input').element.value).eq('TDesign');
@@ -638,7 +766,9 @@ describe('Input', () => {
 
     it('change: uncontrolled value test', async () => {
       const onChangeFn = vi.fn();
-      const wrapper = mount(<Input defaultValue="Hello" onChange={onChangeFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { defaultValue: 'Hello', onChange: onChangeFn },
+      });
       simulateInputChange(wrapper.find('input').element, 'Hello TDesign');
       await wrapper.vm.$nextTick();
       expect(onChangeFn).toHaveBeenCalledTimes(1);
@@ -648,7 +778,9 @@ describe('Input', () => {
 
     it('change: trigger=initial when value exceeds limit', async () => {
       const onChangeFn = vi.fn();
-      mount(<Input value="Hello World" maxlength={5} onChange={onChangeFn}></Input>);
+      mount(Input, {
+        props: { value: 'Hello World', maxlength: 5, onChange: onChangeFn },
+      });
       await nextTick();
       expect(onChangeFn).toHaveBeenCalled();
       expect(onChangeFn.mock.calls[0][1].trigger).eq('initial');
@@ -656,7 +788,9 @@ describe('Input', () => {
 
     it('change: trigger=clear when cleared', async () => {
       const onChangeFn = vi.fn();
-      const wrapper = mount(<Input value="test" clearable onChange={onChangeFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'test', clearable: true, onChange: onChangeFn },
+      });
       wrapper.find('.t-input').trigger('mouseenter');
       await wrapper.vm.$nextTick();
       wrapper.find('.t-input__suffix-clear').trigger('click');
@@ -666,7 +800,9 @@ describe('Input', () => {
 
     it('clear', async () => {
       const onClearFn = vi.fn();
-      const wrapper = mount(<Input value="test" clearable onClear={onClearFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'test', clearable: true, onClear: onClearFn },
+      });
       wrapper.find('.t-input').trigger('mouseenter');
       await wrapper.vm.$nextTick();
       wrapper.find('.t-input__suffix-clear').trigger('click');
@@ -677,7 +813,9 @@ describe('Input', () => {
 
     it('click', async () => {
       const fn = vi.fn();
-      const wrapper = mount(<Input onClick={fn}></Input>);
+      const wrapper = mount(Input, {
+        props: { onClick: fn },
+      });
       wrapper.find('.t-input').trigger('click');
       await wrapper.vm.$nextTick();
       expect(fn).toHaveBeenCalledTimes(1);
@@ -686,7 +824,9 @@ describe('Input', () => {
 
     it('compositionend', async () => {
       const onCompositionendFn = vi.fn();
-      const wrapper = mount(<Input value="输入结束" onCompositionend={onCompositionendFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: '输入结束', onCompositionend: onCompositionendFn },
+      });
       wrapper.find('input').trigger('compositionend');
       await wrapper.vm.$nextTick();
       expect(onCompositionendFn).toHaveBeenCalledTimes(1);
@@ -696,7 +836,9 @@ describe('Input', () => {
 
     it('compositionstart', async () => {
       const onCompositionstartFn = vi.fn();
-      const wrapper = mount(<Input value="输入开始" onCompositionstart={onCompositionstartFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: '输入开始', onCompositionstart: onCompositionstartFn },
+      });
       wrapper.find('input').trigger('compositionstart');
       await wrapper.vm.$nextTick();
       expect(onCompositionstartFn).toHaveBeenCalledTimes(1);
@@ -706,7 +848,9 @@ describe('Input', () => {
 
     it('enter', async () => {
       const onEnterFn = vi.fn();
-      const wrapper = mount(<Input value="text" onEnter={onEnterFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'text', onEnter: onEnterFn },
+      });
       wrapper.find('input').trigger('focus');
       await wrapper.vm.$nextTick();
       wrapper.find('input').trigger('keydown.enter');
@@ -718,7 +862,9 @@ describe('Input', () => {
 
     it('enter should not trigger during IME composition', async () => {
       const onEnterFn = vi.fn();
-      const wrapper = mount(<Input value="text" onEnter={onEnterFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'text', onEnter: onEnterFn },
+      });
       const input = wrapper.find('input');
 
       // 模拟中文输入法开始
@@ -744,7 +890,9 @@ describe('Input', () => {
 
     it('focus', async () => {
       const onFocusFn = vi.fn();
-      const wrapper = mount(<Input onFocus={onFocusFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { onFocus: onFocusFn },
+      });
       wrapper.find('input').trigger('focus');
       await wrapper.vm.$nextTick();
       expect(onFocusFn).toHaveBeenCalledTimes(1);
@@ -754,7 +902,9 @@ describe('Input', () => {
 
     it('keydown', async () => {
       const onKeydownFn = vi.fn();
-      const wrapper = mount(<Input value="text" onKeydown={onKeydownFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'text', onKeydown: onKeydownFn },
+      });
       wrapper.find('input').trigger('keydown');
       await wrapper.vm.$nextTick();
       expect(onKeydownFn).toHaveBeenCalledTimes(1);
@@ -764,7 +914,9 @@ describe('Input', () => {
 
     it('keypress', async () => {
       const onKeypressFn = vi.fn();
-      const wrapper = mount(<Input value="text" onKeypress={onKeypressFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'text', onKeypress: onKeypressFn },
+      });
       wrapper.find('input').trigger('keypress');
       await wrapper.vm.$nextTick();
       expect(onKeypressFn).toHaveBeenCalledTimes(1);
@@ -774,7 +926,9 @@ describe('Input', () => {
 
     it('keyup', async () => {
       const onKeyupFn = vi.fn();
-      const wrapper = mount(<Input value="text" onKeyup={onKeyupFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { value: 'text', onKeyup: onKeyupFn },
+      });
       wrapper.find('input').trigger('keyup');
       await wrapper.vm.$nextTick();
       expect(onKeyupFn).toHaveBeenCalledTimes(1);
@@ -784,7 +938,9 @@ describe('Input', () => {
 
     it('mouseenter', async () => {
       const onMouseenterFn = vi.fn();
-      const wrapper = mount(<Input onMouseenter={onMouseenterFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { onMouseenter: onMouseenterFn },
+      });
       wrapper.find('.t-input').trigger('mouseenter');
       await wrapper.vm.$nextTick();
       expect(onMouseenterFn).toHaveBeenCalledTimes(1);
@@ -793,7 +949,9 @@ describe('Input', () => {
 
     it('mouseleave', async () => {
       const onMouseleaveFn = vi.fn();
-      const wrapper = mount(<Input onMouseleave={onMouseleaveFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { onMouseleave: onMouseleaveFn },
+      });
       wrapper.find('.t-input').trigger('mouseleave');
       await wrapper.vm.$nextTick();
       expect(onMouseleaveFn).toHaveBeenCalledTimes(1);
@@ -802,7 +960,9 @@ describe('Input', () => {
 
     it('paste', async () => {
       const onPasteFn = vi.fn();
-      const wrapper = mount(<Input onPaste={onPasteFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { onPaste: onPasteFn },
+      });
       wrapper.find('input').trigger('paste');
       await wrapper.vm.$nextTick();
       expect(onPasteFn).toHaveBeenCalledTimes(1);
@@ -811,7 +971,9 @@ describe('Input', () => {
 
     it('validate', async () => {
       const onValidateFn = vi.fn();
-      mount(<Input value="Hello World" maxlength={5} onValidate={onValidateFn}></Input>);
+      mount(Input, {
+        props: { value: 'Hello World', maxlength: 5, onValidate: onValidateFn },
+      });
       await nextTick();
       expect(onValidateFn).toHaveBeenCalledTimes(1);
       expect(onValidateFn.mock.calls[0][0].error).eq('exceed-maximum');
@@ -819,7 +981,9 @@ describe('Input', () => {
 
     it('wheel', async () => {
       const onWheelFn = vi.fn();
-      const wrapper = mount(<Input onWheel={onWheelFn}></Input>);
+      const wrapper = mount(Input, {
+        props: { onWheel: onWheelFn },
+      });
       wrapper.find('input').trigger('wheel');
       await wrapper.vm.$nextTick();
       expect(onWheelFn).toHaveBeenCalledTimes(1);
@@ -827,11 +991,42 @@ describe('Input', () => {
     });
   });
 
+  describe('instanceFunctions', () => {
+    let wrapper: VueWrapper<InstanceType<typeof Input>>;
+
+    beforeEach(() => {
+      wrapper = mount(Input, {
+        attachTo: document.body,
+        props: { value: 'test' },
+      }) as VueWrapper<InstanceType<typeof Input>>;
+    });
+
+    afterEach(() => {
+      wrapper.unmount();
+    });
+
+    it('focus method', async () => {
+      const component = wrapper.findComponent(Input);
+      await component.vm.$.exposed!.focus();
+      expect(document.activeElement).eq(wrapper.find('input').element);
+    });
+
+    it('blur method', async () => {
+      const component = wrapper.findComponent(Input);
+      await component.vm.$.exposed!.focus();
+      await nextTick();
+      await component.vm.$.exposed!.blur();
+      expect(document.activeElement).not.eq(wrapper.find('input').element);
+    });
+  });
+
   // 注意：exposed methods、focus state、composition input 等 hooks 相关测试已移至 input.hooks.test.tsx
 
   describe('edge cases', () => {
     it('passwordIcon when type=password and clearable', async () => {
-      const wrapper = mount(<Input type="password" value="password" clearable></Input>);
+      const wrapper = mount(Input, {
+        props: { type: 'password', value: 'password', clearable: true },
+      });
       wrapper.find('.t-input').trigger('mouseenter');
       await wrapper.vm.$nextTick();
       // 应该同时显示密码图标和清除图标
@@ -841,17 +1036,17 @@ describe('Input', () => {
 
     it('validator edge cases for props', () => {
       // 测试 align 验证器
-      expect(mount(<Input align={null as any}></Input>).exists()).eq(true);
+      expect(mount(Input, { props: { align: null as any } }).exists()).eq(true);
       // 测试 size 验证器
-      expect(mount(<Input size={null as any}></Input>).exists()).eq(true);
+      expect(mount(Input, { props: { size: null as any } }).exists()).eq(true);
       // 测试 status 验证器
-      expect(mount(<Input status={null as any}></Input>).exists()).eq(true);
+      expect(mount(Input, { props: { status: null as any } }).exists()).eq(true);
       // 测试 type 验证器
-      expect(mount(<Input type={null as any}></Input>).exists()).eq(true);
+      expect(mount(Input, { props: { type: null as any } }).exists()).eq(true);
     });
 
     it('onRootClick when input is not the target', async () => {
-      const wrapper = mount(<Input></Input>);
+      const wrapper = mount(Input);
       const rootElement = wrapper.find('.t-input');
       const clickEvent = new MouseEvent('click', {
         target: rootElement.element,
@@ -861,7 +1056,7 @@ describe('Input', () => {
     });
 
     it('globalConfig placeholder', () => {
-      const wrapper = mount(<Input></Input>);
+      const wrapper = mount(Input);
       // 由于没有设置 placeholder，应该使用全局配置的默认值
       expect(wrapper.find('input').attributes('placeholder')).toBeDefined();
     });
