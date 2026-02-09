@@ -1,6 +1,5 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { expect, it, vi, beforeEach, afterEach, describe } from 'vitest';
+import { expect, vi, beforeEach, afterEach, describe } from 'vitest';
 import { nextTick } from 'vue';
 import ImageViewerModal from '../base/ImageViewerModal';
 
@@ -531,6 +530,26 @@ describe('ImageViewerModal Component', () => {
 
       await nextTick();
       expect(document.querySelector('.t-dialog')).toBeTruthy();
+    });
+
+    it('should use default currentImage when not provided', async () => {
+      const wrapper = mount(ImageViewerModal, {
+        props: {
+          visible: true,
+          images: testImages,
+          index: 0,
+          scale: 1,
+          rotate: 0,
+          mirror: 1,
+          // currentImage not provided, should use default empty object
+          zIndex: 3000,
+          showOverlay: true,
+        },
+      });
+
+      await nextTick();
+      expect(document.querySelector('.t-dialog')).toBeTruthy();
+      expect(wrapper.vm.currentImage).toEqual({});
     });
 
     it('should set showOverlay prop correctly', async () => {

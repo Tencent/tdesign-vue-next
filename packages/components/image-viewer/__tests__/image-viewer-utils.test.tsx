@@ -1,6 +1,5 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { expect, it, vi, beforeEach, afterEach, describe } from 'vitest';
+import { expect, vi, beforeEach, afterEach, describe } from 'vitest';
 import { nextTick } from 'vue';
 import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationIcon } from 'tdesign-icons-vue-next';
 import ImageViewerUtils from '../base/ImageViewerUtils';
@@ -465,6 +464,19 @@ describe('ImageViewerUtils Component', () => {
       await mirrorIcon.trigger('click');
 
       expect(true).toBe(true); // Test passes if no error is thrown
+    });
+
+    it('should use default currentImage when not provided', async () => {
+      const wrapper = mount(ImageViewerUtils, {
+        props: {
+          scale: 1,
+          // currentImage not provided, should use default empty object
+          zIndex: 3000,
+        },
+      });
+
+      await nextTick();
+      expect(wrapper.vm.currentImage).toEqual({});
     });
 
     it('should handle zero scale', async () => {

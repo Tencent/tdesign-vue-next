@@ -1,5 +1,41 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`ImageViewer > props > :defaultVisible[boolean] 1`] = `null`;
+
+exports[`ImageViewer > props > :images[string array] 1`] = `null`;
+
+exports[`ImageViewer > props > :trigger[function] 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <button
+    class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+    href=""
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      test
+      
+    </span>
+  </button>
+  <!--teleport start-->
+  <transition-stub
+    appear="false"
+    css="true"
+    persisted="false"
+  >
+    <!---->
+  </transition-stub>
+  <!--teleport end-->
+  
+</div>
+`;
+
 exports[`ImageViewer Component > :props > props.images > images with string array 1`] = `null`;
 
 exports[`ImageViewer Component > :props > props.trigger > trigger with function type 1`] = `

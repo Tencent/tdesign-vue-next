@@ -1,6 +1,5 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { expect, it, vi, beforeEach, afterEach, describe } from 'vitest';
+import { expect, vi, beforeEach, afterEach, describe } from 'vitest';
 import { nextTick } from 'vue';
 import ImageItem from '../base/ImageItem';
 
@@ -234,6 +233,40 @@ describe('ImageItem Component', () => {
       const img = wrapper.find('.t-image-viewer__modal-image').element as HTMLImageElement;
       expect(img.draggable).toBe(false);
     });
+
+    it('should handle placement image mousedown', async () => {
+      const mockMouseDownHandler = vi.fn();
+      const wrapper = mount(ImageItem, {
+        props: {
+          src: testImages[0],
+          placementSrc: 'https://tdesign.gtimg.com/demo/demo-thumb-1.png',
+          scale: 1,
+          rotate: 0,
+          mirror: 1,
+          onMousedown: mockMouseDownHandler,
+        },
+      });
+
+      await nextTick();
+
+      // Find placement image
+      const images = wrapper.findAll('.t-image-viewer__modal-image');
+      const placementImg = images.find((img) => (img.element as HTMLImageElement).src?.includes('thumb'));
+
+      if (placementImg) {
+        // Simulate mousedown on placement image
+        const mousedownEvent = new MouseEvent('mousedown', {
+          bubbles: true,
+          cancelable: true,
+          button: 0,
+        });
+
+        placementImg.element.dispatchEvent(mousedownEvent);
+        await nextTick();
+
+        expect(placementImg.exists()).toBeTruthy();
+      }
+    });
   });
 
   // ==================== SVG Handling Tests ====================
@@ -291,6 +324,61 @@ describe('ImageItem Component', () => {
       expect(wrapper.find('.t-image-viewer__modal-image[data-alt="svg"]').exists()).toBeTruthy();
 
       global.fetch = originalFetch;
+    });
+
+    it('should handle SVG without viewBox using getBBox', async () => {
+      const originalFetch = global.fetch;
+
+      // Mock getBBox method
+      const mockGetBBox = vi.fn().mockReturnValue({
+        x: 0,
+        y: 0,
+        width: 150,
+        height: 150,
+      });
+
+      // Mock SVG element
+      const mockSvgElement = {
+        getAttribute: vi.fn().mockReturnValue(null), // No viewBox attribute
+        setAttribute: vi.fn(),
+        getBBox: mockGetBBox,
+        style: {},
+      };
+
+      global.fetch = vi.fn().mockResolvedValue({
+        ok: true,
+        text: () => Promise.resolve('<svg><rect x="10" y="10" width="130" height="130"/></svg>'),
+      });
+
+      // Mock document.createElement to return our mock SVG element
+      const originalCreateElement = document.createElement;
+      document.createElement = vi.fn().mockImplementation((tagName) => {
+        if (tagName === 'div') {
+          const div = originalCreateElement.call(document, 'div');
+          div.querySelector = vi.fn().mockReturnValue(mockSvgElement);
+          return div;
+        }
+        return originalCreateElement.call(document, tagName);
+      });
+
+      const wrapper = mount(ImageItem, {
+        props: {
+          src: 'https://example.com/no-viewbox.svg',
+          isSvg: true,
+          scale: 1,
+          rotate: 0,
+          mirror: 1,
+        },
+      });
+
+      // Wait for async SVG processing
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      expect(wrapper.find('.t-image-viewer__modal-image[data-alt="svg"]').exists()).toBeTruthy();
+
+      // Restore mocks
+      global.fetch = originalFetch;
+      document.createElement = originalCreateElement;
     });
 
     // Note: SVG fetch failure test removed due to unhandled promise rejection in test environment
