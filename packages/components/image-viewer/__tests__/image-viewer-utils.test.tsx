@@ -400,7 +400,7 @@ describe('ImageViewerUtils Component', () => {
       const wrapper = mount(ImageViewerUtils, {
         props: {
           scale: 1,
-          currentImage: {},
+          currentImage: { mainImage: 'test.jpg' },
           zIndex: 3000,
         },
       });

@@ -85,7 +85,7 @@ describe('ImageItem Component', () => {
       const box = wrapper.find('.t-image-viewer__modal-box');
       expect(box.exists()).toBeTruthy();
 
-      const boxStyle = box.element.style.transform;
+      const boxStyle = (box.element as HTMLElement).style.transform;
       expect(boxStyle).toContain('scale(-1.5, 1.5)');
     });
 
@@ -103,7 +103,7 @@ describe('ImageItem Component', () => {
       const img = wrapper.find('.t-image-viewer__modal-image');
       expect(img.exists()).toBeTruthy();
 
-      const imgStyle = img.element.style.transform;
+      const imgStyle = (img.element as HTMLElement).style.transform;
       expect(imgStyle).toContain('rotate(180deg)');
     });
 
@@ -119,7 +119,7 @@ describe('ImageItem Component', () => {
 
       await nextTick();
       const box = wrapper.find('.t-image-viewer__modal-box');
-      const boxStyle = box.element.style.transform;
+      const boxStyle = (box.element as HTMLElement).style.transform;
       expect(boxStyle).toContain('scale(-1, 1)');
     });
   });
@@ -185,7 +185,9 @@ describe('ImageItem Component', () => {
 
       // Placement image should be visible initially
       const placementImg = images.find(
-        (img) => img.element.style.display !== 'none' && (img.element as HTMLImageElement).src?.includes('thumb'),
+        (img) =>
+          (img.element as HTMLElement).style.display !== 'none' &&
+          (img.element as HTMLImageElement).src?.includes('thumb'),
       );
       expect(placementImg).toBeTruthy();
     });
@@ -451,7 +453,7 @@ describe('ImageItem Component', () => {
 
       await nextTick();
       const box = wrapper.find('.t-image-viewer__modal-box');
-      const boxStyle = box.element.style.transform;
+      const boxStyle = (box.element as HTMLElement).style.transform;
       expect(boxStyle).toContain('scale(0, 0)');
     });
 
@@ -467,7 +469,7 @@ describe('ImageItem Component', () => {
 
       await nextTick();
       const box = wrapper.find('.t-image-viewer__modal-box');
-      const boxStyle = box.element.style.transform;
+      const boxStyle = (box.element as HTMLElement).style.transform;
       expect(boxStyle).toContain('scale(5, 5)');
     });
 
@@ -483,7 +485,7 @@ describe('ImageItem Component', () => {
 
       await nextTick();
       const img = wrapper.find('.t-image-viewer__modal-image');
-      const imgStyle = img.element.style.transform;
+      const imgStyle = (img.element as HTMLElement).style.transform;
       expect(imgStyle).toContain('rotate(-90deg)');
     });
   });

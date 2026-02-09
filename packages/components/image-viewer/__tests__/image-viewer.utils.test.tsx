@@ -1,9 +1,8 @@
-// @ts-nocheck
 /**
  * ImageViewer 组件 utils 测试文件
  * 测试 getOverlay 等工具函数
  */
-import { expect, it, vi, beforeEach } from 'vitest';
+import { expect, vi, beforeEach } from 'vitest';
 import { getOverlay } from '../utils';
 import { TdImageViewerProps } from '../type';
 import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';

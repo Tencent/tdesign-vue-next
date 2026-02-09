@@ -1,9 +1,8 @@
-// @ts-nocheck
 /**
  * ImageViewer 组件 hooks 测试文件
  * 测试 useDrag、useMirror、useScale、useRotate 等 hooks
  */
-import { expect, it, vi, beforeEach, afterEach } from 'vitest';
+import { expect, vi, beforeEach, afterEach } from 'vitest';
 import { useDrag, useMirror, useScale, useRotate } from '../hooks';
 
 describe('ImageViewer Hooks', () => {
@@ -377,7 +376,9 @@ describe('ImageViewer Hooks', () => {
     it('should handle partial imageScale config', () => {
       const imageScale = {
         max: 5,
-        // other values should use defaults
+        min: 0.5,
+        step: 0.2,
+        defaultScale: 1,
       };
       const { scale, onZoomIn } = useScale(imageScale);
 

@@ -1,6 +1,5 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { expect, it, vi, beforeEach, afterEach, describe } from 'vitest';
+import { expect, vi, beforeEach, afterEach, describe } from 'vitest';
 import { nextTick } from 'vue';
 import { ZoomInIcon, ZoomOutIcon, RotationIcon } from 'tdesign-icons-vue-next';
 import ImageModalIcon from '../base/ImageModalIcon';
