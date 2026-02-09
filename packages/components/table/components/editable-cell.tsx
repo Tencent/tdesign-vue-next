@@ -325,7 +325,7 @@ export default defineComponent({
       const path = e.composedPath?.() || e.path || [];
       const node = path.find((node: HTMLElement) => node.classList?.contains(`${classPrefix.value}-popup__content`));
       if (node) return;
-      // 检查点击是否在当前单元格内部
+      // Check if the click is inside the current cell
       if (cellRef.value && (cellRef.value === e.target || cellRef.value.contains(e.target as Node))) {
         return;
       }
