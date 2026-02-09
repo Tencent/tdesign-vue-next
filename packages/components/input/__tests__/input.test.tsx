@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { Input } from '@tdesign/components/input';
@@ -8,7 +7,7 @@ import { nextTick } from 'vue';
 describe('Input Component', () => {
   describe('props.align', () => {
     const alignClassNameList = [{ 't-align-left': false }, 't-align-center', 't-align-right'];
-    ['left', 'center', 'right'].forEach((item, index) => {
+    (['left', 'center', 'right'] as const).forEach((item, index) => {
       it(`props.align is equal to ${item}`, () => {
         const wrapper = mount(<Input align={item}></Input>).find('.t-input');
         if (typeof alignClassNameList[index] === 'string') {
@@ -143,10 +142,10 @@ describe('Input Component', () => {
       expect(wrapper.find('.t-input__suffix-clear').exists()).toBeTruthy();
       wrapper.find('.t-input__suffix-clear').trigger('click');
       await wrapper.vm.$nextTick();
-      expect(onClearFn1).toHaveBeenCalled(1);
+      expect(onClearFn1).toHaveBeenCalledTimes(1);
       expect(onClearFn1.mock.calls[0][0].e.stopPropagation).toBeTruthy();
       expect(onClearFn1.mock.calls[0][0].e.type).toBe('click');
-      expect(onChangeFn1).toHaveBeenCalled(1);
+      expect(onChangeFn1).toHaveBeenCalledTimes(1);
       expect(onChangeFn1.mock.calls[0][0]).toBe('');
       expect(onChangeFn1.mock.calls[0][1].e.stopPropagation).toBeTruthy();
       expect(onChangeFn1.mock.calls[0][1].e.type).toBe('click');
@@ -317,7 +316,7 @@ describe('Input Component', () => {
       const onChangeFn = vi.fn();
       const wrapper = mount(<Input value="你好 TDesign" maxcharacter={4} onChange={onChangeFn}></Input>);
       await wrapper.vm.$nextTick();
-      expect(onChangeFn).toHaveBeenCalled(1);
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
       expect(onChangeFn.mock.calls[0][0]).toBe('你好');
       expect(onChangeFn.mock.calls[0][1].trigger).toBe('initial');
     });
@@ -345,7 +344,7 @@ describe('Input Component', () => {
       const onChangeFn = vi.fn();
       const wrapper = mount(<Input value="Hello TDesign" maxlength={5} onChange={onChangeFn}></Input>);
       await wrapper.vm.$nextTick();
-      expect(onChangeFn).toHaveBeenCalled(1);
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
       expect(onChangeFn.mock.calls[0][0]).toBe('Hello');
       expect(onChangeFn.mock.calls[0][1].trigger).toBe('initial');
     });
@@ -484,7 +483,7 @@ describe('Input Component', () => {
 
   describe('props.size', () => {
     const sizeClassNameList = ['t-size-s', { 't-size-m': false }, 't-size-l'];
-    ['small', 'medium', 'large'].forEach((item, index) => {
+    (['small', 'medium', 'large'] as const).forEach((item, index) => {
       it(`props.size is equal to ${item}`, () => {
         const wrapper = mount(<Input size={item}></Input>).find('.t-input');
         if (typeof sizeClassNameList[index] === 'string') {
@@ -517,7 +516,7 @@ describe('Input Component', () => {
 
   describe('props.status', () => {
     const statusClassNameList = [{ 't-is-default': false }, 't-is-success', 't-is-warning', 't-is-error'];
-    ['default', 'success', 'warning', 'error'].forEach((item, index) => {
+    (['default', 'success', 'warning', 'error'] as const).forEach((item, index) => {
       it(`props.status is equal to ${item}`, () => {
         const wrapper = mount(<Input status={item}></Input>).find('.t-input');
         if (typeof statusClassNameList[index] === 'string') {
@@ -596,7 +595,7 @@ describe('Input Component', () => {
     });
 
     it('props.tips: style changes with status', () => {
-      const statuses = ['default', 'success', 'warning', 'error'];
+      const statuses = ['default', 'success', 'warning', 'error'] as const;
       statuses.forEach((status) => {
         const wrapper = mount(<Input tips="tip" status={status}></Input>);
         expect(wrapper.find('.t-input__tips').classes(`t-is-${status}`)).toBeTruthy();
@@ -606,7 +605,7 @@ describe('Input Component', () => {
 
   describe('props.type', () => {
     const attributeValues = ['text', 'number', 'url', 'tel', 'password', 'search', 'submit', 'hidden'];
-    ['text', 'number', 'url', 'tel', 'password', 'search', 'submit', 'hidden'].forEach((item, index) => {
+    (['text', 'number', 'url', 'tel', 'password', 'search', 'submit', 'hidden'] as const).forEach((item, index) => {
       it(`props.type is equal to ${item}`, () => {
         const wrapper = mount(<Input type={item}></Input>).find('input');
         expect(wrapper.attributes('type')).toBe(attributeValues[index]);
@@ -700,12 +699,12 @@ describe('Input Component', () => {
       const wrapper = mount(<Input value="initial-input-value" onFocus={onFocusFn} onBlur={onBlurFn1}></Input>);
       wrapper.find('input').trigger('focus');
       await wrapper.vm.$nextTick();
-      expect(onFocusFn).toHaveBeenCalled(1);
+      expect(onFocusFn).toHaveBeenCalledTimes(1);
       expect(onFocusFn.mock.calls[0][0]).toBe('initial-input-value');
       expect(onFocusFn.mock.calls[0][1].e.type).toBe('focus');
       wrapper.find('input').trigger('blur');
       await wrapper.vm.$nextTick();
-      expect(onBlurFn1).toHaveBeenCalled(1);
+      expect(onBlurFn1).toHaveBeenCalledTimes(1);
       expect(onBlurFn1.mock.calls[0][0]).toBe('initial-input-value');
       expect(onBlurFn1.mock.calls[0][1].e.type).toBe('blur');
     });
@@ -716,7 +715,7 @@ describe('Input Component', () => {
       const inputDom = wrapper.find('input').element;
       simulateInputChange(inputDom, 'initial value');
       await wrapper.vm.$nextTick();
-      expect(onChangeFn).toHaveBeenCalled(1);
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
       expect(onChangeFn.mock.calls[0][0]).toBe('initial value');
       expect(onChangeFn.mock.calls[0][1].e.type).toBe('input');
     });
@@ -729,7 +728,7 @@ describe('Input Component', () => {
       await wrapper.vm.$nextTick();
       const attrDom = wrapper.find('input');
       expect(attrDom.element.value).toBe('TDesign');
-      expect(onChangeFn).toHaveBeenCalled(1);
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
       expect(onChangeFn.mock.calls[0][0]).toBe('Hello TDesign');
       expect(onChangeFn.mock.calls[0][1].e.type).toBe('input');
     });
@@ -740,7 +739,7 @@ describe('Input Component', () => {
       const inputDom = wrapper.find('input').element;
       simulateInputChange(inputDom, 'Hello TDesign');
       await wrapper.vm.$nextTick();
-      expect(onChangeFn).toHaveBeenCalled(1);
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
       expect(onChangeFn.mock.calls[0][0]).toBe('Hello TDesign');
       expect(onChangeFn.mock.calls[0][1].e.type).toBe('input');
     });
@@ -779,7 +778,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input onClick={fn}></Input>);
       wrapper.find('.t-input').trigger('click');
       await wrapper.vm.$nextTick();
-      expect(fn).toHaveBeenCalled(1);
+      expect(fn).toHaveBeenCalledTimes(1);
       expect(fn.mock.calls[0][0].e.type).toBe('click');
     });
 
@@ -788,7 +787,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input value="输入结束" onCompositionend={onCompositionendFn}></Input>);
       wrapper.find('input').trigger('compositionend');
       await wrapper.vm.$nextTick();
-      expect(onCompositionendFn).toHaveBeenCalled(1);
+      expect(onCompositionendFn).toHaveBeenCalledTimes(1);
       expect(onCompositionendFn.mock.calls[0][0]).toBe('输入结束');
       expect(onCompositionendFn.mock.calls[0][1].e.type).toBe('compositionend');
     });
@@ -798,7 +797,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input value="输入开始" onCompositionstart={onCompositionstartFn}></Input>);
       wrapper.find('input').trigger('compositionstart');
       await wrapper.vm.$nextTick();
-      expect(onCompositionstartFn).toHaveBeenCalled(1);
+      expect(onCompositionstartFn).toHaveBeenCalledTimes(1);
       expect(onCompositionstartFn.mock.calls[0][0]).toBe('输入开始');
       expect(onCompositionstartFn.mock.calls[0][1].e.type).toBe('compositionstart');
     });
@@ -810,7 +809,7 @@ describe('Input Component', () => {
       await wrapper.vm.$nextTick();
       wrapper.find('input').trigger('keydown.enter');
       await wrapper.vm.$nextTick();
-      expect(onEnterFn1).toHaveBeenCalled(1);
+      expect(onEnterFn1).toHaveBeenCalledTimes(1);
       expect(onEnterFn1.mock.calls[0][0]).toBe('text');
       expect(onEnterFn1.mock.calls[0][1].e.type).toBe('keydown');
     });
@@ -836,7 +835,7 @@ describe('Input Component', () => {
       // 输入法结束后按回车键，应该正常触发 onEnter 事件
       input.trigger('keydown.enter');
       await wrapper.vm.$nextTick();
-      expect(onEnterFn).toHaveBeenCalled(1);
+      expect(onEnterFn).toHaveBeenCalledTimes(1);
       expect(onEnterFn.mock.calls[0][0]).toBe('text');
       expect(onEnterFn.mock.calls[0][1].e.type).toBe('keydown');
     });
@@ -846,7 +845,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input onFocus={onFocusFn}></Input>);
       wrapper.find('input').trigger('focus');
       await wrapper.vm.$nextTick();
-      expect(onFocusFn).toHaveBeenCalled(1);
+      expect(onFocusFn).toHaveBeenCalledTimes(1);
       expect(onFocusFn.mock.calls[0][0]).toBe(undefined);
       expect(onFocusFn.mock.calls[0][1].e.type).toBe('focus');
     });
@@ -856,7 +855,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input value="text" onKeydown={onKeydownFn}></Input>);
       wrapper.find('input').trigger('keydown');
       await wrapper.vm.$nextTick();
-      expect(onKeydownFn).toHaveBeenCalled(1);
+      expect(onKeydownFn).toHaveBeenCalledTimes(1);
       expect(onKeydownFn.mock.calls[0][0]).toBe('text');
       expect(onKeydownFn.mock.calls[0][1].e.type).toBe('keydown');
     });
@@ -866,7 +865,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input value="text" onKeypress={onKeypressFn}></Input>);
       wrapper.find('input').trigger('keypress');
       await wrapper.vm.$nextTick();
-      expect(onKeypressFn).toHaveBeenCalled(1);
+      expect(onKeypressFn).toHaveBeenCalledTimes(1);
       expect(onKeypressFn.mock.calls[0][0]).toBe('text');
       expect(onKeypressFn.mock.calls[0][1].e.type).toBe('keypress');
     });
@@ -876,7 +875,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input value="text" onKeyup={onKeyupFn}></Input>);
       wrapper.find('input').trigger('keyup');
       await wrapper.vm.$nextTick();
-      expect(onKeyupFn).toHaveBeenCalled(1);
+      expect(onKeyupFn).toHaveBeenCalledTimes(1);
       expect(onKeyupFn.mock.calls[0][0]).toBe('text');
       expect(onKeyupFn.mock.calls[0][1].e.type).toBe('keyup');
     });
@@ -886,7 +885,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input onMouseenter={onMouseenterFn}></Input>);
       wrapper.find('.t-input').trigger('mouseenter');
       await wrapper.vm.$nextTick();
-      expect(onMouseenterFn).toHaveBeenCalled(1);
+      expect(onMouseenterFn).toHaveBeenCalledTimes(1);
       expect(onMouseenterFn.mock.calls[0][0].e.type).toBe('mouseenter');
     });
 
@@ -895,7 +894,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input onMouseleave={onMouseleaveFn}></Input>);
       wrapper.find('.t-input').trigger('mouseleave');
       await wrapper.vm.$nextTick();
-      expect(onMouseleaveFn).toHaveBeenCalled(1);
+      expect(onMouseleaveFn).toHaveBeenCalledTimes(1);
       expect(onMouseleaveFn.mock.calls[0][0].e.type).toBe('mouseleave');
     });
 
@@ -904,7 +903,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input onPaste={onPasteFn}></Input>);
       wrapper.find('input').trigger('paste');
       await wrapper.vm.$nextTick();
-      expect(onPasteFn).toHaveBeenCalled(1);
+      expect(onPasteFn).toHaveBeenCalledTimes(1);
       expect(onPasteFn.mock.calls[0][0].e.type).toBe('paste');
     });
 
@@ -912,7 +911,7 @@ describe('Input Component', () => {
       const onValidateFn = vi.fn();
       const wrapper = mount(<Input value="Hello World" maxlength={5} onValidate={onValidateFn}></Input>);
       await wrapper.vm.$nextTick();
-      expect(onValidateFn).toHaveBeenCalled(1);
+      expect(onValidateFn).toHaveBeenCalledTimes(1);
       expect(onValidateFn.mock.calls[0][0].error).toBe('exceed-maximum');
     });
 
@@ -921,7 +920,7 @@ describe('Input Component', () => {
       const wrapper = mount(<Input onWheel={onWheelFn}></Input>);
       wrapper.find('input').trigger('wheel');
       await wrapper.vm.$nextTick();
-      expect(onWheelFn).toHaveBeenCalled(1);
+      expect(onWheelFn).toHaveBeenCalledTimes(1);
       expect(onWheelFn.mock.calls[0][0].e.type).toBe('wheel');
     });
   });
@@ -989,7 +988,7 @@ describe('Input Component', () => {
     });
 
     it('should handle tips with different status', () => {
-      const statuses = ['default', 'success', 'warning', 'error'];
+      const statuses = ['default', 'success', 'warning', 'error'] as const;
       statuses.forEach((status) => {
         const wrapper = mount(<Input tips="test tip" status={status}></Input>);
         const tipsElement = wrapper.find('.t-input__tips');
