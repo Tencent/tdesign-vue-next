@@ -95,6 +95,7 @@ export default defineComponent({
     const editValue = ref();
     const errorList = ref<AllValidateResult[]>();
     const classPrefix = usePrefixClass();
+    const cellRef = ref<HTMLElement>();
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
 
@@ -324,6 +325,10 @@ export default defineComponent({
       const path = e.composedPath?.() || e.path || [];
       const node = path.find((node: HTMLElement) => node.classList?.contains(`${classPrefix.value}-popup__content`));
       if (node) return;
+      // 检查点击是否在当前单元格内部
+      if (cellRef.value && (cellRef.value === e.target || cellRef.value.contains(e.target as Node))) {
+        return;
+      }
       const outsideAbortEvent = col.value.edit.onEdited;
 
       updateAndSaveAbort(outsideAbortEvent, '', {
@@ -433,7 +438,7 @@ export default defineComponent({
       // props.editable = undefined 表示由组件内部控制编辑状态
       if ((props.editable === undefined && !isEdit.value) || props.editable === false) {
         return (
-          <div class={props.tableBaseClass.cellEditable} onClick={onCellClick}>
+          <div ref={cellRef} class={props.tableBaseClass.cellEditable} onClick={onCellClick}>
             {cellNode.value}
             {col.value.edit?.showEditIcon !== false && <Edit1Icon />}
           </div>
@@ -457,6 +462,7 @@ export default defineComponent({
       }
       return (
         <div
+          ref={cellRef}
           class={props.tableBaseClass.cellEditWrap}
           onClick={(e: MouseEvent) => {
             e.stopPropagation();
