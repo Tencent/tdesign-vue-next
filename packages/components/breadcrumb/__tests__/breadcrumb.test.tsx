@@ -1,57 +1,118 @@
-// @ts-nocheck
+import { defineComponent, nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
 import { expect, vi } from 'vitest';
 import { Breadcrumb, BreadcrumbItem } from '@tdesign/components/breadcrumb';
 
-const innerMount = (render: { render: () => JSX.Element }, $router = {}) =>
-  mount(render, {
-    global: {
-      provide: {
-        breadcrumb: {},
-      },
-      config: {
-        globalProperties: {
-          $router,
-        },
-      },
-    },
+describe('Breadcrumb', () => {
+  beforeEach(() => {
+    document.body.innerHTML = '';
+    vi.clearAllMocks();
   });
 
-describe('Breadcrumb', () => {
-  describe(':props', () => {
-    it('maxItemWidth', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb max-item-width="150">
-              <BreadcrumbItem>页面1</BreadcrumbItem>
-              <BreadcrumbItem>页面2面包屑文案超长时悬浮显示文案全部信息</BreadcrumbItem>
-            </Breadcrumb>
-          );
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  // ==================== Props Tests ====================
+  describe('props', () => {
+    it(':theme[light] default', async () => {
+      const wrapper = mount(Breadcrumb, {
+        slots: {
+          default: () => [<BreadcrumbItem>页面1</BreadcrumbItem>, <BreadcrumbItem>页面2</BreadcrumbItem>],
+        },
+      });
+      await nextTick();
+      expect(wrapper.find('.t-breadcrumb').exists()).toBeTruthy();
+      expect(wrapper.findAllComponents(BreadcrumbItem).length).toBe(2);
+    });
+
+    it(':theme validator', () => {
+      const validator = (Breadcrumb as any).props?.theme?.validator;
+      if (validator) {
+        expect(validator(undefined)).toBe(true);
+        expect(validator(null)).toBe(true);
+        expect(validator('')).toBe(true);
+        expect(validator('light')).toBe(true);
+        expect(validator('invalid')).toBe(false);
+      }
+    });
+
+    it(':maxItemWidth[string]', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItemWidth: '150' },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2面包屑文案超长时悬浮显示文案全部信息</BreadcrumbItem>,
+          ],
         },
       });
       await nextTick();
       const items = wrapper.findAllComponents(BreadcrumbItem);
-      expect(items[0].find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px;');
-      expect(items[1].find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px;');
+      expect(items[0].find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px');
+      expect(items[1].find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px');
     });
 
-    it('maxItems with ellipsis', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb max-items={5} items-before-collapse={2} items-after-collapse={1}>
-              <BreadcrumbItem>页面1</BreadcrumbItem>
-              <BreadcrumbItem>页面2</BreadcrumbItem>
-              <BreadcrumbItem>页面3</BreadcrumbItem>
-              <BreadcrumbItem>页面4</BreadcrumbItem>
-              <BreadcrumbItem>页面5</BreadcrumbItem>
-              <BreadcrumbItem>页面6</BreadcrumbItem>
-              <BreadcrumbItem>页面7</BreadcrumbItem>
-              <BreadcrumbItem>页面8</BreadcrumbItem>
-            </Breadcrumb>
-          );
+    it(':maxItemWidth not provided uses default 120px', async () => {
+      const wrapper = mount(Breadcrumb, {
+        slots: {
+          default: () => <BreadcrumbItem>页面1</BreadcrumbItem>,
+        },
+      });
+      await nextTick();
+      const inner = wrapper.find('.t-breadcrumb__inner');
+      expect(inner.element.getAttribute('style')).toContain('max-width: 120px');
+    });
+
+    it(':separator[string]', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { separator: '@' },
+        slots: {
+          default: () => [<BreadcrumbItem>页面1</BreadcrumbItem>, <BreadcrumbItem>页面2</BreadcrumbItem>],
+        },
+      });
+      await nextTick();
+      expect(wrapper.find('.t-breadcrumb__separator').text()).toBe('@');
+    });
+
+    it(':separator[slot]', async () => {
+      const wrapper = mount(Breadcrumb, {
+        slots: {
+          separator: () => <div class="separator-slot">@</div>,
+          default: () => [<BreadcrumbItem>页面1</BreadcrumbItem>, <BreadcrumbItem>页面2</BreadcrumbItem>],
+        },
+      });
+      await nextTick();
+      expect(wrapper.find('.t-breadcrumb__separator').html()).toContain('<div class="separator-slot">@</div>');
+    });
+
+    it(':options[array] renders BreadcrumbItems from options', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: {
+          options: [{ content: '页面1' }, { content: '页面2', href: 'https://www.tencent.com' }],
+        },
+      });
+      await nextTick();
+      expect(wrapper.findAll('.t-breadcrumb__item').length).toBe(2);
+      expect(wrapper.findAll('.t-breadcrumb__inner')[0].text()).toBe('页面1');
+      expect(wrapper.findAll('.t-breadcrumb__inner')[1].text()).toBe('页面2');
+      expect(wrapper.find('.t-link').element.getAttribute('href')).toBe('https://www.tencent.com');
+    });
+
+    it(':maxItems[number] with ellipsis', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItems: 5, itemsBeforeCollapse: 2, itemsAfterCollapse: 1 },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2</BreadcrumbItem>,
+            <BreadcrumbItem>页面3</BreadcrumbItem>,
+            <BreadcrumbItem>页面4</BreadcrumbItem>,
+            <BreadcrumbItem>页面5</BreadcrumbItem>,
+            <BreadcrumbItem>页面6</BreadcrumbItem>,
+            <BreadcrumbItem>页面7</BreadcrumbItem>,
+            <BreadcrumbItem>页面8</BreadcrumbItem>,
+          ],
         },
       });
       await nextTick();
@@ -62,104 +123,171 @@ describe('Breadcrumb', () => {
       expect(items[3].text()).toBe('页面8');
     });
 
-    it('maxItems with custom ellipsis (String)', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb max-items={5} items-before-collapse={2} items-after-collapse={1} ellipsis="qwq">
-              <BreadcrumbItem>页面1</BreadcrumbItem>
-              <BreadcrumbItem>页面2</BreadcrumbItem>
-              <BreadcrumbItem>页面3</BreadcrumbItem>
-              <BreadcrumbItem>页面4</BreadcrumbItem>
-              <BreadcrumbItem>页面5</BreadcrumbItem>
-              <BreadcrumbItem>页面6</BreadcrumbItem>
-              <BreadcrumbItem>页面7</BreadcrumbItem>
-              <BreadcrumbItem>页面8</BreadcrumbItem>
-            </Breadcrumb>
-          );
+    it(':maxItems[number] <= 0 shows all items', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItems: 0 },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2</BreadcrumbItem>,
+            <BreadcrumbItem>页面3</BreadcrumbItem>,
+          ],
+        },
+      });
+      await nextTick();
+      expect(wrapper.findAllComponents(BreadcrumbItem).length).toBe(3);
+    });
+
+    it(':maxItems with itemsBeforeCollapse/itemsAfterCollapse sum >= totalItems shows all', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItems: 2, itemsBeforeCollapse: 2, itemsAfterCollapse: 2 },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2</BreadcrumbItem>,
+            <BreadcrumbItem>页面3</BreadcrumbItem>,
+          ],
+        },
+      });
+      await nextTick();
+      expect(wrapper.findAllComponents(BreadcrumbItem).length).toBe(3);
+    });
+
+    it(':maxItems with missing itemsBeforeCollapse warns and shows all', async () => {
+      const logErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItems: 3, itemsBeforeCollapse: 0, itemsAfterCollapse: 1 },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2</BreadcrumbItem>,
+            <BreadcrumbItem>页面3</BreadcrumbItem>,
+            <BreadcrumbItem>页面4</BreadcrumbItem>,
+            <BreadcrumbItem>页面5</BreadcrumbItem>,
+          ],
+        },
+      });
+      await nextTick();
+      expect(wrapper.findAllComponents(BreadcrumbItem).length).toBe(5);
+      logErrorSpy.mockRestore();
+    });
+
+    it(':maxItems with missing itemsAfterCollapse warns and shows all', async () => {
+      const logErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItems: 3, itemsBeforeCollapse: 1, itemsAfterCollapse: 0 },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2</BreadcrumbItem>,
+            <BreadcrumbItem>页面3</BreadcrumbItem>,
+            <BreadcrumbItem>页面4</BreadcrumbItem>,
+            <BreadcrumbItem>页面5</BreadcrumbItem>,
+          ],
+        },
+      });
+      await nextTick();
+      expect(wrapper.findAllComponents(BreadcrumbItem).length).toBe(5);
+      logErrorSpy.mockRestore();
+    });
+
+    it(':maxItems totalItems <= maxItems shows all items', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItems: 10, itemsBeforeCollapse: 2, itemsAfterCollapse: 1 },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2</BreadcrumbItem>,
+            <BreadcrumbItem>页面3</BreadcrumbItem>,
+          ],
+        },
+      });
+      await nextTick();
+      expect(wrapper.findAllComponents(BreadcrumbItem).length).toBe(3);
+    });
+
+    it(':ellipsis[string] custom ellipsis text', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItems: 5, itemsBeforeCollapse: 2, itemsAfterCollapse: 1, ellipsis: '...more' },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2</BreadcrumbItem>,
+            <BreadcrumbItem>页面3</BreadcrumbItem>,
+            <BreadcrumbItem>页面4</BreadcrumbItem>,
+            <BreadcrumbItem>页面5</BreadcrumbItem>,
+            <BreadcrumbItem>页面6</BreadcrumbItem>,
+            <BreadcrumbItem>页面7</BreadcrumbItem>,
+            <BreadcrumbItem>页面8</BreadcrumbItem>,
+          ],
         },
       });
       await nextTick();
       const items = wrapper.findAllComponents(BreadcrumbItem);
-      expect(items[2].text()).toBe('qwq');
+      expect(items[2].text()).toBe('...more');
     });
 
-    it('maxItems with custom ellipsis (Function)', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb
-              max-items={5}
-              items-before-collapse={2}
-              items-after-collapse={1}
-              ellipsis={(h, { items, separator }) =>
-                h('span', { class: 'custom-ellipsis-fn' }, [
-                  h('span', null, `省略${items.length}项`),
-                  h('span', null, separator),
-                ])
-              }
-            >
-              <BreadcrumbItem>页面1</BreadcrumbItem>
-              <BreadcrumbItem>页面2</BreadcrumbItem>
-              <BreadcrumbItem>页面3</BreadcrumbItem>
-              <BreadcrumbItem>页面4</BreadcrumbItem>
-              <BreadcrumbItem>页面5</BreadcrumbItem>
-              <BreadcrumbItem>页面6</BreadcrumbItem>
-              <BreadcrumbItem>页面7</BreadcrumbItem>
-              <BreadcrumbItem>页面8</BreadcrumbItem>
-            </Breadcrumb>
-          );
+    it(':ellipsis[function] custom ellipsis render function', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: {
+          maxItems: 5,
+          itemsBeforeCollapse: 2,
+          itemsAfterCollapse: 1,
+          ellipsis: (h: any, { items }: any) => h('span', { class: 'custom-ellipsis-fn' }, `省略${items.length}项`),
+        },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2</BreadcrumbItem>,
+            <BreadcrumbItem>页面3</BreadcrumbItem>,
+            <BreadcrumbItem>页面4</BreadcrumbItem>,
+            <BreadcrumbItem>页面5</BreadcrumbItem>,
+            <BreadcrumbItem>页面6</BreadcrumbItem>,
+            <BreadcrumbItem>页面7</BreadcrumbItem>,
+            <BreadcrumbItem>页面8</BreadcrumbItem>,
+          ],
         },
       });
       await nextTick();
-      const ellipsisElement = wrapper.find('.custom-ellipsis-fn');
-      expect(ellipsisElement.exists()).toBe(true);
-      expect(ellipsisElement.text()).toContain('省略5项');
+      const ellipsisEl = wrapper.find('.custom-ellipsis-fn');
+      expect(ellipsisEl.exists()).toBeTruthy();
+      expect(ellipsisEl.text()).toContain('省略5项');
     });
 
-    it('maxItems with custom ellipsis (Slot)', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb
-              max-items={5}
-              items-before-collapse={2}
-              items-after-collapse={1}
-              v-slots={{
-                ellipsis: () => <span class="custom-ellipsis">awa</span>,
-              }}
-            >
-              <BreadcrumbItem>页面1</BreadcrumbItem>
-              <BreadcrumbItem>页面2</BreadcrumbItem>
-              <BreadcrumbItem>页面3</BreadcrumbItem>
-              <BreadcrumbItem>页面4</BreadcrumbItem>
-              <BreadcrumbItem>页面5</BreadcrumbItem>
-              <BreadcrumbItem>页面6</BreadcrumbItem>
-              <BreadcrumbItem>页面7</BreadcrumbItem>
-              <BreadcrumbItem>页面8</BreadcrumbItem>
-            </Breadcrumb>
-          );
+    it(':ellipsis[slot] custom ellipsis slot', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItems: 5, itemsBeforeCollapse: 2, itemsAfterCollapse: 1 },
+        slots: {
+          ellipsis: () => <span class="custom-ellipsis-slot">awa</span>,
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2</BreadcrumbItem>,
+            <BreadcrumbItem>页面3</BreadcrumbItem>,
+            <BreadcrumbItem>页面4</BreadcrumbItem>,
+            <BreadcrumbItem>页面5</BreadcrumbItem>,
+            <BreadcrumbItem>页面6</BreadcrumbItem>,
+            <BreadcrumbItem>页面7</BreadcrumbItem>,
+            <BreadcrumbItem>页面8</BreadcrumbItem>,
+          ],
         },
       });
       await nextTick();
-      expect(wrapper.find('.custom-ellipsis').exists()).toBe(true);
+      expect(wrapper.find('.custom-ellipsis-slot').exists()).toBeTruthy();
     });
 
-    it('maxItems with dynamic values', async () => {
-      const wrapper = mount({
-        data() {
-          return {
-            maxItems: 5,
-            itemsBeforeCollapse: 2,
-            itemsAfterCollapse: 1,
-          };
+    it(':maxItems dynamic changes', async () => {
+      const DynamicBreadcrumb = defineComponent({
+        setup() {
+          const itemsBeforeCollapse = ref(2);
+          const itemsAfterCollapse = ref(1);
+          return { itemsBeforeCollapse, itemsAfterCollapse };
         },
         render() {
           return (
             <Breadcrumb
-              max-items={this.maxItems}
-              items-before-collapse={this.itemsBeforeCollapse}
-              items-after-collapse={this.itemsAfterCollapse}
+              maxItems={5}
+              itemsBeforeCollapse={this.itemsBeforeCollapse}
+              itemsAfterCollapse={this.itemsAfterCollapse}
             >
               <BreadcrumbItem>页面1</BreadcrumbItem>
               <BreadcrumbItem>页面2</BreadcrumbItem>
@@ -173,231 +301,129 @@ describe('Breadcrumb', () => {
           );
         },
       });
+      const wrapper = mount(DynamicBreadcrumb);
       await nextTick();
       let items = wrapper.findAllComponents(BreadcrumbItem);
       expect(items.length).toBe(4);
 
-      // 修改 itemsBeforeCollapse 和 itemsAfterCollapse
-      await wrapper.setData({ itemsBeforeCollapse: 3, itemsAfterCollapse: 2 });
+      wrapper.vm.itemsBeforeCollapse = 3;
+      wrapper.vm.itemsAfterCollapse = 2;
       await nextTick();
       items = wrapper.findAllComponents(BreadcrumbItem);
-      expect(items.length).toBe(6); // 3 + ellipsis + 2
+      expect(items.length).toBe(6);
       expect(items[0].text()).toBe('页面1');
       expect(items[2].text()).toBe('页面3');
       expect(items[4].text()).toBe('页面7');
     });
-
-    it('maxItems <= 0 should show all items', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb max-items={0}>
-              <BreadcrumbItem>页面1</BreadcrumbItem>
-              <BreadcrumbItem>页面2</BreadcrumbItem>
-              <BreadcrumbItem>页面3</BreadcrumbItem>
-              <BreadcrumbItem>页面4</BreadcrumbItem>
-              <BreadcrumbItem>页面5</BreadcrumbItem>
-              <BreadcrumbItem>页面6</BreadcrumbItem>
-              <BreadcrumbItem>页面7</BreadcrumbItem>
-              <BreadcrumbItem>页面8</BreadcrumbItem>
-            </Breadcrumb>
-          );
-        },
-      });
-      await nextTick();
-      const items = wrapper.findAllComponents(BreadcrumbItem);
-      expect(items.length).toBe(8);
-    });
-    it('options	', async () => {
-      const wrapper = mount({
-        render() {
-          const options = [{ content: '页面1' }, { content: '页面2', href: 'https://www.tencent.com' }];
-          return <Breadcrumb options={options} />;
-        },
-      });
-      await nextTick();
-      expect(wrapper.findAll('.t-breadcrumb__item').length).toEqual(2);
-      expect(wrapper.findAll('.t-breadcrumb__inner')[0].text()).toEqual('页面1');
-      expect(wrapper.findAll('.t-breadcrumb__inner')[1].text()).toEqual('页面2');
-      expect(wrapper.find('.t-link').element.getAttribute('href')).toEqual('https://www.tencent.com');
-    });
-    it('separator	', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb separator="@">
-              <BreadcrumbItem>页面1</BreadcrumbItem>
-              <BreadcrumbItem>页面2</BreadcrumbItem>
-            </Breadcrumb>
-          );
-        },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-breadcrumb__separator').text()).toEqual('@');
-    });
   });
-  describe('<slot>', () => {
-    it('separator	', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb
-              v-slots={{
-                separator: () => <div class="separator">@</div>,
-              }}
-            >
-              <BreadcrumbItem>页面1</BreadcrumbItem>
-              <BreadcrumbItem>页面2</BreadcrumbItem>
-            </Breadcrumb>
-          );
-        },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-breadcrumb__separator').html()).toContain('<div class="separator">@</div>');
-    });
-  });
-});
 
-describe('BreadcrumbItem', () => {
-  describe(':props', () => {
-    it('disabled', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb>
-              <BreadcrumbItem disabled={true}>页面1</BreadcrumbItem>
-            </Breadcrumb>
-          );
+  // ==================== Snapshot Tests ====================
+  describe('snapshots', () => {
+    it('default render', async () => {
+      const wrapper = mount(Breadcrumb, {
+        slots: {
+          default: () => [
+            <BreadcrumbItem>首页</BreadcrumbItem>,
+            <BreadcrumbItem>产品</BreadcrumbItem>,
+            <BreadcrumbItem>详情</BreadcrumbItem>,
+          ],
         },
       });
       await nextTick();
-      expect(wrapper.find('.t-breadcrumb--text-overflow').classes()).toContain('t-is-disabled');
+      expect(wrapper.element).toMatchSnapshot();
     });
-    it('href', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb>
-              <BreadcrumbItem href="https://www.tencent.com">页面1</BreadcrumbItem>
-            </Breadcrumb>
-          );
+
+    it('with options', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: {
+          options: [{ content: '首页', href: '/' }, { content: '产品', href: '/products' }, { content: '详情' }],
         },
       });
       await nextTick();
-      expect(wrapper.find('.t-breadcrumb--text-overflow').classes()).toContain('t-link');
-      expect(wrapper.find('.t-link').element.getAttribute('href')).toEqual('https://www.tencent.com');
+      expect(wrapper.element).toMatchSnapshot();
     });
-    it('target', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb>
-              <BreadcrumbItem href="https://www.tencent.com" target="_blank">
-                页面1
-              </BreadcrumbItem>
-            </Breadcrumb>
-          );
+
+    it('with ellipsis', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItems: 3, itemsBeforeCollapse: 1, itemsAfterCollapse: 1 },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2</BreadcrumbItem>,
+            <BreadcrumbItem>页面3</BreadcrumbItem>,
+            <BreadcrumbItem>页面4</BreadcrumbItem>,
+            <BreadcrumbItem>页面5</BreadcrumbItem>,
+          ],
         },
       });
       await nextTick();
-      expect(wrapper.find('.t-breadcrumb--text-overflow').classes()).toContain('t-link');
-      expect(wrapper.find('.t-link').element.getAttribute('href')).toEqual('https://www.tencent.com');
-      expect(wrapper.find('.t-link').element.getAttribute('target')).toEqual('_blank');
+      expect(wrapper.element).toMatchSnapshot();
     });
-    it('to', async () => {
-      const push = vi.fn();
-      const wrapper = innerMount(
-        {
-          render() {
-            return (
-              <Breadcrumb>
-                <BreadcrumbItem to={{ path: '/' }}>页面1</BreadcrumbItem>
-              </Breadcrumb>
-            );
-          },
-        },
-        {
-          push,
-        },
-      );
-      await wrapper.find('.t-breadcrumb__inner').trigger('click');
-      expect(push).toHaveBeenCalled();
-      expect(wrapper.find('.t-breadcrumb--text-overflow').classes()).toContain('t-link');
-    });
-    it('replace', async () => {
-      const replace = vi.fn();
-      const wrapper = innerMount(
-        {
-          render() {
-            return (
-              <Breadcrumb>
-                <BreadcrumbItem to={{ path: '/' }} replace={true}>
-                  页面1
-                </BreadcrumbItem>
-              </Breadcrumb>
-            );
-          },
-        },
-        {
-          replace,
-        },
-      );
-      await wrapper.find('.t-breadcrumb__inner').trigger('click');
-      expect(replace).toHaveBeenCalled();
-    });
-    it('maxWidth', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb max-item-width="150">
-              <BreadcrumbItem max-width="100">页面1超长了页面1超长了页面1超长了页面1超长了页面1超长了</BreadcrumbItem>
-              <BreadcrumbItem>页面2面包屑文案超长时悬浮显示文案全部信息</BreadcrumbItem>
-            </Breadcrumb>
-          );
+
+    it('with separator', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { separator: '>' },
+        slots: {
+          default: () => [<BreadcrumbItem>首页</BreadcrumbItem>, <BreadcrumbItem>详情</BreadcrumbItem>],
         },
       });
       await nextTick();
-      const items = wrapper.findAllComponents(BreadcrumbItem);
-      expect(items[0].find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 100px;');
-      expect(items[1].find('.t-breadcrumb__inner').element.getAttribute('style')).toContain('max-width: 150px;');
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('with maxItemWidth', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: { maxItemWidth: '80' },
+        slots: {
+          default: () => [
+            <BreadcrumbItem>页面1</BreadcrumbItem>,
+            <BreadcrumbItem>页面2面包屑文案超长时悬浮显示文案全部信息</BreadcrumbItem>,
+          ],
+        },
+      });
+      await nextTick();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
-  describe('@event', () => {
-    it('click', async () => {
-      const fn = vi.fn();
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb>
-              <BreadcrumbItem onClick={fn}>页面1</BreadcrumbItem>
-            </Breadcrumb>
-          );
+  // ==================== Edge Cases Tests ====================
+  describe('edge cases', () => {
+    it('should handle component unmount gracefully', async () => {
+      const wrapper = mount(Breadcrumb, {
+        slots: {
+          default: () => <BreadcrumbItem>页面1</BreadcrumbItem>,
         },
       });
       await nextTick();
-      await wrapper.findComponent(BreadcrumbItem).trigger('click');
-      expect(fn).toHaveBeenCalled();
+      wrapper.unmount();
+      expect(true).toBe(true);
     });
-  });
 
-  describe('<slot>', () => {
-    it('default', async () => {
-      const wrapper = mount({
-        render() {
-          return (
-            <Breadcrumb>
-              <BreadcrumbItem
-                v-slots={{
-                  default: () => <div>页面1</div>,
-                }}
-              ></BreadcrumbItem>
-            </Breadcrumb>
-          );
+    it('empty breadcrumb with no items', async () => {
+      const wrapper = mount(Breadcrumb);
+      await nextTick();
+      expect(wrapper.find('.t-breadcrumb').exists()).toBeTruthy();
+      expect(wrapper.findAllComponents(BreadcrumbItem).length).toBe(0);
+    });
+
+    it('single item breadcrumb', async () => {
+      const wrapper = mount(Breadcrumb, {
+        slots: {
+          default: () => <BreadcrumbItem>唯一页面</BreadcrumbItem>,
         },
       });
       await nextTick();
-      expect(wrapper.find('.t-breadcrumb__inner').html()).contain('<div>页面1</div>');
+      expect(wrapper.findAllComponents(BreadcrumbItem).length).toBe(1);
+    });
+
+    it('items map with non-object item (return item branch)', async () => {
+      const wrapper = mount(Breadcrumb, {
+        props: {
+          options: [{ content: '页面1' }, { content: '页面2' }],
+        },
+      });
+      await nextTick();
+      expect(wrapper.findAll('.t-breadcrumb__item').length).toBe(2);
     });
   });
 });

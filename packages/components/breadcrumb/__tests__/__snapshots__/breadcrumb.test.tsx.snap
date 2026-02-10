@@ -1,0 +1,646 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Breadcrumb > snapshots > default render 1`] = `
+<div
+  class="t-breadcrumb"
+>
+  
+  <div
+    class="t-breadcrumb__item light"
+    index="0"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          首页
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+    index="1"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          产品
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+    index="2"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          详情
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  
+</div>
+`;
+
+exports[`Breadcrumb > snapshots > with ellipsis 1`] = `
+<div
+  class="t-breadcrumb"
+>
+  
+  <div
+    class="t-breadcrumb__item light"
+    index="0"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面1
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <div
+      style="display: flex;"
+    >
+      
+      <svg
+        class="t-icon t-icon-ellipsis"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="ellipsis"
+        >
+          <g
+            id="stroke1"
+          >
+            <path
+              d="M4 11.5H5V12.5H4V11.5Z"
+              stroke="currentColor"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+            <path
+              d="M11.5 11.5H12.5V12.5H11.5V11.5Z"
+              stroke="currentColor"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+            <path
+              d="M19 11.5H20V12.5H19V11.5Z"
+              stroke="currentColor"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+          </g>
+        </g>
+      </svg>
+      
+    </div>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+    index="4"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面5
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  
+</div>
+`;
+
+exports[`Breadcrumb > snapshots > with maxItemWidth 1`] = `
+<div
+  class="t-breadcrumb"
+>
+  
+  <div
+    class="t-breadcrumb__item light"
+    index="0"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 80px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面1
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+    index="1"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 80px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          页面2面包屑文案超长时悬浮显示文案全部信息
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  
+</div>
+`;
+
+exports[`Breadcrumb > snapshots > with options 1`] = `
+<div
+  class="t-breadcrumb"
+>
+  
+  <div
+    class="t-breadcrumb__item light"
+    index="0"
+  >
+    <a
+      class="t-breadcrumb--text-overflow t-link"
+      href="/"
+      target="_self"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          首页
+          
+        </span>
+      </span>
+    </a>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+    index="1"
+  >
+    <a
+      class="t-breadcrumb--text-overflow t-link"
+      href="/products"
+      target="_self"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          产品
+          
+        </span>
+      </span>
+    </a>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+    index="2"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          详情
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        style="fill: none;"
+        viewBox="0 0 24 24"
+        width="1em"
+      >
+        <g
+          id="chevron-right"
+        >
+          <path
+            d="M9.5 17.5L15 12L9.5 6.5"
+            id="stroke1"
+            stroke="currentColor"
+            stroke-linecap="square"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </span>
+  </div>
+  
+</div>
+`;
+
+exports[`Breadcrumb > snapshots > with separator 1`] = `
+<div
+  class="t-breadcrumb"
+>
+  
+  <div
+    class="t-breadcrumb__item light"
+    index="0"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          首页
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      &gt;
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+    index="1"
+  >
+    <span
+      class="t-breadcrumb--text-overflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        <!---->
+        <span
+          class="t-breadcrumb__inner-text"
+        >
+          
+          详情
+          
+        </span>
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+      style="text-overflow: clip;"
+    >
+      &gt;
+    </span>
+  </div>
+  
+</div>
+`;
