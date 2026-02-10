@@ -1,0 +1,104 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Skeleton > snapshots > custom rowCol render 1`] = `
+<div
+  class="t-skeleton"
+>
+  
+  
+  <div
+    class="t-skeleton__row"
+  >
+    
+    <div
+      class="t-skeleton__col t-skeleton--type-circle t-skeleton--animation-flashed"
+      style="width: 48px; height: 48px;"
+    >
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-skeleton__row"
+  >
+    
+    <div
+      class="t-skeleton__col t-skeleton--type-text t-skeleton--animation-flashed"
+      style="height: 16px;"
+    >
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-skeleton__row"
+  >
+    
+    <div
+      class="t-skeleton__col t-skeleton--type-text t-skeleton--animation-flashed"
+      style="width: 60%;"
+    >
+      <!---->
+    </div>
+    <div
+      class="t-skeleton__col t-skeleton--type-text t-skeleton--animation-flashed"
+      style="width: 40%;"
+    >
+      <!---->
+    </div>
+    
+  </div>
+  
+  
+</div>
+`;
+
+exports[`Skeleton > snapshots > default render 1`] = `
+<div
+  class="t-skeleton"
+>
+  
+  
+  <div
+    class="t-skeleton__row"
+  >
+    
+    <div
+      class="t-skeleton__col t-skeleton--type-text t-skeleton--animation-none"
+    >
+      <!---->
+    </div>
+    
+  </div>
+  
+  
+</div>
+`;
+
+exports[`Skeleton > snapshots > theme avatar-text render 1`] = `
+<div
+  class="t-skeleton"
+>
+  
+  
+  <div
+    class="t-skeleton__row"
+  >
+    
+    <div
+      class="t-skeleton__col t-skeleton--type-circle t-skeleton--animation-gradient"
+    >
+      <!---->
+    </div>
+    <div
+      class="t-skeleton__col t-skeleton--type-text t-skeleton--animation-gradient"
+      style="height: 32px;"
+    >
+      <!---->
+    </div>
+    
+  </div>
+  
+  
+</div>
+`;
