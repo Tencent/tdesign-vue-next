@@ -48,7 +48,7 @@ describe('Drawer', () => {
       expect(wrapper.find('.t-drawer').exists()).toBe(true);
       expect(wrapper.find('.t-drawer__body').exists()).toBe(true);
       expect(wrapper.find('.t-drawer__body').text()).toBe(bodyText);
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':body[function]', async () => {
@@ -58,7 +58,7 @@ describe('Drawer', () => {
       await nextTick();
       expect(wrapper.find('.custom-body').exists()).toBe(true);
       expect(wrapper.find('.custom-body').text()).toBe('自定义内容');
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':body[slot]', async () => {
@@ -96,7 +96,7 @@ describe('Drawer', () => {
       const header = wrapper.find('.t-drawer__header');
       expect(header.exists()).toBe(true);
       expect(header.text()).toBe('标题');
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':header[function]', async () => {
@@ -122,7 +122,7 @@ describe('Drawer', () => {
       });
       await nextTick();
       expect(wrapper.find('.t-drawer__header').exists()).toBe(false);
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':footer[boolean] true shows default footer', async () => {
@@ -134,7 +134,7 @@ describe('Drawer', () => {
       expect(footer.exists()).toBe(true);
       const btns = footer.findAll('button');
       expect(btns.length).toBe(2);
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':footer[boolean] false hides footer', async () => {
@@ -243,7 +243,7 @@ describe('Drawer', () => {
       await nextTick();
       expect(wrapper.find('.t-drawer__close-btn').exists()).toBe(true);
       expect(wrapper.findComponent(CloseIcon).exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':closeBtn[boolean] false hides close button', async () => {
@@ -299,10 +299,10 @@ describe('Drawer', () => {
       expect(wrapperLeft.find('.t-drawer').classes()).toContain('t-drawer--left');
       expect(wrapperTop.find('.t-drawer').classes()).toContain('t-drawer--top');
       expect(wrapperBottom.find('.t-drawer').classes()).toContain('t-drawer--bottom');
-      expect(wrapperRight.element).toMatchSnapshot();
-      expect(wrapperLeft.element).toMatchSnapshot();
-      expect(wrapperTop.element).toMatchSnapshot();
-      expect(wrapperBottom.element).toMatchSnapshot();
+      expect(wrapperRight.find('.t-drawer').element).toMatchSnapshot();
+      expect(wrapperLeft.find('.t-drawer').element).toMatchSnapshot();
+      expect(wrapperTop.find('.t-drawer').element).toMatchSnapshot();
+      expect(wrapperBottom.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':placement validator', () => {
@@ -346,7 +346,7 @@ describe('Drawer', () => {
       await nextTick();
       expect(wrapper.find('.t-drawer__mask').exists()).toBe(false);
       expect(wrapper.find('.t-drawer').classes()).toContain('t-drawer--without-mask');
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':size[string]', async () => {
@@ -413,7 +413,7 @@ describe('Drawer', () => {
       });
       await nextTick();
       expect(wrapper.find('.t-drawer').classes()).toContain('t-drawer--attach');
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':visible[boolean] controls rendering', async () => {
@@ -469,7 +469,7 @@ describe('Drawer', () => {
       const content = wrapper.find('.t-drawer__content-wrapper');
       const lastChild = content.element.lastChild as HTMLElement;
       expect(getComputedStyle(lastChild).cursor).toBe('col-resize');
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':sizeDraggable with value and drag', async () => {
@@ -587,8 +587,8 @@ describe('Drawer', () => {
       await nextTick();
       expect(wrapperOverlay.find('.t-drawer').exists()).toBe(true);
       expect(wrapperPush.find('.t-drawer').exists()).toBe(true);
-      expect(wrapperOverlay.element).toMatchSnapshot();
-      expect(wrapperPush.element).toMatchSnapshot();
+      expect(wrapperOverlay.find('.t-drawer').element).toMatchSnapshot();
+      expect(wrapperPush.find('.t-drawer').element).toMatchSnapshot();
     });
 
     it(':footer button order by placement', async () => {
