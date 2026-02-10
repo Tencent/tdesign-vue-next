@@ -168,11 +168,12 @@ export default defineComponent({
         activeIndex.value = 0;
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
-        inputValue.value = formatDate(value.value, {
-          format: formatRef.value.valueType,
-          targetFormat: formatRef.value.format,
-        });
-        if (!props.needConfirm) {
+        if (props.needConfirm) {
+          inputValue.value = formatDate(value.value, {
+            format: formatRef.value.valueType,
+            targetFormat: formatRef.value.format,
+          });
+        } else {
           confirmValueChange();
         }
       }
@@ -427,6 +428,10 @@ export default defineComponent({
             trigger: 'preset',
           },
         );
+        // 更新到 input，避免 needConfirm 导致值被覆盖
+        inputValue.value = formatDate(presetValue, {
+          format: formatRef.value.format,
+        });
         popupVisible.value = false;
         props.onPresetClick?.(context);
       }

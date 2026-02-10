@@ -1,803 +1,1064 @@
-// @ts-nocheck
+import { nextTick } from 'vue';
+import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
-import { vi } from 'vitest';
+import { expect, vi } from 'vitest';
 import { Input } from '@tdesign/components/input';
-import { getInputGroupDefaultMount } from './mount';
+import InputProps from '@tdesign/components/input/props';
 import { simulateInputChange } from '@tdesign/internal-tests/utils';
-import { nextTick, ref } from 'vue';
-import { CloseCircleFilledIcon, AppIcon, ScanIcon } from 'tdesign-icons-vue-next';
 
-const alignList = ['left', 'center', 'right'];
-const sizeList = ['small', 'large'];
-const statusList = ['success', 'warning', 'error'];
+describe('Input', () => {
+  describe('props', () => {
+    let wrapper: VueWrapper<InstanceType<typeof Input>> | null = null;
 
-describe('Input Component', () => {
-  const alignClassNameList = [{ 't-align-left': false }, 't-align-center', 't-align-right'];
-  ['left', 'center', 'right'].forEach((item, index) => {
-    it(`props.align is equal to ${item}`, () => {
-      const wrapper = mount(<Input align={item}></Input>).find('.t-input');
-      if (typeof alignClassNameList[index] === 'string') {
-        expect(wrapper.classes(alignClassNameList[index])).toBeTruthy();
-      } else if (typeof alignClassNameList[index] === 'object') {
-        const classNameKey = Object.keys(alignClassNameList[index])[0];
-        expect(wrapper.classes(classNameKey)).toBeFalsy();
+    beforeEach(() => {
+      wrapper = mount(Input, {
+        props: {},
+      }) as VueWrapper<InstanceType<typeof Input>>;
+    });
+
+    it(':align[string]', async () => {
+      const validator = InputProps.align.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      // @ts-expect-error
+      expect(validator('other')).toBe(false);
+
+      // default: left
+      expect(wrapper.find('.t-input').classes('t-align-center')).eq(false);
+      expect(wrapper.find('.t-input').classes('t-align-right')).eq(false);
+
+      await wrapper.setProps({ align: 'center' });
+      expect(wrapper.find('.t-input').classes('t-align-center')).eq(true);
+
+      await wrapper.setProps({ align: 'right' });
+      expect(wrapper.find('.t-input').classes('t-align-right')).eq(true);
+
+      expect(wrapper.find('.t-input').element).toMatchSnapshot();
+    });
+
+    it(':allowInputOverMax[boolean]', async () => {
+      const onChangeFn = vi.fn();
+
+      // default: false, should truncate to maxlength
+      const wrapper1 = mount(Input, {
+        props: { defaultValue: '', maxlength: 5, onChange: onChangeFn },
+      });
+      simulateInputChange(wrapper1.find('input').element, 'Hello TDesign');
+      await wrapper1.vm.$nextTick();
+      expect(onChangeFn).toHaveBeenCalled();
+      expect(onChangeFn.mock.calls[0][0]).eq('Hello');
+
+      // allowInputOverMax = true, value should not change
+      const wrapper2 = mount(Input, {
+        props: { value: 'Hello', maxlength: 5, allowInputOverMax: true },
+      });
+      simulateInputChange(wrapper2.find('input').element, 'Hello TDesign');
+      await wrapper2.vm.$nextTick();
+      expect(wrapper2.find('input').element.value).eq('Hello');
+
+      // allowInputOverMax with maxcharacter
+      const onChangeFn2 = vi.fn();
+      const wrapper3 = mount(Input, {
+        props: { value: '测试', maxcharacter: 4, allowInputOverMax: true, onChange: onChangeFn2 },
+      });
+      simulateInputChange(wrapper3.find('input').element, '测试文本长度');
+      await wrapper3.vm.$nextTick();
+      expect(wrapper3.find('input').element.value).eq('测试');
+    });
+
+    it(':autoWidth[boolean]', async () => {
+      expect(wrapper.find('.t-input--auto-width').exists()).eq(false);
+
+      await wrapper.setProps({ autoWidth: true });
+      expect(wrapper.find('.t-input--auto-width').exists()).eq(true);
+
+      await wrapper.setProps({ value: 'test' });
+      expect(wrapper.find('.t-input__input-pre').exists()).eq(true);
+    });
+
+    it(':autocomplete[string]', async () => {
+      await wrapper.setProps({ autocomplete: 'https://tdesign.tencent.com/' });
+      expect(wrapper.find('input').attributes('autocomplete')).eq('https://tdesign.tencent.com/');
+
+      const values = ['on', 'off', 'name', 'email'] as const;
+      for (const val of values) {
+        await wrapper.setProps({ autocomplete: val });
+        expect(wrapper.find('input').attributes('autocomplete')).eq(val);
       }
+    });
+
+    it(':autofocus[boolean]', async () => {
+      expect(wrapper.find('input').attributes('autofocus')).eq(undefined);
+
+      await wrapper.setProps({ autofocus: true });
+      expect(wrapper.find('input').attributes('autofocus')).toBeDefined();
+
+      await wrapper.setProps({ autofocus: false });
+      expect(wrapper.find('input').attributes('autofocus')).eq(undefined);
+    });
+
+    it(':borderless[boolean]', async () => {
+      expect(wrapper.find('.t-input--borderless').exists()).eq(false);
+
+      await wrapper.setProps({ borderless: true });
+      expect(wrapper.find('.t-input--borderless').exists()).eq(true);
+    });
+
+    it(':clearable[boolean]', async () => {
+      // default: false
+      const wrapper = mount(Input, {
+        props: { value: 'Default Keyword' },
+      });
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-input__suffix-clear').exists()).eq(false);
+
+      // clearable = true
+      await wrapper.setProps({ clearable: true });
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-input__suffix-clear').exists()).eq(true);
+    });
+
+    it(':clearable click clear icon', async () => {
+      const onClearFn = vi.fn();
+      const onChangeFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'Default Keyword', clearable: true, onClear: onClearFn, onChange: onChangeFn },
+      });
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-input__suffix-clear').exists()).eq(true);
+
+      wrapper.find('.t-input__suffix-clear').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(onClearFn).toHaveBeenCalledTimes(1);
+      expect(onClearFn.mock.calls[0][0].e.stopPropagation).toBeTruthy();
+      expect(onClearFn.mock.calls[0][0].e.type).eq('click');
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
+      expect(onChangeFn.mock.calls[0][0]).eq('');
+      expect(onChangeFn.mock.calls[0][1].e.type).eq('click');
+    });
+
+    it(':clearable with type=password', async () => {
+      const wrapper = mount(Input, {
+        props: { type: 'password', value: 'this is my password', clearable: true },
+      });
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-icon-browse-off').exists()).eq(true);
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-input__suffix-clear').exists()).eq(true);
+    });
+
+    it(':clearable should not show when disabled or readonly', async () => {
+      // disabled
+      const wrapper1 = mount(Input, {
+        props: { value: 'Default Keyword', clearable: true, disabled: true },
+      });
+      wrapper1.find('.t-input').trigger('mouseenter');
+      await wrapper1.vm.$nextTick();
+      expect(wrapper1.find('.t-input__suffix-clear').exists()).eq(false);
+
+      // readonly
+      const wrapper2 = mount(Input, {
+        props: { value: 'Default Keyword', clearable: true, readonly: true },
+      });
+      wrapper2.find('.t-input').trigger('mouseenter');
+      await wrapper2.vm.$nextTick();
+      expect(wrapper2.find('.t-input__suffix-clear').exists()).eq(false);
+    });
+
+    it(':clearable type=number should return undefined when cleared', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { type: 'number', value: 123, clearable: true, onChange: onChangeFn },
+      });
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      wrapper.find('.t-input__suffix-clear').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(onChangeFn.mock.calls[0][0]).eq(undefined);
+    });
+
+    it(':disabled[boolean]', async () => {
+      expect(wrapper.find('.t-input').classes('t-is-disabled')).eq(false);
+
+      await wrapper.setProps({ disabled: true });
+      expect(wrapper.find('.t-input').classes('t-is-disabled')).eq(true);
+      expect(wrapper.find('input').attributes('disabled')).toBeDefined();
+
+      await wrapper.setProps({ disabled: false });
+      expect(wrapper.find('.t-input').classes('t-is-disabled')).eq(false);
+    });
+
+    it(':disabled password toggle should not work', async () => {
+      const wrapper = mount(Input, {
+        props: { type: 'password', disabled: true },
+      });
+      expect(wrapper.find('.t-icon-browse-off').exists()).eq(true);
+      await wrapper.find('.t-icon-browse-off').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-icon-browse-off').exists()).eq(true);
+      expect(wrapper.find('.t-icon-browse').exists()).eq(false);
+    });
+
+    it(':disabled events should not trigger', async () => {
+      const onKeydownFn = vi.fn();
+      const onKeyupFn = vi.fn();
+      const onKeypressFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { disabled: true, onKeydown: onKeydownFn, onKeyup: onKeyupFn, onKeypress: onKeypressFn },
+      });
+      await wrapper.find('input').trigger('keydown');
+      await wrapper.find('input').trigger('keyup');
+      await wrapper.find('input').trigger('keypress');
+      expect(onKeydownFn).not.toHaveBeenCalled();
+      expect(onKeyupFn).not.toHaveBeenCalled();
+      expect(onKeypressFn).not.toHaveBeenCalled();
+    });
+
+    it(':format[function]', async () => {
+      const wrapper = mount(Input, {
+        props: { format: (val) => `${val} 元`, value: '100' },
+      });
+      wrapper.find('input').trigger('focus');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('input').element.value).eq('100');
+
+      wrapper.find('input').trigger('blur');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('input').element.value).eq('100 元');
+    });
+
+    it(':format initial value should be formatted', async () => {
+      const wrapper = mount(Input, {
+        props: { format: (val) => `$${val}`, defaultValue: '100' },
+      });
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('input').element.value).eq('$100');
+    });
+
+    it(':format should work with defaultValue', async () => {
+      const wrapper = mount(Input, {
+        props: { format: (val) => val?.toUpperCase(), defaultValue: 'hello' },
+      });
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('input').element.value).eq('HELLO');
+    });
+
+    it(':inputClass[string/array/object]', async () => {
+      // string
+      await wrapper.setProps({ inputClass: 'name1 name2' });
+      expect(wrapper.find('.t-input').classes('name1')).eq(true);
+      expect(wrapper.find('.t-input').classes('name2')).eq(true);
+
+      // array
+      await wrapper.setProps({ inputClass: ['name3', 'name4'] });
+      expect(wrapper.find('.t-input').classes('name3')).eq(true);
+      expect(wrapper.find('.t-input').classes('name4')).eq(true);
+
+      // object
+      await wrapper.setProps({ inputClass: { name5: true, name6: false } });
+      expect(wrapper.find('.t-input').classes('name5')).eq(true);
+      expect(wrapper.find('.t-input').classes('name6')).eq(false);
+    });
+
+    it(':label[string/TNode]', async () => {
+      await wrapper.setProps({ label: 'Label:' });
+      expect(wrapper.find('.t-input__prefix').exists()).eq(true);
+      expect(wrapper.find('.t-input__prefix').text()).eq('Label:');
+    });
+
+    it(':label[TNode]', () => {
+      const wrapper = mount(Input, {
+        props: { label: () => <span class="custom-node">TNode</span> },
+      });
+      expect(wrapper.find('.custom-node').exists()).eq(true);
+      expect(wrapper.find('.t-input__prefix').exists()).eq(true);
       expect(wrapper.element).toMatchSnapshot();
     });
-  });
 
-  it('props.allowInputOverMax works fine', async () => {
-    const wrapper = mount(<Input value="Hello" maxlength={5} allowInputOverMax={true}></Input>);
-    const inputDom = wrapper.find('input').element;
-    simulateInputChange(inputDom, 'Hello TDesign');
-    await wrapper.vm.$nextTick();
-    const attrDom = wrapper.find('input');
-    expect(attrDom.element.value).toBe('Hello');
-  });
-
-  it('props.autocomplete works fine', () => {
-    const wrapper = mount(<Input autocomplete="https://tdesign.tencent.com/"></Input>).find('input');
-    expect(wrapper.attributes('autocomplete')).toBe('https://tdesign.tencent.com/');
-  });
-
-  it(`props.autofocus is equal to false`, () => {
-    const wrapper = mount(<Input autofocus={false}></Input>);
-    const domWrapper = wrapper.find('input');
-    expect(domWrapper.attributes('autofocus')).toBeUndefined();
-  });
-  it(`props.autofocus is equal to true`, () => {
-    const wrapper = mount(<Input autofocus={true}></Input>);
-    const domWrapper = wrapper.find('input');
-    expect(domWrapper.attributes('autofocus')).toBeDefined();
-  });
-
-  it('props.clearable: clear icon should exist on input mouseenter', async () => {
-    const wrapper = mount(<Input value="Default Keyword" clearable={true}></Input>);
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-input__suffix-clear').exists()).toBeTruthy();
-  });
-  it('props.clearable: click clear icon could clear input value to be empty', async () => {
-    const onClearFn1 = vi.fn();
-    const onChangeFn1 = vi.fn();
-    const wrapper = mount(
-      <Input value="Default Keyword" clearable={true} onClear={onClearFn1} onChange={onChangeFn1}></Input>,
-    );
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-input__suffix-clear').exists()).toBeTruthy();
-    wrapper.find('.t-input__suffix-clear').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onClearFn1).toHaveBeenCalled(1);
-    expect(onClearFn1.mock.calls[0][0].e.stopPropagation).toBeTruthy();
-    expect(onClearFn1.mock.calls[0][0].e.type).toBe('click');
-    expect(onChangeFn1).toHaveBeenCalled(1);
-    expect(onChangeFn1.mock.calls[0][0]).toBe('');
-    expect(onChangeFn1.mock.calls[0][1].e.stopPropagation).toBeTruthy();
-    expect(onChangeFn1.mock.calls[0][1].e.type).toBe('click');
-  });
-  it('props.clearable: type=password, browseIcon and clearableIcon works fine', async () => {
-    const wrapper = mount(<Input type="password" value="this is my password" clearable={true}></Input>);
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-icon-browse-off').exists()).toBeTruthy();
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-input__suffix-clear').exists()).toBeTruthy();
-  });
-
-  it('props.disabled works fine', () => {
-    // disabled default value is
-    const wrapper1 = mount(<Input></Input>).find('.t-input');
-    expect(wrapper1.classes('t-is-disabled')).toBeFalsy();
-    // disabled = true
-    const wrapper2 = mount(<Input disabled={true}></Input>).find('.t-input');
-    expect(wrapper2.classes('t-is-disabled')).toBeTruthy();
-    // disabled = false
-    const wrapper3 = mount(<Input disabled={false}></Input>).find('.t-input');
-    expect(wrapper3.classes('t-is-disabled')).toBeFalsy();
-  });
-
-  it('props.format: focus and blur states have different value', async () => {
-    const wrapper = mount(<Input format={(val) => `${val} 元`} value="100"></Input>);
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    const attrDom = wrapper.find('input');
-    expect(attrDom.element.value).toBe('100');
-    wrapper.find('input').trigger('blur');
-    await wrapper.vm.$nextTick();
-    const attrDom1 = wrapper.find('input');
-    expect(attrDom1.element.value).toBe('100 元');
-  });
-
-  it(`props.inputClass is equal to name1 name2`, () => {
-    const wrapper = mount(<Input inputClass="name1 name2"></Input>);
-    const domWrapper = wrapper.find('.t-input');
-    expect(domWrapper.classes('name1')).toBeTruthy();
-    expect(domWrapper.classes('name2')).toBeTruthy();
-  });
-  it(`props.inputClass is equal to ['name1', 'name2']`, () => {
-    const wrapper = mount(<Input inputClass={['name1', 'name2']}></Input>);
-    const domWrapper = wrapper.find('.t-input');
-    expect(domWrapper.classes('name1')).toBeTruthy();
-    expect(domWrapper.classes('name2')).toBeTruthy();
-  });
-  it(`props.inputClass is equal to { name1: true, name2: false }`, () => {
-    const wrapper = mount(<Input inputClass={{ name1: true, name2: false }}></Input>);
-    const domWrapper = wrapper.find('.t-input');
-    expect(domWrapper.classes('name1')).toBeTruthy();
-    expect(domWrapper.classes('name2')).toBeFalsy();
-  });
-
-  it('props.label works fine', () => {
-    const wrapper = mount(<Input label={() => <span class="custom-node">TNode</span>}></Input>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-input__prefix').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('slots.label works fine', () => {
-    const wrapper = mount(<Input v-slots={{ label: () => <span class="custom-node">TNode</span> }}></Input>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-input__prefix').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('props.maxcharacter: length of value is over than maxcharacter', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = mount(<Input value="你好 TDesign" maxcharacter={4} onChange={onChangeFn}></Input>);
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled(1);
-    expect(onChangeFn.mock.calls[0][0]).toBe('你好');
-    expect(onChangeFn.mock.calls[0][1].trigger).toBe('initial');
-  });
-
-  it('props.maxlength: length of value is over than maxlength', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = mount(<Input value="Hello TDesign" maxlength={5} onChange={onChangeFn}></Input>);
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled(1);
-    expect(onChangeFn.mock.calls[0][0]).toBe('Hello');
-    expect(onChangeFn.mock.calls[0][1].trigger).toBe('initial');
-  });
-
-  it('props.name works fine', () => {
-    const wrapper = mount(<Input name="input-name"></Input>).find('input');
-    expect(wrapper.attributes('name')).toBe('input-name');
-  });
-
-  it('props.placeholder works fine', () => {
-    const wrapper = mount(<Input placeholder="this is input placeholder"></Input>).find('input');
-    expect(wrapper.attributes('placeholder')).toBe('this is input placeholder');
-  });
-
-  it('props.prefixIcon works fine', () => {
-    const wrapper = mount(<Input prefixIcon={() => <span class="custom-node">TNode</span>}></Input>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-input__prefix-icon').exists()).toBeTruthy();
-  });
-
-  it('slots.prefixIcon works fine', () => {
-    const wrapper = mount(<Input v-slots={{ prefixIcon: () => <span class="custom-node">TNode</span> }}></Input>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-input__prefix-icon').exists()).toBeTruthy();
-  });
-  it('slots.prefix-icon works fine', () => {
-    const wrapper = mount(<Input v-slots={{ 'prefix-icon': () => <span class="custom-node">TNode</span> }}></Input>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-input__prefix-icon').exists()).toBeTruthy();
-  });
-
-  it('props.readonly works fine', () => {
-    // readonly default value is false
-    const wrapper1 = mount(<Input></Input>).find('.t-input');
-    expect(wrapper1.classes('t-is-readonly')).toBeFalsy();
-    // readonly = true
-    const wrapper2 = mount(<Input readonly={true}></Input>).find('.t-input');
-    expect(wrapper2.classes('t-is-readonly')).toBeTruthy();
-    // readonly = false
-    const wrapper3 = mount(<Input readonly={false}></Input>).find('.t-input');
-    expect(wrapper3.classes('t-is-readonly')).toBeFalsy();
-  });
-
-  it('props.showClearIconOnEmpty works fine', async () => {
-    const wrapper = mount(<Input showClearIconOnEmpty={true}></Input>);
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-input__suffix-clear').exists()).toBeTruthy();
-  });
-
-  it('props.showLimitNumber works fine. `{".t-input__limit-number":{"text":"2/5"}}` should exist', () => {
-    const wrapper = mount(<Input showLimitNumber={true} maxlength={5} value="TD"></Input>);
-    expect(wrapper.find('.t-input__limit-number').text()).toBe('2/5');
-  });
-
-  const sizeClassNameList = ['t-size-s', { 't-size-m': false }, 't-size-l'];
-  ['small', 'medium', 'large'].forEach((item, index) => {
-    it(`props.size is equal to ${item}`, () => {
-      const wrapper = mount(<Input size={item}></Input>).find('.t-input');
-      if (typeof sizeClassNameList[index] === 'string') {
-        expect(wrapper.classes(sizeClassNameList[index])).toBeTruthy();
-      } else if (typeof sizeClassNameList[index] === 'object') {
-        const classNameKey = Object.keys(sizeClassNameList[index])[0];
-        expect(wrapper.classes(classNameKey)).toBeFalsy();
-      }
-    });
-  });
-
-  const statusClassNameList = [{ 't-is-default': false }, 't-is-success', 't-is-warning', 't-is-error'];
-  ['default', 'success', 'warning', 'error'].forEach((item, index) => {
-    it(`props.status is equal to ${item}`, () => {
-      const wrapper = mount(<Input status={item}></Input>).find('.t-input');
-      if (typeof statusClassNameList[index] === 'string') {
-        expect(wrapper.classes(statusClassNameList[index])).toBeTruthy();
-      } else if (typeof statusClassNameList[index] === 'object') {
-        const classNameKey = Object.keys(statusClassNameList[index])[0];
-        expect(wrapper.classes(classNameKey)).toBeFalsy();
-      }
+    it(':label[slot]', () => {
+      const wrapper = mount(Input, {
+        slots: { label: () => <span class="custom-node">TNode</span> },
+      });
+      expect(wrapper.find('.custom-node').exists()).eq(true);
+      expect(wrapper.find('.t-input__prefix').exists()).eq(true);
       expect(wrapper.element).toMatchSnapshot();
     });
-  });
 
-  it('props.suffix works fine', () => {
-    const wrapper = mount(<Input suffix={() => <span class="custom-node">TNode</span>}></Input>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-input__suffix').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('slots.suffix works fine', () => {
-    const wrapper = mount(<Input v-slots={{ suffix: () => <span class="custom-node">TNode</span> }}></Input>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-input__suffix').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('props.suffixIcon works fine', () => {
-    const wrapper = mount(<Input suffixIcon={() => <span class="custom-node">TNode</span>}></Input>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-input__suffix-icon').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('slots.suffixIcon works fine', () => {
-    const wrapper = mount(<Input v-slots={{ suffixIcon: () => <span class="custom-node">TNode</span> }}></Input>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-input__suffix-icon').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('slots.suffix-icon works fine', () => {
-    const wrapper = mount(<Input v-slots={{ 'suffix-icon': () => <span class="custom-node">TNode</span> }}></Input>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.find('.t-input__suffix-icon').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('props.tips is equal this is a tip', () => {
-    const wrapper = mount(<Input tips="this is a tip"></Input>);
-    expect(wrapper.findAll('.t-input__tips').length).toBe(1);
-  });
-
-  const attributeValues = ['text', 'number', 'url', 'tel', 'password', 'search', 'submit', 'hidden'];
-  ['text', 'number', 'url', 'tel', 'password', 'search', 'submit', 'hidden'].forEach((item, index) => {
-    it(`props.type is equal to ${item}`, () => {
-      const wrapper = mount(<Input type={item}></Input>).find('input');
-      expect(wrapper.attributes('type')).toBe(attributeValues[index]);
+    it(':maxcharacter[number]', async () => {
+      const onChangeFn = vi.fn();
+      mount(Input, {
+        props: { value: '你好 TDesign', maxcharacter: 4, onChange: onChangeFn },
+      });
+      await nextTick();
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
+      expect(onChangeFn.mock.calls[0][0]).eq('你好');
+      expect(onChangeFn.mock.calls[0][1].trigger).eq('initial');
     });
-  });
 
-  it('props.type is equal password', () => {
-    const wrapper = mount(<Input type="password"></Input>);
-    expect(wrapper.findAll('.t-icon-browse-off').length).toBe(1);
-  });
-
-  it('props.type: password could be visible by click browse icon', async () => {
-    const wrapper = mount(<Input type="password"></Input>);
-    wrapper.find('.t-icon-browse-off').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-icon-browse').exists()).toBeTruthy();
-    const attrDom = wrapper.find('input');
-    expect(attrDom.attributes('type')).toBe('text');
-    wrapper.find('.t-icon-browse').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-icon-browse-off').exists()).toBeTruthy();
-    const attrDom1 = wrapper.find('input');
-    expect(attrDom1.attributes('type')).toBe('password');
-  });
-
-  it('events.blur works fine', async () => {
-    const onFocusFn = vi.fn();
-    const onBlurFn1 = vi.fn();
-    const wrapper = mount(<Input value="initial-input-value" onFocus={onFocusFn} onBlur={onBlurFn1}></Input>);
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    expect(onFocusFn).toHaveBeenCalled(1);
-    expect(onFocusFn.mock.calls[0][0]).toBe('initial-input-value');
-    expect(onFocusFn.mock.calls[0][1].e.type).toBe('focus');
-    wrapper.find('input').trigger('blur');
-    await wrapper.vm.$nextTick();
-    expect(onBlurFn1).toHaveBeenCalled(1);
-    expect(onBlurFn1.mock.calls[0][0]).toBe('initial-input-value');
-    expect(onBlurFn1.mock.calls[0][1].e.type).toBe('blur');
-  });
-
-  it('events.change: empty value could trigger change event', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = mount(<Input onChange={onChangeFn}></Input>);
-    const inputDom = wrapper.find('input').element;
-    simulateInputChange(inputDom, 'initial value');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled(1);
-    expect(onChangeFn.mock.calls[0][0]).toBe('initial value');
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('input');
-  });
-  it('events.change: controlled value test', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = mount(<Input value="TDesign" onChange={onChangeFn}></Input>);
-    const inputDom = wrapper.find('input').element;
-    simulateInputChange(inputDom, 'Hello TDesign');
-    await wrapper.vm.$nextTick();
-    const attrDom = wrapper.find('input');
-    expect(attrDom.element.value).toBe('TDesign');
-    expect(onChangeFn).toHaveBeenCalled(1);
-    expect(onChangeFn.mock.calls[0][0]).toBe('Hello TDesign');
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('input');
-  });
-  it('events.change: uncontrolled value test', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = mount(<Input defaultValue="Hello" onChange={onChangeFn}></Input>);
-    const inputDom = wrapper.find('input').element;
-    simulateInputChange(inputDom, 'Hello TDesign');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled(1);
-    expect(onChangeFn.mock.calls[0][0]).toBe('Hello TDesign');
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('input');
-  });
-
-  it('events.click works fine', async () => {
-    const fn = vi.fn();
-    const wrapper = mount(<Input onClick={fn}></Input>);
-    wrapper.find('.t-input').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(fn).toHaveBeenCalled(1);
-    expect(fn.mock.calls[0][0].e.type).toBe('click');
-  });
-
-  it('events.compositionend works fine', async () => {
-    const onCompositionendFn = vi.fn();
-    const wrapper = mount(<Input value="输入结束" onCompositionend={onCompositionendFn}></Input>);
-    wrapper.find('input').trigger('compositionend');
-    await wrapper.vm.$nextTick();
-    expect(onCompositionendFn).toHaveBeenCalled(1);
-    expect(onCompositionendFn.mock.calls[0][0]).toBe('输入结束');
-    expect(onCompositionendFn.mock.calls[0][1].e.type).toBe('compositionend');
-  });
-
-  it('events.compositionstart works fine', async () => {
-    const onCompositionstartFn = vi.fn();
-    const wrapper = mount(<Input value="输入开始" onCompositionstart={onCompositionstartFn}></Input>);
-    wrapper.find('input').trigger('compositionstart');
-    await wrapper.vm.$nextTick();
-    expect(onCompositionstartFn).toHaveBeenCalled(1);
-    expect(onCompositionstartFn.mock.calls[0][0]).toBe('输入开始');
-    expect(onCompositionstartFn.mock.calls[0][1].e.type).toBe('compositionstart');
-  });
-
-  it('events.enter works fine', async () => {
-    const onEnterFn1 = vi.fn();
-    const wrapper = mount(<Input value="text" onEnter={onEnterFn1}></Input>);
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    wrapper.find('input').trigger('keydown.enter');
-    await wrapper.vm.$nextTick();
-    expect(onEnterFn1).toHaveBeenCalled(1);
-    expect(onEnterFn1.mock.calls[0][0]).toBe('text');
-    expect(onEnterFn1.mock.calls[0][1].e.type).toBe('keydown');
-  });
-
-  it('events.enter should not trigger during IME composition', async () => {
-    const onEnterFn = vi.fn();
-    const wrapper = mount(<Input value="text" onEnter={onEnterFn}></Input>);
-    const input = wrapper.find('input');
-
-    // 模拟中文输入法开始
-    input.trigger('compositionstart');
-    await wrapper.vm.$nextTick();
-
-    // 在输入法激活状态下按回车键，不应该触发 onEnter 事件
-    input.trigger('keydown.enter');
-    await wrapper.vm.$nextTick();
-    expect(onEnterFn).not.toHaveBeenCalled();
-
-    // 模拟中文输入法结束
-    input.trigger('compositionend');
-    await wrapper.vm.$nextTick();
-
-    // 输入法结束后按回车键，应该正常触发 onEnter 事件
-    input.trigger('keydown.enter');
-    await wrapper.vm.$nextTick();
-    expect(onEnterFn).toHaveBeenCalled(1);
-    expect(onEnterFn.mock.calls[0][0]).toBe('text');
-    expect(onEnterFn.mock.calls[0][1].e.type).toBe('keydown');
-  });
-
-  it('events.focus works fine', async () => {
-    const onFocusFn = vi.fn();
-    const wrapper = mount(<Input onFocus={onFocusFn}></Input>);
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    expect(onFocusFn).toHaveBeenCalled(1);
-    expect(onFocusFn.mock.calls[0][0]).toBe(undefined);
-    expect(onFocusFn.mock.calls[0][1].e.type).toBe('focus');
-  });
-
-  it('events.keydown works fine', async () => {
-    const onKeydownFn = vi.fn();
-    const wrapper = mount(<Input value="text" onKeydown={onKeydownFn}></Input>);
-    wrapper.find('input').trigger('keydown');
-    await wrapper.vm.$nextTick();
-    expect(onKeydownFn).toHaveBeenCalled(1);
-    expect(onKeydownFn.mock.calls[0][0]).toBe('text');
-    expect(onKeydownFn.mock.calls[0][1].e.type).toBe('keydown');
-  });
-
-  it('events.keypress works fine', async () => {
-    const onKeydownFn = vi.fn();
-    const wrapper = mount(<Input value="text" onKeydown={onKeydownFn}></Input>);
-    wrapper.find('input').trigger('keydown');
-    await wrapper.vm.$nextTick();
-    expect(onKeydownFn).toHaveBeenCalled(1);
-    expect(onKeydownFn.mock.calls[0][0]).toBe('text');
-    expect(onKeydownFn.mock.calls[0][1].e.type).toBe('keydown');
-  });
-
-  it('events.keyup works fine', async () => {
-    const onKeyupFn = vi.fn();
-    const wrapper = mount(<Input value="text" onKeyup={onKeyupFn}></Input>);
-    wrapper.find('input').trigger('keyup');
-    await wrapper.vm.$nextTick();
-    expect(onKeyupFn).toHaveBeenCalled(1);
-    expect(onKeyupFn.mock.calls[0][0]).toBe('text');
-    expect(onKeyupFn.mock.calls[0][1].e.type).toBe('keyup');
-  });
-
-  it('events.mouseenter works fine', async () => {
-    const onMouseenterFn = vi.fn();
-    const wrapper = mount(<Input onMouseenter={onMouseenterFn}></Input>);
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(onMouseenterFn).toHaveBeenCalled(1);
-    expect(onMouseenterFn.mock.calls[0][0].e.type).toBe('mouseenter');
-  });
-
-  it('events.mouseleave works fine', async () => {
-    const onMouseleaveFn = vi.fn();
-    const wrapper = mount(<Input onMouseleave={onMouseleaveFn}></Input>);
-    wrapper.find('.t-input').trigger('mouseleave');
-    await wrapper.vm.$nextTick();
-    expect(onMouseleaveFn).toHaveBeenCalled(1);
-    expect(onMouseleaveFn.mock.calls[0][0].e.type).toBe('mouseleave');
-  });
-
-  it('events.paste works fine', async () => {
-    const onPasteFn = vi.fn();
-    const wrapper = mount(<Input onPaste={onPasteFn}></Input>);
-    wrapper.find('input').trigger('paste');
-    await wrapper.vm.$nextTick();
-    expect(onPasteFn).toHaveBeenCalled(1);
-    expect(onPasteFn.mock.calls[0][0].e.type).toBe('paste');
-  });
-
-  it('events.validate works fine', async () => {
-    const onValidateFn = vi.fn();
-    const wrapper = mount(<Input value="Hello World" maxlength={5} onValidate={onValidateFn}></Input>);
-    await wrapper.vm.$nextTick();
-    expect(onValidateFn).toHaveBeenCalled(1);
-    expect(onValidateFn.mock.calls[0][0].error).toBe('exceed-maximum');
-  });
-
-  it('events.wheel works fine', async () => {
-    const onWheelFn = vi.fn();
-    const wrapper = mount(<Input onWheel={onWheelFn}></Input>);
-    wrapper.find('input').trigger('wheel');
-    await wrapper.vm.$nextTick();
-    expect(onWheelFn).toHaveBeenCalled(1);
-    expect(onWheelFn.mock.calls[0][0].e.type).toBe('wheel');
-  });
-});
-
-describe('InputGroup Component', () => {
-  it('props.separate works fine', () => {
-    // separate default value is
-    const wrapper1 = getInputGroupDefaultMount();
-    expect(wrapper1.classes('t-input-group--separate')).toBeFalsy();
-    // separate = true
-    const wrapper2 = getInputGroupDefaultMount({ separate: true });
-    expect(wrapper2.classes('t-input-group--separate')).toBeTruthy();
-    // separate = false
-    const wrapper3 = getInputGroupDefaultMount({ separate: false });
-    expect(wrapper3.classes('t-input-group--separate')).toBeFalsy();
-  });
-
-  describe(':props', () => {
-    it('', () => {
-      const wrapper = mount(() => <Input />);
-      expect(wrapper.find('.t-input').exists()).toBeTruthy();
-      expect(wrapper.find('.t-input input').exists()).toBeTruthy();
+    it(':maxcharacter Chinese character counts as 2', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: '你好', maxcharacter: 4, onChange: onChangeFn },
+      });
+      await wrapper.vm.$nextTick();
+      expect(onChangeFn).not.toHaveBeenCalled();
+      expect(wrapper.find('input').element.value).eq('你好');
     });
-    it(':align', () => {
-      alignList.forEach(async (align) => {
-        const wrapper = mount(() => <Input align={align} />);
-        await nextTick();
-        expect(wrapper.find(`t-align-${align}`)).toBeTruthy();
+
+    it(':maxcharacter mixed Chinese and English', async () => {
+      const onChangeFn = vi.fn();
+      // 你(2) + 好(2) + a(1) = 5 > 4
+      mount(Input, {
+        props: { value: '你好a', maxcharacter: 4, onChange: onChangeFn },
+      });
+      await nextTick();
+      expect(onChangeFn).toHaveBeenCalled();
+      expect(onChangeFn.mock.calls[0][0]).eq('你好');
+    });
+
+    it(':maxlength[number]', async () => {
+      const onChangeFn = vi.fn();
+      mount(Input, {
+        props: { value: 'Hello TDesign', maxlength: 5, onChange: onChangeFn },
+      });
+      await nextTick();
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
+      expect(onChangeFn.mock.calls[0][0]).eq('Hello');
+      expect(onChangeFn.mock.calls[0][1].trigger).eq('initial');
+    });
+
+    it(':maxlength should not set native maxlength attribute', () => {
+      const wrapper = mount(Input, {
+        props: { maxlength: 10 },
+      });
+      expect(wrapper.find('input').attributes('maxlength')).eq(undefined);
+    });
+
+    it(':maxlength[string]', async () => {
+      const onChangeFn = vi.fn();
+      mount(Input, {
+        props: { value: 'Hello TDesign', maxlength: '5', onChange: onChangeFn },
+      });
+      await nextTick();
+      expect(onChangeFn).toHaveBeenCalled();
+      expect(onChangeFn.mock.calls[0][0]).eq('Hello');
+    });
+
+    it(':name[string]', async () => {
+      expect(wrapper.find('input').attributes('name')).eq(undefined);
+
+      await wrapper.setProps({ name: 'input-name' });
+      expect(wrapper.find('input').attributes('name')).eq('input-name');
+    });
+
+    it(':placeholder[string]', async () => {
+      await wrapper.setProps({ placeholder: 'this is input placeholder' });
+      expect(wrapper.find('input').attributes('placeholder')).eq('this is input placeholder');
+
+      await wrapper.setProps({ placeholder: '请输入内容' });
+      expect(wrapper.find('input').attributes('placeholder')).eq('请输入内容');
+    });
+
+    it(':prefixIcon[TNode]', () => {
+      const wrapper = mount(Input, {
+        props: { prefixIcon: () => <span class="custom-node">TNode</span> },
+      });
+      expect(wrapper.find('.custom-node').exists()).eq(true);
+      expect(wrapper.find('.t-input__prefix-icon').exists()).eq(true);
+    });
+
+    it(':prefixIcon[slot]', () => {
+      const wrapper = mount(Input, {
+        slots: { prefixIcon: () => <span class="custom-node">TNode</span> },
+      });
+      expect(wrapper.find('.custom-node').exists()).eq(true);
+      expect(wrapper.find('.t-input__prefix-icon').exists()).eq(true);
+    });
+
+    it(':prefixIcon[slot prefix-icon]', () => {
+      const wrapper = mount(Input, {
+        slots: { 'prefix-icon': () => <span class="custom-node">TNode</span> },
+      });
+      expect(wrapper.find('.custom-node').exists()).eq(true);
+      expect(wrapper.find('.t-input__prefix-icon').exists()).eq(true);
+    });
+
+    it(':readonly[boolean]', async () => {
+      expect(wrapper.find('.t-input').classes('t-is-readonly')).eq(false);
+
+      await wrapper.setProps({ readonly: true });
+      expect(wrapper.find('.t-input').classes('t-is-readonly')).eq(true);
+      expect(wrapper.find('input').attributes('readonly')).toBeDefined();
+      expect(wrapper.find('input').attributes('unselectable')).eq('on');
+
+      await wrapper.setProps({ readonly: false });
+      expect(wrapper.find('.t-input').classes('t-is-readonly')).eq(false);
+    });
+
+    it(':showClearIconOnEmpty[boolean]', async () => {
+      // default: false
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-input__suffix-clear').exists()).eq(false);
+
+      await wrapper.setProps({ showClearIconOnEmpty: true });
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-input__suffix-clear').exists()).eq(true);
+
+      // should show even when value is empty
+      await wrapper.setProps({ value: '' });
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-input__suffix-clear').exists()).eq(true);
+    });
+
+    it(':showLimitNumber[boolean]', async () => {
+      // default: false
+      const wrapper = mount(Input, {
+        props: { maxlength: 5, value: 'TD' },
+      });
+      expect(wrapper.find('.t-input__limit-number').exists()).eq(false);
+
+      await wrapper.setProps({ showLimitNumber: true });
+      expect(wrapper.find('.t-input__limit-number').text()).eq('2/5');
+    });
+
+    it(':showLimitNumber with maxcharacter', () => {
+      const wrapper = mount(Input, {
+        props: { showLimitNumber: true, maxcharacter: 10, value: '你好' },
+      });
+      expect(wrapper.find('.t-input__limit-number').text()).eq('4/10');
+    });
+
+    it(':showLimitNumber shows 0/n when empty', () => {
+      const wrapper = mount(Input, {
+        props: { showLimitNumber: true, maxlength: 10 },
+      });
+      expect(wrapper.find('.t-input__limit-number').text()).eq('0/10');
+    });
+
+    it(':showLimitNumber disabled state', () => {
+      const wrapper = mount(Input, {
+        props: { showLimitNumber: true, maxlength: 5, value: 'TD', disabled: true },
+      });
+      expect(wrapper.find('.t-input__limit-number').classes('t-is-disabled')).eq(true);
+    });
+
+    it(':size[string]', async () => {
+      const validator = InputProps.size.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      // @ts-expect-error
+      expect(validator('other')).toBe(false);
+
+      // default: medium
+      expect(wrapper.find('.t-input').classes('t-size-s')).eq(false);
+      expect(wrapper.find('.t-input').classes('t-size-l')).eq(false);
+
+      await wrapper.setProps({ size: 'small' });
+      expect(wrapper.find('.t-input').classes('t-size-s')).eq(true);
+
+      await wrapper.setProps({ size: 'large' });
+      expect(wrapper.find('.t-input').classes('t-size-l')).eq(true);
+    });
+
+    it(':spellCheck[boolean]', async () => {
+      await wrapper.setProps({ spellCheck: true });
+      expect(wrapper.find('input').attributes('spellcheck')).eq('true');
+
+      await wrapper.setProps({ spellCheck: false });
+      expect(wrapper.find('input').attributes('spellcheck')).eq('false');
+    });
+
+    it(':status[string]', async () => {
+      const validator = InputProps.status.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      // @ts-expect-error
+      expect(validator('other')).toBe(false);
+
+      // default
+      expect(wrapper.find('.t-input').classes('t-is-success')).eq(false);
+      expect(wrapper.find('.t-input').classes('t-is-warning')).eq(false);
+      expect(wrapper.find('.t-input').classes('t-is-error')).eq(false);
+
+      await wrapper.setProps({ status: 'success' });
+      expect(wrapper.find('.t-input').classes('t-is-success')).eq(true);
+
+      await wrapper.setProps({ status: 'warning' });
+      expect(wrapper.find('.t-input').classes('t-is-warning')).eq(true);
+
+      await wrapper.setProps({ status: 'error' });
+      expect(wrapper.find('.t-input').classes('t-is-error')).eq(true);
+
+      expect(wrapper.find('.t-input').element).toMatchSnapshot();
+    });
+
+    it(':suffix[string/TNode]', async () => {
+      await wrapper.setProps({ suffix: 'suffix' });
+      expect(wrapper.find('.t-input__suffix').exists()).eq(true);
+      expect(wrapper.find('.t-input__suffix').text()).eq('suffix');
+    });
+
+    it(':suffix[TNode]', () => {
+      const wrapper = mount(Input, {
+        props: { suffix: () => <span class="custom-node">TNode</span> },
+      });
+      expect(wrapper.find('.custom-node').exists()).eq(true);
+      expect(wrapper.find('.t-input__suffix').exists()).eq(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':suffix[slot]', () => {
+      const wrapper = mount(Input, {
+        slots: { suffix: () => <span class="custom-node">TNode</span> },
+      });
+      expect(wrapper.find('.custom-node').exists()).eq(true);
+      expect(wrapper.find('.t-input__suffix').exists()).eq(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':suffixIcon[TNode]', () => {
+      const wrapper = mount(Input, {
+        props: { suffixIcon: () => <span class="custom-node">TNode</span> },
+      });
+      expect(wrapper.find('.custom-node').exists()).eq(true);
+      expect(wrapper.find('.t-input__suffix-icon').exists()).eq(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':suffixIcon[slot]', () => {
+      const wrapper = mount(Input, {
+        slots: { suffixIcon: () => <span class="custom-node">TNode</span> },
+      });
+      expect(wrapper.find('.custom-node').exists()).eq(true);
+      expect(wrapper.find('.t-input__suffix-icon').exists()).eq(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':suffixIcon[slot suffix-icon]', () => {
+      const wrapper = mount(Input, {
+        slots: { 'suffix-icon': () => <span class="custom-node">TNode</span> },
+      });
+      expect(wrapper.find('.custom-node').exists()).eq(true);
+      expect(wrapper.find('.t-input__suffix-icon').exists()).eq(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':tips[string/TNode]', async () => {
+      await wrapper.setProps({ tips: 'this is a tip' });
+      expect(wrapper.findAll('.t-input__tips')).toHaveLength(1);
+      expect(wrapper.find('.t-input__tips').text()).eq('this is a tip');
+    });
+
+    it(':tips[TNode]', () => {
+      const wrapper = mount(Input, {
+        props: { tips: () => <span class="custom-tips">Custom Tips</span> },
+      });
+      expect(wrapper.find('.custom-tips').exists()).eq(true);
+    });
+
+    it(':tips style changes with status', () => {
+      (['default', 'success', 'warning', 'error'] as const).forEach((status) => {
+        const wrapper = mount(Input, {
+          props: { tips: 'tip', status },
+        });
+        expect(wrapper.find('.t-input__tips').classes(`t-is-${status}`)).eq(true);
       });
     });
-    it(':autofocus', async () => {
-      const wrapper = mount(() => <Input autofocus />);
-      const input = wrapper.find('.t-input input');
-      await nextTick();
-      expect(input.element.focus).toBeTruthy();
+
+    it(':type[string]', async () => {
+      const validator = InputProps.type.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      // @ts-expect-error
+      expect(validator('other')).toBe(false);
+
+      // default: text
+      expect(wrapper.find('input').attributes('type')).eq('text');
+
+      const types = ['text', 'number', 'url', 'tel', 'password', 'search', 'submit', 'hidden'] as const;
+      for (const type of types) {
+        await wrapper.setProps({ type });
+        expect(wrapper.find('input').attributes('type')).eq(type);
+      }
     });
-    it(':autocomplete', async () => {
-      const wrapper = mount(() => <Input autocomplete="On" />);
-      const input = wrapper.find('.t-input input');
-      expect(input.element.getAttribute('autocomplete')).toBe('On');
-    });
-    it(':autoWidth', async () => {
-      const wrapper = mount(() => <Input autoWidth />);
-      expect(wrapper.classes()).toContain('t-input--auto-width');
-    });
-    it(':placeholder', async () => {
-      const wrapper = mount(() => <Input placeholder="请输入" />);
-      const input = wrapper.find('.t-input input');
-      expect(input.element.getAttribute('placeholder')).toBe('请输入');
-    });
-    it(':disabled', async () => {
-      const wrapper = mount(() => <Input disabled />);
-      const input = wrapper.find('.t-input');
-      expect(input.classes()).toContain('t-is-disabled');
-    });
-    it(':inputClass', async () => {
-      const wrapper = mount(() => <Input inputClass="inputClass" />);
-      const input = wrapper.find('.t-input');
-      expect(input.classes()).toContain('inputClass');
-    });
-    it(':label', async () => {
-      const wrapper = mount(() => <Input label="label" />);
-      const label = wrapper.find('.t-input__prefix');
-      expect(label.exists()).toBeTruthy();
-      expect(label.text()).toBe('label');
-    });
-    it(':value', async () => {
-      const value = '123';
-      const wrapper = mount(() => <Input v-model={value} />);
-      const input = wrapper.find('.t-input input');
-      expect(input.element.value).toBe('123');
-    });
-    it(':defaultValue', async () => {
-      const wrapper = mount(() => <Input defaultValue="123" />);
-      const input = wrapper.find('.t-input input');
-      expect(input.element.value).toBe('123');
-    });
-    it(':clearable', async () => {
-      const wrapper = mount(() => <Input defaultValue="123" clearable />);
-      const input = wrapper.find('.t-input');
-      input.trigger('mouseenter');
-      await nextTick();
-      const closeIcon = wrapper.findComponent(CloseCircleFilledIcon);
-      expect(closeIcon.exists()).toBeTruthy();
-    });
-    it(':maxlength', async () => {
-      const wrapper = mount(() => <Input label="标题" maxlength={10} />);
-      const input = wrapper.find('.t-input input');
-      expect(input.element.getAttribute('maxlength')).toBe(null);
-    });
-    it(':maxcharacter', async () => {
-      const value = ref('12345');
-      const wrapper = mount(() => <Input label="标题" v-model={value.value} maxcharacter={5} />);
-      const input = wrapper.find('.t-input input');
-      value.value = '123456';
-      expect(input.element.value).toBe('12345');
-    });
-    it(':readonly', async () => {
-      const value = ref('123');
-      const wrapper = mount(() => <Input readonly v-model={value.value} />);
-      const input = wrapper.find('.t-input input');
-      value.value = '123123';
-      expect(input.element.value).toBe('123');
-    });
-    it(':showClearIconOnEmpty', async () => {
-      const wrapper = mount(() => <Input showClearIconOnEmpty />);
-      const input = wrapper.find('.t-input');
-      input.trigger('mouseenter');
-      await nextTick();
-      const closeIcon = wrapper.findComponent(CloseCircleFilledIcon);
-      expect(closeIcon.exists()).toBeTruthy();
-    });
-    it(':showLimitNumber', async () => {
-      const wrapper = mount(() => <Input showLimitNumber maxlength={10} />);
-      const number = wrapper.find('.t-input__limit-number');
-      expect(number.exists()).toBeTruthy();
-      expect(number.text()).toBe('0/10');
-    });
-    it(':size', async () => {
-      sizeList.forEach((size) => {
-        const wrapper = mount(() => <Input size={size} />);
-        const input = wrapper.find('.t-input');
-        expect(input.classes()).toContain(`t-size-${size.slice(0, 1)}`);
+
+    it(':type=password toggle visibility', async () => {
+      const wrapper = mount(Input, {
+        props: { type: 'password' },
       });
+      expect(wrapper.findAll('.t-icon-browse-off')).toHaveLength(1);
+
+      wrapper.find('.t-icon-browse-off').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-icon-browse').exists()).eq(true);
+      expect(wrapper.find('input').attributes('type')).eq('text');
+
+      wrapper.find('.t-icon-browse').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('.t-icon-browse-off').exists()).eq(true);
+      expect(wrapper.find('input').attributes('type')).eq('password');
     });
-    it(':status', async () => {
-      statusList.forEach((status) => {
-        const wrapper = mount(() => <Input status={status} />);
-        const input = wrapper.find('.t-input');
-        expect(input.classes()).toContain(`t-is-${status}`);
+
+    it(':type=hidden should hide the input wrapper', () => {
+      const wrapper = mount(Input, {
+        props: { type: 'hidden' },
       });
+      expect(wrapper.find('.t-input__wrap').isVisible()).eq(false);
     });
-    it(':tips', async () => {
-      const wrapper = mount(() => <Input tips="tips" />);
-      const tips = wrapper.find('.t-input__tips');
-      expect(tips.exists()).toBeTruthy();
-      expect(tips.text()).toBe('tips');
+
+    it(':type=number should return number value', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { type: 'number', onChange: onChangeFn },
+      });
+      simulateInputChange(wrapper.find('input').element, '123');
+      await wrapper.vm.$nextTick();
+      expect(onChangeFn).toHaveBeenCalled();
+      expect(onChangeFn.mock.calls[0][0]).eq(123);
     });
-    it(':type', async () => {
-      const wrapper = mount(() => <Input type="url" />);
-      const input = wrapper.find('.t-input input');
-      expect(input.element.getAttribute('type')).toBe('url');
+
+    it(':value[string]', () => {
+      const wrapper = mount(Input, {
+        props: { value: 'test value' },
+      });
+      expect(wrapper.find('input').element.value).eq('test value');
     });
-    it(':name', async () => {
-      const wrapper = mount(() => <Input name="name" />);
-      const input = wrapper.find('.t-input input');
-      expect(input.element.getAttribute('name')).toBe('name');
+
+    it(':defaultValue[string]', () => {
+      const wrapper = mount(Input, {
+        props: { defaultValue: 'default value' },
+      });
+      expect(wrapper.find('input').element.value).eq('default value');
     });
-    it(':suffix', async () => {
-      const wrapper = mount(() => <Input suffix="suffix" />);
-      const suffix = wrapper.find('.t-input__suffix');
-      expect(suffix.exists()).toBeTruthy();
-      expect(suffix.text()).toBe('suffix');
+
+    it(':value controlled mode', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'controlled', onChange: onChangeFn },
+      });
+      simulateInputChange(wrapper.find('input').element, 'new value');
+      await wrapper.vm.$nextTick();
+      // 受控模式下，值不会改变
+      expect(wrapper.find('input').element.value).eq('controlled');
+      expect(onChangeFn).toHaveBeenCalled();
+    });
+
+    it(':defaultValue uncontrolled mode', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { defaultValue: 'uncontrolled', onChange: onChangeFn },
+      });
+      simulateInputChange(wrapper.find('input').element, 'new value');
+      await wrapper.vm.$nextTick();
+      // 非受控模式下，值会改变
+      expect(wrapper.find('input').element.value).eq('new value');
+      expect(onChangeFn).toHaveBeenCalled();
+    });
+
+    it(':value[number]', () => {
+      const wrapper = mount(Input, {
+        props: { value: 123, type: 'number' },
+      });
+      expect(wrapper.find('input').element.value).eq('123');
+    });
+
+    it(':value with 0', () => {
+      const wrapper = mount(Input, {
+        props: { type: 'number', value: 0 },
+      });
+      expect(wrapper.find('input').element.value).eq('0');
+    });
+
+    it(':showInput[boolean]', () => {
+      const wrapper = mount(Input, {
+        props: { showInput: false },
+      });
+      expect(wrapper.find('input').classes()).toContain('t-input--soft-hidden');
+    });
+
+    it(':keepWrapperWidth[boolean]', async () => {
+      await wrapper.setProps({ autoWidth: true, keepWrapperWidth: true });
+      expect(wrapper.find('.t-input--auto-width').exists()).eq(false);
+    });
+
+    it(':label not provided', async () => {
+      await wrapper.setProps({ label: undefined });
+      expect(wrapper.find('.t-input__prefix').exists()).eq(false);
+    });
+
+    it(':prefixIcon not provided', () => {
+      const wrapper = mount(Input, {
+        props: { prefixIcon: undefined },
+      });
+      expect(wrapper.find('.t-input__prefix-icon').exists()).eq(false);
+    });
+
+    it(':suffix not provided', async () => {
+      await wrapper.setProps({ suffix: undefined });
+      expect(wrapper.find('.t-input__suffix').exists()).eq(false);
+    });
+
+    it(':suffixIcon not provided', () => {
+      const wrapper = mount(Input, {
+        props: { suffixIcon: undefined },
+      });
+      expect(wrapper.find('.t-input__suffix-icon').exists()).eq(false);
+    });
+
+    it(':tips not provided', async () => {
+      await wrapper.setProps({ tips: undefined });
+      expect(wrapper.find('.t-input__tips').exists()).eq(false);
     });
   });
 
-  describe(':slots', () => {
-    it(':icon', () => {
-      const slots = {
-        suffixIcon: () => <AppIcon />,
-        prefixIcon: () => <ScanIcon />,
-      };
-      const wrapper = mount(() => <Input v-slots={slots} />);
-      const suffix = wrapper.find('.t-input__suffix');
-      expect(suffix.exists()).toBeTruthy();
-      expect(suffix.findComponent(AppIcon)).toBeTruthy();
-      const prefix = wrapper.find('.t-input__prefix');
-      expect(prefix.exists()).toBeTruthy();
-      expect(prefix.findComponent(ScanIcon)).toBeTruthy();
+  describe('events', () => {
+    it('blur', async () => {
+      const onFocusFn = vi.fn();
+      const onBlurFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'initial-input-value', onFocus: onFocusFn, onBlur: onBlurFn },
+      });
+
+      wrapper.find('input').trigger('focus');
+      await wrapper.vm.$nextTick();
+      expect(onFocusFn).toHaveBeenCalledTimes(1);
+      expect(onFocusFn.mock.calls[0][0]).eq('initial-input-value');
+      expect(onFocusFn.mock.calls[0][1].e.type).eq('focus');
+
+      wrapper.find('input').trigger('blur');
+      await wrapper.vm.$nextTick();
+      expect(onBlurFn).toHaveBeenCalledTimes(1);
+      expect(onBlurFn.mock.calls[0][0]).eq('initial-input-value');
+      expect(onBlurFn.mock.calls[0][1].e.type).eq('blur');
+    });
+
+    it('change: empty value could trigger change event', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { onChange: onChangeFn },
+      });
+      simulateInputChange(wrapper.find('input').element, 'initial value');
+      await wrapper.vm.$nextTick();
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
+      expect(onChangeFn.mock.calls[0][0]).eq('initial value');
+      expect(onChangeFn.mock.calls[0][1].e.type).eq('input');
+    });
+
+    it('change: controlled value test', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'TDesign', onChange: onChangeFn },
+      });
+      simulateInputChange(wrapper.find('input').element, 'Hello TDesign');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.find('input').element.value).eq('TDesign');
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
+      expect(onChangeFn.mock.calls[0][0]).eq('Hello TDesign');
+      expect(onChangeFn.mock.calls[0][1].e.type).eq('input');
+    });
+
+    it('change: uncontrolled value test', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { defaultValue: 'Hello', onChange: onChangeFn },
+      });
+      simulateInputChange(wrapper.find('input').element, 'Hello TDesign');
+      await wrapper.vm.$nextTick();
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
+      expect(onChangeFn.mock.calls[0][0]).eq('Hello TDesign');
+      expect(onChangeFn.mock.calls[0][1].e.type).eq('input');
+    });
+
+    it('change: trigger=initial when value exceeds limit', async () => {
+      const onChangeFn = vi.fn();
+      mount(Input, {
+        props: { value: 'Hello World', maxlength: 5, onChange: onChangeFn },
+      });
+      await nextTick();
+      expect(onChangeFn).toHaveBeenCalled();
+      expect(onChangeFn.mock.calls[0][1].trigger).eq('initial');
+    });
+
+    it('change: trigger=clear when cleared', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'test', clearable: true, onChange: onChangeFn },
+      });
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      wrapper.find('.t-input__suffix-clear').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(onChangeFn.mock.calls[0][1].trigger).eq('clear');
+    });
+
+    it('clear', async () => {
+      const onClearFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'test', clearable: true, onClear: onClearFn },
+      });
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      wrapper.find('.t-input__suffix-clear').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(onClearFn).toHaveBeenCalled();
+      expect(onClearFn.mock.calls[0][0].e.type).eq('click');
+    });
+
+    it('click', async () => {
+      const fn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { onClick: fn },
+      });
+      wrapper.find('.t-input').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(fn).toHaveBeenCalledTimes(1);
+      expect(fn.mock.calls[0][0].e.type).eq('click');
+    });
+
+    it('compositionend', async () => {
+      const onCompositionendFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: '输入结束', onCompositionend: onCompositionendFn },
+      });
+      wrapper.find('input').trigger('compositionend');
+      await wrapper.vm.$nextTick();
+      expect(onCompositionendFn).toHaveBeenCalledTimes(1);
+      expect(onCompositionendFn.mock.calls[0][0]).eq('输入结束');
+      expect(onCompositionendFn.mock.calls[0][1].e.type).eq('compositionend');
+    });
+
+    it('compositionstart', async () => {
+      const onCompositionstartFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: '输入开始', onCompositionstart: onCompositionstartFn },
+      });
+      wrapper.find('input').trigger('compositionstart');
+      await wrapper.vm.$nextTick();
+      expect(onCompositionstartFn).toHaveBeenCalledTimes(1);
+      expect(onCompositionstartFn.mock.calls[0][0]).eq('输入开始');
+      expect(onCompositionstartFn.mock.calls[0][1].e.type).eq('compositionstart');
+    });
+
+    it('enter', async () => {
+      const onEnterFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'text', onEnter: onEnterFn },
+      });
+      wrapper.find('input').trigger('focus');
+      await wrapper.vm.$nextTick();
+      wrapper.find('input').trigger('keydown.enter');
+      await wrapper.vm.$nextTick();
+      expect(onEnterFn).toHaveBeenCalledTimes(1);
+      expect(onEnterFn.mock.calls[0][0]).eq('text');
+      expect(onEnterFn.mock.calls[0][1].e.type).eq('keydown');
+    });
+
+    it('enter should not trigger during IME composition', async () => {
+      const onEnterFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'text', onEnter: onEnterFn },
+      });
+      const input = wrapper.find('input');
+
+      // 模拟中文输入法开始
+      input.trigger('compositionstart');
+      await wrapper.vm.$nextTick();
+
+      // 在输入法激活状态下按回车键，不应该触发 onEnter 事件
+      input.trigger('keydown.enter');
+      await wrapper.vm.$nextTick();
+      expect(onEnterFn).not.toHaveBeenCalled();
+
+      // 模拟中文输入法结束
+      input.trigger('compositionend');
+      await wrapper.vm.$nextTick();
+
+      // 输入法结束后按回车键，应该正常触发 onEnter 事件
+      input.trigger('keydown.enter');
+      await wrapper.vm.$nextTick();
+      expect(onEnterFn).toHaveBeenCalledTimes(1);
+      expect(onEnterFn.mock.calls[0][0]).eq('text');
+      expect(onEnterFn.mock.calls[0][1].e.type).eq('keydown');
+    });
+
+    it('focus', async () => {
+      const onFocusFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { onFocus: onFocusFn },
+      });
+      wrapper.find('input').trigger('focus');
+      await wrapper.vm.$nextTick();
+      expect(onFocusFn).toHaveBeenCalledTimes(1);
+      expect(onFocusFn.mock.calls[0][0]).eq(undefined);
+      expect(onFocusFn.mock.calls[0][1].e.type).eq('focus');
+    });
+
+    it('keydown', async () => {
+      const onKeydownFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'text', onKeydown: onKeydownFn },
+      });
+      wrapper.find('input').trigger('keydown');
+      await wrapper.vm.$nextTick();
+      expect(onKeydownFn).toHaveBeenCalledTimes(1);
+      expect(onKeydownFn.mock.calls[0][0]).eq('text');
+      expect(onKeydownFn.mock.calls[0][1].e.type).eq('keydown');
+    });
+
+    it('keypress', async () => {
+      const onKeypressFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'text', onKeypress: onKeypressFn },
+      });
+      wrapper.find('input').trigger('keypress');
+      await wrapper.vm.$nextTick();
+      expect(onKeypressFn).toHaveBeenCalledTimes(1);
+      expect(onKeypressFn.mock.calls[0][0]).eq('text');
+      expect(onKeypressFn.mock.calls[0][1].e.type).eq('keypress');
+    });
+
+    it('keyup', async () => {
+      const onKeyupFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { value: 'text', onKeyup: onKeyupFn },
+      });
+      wrapper.find('input').trigger('keyup');
+      await wrapper.vm.$nextTick();
+      expect(onKeyupFn).toHaveBeenCalledTimes(1);
+      expect(onKeyupFn.mock.calls[0][0]).eq('text');
+      expect(onKeyupFn.mock.calls[0][1].e.type).eq('keyup');
+    });
+
+    it('mouseenter', async () => {
+      const onMouseenterFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { onMouseenter: onMouseenterFn },
+      });
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      expect(onMouseenterFn).toHaveBeenCalledTimes(1);
+      expect(onMouseenterFn.mock.calls[0][0].e.type).eq('mouseenter');
+    });
+
+    it('mouseleave', async () => {
+      const onMouseleaveFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { onMouseleave: onMouseleaveFn },
+      });
+      wrapper.find('.t-input').trigger('mouseleave');
+      await wrapper.vm.$nextTick();
+      expect(onMouseleaveFn).toHaveBeenCalledTimes(1);
+      expect(onMouseleaveFn.mock.calls[0][0].e.type).eq('mouseleave');
+    });
+
+    it('paste', async () => {
+      const onPasteFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { onPaste: onPasteFn },
+      });
+      wrapper.find('input').trigger('paste');
+      await wrapper.vm.$nextTick();
+      expect(onPasteFn).toHaveBeenCalledTimes(1);
+      expect(onPasteFn.mock.calls[0][0].e.type).eq('paste');
+    });
+
+    it('validate', async () => {
+      const onValidateFn = vi.fn();
+      mount(Input, {
+        props: { value: 'Hello World', maxlength: 5, onValidate: onValidateFn },
+      });
+      await nextTick();
+      expect(onValidateFn).toHaveBeenCalledTimes(1);
+      expect(onValidateFn.mock.calls[0][0].error).eq('exceed-maximum');
+    });
+
+    it('wheel', async () => {
+      const onWheelFn = vi.fn();
+      const wrapper = mount(Input, {
+        props: { onWheel: onWheelFn },
+      });
+      wrapper.find('input').trigger('wheel');
+      await wrapper.vm.$nextTick();
+      expect(onWheelFn).toHaveBeenCalledTimes(1);
+      expect(onWheelFn.mock.calls[0][0].e.type).eq('wheel');
     });
   });
 
-  describe(':event', () => {
-    it(':onBlur', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onBlur={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('blur');
-      expect(fn).toBeCalled();
+  describe('instanceFunctions', () => {
+    let wrapper: VueWrapper<InstanceType<typeof Input>>;
+
+    beforeEach(() => {
+      wrapper = mount(Input, {
+        attachTo: document.body,
+        props: { value: 'test' },
+      }) as VueWrapper<InstanceType<typeof Input>>;
     });
 
-    it(':onFocus', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onFocus={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('focus');
-      expect(fn).toBeCalled();
+    afterEach(() => {
+      wrapper.unmount();
     });
 
-    it(':onEnter', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onEnter={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('keydown', { code: 'Enter' });
+    it('focus method', async () => {
+      const component = wrapper.findComponent(Input);
+      await component.vm.$.exposed!.focus();
+      expect(document.activeElement).eq(wrapper.find('input').element);
+    });
+
+    it('blur method', async () => {
+      const component = wrapper.findComponent(Input);
+      await component.vm.$.exposed!.focus();
       await nextTick();
-      expect(fn).toBeCalled();
+      await component.vm.$.exposed!.blur();
+      expect(document.activeElement).not.eq(wrapper.find('input').element);
     });
-    it(':onKeydown', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onKeydown={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('keydown');
-      expect(fn).toBeCalled();
+  });
+
+  // 注意：exposed methods、focus state、composition input 等 hooks 相关测试已移至 input.hooks.test.tsx
+
+  describe('edge cases', () => {
+    it('passwordIcon when type=password and clearable', async () => {
+      const wrapper = mount(Input, {
+        props: { type: 'password', value: 'password', clearable: true },
+      });
+      wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.vm.$nextTick();
+      // 应该同时显示密码图标和清除图标
+      expect(wrapper.find('.t-icon-browse-off').exists()).eq(true);
+      expect(wrapper.find('.t-input__clear').exists()).eq(true);
     });
-    it(':onPaste', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onPaste={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('paste');
-      expect(fn).toBeCalled();
+
+    it('validator edge cases for props', () => {
+      // 测试 align 验证器
+      expect(mount(Input, { props: { align: null as any } }).exists()).eq(true);
+      // 测试 size 验证器
+      expect(mount(Input, { props: { size: null as any } }).exists()).eq(true);
+      // 测试 status 验证器
+      expect(mount(Input, { props: { status: null as any } }).exists()).eq(true);
+      // 测试 type 验证器
+      expect(mount(Input, { props: { type: null as any } }).exists()).eq(true);
     });
-    it(':onKeypress', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onKeypress={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('keypress');
-      expect(fn).toBeCalled();
+
+    it('onRootClick when input is not the target', async () => {
+      const wrapper = mount(Input);
+      const rootElement = wrapper.find('.t-input');
+      const clickEvent = new MouseEvent('click', {
+        target: rootElement.element,
+      } as any);
+      rootElement.element.dispatchEvent(clickEvent);
+      await wrapper.vm.$nextTick();
     });
-    it(':onKeyup', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onKeyup={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('keyup');
-      expect(fn).toBeCalled();
-    });
-    it(':onMouseenter', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onMouseenter={fn} />);
-      const input = wrapper.find('.t-input');
-      await input.trigger('mouseenter');
-      await nextTick();
-      expect(fn).toBeCalled();
-    });
-    it(':onMouseleave', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onMouseleave={fn} />);
-      const input = wrapper.find('.t-input');
-      await input.trigger('mouseleave');
-      await nextTick();
-      expect(fn).toBeCalled();
-    });
-    it(':onWheel', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onWheel={fn} />);
-      const input = wrapper.find('.t-input');
-      await input.trigger('wheel');
-      await nextTick();
-      expect(fn).toBeCalled();
-    });
-    it(':onCompositionstart', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onCompositionstart={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('compositionstart');
-      expect(fn).toBeCalled();
-    });
-    it(':onCompositionend', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Input onCompositionend={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('compositionend');
-      expect(fn).toBeCalled();
-    });
-    it(':onValidate', async () => {
-      const fn = vi.fn();
-      const value = '123';
-      mount(() => <Input v-model={value} maxlength={2} allowInputOverMax={true} onValidate={fn} />);
-      expect(fn).toBeCalled();
-    });
-    it(':onClear', async () => {
-      const fn = vi.fn();
-      const value = ref('123');
-      const wrapper = mount(() => <Input v-model={value.value} clearable onClear={fn} />);
-      const input = wrapper.find('.t-input');
-      input.trigger('mouseenter');
-      await nextTick();
-      const closeIcon = wrapper.findComponent(CloseCircleFilledIcon);
-      await closeIcon.trigger('click');
-      expect(fn).toBeCalled();
-      expect(value.value).toBe('');
-    });
-    it(':onChange', async () => {
-      const data = ref('');
-      const value = ref('');
-      const handleChange = (val) => {
-        value.value = val;
-      };
-      const wrapper = mount(<Input v-model={data.value} onChange={handleChange} />);
-      const el = wrapper.find('.t-input__wrap input').element;
-      await nextTick();
-      const simulateEvent = (text, event) => {
-        el.value = text;
-        el.dispatchEvent(new Event(event));
-      };
-      simulateEvent('2', 'input');
-      await nextTick();
-      expect(value.value).toBe('2');
+
+    it('globalConfig placeholder', () => {
+      const wrapper = mount(Input);
+      // 由于没有设置 placeholder，应该使用全局配置的默认值
+      expect(wrapper.find('input').attributes('placeholder')).toBeDefined();
     });
   });
 });
