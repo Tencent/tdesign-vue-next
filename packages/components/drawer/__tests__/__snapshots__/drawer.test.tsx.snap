@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Drawer > props > :body[function] 1`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :body[string] 1`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :closeBtn[boolean] true shows close button 1`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :footer[boolean] true shows default footer 1`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :header[boolean] false should hide header 1`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :header[string] 1`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :mode[overlay/push] 1`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :mode[overlay/push] 2`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :placement[left/right/top/bottom] 1`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :placement[left/right/top/bottom] 2`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :placement[left/right/top/bottom] 3`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :placement[left/right/top/bottom] 4`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :showInAttachedElement[boolean] 1`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :showOverlay[boolean] false hides mask 1`] = `<!--teleport start-->`;
+
+exports[`Drawer > props > :sizeDraggable[boolean] 1`] = `<!--teleport start-->`;
