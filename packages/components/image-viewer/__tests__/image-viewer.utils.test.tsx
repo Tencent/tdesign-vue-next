@@ -1,58 +1,29 @@
-import { expect, vi } from 'vitest';
+import { vi } from 'vitest';
 import { getOverlay } from '../utils';
 import { TdImageViewerProps } from '../type';
 import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';
 
 describe('ImageViewer Utils', () => {
   describe('getOverlay', () => {
-    it('showOverlay = true', () => {
-      const props: TdImageViewerProps = { showOverlay: true, mode: 'modal' };
-      expect(getOverlay(props)).eq(true);
+    it('showOverlay explicit boolean', () => {
+      expect(getOverlay({ showOverlay: true, mode: 'modal' } as TdImageViewerProps)).toBeTruthy();
+      expect(getOverlay({ showOverlay: false, mode: 'modal' } as TdImageViewerProps)).toBeFalsy();
     });
 
-    it('showOverlay = false', () => {
-      const props: TdImageViewerProps = { showOverlay: false, mode: 'modal' };
-      expect(getOverlay(props)).eq(false);
+    it('showOverlay undefined defaults to mode behavior', () => {
+      expect(getOverlay({ mode: 'modal' } as TdImageViewerProps)).toBeTruthy();
+      expect(getOverlay({ mode: 'modeless' } as TdImageViewerProps)).toBeFalsy();
+      expect(getOverlay({} as TdImageViewerProps)).toBeFalsy();
     });
 
-    it('showOverlay undefined, mode = modal', () => {
-      const props: TdImageViewerProps = { mode: 'modal' };
-      expect(getOverlay(props)).eq(true);
+    it('showOverlay overrides mode', () => {
+      expect(getOverlay({ showOverlay: true, mode: 'modeless' } as TdImageViewerProps)).toBeTruthy();
+      expect(getOverlay({ showOverlay: false, mode: 'modal' } as TdImageViewerProps)).toBeFalsy();
     });
 
-    it('showOverlay undefined, mode = modeless', () => {
-      const props: TdImageViewerProps = { mode: 'modeless' };
-      expect(getOverlay(props)).eq(false);
-    });
-
-    it('showOverlay = true overrides mode = modeless', () => {
-      const props: TdImageViewerProps = { showOverlay: true, mode: 'modeless' };
-      expect(getOverlay(props)).eq(true);
-    });
-
-    it('showOverlay = false overrides mode = modal', () => {
-      const props: TdImageViewerProps = { showOverlay: false, mode: 'modal' };
-      expect(getOverlay(props)).eq(false);
-    });
-
-    it('mode undefined defaults to false', () => {
-      const props: TdImageViewerProps = {};
-      expect(getOverlay(props)).eq(false);
-    });
-
-    it('empty props', () => {
-      const props = {} as TdImageViewerProps;
-      expect(getOverlay(props)).eq(false);
-    });
-
-    it('showOverlay = undefined, mode = modal', () => {
-      const props: TdImageViewerProps = { mode: 'modal', showOverlay: undefined };
-      expect(getOverlay(props)).eq(true);
-    });
-
-    it('showOverlay = undefined, mode = modeless', () => {
-      const props: TdImageViewerProps = { mode: 'modeless', showOverlay: undefined };
-      expect(getOverlay(props)).eq(false);
+    it('showOverlay = undefined with explicit mode', () => {
+      expect(getOverlay({ mode: 'modal', showOverlay: undefined } as TdImageViewerProps)).toBeTruthy();
+      expect(getOverlay({ mode: 'modeless', showOverlay: undefined } as TdImageViewerProps)).toBeFalsy();
     });
   });
 
@@ -84,7 +55,7 @@ describe('ImageViewer Utils', () => {
       downloadImage(file);
 
       expect(mockCreateObjectURL).toHaveBeenCalledWith(file);
-      expect(mockAnchor.download).eq('test-image.png');
+      expect(mockAnchor.download).toBe('test-image.png');
       expect(mockClick).toHaveBeenCalled();
     });
 
@@ -101,12 +72,12 @@ describe('ImageViewer Utils', () => {
       const sameOriginUrl = `${window.location.origin}/test-image.png`;
       downloadImage(sameOriginUrl);
 
-      expect(mockAnchor.href).eq(sameOriginUrl);
-      expect(mockAnchor.download).eq('test-image.png');
+      expect(mockAnchor.href).toBe(sameOriginUrl);
+      expect(mockAnchor.download).toBe('test-image.png');
       expect(mockClick).toHaveBeenCalled();
     });
 
-    it('filename from URL with query parameters', () => {
+    it('filename from URL with query/hash', () => {
       const mockClick = vi.fn();
       const mockRemove = vi.fn();
       const mockAnchor = { href: '', download: '', click: mockClick, remove: mockRemove };
@@ -116,26 +87,15 @@ describe('ImageViewer Utils', () => {
         return mockCreateElement(tag);
       });
 
+      // query parameters
       const urlWithParams = `${window.location.origin}/path/image.png?sign=xxx&token=yyy`;
       downloadImage(urlWithParams);
+      expect(mockAnchor.download).toBe('image.png');
 
-      expect(mockAnchor.download).eq('image.png');
-    });
-
-    it('filename from URL with hash', () => {
-      const mockClick = vi.fn();
-      const mockRemove = vi.fn();
-      const mockAnchor = { href: '', download: '', click: mockClick, remove: mockRemove };
-
-      vi.spyOn(document, 'createElement').mockImplementation((tag) => {
-        if (tag === 'a') return mockAnchor as unknown as HTMLAnchorElement;
-        return mockCreateElement(tag);
-      });
-
+      // hash
       const urlWithHash = `${window.location.origin}/path/image.jpg#section`;
       downloadImage(urlWithHash);
-
-      expect(mockAnchor.download).eq('image.jpg');
+      expect(mockAnchor.download).toBe('image.jpg');
     });
 
     it('random name when URL has no filename', () => {
@@ -150,17 +110,18 @@ describe('ImageViewer Utils', () => {
 
       const urlNoFilename = `${window.location.origin}/`;
       downloadImage(urlNoFilename);
-
       expect(mockAnchor.download).toBeTruthy();
     });
   });
 
   describe('formatImages', () => {
     it('non-array input returns empty array', () => {
-      expect(formatImages(null as any)).toEqual([]);
-      expect(formatImages(undefined as any)).toEqual([]);
-      expect(formatImages('string' as any)).toEqual([]);
-      expect(formatImages(123 as any)).toEqual([]);
+      expect(formatImages(null)).toEqual([]);
+      expect(formatImages(undefined)).toEqual([]);
+      // @ts-expect-error testing invalid input
+      expect(formatImages('string')).toEqual([]);
+      // @ts-expect-error testing invalid input
+      expect(formatImages(123)).toEqual([]);
     });
 
     it('empty array', () => {
@@ -188,7 +149,7 @@ describe('ImageViewer Utils', () => {
     it('custom download setting preserved', () => {
       const images = [{ mainImage: 'main.jpg', download: false }];
       const result = formatImages(images);
-      expect(result[0].download).eq(false);
+      expect(result[0].download).toBeFalsy();
     });
 
     it('mixed string and ImageInfo array', () => {
@@ -205,9 +166,9 @@ describe('ImageViewer Utils', () => {
       const file = new File(['test'], 'test.png', { type: 'image/png' });
       const result = formatImages([file]);
 
-      expect(result[0].mainImage).eq(file);
-      expect(result[0].thumbnail).eq(file);
-      expect(result[0].download).eq(true);
+      expect(result[0].mainImage).toBe(file);
+      expect(result[0].thumbnail).toBe(file);
+      expect(result[0].download).toBeTruthy();
     });
 
     it('ImageInfo with all properties', () => {
@@ -220,7 +181,7 @@ describe('ImageViewer Utils', () => {
     it('thumbnail defaults to mainImage', () => {
       const images = [{ mainImage: 'only-main.jpg' }];
       const result = formatImages(images);
-      expect(result[0].thumbnail).eq('only-main.jpg');
+      expect(result[0].thumbnail).toBe('only-main.jpg');
     });
   });
 });

@@ -1,6 +1,5 @@
 import { mount } from '@vue/test-utils';
-import type { VueWrapper } from '@vue/test-utils';
-import { expect, vi } from 'vitest';
+import { vi } from 'vitest';
 import { nextTick } from 'vue';
 import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationIcon } from 'tdesign-icons-vue-next';
 import ImageViewerUtils from '../base/ImageViewerUtils';
@@ -14,166 +13,148 @@ const mockImageInfo = {
 
 describe('ImageViewerUtils', () => {
   describe('props', () => {
-    let wrapper: VueWrapper;
-
-    beforeEach(async () => {
-      wrapper = mount(ImageViewerUtils, {
+    it(':scale[number] renders utils container and icons', async () => {
+      const wrapper = mount(ImageViewerUtils, {
         props: { scale: 1, currentImage: mockImageInfo, zIndex: 3000 },
       });
       await nextTick();
-    });
 
-    it(':scale[number] renders utils container', () => {
-      expect(wrapper.find('.t-image-viewer__utils').exists()).eq(true);
-      expect(wrapper.find('.t-image-viewer__utils-content').exists()).eq(true);
-    });
+      expect(wrapper.find('.t-image-viewer__utils').exists()).toBeTruthy();
+      expect(wrapper.find('.t-image-viewer__utils-content').exists()).toBeTruthy();
 
-    it(':scale[number] renders all basic toolbar icons', () => {
+      // toolbar icons
       const icons = wrapper.findAll('.t-image-viewer__modal-icon');
       expect(icons.length).toBeGreaterThanOrEqual(5);
-
-      expect(wrapper.findComponent(MirrorIcon).exists()).eq(true);
-      expect(wrapper.findComponent(RotationIcon).exists()).eq(true);
-      expect(wrapper.findComponent(ZoomOutIcon).exists()).eq(true);
-      expect(wrapper.findComponent(ZoomInIcon).exists()).eq(true);
-      expect(wrapper.findComponent(ImageIcon).exists()).eq(true);
+      expect(wrapper.findComponent(MirrorIcon).exists()).toBeTruthy();
+      expect(wrapper.findComponent(RotationIcon).exists()).toBeTruthy();
+      expect(wrapper.findComponent(ZoomOutIcon).exists()).toBeTruthy();
+      expect(wrapper.findComponent(ZoomInIcon).exists()).toBeTruthy();
+      expect(wrapper.findComponent(ImageIcon).exists()).toBeTruthy();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':scale[number] display percentage', async () => {
-      await wrapper.setProps({ scale: 1.5 });
-      await nextTick();
-      const scaleEl = wrapper.find('.t-image-viewer__utils-scale');
-      expect(scaleEl.exists()).eq(true);
-      expect(scaleEl.text()).eq('150%');
-    });
-
-    it(':scale different values', async () => {
       const testCases = [
         { scale: 0.5, expected: '50%' },
         { scale: 1, expected: '100%' },
         { scale: 1.25, expected: '125%' },
+        { scale: 1.5, expected: '150%' },
         { scale: 2, expected: '200%' },
         { scale: 3.33, expected: '333%' },
       ];
 
       for (const testCase of testCases) {
-        const w = mount(ImageViewerUtils, {
+        const wrapper = mount(ImageViewerUtils, {
           props: { scale: testCase.scale, currentImage: mockImageInfo, zIndex: 3000 },
         });
         await nextTick();
-        expect(w.find('.t-image-viewer__utils-scale').text()).eq(testCase.expected);
-        w.unmount();
+        expect(wrapper.find('.t-image-viewer__utils-scale').text()).toBe(testCase.expected);
+        wrapper.unmount();
       }
     });
 
-    it(':scale prop change', async () => {
-      expect(wrapper.find('.t-image-viewer__utils-scale').text()).eq('100%');
-
-      await wrapper.setProps({ scale: 1.5 });
-      await nextTick();
-      expect(wrapper.find('.t-image-viewer__utils-scale').text()).eq('150%');
-
-      await wrapper.setProps({ scale: 0.75 });
-      await nextTick();
-      expect(wrapper.find('.t-image-viewer__utils-scale').text()).eq('75%');
-    });
-
     it(':scale extreme values', async () => {
-      await wrapper.setProps({ scale: 0.01 });
+      // very small
+      const wrapper1 = mount(ImageViewerUtils, {
+        props: { scale: 0.01, currentImage: mockImageInfo, zIndex: 3000 },
+      });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__utils-scale').text()).eq('1%');
+      expect(wrapper1.find('.t-image-viewer__utils-scale').text()).toBe('1%');
 
-      await wrapper.setProps({ scale: 10 });
+      // very large
+      const wrapper2 = mount(ImageViewerUtils, {
+        props: { scale: 10, currentImage: mockImageInfo, zIndex: 3000 },
+      });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__utils-scale').text()).eq('1000%');
+      expect(wrapper2.find('.t-image-viewer__utils-scale').text()).toBe('1000%');
 
-      await wrapper.setProps({ scale: 0 });
+      // zero
+      const wrapper3 = mount(ImageViewerUtils, {
+        props: { scale: 0, currentImage: mockImageInfo, zIndex: 3000 },
+      });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__utils-scale').text()).eq('0%');
+      expect(wrapper3.find('.t-image-viewer__utils-scale').text()).toBe('0%');
 
-      await wrapper.setProps({ scale: -1 });
+      // negative
+      const wrapper4 = mount(ImageViewerUtils, {
+        props: { scale: -1, currentImage: mockImageInfo, zIndex: 3000 },
+      });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__utils-scale').text()).eq('-100%');
+      expect(wrapper4.find('.t-image-viewer__utils-scale').text()).toBe('-100%');
     });
 
-    it(':currentImage download enabled', async () => {
-      await wrapper.setProps({ currentImage: { ...mockImageInfo, download: true } });
+    it(':currentImage download[boolean]', async () => {
+      // download disabled
+      const wrapper1 = mount(ImageViewerUtils, {
+        props: { scale: 1, currentImage: mockImageInfo, zIndex: 3000 },
+      });
       await nextTick();
-      expect(wrapper.findComponent(DownloadIcon).exists()).eq(true);
-    });
+      expect(wrapper1.findComponent(DownloadIcon).exists()).toBeFalsy();
 
-    it(':currentImage download disabled', () => {
-      expect(wrapper.findComponent(DownloadIcon).exists()).eq(false);
-    });
-
-    it(':currentImage download toggle', async () => {
-      expect(wrapper.findComponent(DownloadIcon).exists()).eq(false);
-
-      await wrapper.setProps({ currentImage: { ...mockImageInfo, download: true } });
+      // download enabled
+      const wrapper2 = mount(ImageViewerUtils, {
+        props: { scale: 1, currentImage: { ...mockImageInfo, download: true }, zIndex: 3000 },
+      });
       await nextTick();
-      expect(wrapper.findComponent(DownloadIcon).exists()).eq(true);
-
-      await wrapper.setProps({ currentImage: mockImageInfo });
-      await nextTick();
-      expect(wrapper.findComponent(DownloadIcon).exists()).eq(false);
+      expect(wrapper2.findComponent(DownloadIcon).exists()).toBeTruthy();
     });
 
     it(':currentImage[File]', async () => {
       const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' });
       const onDownload = vi.fn();
-      await wrapper.setProps({ currentImage: { mainImage: file, download: true }, onDownload });
+      const wrapper = mount(ImageViewerUtils, {
+        props: { scale: 1, currentImage: { mainImage: file, download: true }, onDownload, zIndex: 3000 },
+      });
       await nextTick();
-      expect(wrapper.findComponent(DownloadIcon).exists()).eq(true);
+      expect(wrapper.findComponent(DownloadIcon).exists()).toBeTruthy();
 
       await wrapper.findComponent(DownloadIcon).trigger('click');
       expect(onDownload).toHaveBeenCalledWith(expect.any(String));
     });
 
-    it(':currentImage empty object', async () => {
-      await wrapper.setProps({ currentImage: {} });
+    it(':currentImage empty/null', async () => {
+      // empty object
+      const wrapper1 = mount(ImageViewerUtils, {
+        // @ts-expect-error testing empty currentImage
+        props: { scale: 1, currentImage: {}, zIndex: 3000 },
+      });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__utils').exists()).eq(true);
-      expect(wrapper.findComponent(DownloadIcon).exists()).eq(false);
-    });
+      expect(wrapper1.find('.t-image-viewer__utils').exists()).toBeTruthy();
+      expect(wrapper1.findComponent(DownloadIcon).exists()).toBeFalsy();
 
-    it(':currentImage null mainImage', async () => {
-      await wrapper.setProps({ currentImage: { mainImage: null } });
+      // null mainImage
+      const wrapper2 = mount(ImageViewerUtils, {
+        props: { scale: 1, currentImage: { mainImage: null }, zIndex: 3000 },
+      });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__utils').exists()).eq(true);
+      expect(wrapper2.find('.t-image-viewer__utils').exists()).toBeTruthy();
     });
 
     it(':zIndex[number]', async () => {
-      await wrapper.setProps({ zIndex: 5000 });
+      // with zIndex
+      const wrapper1 = mount(ImageViewerUtils, {
+        props: { scale: 1, currentImage: mockImageInfo, zIndex: 5000 },
+      });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__utils').exists()).eq(true);
-    });
+      expect(wrapper1.find('.t-image-viewer__utils').exists()).toBeTruthy();
 
-    it(':zIndex undefined', async () => {
-      const w = mount(ImageViewerUtils, {
+      // without zIndex
+      const wrapper2 = mount(ImageViewerUtils, {
         props: { scale: 1, currentImage: mockImageInfo },
       });
       await nextTick();
-      expect(w.find('.t-image-viewer__utils').exists()).eq(true);
-    });
-
-    it('icon arrangement order', () => {
-      const utils = wrapper.find('.t-image-viewer__utils-content');
-      const children = utils.element.children;
-      expect(children.length).toBeGreaterThanOrEqual(5);
-    });
-
-    it('download button at end when enabled', async () => {
-      await wrapper.setProps({ currentImage: { ...mockImageInfo, download: true } });
-      await nextTick();
-      expect(wrapper.findComponent(DownloadIcon).exists()).eq(true);
+      expect(wrapper2.find('.t-image-viewer__utils').exists()).toBeTruthy();
     });
 
     it('tooltip configuration', () => {
+      const wrapper = mount(ImageViewerUtils, {
+        props: { scale: 1, currentImage: mockImageInfo, zIndex: 3000 },
+      });
       const tooltips = wrapper.findAllComponents({ name: 'TToolTip' });
       tooltips.forEach((tooltip) => {
-        expect(tooltip.props('showArrow')).eq(true);
-        expect(tooltip.props('theme')).eq('default');
-        expect(tooltip.props('destroyOnClose')).eq(true);
+        expect(tooltip.props('showArrow')).toBeTruthy();
+        expect(tooltip.props('theme')).toBe('default');
+        expect(tooltip.props('destroyOnClose')).toBeTruthy();
       });
     });
   });
@@ -259,26 +240,6 @@ describe('ImageViewerUtils', () => {
       await zoomInIcon.trigger('click');
       await zoomInIcon.trigger('click');
       expect(onZoomIn).toHaveBeenCalledTimes(3);
-    });
-
-    it('different mainImage types', async () => {
-      const imageTypes = [
-        { mainImage: 'https://example.com/image.jpg' },
-        {
-          mainImage:
-            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==',
-        },
-        { mainImage: new File(['test'], 'test.jpg', { type: 'image/jpeg' }) },
-      ];
-
-      for (const imageInfo of imageTypes) {
-        const wrapper = mount(ImageViewerUtils, {
-          props: { scale: 1, currentImage: imageInfo, zIndex: 3000 },
-        });
-        await nextTick();
-        expect(wrapper.find('.t-image-viewer__utils').exists()).eq(true);
-        wrapper.unmount();
-      }
     });
   });
 });

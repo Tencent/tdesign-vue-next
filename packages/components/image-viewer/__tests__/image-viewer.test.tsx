@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
-import { expect, vi } from 'vitest';
+import { vi } from 'vitest';
 import { nextTick, ref } from 'vue';
 import { ImageViewer } from '@tdesign/components/image-viewer';
-import ImageViewerProps from '@tdesign/components/image-viewer/props';
+import props from '@tdesign/components/image-viewer/props';
 import { Button } from '@tdesign/components/button';
 
 const images = [
@@ -17,74 +17,45 @@ describe('ImageViewer', () => {
   });
 
   describe('props', () => {
-    it(':trigger[function]', () => {
-      const wrapper = mount({
+    it(':trigger[function]', async () => {
+      // render function
+      const wrapper1 = mount({
         render() {
           return <ImageViewer trigger={() => <Button>test</Button>} />;
         },
       });
-      expect(wrapper.element).toMatchSnapshot();
-    });
+      expect(wrapper1.element).toMatchSnapshot();
 
-    it(':trigger[slot]', () => {
-      const wrapper = mount(ImageViewer, {
-        slots: {
-          trigger: ({ open }) => <Button onClick={() => open()}>Open Viewer</Button>,
-        },
-        props: { images },
-      });
-      expect(wrapper.find('button').exists()).eq(true);
-    });
-
-    it(':trigger default renders', () => {
-      const wrapper = mount(ImageViewer, { props: { images } });
-      expect(wrapper.find('.t-image-viewer__trigger').exists()).eq(true);
-    });
-
-    it(':trigger default opens viewer on click', async () => {
-      const wrapper = mount(ImageViewer, { props: { images } });
-      const trigger = wrapper.element.querySelector('.t-image-viewer__trigger--hover') as HTMLElement;
-      expect(trigger).toBeTruthy();
-      trigger.click();
-      await nextTick();
-      expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
-    });
-
-    it(':trigger function prop can open viewer', async () => {
+      // function prop with open callback
       const trigger = (_h: unknown, { open }: { open: () => void }) => (
         <button class="custom-trigger" onClick={open}>
           Open
         </button>
       );
-      const wrapper = mount({
+      const wrapper2 = mount({
         setup() {
           return () => <ImageViewer images={images} trigger={trigger} />;
         },
       });
       await nextTick();
+      expect(wrapper2.find('.custom-trigger').exists()).toBeTruthy();
+      expect(wrapper2.find('.t-image-viewer__trigger').exists()).toBeFalsy();
 
-      const triggerEl = wrapper.find('.custom-trigger');
-      expect(triggerEl.exists()).eq(true);
-      await triggerEl.trigger('click');
+      await wrapper2.find('.custom-trigger').trigger('click');
       await nextTick();
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
     });
 
-    it(':trigger prop replaces default trigger', async () => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const trigger = (_h: unknown, { open }: { open: () => void }) => (
-        <button class="detected-trigger" onClick={open}>
-          Open
-        </button>
-      );
-      const wrapper = mount({
-        setup() {
-          return () => <ImageViewer images={images} trigger={trigger} />;
-        },
-      });
+    it(':trigger default', async () => {
+      const wrapper = mount(ImageViewer, { props: { images } });
+      expect(wrapper.find('.t-image-viewer__trigger').exists()).toBeTruthy();
+
+      // click opens viewer
+      const triggerEl = wrapper.element.querySelector('.t-image-viewer__trigger--hover') as HTMLElement;
+      expect(triggerEl).toBeTruthy();
+      triggerEl.click();
       await nextTick();
-      expect(wrapper.find('.detected-trigger').exists()).eq(true);
-      expect(wrapper.find('.t-image-viewer__trigger').exists()).eq(false);
+      expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
     });
 
     it(':images[string[]]', () => {
@@ -105,13 +76,15 @@ describe('ImageViewer', () => {
       expect(document.querySelector('.t-image-viewer')).toBeTruthy();
     });
 
-    it(':images empty array', async () => {
+    it(':images empty/mixed', async () => {
+      // empty array
       mount(ImageViewer, { props: { visible: true, images: [] } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer')).toBeTruthy();
-    });
 
-    it(':images mixed string and ImageInfo', async () => {
+      document.body.innerHTML = '';
+
+      // mixed string and ImageInfo
       mount(ImageViewer, {
         props: {
           visible: true,
@@ -134,34 +107,27 @@ describe('ImageViewer', () => {
     });
 
     it(':defaultIndex[number]', async () => {
+      // custom
       mount(ImageViewer, { props: { visible: true, images, defaultIndex: 1 } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('2/3');
-    });
 
-    it(':defaultIndex defaults to 0', async () => {
+      document.body.innerHTML = '';
+
+      // default (0)
       mount(ImageViewer, { props: { visible: true, images } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('1/3');
     });
 
-    it(':visible[boolean] controlled', async () => {
+    it(':visible[boolean]', async () => {
+      // controlled
       const wrapper = mount(ImageViewer, { props: { visible: false, images } });
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeFalsy();
 
       await wrapper.setProps({ visible: true });
       await nextTick();
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
-    });
-
-    it(':defaultVisible = true', () => {
-      mount(ImageViewer, { props: { defaultVisible: true, images } });
-      expect(document.querySelector('.t-image-viewer-preview-image')).toMatchSnapshot();
-    });
-
-    it(':defaultVisible = false', () => {
-      mount(ImageViewer, { props: { defaultVisible: false, images } });
-      expect(document.querySelector('.t-image-viewer-preview-image')).toBeFalsy();
     });
 
     it(':visible v-model', async () => {
@@ -176,19 +142,34 @@ describe('ImageViewer', () => {
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
     });
 
-    it(':closeBtn = true', async () => {
+    it(':defaultVisible[boolean]', () => {
+      // true
+      mount(ImageViewer, { props: { defaultVisible: true, images } });
+      expect(document.querySelector('.t-image-viewer-preview-image')).toMatchSnapshot();
+
+      document.body.innerHTML = '';
+
+      // false
+      mount(ImageViewer, { props: { defaultVisible: false, images } });
+      expect(document.querySelector('.t-image-viewer-preview-image')).toBeFalsy();
+    });
+
+    it(':closeBtn[boolean/function]', async () => {
+      // true
       mount(ImageViewer, { props: { visible: true, images, closeBtn: true } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer__modal-close-bt')).toBeTruthy();
-    });
 
-    it(':closeBtn = false', async () => {
+      document.body.innerHTML = '';
+
+      // false
       mount(ImageViewer, { props: { visible: true, images, closeBtn: false } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer__modal-close-bt')).toBeFalsy();
-    });
 
-    it(':closeBtn[function]', async () => {
+      document.body.innerHTML = '';
+
+      // function
       mount(ImageViewer, {
         props: { visible: true, images, closeBtn: () => <span class="custom-close">X</span> },
       });
@@ -196,92 +177,86 @@ describe('ImageViewer', () => {
       expect(document.querySelector('.custom-close')).toBeTruthy();
     });
 
-    it(':closeBtn[slot]', async () => {
-      mount(ImageViewer, {
-        props: { visible: true, images },
-        slots: { closeBtn: () => <span class="custom-close-slot">×</span> },
-      });
+    it(':closeOnEscKeydown[boolean]', async () => {
+      // true
+      const onClose1 = vi.fn();
+      mount(ImageViewer, { props: { visible: true, images, closeOnEscKeydown: true, onClose: onClose1 } });
       await nextTick();
-      expect(document.querySelector('.custom-close-slot')).toBeTruthy();
+      const viewer1 = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
+      expect(viewer1).toBeTruthy();
+      viewer1.focus();
+      viewer1.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
+      await nextTick();
+      expect(onClose1).toHaveBeenCalledWith(expect.objectContaining({ trigger: 'esc' }));
+
+      document.body.innerHTML = '';
+
+      // false
+      const onClose2 = vi.fn();
+      mount(ImageViewer, { props: { visible: true, images, closeOnEscKeydown: false, onClose: onClose2 } });
+      await nextTick();
+      const viewer2 = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
+      expect(viewer2).toBeTruthy();
+      viewer2.focus();
+      viewer2.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
+      await nextTick();
+      expect(onClose2).not.toHaveBeenCalled();
     });
 
-    it(':closeOnEscKeydown = true', async () => {
-      const onClose = vi.fn();
-      mount(ImageViewer, { props: { visible: true, images, closeOnEscKeydown: true, onClose } });
+    it(':closeOnOverlay[boolean]', async () => {
+      // true
+      const onClose1 = vi.fn();
+      mount(ImageViewer, { props: { visible: true, images, closeOnOverlay: true, onClose: onClose1 } });
       await nextTick();
-
-      const viewer = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
-      expect(viewer).toBeTruthy();
-      viewer.focus();
-      viewer.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
+      const mask1 = document.querySelector('.t-image-viewer__modal-mask') as HTMLElement;
+      expect(mask1).toBeTruthy();
+      mask1.click();
       await nextTick();
-      expect(onClose).toHaveBeenCalledWith(expect.objectContaining({ trigger: 'esc' }));
-    });
+      expect(onClose1).toHaveBeenCalledWith(expect.objectContaining({ trigger: 'overlay' }));
 
-    it(':closeOnEscKeydown = false', async () => {
-      const onClose = vi.fn();
-      mount(ImageViewer, { props: { visible: true, images, closeOnEscKeydown: false, onClose } });
+      document.body.innerHTML = '';
+
+      // false
+      const onClose2 = vi.fn();
+      mount(ImageViewer, { props: { visible: true, images, closeOnOverlay: false, onClose: onClose2 } });
       await nextTick();
-
-      const viewer = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
-      expect(viewer).toBeTruthy();
-      viewer.focus();
-      viewer.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
-      await nextTick();
-      expect(onClose).not.toHaveBeenCalled();
-    });
-
-    it(':closeOnOverlay = true', async () => {
-      const onClose = vi.fn();
-      mount(ImageViewer, { props: { visible: true, images, closeOnOverlay: true, onClose } });
-      await nextTick();
-
-      const mask = document.querySelector('.t-image-viewer__modal-mask') as HTMLElement;
-      expect(mask).toBeTruthy();
-      mask.click();
-      await nextTick();
-      expect(onClose).toHaveBeenCalledWith(expect.objectContaining({ trigger: 'overlay' }));
-    });
-
-    it(':closeOnOverlay = false', async () => {
-      const onClose = vi.fn();
-      mount(ImageViewer, { props: { visible: true, images, closeOnOverlay: false, onClose } });
-      await nextTick();
-
-      const mask = document.querySelector('.t-image-viewer__modal-mask') as HTMLElement;
-      if (mask) {
-        mask.click();
+      const mask2 = document.querySelector('.t-image-viewer__modal-mask') as HTMLElement;
+      if (mask2) {
+        mask2.click();
         await nextTick();
-        expect(onClose).not.toHaveBeenCalled();
+        expect(onClose2).not.toHaveBeenCalled();
       }
     });
 
-    it(':draggable = true', async () => {
+    it(':draggable[boolean]', async () => {
+      // true
       mount(ImageViewer, { props: { visible: true, images, mode: 'modeless', draggable: true } });
       await nextTick();
       expect(document.querySelector('.t-dialog')).toBeTruthy();
-    });
 
-    it(':draggable = false', async () => {
+      document.body.innerHTML = '';
+
+      // false
       mount(ImageViewer, { props: { visible: true, images, mode: 'modeless', draggable: false } });
       await nextTick();
       expect(document.querySelector('.t-dialog')).toBeTruthy();
     });
 
     it(':imageScale[object]', async () => {
+      // basic
       mount(ImageViewer, {
         props: { visible: true, images, imageScale: { max: 3, min: 0.1, step: 0.1, defaultScale: 1.5 } },
       });
       await nextTick();
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
-    });
 
-    it(':imageScale custom step for zoom', async () => {
+      document.body.innerHTML = '';
+
+      // custom step with zoom
       mount(ImageViewer, {
         props: { visible: true, images, imageScale: { max: 5, min: 0.1, step: 0.5, defaultScale: 1 } },
       });
       await nextTick();
-
       const scaleEl = document.querySelector('.t-image-viewer__utils-scale');
       expect(scaleEl?.textContent).toContain('100%');
 
@@ -293,30 +268,23 @@ describe('ImageViewer', () => {
       await nextTick();
     });
 
-    it(':imageScale respects min/max limits', async () => {
-      mount(ImageViewer, {
-        props: { visible: true, images, imageScale: { max: 1.2, min: 0.8, step: 0.2, defaultScale: 1 } },
-      });
-      await nextTick();
+    it(':mode[modal/modeless]', async () => {
+      const { validator } = props.mode;
+      expect(validator('modal')).toBeTruthy();
+      expect(validator('modeless')).toBeTruthy();
+      // @ts-expect-error testing invalid value
+      expect(validator('invalid')).toBeFalsy();
+      expect(validator(undefined)).toBeTruthy();
 
-      const icons = document.querySelectorAll('.t-image-viewer__utils-content .t-image-viewer__modal-icon');
-      const zoomOutBtn = icons[2] as HTMLElement;
-      expect(zoomOutBtn).toBeTruthy();
-      zoomOutBtn.click();
-      await new Promise((resolve) => setTimeout(resolve, 60));
-      zoomOutBtn.click();
-      await new Promise((resolve) => setTimeout(resolve, 60));
-      zoomOutBtn.click();
-      await nextTick();
-    });
-
-    it(':mode = modal', async () => {
+      // modal
       mount(ImageViewer, { props: { visible: true, images, mode: 'modal' } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
-    });
+      expect(document.querySelector('.t-image-viewer-preview-image')).toMatchSnapshot();
 
-    it(':mode = modeless', async () => {
+      document.body.innerHTML = '';
+
+      // modeless
       mount(ImageViewer, { props: { visible: true, images, mode: 'modeless' } });
       await nextTick();
       expect(document.querySelector('.t-dialog')).toBeTruthy();
@@ -325,7 +293,6 @@ describe('ImageViewer', () => {
     });
 
     it(':mode = modeless with custom trigger', async () => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const trigger = (_h: unknown, { open }: { open: () => void }) => (
         <button class="modeless-trigger" onClick={open}>
           Open Modeless
@@ -339,122 +306,116 @@ describe('ImageViewer', () => {
       await nextTick();
 
       const triggerEl = wrapper.find('.modeless-trigger');
-      expect(triggerEl.exists()).eq(true);
+      expect(triggerEl.exists()).toBeTruthy();
       await triggerEl.trigger('click');
       await nextTick();
       expect(document.querySelector('.t-dialog')).toBeTruthy();
     });
 
-    it(':navigationArrow = true', async () => {
+    it(':navigationArrow[boolean/function]', async () => {
+      // true
       mount(ImageViewer, { props: { visible: true, images, navigationArrow: true } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer__modal-prev-bt')).toBeTruthy();
       expect(document.querySelector('.t-image-viewer__modal-next-bt')).toBeTruthy();
-    });
 
-    it(':navigationArrow[function]', async () => {
+      document.body.innerHTML = '';
+
+      // function
       mount(ImageViewer, {
-        props: { visible: true, images, navigationArrow: () => <span class="custom-arrow">←</span> },
+        props: { visible: true, images, navigationArrow: () => <span class="custom-arrow">arrow</span> },
       });
       await nextTick();
       expect(document.querySelector('.custom-arrow')).toBeTruthy();
     });
 
-    it(':navigationArrow[slot]', async () => {
-      mount(ImageViewer, {
-        props: { visible: true, images },
-        slots: { navigationArrow: () => <span class="custom-nav-arrow">→</span> },
-      });
-      await nextTick();
-      expect(document.querySelector('.custom-nav-arrow')).toBeTruthy();
-    });
-
-    it(':showOverlay = true', async () => {
+    it(':showOverlay[boolean]', async () => {
+      // true
       mount(ImageViewer, { props: { visible: true, images, showOverlay: true } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer__modal-mask')).toBeTruthy();
-    });
 
-    it(':showOverlay = false', async () => {
+      document.body.innerHTML = '';
+
+      // false
       mount(ImageViewer, { props: { visible: true, images, showOverlay: false } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer__modal-mask')).toBeFalsy();
-    });
 
-    it(':showOverlay default for modal mode', async () => {
+      document.body.innerHTML = '';
+
+      // default for modal mode
       mount(ImageViewer, { props: { visible: true, images, mode: 'modal' } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer__modal-mask')).toBeTruthy();
     });
 
-    it(':title[string]', async () => {
+    it(':title[string/function]', async () => {
+      // string
       mount(ImageViewer, { props: { visible: true, images, title: 'Custom Title' } });
       await nextTick();
-      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).eq('Custom Title');
-    });
+      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('Custom Title');
 
-    it(':title[function]', async () => {
+      document.body.innerHTML = '';
+
+      // function
       mount(ImageViewer, {
         props: { visible: true, images, title: () => <span class="custom-title">Function Title</span> },
       });
       await nextTick();
       expect(document.querySelector('.custom-title')).toBeTruthy();
-    });
 
-    it(':title[slot]', async () => {
-      mount(ImageViewer, {
-        props: { visible: true, images },
-        slots: { title: () => <span class="custom-slot-title">Custom Title Slot</span> },
-      });
-      await nextTick();
-      expect(document.querySelector('.custom-slot-title')).toBeTruthy();
-    });
+      document.body.innerHTML = '';
 
-    it(':title default shows index', async () => {
+      // default shows index
       mount(ImageViewer, { props: { visible: true, images, index: 0 } });
       await nextTick();
-      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).eq('1/3');
+      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('1/3');
     });
 
     it(':title updates when index changes', async () => {
       const wrapper = mount(ImageViewer, { props: { visible: true, images, index: 0 } });
       await nextTick();
-      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).eq('1/3');
+      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('1/3');
 
       await wrapper.setProps({ index: 2 });
       await nextTick();
-      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).eq('3/3');
+      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('3/3');
     });
 
     it(':zIndex[number]', async () => {
+      // custom
       mount(ImageViewer, { props: { visible: true, images, zIndex: 5000 } });
       await nextTick();
-      expect((document.querySelector('.t-image-viewer-preview-image') as HTMLElement)?.style.zIndex).eq('5000');
-    });
+      expect((document.querySelector('.t-image-viewer-preview-image') as HTMLElement)?.style.zIndex).toBe('5000');
 
-    it(':zIndex default is 3000', async () => {
+      document.body.innerHTML = '';
+
+      // default 3000
       mount(ImageViewer, { props: { visible: true, images } });
       await nextTick();
-      expect((document.querySelector('.t-image-viewer-preview-image') as HTMLElement)?.style.zIndex).eq('3000');
+      expect((document.querySelector('.t-image-viewer-preview-image') as HTMLElement)?.style.zIndex).toBe('3000');
     });
 
     it(':attach[string]', async () => {
+      // custom container
       const container = document.createElement('div');
       container.id = 'custom-container';
       document.body.appendChild(container);
-
       mount(ImageViewer, { props: { visible: true, images, attach: '#custom-container' } });
       await nextTick();
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
-    });
 
-    it(':attach default = body', async () => {
+      document.body.innerHTML = '';
+
+      // default = body
       mount(ImageViewer, { props: { visible: true, images } });
       await nextTick();
       expect(document.body.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
-    });
 
-    it(':attach empty string disables teleport', async () => {
+      document.body.innerHTML = '';
+
+      // empty string disables teleport
       const wrapper = mount(ImageViewer, { props: { visible: true, images, attach: '' } });
       await nextTick();
       expect(wrapper.element).toBeTruthy();
@@ -470,11 +431,57 @@ describe('ImageViewer', () => {
     });
 
     it(':imageReferrerpolicy[string]', async () => {
+      const { validator } = props.imageReferrerpolicy;
+      expect(validator('no-referrer')).toBeTruthy();
+      expect(validator('origin')).toBeTruthy();
+      expect(validator('same-origin')).toBeTruthy();
+      expect(validator('unsafe-url')).toBeTruthy();
+      expect(validator(undefined)).toBeTruthy();
+
       mount(ImageViewer, { props: { visible: true, images, imageReferrerpolicy: 'no-referrer' } });
       await nextTick();
       const img = document.querySelector('.t-image-viewer__modal-image') as HTMLImageElement;
       expect(img).toBeTruthy();
-      expect(img.getAttribute('referrerpolicy')).eq('no-referrer');
+      expect(img.getAttribute('referrerpolicy')).toBe('no-referrer');
+    });
+  });
+
+  describe('slots', () => {
+    it('trigger slot', async () => {
+      const wrapper = mount(ImageViewer, {
+        props: { images },
+        slots: {
+          trigger: ({ open }) => <Button onClick={() => open()}>Open Viewer</Button>,
+        },
+      });
+      expect(wrapper.find('button').exists()).toBeTruthy();
+    });
+
+    it('closeBtn slot', async () => {
+      mount(ImageViewer, {
+        props: { visible: true, images },
+        slots: { closeBtn: () => <span class="custom-close-slot">x</span> },
+      });
+      await nextTick();
+      expect(document.querySelector('.custom-close-slot')).toBeTruthy();
+    });
+
+    it('navigationArrow slot', async () => {
+      mount(ImageViewer, {
+        props: { visible: true, images },
+        slots: { navigationArrow: () => <span class="custom-nav-arrow">arrow</span> },
+      });
+      await nextTick();
+      expect(document.querySelector('.custom-nav-arrow')).toBeTruthy();
+    });
+
+    it('title slot', async () => {
+      mount(ImageViewer, {
+        props: { visible: true, images },
+        slots: { title: () => <span class="custom-slot-title">Custom Title Slot</span> },
+      });
+      await nextTick();
+      expect(document.querySelector('.custom-slot-title')).toBeTruthy();
     });
   });
 
@@ -564,30 +571,30 @@ describe('ImageViewer', () => {
       expect(onIndexChange).toHaveBeenCalledWith(1, { trigger: 'current' });
     });
 
-    it('onIndexChange triggered by left arrow key', async () => {
-      const onIndexChange = vi.fn();
-      mount(ImageViewer, { props: { visible: true, images, index: 1, onIndexChange } });
+    it('onIndexChange triggered by arrow keys', async () => {
+      // left arrow
+      const onIndexChange1 = vi.fn();
+      mount(ImageViewer, { props: { visible: true, images, index: 1, onIndexChange: onIndexChange1 } });
       await nextTick();
+      const viewer1 = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
+      expect(viewer1).toBeTruthy();
+      viewer1.focus();
+      viewer1.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowLeft' }));
+      await nextTick();
+      expect(onIndexChange1).toHaveBeenCalledWith(0, { trigger: 'prev' });
 
-      const viewer = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
-      expect(viewer).toBeTruthy();
-      viewer.focus();
-      viewer.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowLeft' }));
-      await nextTick();
-      expect(onIndexChange).toHaveBeenCalledWith(0, { trigger: 'prev' });
-    });
+      document.body.innerHTML = '';
 
-    it('onIndexChange triggered by right arrow key', async () => {
-      const onIndexChange = vi.fn();
-      mount(ImageViewer, { props: { visible: true, images, index: 0, onIndexChange } });
+      // right arrow
+      const onIndexChange2 = vi.fn();
+      mount(ImageViewer, { props: { visible: true, images, index: 0, onIndexChange: onIndexChange2 } });
       await nextTick();
-
-      const viewer = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
-      expect(viewer).toBeTruthy();
-      viewer.focus();
-      viewer.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowRight' }));
+      const viewer2 = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
+      expect(viewer2).toBeTruthy();
+      viewer2.focus();
+      viewer2.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowRight' }));
       await nextTick();
-      expect(onIndexChange).toHaveBeenCalledWith(1, { trigger: 'next' });
+      expect(onIndexChange2).toHaveBeenCalledWith(1, { trigger: 'next' });
     });
 
     it('onDownload custom handler', async () => {
@@ -621,11 +628,11 @@ describe('ImageViewer', () => {
     });
 
     it('open viewer at specific index', async () => {
-      let openFn: ((index?: number) => void) | undefined;
+      let openFn: ((index: number) => void) | undefined;
       mount(ImageViewer, {
         props: { images },
         slots: {
-          trigger: ({ open }) => {
+          trigger: ({ open }: { open: (index: number) => void }) => {
             openFn = open;
             return <button>Open</button>;
           },
@@ -639,62 +646,38 @@ describe('ImageViewer', () => {
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
     });
 
-    it('trigger slot provides open function', async () => {
-      let openFn: ((index?: number) => void) | undefined;
-      mount(ImageViewer, {
-        props: { images },
-        slots: {
-          trigger: ({ open }) => {
-            openFn = open;
-            return <button>Open</button>;
-          },
-        },
-      });
-      await nextTick();
-      expect(typeof openFn).toBe('function');
-    });
-
-    it('wheel zoom in', async () => {
+    it('wheel zoom', async () => {
       mount(ImageViewer, { props: { visible: true, images } });
       await nextTick();
 
       const viewer = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
       expect(viewer).toBeTruthy();
+
+      // zoom in
       viewer.dispatchEvent(new WheelEvent('wheel', { deltaY: -100 }));
       await nextTick();
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
-    });
 
-    it('wheel zoom out', async () => {
-      mount(ImageViewer, { props: { visible: true, images } });
-      await nextTick();
-
-      const viewer = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
-      expect(viewer).toBeTruthy();
+      // zoom out
       viewer.dispatchEvent(new WheelEvent('wheel', { deltaY: 100 }));
       await nextTick();
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
     });
 
-    it('up arrow key zooms in', async () => {
+    it('keyboard zoom', async () => {
       mount(ImageViewer, { props: { visible: true, images } });
       await nextTick();
 
       const viewer = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
       expect(viewer).toBeTruthy();
       viewer.focus();
+
+      // up arrow zooms in
       viewer.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowUp' }));
       await nextTick();
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
-    });
 
-    it('down arrow key zooms out', async () => {
-      mount(ImageViewer, { props: { visible: true, images } });
-      await nextTick();
-
-      const viewer = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
-      expect(viewer).toBeTruthy();
-      viewer.focus();
+      // down arrow zooms out
       viewer.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowDown' }));
       await nextTick();
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
@@ -716,49 +699,37 @@ describe('ImageViewer', () => {
       expect(document.querySelector('.t-image-viewer__modal-header')).toBeTruthy();
     });
 
-    it('utils toolbar mirror button', async () => {
+    it('utils toolbar buttons', async () => {
       mount(ImageViewer, { props: { visible: true, images } });
       await nextTick();
 
+      // mirror
       const mirrorBtn = document.querySelectorAll('.t-image-viewer__modal-icon')[0] as HTMLElement;
       expect(mirrorBtn).toBeTruthy();
       mirrorBtn.click();
       await nextTick();
-      expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
-    });
 
-    it('utils toolbar rotate button', async () => {
-      mount(ImageViewer, { props: { visible: true, images } });
-      await nextTick();
-
+      // rotate
       const rotateBtn = document.querySelectorAll('.t-image-viewer__modal-icon')[1] as HTMLElement;
       expect(rotateBtn).toBeTruthy();
       rotateBtn.click();
       await nextTick();
-      expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
-    });
 
-    it('utils toolbar zoom buttons', async () => {
-      mount(ImageViewer, { props: { visible: true, images } });
-      await nextTick();
-
+      // zoom out
       const zoomOutBtn = document.querySelectorAll('.t-image-viewer__modal-icon')[2] as HTMLElement;
       expect(zoomOutBtn).toBeTruthy();
       zoomOutBtn.click();
       await nextTick();
       expect(document.querySelector('.t-image-viewer__utils-scale')).toBeTruthy();
 
+      // zoom in
       const zoomInBtn = document.querySelectorAll('.t-image-viewer__modal-icon')[4] as HTMLElement;
       expect(zoomInBtn).toBeTruthy();
       zoomInBtn.click();
       await nextTick();
       expect(document.querySelector('.t-image-viewer__utils-scale')).toBeTruthy();
-    });
 
-    it('utils toolbar reset button', async () => {
-      mount(ImageViewer, { props: { visible: true, images } });
-      await nextTick();
-
+      // reset
       const resetBtn = document.querySelectorAll('.t-image-viewer__modal-icon')[5] as HTMLElement;
       expect(resetBtn).toBeTruthy();
       resetBtn.click();
@@ -776,54 +747,54 @@ describe('ImageViewer', () => {
       expect(document.querySelector('.t-image-viewer__modal-header')).toBeFalsy();
     });
 
-    it('boundary check - prev at first image', async () => {
-      const onIndexChange = vi.fn();
-      mount(ImageViewer, { props: { visible: true, images, index: 0, onIndexChange } });
+    it('boundary navigation', async () => {
+      // prev at first image
+      const onIndexChange1 = vi.fn();
+      mount(ImageViewer, { props: { visible: true, images, index: 0, onIndexChange: onIndexChange1 } });
       await nextTick();
-
       const prevBtn = document.querySelector('.t-image-viewer__modal-prev-bt') as HTMLElement;
       expect(prevBtn).toBeTruthy();
       prevBtn.click();
       await nextTick();
-      expect(onIndexChange).toHaveBeenCalledWith(0, { trigger: 'prev' });
-    });
+      expect(onIndexChange1).toHaveBeenCalledWith(0, { trigger: 'prev' });
 
-    it('boundary check - next at last image', async () => {
-      const onIndexChange = vi.fn();
-      mount(ImageViewer, { props: { visible: true, images, index: 2, onIndexChange } });
+      document.body.innerHTML = '';
+
+      // next at last image
+      const onIndexChange2 = vi.fn();
+      mount(ImageViewer, { props: { visible: true, images, index: 2, onIndexChange: onIndexChange2 } });
       await nextTick();
-
       const nextBtn = document.querySelector('.t-image-viewer__modal-next-bt') as HTMLElement;
       expect(nextBtn).toBeTruthy();
       nextBtn.click();
       await nextTick();
-      expect(onIndexChange).toHaveBeenCalledWith(2, { trigger: 'next' });
-    });
+      expect(onIndexChange2).toHaveBeenCalledWith(2, { trigger: 'next' });
 
-    it('boundary check - arrow key at first image', async () => {
-      const onIndexChange = vi.fn();
-      mount(ImageViewer, { props: { visible: true, images, index: 0, onIndexChange } });
-      await nextTick();
+      document.body.innerHTML = '';
 
-      const viewer = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
-      expect(viewer).toBeTruthy();
-      viewer.focus();
-      viewer.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowLeft' }));
+      // arrow key at first image
+      const onIndexChange3 = vi.fn();
+      mount(ImageViewer, { props: { visible: true, images, index: 0, onIndexChange: onIndexChange3 } });
       await nextTick();
-      expect(onIndexChange).toHaveBeenCalledWith(0, { trigger: 'prev' });
-    });
+      const viewer3 = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
+      expect(viewer3).toBeTruthy();
+      viewer3.focus();
+      viewer3.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowLeft' }));
+      await nextTick();
+      expect(onIndexChange3).toHaveBeenCalledWith(0, { trigger: 'prev' });
 
-    it('boundary check - arrow key at last image', async () => {
-      const onIndexChange = vi.fn();
-      mount(ImageViewer, { props: { visible: true, images, index: 2, onIndexChange } });
-      await nextTick();
+      document.body.innerHTML = '';
 
-      const viewer = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
-      expect(viewer).toBeTruthy();
-      viewer.focus();
-      viewer.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowRight' }));
+      // arrow key at last image
+      const onIndexChange4 = vi.fn();
+      mount(ImageViewer, { props: { visible: true, images, index: 2, onIndexChange: onIndexChange4 } });
       await nextTick();
-      expect(onIndexChange).toHaveBeenCalledWith(2, { trigger: 'next' });
+      const viewer4 = document.querySelector('.t-image-viewer-preview-image') as HTMLElement;
+      expect(viewer4).toBeTruthy();
+      viewer4.focus();
+      viewer4.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowRight' }));
+      await nextTick();
+      expect(onIndexChange4).toHaveBeenCalledWith(2, { trigger: 'next' });
     });
 
     it('unrecognized key codes', async () => {
@@ -852,18 +823,15 @@ describe('ImageViewer', () => {
       expect(onIndexChange).toHaveBeenCalled();
     });
 
-    it('thumbnail active state on index change', async () => {
+    it('thumbnail state', async () => {
+      // active state
       mount(ImageViewer, { props: { visible: true, images, index: 0 } });
       await nextTick();
-
       const thumbnails = document.querySelectorAll('.t-image-viewer__header-box');
       expect(thumbnails.length).toBeGreaterThan(0);
       expect(thumbnails[0].classList.contains('t-is-active')).toBeTruthy();
-    });
 
-    it('header thumbnail count matches images', async () => {
-      mount(ImageViewer, { props: { visible: true, images } });
-      await nextTick();
+      // count matches images
       expect(document.querySelectorAll('.t-image-viewer__header-img').length).toBe(3);
     });
 
@@ -918,7 +886,7 @@ describe('ImageViewer', () => {
     it('string image with trigger-img', async () => {
       const wrapper = mount(ImageViewer, { props: { images: [images[0]] } });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__trigger-img').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__trigger-img').exists()).toBeTruthy();
     });
 
     it('utils toolbar rendered', async () => {

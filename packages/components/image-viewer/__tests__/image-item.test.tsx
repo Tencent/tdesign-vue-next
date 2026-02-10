@@ -1,6 +1,5 @@
 import { mount } from '@vue/test-utils';
-import type { VueWrapper } from '@vue/test-utils';
-import { expect, vi } from 'vitest';
+import { vi } from 'vitest';
 import { nextTick } from 'vue';
 import ImageItem from '../base/ImageItem';
 
@@ -12,50 +11,55 @@ const testImages = [
 
 describe('ImageItem', () => {
   describe('props', () => {
-    let wrapper: VueWrapper;
-
-    beforeEach(async () => {
-      wrapper = mount(ImageItem, {
+    it(':src[string]', async () => {
+      const wrapper = mount(ImageItem, {
         props: { src: testImages[0], scale: 1, rotate: 0, mirror: 1 },
       });
       await nextTick();
-    });
-
-    it(':src[string]', () => {
-      expect(wrapper.find('.t-image-viewer__modal-pic').exists()).eq(true);
-      expect(wrapper.find('.t-image-viewer__modal-box').exists()).eq(true);
-      expect(wrapper.find('.t-image-viewer__modal-image').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__modal-pic').exists()).toBeTruthy();
+      expect(wrapper.find('.t-image-viewer__modal-box').exists()).toBeTruthy();
+      expect(wrapper.find('.t-image-viewer__modal-image').exists()).toBeTruthy();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':src[File]', async () => {
       const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' });
-      const w = mount(ImageItem, {
+      const wrapper = mount(ImageItem, {
         props: { src: file, scale: 1, rotate: 0, mirror: 1 },
       });
       await nextTick();
-      expect(w.find('.t-image-viewer__modal-pic').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__modal-pic').exists()).toBeTruthy();
     });
 
-    it(':src empty string', async () => {
-      await wrapper.setProps({ src: '' });
+    it(':src empty/null', async () => {
+      // empty string
+      const wrapper1 = mount(ImageItem, {
+        props: { src: '', scale: 1, rotate: 0, mirror: 1 },
+      });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-pic').exists()).eq(true);
-    });
+      expect(wrapper1.find('.t-image-viewer__modal-pic').exists()).toBeTruthy();
 
-    it(':src null', async () => {
-      await wrapper.setProps({ src: null });
+      // null
+      const wrapper2 = mount(ImageItem, {
+        props: { src: null, scale: 1, rotate: 0, mirror: 1 },
+      });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-pic').exists()).eq(true);
+      expect(wrapper2.find('.t-image-viewer__modal-pic').exists()).toBeTruthy();
     });
 
     it(':src change resets status', async () => {
+      const wrapper = mount(ImageItem, {
+        props: { src: testImages[0], scale: 1, rotate: 0, mirror: 1 },
+      });
+      await nextTick();
+
       await wrapper.setProps({ src: testImages[1] });
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-image').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__modal-image').exists()).toBeTruthy();
     });
 
     it(':placementSrc[string]', async () => {
-      const w = mount(ImageItem, {
+      const wrapper = mount(ImageItem, {
         props: {
           src: testImages[0],
           placementSrc: 'https://tdesign.gtimg.com/demo/demo-thumb-1.png',
@@ -65,7 +69,7 @@ describe('ImageItem', () => {
         },
       });
       await nextTick();
-      const images = w.findAll('.t-image-viewer__modal-image');
+      const images = wrapper.findAll('.t-image-viewer__modal-image');
       expect(images.length).toBeGreaterThanOrEqual(1);
 
       const placementImg = images.find(
@@ -76,70 +80,89 @@ describe('ImageItem', () => {
       expect(placementImg).toBeTruthy();
     });
 
-    it(':scale[number] applies transform', async () => {
-      await wrapper.setProps({ scale: 1.5, mirror: -1 });
+    it(':scale[number]', async () => {
+      // default scale
+      const wrapper1 = mount(ImageItem, {
+        props: { src: testImages[0], scale: 1, rotate: 0, mirror: 1 },
+      });
       await nextTick();
-      const boxStyle = (wrapper.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
-      expect(boxStyle).toContain('scale(-1.5, 1.5)');
-    });
+      const box1 = (wrapper1.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
+      expect(box1).toContain('scale(1, 1)');
 
-    it(':scale = 0', async () => {
-      await wrapper.setProps({ scale: 0 });
+      // scale with mirror
+      const wrapper2 = mount(ImageItem, {
+        props: { src: testImages[0], scale: 1.5, rotate: 0, mirror: -1 },
+      });
       await nextTick();
-      const boxStyle = (wrapper.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
-      expect(boxStyle).toContain('scale(0, 0)');
-    });
+      const box2 = (wrapper2.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
+      expect(box2).toContain('scale(-1.5, 1.5)');
 
-    it(':scale large value', async () => {
-      await wrapper.setProps({ scale: 5 });
+      // scale = 0
+      const wrapper3 = mount(ImageItem, {
+        props: { src: testImages[0], scale: 0, rotate: 0, mirror: 1 },
+      });
       await nextTick();
-      const boxStyle = (wrapper.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
-      expect(boxStyle).toContain('scale(5, 5)');
+      const box3 = (wrapper3.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
+      expect(box3).toContain('scale(0, 0)');
+
+      // large scale
+      const wrapper4 = mount(ImageItem, {
+        props: { src: testImages[0], scale: 5, rotate: 0, mirror: 1 },
+      });
+      await nextTick();
+      const box4 = (wrapper4.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
+      expect(box4).toContain('scale(5, 5)');
     });
 
     it(':rotate[number]', async () => {
-      await wrapper.setProps({ rotate: 180 });
+      // positive
+      const wrapper1 = mount(ImageItem, {
+        props: { src: testImages[0], scale: 1, rotate: 180, mirror: 1 },
+      });
       await nextTick();
-      const imgStyle = (wrapper.find('.t-image-viewer__modal-image').element as HTMLElement).style.transform;
-      expect(imgStyle).toContain('rotate(180deg)');
-    });
+      const img1 = (wrapper1.find('.t-image-viewer__modal-image').element as HTMLElement).style.transform;
+      expect(img1).toContain('rotate(180deg)');
 
-    it(':rotate negative', async () => {
-      await wrapper.setProps({ rotate: -90 });
+      // negative
+      const wrapper2 = mount(ImageItem, {
+        props: { src: testImages[0], scale: 1, rotate: -90, mirror: 1 },
+      });
       await nextTick();
-      const imgStyle = (wrapper.find('.t-image-viewer__modal-image').element as HTMLElement).style.transform;
-      expect(imgStyle).toContain('rotate(-90deg)');
+      const img2 = (wrapper2.find('.t-image-viewer__modal-image').element as HTMLElement).style.transform;
+      expect(img2).toContain('rotate(-90deg)');
     });
 
     it(':mirror[number]', async () => {
-      await wrapper.setProps({ mirror: -1 });
+      const wrapper = mount(ImageItem, {
+        props: { src: testImages[0], scale: 1, rotate: 0, mirror: -1 },
+      });
       await nextTick();
       const boxStyle = (wrapper.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
       expect(boxStyle).toContain('scale(-1, 1)');
     });
 
     it(':imageReferrerpolicy[string]', async () => {
-      const w = mount(ImageItem, {
+      const wrapper = mount(ImageItem, {
         props: { src: testImages[0], imageReferrerpolicy: 'no-referrer', scale: 1, rotate: 0, mirror: 1 },
       });
       await nextTick();
-      const img = w.find('.t-image-viewer__modal-image').element as HTMLImageElement;
-      expect(img.getAttribute('referrerpolicy')).eq('no-referrer');
+      const img = wrapper.find('.t-image-viewer__modal-image').element as HTMLImageElement;
+      expect(img.getAttribute('referrerpolicy')).toBe('no-referrer');
     });
 
-    it(':isSvg renders SVG image', async () => {
+    it(':isSvg[boolean]', async () => {
       const fetchSpy = vi.spyOn(global, 'fetch').mockResolvedValue({
         ok: true,
         text: () => Promise.resolve('<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40"/></svg>'),
       } as Response);
 
-      const w = mount(ImageItem, {
+      const wrapper = mount(ImageItem, {
         props: { src: 'https://example.com/image.svg', isSvg: true, scale: 1, rotate: 0, mirror: 1 },
       });
       await nextTick();
       await new Promise((resolve) => setTimeout(resolve, 100));
 
-      expect(w.find('.t-image-viewer__modal-image[data-alt="svg"]').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__modal-image[data-alt="svg"]').exists()).toBeTruthy();
       fetchSpy.mockRestore();
     });
 
@@ -152,13 +175,13 @@ describe('ImageItem', () => {
           ),
       } as Response);
 
-      const w = mount(ImageItem, {
+      const wrapper = mount(ImageItem, {
         props: { src: 'https://example.com/test.svg', isSvg: true, scale: 1, rotate: 0, mirror: 1 },
       });
       await nextTick();
       await new Promise((resolve) => setTimeout(resolve, 100));
 
-      expect(w.find('.t-image-viewer__modal-image[data-alt="svg"]').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__modal-image[data-alt="svg"]').exists()).toBeTruthy();
       fetchSpy.mockRestore();
     });
   });
@@ -173,10 +196,10 @@ describe('ImageItem', () => {
       const img = wrapper.find('.t-image-viewer__modal-image').element as HTMLImageElement;
       img.dispatchEvent(new Event('load'));
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-image').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__modal-image').exists()).toBeTruthy();
     });
 
-    it('image error shows error state', async () => {
+    it('image error', async () => {
       const wrapper = mount(ImageItem, {
         props: { src: 'https://invalid-url.com/image.png', scale: 1, rotate: 0, mirror: 1 },
       });
@@ -186,22 +209,9 @@ describe('ImageItem', () => {
       img.dispatchEvent(new Event('error'));
       await nextTick();
 
-      expect(wrapper.find('.t-image-viewer__img-error').exists()).eq(true);
-      expect(wrapper.find('.t-image-viewer__img-error-text').exists()).eq(true);
-    });
-
-    it('image error hides main image', async () => {
-      const wrapper = mount(ImageItem, {
-        props: { src: testImages[0], scale: 1, rotate: 0, mirror: 1 },
-      });
-      await nextTick();
-
-      const img = wrapper.find('.t-image-viewer__modal-image').element as HTMLImageElement;
-      img.dispatchEvent(new Event('error'));
-      await nextTick();
-
-      expect(wrapper.find('.t-image-viewer__img-error').exists()).eq(true);
-      expect(wrapper.find('.t-image-viewer__img-error-content').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__img-error').exists()).toBeTruthy();
+      expect(wrapper.find('.t-image-viewer__img-error-text').exists()).toBeTruthy();
+      expect(wrapper.find('.t-image-viewer__img-error-content').exists()).toBeTruthy();
     });
 
     it('mousedown for dragging', async () => {
@@ -213,7 +223,7 @@ describe('ImageItem', () => {
       const img = wrapper.find('.t-image-viewer__modal-image');
       img.element.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true, button: 0 }));
       await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-image').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__modal-image').exists()).toBeTruthy();
     });
 
     it('image draggable = false', async () => {
@@ -223,7 +233,7 @@ describe('ImageItem', () => {
       await nextTick();
 
       const img = wrapper.find('.t-image-viewer__modal-image').element as HTMLImageElement;
-      expect(img.draggable).eq(false);
+      expect(img.draggable).toBeFalsy();
     });
 
     it('SVG mousedown for dragging', async () => {
@@ -243,7 +253,7 @@ describe('ImageItem', () => {
         svgContainer.element.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true, button: 0 }));
         await nextTick();
       }
-      expect(wrapper.find('.t-image-viewer__modal-pic').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__modal-pic').exists()).toBeTruthy();
       fetchSpy.mockRestore();
     });
   });

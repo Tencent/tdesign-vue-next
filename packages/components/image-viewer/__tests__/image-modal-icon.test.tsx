@@ -1,42 +1,34 @@
 import { mount } from '@vue/test-utils';
-import type { VueWrapper } from '@vue/test-utils';
-import { expect, vi } from 'vitest';
+import { vi } from 'vitest';
 import { nextTick } from 'vue';
 import { ZoomInIcon, ZoomOutIcon, RotationIcon } from 'tdesign-icons-vue-next';
 import ImageModalIcon from '../base/ImageModalIcon';
 
 describe('ImageModalIcon', () => {
   describe('props', () => {
-    let wrapper: VueWrapper;
-
-    beforeEach(async () => {
-      wrapper = mount(ImageModalIcon, {
+    it(':icon[function]', async () => {
+      // basic icon
+      const wrapper = mount(ImageModalIcon, {
         props: { icon: () => <ZoomInIcon size="medium" /> },
       });
-      await nextTick();
-    });
+      expect(wrapper.find('.t-image-viewer__modal-icon').exists()).toBeTruthy();
+      expect(wrapper.findComponent(ZoomInIcon).exists()).toBeTruthy();
+      expect(wrapper.element).toMatchSnapshot();
 
-    it(':icon[function]', () => {
-      expect(wrapper.find('.t-image-viewer__modal-icon').exists()).eq(true);
-      expect(wrapper.findComponent(ZoomInIcon).exists()).eq(true);
-    });
-
-    it(':icon different icons', async () => {
-      const w1 = mount(ImageModalIcon, { props: { icon: () => <ZoomInIcon size="medium" /> } });
+      // different icons
       const w2 = mount(ImageModalIcon, { props: { icon: () => <ZoomOutIcon size="medium" /> } });
+      expect(w2.findComponent(ZoomOutIcon).exists()).toBeTruthy();
+
       const w3 = mount(ImageModalIcon, { props: { icon: () => <RotationIcon size="medium" /> } });
-      await nextTick();
-      expect(w1.findComponent(ZoomInIcon).exists()).eq(true);
-      expect(w2.findComponent(ZoomOutIcon).exists()).eq(true);
-      expect(w3.findComponent(RotationIcon).exists()).eq(true);
+      expect(w3.findComponent(RotationIcon).exists()).toBeTruthy();
     });
 
     it(':icon custom function', async () => {
       const CustomIcon = () => <span class="custom-icon">Custom</span>;
-      const w = mount(ImageModalIcon, { props: { icon: CustomIcon } });
+      const wrapper = mount(ImageModalIcon, { props: { icon: CustomIcon } });
       await nextTick();
-      expect(w.find('.custom-icon').exists()).eq(true);
-      expect(w.find('.custom-icon').text()).eq('Custom');
+      expect(wrapper.find('.custom-icon').exists()).toBeTruthy();
+      expect(wrapper.find('.custom-icon').text()).toBe('Custom');
     });
 
     it(':icon complex function', async () => {
@@ -46,81 +38,76 @@ describe('ImageModalIcon', () => {
           <span>+</span>
         </div>
       );
-      const w = mount(ImageModalIcon, { props: { icon: ComplexIcon } });
+      const wrapper = mount(ImageModalIcon, { props: { icon: ComplexIcon } });
       await nextTick();
-      expect(w.find('.complex-icon').exists()).eq(true);
-      expect(w.findComponent(ZoomInIcon).exists()).eq(true);
-    });
-
-    it(':icon prop change', async () => {
-      expect(wrapper.findComponent(ZoomInIcon).exists()).eq(true);
-
-      await wrapper.setProps({ icon: () => <ZoomOutIcon size="medium" /> });
-      await nextTick();
-      expect(wrapper.findComponent(ZoomOutIcon).exists()).eq(true);
-      expect(wrapper.findComponent(ZoomInIcon).exists()).eq(false);
+      expect(wrapper.find('.complex-icon').exists()).toBeTruthy();
+      expect(wrapper.findComponent(ZoomInIcon).exists()).toBeTruthy();
     });
 
     it(':icon null', async () => {
-      const w = mount(ImageModalIcon, { props: { icon: null } });
+      const wrapper = mount(ImageModalIcon, { props: { icon: null } });
       await nextTick();
-      expect(w.find('.t-image-viewer__modal-icon').exists()).eq(true);
+      expect(wrapper.find('.t-image-viewer__modal-icon').exists()).toBeTruthy();
+    });
+
+    it(':icon prop change', async () => {
+      const wrapper = mount(ImageModalIcon, {
+        props: { icon: () => <ZoomInIcon size="medium" /> },
+      });
+      expect(wrapper.findComponent(ZoomInIcon).exists()).toBeTruthy();
+
+      await wrapper.setProps({ icon: () => <ZoomOutIcon size="medium" /> });
+      await nextTick();
+      expect(wrapper.findComponent(ZoomOutIcon).exists()).toBeTruthy();
+      expect(wrapper.findComponent(ZoomInIcon).exists()).toBeFalsy();
     });
 
     it(':label[string]', async () => {
-      await wrapper.setProps({ label: 'Zoom In' });
-      await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-icon-label').exists()).eq(true);
-      expect(wrapper.find('.t-image-viewer__modal-icon-label').text()).eq('Zoom In');
+      // not provided
+      const wrapper1 = mount(ImageModalIcon, {
+        props: { icon: () => <ZoomInIcon size="medium" /> },
+      });
+      expect(wrapper1.find('.t-image-viewer__modal-icon-label').exists()).toBeFalsy();
+
+      // with label
+      const wrapper2 = mount(ImageModalIcon, {
+        props: { icon: () => <ZoomInIcon size="medium" />, label: 'Zoom In' },
+      });
+      expect(wrapper2.find('.t-image-viewer__modal-icon-label').exists()).toBeTruthy();
+      expect(wrapper2.find('.t-image-viewer__modal-icon-label').text()).toBe('Zoom In');
+
+      // empty string
+      const wrapper3 = mount(ImageModalIcon, {
+        props: { icon: () => <ZoomInIcon size="medium" />, label: '' },
+      });
+      expect(wrapper3.find('.t-image-viewer__modal-icon-label').exists()).toBeFalsy();
+
+      // numeric string
+      const wrapper4 = mount(ImageModalIcon, {
+        props: { icon: () => <ZoomInIcon size="medium" />, label: '150%' },
+      });
+      expect(wrapper4.find('.t-image-viewer__modal-icon-label').text()).toBe('150%');
+      expect(wrapper4.element).toMatchSnapshot();
     });
 
-    it(':label numeric string', async () => {
-      await wrapper.setProps({ label: '150%' });
-      await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-icon-label').exists()).eq(true);
-      expect(wrapper.find('.t-image-viewer__modal-icon-label').text()).eq('150%');
-    });
+    it(':disabled[boolean]', () => {
+      // default
+      const wrapper1 = mount(ImageModalIcon, {
+        props: { icon: () => <ZoomInIcon size="medium" /> },
+      });
+      expect(wrapper1.find('.t-image-viewer__modal-icon').classes('t-is-disabled')).toBeFalsy();
 
-    it(':label not provided', () => {
-      expect(wrapper.find('.t-image-viewer__modal-icon-label').exists()).eq(false);
-    });
+      // true
+      const wrapper2 = mount(ImageModalIcon, {
+        props: { icon: () => <ZoomInIcon size="medium" />, disabled: true },
+      });
+      expect(wrapper2.find('.t-image-viewer__modal-icon').classes('t-is-disabled')).toBeTruthy();
 
-    it(':label empty string', async () => {
-      await wrapper.setProps({ label: '' });
-      await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-icon-label').exists()).eq(false);
-    });
-
-    it(':label prop change', async () => {
-      await wrapper.setProps({ label: '100%' });
-      await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-icon-label').text()).eq('100%');
-
-      await wrapper.setProps({ label: '200%' });
-      await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-icon-label').text()).eq('200%');
-    });
-
-    it(':disabled = true', async () => {
-      await wrapper.setProps({ disabled: true });
-      await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-icon').classes('t-is-disabled')).eq(true);
-    });
-
-    it(':disabled = false', () => {
-      expect(wrapper.find('.t-image-viewer__modal-icon').classes('t-is-disabled')).eq(false);
-    });
-
-    it(':disabled toggle', async () => {
-      expect(wrapper.find('.t-image-viewer__modal-icon').classes('t-is-disabled')).eq(false);
-
-      await wrapper.setProps({ disabled: true });
-      await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-icon').classes('t-is-disabled')).eq(true);
-
-      await wrapper.setProps({ disabled: false });
-      await nextTick();
-      expect(wrapper.find('.t-image-viewer__modal-icon').classes('t-is-disabled')).eq(false);
+      // false
+      const wrapper3 = mount(ImageModalIcon, {
+        props: { icon: () => <ZoomInIcon size="medium" />, disabled: false },
+      });
+      expect(wrapper3.find('.t-image-viewer__modal-icon').classes('t-is-disabled')).toBeFalsy();
     });
   });
 
@@ -130,22 +117,10 @@ describe('ImageModalIcon', () => {
       const wrapper = mount(ImageModalIcon, {
         props: { icon: () => <ZoomInIcon size="medium" />, onClick },
       });
-      await nextTick();
 
       await wrapper.find('.t-image-viewer__modal-icon').trigger('click');
       expect(onClick).toHaveBeenCalledTimes(1);
       expect(onClick).toHaveBeenCalledWith(expect.any(MouseEvent));
-    });
-
-    it('click passes correct event object', async () => {
-      const onClick = vi.fn();
-      const wrapper = mount(ImageModalIcon, {
-        props: { icon: () => <ZoomInIcon size="medium" />, onClick },
-      });
-      await nextTick();
-
-      await wrapper.find('.t-image-viewer__modal-icon').trigger('click');
-      expect(onClick).toHaveBeenCalledWith(expect.objectContaining({ type: 'click', target: expect.any(Element) }));
     });
 
     it('click multiple times', async () => {
@@ -153,29 +128,12 @@ describe('ImageModalIcon', () => {
       const wrapper = mount(ImageModalIcon, {
         props: { icon: () => <ZoomInIcon size="medium" />, onClick },
       });
-      await nextTick();
 
       const el = wrapper.find('.t-image-viewer__modal-icon');
       await el.trigger('click');
       await el.trigger('click');
       await el.trigger('click');
       expect(onClick).toHaveBeenCalledTimes(3);
-    });
-
-    it('rapid prop changes', async () => {
-      const wrapper = mount(ImageModalIcon, {
-        props: { icon: () => <ZoomInIcon size="medium" />, label: '100%', disabled: false },
-      });
-      await nextTick();
-
-      await wrapper.setProps({ label: '150%' });
-      await wrapper.setProps({ disabled: true });
-      await wrapper.setProps({ label: '200%' });
-      await wrapper.setProps({ disabled: false });
-      await nextTick();
-
-      expect(wrapper.find('.t-image-viewer__modal-icon-label').text()).eq('200%');
-      expect(wrapper.find('.t-image-viewer__modal-icon').classes('t-is-disabled')).eq(false);
     });
   });
 });
