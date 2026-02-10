@@ -693,6 +693,7 @@ describe('Comment', () => {
         },
       });
       await nextTick();
+
       expect(wrapper.find('.complex-author').exists()).toBe(true);
       expect(wrapper.find('.complex-author span').text()).toBe('复杂作者组件');
     });
