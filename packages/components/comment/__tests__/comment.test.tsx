@@ -44,12 +44,12 @@ describe('Comment', () => {
     });
 
     it(':author[slot]', () => {
-      const w = mount(Comment, {
+      const wrapper = mount(Comment, {
         props: { content: '内容' },
         slots: { author: () => <span class="slot-author">插槽作者</span> },
       });
-      expect(w.find('.slot-author').exists()).toBe(true);
-      expect(w.find('.slot-author').text()).toBe('插槽作者');
+      expect(wrapper.find('.slot-author').exists()).toBe(true);
+      expect(wrapper.find('.slot-author').text()).toBe('插槽作者');
     });
 
     it(':author not provided should not render name', async () => {
@@ -76,12 +76,12 @@ describe('Comment', () => {
     });
 
     it(':avatar[slot]', () => {
-      const w = mount(Comment, {
+      const wrapper = mount(Comment, {
         props: { content: '内容' },
         slots: { avatar: () => <img class="slot-avatar" src={avatarUrl} /> },
       });
-      expect(w.find('.t-comment__avatar').exists()).toBe(true);
-      expect(w.find('.slot-avatar').exists()).toBe(true);
+      expect(wrapper.find('.t-comment__avatar').exists()).toBe(true);
+      expect(wrapper.find('.slot-avatar').exists()).toBe(true);
     });
 
     it(':avatar not provided', async () => {
@@ -102,12 +102,12 @@ describe('Comment', () => {
     });
 
     it(':content[slot]', () => {
-      const w = mount(Comment, {
+      const wrapper = mount(Comment, {
         props: { avatar: avatarUrl },
         slots: { content: () => <div class="slot-content">插槽内容</div> },
       });
-      expect(w.find('.slot-content').exists()).toBe(true);
-      expect(w.find('.slot-content').text()).toBe('插槽内容');
+      expect(wrapper.find('.slot-content').exists()).toBe(true);
+      expect(wrapper.find('.slot-content').text()).toBe('插槽内容');
     });
 
     it(':datetime[string]', () => {
@@ -123,12 +123,12 @@ describe('Comment', () => {
     });
 
     it(':datetime[slot]', () => {
-      const w = mount(Comment, {
+      const wrapper = mount(Comment, {
         props: { content: '内容', author: '作者' },
         slots: { datetime: () => <span class="slot-time">slot时间</span> },
       });
-      expect(w.find('.slot-time').exists()).toBe(true);
-      expect(w.find('.slot-time').text()).toBe('slot时间');
+      expect(wrapper.find('.slot-time').exists()).toBe(true);
+      expect(wrapper.find('.slot-time').text()).toBe('slot时间');
     });
 
     it(':datetime not provided should not render time', async () => {
@@ -150,12 +150,12 @@ describe('Comment', () => {
     });
 
     it(':quote[slot]', () => {
-      const w = mount(Comment, {
+      const wrapper = mount(Comment, {
         props: { content: '内容' },
         slots: { quote: () => <blockquote class="slot-quote">插槽引用</blockquote> },
       });
-      expect(w.find('.slot-quote').exists()).toBe(true);
-      expect(w.find('.slot-quote').text()).toBe('插槽引用');
+      expect(wrapper.find('.slot-quote').exists()).toBe(true);
+      expect(wrapper.find('.slot-quote').text()).toBe('插槽引用');
     });
 
     it(':quote not provided', () => {
@@ -176,12 +176,12 @@ describe('Comment', () => {
     });
 
     it(':reply[slot]', () => {
-      const w = mount(Comment, {
+      const wrapper = mount(Comment, {
         props: { content: '内容' },
         slots: { reply: () => <div class="slot-reply">插槽回复</div> },
       });
-      expect(w.find('.slot-reply').exists()).toBe(true);
-      expect(w.find('.slot-reply').text()).toBe('插槽回复');
+      expect(wrapper.find('.slot-reply').exists()).toBe(true);
+      expect(wrapper.find('.slot-reply').text()).toBe('插槽回复');
     });
 
     it(':reply not provided', () => {
@@ -189,7 +189,7 @@ describe('Comment', () => {
     });
 
     it(':actions[slot]', () => {
-      const w = mount(Comment, {
+      const wrapper = mount(Comment, {
         props: { avatar: avatarUrl, content: '内容' },
         slots: {
           actions: () => (
@@ -206,7 +206,7 @@ describe('Comment', () => {
           ),
         },
       });
-      const actions = w.find('.t-comment__actions');
+      const actions = wrapper.find('.t-comment__actions');
       const texts = actions.findAll('.action-text');
       expect(actions.exists()).toBe(true);
       expect(actions.findComponent(ThumbUpIcon).exists()).toBe(true);
@@ -231,10 +231,10 @@ describe('Comment', () => {
           </span>
         ),
       ];
-      const w = mount(Comment, {
+      const wrapper = mount(Comment, {
         props: { content: '内容', actions: actionList },
       });
-      const actions = w.find('.t-comment__actions');
+      const actions = wrapper.find('.t-comment__actions');
       expect(actions.exists()).toBe(true);
       const buttons = actions.findAll('.t-button');
       expect(buttons.length).toBe(2);
@@ -243,10 +243,10 @@ describe('Comment', () => {
     });
 
     it(':actions[empty array]', () => {
-      const w = mount(Comment, {
+      const wrapper = mount(Comment, {
         props: { content: '内容', actions: [] },
       });
-      expect(w.find('.t-comment__actions').exists()).toBe(false);
+      expect(wrapper.find('.t-comment__actions').exists()).toBe(false);
     });
 
     it(':actions not provided', () => {
@@ -269,15 +269,24 @@ describe('Comment', () => {
       expect(wrapper.find('.t-comment__time').text()).toBe('今天16:38');
     });
 
+    it('should not render author section when both author and datetime are missing', () => {
+      const wrapper = mount(Comment, {
+        props: { content: '内容' },
+      });
+      expect(wrapper.find('.t-comment__author').exists()).toBe(false);
+      expect(wrapper.find('.t-comment__name').exists()).toBe(false);
+      expect(wrapper.find('.t-comment__time').exists()).toBe(false);
+    });
+
     it('should render minimal comment with no props', () => {
-      const w = mount(Comment);
-      expect(w.find('.t-comment').exists()).toBe(true);
-      expect(w.find('.t-comment__inner').exists()).toBe(true);
-      expect(w.find('.t-comment__avatar').exists()).toBe(false);
-      expect(w.find('.t-comment__author').exists()).toBe(false);
-      expect(w.find('.t-comment__quote').exists()).toBe(false);
-      expect(w.find('.t-comment__reply').exists()).toBe(false);
-      expect(w.find('.t-comment__actions').exists()).toBe(false);
+      const wrapper = mount(Comment);
+      expect(wrapper.find('.t-comment').exists()).toBe(true);
+      expect(wrapper.find('.t-comment__inner').exists()).toBe(true);
+      expect(wrapper.find('.t-comment__avatar').exists()).toBe(false);
+      expect(wrapper.find('.t-comment__author').exists()).toBe(false);
+      expect(wrapper.find('.t-comment__quote').exists()).toBe(false);
+      expect(wrapper.find('.t-comment__reply').exists()).toBe(false);
+      expect(wrapper.find('.t-comment__actions').exists()).toBe(false);
     });
 
     it('should render all props together', async () => {
@@ -289,11 +298,54 @@ describe('Comment', () => {
       expect(wrapper.find('.t-comment__quote').text()).toBe('引用内容');
       expect(wrapper.find('.t-comment__reply').text()).toBe('回复内容');
     });
-  });
 
-  // ==================== Snapshot Tests ====================
-  describe('snapshots', () => {
-    it('minimal comment', async () => {
+    it('should render multiple slots together', () => {
+      const wrapper = mount(Comment, {
+        slots: {
+          avatar: () => <div class="slot-avatar">头像</div>,
+          author: () => <span class="slot-author">作者</span>,
+          datetime: () => <span class="slot-time">时间</span>,
+          content: () => <div class="slot-content">内容</div>,
+          quote: () => <blockquote class="slot-quote">引用</blockquote>,
+          reply: () => <div class="slot-reply">回复</div>,
+          actions: () => <span class="slot-actions">操作</span>,
+        },
+      });
+      expect(wrapper.find('.slot-avatar').exists()).toBe(true);
+      expect(wrapper.find('.slot-author').exists()).toBe(true);
+      expect(wrapper.find('.slot-time').exists()).toBe(true);
+      expect(wrapper.find('.slot-content').exists()).toBe(true);
+      expect(wrapper.find('.slot-quote').exists()).toBe(true);
+      expect(wrapper.find('.slot-reply').exists()).toBe(true);
+      expect(wrapper.find('.slot-actions').exists()).toBe(true);
+    });
+
+    it('should render proper DOM hierarchy', async () => {
+      await wrapper.setProps({ quote: '引用', reply: '回复' });
+      await nextTick();
+
+      const comment = wrapper.find('.t-comment');
+      const inner = comment.find('.t-comment__inner');
+      const avatar = inner.find('.t-comment__avatar');
+      const content = inner.find('.t-comment__content');
+      const reply = comment.find('.t-comment__reply');
+
+      expect(comment.exists()).toBe(true);
+      expect(inner.exists()).toBe(true);
+      expect(avatar.exists()).toBe(true);
+      expect(content.exists()).toBe(true);
+      expect(reply.exists()).toBe(true);
+
+      const author = content.find('.t-comment__author');
+      const detail = content.find('.t-comment__detail');
+      const quote = content.find('.t-comment__quote');
+
+      expect(author.exists()).toBe(true);
+      expect(detail.exists()).toBe(true);
+      expect(quote.exists()).toBe(true);
+    });
+
+    it(':minimal comment snapshot', async () => {
       const wrapper = mount(Comment, {
         props: { content: '基础评论内容' },
       });
@@ -301,7 +353,7 @@ describe('Comment', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('complete comment with all features', async () => {
+    it(':complete comment snapshot', async () => {
       const wrapper = mount(Comment, {
         props: {
           avatar: avatarUrl,
@@ -329,7 +381,7 @@ describe('Comment', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('comment with custom function props', async () => {
+    it(':custom function props snapshot', async () => {
       const wrapper = mount(Comment, {
         props: {
           avatar: () => <div class="custom-avatar">自定义头像</div>,
@@ -414,17 +466,6 @@ describe('Comment', () => {
       expect(img.attributes('src')).toBe('invalid-url');
     });
 
-    it('should handle actions with empty array', async () => {
-      const wrapper = mount(Comment, {
-        props: {
-          content: '内容',
-          actions: [],
-        },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-comment__actions').exists()).toBe(false);
-    });
-
     it('should handle actions with single item', async () => {
       const wrapper = mount(Comment, {
         props: {
@@ -436,200 +477,6 @@ describe('Comment', () => {
       const actions = wrapper.find('.t-comment__actions');
       expect(actions.exists()).toBe(true);
       expect(actions.findAll('.t-button').length).toBe(1);
-    });
-  });
-
-  // ==================== Slot Tests ====================
-  describe('slots', () => {
-    it('should render author slot', () => {
-      const wrapper = mount(Comment, {
-        props: { content: '内容' },
-        slots: { author: () => <span class="slot-author">插槽作者</span> },
-      });
-      expect(wrapper.find('.slot-author').exists()).toBe(true);
-      expect(wrapper.find('.slot-author').text()).toBe('插槽作者');
-    });
-
-    it('should render avatar slot', () => {
-      const wrapper = mount(Comment, {
-        props: { content: '内容' },
-        slots: { avatar: () => <img class="slot-avatar" src={avatarUrl} /> },
-      });
-      expect(wrapper.find('.t-comment__avatar').exists()).toBe(true);
-      expect(wrapper.find('.slot-avatar').exists()).toBe(true);
-    });
-
-    it('should render content slot', () => {
-      const wrapper = mount(Comment, {
-        props: { avatar: avatarUrl },
-        slots: { content: () => <div class="slot-content">插槽内容</div> },
-      });
-      expect(wrapper.find('.slot-content').exists()).toBe(true);
-      expect(wrapper.find('.slot-content').text()).toBe('插槽内容');
-    });
-
-    it('should render datetime slot', () => {
-      const wrapper = mount(Comment, {
-        props: { content: '内容', author: '作者' },
-        slots: { datetime: () => <span class="slot-time">slot时间</span> },
-      });
-      expect(wrapper.find('.slot-time').exists()).toBe(true);
-      expect(wrapper.find('.slot-time').text()).toBe('slot时间');
-    });
-
-    it('should render quote slot', () => {
-      const wrapper = mount(Comment, {
-        props: { content: '内容' },
-        slots: { quote: () => <blockquote class="slot-quote">插槽引用</blockquote> },
-      });
-      expect(wrapper.find('.slot-quote').exists()).toBe(true);
-      expect(wrapper.find('.slot-quote').text()).toBe('插槽引用');
-    });
-
-    it('should render reply slot', () => {
-      const wrapper = mount(Comment, {
-        props: { content: '内容' },
-        slots: { reply: () => <div class="slot-reply">插槽回复</div> },
-      });
-      expect(wrapper.find('.slot-reply').exists()).toBe(true);
-      expect(wrapper.find('.slot-reply').text()).toBe('插槽回复');
-    });
-
-    it('should render actions slot', () => {
-      const wrapper = mount(Comment, {
-        props: { avatar: avatarUrl, content: '内容' },
-        slots: {
-          actions: () => (
-            <>
-              <span>
-                <ThumbUpIcon />
-                <span class="action-text">6</span>
-              </span>
-              <span>
-                <ChartIcon />
-                <span class="action-text">回复</span>
-              </span>
-            </>
-          ),
-        },
-      });
-      const actions = wrapper.find('.t-comment__actions');
-      const texts = actions.findAll('.action-text');
-      expect(actions.exists()).toBe(true);
-      expect(actions.findComponent(ThumbUpIcon).exists()).toBe(true);
-      expect(actions.findComponent(ChartIcon).exists()).toBe(true);
-      expect(texts.length).toBe(2);
-      expect(texts[0].text()).toBe('6');
-      expect(texts[1].text()).toBe('回复');
-    });
-
-    it('should render multiple slots together', () => {
-      const wrapper = mount(Comment, {
-        slots: {
-          avatar: () => <div class="slot-avatar">头像</div>,
-          author: () => <span class="slot-author">作者</span>,
-          datetime: () => <span class="slot-time">时间</span>,
-          content: () => <div class="slot-content">内容</div>,
-          quote: () => <blockquote class="slot-quote">引用</blockquote>,
-          reply: () => <div class="slot-reply">回复</div>,
-          actions: () => <span class="slot-actions">操作</span>,
-        },
-      });
-      expect(wrapper.find('.slot-avatar').exists()).toBe(true);
-      expect(wrapper.find('.slot-author').exists()).toBe(true);
-      expect(wrapper.find('.slot-time').exists()).toBe(true);
-      expect(wrapper.find('.slot-content').exists()).toBe(true);
-      expect(wrapper.find('.slot-quote').exists()).toBe(true);
-      expect(wrapper.find('.slot-reply').exists()).toBe(true);
-      expect(wrapper.find('.slot-actions').exists()).toBe(true);
-    });
-  });
-
-  // ==================== Component Structure Tests ====================
-  describe('component structure', () => {
-    it('should render minimal comment with no props', () => {
-      const wrapper = mount(Comment);
-      expect(wrapper.find('.t-comment').exists()).toBe(true);
-      expect(wrapper.find('.t-comment__inner').exists()).toBe(true);
-      expect(wrapper.find('.t-comment__avatar').exists()).toBe(false);
-      expect(wrapper.find('.t-comment__author').exists()).toBe(false);
-      expect(wrapper.find('.t-comment__quote').exists()).toBe(false);
-      expect(wrapper.find('.t-comment__reply').exists()).toBe(false);
-      expect(wrapper.find('.t-comment__actions').exists()).toBe(false);
-    });
-
-    it('should render only author without datetime', async () => {
-      const wrapper = mount(Comment, {
-        props: {
-          author: '评论作者名',
-          content: '内容',
-        },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-comment__author').exists()).toBe(true);
-      expect(wrapper.find('.t-comment__name').exists()).toBe(true);
-      expect(wrapper.find('.t-comment__name').text()).toBe('评论作者名');
-      expect(wrapper.find('.t-comment__time').exists()).toBe(false);
-    });
-
-    it('should render only datetime without author', async () => {
-      const wrapper = mount(Comment, {
-        props: {
-          datetime: '今天16:38',
-          content: '内容',
-        },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-comment__author').exists()).toBe(true);
-      expect(wrapper.find('.t-comment__name').exists()).toBe(false);
-      expect(wrapper.find('.t-comment__time').exists()).toBe(true);
-      expect(wrapper.find('.t-comment__time').text()).toBe('今天16:38');
-    });
-
-    it('should not render author section when both author and datetime are missing', async () => {
-      const wrapper = mount(Comment, {
-        props: { content: '内容' },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-comment__author').exists()).toBe(false);
-      expect(wrapper.find('.t-comment__name').exists()).toBe(false);
-      expect(wrapper.find('.t-comment__time').exists()).toBe(false);
-    });
-
-    it('should render proper DOM hierarchy', async () => {
-      const wrapper = mount(Comment, {
-        props: {
-          avatar: avatarUrl,
-          author: '作者',
-          datetime: '时间',
-          content: '内容',
-          quote: '引用',
-          reply: '回复',
-        },
-      });
-      await nextTick();
-
-      // Check main structure
-      const comment = wrapper.find('.t-comment');
-      const inner = comment.find('.t-comment__inner');
-      const avatar = inner.find('.t-comment__avatar');
-      const content = inner.find('.t-comment__content');
-      const reply = comment.find('.t-comment__reply');
-
-      expect(comment.exists()).toBe(true);
-      expect(inner.exists()).toBe(true);
-      expect(avatar.exists()).toBe(true);
-      expect(content.exists()).toBe(true);
-      expect(reply.exists()).toBe(true);
-
-      // Check content structure
-      const author = content.find('.t-comment__author');
-      const detail = content.find('.t-comment__detail');
-      const quote = content.find('.t-comment__quote');
-
-      expect(author.exists()).toBe(true);
-      expect(detail.exists()).toBe(true);
-      expect(quote.exists()).toBe(true);
     });
   });
 
@@ -660,7 +507,8 @@ describe('Comment', () => {
         },
       });
       await nextTick();
-      expect(() => wrapper.unmount()).not.toThrow();
+      wrapper.unmount();
+      expect(true).toBe(true);
     });
 
     it('should handle function props returning null', async () => {

@@ -1,80 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Comment > snapshots > comment with custom function props 1`] = `
-<div
-  class="t-comment"
->
-  <div
-    class="t-comment__inner"
-  >
-    <div
-      class="t-comment__avatar"
-    >
-      <div
-        class="custom-avatar"
-      >
-        自定义头像
-      </div>
-    </div>
-    <div
-      class="t-comment__content"
-    >
-      <div
-        class="t-comment__author"
-      >
-        <span
-          class="t-comment__name"
-        >
-          <span
-            class="custom-author"
-          >
-            自定义作者
-          </span>
-        </span>
-        <span
-          class="t-comment__time"
-        >
-          <span
-            class="custom-time"
-          >
-            自定义时间
-          </span>
-        </span>
-      </div>
-      <div
-        class="t-comment__detail"
-      >
-        <div
-          class="custom-content"
-        >
-          自定义内容
-        </div>
-      </div>
-      <div
-        class="t-comment__quote"
-      >
-        <blockquote
-          class="custom-quote"
-        >
-          自定义引用
-        </blockquote>
-      </div>
-      <!---->
-    </div>
-  </div>
-  <div
-    class="t-comment__reply"
-  >
-    <div
-      class="custom-reply"
-    >
-      自定义回复
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Comment > snapshots > complete comment with all features 1`] = `
+exports[`Comment > props > :complete comment snapshot 1`] = `
 <div
   class="t-comment"
 >
@@ -222,7 +148,81 @@ exports[`Comment > snapshots > complete comment with all features 1`] = `
 </div>
 `;
 
-exports[`Comment > snapshots > minimal comment 1`] = `
+exports[`Comment > props > :custom function props snapshot 1`] = `
+<div
+  class="t-comment"
+>
+  <div
+    class="t-comment__inner"
+  >
+    <div
+      class="t-comment__avatar"
+    >
+      <div
+        class="custom-avatar"
+      >
+        自定义头像
+      </div>
+    </div>
+    <div
+      class="t-comment__content"
+    >
+      <div
+        class="t-comment__author"
+      >
+        <span
+          class="t-comment__name"
+        >
+          <span
+            class="custom-author"
+          >
+            自定义作者
+          </span>
+        </span>
+        <span
+          class="t-comment__time"
+        >
+          <span
+            class="custom-time"
+          >
+            自定义时间
+          </span>
+        </span>
+      </div>
+      <div
+        class="t-comment__detail"
+      >
+        <div
+          class="custom-content"
+        >
+          自定义内容
+        </div>
+      </div>
+      <div
+        class="t-comment__quote"
+      >
+        <blockquote
+          class="custom-quote"
+        >
+          自定义引用
+        </blockquote>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <div
+    class="t-comment__reply"
+  >
+    <div
+      class="custom-reply"
+    >
+      自定义回复
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Comment > props > :minimal comment snapshot 1`] = `
 <div
   class="t-comment"
 >
