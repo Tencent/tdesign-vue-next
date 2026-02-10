@@ -1,0 +1,75 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Statistic > snapshots > default render 1`] = `
+<div
+  class="t-statistic"
+>
+  <div
+    class="t-statistic-title"
+  >
+    Total
+  </div>
+  <div>
+    
+    <div
+      class="t-statistic-content"
+    >
+      <!---->
+      <span
+        class="t-statistic-content-value"
+      >
+        1,234.56
+      </span>
+      <!---->
+      <!---->
+    </div>
+    
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Statistic > snapshots > full props render 1`] = `
+<div
+  class="t-statistic"
+>
+  <div
+    class="t-statistic-title"
+  >
+    Revenue
+  </div>
+  <div>
+    
+    <div
+      class="t-statistic-content"
+    >
+      <span
+        class="t-statistic-content-prefix"
+      >
+        ¥
+      </span>
+      <span
+        class="t-statistic-content-value"
+      >
+        9,876.54
+      </span>
+      <span
+        class="t-statistic-content-unit"
+      >
+        万元
+      </span>
+      <span
+        class="t-statistic-content-suffix"
+      >
+        +
+      </span>
+    </div>
+    
+  </div>
+  <div
+    class="t-statistic-extra"
+  >
+    Year over year
+  </div>
+</div>
+`;
