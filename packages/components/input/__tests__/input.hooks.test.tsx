@@ -224,7 +224,7 @@ describe('Input Hooks', () => {
 
       it('should handle format function with null/undefined values', async () => {
         const formatFn = vi.fn((val) => (val ? `formatted-${val}` : ''));
-        const wrapper = mount(Input, {
+        mount(Input, {
           props: { format: formatFn, value: null },
         });
         await nextTick();
@@ -415,7 +415,7 @@ describe('Input Hooks', () => {
     describe('maxlength functionality', () => {
       it('should limit value by maxlength', async () => {
         const onChangeFn = vi.fn();
-        const wrapper = mount(Input, {
+        mount(Input, {
           props: { value: 'Hello TDesign', maxlength: 5, onChange: onChangeFn },
         });
         await nextTick();
@@ -433,7 +433,7 @@ describe('Input Hooks', () => {
 
       it('should handle maxlength as string type', async () => {
         const onChangeFn = vi.fn();
-        const wrapper = mount(Input, {
+        mount(Input, {
           props: { value: 'Hello TDesign', maxlength: '5', onChange: onChangeFn },
         });
         await nextTick();
@@ -445,7 +445,7 @@ describe('Input Hooks', () => {
     describe('maxcharacter functionality', () => {
       it('should limit value by maxcharacter', async () => {
         const onChangeFn = vi.fn();
-        const wrapper = mount(Input, {
+        mount(Input, {
           props: { value: '你好 TDesign', maxcharacter: 4, onChange: onChangeFn },
         });
         await nextTick();
@@ -498,7 +498,7 @@ describe('Input Hooks', () => {
     describe('onValidate functionality', () => {
       it('should trigger onValidate when value exceeds limit', async () => {
         const onValidateFn = vi.fn();
-        const wrapper = mount(Input, {
+        mount(Input, {
           props: { value: 'Hello World', maxlength: 5, onValidate: onValidateFn },
         });
         await nextTick();

@@ -641,7 +641,7 @@ describe('ImageViewer', () => {
       await nextTick();
       expect(typeof openFn).toBe('function');
 
-      openFn!(2);
+      if (openFn) openFn(2);
       await nextTick();
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
     });

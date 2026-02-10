@@ -1007,15 +1007,17 @@ describe('Input', () => {
 
     it('focus method', async () => {
       const component = wrapper.findComponent(Input);
-      await component.vm.$.exposed!.focus();
+      const exposed = component.vm.$.exposed;
+      await exposed?.focus();
       expect(document.activeElement).eq(wrapper.find('input').element);
     });
 
     it('blur method', async () => {
       const component = wrapper.findComponent(Input);
-      await component.vm.$.exposed!.focus();
+      const exposed = component.vm.$.exposed;
+      await exposed?.focus();
       await nextTick();
-      await component.vm.$.exposed!.blur();
+      await exposed?.blur();
       expect(document.activeElement).not.eq(wrapper.find('input').element);
     });
   });
