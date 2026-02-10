@@ -1,9 +1,20 @@
-import { defineComponent, nextTick, computed } from 'vue';
+import { nextTick, computed } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { useBreadcrumbOptions, useEllipsis } from '@tdesign/components/breadcrumb/hooks';
 import { Breadcrumb, BreadcrumbItem } from '@tdesign/components/breadcrumb';
 import type { TdBreadcrumbProps } from '@tdesign/components/breadcrumb';
+
+const createEllipsisTestComponent = (props: TdBreadcrumbProps, itemData: { content: string; index: number }[]) => ({
+  setup() {
+    const items = computed(() => itemData);
+    const { getDisplayItems, getEllipsisItems } = useEllipsis(props, items, '...');
+    return { displayItems: getDisplayItems, ellipsisItems: getEllipsisItems };
+  },
+  render() {
+    return <div />;
+  },
+});
 
 describe('Breadcrumb hooks', () => {
   beforeEach(() => {
@@ -18,23 +29,22 @@ describe('Breadcrumb hooks', () => {
   // ==================== useBreadcrumbOptions Tests ====================
   describe('useBreadcrumbOptions', () => {
     it('returns empty array when no options and no slots', async () => {
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const props: TdBreadcrumbProps = {};
           const { breadcrumbOptions } = useBreadcrumbOptions(props);
           return { breadcrumbOptions };
         },
         render() {
-          return <div>{this.breadcrumbOptions.length}</div>;
+          return <div />;
         },
       });
-      const wrapper = mount(TestComponent);
       await nextTick();
-      expect(wrapper.vm.breadcrumbOptions).toEqual([]);
+      expect((wrapper.vm as any).breadcrumbOptions).toEqual([]);
     });
 
     it('returns items from options prop', async () => {
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const props: TdBreadcrumbProps = {
             options: [{ content: '首页', href: '/' }, { content: '产品', href: '/products' }, { content: '详情' }],
@@ -46,14 +56,14 @@ describe('Breadcrumb hooks', () => {
           return <div />;
         },
       });
-      const wrapper = mount(TestComponent);
       await nextTick();
-      expect(wrapper.vm.breadcrumbOptions.length).toBe(3);
-      expect(wrapper.vm.breadcrumbOptions[0].content).toBe('首页');
-      expect(wrapper.vm.breadcrumbOptions[0].href).toBe('/');
-      expect(wrapper.vm.breadcrumbOptions[0].index).toBe(0);
-      expect(wrapper.vm.breadcrumbOptions[1].index).toBe(1);
-      expect(wrapper.vm.breadcrumbOptions[2].index).toBe(2);
+      const vm = wrapper.vm as any;
+      expect(vm.breadcrumbOptions.length).toBe(3);
+      expect(vm.breadcrumbOptions[0].content).toBe('首页');
+      expect(vm.breadcrumbOptions[0].href).toBe('/');
+      expect(vm.breadcrumbOptions[0].index).toBe(0);
+      expect(vm.breadcrumbOptions[1].index).toBe(1);
+      expect(vm.breadcrumbOptions[2].index).toBe(2);
     });
 
     it('returns items from slot children (text content)', async () => {
@@ -109,103 +119,51 @@ describe('Breadcrumb hooks', () => {
   // ==================== useEllipsis Tests ====================
   describe('useEllipsis', () => {
     it('shouldShowEllipsis returns false when maxItems <= 0', async () => {
-      const TestComponent = defineComponent({
-        setup() {
-          const props: TdBreadcrumbProps = {
-            maxItems: 0,
-            itemsBeforeCollapse: 1,
-            itemsAfterCollapse: 1,
-          };
-          const items = computed(() => [
-            { content: '页面1', index: 0 },
-            { content: '页面2', index: 1 },
-            { content: '页面3', index: 2 },
-          ]);
-          const { getDisplayItems, getEllipsisItems } = useEllipsis(props, items, '...');
-          return { displayItems: getDisplayItems, ellipsisItems: getEllipsisItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent);
+      const wrapper = mount(
+        createEllipsisTestComponent({ maxItems: 0, itemsBeforeCollapse: 1, itemsAfterCollapse: 1 }, [
+          { content: '页面1', index: 0 },
+          { content: '页面2', index: 1 },
+          { content: '页面3', index: 2 },
+        ]),
+      );
       await nextTick();
       expect(wrapper.vm.displayItems.length).toBe(3);
       expect(wrapper.vm.ellipsisItems.length).toBe(0);
     });
 
     it('shouldShowEllipsis returns false when totalItems <= maxItems', async () => {
-      const TestComponent = defineComponent({
-        setup() {
-          const props: TdBreadcrumbProps = {
-            maxItems: 10,
-            itemsBeforeCollapse: 2,
-            itemsAfterCollapse: 1,
-          };
-          const items = computed(() => [
-            { content: '页面1', index: 0 },
-            { content: '页面2', index: 1 },
-          ]);
-          const { getDisplayItems } = useEllipsis(props, items, '...');
-          return { displayItems: getDisplayItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent);
+      const wrapper = mount(
+        createEllipsisTestComponent({ maxItems: 10, itemsBeforeCollapse: 2, itemsAfterCollapse: 1 }, [
+          { content: '页面1', index: 0 },
+          { content: '页面2', index: 1 },
+        ]),
+      );
       await nextTick();
       expect(wrapper.vm.displayItems.length).toBe(2);
     });
 
     it('shouldShowEllipsis returns false when itemsBeforeCollapse + itemsAfterCollapse >= totalItems', async () => {
-      const TestComponent = defineComponent({
-        setup() {
-          const props: TdBreadcrumbProps = {
-            maxItems: 2,
-            itemsBeforeCollapse: 2,
-            itemsAfterCollapse: 2,
-          };
-          const items = computed(() => [
-            { content: '页面1', index: 0 },
-            { content: '页面2', index: 1 },
-            { content: '页面3', index: 2 },
-          ]);
-          const { getDisplayItems } = useEllipsis(props, items, '...');
-          return { displayItems: getDisplayItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent);
+      const wrapper = mount(
+        createEllipsisTestComponent({ maxItems: 2, itemsBeforeCollapse: 2, itemsAfterCollapse: 2 }, [
+          { content: '页面1', index: 0 },
+          { content: '页面2', index: 1 },
+          { content: '页面3', index: 2 },
+        ]),
+      );
       await nextTick();
       expect(wrapper.vm.displayItems.length).toBe(3);
     });
 
     it('shouldShowEllipsis returns true and getDisplayItems includes ellipsis', async () => {
-      const TestComponent = defineComponent({
-        setup() {
-          const props: TdBreadcrumbProps = {
-            maxItems: 3,
-            itemsBeforeCollapse: 1,
-            itemsAfterCollapse: 1,
-          };
-          const items = computed(() => [
-            { content: '页面1', index: 0 },
-            { content: '页面2', index: 1 },
-            { content: '页面3', index: 2 },
-            { content: '页面4', index: 3 },
-            { content: '页面5', index: 4 },
-          ]);
-          const { getDisplayItems, getEllipsisItems } = useEllipsis(props, items, '...');
-          return { displayItems: getDisplayItems, ellipsisItems: getEllipsisItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent);
+      const wrapper = mount(
+        createEllipsisTestComponent({ maxItems: 3, itemsBeforeCollapse: 1, itemsAfterCollapse: 1 }, [
+          { content: '页面1', index: 0 },
+          { content: '页面2', index: 1 },
+          { content: '页面3', index: 2 },
+          { content: '页面4', index: 3 },
+          { content: '页面5', index: 4 },
+        ]),
+      );
       await nextTick();
       expect(wrapper.vm.displayItems.length).toBe(3);
       expect((wrapper.vm.displayItems[0] as any).content).toBe('页面1');
@@ -216,28 +174,15 @@ describe('Breadcrumb hooks', () => {
     });
 
     it('getEllipsisItems returns correct ellipsis items', async () => {
-      const TestComponent = defineComponent({
-        setup() {
-          const props: TdBreadcrumbProps = {
-            maxItems: 3,
-            itemsBeforeCollapse: 1,
-            itemsAfterCollapse: 1,
-          };
-          const items = computed(() => [
-            { content: '页面1', index: 0 },
-            { content: '页面2', index: 1 },
-            { content: '页面3', index: 2 },
-            { content: '页面4', index: 3 },
-            { content: '页面5', index: 4 },
-          ]);
-          const { getEllipsisItems } = useEllipsis(props, items, '...');
-          return { ellipsisItems: getEllipsisItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent);
+      const wrapper = mount(
+        createEllipsisTestComponent({ maxItems: 3, itemsBeforeCollapse: 1, itemsAfterCollapse: 1 }, [
+          { content: '页面1', index: 0 },
+          { content: '页面2', index: 1 },
+          { content: '页面3', index: 2 },
+          { content: '页面4', index: 3 },
+          { content: '页面5', index: 4 },
+        ]),
+      );
       await nextTick();
       expect(wrapper.vm.ellipsisItems.length).toBe(3);
       expect(wrapper.vm.ellipsisItems[0].content).toBe('页面2');
@@ -250,27 +195,14 @@ describe('Breadcrumb hooks', () => {
 
     it('valueIsZeroOrUndefined warns when itemsBeforeCollapse is 0', async () => {
       const logErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const TestComponent = defineComponent({
-        setup() {
-          const props: TdBreadcrumbProps = {
-            maxItems: 3,
-            itemsBeforeCollapse: 0,
-            itemsAfterCollapse: 1,
-          };
-          const items = computed(() => [
-            { content: '页面1', index: 0 },
-            { content: '页面2', index: 1 },
-            { content: '页面3', index: 2 },
-            { content: '页面4', index: 3 },
-          ]);
-          const { getDisplayItems } = useEllipsis(props, items, '...');
-          return { displayItems: getDisplayItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent);
+      const wrapper = mount(
+        createEllipsisTestComponent({ maxItems: 3, itemsBeforeCollapse: 0, itemsAfterCollapse: 1 }, [
+          { content: '页面1', index: 0 },
+          { content: '页面2', index: 1 },
+          { content: '页面3', index: 2 },
+          { content: '页面4', index: 3 },
+        ]),
+      );
       await nextTick();
       expect(wrapper.vm.displayItems.length).toBe(4);
       logErrorSpy.mockRestore();
@@ -278,27 +210,14 @@ describe('Breadcrumb hooks', () => {
 
     it('valueIsZeroOrUndefined warns when itemsAfterCollapse is 0', async () => {
       const logErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const TestComponent = defineComponent({
-        setup() {
-          const props: TdBreadcrumbProps = {
-            maxItems: 3,
-            itemsBeforeCollapse: 1,
-            itemsAfterCollapse: 0,
-          };
-          const items = computed(() => [
-            { content: '页面1', index: 0 },
-            { content: '页面2', index: 1 },
-            { content: '页面3', index: 2 },
-            { content: '页面4', index: 3 },
-          ]);
-          const { getDisplayItems } = useEllipsis(props, items, '...');
-          return { displayItems: getDisplayItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent);
+      const wrapper = mount(
+        createEllipsisTestComponent({ maxItems: 3, itemsBeforeCollapse: 1, itemsAfterCollapse: 0 }, [
+          { content: '页面1', index: 0 },
+          { content: '页面2', index: 1 },
+          { content: '页面3', index: 2 },
+          { content: '页面4', index: 3 },
+        ]),
+      );
       await nextTick();
       expect(wrapper.vm.displayItems.length).toBe(4);
       logErrorSpy.mockRestore();
@@ -306,27 +225,14 @@ describe('Breadcrumb hooks', () => {
 
     it('valueIsZeroOrUndefined warns when itemsBeforeCollapse is undefined', async () => {
       const logErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const TestComponent = defineComponent({
-        setup() {
-          const props: TdBreadcrumbProps = {
-            maxItems: 3,
-            itemsBeforeCollapse: undefined,
-            itemsAfterCollapse: 1,
-          };
-          const items = computed(() => [
-            { content: '页面1', index: 0 },
-            { content: '页面2', index: 1 },
-            { content: '页面3', index: 2 },
-            { content: '页面4', index: 3 },
-          ]);
-          const { getDisplayItems } = useEllipsis(props, items, '...');
-          return { displayItems: getDisplayItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent);
+      const wrapper = mount(
+        createEllipsisTestComponent({ maxItems: 3, itemsBeforeCollapse: undefined, itemsAfterCollapse: 1 }, [
+          { content: '页面1', index: 0 },
+          { content: '页面2', index: 1 },
+          { content: '页面3', index: 2 },
+          { content: '页面4', index: 3 },
+        ]),
+      );
       await nextTick();
       expect(wrapper.vm.displayItems.length).toBe(4);
       logErrorSpy.mockRestore();
@@ -334,81 +240,57 @@ describe('Breadcrumb hooks', () => {
 
     it('valueIsZeroOrUndefined warns when itemsAfterCollapse is undefined', async () => {
       const logErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const TestComponent = defineComponent({
-        setup() {
-          const props: TdBreadcrumbProps = {
-            maxItems: 3,
-            itemsBeforeCollapse: 1,
-            itemsAfterCollapse: undefined,
-          };
-          const items = computed(() => [
-            { content: '页面1', index: 0 },
-            { content: '页面2', index: 1 },
-            { content: '页面3', index: 2 },
-            { content: '页面4', index: 3 },
-          ]);
-          const { getDisplayItems } = useEllipsis(props, items, '...');
-          return { displayItems: getDisplayItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent);
+      const wrapper = mount(
+        createEllipsisTestComponent({ maxItems: 3, itemsBeforeCollapse: 1, itemsAfterCollapse: undefined }, [
+          { content: '页面1', index: 0 },
+          { content: '页面2', index: 1 },
+          { content: '页面3', index: 2 },
+          { content: '页面4', index: 3 },
+        ]),
+      );
       await nextTick();
       expect(wrapper.vm.displayItems.length).toBe(4);
       logErrorSpy.mockRestore();
     });
 
     it('getEllipsisItems returns empty array when not showing ellipsis', async () => {
-      const TestComponent = defineComponent({
-        setup() {
-          const props: TdBreadcrumbProps = {
-            maxItems: 0,
-            itemsBeforeCollapse: 1,
-            itemsAfterCollapse: 1,
-          };
-          const items = computed(() => [
-            { content: '页面1', index: 0 },
-            { content: '页面2', index: 1 },
-          ]);
-          const { getEllipsisItems } = useEllipsis(props, items, '...');
-          return { ellipsisItems: getEllipsisItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent);
+      const wrapper = mount(
+        createEllipsisTestComponent({ maxItems: 0, itemsBeforeCollapse: 1, itemsAfterCollapse: 1 }, [
+          { content: '页面1', index: 0 },
+          { content: '页面2', index: 1 },
+        ]),
+      );
       await nextTick();
       expect(wrapper.vm.ellipsisItems).toEqual([]);
     });
 
     it('reactive update when items change', async () => {
-      const TestComponent = defineComponent({
-        props: {
-          count: { type: Number, default: 5 },
+      const wrapper = mount(
+        {
+          props: {
+            count: { type: Number, default: 5 },
+          },
+          setup(props: { count: number }) {
+            const breadcrumbProps: TdBreadcrumbProps = {
+              maxItems: 3,
+              itemsBeforeCollapse: 1,
+              itemsAfterCollapse: 1,
+            };
+            const items = computed(() =>
+              Array.from({ length: props.count }, (_, index) => ({
+                content: `页面${index + 1}`,
+                index,
+              })),
+            );
+            const { getDisplayItems, getEllipsisItems } = useEllipsis(breadcrumbProps, items, '...');
+            return { displayItems: getDisplayItems, ellipsisItems: getEllipsisItems };
+          },
+          render() {
+            return <div />;
+          },
         },
-        setup(props) {
-          const breadcrumbProps: TdBreadcrumbProps = {
-            maxItems: 3,
-            itemsBeforeCollapse: 1,
-            itemsAfterCollapse: 1,
-          };
-          const items = computed(() =>
-            Array.from({ length: props.count }, (_, index) => ({
-              content: `页面${index + 1}`,
-              index,
-            })),
-          );
-          const { getDisplayItems, getEllipsisItems } = useEllipsis(breadcrumbProps, items, '...');
-          return { displayItems: getDisplayItems, ellipsisItems: getEllipsisItems };
-        },
-        render() {
-          return <div />;
-        },
-      });
-      const wrapper = mount(TestComponent, { props: { count: 5 } });
+        { props: { count: 5 } },
+      );
       await nextTick();
       expect(wrapper.vm.displayItems.length).toBe(3);
       expect(wrapper.vm.ellipsisItems.length).toBe(3);
