@@ -8,7 +8,13 @@ import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';
 import useRowSelect from './hooks/useRowSelect';
-import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams } from './type';
+import {
+  TdPrimaryTableProps,
+  PrimaryTableCol,
+  TableRowData,
+  PrimaryTableCellParams,
+  PrimaryTableRowEditContext,
+} from './type';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
@@ -146,6 +152,7 @@ export default defineComponent({
 
     // 可编辑行
     const {
+      editedFormData,
       errorListMap,
       editableKeysMap,
       validateRowData,
@@ -228,6 +235,61 @@ export default defineComponent({
       onUpdateEditedCell(rowValue, params.row, {
         [params.col.colKey]: params.value,
       });
+    };
+
+    const onUpdateEditedCellWithEvent = (rowValue: any, lastRowData: TableRowData, data: { [key: string]: any }) => {
+      // First update the edited cell data
+      onUpdateEditedCell(rowValue, lastRowData, data);
+
+      // Then trigger row-edit event for each updated column
+      if (props.onRowEdit) {
+        Object.entries(data).forEach(([colKey, value]) => {
+          // Find the column definition recursively
+          const findColumnByKey = (
+            cols: PrimaryTableCol<TableRowData>[],
+            key: string,
+          ): PrimaryTableCol<TableRowData> | null => {
+            for (const col of cols) {
+              if (col.colKey === key) return col;
+              if (col.children?.length) {
+                const found = findColumnByKey(col.children, key);
+                if (found) return found;
+              }
+            }
+            return null;
+          };
+
+          const col = findColumnByKey(columns.value, colKey);
+          if (col) {
+            // Find the row index
+            const rowIndex = props.data.findIndex((row) => get(row, props.rowKey || 'id') === rowValue);
+
+            // Skip if row not found
+            if (rowIndex === -1) return;
+
+            // For colIndex, try to find in top-level columns. For nested columns, use -1
+            // The col.colKey is the primary identifier, so colIndex is supplementary
+            const colIndex = columns.value.findIndex((c) => c.colKey === col.colKey);
+
+            // Get the complete editedRow with all edits from editedFormData
+            // After onUpdateEditedCell is called, editedFormData[rowValue] should exist
+            // Fallback to lastRowData with current changes if not found (defensive programming)
+            const editedRow = editedFormData.value[rowValue]
+              ? { ...editedFormData.value[rowValue] }
+              : { ...lastRowData, [colKey]: value };
+
+            const context: PrimaryTableRowEditContext<TableRowData> = {
+              row: lastRowData,
+              rowIndex,
+              col,
+              colIndex: colIndex !== -1 ? colIndex : -1,
+              value,
+              editedRow,
+            };
+            props.onRowEdit(context);
+          }
+        });
+      }
     };
 
     // 1. 影响列数量的因素有：自定义列配置、展开/收起行、多级表头；2. 影响表头内容的因素有：排序图标、筛选图标
@@ -313,7 +375,7 @@ export default defineComponent({
                 cellKey={cellKey}
                 onCellInstanceChange={onCellInstanceChange}
                 v-slots={context.slots}
-                onUpdateEditedCell={onUpdateEditedCell}
+                onUpdateEditedCell={onUpdateEditedCellWithEvent}
               />
             );
           };
