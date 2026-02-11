@@ -6,7 +6,7 @@ import { expect, vi } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon, InfoCircleIcon } from 'tdesign-icons-vue-next';
 import { omit, isObject } from 'lodash-es';
 import { FormItem, Form, Input, Switch, InputNumber } from '@tdesign/components';
-import FormProps from '@tdesign/components/form/props';
+import formProps from '@tdesign/components/form/props';
 import { FormRules, Data, TdFormProps } from '@tdesign/components/form/type';
 import { sleep } from '@tdesign/internal-utils';
 
@@ -52,7 +52,7 @@ describe('Form', () => {
     });
 
     it(':labelAlign[string]', async () => {
-      const validator = (wrapper.vm.$options.props as typeof FormProps)?.labelAlign.validator;
+      const validator = formProps.labelAlign.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
       // @ts-expect-error
@@ -81,7 +81,7 @@ describe('Form', () => {
     });
 
     it(':layout[vertical/inline]', async () => {
-      const validator = (wrapper.vm.$options.props as typeof FormProps)?.layout.validator;
+      const validator = formProps.layout.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
       // @ts-expect-error
@@ -116,7 +116,7 @@ describe('Form', () => {
     });
 
     it(':requiredMark[boolean] + requiredMarkPosition[left/right]', async () => {
-      const validator = (wrapper.vm.$options.props as typeof FormProps)?.requiredMarkPosition.validator;
+      const validator = formProps.requiredMarkPosition.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
       // @ts-expect-error
@@ -140,7 +140,7 @@ describe('Form', () => {
         </Form>,
       );
 
-      const validator = (wrapper.vm.$options.props as typeof FormProps)?.resetType.validator;
+      const validator = formProps.resetType.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
       // @ts-expect-error
@@ -477,7 +477,7 @@ describe('Form', () => {
     });
 
     it(':scrollToFirstError[smooth/auto]', async () => {
-      const validator = (wrapper.vm.$options.props as typeof FormProps)?.scrollToFirstError.validator;
+      const validator = formProps.scrollToFirstError.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
       // @ts-expect-error

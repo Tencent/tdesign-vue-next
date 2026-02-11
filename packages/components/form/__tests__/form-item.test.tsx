@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { FormItem, Form, Input } from '@tdesign/components';
-import FormItemProps from '@tdesign/components/form/form-item-props';
+import formItemProps from '@tdesign/components/form/form-item-props';
 
 describe('FormItem', () => {
   describe('props', () => {
@@ -89,7 +89,7 @@ describe('FormItem', () => {
         </FormItem>,
       );
 
-      const validator = (formItemWrapper.vm.$options.props as typeof FormItemProps)?.labelAlign.validator;
+      const validator = formItemProps.labelAlign.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
       // @ts-expect-error
