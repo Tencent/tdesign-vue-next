@@ -32,7 +32,7 @@ describe('Drawer', () => {
 
   // ==================== Props ====================
   describe('props', () => {
-    let wrapper: VueWrapper<InstanceType<typeof Drawer>> | null = null;
+    let wrapper!: VueWrapper<InstanceType<typeof Drawer>>;
 
     beforeEach(async () => {
       wrapper = mount(Drawer, {
@@ -43,23 +43,22 @@ describe('Drawer', () => {
     });
 
     afterEach(() => {
-      wrapper?.unmount();
-      wrapper = null;
+      wrapper.unmount();
     });
 
     it(':visible[boolean]', async () => {
-      expect(wrapper!.find('.t-drawer').exists()).toBe(true);
-      expect(wrapper!.find('.t-drawer').classes()).toContain('t-drawer--open');
+      expect(wrapper.find('.t-drawer').exists()).toBe(true);
+      expect(wrapper.find('.t-drawer').classes()).toContain('t-drawer--open');
 
-      await wrapper!.setProps({ visible: false });
+      await wrapper.setProps({ visible: false });
       vi.runAllTimers();
       await nextTick();
-      expect(wrapper!.find('.t-drawer').classes()).not.toContain('t-drawer--open');
+      expect(wrapper.find('.t-drawer').classes()).not.toContain('t-drawer--open');
     });
 
     it(':body[string]', () => {
-      expect(wrapper!.find('.t-drawer__body').exists()).toBe(true);
-      expect(wrapper!.find('.t-drawer__body').text()).toBe('内容');
+      expect(wrapper.find('.t-drawer__body').exists()).toBe(true);
+      expect(wrapper.find('.t-drawer__body').text()).toBe('内容');
     });
 
     it(':body[slot/function]', async () => {
@@ -103,25 +102,25 @@ describe('Drawer', () => {
     });
 
     it(':header[string]', async () => {
-      await wrapper!.setProps({ header: '标题文字' });
+      await wrapper.setProps({ header: '标题文字' });
       await nextTick();
-      expect(wrapper!.find('.t-drawer__header').exists()).toBe(true);
-      expect(wrapper!.find('.t-drawer__header').text()).toBe('标题文字');
+      expect(wrapper.find('.t-drawer__header').exists()).toBe(true);
+      expect(wrapper.find('.t-drawer__header').text()).toBe('标题文字');
     });
 
     it(':header[boolean]', async () => {
       // Default true with no content - header div does NOT render (no renderable content)
-      expect(wrapper!.find('.t-drawer__header').exists()).toBe(false);
+      expect(wrapper.find('.t-drawer__header').exists()).toBe(false);
 
       // Set header string content - header div renders
-      await wrapper!.setProps({ header: '标题' });
+      await wrapper.setProps({ header: '标题' });
       await nextTick();
-      expect(wrapper!.find('.t-drawer__header').exists()).toBe(true);
+      expect(wrapper.find('.t-drawer__header').exists()).toBe(true);
 
       // Explicitly false - header div hidden
-      await wrapper!.setProps({ header: false });
+      await wrapper.setProps({ header: false });
       await nextTick();
-      expect(wrapper!.find('.t-drawer__header').exists()).toBe(false);
+      expect(wrapper.find('.t-drawer__header').exists()).toBe(false);
     });
 
     it(':header[slot/function]', async () => {
@@ -145,12 +144,12 @@ describe('Drawer', () => {
 
     it(':footer[boolean]', async () => {
       // Default true
-      expect(wrapper!.find('.t-drawer__footer').exists()).toBe(true);
-      expect(wrapper!.find('.t-drawer__footer').findAll('button').length).toBe(2);
+      expect(wrapper.find('.t-drawer__footer').exists()).toBe(true);
+      expect(wrapper.find('.t-drawer__footer').findAll('button').length).toBe(2);
 
-      await wrapper!.setProps({ footer: false });
+      await wrapper.setProps({ footer: false });
       await nextTick();
-      expect(wrapper!.find('.t-drawer__footer').exists()).toBe(false);
+      expect(wrapper.find('.t-drawer__footer').exists()).toBe(false);
     });
 
     it(':footer[slot/function]', async () => {
@@ -174,8 +173,8 @@ describe('Drawer', () => {
 
     it(':cancelBtn[string/object/null]', async () => {
       // Default - '取消'
-      expect(wrapper!.find('.t-drawer__cancel').exists()).toBe(true);
-      expect(wrapper!.find('.t-drawer__cancel').text()).toBe('取消');
+      expect(wrapper.find('.t-drawer__cancel').exists()).toBe(true);
+      expect(wrapper.find('.t-drawer__cancel').text()).toBe('取消');
 
       // String
       const w1 = mount(Drawer, {
@@ -217,8 +216,8 @@ describe('Drawer', () => {
 
     it(':confirmBtn[string/object/null]', async () => {
       // Default - '确认'
-      expect(wrapper!.find('.t-drawer__confirm').exists()).toBe(true);
-      expect(wrapper!.find('.t-drawer__confirm').text()).toBe('确认');
+      expect(wrapper.find('.t-drawer__confirm').exists()).toBe(true);
+      expect(wrapper.find('.t-drawer__confirm').text()).toBe('确认');
 
       // Object
       const w1 = mount(Drawer, {
@@ -251,16 +250,16 @@ describe('Drawer', () => {
 
     it(':closeBtn[boolean]', async () => {
       // Default undefined - no close button
-      expect(wrapper!.find('.t-drawer__close-btn').exists()).toBe(false);
+      expect(wrapper.find('.t-drawer__close-btn').exists()).toBe(false);
 
-      await wrapper!.setProps({ closeBtn: true });
+      await wrapper.setProps({ closeBtn: true });
       await nextTick();
-      expect(wrapper!.find('.t-drawer__close-btn').exists()).toBe(true);
-      expect(wrapper!.findComponent(CloseIcon).exists()).toBe(true);
+      expect(wrapper.find('.t-drawer__close-btn').exists()).toBe(true);
+      expect(wrapper.findComponent(CloseIcon).exists()).toBe(true);
 
-      await wrapper!.setProps({ closeBtn: false });
+      await wrapper.setProps({ closeBtn: false });
       await nextTick();
-      expect(wrapper!.find('.t-drawer__close-btn').exists()).toBe(false);
+      expect(wrapper.find('.t-drawer__close-btn').exists()).toBe(false);
     });
 
     it(':closeBtn[string]', async () => {
@@ -294,14 +293,14 @@ describe('Drawer', () => {
 
     it(':placement[left/right/top/bottom]', async () => {
       // Default right
-      expect(wrapper!.find('.t-drawer').classes()).toContain('t-drawer--right');
-      expect(wrapper!.find('.t-drawer__content-wrapper').classes()).toContain('t-drawer__content-wrapper--right');
+      expect(wrapper.find('.t-drawer').classes()).toContain('t-drawer--right');
+      expect(wrapper.find('.t-drawer__content-wrapper').classes()).toContain('t-drawer__content-wrapper--right');
 
       for (const p of ['left', 'top', 'bottom'] as const) {
-        await wrapper!.setProps({ placement: p });
+        await wrapper.setProps({ placement: p });
         await nextTick();
-        expect(wrapper!.find('.t-drawer').classes()).toContain(`t-drawer--${p}`);
-        expect(wrapper!.find('.t-drawer__content-wrapper').classes()).toContain(`t-drawer__content-wrapper--${p}`);
+        expect(wrapper.find('.t-drawer').classes()).toContain(`t-drawer--${p}`);
+        expect(wrapper.find('.t-drawer__content-wrapper').classes()).toContain(`t-drawer__content-wrapper--${p}`);
       }
     });
 
@@ -318,11 +317,11 @@ describe('Drawer', () => {
     });
 
     it(':mode[overlay/push]', async () => {
-      expect(wrapper!.find('.t-drawer').exists()).toBe(true);
+      expect(wrapper.find('.t-drawer').exists()).toBe(true);
 
-      await wrapper!.setProps({ mode: 'push' });
+      await wrapper.setProps({ mode: 'push' });
       await nextTick();
-      expect(wrapper!.find('.t-drawer').exists()).toBe(true);
+      expect(wrapper.find('.t-drawer').exists()).toBe(true);
     });
 
     it(':mode validator', () => {
@@ -336,43 +335,43 @@ describe('Drawer', () => {
     });
 
     it(':showOverlay[boolean]', async () => {
-      expect(wrapper!.find('.t-drawer__mask').exists()).toBe(true);
+      expect(wrapper.find('.t-drawer__mask').exists()).toBe(true);
 
-      await wrapper!.setProps({ showOverlay: false });
+      await wrapper.setProps({ showOverlay: false });
       await nextTick();
-      expect(wrapper!.find('.t-drawer__mask').exists()).toBe(false);
-      expect(wrapper!.find('.t-drawer').classes()).toContain('t-drawer--without-mask');
+      expect(wrapper.find('.t-drawer__mask').exists()).toBe(false);
+      expect(wrapper.find('.t-drawer').classes()).toContain('t-drawer--without-mask');
     });
 
     it(':showInAttachedElement[boolean]', async () => {
-      expect(wrapper!.find('.t-drawer').classes()).not.toContain('t-drawer--attach');
+      expect(wrapper.find('.t-drawer').classes()).not.toContain('t-drawer--attach');
 
-      await wrapper!.setProps({ showInAttachedElement: true });
+      await wrapper.setProps({ showInAttachedElement: true });
       await nextTick();
-      expect(wrapper!.find('.t-drawer').classes()).toContain('t-drawer--attach');
+      expect(wrapper.find('.t-drawer').classes()).toContain('t-drawer--attach');
     });
 
     it(':size[string]', async () => {
-      await wrapper!.setProps({ size: '500px' });
+      await wrapper.setProps({ size: '500px' });
       await nextTick();
-      expect((wrapper!.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('500px');
+      expect((wrapper.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('500px');
 
-      await wrapper!.setProps({ size: 'small' });
+      await wrapper.setProps({ size: 'small' });
       await nextTick();
-      expect((wrapper!.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('300px');
+      expect((wrapper.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('300px');
 
-      await wrapper!.setProps({ size: 'medium' });
+      await wrapper.setProps({ size: 'medium' });
       await nextTick();
-      expect((wrapper!.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('500px');
+      expect((wrapper.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('500px');
 
-      await wrapper!.setProps({ size: 'large' });
+      await wrapper.setProps({ size: 'large' });
       await nextTick();
-      expect((wrapper!.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('760px');
+      expect((wrapper.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('760px');
 
       // Numeric string
-      await wrapper!.setProps({ size: '400' });
+      await wrapper.setProps({ size: '400' });
       await nextTick();
-      expect((wrapper!.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('400px');
+      expect((wrapper.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('400px');
     });
 
     it(':size with top/bottom placement sets height', async () => {
@@ -386,17 +385,17 @@ describe('Drawer', () => {
     });
 
     it(':zIndex[number]', async () => {
-      expect((wrapper!.find('.t-drawer').element as HTMLElement).style.zIndex).toBe('');
+      expect((wrapper.find('.t-drawer').element as HTMLElement).style.zIndex).toBe('');
 
-      await wrapper!.setProps({ zIndex: 2022 });
+      await wrapper.setProps({ zIndex: 2022 });
       await nextTick();
-      expect((wrapper!.find('.t-drawer').element as HTMLElement).style.zIndex).toBe('2022');
+      expect((wrapper.find('.t-drawer').element as HTMLElement).style.zIndex).toBe('2022');
     });
 
     it(':drawerClassName[string]', async () => {
-      await wrapper!.setProps({ drawerClassName: 'my-drawer-class' });
+      await wrapper.setProps({ drawerClassName: 'my-drawer-class' });
       await nextTick();
-      expect(wrapper!.find('.t-drawer').classes()).toContain('my-drawer-class');
+      expect(wrapper.find('.t-drawer').classes()).toContain('my-drawer-class');
     });
 
     it(':closeOnOverlayClick[boolean]', async () => {
@@ -506,7 +505,7 @@ describe('Drawer', () => {
 
     it(':sizeDraggable[boolean/object]', async () => {
       // Default false - no drag handle
-      const contentDefault = wrapper!.find('.t-drawer__content-wrapper');
+      const contentDefault = wrapper.find('.t-drawer__content-wrapper');
       expect((contentDefault.element.lastChild as HTMLElement)?.style?.cursor).not.toBe('col-resize');
 
       // true - shows drag handle
@@ -548,7 +547,7 @@ describe('Drawer', () => {
 
     it(':footer button order by placement', async () => {
       // Default right placement - confirm first (flex-start)
-      const rightFooter = wrapper!.find('.t-drawer__footer').element.firstChild as HTMLElement;
+      const rightFooter = wrapper.find('.t-drawer__footer').element.firstChild as HTMLElement;
       expect(rightFooter.style.justifyContent).toBe('flex-start');
 
       // Left placement - cancel first (flex-end)
@@ -740,7 +739,7 @@ describe('Drawer', () => {
       await w.find('.t-drawer__close-btn').trigger('click');
       const emitted = w.emitted('update:visible');
       expect(emitted).toBeTruthy();
-      expect(emitted![0]).toEqual([false]);
+      expect(emitted?.[0]).toEqual([false]);
       w.unmount();
     });
   });
