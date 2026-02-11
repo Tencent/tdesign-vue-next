@@ -4,10 +4,10 @@ import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon, InfoCircleIcon } from 'tdesign-icons-vue-next';
-import { omit, isObject } from 'lodash-es';
+import { isObject } from 'lodash-es';
 import { FormItem, Form, Input, Switch, InputNumber } from '@tdesign/components';
 import formProps from '@tdesign/components/form/props';
-import { FormRules, Data, TdFormProps } from '@tdesign/components/form/type';
+import { FormRules, Data, TdFormProps, IsDateOptions } from '@tdesign/components/form/type';
 import { sleep } from '@tdesign/internal-utils';
 
 describe('Form', () => {
@@ -26,29 +26,53 @@ describe('Form', () => {
       ) as VueWrapper<InstanceType<typeof Form>>;
     });
 
+    afterEach(() => {
+      wrapper?.unmount();
+      wrapper = null;
+    });
+
     it(':colon[boolean]', async () => {
-      expect(wrapper.find('.t-form__label').element.children.length).eq(1);
+      expect(wrapper.find('.t-form__label').element.children.length).toBe(1);
 
       await wrapper.setProps({ colon: true });
-      expect(wrapper.find('.t-form__label').element.childNodes[1].textContent).eq('：');
+      expect(wrapper.find('.t-form__label').element.childNodes[1].textContent).toBe('：');
     });
 
-    it(':data[object]', async () => {});
+    it.todo(':data[object]');
 
     it(':disabled[boolean]', async () => {
-      expect(wrapper.find('.t-input').classes('t-is-disabled')).eq(false);
+      expect(wrapper.find('.t-input').classes('t-is-disabled')).toBe(false);
 
       await wrapper.setProps({ disabled: true });
-      expect(wrapper.find('.t-input').classes('t-is-disabled')).eq(true);
+      expect(wrapper.find('.t-input').classes('t-is-disabled')).toBe(true);
     });
 
-    it(':errorMessage[object]', async () => {});
+    it(':errorMessage[object]', async () => {
+      const rules = {
+        name: [{ required: true }],
+      };
+      const formData = { name: '' };
+      const errorMessage = {
+        required: '${name}不能为空',
+      };
+      const wrapper = mount(
+        <Form rules={rules} data={formData} errorMessage={errorMessage}>
+          <FormItem label="姓名" name="name">
+            <Input v-model={formData.name} />
+          </FormItem>
+        </Form>,
+      );
+
+      await wrapper.findComponent(Form).vm.$.exposed.validate();
+      expect(wrapper.find('.t-input__extra').text()).toBe('姓名不能为空');
+      wrapper.unmount();
+    });
 
     it(':id[string]', async () => {
-      expect(wrapper.find('.t-form').attributes('id')).eq(undefined);
+      expect(wrapper.find('.t-form').attributes('id')).toBe(undefined);
       const id = 'tdesign';
       await wrapper.setProps({ id });
-      expect(wrapper.find('.t-form').attributes('id')).eq(id);
+      expect(wrapper.find('.t-form').attributes('id')).toBe(id);
     });
 
     it(':labelAlign[string]', async () => {
@@ -58,26 +82,26 @@ describe('Form', () => {
       // @ts-expect-error
       expect(validator('other')).toBe(false);
 
-      expect(wrapper.find('.t-form__label').classes('t-form__label--right')).eq(true);
+      expect(wrapper.find('.t-form__label').classes('t-form__label--right')).toBe(true);
 
       await wrapper.setProps({ labelAlign: 'top' });
-      expect(wrapper.find('.t-form__label').classes('t-form__label--top')).eq(true);
+      expect(wrapper.find('.t-form__label').classes('t-form__label--top')).toBe(true);
 
       await wrapper.setProps({ labelAlign: 'left' });
-      expect(wrapper.find('.t-form__label').classes('t-form__label--left')).eq(true);
+      expect(wrapper.find('.t-form__label').classes('t-form__label--left')).toBe(true);
     });
 
     it(':labelWidth[string/number]', async () => {
-      expect((wrapper.find('.t-form__label').element as HTMLElement).style.width).eq('100px');
-      expect((wrapper.find('.t-form__controls').element as HTMLElement).style.marginLeft).eq('100px');
+      expect((wrapper.find('.t-form__label').element as HTMLElement).style.width).toBe('100px');
+      expect((wrapper.find('.t-form__controls').element as HTMLElement).style.marginLeft).toBe('100px');
 
       await wrapper.setProps({ labelWidth: '200px' });
-      expect((wrapper.find('.t-form__label').element as HTMLElement).style.width).eq('200px');
-      expect((wrapper.find('.t-form__controls').element as HTMLElement).style.marginLeft).eq('200px');
+      expect((wrapper.find('.t-form__label').element as HTMLElement).style.width).toBe('200px');
+      expect((wrapper.find('.t-form__controls').element as HTMLElement).style.marginLeft).toBe('200px');
 
       await wrapper.setProps({ labelWidth: 300 });
-      expect((wrapper.find('.t-form__label').element as HTMLElement).style.width).eq('300px');
-      expect((wrapper.find('.t-form__controls').element as HTMLElement).style.marginLeft).eq('300px');
+      expect((wrapper.find('.t-form__label').element as HTMLElement).style.width).toBe('300px');
+      expect((wrapper.find('.t-form__controls').element as HTMLElement).style.marginLeft).toBe('300px');
     });
 
     it(':layout[vertical/inline]', async () => {
@@ -87,32 +111,30 @@ describe('Form', () => {
       // @ts-expect-error
       expect(validator('other')).toBe(false);
 
-      expect(wrapper.find('.t-form').classes('t-form-inline')).eq(false);
+      expect(wrapper.find('.t-form').classes('t-form-inline')).toBe(false);
 
       await wrapper.setProps({ layout: 'inline' });
-      expect(wrapper.find('.t-form').classes('t-form-inline')).eq(true);
+      expect(wrapper.find('.t-form').classes('t-form-inline')).toBe(true);
     });
 
     it(':preventSubmitDefault[boolean]', async () => {
-      const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-      const preventDefaultSpy = vi.spyOn(submitEvent, 'preventDefault');
-      await wrapper.element.dispatchEvent(submitEvent);
-      expect(preventDefaultSpy).toHaveBeenCalled();
-      preventDefaultSpy.mockRestore();
+      const event1 = new Event('submit', { bubbles: true, cancelable: true });
+      const spy1 = vi.spyOn(event1, 'preventDefault');
+      wrapper.element.dispatchEvent(event1);
+      expect(spy1).toHaveBeenCalled();
 
       await wrapper.setProps({ preventSubmitDefault: false });
-      await wrapper.element.dispatchEvent(submitEvent);
-      expect(preventDefaultSpy).not.toHaveBeenCalled();
+      const event2 = new Event('submit', { bubbles: true, cancelable: true });
+      const spy2 = vi.spyOn(event2, 'preventDefault');
+      wrapper.element.dispatchEvent(event2);
+      expect(spy2).not.toHaveBeenCalled();
     });
 
     it(':readonly[boolean]', async () => {
-      expect(wrapper.find('.t-input').classes('t-is-readonly')).eq(false);
+      expect(wrapper.find('.t-input').classes('t-is-readonly')).toBe(false);
 
       await wrapper.setProps({ readonly: true });
-      expect(wrapper.find('.t-input').classes('t-is-readonly')).eq(true);
-
-      // todo
-      // 更进一步可以模拟点击和键盘行为，然后看只读下是否无法输入
+      expect(wrapper.find('.t-input').classes('t-is-readonly')).toBe(true);
     });
 
     it(':requiredMark[boolean] + requiredMarkPosition[left/right]', async () => {
@@ -124,9 +146,6 @@ describe('Form', () => {
 
       const rules = { name: [{ required: true, message: '姓名必填' }] };
       await wrapper.setProps({ rules });
-      // TODO:JSDOM 不支持伪元素样式的获取，调用 getComputedStyle(el, '::before') 会报错 Not implemented，那怎么测呢
-      // const label = wrapper.find('.t-form-item__name').element;
-      // expect(getComputedStyle(label, '::before').content).toBe('"*"');
     });
 
     it(':resetType[empty/initial]', async () => {
@@ -147,18 +166,19 @@ describe('Form', () => {
       expect(validator('other')).toBe(false);
 
       const form = wrapper.findComponent(Form);
-      expect(formData.value.name).eq('defaultName');
+      expect(formData.value.name).toBe('defaultName');
       form.vm.$.exposed.reset();
-      expect(formData.value.name).eq('');
+      expect(formData.value.name).toBe('');
 
       await wrapper.setProps({ resetType: 'initial' });
       form.vm.$.exposed.reset();
-      expect(formData.value.name).eq('defaultName');
+      expect(formData.value.name).toBe('defaultName');
+      wrapper.unmount();
     });
 
     describe('rules[object]', () => {
       let wrapper: VueWrapper;
-      let rules: any; // TODO
+      let rules: Ref<FormRules<Data> | undefined>;
       let formData: Ref<Record<string, any>>;
       let form: VueWrapper;
       let onValidate;
@@ -172,7 +192,7 @@ describe('Form', () => {
         onValidate = vi.fn();
         wrapper = mount(Form, {
           attachTo: document.body,
-          props: { rules, data: formData, onValidate },
+          props: { rules: rules as unknown as FormRules<Data>, data: formData, onValidate },
           slots: {
             default: () => (
               <Fragment>
@@ -186,6 +206,10 @@ describe('Form', () => {
           },
         });
         form = wrapper.findComponent(Form);
+      });
+
+      afterEach(() => {
+        wrapper?.unmount();
       });
 
       const validate = async (...args: any) => {
@@ -228,7 +252,7 @@ describe('Form', () => {
         res = await validate();
         expectToSuccess(res);
 
-        rules.value = { time: [{ date: { delimiters: ['-', '/'] } }] };
+        rules.value = { time: [{ date: { delimiters: ['-', '/'] } as Partial<IsDateOptions> as IsDateOptions }] };
         formData.value.time = '2022.10.24';
         res = await validate();
         expectToFailure(res);
@@ -443,6 +467,7 @@ describe('Form', () => {
         await validate();
         expect(form.find('.t-is-warning').exists()).toBe(true);
       });
+
       it('url', async () => {
         rules.value = { name: [{ url: true }] };
         formData.value.name = 'test';
@@ -453,6 +478,7 @@ describe('Form', () => {
         res = await validate();
         expectToSuccess(res);
       });
+
       it('validator', async () => {
         const isNumber = (val: any) => typeof val === 'number';
         rules.value = { name: [{ validator: (val: any) => isNumber(val) }] };
@@ -461,6 +487,27 @@ describe('Form', () => {
         expectToFailure(res);
 
         formData.value.name = 123;
+        res = await validate();
+        expectToSuccess(res);
+      });
+
+      it('async validator', async () => {
+        rules.value = {
+          name: [
+            {
+              validator: (val: any) =>
+                new Promise((resolve) => {
+                  setTimeout(() => resolve(val === 'valid'), 10);
+                }),
+            },
+          ],
+        };
+
+        formData.value.name = 'invalid';
+        let res = await validate();
+        expectToFailure(res);
+
+        formData.value.name = 'valid';
         res = await validate();
         expectToSuccess(res);
       });
@@ -483,7 +530,25 @@ describe('Form', () => {
       // @ts-expect-error
       expect(validator('other')).toBe(false);
 
-      // TODO 怎么测表现呢？
+      const rules = { name: [{ required: true, message: '姓名必填' }] };
+      const formData = { name: '' };
+      const scrollIntoViewMock = vi.fn();
+      const originalScrollIntoView = Element.prototype.scrollIntoView;
+      Element.prototype.scrollIntoView = scrollIntoViewMock;
+
+      const wrapper = mount(
+        <Form rules={rules} data={formData} scrollToFirstError="smooth">
+          <FormItem label="name" name="name">
+            <Input v-model={formData.name} />
+          </FormItem>
+        </Form>,
+      );
+
+      await wrapper.findComponent(Form).vm.$.exposed.validate();
+      expect(scrollIntoViewMock).toHaveBeenCalled();
+
+      Element.prototype.scrollIntoView = originalScrollIntoView;
+      wrapper.unmount();
     });
 
     it(':showErrorMessage[boolean]', async () => {
@@ -498,11 +563,12 @@ describe('Form', () => {
       );
 
       await wrapper.findComponent(Form).vm.$.exposed.validate();
-      expect(wrapper.find('.t-input__extra').text()).eq('姓名必填');
+      expect(wrapper.find('.t-input__extra').text()).toBe('姓名必填');
 
       await wrapper.setProps({ showErrorMessage: false });
       await wrapper.findComponent(Form).vm.$.exposed.validate();
-      expect(wrapper.find('.t-input__extra').exists()).eq(false);
+      expect(wrapper.find('.t-input__extra').exists()).toBe(false);
+      wrapper.unmount();
     });
 
     it(':statusIcon[boolean/function]', async () => {
@@ -519,18 +585,19 @@ describe('Form', () => {
 
       const form = wrapper.findComponent(Form);
       await form.vm.$.exposed.validate();
-      expect(form.find('.t-form__status').exists()).eq(false);
+      expect(form.find('.t-form__status').exists()).toBe(false);
 
       await wrapper.setProps({ statusIcon: true });
       await form.vm.$.exposed.validate();
-      expect(form.findComponent(CloseCircleFilledIcon).exists()).eq(true);
+      expect(form.findComponent(CloseCircleFilledIcon).exists()).toBe(true);
       formData.value.name = 'test';
       await form.vm.$.exposed.validate();
-      expect(form.findComponent(CheckCircleFilledIcon).exists()).eq(true);
+      expect(form.findComponent(CheckCircleFilledIcon).exists()).toBe(true);
 
       await wrapper.setProps({ statusIcon: () => <InfoCircleIcon /> });
       await form.vm.$.exposed.validate();
-      expect(form.findComponent(InfoCircleIcon).exists()).eq(true);
+      expect(form.findComponent(InfoCircleIcon).exists()).toBe(true);
+      wrapper.unmount();
     });
 
     it(':statusIcon[slot]', async () => {
@@ -546,8 +613,12 @@ describe('Form', () => {
       );
       const form = wrapper.findComponent(Form);
       await form.vm.$.exposed.validate();
-      expect(form.findComponent(InfoCircleIcon).exists()).eq(true);
+      expect(form.findComponent(InfoCircleIcon).exists()).toBe(true);
+      wrapper.unmount();
     });
+
+    // submitWithWarningMessage prop is defined in types but not yet implemented (marked as 【讨论中】)
+    it.todo(':submitWithWarningMessage[boolean]');
   });
 
   describe('events', () => {
@@ -585,22 +656,39 @@ describe('Form', () => {
       const form = wrapper.findComponent(Form);
       expect(onValidate).not.toBeCalled();
 
+      // validate: both fields fail
       await form.vm.$.exposed.validate();
       expect(onValidate).toHaveBeenCalledTimes(1);
-      expect(onValidate.mock.calls[0][0]).toMatchSnapshot();
+      const call1 = onValidate.mock.calls[0][0];
+      expect(call1.firstError).toBe('姓名必填');
+      expect(call1.validateResult.name[0].result).toBe(false);
+      expect(call1.validateResult.name[0].message).toBe('姓名必填');
+      expect(call1.validateResult.age[0].result).toBe(false);
 
+      // submit: triggers validate with same result
       form.vm.$.exposed.submit();
       await sleep(16);
       expect(onValidate).toHaveBeenCalledTimes(2);
-      expect(onValidate.mock.calls[1][0]).toMatchSnapshot();
+      const call2 = onValidate.mock.calls[1][0];
+      expect(call2.firstError).toBe('姓名必填');
+      expect(call2.validateResult.name[0].result).toBe(false);
+      expect(call2.validateResult.age[0].result).toBe(false);
 
+      // validate: only age fails
       data.value.name = 'test';
       await form.vm.$.exposed.validate();
-      expect(onValidate.mock.calls[2][0]).toMatchSnapshot();
+      const call3 = onValidate.mock.calls[2][0];
+      expect(call3.validateResult.name).toBeUndefined();
+      expect(call3.validateResult.age[0].result).toBe(false);
 
+      // validate: all pass
       data.value.age = 18;
       await form.vm.$.exposed.validate();
-      expect(onValidate.mock.calls[3][0]).toMatchSnapshot();
+      const call4 = onValidate.mock.calls[3][0];
+      expect(call4.firstError).toBe('');
+      expect(call4.validateResult).toBe(true);
+
+      wrapper.unmount();
     });
 
     it('submit', async () => {
@@ -621,8 +709,12 @@ describe('Form', () => {
       await form.trigger('submit');
       await sleep(16);
       expect(onSubmit).toHaveBeenCalledTimes(1);
-      expect(onSubmit.mock.calls[0][0].e).toBeInstanceOf(Event);
-      expect(omit(onSubmit.mock.calls[0][0], 'e')).toMatchSnapshot();
+      const submitResult = onSubmit.mock.calls[0][0];
+      expect(submitResult.e).toBeInstanceOf(Event);
+      expect(submitResult.validateResult).toBe(true);
+      expect(submitResult.firstError).toBe('');
+
+      wrapper.unmount();
     });
 
     it('reset', async () => {
@@ -656,6 +748,8 @@ describe('Form', () => {
       await form.trigger('reset');
       expect(onReset).toHaveBeenCalledTimes(1);
       expect(onReset.mock.calls[0][0].e).toBeInstanceOf(Event);
+
+      wrapper.unmount();
     });
   });
 
@@ -707,12 +801,16 @@ describe('Form', () => {
       form = wrapper.findComponent(Form);
     });
 
+    afterEach(() => {
+      wrapper?.unmount();
+    });
+
     const checkDefaultStyle = () => {
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(0);
       expect(form.findAllComponents(CheckCircleFilledIcon)).toHaveLength(0);
-      expect(form.find('.t-input__extra').exists()).eq(false);
-      expect(form.find('.t-form__status').exists()).eq(false);
-      expect(form.find('.t-is-error').exists()).eq(false);
+      expect(form.find('.t-input__extra').exists()).toBe(false);
+      expect(form.find('.t-form__status').exists()).toBe(false);
+      expect(form.find('.t-is-error').exists()).toBe(false);
     };
 
     it('clearValidate', async () => {
@@ -724,13 +822,18 @@ describe('Form', () => {
       await form.vm.$.exposed.validate();
       expect(onValidate).toHaveBeenCalledTimes(1);
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(2);
-      expect(form.findAll('.t-input__extra')).toMatchSnapshot();
+      const extras1 = form.findAll('.t-input__extra');
+      expect(extras1).toHaveLength(2);
+      expect(extras1[0].text()).toBe('姓名必填');
+      expect(extras1[1].text()).toBe('age必填');
       expect(form.findAll('.t-is-error')).toHaveLength(2);
 
       form.vm.$.exposed.clearValidate(['name']);
       await nextTick();
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(1);
-      expect(form.findAll('.t-input__extra')).toMatchSnapshot();
+      const extras2 = form.findAll('.t-input__extra');
+      expect(extras2).toHaveLength(1);
+      expect(extras2[0].text()).toBe('age必填');
       expect(form.findAll('.t-is-error')).toHaveLength(1);
 
       // clearValidate
@@ -746,8 +849,8 @@ describe('Form', () => {
       await form.vm.$.exposed.validate();
       expect(onValidate).toHaveBeenCalledTimes(2);
       expect(form.findAllComponents(CheckCircleFilledIcon)).toHaveLength(2);
-      expect(form.find('.t-input__extra').exists()).eq(false);
-      expect(form.find('.t-is-error').exists()).eq(false);
+      expect(form.find('.t-input__extra').exists()).toBe(false);
+      expect(form.find('.t-is-error').exists()).toBe(false);
 
       expect(onSubmit).not.toBeCalled();
       expect(onReset).not.toBeCalled();
@@ -801,8 +904,8 @@ describe('Form', () => {
       expect(onSubmit).not.toBeCalled();
       expect(onValidate).toHaveBeenCalledTimes(1);
       expect(form.findAllComponents(CheckCircleFilledIcon)).toHaveLength(2);
-      expect(form.find('.t-input__extra').exists()).eq(false);
-      expect(form.find('.t-is-error').exists()).eq(false);
+      expect(form.find('.t-input__extra').exists()).toBe(false);
+      expect(form.find('.t-is-error').exists()).toBe(false);
 
       // reset to empty value & clear style
       form.vm.$.exposed.reset();
@@ -815,7 +918,10 @@ describe('Form', () => {
       await form.vm.$.exposed.validate();
       expect(onValidate).toHaveBeenCalledTimes(2);
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(2);
-      expect(form.findAll('.t-input__extra')).toMatchSnapshot();
+      const extras1 = form.findAll('.t-input__extra');
+      expect(extras1).toHaveLength(2);
+      expect(extras1[0].text()).toBe('姓名必填');
+      expect(extras1[1].text()).toBe('age必填');
       expect(form.findAll('.t-is-error')).toHaveLength(2);
 
       // reset to initial value & clear style
@@ -833,8 +939,12 @@ describe('Form', () => {
       await wrapper.setProps({ rules });
       await form.vm.$.exposed.validate();
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(2);
-      expect(form.findAll('.t-input__extra')).toMatchSnapshot();
+      const extras2 = form.findAll('.t-input__extra');
+      expect(extras2).toHaveLength(2);
+      expect(extras2[0].text()).toBe('姓名校验失败');
+      expect(extras2[1].text()).toBe('年龄校验失败');
       expect(form.findAll('.t-is-error')).toHaveLength(2);
+
       // reset "name" to empty value
       form.vm.$.exposed.reset({ fields: ['name'] });
       await sleep(16);
@@ -842,29 +952,31 @@ describe('Form', () => {
       expect(data.value).toMatchObject({ name: '', age: 18 });
 
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(1);
-      expect(form.findAll('.t-input__extra')).toMatchSnapshot();
+      const extras3 = form.findAll('.t-input__extra');
+      expect(extras3).toHaveLength(1);
+      expect(extras3[0].text()).toBe('年龄校验失败');
       expect(form.findAll('.t-is-error')).toHaveLength(1);
     });
 
     it('setValidateMessage', async () => {
       await form.vm.$.exposed.validate();
-      expect(wrapper.findAll('.t-input__extra')[0].text()).eq('姓名必填');
-      expect(wrapper.findAll('.t-form__controls')[0].classes('t-is-error')).eq(true);
+      expect(wrapper.findAll('.t-input__extra')[0].text()).toBe('姓名必填');
+      expect(wrapper.findAll('.t-form__controls')[0].classes('t-is-error')).toBe(true);
 
       form.vm.$.exposed.setValidateMessage({
         name: [{ type: 'warning', message: '自定义用户名校验信息提示' }],
       });
       await nextTick();
-      expect(wrapper.findAll('.t-input__extra')[0].text()).eq('自定义用户名校验信息提示');
-      expect(wrapper.findAll('.t-form__controls')[0].classes('t-is-warning')).eq(true);
+      expect(wrapper.findAll('.t-input__extra')[0].text()).toBe('自定义用户名校验信息提示');
+      expect(wrapper.findAll('.t-form__controls')[0].classes('t-is-warning')).toBe(true);
     });
 
     it('submit', async () => {
       await form.vm.$.exposed.submit({ showErrorMessage: false });
       await sleep(16);
 
-      expect(form.find('.t-input__extra').exists()).eq(false);
-      expect(form.find('.t-is-error').exists()).eq(false);
+      expect(form.find('.t-input__extra').exists()).toBe(false);
+      expect(form.find('.t-is-error').exists()).toBe(false);
       expect(onSubmit).toHaveBeenCalledTimes(1);
       expect(onValidate).toHaveBeenCalledTimes(1);
 
@@ -886,11 +998,17 @@ describe('Form', () => {
 
       // validate failed
       let res = await form.vm.$.exposed.validate();
-      expect(res).toMatchSnapshot();
+      expect(isObject(res)).toBe(true);
+      expect(res.name[0].result).toBe(false);
+      expect(res.name[0].message).toBe('姓名必填');
+      expect(res.age[0].result).toBe(false);
 
       expect(onValidate).toHaveBeenCalledTimes(1);
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(2);
-      expect(form.findAll('.t-input__extra')).toMatchSnapshot();
+      const extras1 = form.findAll('.t-input__extra');
+      expect(extras1).toHaveLength(2);
+      expect(extras1[0].text()).toBe('姓名必填');
+      expect(extras1[1].text()).toBe('age必填');
       expect(form.findAll('.t-is-error')).toHaveLength(2);
 
       // validate success
@@ -899,12 +1017,12 @@ describe('Form', () => {
         age: 18,
       };
       res = await form.vm.$.exposed.validate();
-      expect(res).toMatchSnapshot();
+      expect(res).toBe(true);
 
       expect(onValidate).toHaveBeenCalledTimes(2);
       expect(form.findAllComponents(CheckCircleFilledIcon)).toHaveLength(2);
-      expect(form.find('.t-input__extra').exists()).eq(false);
-      expect(form.find('.t-is-error').exists()).eq(false);
+      expect(form.find('.t-input__extra').exists()).toBe(false);
+      expect(form.find('.t-is-error').exists()).toBe(false);
 
       // trigger
       rules = {
@@ -914,14 +1032,18 @@ describe('Form', () => {
       wrapper.setProps({ rules });
       await nextTick();
       res = await form.vm.$.exposed.validate({ trigger: 'blur' });
-      expect(res).toMatchSnapshot();
-      expect(form.find('.t-input__extra').text()).eq('姓名校验失败');
+      expect(isObject(res)).toBe(true);
+      expect(res.name[0].message).toBe('姓名校验失败');
+      expect(res.age).toBeUndefined();
+      expect(form.find('.t-input__extra').text()).toBe('姓名校验失败');
       expect(form.findAll('.t-is-error')).toHaveLength(1);
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(1);
 
       // showErrorMessage
       res = await form.vm.$.exposed.validate({ showErrorMessage: false });
-      expect(res).toMatchSnapshot();
+      expect(isObject(res)).toBe(true);
+      expect(res.name[0].message).toBe('姓名校验失败');
+      expect(res.age[0].message).toBe('年龄校验失败');
       expect(form.findAll('.t-input__extra')).toHaveLength(0);
       expect(form.findAll('.t-is-error')).toHaveLength(0);
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(2);
@@ -931,8 +1053,10 @@ describe('Form', () => {
       expect(onReset).toHaveBeenCalledTimes(1);
 
       res = await form.vm.$.exposed.validate({ fields: ['name'] });
-      expect(res).toMatchSnapshot();
-      expect(form.find('.t-input__extra').text()).eq('姓名校验失败');
+      expect(isObject(res)).toBe(true);
+      expect(res.name[0].message).toBe('姓名校验失败');
+      expect(res.age).toBeUndefined();
+      expect(form.find('.t-input__extra').text()).toBe('姓名校验失败');
       expect(form.findAll('.t-is-error')).toHaveLength(1);
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(1);
 
@@ -942,14 +1066,16 @@ describe('Form', () => {
     it('validateOnly', async () => {
       checkDefaultStyle();
 
-      // validateOnly failed should not be change the style
+      // validateOnly failed should not change the style
       let res = await form.vm.$.exposed.validateOnly();
-      expect(res).toMatchSnapshot();
+      expect(isObject(res)).toBe(true);
+      expect(res.name[0].result).toBe(false);
+      expect(res.age[0].result).toBe(false);
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(0);
       expect(form.findAllComponents(CheckCircleFilledIcon)).toHaveLength(0);
-      expect(form.find('.t-input__extra').exists()).eq(false);
-      expect(form.find('.t-form__status').exists()).eq(false);
-      expect(form.find('.t-is-error').exists()).eq(false);
+      expect(form.find('.t-input__extra').exists()).toBe(false);
+      expect(form.find('.t-form__status').exists()).toBe(false);
+      expect(form.find('.t-is-error').exists()).toBe(false);
 
       expect(onValidate).not.toBeCalled();
 
@@ -957,20 +1083,26 @@ describe('Form', () => {
       await form.vm.$.exposed.validate();
       expect(onValidate).toHaveBeenCalledTimes(1);
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(2);
-      expect(form.findAll('.t-input__extra')).toMatchSnapshot();
+      const extras1 = form.findAll('.t-input__extra');
+      expect(extras1).toHaveLength(2);
+      expect(extras1[0].text()).toBe('姓名必填');
+      expect(extras1[1].text()).toBe('age必填');
       expect(form.findAll('.t-is-error')).toHaveLength(2);
 
-      // validateOnly success should not be change the style
+      // validateOnly success should not change the style
       data.value = {
         name: 'test',
         age: 18,
       };
       res = await form.vm.$.exposed.validateOnly();
-      expect(res).toMatchSnapshot();
+      expect(res).toBe(true);
 
       expect(onValidate).toHaveBeenCalledTimes(1);
       expect(form.findAllComponents(CloseCircleFilledIcon)).toHaveLength(2);
-      expect(form.findAll('.t-input__extra')).toMatchSnapshot();
+      const extras2 = form.findAll('.t-input__extra');
+      expect(extras2).toHaveLength(2);
+      expect(extras2[0].text()).toBe('姓名必填');
+      expect(extras2[1].text()).toBe('age必填');
       expect(form.findAll('.t-is-error')).toHaveLength(2);
 
       form.vm.$.exposed.reset();
@@ -982,12 +1114,16 @@ describe('Form', () => {
       };
       await wrapper.setProps({ rules });
       res = await form.vm.$.exposed.validateOnly({ trigger: 'blur' });
-      expect(res).toMatchSnapshot();
+      expect(isObject(res)).toBe(true);
+      expect(res.name[0].message).toBe('姓名校验失败');
+      expect(res.age).toBeUndefined();
       checkDefaultStyle();
 
       // fields
       res = await form.vm.$.exposed.validateOnly({ fields: ['name'] });
-      expect(res).toMatchSnapshot();
+      expect(isObject(res)).toBe(true);
+      expect(res.name[0].message).toBe('姓名校验失败');
+      expect(res.age).toBeUndefined();
       checkDefaultStyle();
 
       expect(onSubmit).not.toBeCalled();
