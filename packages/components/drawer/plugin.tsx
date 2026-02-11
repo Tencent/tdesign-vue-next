@@ -36,7 +36,8 @@ const createDrawer: DrawerMethod = (props, context) => {
       const update = (newOptions: DrawerOptions) => {
         drawerOptions.value = {
           ...options,
-          ...newOptions,
+          drawerClassName: drawerOptions.value?.className,
+          ...omit(newOptions, ['className', 'style']),
         };
       };
 
@@ -60,7 +61,7 @@ const createDrawer: DrawerMethod = (props, context) => {
           onClose,
           visible: visible.value,
           drawerClassName: drawerOptions.value?.className,
-          ...drawerOptions.value,
+          ...omit(drawerOptions.value, 'className', 'style'),
         });
       };
     },
@@ -95,8 +96,8 @@ const createDrawer: DrawerMethod = (props, context) => {
       visible.value = false;
     },
     update: (newOptions: DrawerOptions) => {
-      // className & style由updateClassNameStyle来处理
-      drawerComponent.component.exposed.update(omit(newOptions, ['style']));
+      drawerComponent.component.exposed.update(newOptions);
+      //style 由 updateStyle 来处理
       updateStyle(newOptions.style);
     },
     destroy: () => {
