@@ -29,4 +29,7 @@ Dockerfile
 robotMsg.json
 .gitlogmap
 .eslintcache
+
+# AI
 .codebuddy
+.claude
