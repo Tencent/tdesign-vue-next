@@ -10,7 +10,7 @@ on:
   # workflow_dispatch：允许手动触发工作流
   workflow_dispatch:
 
-# todo: paopao 
+# todo: paopao
 # jobs:
 #   call-test-build:
 #     uses: Tencent/tdesign/.github/workflows/test-build.yml@main
@@ -65,7 +65,7 @@ jobs:
             # 否则，校验通过
             echo "邮箱 $log_emails 校验通过";
           fi
-  
+
   lint:
     # 如果需要依赖 check 任务，可以取消注释
     # needs: check
@@ -84,7 +84,7 @@ jobs:
       # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
           cache: 'pnpm'
 
       # 安装依赖
@@ -111,9 +111,8 @@ jobs:
       # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
           cache: 'pnpm'
-
 
       # 安装依赖
       - run: pnpm install --frozen-lockfile
@@ -139,15 +138,14 @@ jobs:
       # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
           cache: 'pnpm'
-
 
       # 安装依赖
       - run: pnpm install --frozen-lockfile
 
       # 运行构建任务
-      - name: Build 
+      - name: Build
         run: pnpm run build:vue
 
       - run: pnpm -F tdesign-vue-next publish --no-git-checks --dry-run
@@ -170,15 +168,14 @@ jobs:
       # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
           cache: 'pnpm'
-
 
       # 安装依赖
       - run: pnpm install --frozen-lockfile
 
       # 运行构建任务
-      - name: Build 
+      - name: Build
         run: pnpm run build:chat
 
       - run: pnpm -F @tdesign-vue-next/chat publish --no-git-checks --dry-run

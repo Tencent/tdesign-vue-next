@@ -231,7 +231,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
 
       - run: pnpm install
 
@@ -246,7 +246,7 @@ jobs:
             git commit -m "chore: update snapshot"
           fi
           git status
- 
+
       - name: git push
         run: |
           git status
@@ -291,7 +291,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
 
       - run: pnpm install
 
