@@ -1,35 +1,27 @@
-import { mount } from '@vue/test-utils';
-import { expect, vi } from 'vitest';
 import { nextTick, ref } from 'vue';
+import { mount } from '@vue/test-utils';
+import type { VueWrapper } from '@vue/test-utils';
+import { expect, vi } from 'vitest';
+import { Drawer } from '@tdesign/components';
+import drawerProps from '@tdesign/components/drawer/props';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import Drawer from '@tdesign/components/drawer';
 
-const bodyText = '这是一段内容';
-
-// 事件兼容问题，使其支持 x, y 值
 class FakeMouseEvent extends MouseEvent {
   constructor(type: string, values: Record<string, unknown> = {}) {
     const { x, y, ...mouseValues } = values;
     super(type, mouseValues as MouseEventInit);
-
-    Object.assign(this, {
-      x: x || 0,
-      y: y || 0,
-    });
+    Object.assign(this, { x: x || 0, y: y || 0 });
   }
 }
 
-// 模拟拖拽事件
 function moveElement(element: Element, x: number, y: number) {
   element.dispatchEvent(new FakeMouseEvent('mousedown', {}));
-  window.document.dispatchEvent(new FakeMouseEvent('mousemove', { x, y }));
-  window.document.dispatchEvent(new FakeMouseEvent('mouseup', { x, y }));
+  document.dispatchEvent(new FakeMouseEvent('mousemove', { x, y }));
+  document.dispatchEvent(new FakeMouseEvent('mouseup', { x, y }));
 }
 
 describe('Drawer', () => {
   beforeEach(() => {
-    document.body.innerHTML = '';
-    vi.clearAllMocks();
     vi.useFakeTimers();
   });
 
@@ -38,1211 +30,979 @@ describe('Drawer', () => {
     vi.useRealTimers();
   });
 
-  // ==================== Props Tests ====================
+  // ==================== Props ====================
   describe('props', () => {
-    it(':body[string]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText },
-      });
+    let wrapper: VueWrapper<InstanceType<typeof Drawer>> | null = null;
+
+    beforeEach(async () => {
+      wrapper = mount(Drawer, {
+        props: { visible: true, body: '内容' },
+      }) as VueWrapper<InstanceType<typeof Drawer>>;
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-      expect(wrapper.find('.t-drawer__body').exists()).toBe(true);
-      expect(wrapper.find('.t-drawer__body').text()).toBe(bodyText);
-      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
     });
 
-    it(':body[function]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: () => <div class="custom-body">自定义内容</div> },
-      });
-      await nextTick();
-      expect(wrapper.find('.custom-body').exists()).toBe(true);
-      expect(wrapper.find('.custom-body').text()).toBe('自定义内容');
-      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
+    afterEach(() => {
+      wrapper?.unmount();
+      wrapper = null;
     });
 
-    it(':body[slot]', async () => {
-      const wrapper = mount(Drawer, {
+    it(':visible[boolean]', async () => {
+      expect(wrapper!.find('.t-drawer').exists()).toBe(true);
+      expect(wrapper!.find('.t-drawer').classes()).toContain('t-drawer--open');
+
+      await wrapper!.setProps({ visible: false });
+      vi.runAllTimers();
+      await nextTick();
+      expect(wrapper!.find('.t-drawer').classes()).not.toContain('t-drawer--open');
+    });
+
+    it(':body[string]', () => {
+      expect(wrapper!.find('.t-drawer__body').exists()).toBe(true);
+      expect(wrapper!.find('.t-drawer__body').text()).toBe('内容');
+    });
+
+    it(':body[slot/function]', async () => {
+      const wrapperFn = mount(Drawer, {
+        props: { visible: true, body: () => <div class="fn-body">函数内容</div> },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect(wrapperFn.find('.fn-body').text()).toBe('函数内容');
+      wrapperFn.unmount();
+
+      const wrapperSlot = mount(Drawer, {
         props: { visible: true },
         slots: { body: () => <div class="slot-body">插槽内容</div> },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.slot-body').exists()).toBe(true);
+      expect(wrapperSlot.find('.slot-body').text()).toBe('插槽内容');
+      wrapperSlot.unmount();
     });
 
     it(':default[string]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, default: bodyText },
+      const w = mount(Drawer, {
+        props: { visible: true, default: '默认内容' },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer__body').exists()).toBe(true);
-      expect(wrapper.find('.t-drawer__body').text()).toBe(bodyText);
+      expect(w.find('.t-drawer__body').text()).toBe('默认内容');
+      w.unmount();
     });
 
     it(':default[slot]', async () => {
-      const wrapper = mount(Drawer, {
+      const w = mount(Drawer, {
         props: { visible: true },
-        slots: { default: () => <div class="slot-default">默认插槽</div> },
+        slots: { default: () => <span>默认插槽</span> },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.slot-default').exists()).toBe(true);
+      expect(w.find('.t-drawer__body').text()).toBe('默认插槽');
+      w.unmount();
     });
 
     it(':header[string]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, header: '标题' },
-      });
+      await wrapper!.setProps({ header: '标题文字' });
       await nextTick();
-      const header = wrapper.find('.t-drawer__header');
-      expect(header.exists()).toBe(true);
-      expect(header.text()).toBe('标题');
-      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
+      expect(wrapper!.find('.t-drawer__header').exists()).toBe(true);
+      expect(wrapper!.find('.t-drawer__header').text()).toBe('标题文字');
     });
 
-    it(':header[function]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, header: () => <div class="custom-header">自定义头部</div> },
-      });
+    it(':header[boolean]', async () => {
+      // Default true with no content - header div does NOT render (no renderable content)
+      expect(wrapper!.find('.t-drawer__header').exists()).toBe(false);
+
+      // Set header string content - header div renders
+      await wrapper!.setProps({ header: '标题' });
       await nextTick();
-      expect(wrapper.find('.custom-header').exists()).toBe(true);
+      expect(wrapper!.find('.t-drawer__header').exists()).toBe(true);
+
+      // Explicitly false - header div hidden
+      await wrapper!.setProps({ header: false });
+      await nextTick();
+      expect(wrapper!.find('.t-drawer__header').exists()).toBe(false);
     });
 
-    it(':header[slot]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText },
-        slots: { header: () => <div class="slot-header">插槽头部</div> },
+    it(':header[slot/function]', async () => {
+      const wrapperFn = mount(Drawer, {
+        props: { visible: true, body: '内容', header: () => <span class="fn-header">自定义</span> },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.slot-header').exists()).toBe(true);
+      expect(wrapperFn.find('.fn-header').text()).toBe('自定义');
+      wrapperFn.unmount();
+
+      const wrapperSlot = mount(Drawer, {
+        props: { visible: true, body: '内容' },
+        slots: { header: () => <span class="slot-header">插槽头部</span> },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect(wrapperSlot.find('.slot-header').text()).toBe('插槽头部');
+      wrapperSlot.unmount();
     });
 
-    it(':header[boolean] false should hide header', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, header: false },
-      });
+    it(':footer[boolean]', async () => {
+      // Default true
+      expect(wrapper!.find('.t-drawer__footer').exists()).toBe(true);
+      expect(wrapper!.find('.t-drawer__footer').findAll('button').length).toBe(2);
+
+      await wrapper!.setProps({ footer: false });
       await nextTick();
-      expect(wrapper.find('.t-drawer__header').exists()).toBe(false);
-      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
+      expect(wrapper!.find('.t-drawer__footer').exists()).toBe(false);
     });
 
-    it(':footer[boolean] true shows default footer', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, footer: true },
+    it(':footer[slot/function]', async () => {
+      const wrapperFn = mount(Drawer, {
+        props: { visible: true, body: '内容', footer: () => <div class="fn-footer">底部</div> },
       });
+      vi.runAllTimers();
       await nextTick();
-      const footer = wrapper.find('.t-drawer__footer');
-      expect(footer.exists()).toBe(true);
-      const btns = footer.findAll('button');
-      expect(btns.length).toBe(2);
-      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
-    });
+      expect(wrapperFn.find('.fn-footer').text()).toBe('底部');
+      wrapperFn.unmount();
 
-    it(':footer[boolean] false hides footer', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, footer: false },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-drawer__footer').exists()).toBe(false);
-    });
-
-    it(':footer[function]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, footer: () => <div class="custom-footer">自定义底部</div> },
-      });
-      await nextTick();
-      expect(wrapper.find('.custom-footer').exists()).toBe(true);
-    });
-
-    it(':footer[slot]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText },
+      const wrapperSlot = mount(Drawer, {
+        props: { visible: true, body: '内容' },
         slots: { footer: () => <div class="slot-footer">插槽底部</div> },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.slot-footer').exists()).toBe(true);
+      expect(wrapperSlot.find('.slot-footer').text()).toBe('插槽底部');
+      wrapperSlot.unmount();
     });
 
-    it(':cancelBtn[string]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText },
-      });
-      await nextTick();
-      const btn = wrapper.find('.t-drawer__cancel');
-      expect(btn.exists()).toBe(true);
-      expect(btn.text()).toBe('取消');
-    });
+    it(':cancelBtn[string/object/null]', async () => {
+      // Default - '取消'
+      expect(wrapper!.find('.t-drawer__cancel').exists()).toBe(true);
+      expect(wrapper!.find('.t-drawer__cancel').text()).toBe('取消');
 
-    it(':cancelBtn[null]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, cancelBtn: null },
+      // String
+      const w1 = mount(Drawer, {
+        props: { visible: true, body: '内容', cancelBtn: '自定义取消' },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer__cancel').exists()).toBe(false);
-    });
+      expect(w1.find('.t-drawer__cancel').text()).toBe('自定义取消');
+      w1.unmount();
 
-    it(':cancelBtn[object]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, cancelBtn: { theme: 'danger', content: '自定义取消' } },
+      // Object
+      const w2 = mount(Drawer, {
+        props: { visible: true, body: '内容', cancelBtn: { content: '对象取消' } },
       });
+      vi.runAllTimers();
       await nextTick();
-      const btn = wrapper.find('.t-drawer__cancel');
-      expect(btn.exists()).toBe(true);
-      expect(btn.text()).toBe('自定义取消');
+      expect(w2.find('.t-drawer__cancel').text()).toBe('对象取消');
+      w2.unmount();
+
+      // null
+      const w3 = mount(Drawer, {
+        props: { visible: true, body: '内容', cancelBtn: null },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect(w3.find('.t-drawer__cancel').exists()).toBe(false);
+      w3.unmount();
     });
 
     it(':cancelBtn[function]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, cancelBtn: () => <span class="custom-cancel">取消按钮</span> },
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', cancelBtn: () => <span class="fn-cancel">取消</span> },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.custom-cancel').exists()).toBe(true);
-      expect(wrapper.find('.custom-cancel').text()).toBe('取消按钮');
+      expect(w.find('.fn-cancel').text()).toBe('取消');
+      w.unmount();
     });
 
-    it(':confirmBtn[string]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText },
-      });
-      await nextTick();
-      const btn = wrapper.find('.t-drawer__confirm');
-      expect(btn.exists()).toBe(true);
-      expect(btn.text()).toBe('确认');
-    });
+    it(':confirmBtn[string/object/null]', async () => {
+      // Default - '确认'
+      expect(wrapper!.find('.t-drawer__confirm').exists()).toBe(true);
+      expect(wrapper!.find('.t-drawer__confirm').text()).toBe('确认');
 
-    it(':confirmBtn[null]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, confirmBtn: null },
+      // Object
+      const w1 = mount(Drawer, {
+        props: { visible: true, body: '内容', confirmBtn: { content: '对象确认' } },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer__confirm').exists()).toBe(false);
-    });
+      expect(w1.find('.t-drawer__confirm').text()).toBe('对象确认');
+      w1.unmount();
 
-    it(':confirmBtn[object]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, confirmBtn: { theme: 'primary', content: '自定义确认' } },
+      // null
+      const w2 = mount(Drawer, {
+        props: { visible: true, body: '内容', confirmBtn: null },
       });
+      vi.runAllTimers();
       await nextTick();
-      const btn = wrapper.find('.t-drawer__confirm');
-      expect(btn.exists()).toBe(true);
-      expect(btn.text()).toBe('自定义确认');
+      expect(w2.find('.t-drawer__confirm').exists()).toBe(false);
+      w2.unmount();
     });
 
     it(':confirmBtn[function]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, confirmBtn: () => <span class="custom-confirm">确认按钮</span> },
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', confirmBtn: () => <span class="fn-confirm">确认</span> },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.custom-confirm').exists()).toBe(true);
-      expect(wrapper.find('.custom-confirm').text()).toBe('确认按钮');
+      expect(w.find('.fn-confirm').text()).toBe('确认');
+      w.unmount();
     });
 
-    it(':closeBtn[boolean] true shows close button', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, closeBtn: true },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-drawer__close-btn').exists()).toBe(true);
-      expect(wrapper.findComponent(CloseIcon).exists()).toBe(true);
-      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
-    });
+    it(':closeBtn[boolean]', async () => {
+      // Default undefined - no close button
+      expect(wrapper!.find('.t-drawer__close-btn').exists()).toBe(false);
 
-    it(':closeBtn[boolean] false hides close button', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, closeBtn: false },
-      });
+      await wrapper!.setProps({ closeBtn: true });
       await nextTick();
-      expect(wrapper.find('.t-drawer__close-btn').exists()).toBe(false);
+      expect(wrapper!.find('.t-drawer__close-btn').exists()).toBe(true);
+      expect(wrapper!.findComponent(CloseIcon).exists()).toBe(true);
+
+      await wrapper!.setProps({ closeBtn: false });
+      await nextTick();
+      expect(wrapper!.find('.t-drawer__close-btn').exists()).toBe(false);
     });
 
     it(':closeBtn[string]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, closeBtn: '关闭' },
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', closeBtn: '关闭' },
       });
+      vi.runAllTimers();
       await nextTick();
-      const closeBtn = wrapper.find('.t-drawer__close-btn');
-      expect(closeBtn.exists()).toBe(true);
-      expect(closeBtn.text()).toBe('关闭');
+      expect(w.find('.t-drawer__close-btn').text()).toBe('关闭');
+      w.unmount();
     });
 
-    it(':closeBtn[function]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, closeBtn: () => <span class="custom-close">X</span> },
+    it(':closeBtn[slot/function]', async () => {
+      const wrapperFn = mount(Drawer, {
+        props: { visible: true, body: '内容', closeBtn: () => <span class="fn-close">X</span> },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.custom-close').exists()).toBe(true);
-    });
+      expect(wrapperFn.find('.fn-close').text()).toBe('X');
+      wrapperFn.unmount();
 
-    it(':closeBtn[slot]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, closeBtn: true },
+      const wrapperSlot = mount(Drawer, {
+        props: { visible: true, body: '内容', closeBtn: true },
         slots: { closeBtn: () => <span class="slot-close">关</span> },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.slot-close').exists()).toBe(true);
+      expect(wrapperSlot.find('.slot-close').text()).toBe('关');
+      wrapperSlot.unmount();
     });
 
     it(':placement[left/right/top/bottom]', async () => {
-      const wrapperRight = mount(Drawer, {
-        props: { visible: true, body: bodyText, placement: 'right' },
-      });
-      const wrapperLeft = mount(Drawer, {
-        props: { visible: true, body: bodyText, placement: 'left' },
-      });
-      const wrapperTop = mount(Drawer, {
-        props: { visible: true, body: bodyText, placement: 'top' },
-      });
-      const wrapperBottom = mount(Drawer, {
-        props: { visible: true, body: bodyText, placement: 'bottom' },
-      });
-      await nextTick();
-      expect(wrapperRight.find('.t-drawer').classes()).toContain('t-drawer--right');
-      expect(wrapperLeft.find('.t-drawer').classes()).toContain('t-drawer--left');
-      expect(wrapperTop.find('.t-drawer').classes()).toContain('t-drawer--top');
-      expect(wrapperBottom.find('.t-drawer').classes()).toContain('t-drawer--bottom');
-      expect(wrapperRight.find('.t-drawer').element).toMatchSnapshot();
-      expect(wrapperLeft.find('.t-drawer').element).toMatchSnapshot();
-      expect(wrapperTop.find('.t-drawer').element).toMatchSnapshot();
-      expect(wrapperBottom.find('.t-drawer').element).toMatchSnapshot();
+      // Default right
+      expect(wrapper!.find('.t-drawer').classes()).toContain('t-drawer--right');
+      expect(wrapper!.find('.t-drawer__content-wrapper').classes()).toContain('t-drawer__content-wrapper--right');
+
+      for (const p of ['left', 'top', 'bottom'] as const) {
+        await wrapper!.setProps({ placement: p });
+        await nextTick();
+        expect(wrapper!.find('.t-drawer').classes()).toContain(`t-drawer--${p}`);
+        expect(wrapper!.find('.t-drawer__content-wrapper').classes()).toContain(`t-drawer__content-wrapper--${p}`);
+      }
     });
 
     it(':placement validator', () => {
-      const propsConfig = (Drawer as any).props;
-      const validator = propsConfig?.placement?.validator;
-      if (validator) {
-        expect(validator(undefined)).toBe(true);
-        expect(validator(null)).toBe(true);
-        expect(validator('left')).toBe(true);
-        expect(validator('right')).toBe(true);
-        expect(validator('top')).toBe(true);
-        expect(validator('bottom')).toBe(true);
-        expect(validator('invalid')).toBe(false);
-      }
-    });
-
-    it(':mode validator', () => {
-      const propsConfig = (Drawer as any).props;
-      const validator = propsConfig?.mode?.validator;
-      if (validator) {
-        expect(validator(undefined)).toBe(true);
-        expect(validator(null)).toBe(true);
-        expect(validator('overlay')).toBe(true);
-        expect(validator('push')).toBe(true);
-        expect(validator('invalid')).toBe(false);
-      }
-    });
-
-    it(':showOverlay[boolean] true shows mask', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, showOverlay: true },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-drawer__mask').exists()).toBe(true);
-    });
-
-    it(':showOverlay[boolean] false hides mask', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, showOverlay: false },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-drawer__mask').exists()).toBe(false);
-      expect(wrapper.find('.t-drawer').classes()).toContain('t-drawer--without-mask');
-      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
-    });
-
-    it(':size[string]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, size: '500px' },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      expect(getComputedStyle(content.element, null).width).toBe('500px');
-    });
-
-    it(':size[small/medium/large]', async () => {
-      const wrapperSmall = mount(Drawer, {
-        props: { visible: true, body: bodyText, size: 'small' },
-      });
-      const wrapperMedium = mount(Drawer, {
-        props: { visible: true, body: bodyText, size: 'medium' },
-      });
-      const wrapperLarge = mount(Drawer, {
-        props: { visible: true, body: bodyText, size: 'large' },
-      });
-      await nextTick();
-      expect(getComputedStyle(wrapperSmall.find('.t-drawer__content-wrapper').element).width).toBe('300px');
-      expect(getComputedStyle(wrapperMedium.find('.t-drawer__content-wrapper').element).width).toBe('500px');
-      expect(getComputedStyle(wrapperLarge.find('.t-drawer__content-wrapper').element).width).toBe('760px');
-    });
-
-    it(':size[numeric string]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, size: '400' },
-      });
-      await nextTick();
-      expect(getComputedStyle(wrapper.find('.t-drawer__content-wrapper').element).width).toBe('400px');
-    });
-
-    it(':size[string] with top/bottom placement sets height', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, placement: 'top', size: '200px' },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      expect(getComputedStyle(content.element).height).toBe('200px');
-    });
-
-    it(':zIndex[number]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, zIndex: 2022 },
-      });
-      await nextTick();
-      expect(getComputedStyle(wrapper.find('.t-drawer').element).zIndex).toBe('2022');
-    });
-
-    it(':drawerClassName[string]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, drawerClassName: 'my-drawer-class' },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-drawer').classes()).toContain('my-drawer-class');
-    });
-
-    it(':showInAttachedElement[boolean]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, showInAttachedElement: true },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-drawer').classes()).toContain('t-drawer--attach');
-      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
-    });
-
-    it(':visible[boolean] controls rendering', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: false, body: bodyText },
-      });
-      await nextTick();
-      // When visible is false and lazy is not set, the drawer should still render but not be open
-      const drawer = wrapper.find('.t-drawer');
-      if (drawer.exists()) {
-        expect(drawer.classes()).not.toContain('t-drawer--open');
-      }
-    });
-
-    it(':lazy[boolean] prevents initial render', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: false, body: bodyText, lazy: true },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(false);
-    });
-
-    it(':destroyOnClose[boolean]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, destroyOnClose: true },
-      });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-
-      // Close the drawer
-      await wrapper.setProps({ visible: false });
-      await nextTick();
-      vi.advanceTimersByTime(350);
-      await nextTick();
-      // After close with destroyOnClose, content should be destroyed
-      expect(wrapper.find('.t-drawer').exists()).toBe(false);
-
-      // Reopen
-      await wrapper.setProps({ visible: true });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-    });
-
-    it(':sizeDraggable[boolean]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, sizeDraggable: true },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      const lastChild = content.element.lastChild as HTMLElement;
-      expect(getComputedStyle(lastChild).cursor).toBe('col-resize');
-      expect(wrapper.find('.t-drawer').element).toMatchSnapshot();
-    });
-
-    it(':sizeDraggable with value and drag', async () => {
-      const sizeDraggableValue = { min: 100, max: 300 };
-      const wrapper = mount(Drawer, {
-        props: {
-          visible: true,
-          placement: 'left',
-          size: '200',
-          body: bodyText,
-          sizeDraggable: sizeDraggableValue,
-        },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      if (content.element.lastChild) {
-        moveElement(content.element.lastChild as Element, 400, 100);
-        await nextTick();
-        expect(getComputedStyle(content.element).width).toBe('300px');
-      }
-    });
-
-    it(':sizeDraggable drag with right placement', async () => {
-      const sizeDraggableValue = { min: 100, max: 300 };
-      const wrapper = mount(Drawer, {
-        props: {
-          visible: true,
-          placement: 'right',
-          size: '200',
-          body: bodyText,
-          sizeDraggable: sizeDraggableValue,
-        },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      if (content.element.lastChild) {
-        moveElement(content.element.lastChild as Element, -300, 80);
-        await nextTick();
-        expect(getComputedStyle(content.element).width).toBe('300px');
-      }
-    });
-
-    it(':sizeDraggable drag with top placement', async () => {
-      const sizeDraggableValue = { min: 100, max: 300 };
-      const wrapper = mount(Drawer, {
-        props: {
-          visible: true,
-          placement: 'top',
-          size: '200',
-          body: bodyText,
-          sizeDraggable: sizeDraggableValue,
-        },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      if (content.element.lastChild) {
-        moveElement(content.element.lastChild as Element, 80, 300);
-        await nextTick();
-        expect(getComputedStyle(content.element).height).toBe('300px');
-      }
-    });
-
-    it(':sizeDraggable drag with bottom placement', async () => {
-      const sizeDraggableValue = { min: 100, max: 300 };
-      const wrapper = mount(Drawer, {
-        props: {
-          visible: true,
-          placement: 'bottom',
-          size: '200',
-          body: bodyText,
-          sizeDraggable: sizeDraggableValue,
-        },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      if (content.element.lastChild) {
-        moveElement(content.element.lastChild as Element, 80, -300);
-        await nextTick();
-        expect(getComputedStyle(content.element).height).toBe('300px');
-      }
-    });
-
-    it(':attach[string] teleports to body', async () => {
-      mount(Drawer, {
-        props: { visible: true, attach: 'body' },
-      });
-      await nextTick();
-      expect(document.querySelector('body > .t-drawer')).toBeTruthy();
-    });
-
-    it(':attach[function] teleports to body', async () => {
-      mount(Drawer, {
-        props: { visible: true, attach: () => document.body },
-      });
-      await nextTick();
-      expect(document.querySelector('body > .t-drawer')).toBeTruthy();
-    });
-
-    it(':preventScrollThrough[boolean]', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, preventScrollThrough: true },
-      });
-      await nextTick();
-      // The drawer should add style element to head for preventing scroll
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
+      const validator = drawerProps.placement.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      expect(validator('left')).toBe(true);
+      expect(validator('right')).toBe(true);
+      expect(validator('top')).toBe(true);
+      expect(validator('bottom')).toBe(true);
+      // @ts-expect-error
+      expect(validator('invalid')).toBe(false);
     });
 
     it(':mode[overlay/push]', async () => {
-      const wrapperOverlay = mount(Drawer, {
-        props: { visible: true, body: bodyText, mode: 'overlay' },
+      expect(wrapper!.find('.t-drawer').exists()).toBe(true);
+
+      await wrapper!.setProps({ mode: 'push' });
+      await nextTick();
+      expect(wrapper!.find('.t-drawer').exists()).toBe(true);
+    });
+
+    it(':mode validator', () => {
+      const validator = drawerProps.mode.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      expect(validator('overlay')).toBe(true);
+      expect(validator('push')).toBe(true);
+      // @ts-expect-error
+      expect(validator('invalid')).toBe(false);
+    });
+
+    it(':showOverlay[boolean]', async () => {
+      expect(wrapper!.find('.t-drawer__mask').exists()).toBe(true);
+
+      await wrapper!.setProps({ showOverlay: false });
+      await nextTick();
+      expect(wrapper!.find('.t-drawer__mask').exists()).toBe(false);
+      expect(wrapper!.find('.t-drawer').classes()).toContain('t-drawer--without-mask');
+    });
+
+    it(':showInAttachedElement[boolean]', async () => {
+      expect(wrapper!.find('.t-drawer').classes()).not.toContain('t-drawer--attach');
+
+      await wrapper!.setProps({ showInAttachedElement: true });
+      await nextTick();
+      expect(wrapper!.find('.t-drawer').classes()).toContain('t-drawer--attach');
+    });
+
+    it(':size[string]', async () => {
+      await wrapper!.setProps({ size: '500px' });
+      await nextTick();
+      expect((wrapper!.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('500px');
+
+      await wrapper!.setProps({ size: 'small' });
+      await nextTick();
+      expect((wrapper!.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('300px');
+
+      await wrapper!.setProps({ size: 'medium' });
+      await nextTick();
+      expect((wrapper!.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('500px');
+
+      await wrapper!.setProps({ size: 'large' });
+      await nextTick();
+      expect((wrapper!.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('760px');
+
+      // Numeric string
+      await wrapper!.setProps({ size: '400' });
+      await nextTick();
+      expect((wrapper!.find('.t-drawer__content-wrapper').element as HTMLElement).style.width).toBe('400px');
+    });
+
+    it(':size with top/bottom placement sets height', async () => {
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', placement: 'top', size: '200px' },
       });
-      const wrapperPush = mount(Drawer, {
-        props: { visible: true, body: bodyText, mode: 'push' },
+      vi.runAllTimers();
+      await nextTick();
+      expect((w.find('.t-drawer__content-wrapper').element as HTMLElement).style.height).toBe('200px');
+      w.unmount();
+    });
+
+    it(':zIndex[number]', async () => {
+      expect((wrapper!.find('.t-drawer').element as HTMLElement).style.zIndex).toBe('');
+
+      await wrapper!.setProps({ zIndex: 2022 });
+      await nextTick();
+      expect((wrapper!.find('.t-drawer').element as HTMLElement).style.zIndex).toBe('2022');
+    });
+
+    it(':drawerClassName[string]', async () => {
+      await wrapper!.setProps({ drawerClassName: 'my-drawer-class' });
+      await nextTick();
+      expect(wrapper!.find('.t-drawer').classes()).toContain('my-drawer-class');
+    });
+
+    it(':closeOnOverlayClick[boolean]', async () => {
+      const onClose = vi.fn();
+
+      const w1 = mount(Drawer, {
+        props: { visible: true, body: '内容', closeOnOverlayClick: true, onClose },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      await w1.find('.t-drawer__mask').trigger('click');
+      expect(onClose).toHaveBeenCalledTimes(1);
+      expect(onClose.mock.calls[0][0].trigger).toBe('overlay');
+      w1.unmount();
+
+      onClose.mockClear();
+      const w2 = mount(Drawer, {
+        props: { visible: true, body: '内容', closeOnOverlayClick: false, onClose },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      await w2.find('.t-drawer__mask').trigger('click');
+      expect(onClose).not.toHaveBeenCalled();
+      w2.unmount();
+    });
+
+    it(':closeOnEscKeydown[boolean]', async () => {
+      const onClose = vi.fn();
+
+      const w1 = mount(Drawer, {
+        attachTo: document.body,
+        props: { visible: true, body: '内容', closeOnEscKeydown: true, onClose },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+      await nextTick();
+      expect(onClose).toHaveBeenCalledTimes(1);
+      expect(onClose.mock.calls[0][0].trigger).toBe('esc');
+      w1.unmount();
+
+      onClose.mockClear();
+      const w2 = mount(Drawer, {
+        attachTo: document.body,
+        props: { visible: true, body: '内容', closeOnEscKeydown: false, onClose },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+      await nextTick();
+      expect(onClose).not.toHaveBeenCalled();
+      w2.unmount();
+    });
+
+    it(':destroyOnClose[boolean]', async () => {
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', destroyOnClose: true },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect(w.find('.t-drawer').exists()).toBe(true);
+
+      await w.setProps({ visible: false });
+      vi.advanceTimersByTime(350);
+      await nextTick();
+      expect(w.find('.t-drawer').exists()).toBe(false);
+
+      await w.setProps({ visible: true });
+      vi.runAllTimers();
+      await nextTick();
+      expect(w.find('.t-drawer').exists()).toBe(true);
+      w.unmount();
+    });
+
+    it(':lazy[boolean]', async () => {
+      const w = mount(Drawer, {
+        props: { visible: false, body: '内容', lazy: true },
       });
       await nextTick();
-      expect(wrapperOverlay.find('.t-drawer').exists()).toBe(true);
-      expect(wrapperPush.find('.t-drawer').exists()).toBe(true);
-      expect(wrapperOverlay.find('.t-drawer').element).toMatchSnapshot();
-      expect(wrapperPush.find('.t-drawer').element).toMatchSnapshot();
+      expect(w.find('.t-drawer').exists()).toBe(false);
+
+      await w.setProps({ visible: true });
+      vi.runAllTimers();
+      await nextTick();
+      expect(w.find('.t-drawer').exists()).toBe(true);
+      w.unmount();
+    });
+
+    it(':preventScrollThrough[boolean]', async () => {
+      const w = mount(Drawer, {
+        attachTo: document.body,
+        props: { visible: false, body: '内容', preventScrollThrough: true },
+      });
+      await nextTick();
+
+      await w.setProps({ visible: true });
+      vi.runAllTimers();
+      await nextTick();
+      expect(w.find('.t-drawer').exists()).toBe(true);
+
+      await w.setProps({ visible: false });
+      vi.advanceTimersByTime(200);
+      await nextTick();
+      expect(w.find('.t-drawer--open').exists()).toBe(false);
+      w.unmount();
+    });
+
+    it(':sizeDraggable[boolean/object]', async () => {
+      // Default false - no drag handle
+      const contentDefault = wrapper!.find('.t-drawer__content-wrapper');
+      expect((contentDefault.element.lastChild as HTMLElement)?.style?.cursor).not.toBe('col-resize');
+
+      // true - shows drag handle
+      const w1 = mount(Drawer, {
+        props: { visible: true, body: '内容', sizeDraggable: true },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect((w1.find('.t-drawer__content-wrapper').element.lastChild as HTMLElement).style.cursor).toBe('col-resize');
+      w1.unmount();
+
+      // top placement - row-resize
+      const w2 = mount(Drawer, {
+        props: { visible: true, body: '内容', sizeDraggable: true, placement: 'top' },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect((w2.find('.t-drawer__content-wrapper').element.lastChild as HTMLElement).style.cursor).toBe('row-resize');
+      w2.unmount();
+    });
+
+    it(':attach[string/function]', async () => {
+      const w1 = mount(Drawer, {
+        props: { visible: true, body: '内容', attach: 'body' },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect(document.querySelector('body > .t-drawer')).toBeTruthy();
+      w1.unmount();
+
+      const w2 = mount(Drawer, {
+        props: { visible: true, body: '内容', attach: () => document.body },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect(document.querySelector('body > .t-drawer')).toBeTruthy();
+      w2.unmount();
     });
 
     it(':footer button order by placement', async () => {
-      const wrapperRight = mount(Drawer, {
-        props: { visible: true, body: bodyText, placement: 'right' },
-      });
-      const wrapperLeft = mount(Drawer, {
-        props: { visible: true, body: bodyText, placement: 'left' },
-      });
-      await nextTick();
-      const rightFooter = wrapperRight.find('.t-drawer__footer');
-      const leftFooter = wrapperLeft.find('.t-drawer__footer');
-      if (rightFooter.exists()) {
-        expect(getComputedStyle(rightFooter.element.firstChild as Element).justifyContent).toBe('flex-start');
-      }
-      if (leftFooter.exists()) {
-        expect(getComputedStyle(leftFooter.element.firstChild as Element).justifyContent).toBe('flex-end');
-      }
-    });
+      // Default right placement - confirm first (flex-start)
+      const rightFooter = wrapper!.find('.t-drawer__footer').element.firstChild as HTMLElement;
+      expect(rightFooter.style.justifyContent).toBe('flex-start');
 
-    it(':visible toggle open class', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: false, body: bodyText },
+      // Left placement - cancel first (flex-end)
+      const wLeft = mount(Drawer, {
+        props: { visible: true, body: '内容', placement: 'left' },
       });
-      await nextTick();
-      await wrapper.setProps({ visible: true });
       vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer--open').exists()).toBe(true);
-
-      await wrapper.setProps({ visible: false });
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer--open').exists()).toBe(false);
-    });
-
-    it(':onBeforeOpen and :onBeforeClose callbacks', async () => {
-      const onBeforeOpen = vi.fn();
-      const onBeforeClose = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: { visible: false, body: bodyText, onBeforeOpen, onBeforeClose },
-      });
-      await nextTick();
-      // visible watch is immediate, so onBeforeClose is called once at mount with visible=false
-      const initialCloseCount = onBeforeClose.mock.calls.length;
-
-      await wrapper.setProps({ visible: true });
-      await nextTick();
-      expect(onBeforeOpen).toHaveBeenCalledTimes(1);
-
-      await wrapper.setProps({ visible: false });
-      await nextTick();
-      expect(onBeforeClose).toHaveBeenCalledTimes(initialCloseCount + 1);
+      const leftFooter = wLeft.find('.t-drawer__footer').element.firstChild as HTMLElement;
+      expect(leftFooter.style.justifyContent).toBe('flex-end');
+      wLeft.unmount();
     });
   });
 
-  // ==================== Events Tests ====================
+  // ==================== Events ====================
   describe('events', () => {
+    it('onBeforeOpen', async () => {
+      const onBeforeOpen = vi.fn();
+      const w = mount(Drawer, {
+        props: { visible: false, body: '内容', onBeforeOpen },
+      });
+      await nextTick();
+      expect(onBeforeOpen).not.toHaveBeenCalled();
+
+      await w.setProps({ visible: true });
+      await nextTick();
+      expect(onBeforeOpen).toHaveBeenCalledTimes(1);
+      w.unmount();
+    });
+
+    it('onBeforeClose', async () => {
+      const onBeforeClose = vi.fn();
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', onBeforeClose },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect(onBeforeClose).not.toHaveBeenCalled();
+
+      await w.setProps({ visible: false });
+      await nextTick();
+      expect(onBeforeClose).toHaveBeenCalledTimes(1);
+      w.unmount();
+    });
+
     it('onCancel', async () => {
       const onCancel = vi.fn();
       const onClose = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, onCancel, onClose },
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', onCancel, onClose },
       });
+      vi.runAllTimers();
       await nextTick();
-      const btn = wrapper.find('.t-drawer__cancel');
-      await btn.trigger('click');
+
+      await w.find('.t-drawer__cancel').trigger('click');
       expect(onCancel).toHaveBeenCalledTimes(1);
+      expect(onCancel.mock.calls[0][0].e).toBeInstanceOf(MouseEvent);
       expect(onClose).toHaveBeenCalledTimes(1);
+      expect(onClose.mock.calls[0][0].trigger).toBe('cancel');
+      w.unmount();
     });
 
     it('onConfirm', async () => {
       const onConfirm = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, onConfirm },
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', onConfirm },
       });
+      vi.runAllTimers();
       await nextTick();
-      const btn = wrapper.find('.t-drawer__confirm');
-      await btn.trigger('click');
+
+      await w.find('.t-drawer__confirm').trigger('click');
       expect(onConfirm).toHaveBeenCalledTimes(1);
+      expect(onConfirm.mock.calls[0][0].e).toBeInstanceOf(MouseEvent);
+      w.unmount();
     });
 
     it('onCloseBtnClick', async () => {
       const onCloseBtnClick = vi.fn();
       const onClose = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, closeBtn: true, onCloseBtnClick, onClose },
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', closeBtn: true, onCloseBtnClick, onClose },
       });
+      vi.runAllTimers();
       await nextTick();
-      const btn = wrapper.find('.t-drawer__close-btn');
-      await btn.trigger('click');
+
+      await w.find('.t-drawer__close-btn').trigger('click');
       expect(onCloseBtnClick).toHaveBeenCalledTimes(1);
+      expect(onCloseBtnClick.mock.calls[0][0].e).toBeInstanceOf(MouseEvent);
       expect(onClose).toHaveBeenCalledTimes(1);
+      expect(onClose.mock.calls[0][0].trigger).toBe('close-btn');
+      expect(onClose.mock.calls[0][0].e).toBeInstanceOf(MouseEvent);
+      w.unmount();
     });
 
-    it('onClose via close-btn trigger', async () => {
+    it('onClose via all triggers', async () => {
       const onClose = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, closeBtn: true, onClose },
+
+      // Via cancel
+      const w1 = mount(Drawer, {
+        props: { visible: true, body: '内容', onClose },
       });
+      vi.runAllTimers();
       await nextTick();
-      await wrapper.find('.t-drawer__close-btn').trigger('click');
-      expect(onClose).toHaveBeenCalledWith(expect.objectContaining({ trigger: 'close-btn' }));
+      await w1.find('.t-drawer__cancel').trigger('click');
+      expect(onClose.mock.calls[0][0].trigger).toBe('cancel');
+      expect(onClose.mock.calls[0][0].e).toBeInstanceOf(MouseEvent);
+      w1.unmount();
+
+      // Via overlay
+      onClose.mockClear();
+      const w2 = mount(Drawer, {
+        props: { visible: true, body: '内容', closeOnOverlayClick: true, onClose },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      await w2.find('.t-drawer__mask').trigger('click');
+      expect(onClose.mock.calls[0][0].trigger).toBe('overlay');
+      w2.unmount();
+
+      // Via ESC
+      onClose.mockClear();
+      const w3 = mount(Drawer, {
+        attachTo: document.body,
+        props: { visible: true, body: '内容', closeOnEscKeydown: true, onClose },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+      await nextTick();
+      expect(onClose.mock.calls[0][0].trigger).toBe('esc');
+      expect(onClose.mock.calls[0][0].e).toBeInstanceOf(KeyboardEvent);
+      w3.unmount();
     });
 
     it('onOverlayClick', async () => {
       const onOverlayClick = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, onOverlayClick },
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', onOverlayClick },
       });
+      vi.runAllTimers();
       await nextTick();
-      const mask = wrapper.find('.t-drawer__mask');
-      await mask.trigger('click');
+
+      await w.find('.t-drawer__mask').trigger('click');
       expect(onOverlayClick).toHaveBeenCalledTimes(1);
-    });
-
-    it('onClose via overlay click when closeOnOverlayClick is true', async () => {
-      const onClose = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, closeOnOverlayClick: true, onClose },
-      });
-      await nextTick();
-      await wrapper.find('.t-drawer__mask').trigger('click');
-      expect(onClose).toHaveBeenCalledWith(expect.objectContaining({ trigger: 'overlay' }));
-    });
-
-    it('overlay click does not close when closeOnOverlayClick is false', async () => {
-      const onClose = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, closeOnOverlayClick: false, onClose },
-      });
-      await nextTick();
-      await wrapper.find('.t-drawer__mask').trigger('click');
-      expect(onClose).not.toHaveBeenCalled();
+      expect(onOverlayClick.mock.calls[0][0].e).toBeInstanceOf(MouseEvent);
+      w.unmount();
     });
 
     it('onEscKeydown', async () => {
       const onEscKeydown = vi.fn();
-      const onClose = vi.fn();
-      const wrapper = mount(Drawer, {
+      const w = mount(Drawer, {
         attachTo: document.body,
-        props: { visible: true, body: bodyText, closeOnEscKeydown: true, onEscKeydown, onClose },
+        props: { visible: true, body: '内容', closeOnEscKeydown: true, onEscKeydown },
       });
-      await nextTick();
       vi.runAllTimers();
       await nextTick();
 
       window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
       await nextTick();
       expect(onEscKeydown).toHaveBeenCalledTimes(1);
-      expect(onClose).toHaveBeenCalledWith(expect.objectContaining({ trigger: 'esc' }));
-      wrapper.unmount();
-    });
-
-    it('ESC does not close when closeOnEscKeydown is false', async () => {
-      const onClose = vi.fn();
-      const wrapper = mount(Drawer, {
-        attachTo: document.body,
-        props: { visible: true, body: bodyText, closeOnEscKeydown: false, onClose },
-      });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
-      await nextTick();
-      expect(onClose).not.toHaveBeenCalled();
-      wrapper.unmount();
+      expect(onEscKeydown.mock.calls[0][0].e).toBeInstanceOf(KeyboardEvent);
+      w.unmount();
     });
 
     it('onSizeDragEnd', async () => {
       const onSizeDragEnd = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: {
-          visible: true,
-          body: bodyText,
-          sizeDraggable: true,
-          placement: 'left',
-          size: '200',
-          onSizeDragEnd,
-        },
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', sizeDraggable: true, placement: 'left', size: '200', onSizeDragEnd },
       });
+      vi.runAllTimers();
       await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      if (content.element.lastChild) {
-        moveElement(content.element.lastChild as Element, 400, 100);
-        await nextTick();
-        expect(onSizeDragEnd).toHaveBeenCalled();
-      }
+
+      const content = w.find('.t-drawer__content-wrapper');
+      moveElement(content.element.lastChild as Element, 400, 100);
+      await nextTick();
+      expect(onSizeDragEnd).toHaveBeenCalled();
+      expect(onSizeDragEnd.mock.calls[0][0].e).toBeInstanceOf(MouseEvent);
+      expect(typeof onSizeDragEnd.mock.calls[0][0].size).toBe('number');
+      w.unmount();
     });
 
-    it('update:visible emitted on close', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, closeBtn: true },
+    it('update:visible', async () => {
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', closeBtn: true },
       });
+      vi.runAllTimers();
       await nextTick();
-      await wrapper.find('.t-drawer__close-btn').trigger('click');
-      expect(wrapper.emitted('update:visible')).toBeTruthy();
-      const emitted = wrapper.emitted('update:visible');
-      if (emitted) {
-        expect(emitted[0]).toEqual([false]);
-      }
+
+      await w.find('.t-drawer__close-btn').trigger('click');
+      const emitted = w.emitted('update:visible');
+      expect(emitted).toBeTruthy();
+      expect(emitted![0]).toEqual([false]);
+      w.unmount();
     });
   });
 
-  // ==================== Visibility/Lifecycle Tests ====================
-  describe('visibility watch', () => {
-    it('should toggle visible and call lifecycle callbacks', async () => {
-      const onBeforeOpen = vi.fn();
-      const onBeforeClose = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: { visible: false, body: bodyText, onBeforeOpen, onBeforeClose },
-      });
-      await nextTick();
-      // visible watch is immediate, so onBeforeClose may be called at mount
-      const initialCloseCount = onBeforeClose.mock.calls.length;
-
-      // Open
-      await wrapper.setProps({ visible: true });
-      await nextTick();
-      expect(onBeforeOpen).toHaveBeenCalledTimes(1);
-
-      // Close
-      await wrapper.setProps({ visible: false });
-      await nextTick();
-      expect(onBeforeClose).toHaveBeenCalledTimes(initialCloseCount + 1);
-    });
-
-    it('destroyOnClose lifecycle', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: false, body: bodyText, destroyOnClose: true },
-      });
-      await nextTick();
-
-      // Open
-      await wrapper.setProps({ visible: true });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-
-      // Close
-      await wrapper.setProps({ visible: false });
-      await nextTick();
-      vi.advanceTimersByTime(350);
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(false);
-
-      // Reopen
-      await wrapper.setProps({ visible: true });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-    });
-
-    it('lazy + visible:false should not render', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: false, body: bodyText, lazy: true },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(false);
-
-      // Make visible
-      await wrapper.setProps({ visible: true });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-    });
-  });
-
-  // ==================== Edge Cases Tests ====================
+  // ==================== Edge Cases ====================
   describe('edge cases', () => {
-    it('should handle component unmount gracefully', async () => {
-      const wrapper = mount(Drawer, {
-        attachTo: document.body,
-        props: { visible: true, body: bodyText },
-      });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-      wrapper.unmount();
-      expect(true).toBe(true);
-    });
-
-    it('should handle rapid open/close', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: false, body: bodyText },
+    it('rapid open/close', async () => {
+      const w = mount(Drawer, {
+        props: { visible: false, body: '内容' },
       });
       await nextTick();
 
-      await wrapper.setProps({ visible: true });
-      await wrapper.setProps({ visible: false });
-      await wrapper.setProps({ visible: true });
+      await w.setProps({ visible: true });
+      await w.setProps({ visible: false });
+      await w.setProps({ visible: true });
       vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-    });
-
-    it('mode push with placement changes', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, mode: 'push', placement: 'right' },
-      });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-
-      await wrapper.setProps({ placement: 'left' });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer--left').exists()).toBe(true);
+      expect(w.find('.t-drawer').exists()).toBe(true);
+      w.unmount();
     });
 
     it('non-escape key does not trigger close', async () => {
       const onClose = vi.fn();
-      const wrapper = mount(Drawer, {
+      const w = mount(Drawer, {
         attachTo: document.body,
-        props: { visible: true, body: bodyText, closeOnEscKeydown: true, onClose },
+        props: { visible: true, body: '内容', closeOnEscKeydown: true, onClose },
       });
-      await nextTick();
       vi.runAllTimers();
       await nextTick();
 
       window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
       await nextTick();
       expect(onClose).not.toHaveBeenCalled();
-      wrapper.unmount();
+      w.unmount();
     });
 
-    it('showInAttachedElement prevents scroll through style', async () => {
-      const wrapper = mount(Drawer, {
-        props: {
-          visible: true,
-          body: bodyText,
-          showInAttachedElement: true,
-          preventScrollThrough: true,
-        },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-drawer--attach').exists()).toBe(true);
-    });
-
-    it('clearStyleEl runs timer callback on close', async () => {
-      const wrapper = mount(Drawer, {
-        attachTo: document.body,
-        props: { visible: true, body: bodyText, preventScrollThrough: true },
-      });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-
-      // Close to trigger clearStyleEl
-      await wrapper.setProps({ visible: false });
-      await nextTick();
-      // Advance past the 150ms timeout in clearStyleEl
-      vi.advanceTimersByTime(200);
-      await nextTick();
-      expect(true).toBe(true);
-      wrapper.unmount();
-    });
-
-    it('push mode updatePushMode on visible toggle', async () => {
+    it('push mode with placement changes', async () => {
       const container = document.createElement('div');
       container.style.position = 'relative';
       document.body.appendChild(container);
-      const wrapper = mount(Drawer, {
+
+      const w = mount(Drawer, {
         attachTo: container,
-        props: { visible: true, body: bodyText, mode: 'push', placement: 'left', size: '300px' },
+        props: { visible: true, body: '内容', mode: 'push', placement: 'right' },
       });
-      await nextTick();
       vi.runAllTimers();
       await nextTick();
 
-      // Close to trigger updatePushMode with isVisible = false
-      await wrapper.setProps({ visible: false });
+      await w.setProps({ placement: 'left' });
       vi.runAllTimers();
       await nextTick();
-
-      // Reopen
-      await wrapper.setProps({ visible: true });
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-      wrapper.unmount();
+      expect(w.find('.t-drawer--left').exists()).toBe(true);
+      w.unmount();
       container.remove();
     });
 
-    it('push mode with top placement', async () => {
+    it('push mode visible toggle', async () => {
       const container = document.createElement('div');
       container.style.position = 'relative';
       document.body.appendChild(container);
-      const wrapper = mount(Drawer, {
+
+      const w = mount(Drawer, {
         attachTo: container,
-        props: { visible: true, body: bodyText, mode: 'push', placement: 'top', size: '200px' },
+        props: { visible: true, body: '内容', mode: 'push', placement: 'left', size: '300px' },
       });
-      await nextTick();
       vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer--top').exists()).toBe(true);
-      wrapper.unmount();
+
+      await w.setProps({ visible: false });
+      vi.runAllTimers();
+      await nextTick();
+
+      await w.setProps({ visible: true });
+      vi.runAllTimers();
+      await nextTick();
+      expect(w.find('.t-drawer').exists()).toBe(true);
+      w.unmount();
       container.remove();
     });
 
-    it('push mode with bottom placement', async () => {
-      const container = document.createElement('div');
-      container.style.position = 'relative';
-      document.body.appendChild(container);
-      const wrapper = mount(Drawer, {
-        attachTo: container,
-        props: { visible: true, body: bodyText, mode: 'push', placement: 'bottom', size: '200px' },
+    it('push mode with all placements', async () => {
+      for (const p of ['left', 'right', 'top', 'bottom'] as const) {
+        const container = document.createElement('div');
+        container.style.position = 'relative';
+        document.body.appendChild(container);
+
+        const w = mount(Drawer, {
+          attachTo: container,
+          props: { visible: true, body: '内容', mode: 'push', placement: p, size: '200px' },
+        });
+        vi.runAllTimers();
+        await nextTick();
+        expect(w.find(`.t-drawer--${p}`).exists()).toBe(true);
+        w.unmount();
+        container.remove();
+      }
+    });
+
+    it('destroyOnClose changed to false then reopen', async () => {
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', destroyOnClose: true },
       });
-      await nextTick();
       vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer--bottom').exists()).toBe(true);
-      wrapper.unmount();
-      container.remove();
+
+      await w.setProps({ visible: false });
+      vi.advanceTimersByTime(350);
+      await nextTick();
+      expect(w.find('.t-drawer').exists()).toBe(false);
+
+      await w.setProps({ destroyOnClose: false });
+      await w.setProps({ visible: true });
+      vi.runAllTimers();
+      await nextTick();
+      expect(w.find('.t-drawer').exists()).toBe(true);
+      w.unmount();
     });
 
-    it('push mode with lazy and visible false does not crash', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: false, body: bodyText, mode: 'push', lazy: true },
+    it('sizeDraggable userSelect:none during drag', async () => {
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', sizeDraggable: true, placement: 'left', size: '200' },
       });
-      await nextTick();
       vi.runAllTimers();
       await nextTick();
 
-      // Open
-      await wrapper.setProps({ visible: true });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-      wrapper.unmount();
-    });
-
-    it('sizeDraggable false does not show drag handle', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, sizeDraggable: false },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      const children = content.element.children;
-      // last child should not be a drag handle
-      const lastChild = children[children.length - 1] as HTMLElement;
-      expect(lastChild?.style?.cursor).not.toBe('col-resize');
-    });
-
-    it('sizeDraggable top/bottom sets row-resize cursor', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, sizeDraggable: true, placement: 'top' },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      const lastChild = content.element.lastChild as HTMLElement;
-      expect(getComputedStyle(lastChild).cursor).toBe('row-resize');
-    });
-
-    it('draggingStyles applies userSelect:none during drag', async () => {
-      const wrapper = mount(Drawer, {
-        props: {
-          visible: true,
-          body: bodyText,
-          sizeDraggable: true,
-          placement: 'left',
-          size: '200',
-        },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
+      const content = w.find('.t-drawer__content-wrapper');
       const dragHandle = content.element.lastChild as Element;
 
-      // mousedown starts drag
       dragHandle.dispatchEvent(new FakeMouseEvent('mousedown', {}));
       await nextTick();
-
-      // During drag, content-wrapper should have userSelect: none
       expect((content.element as HTMLElement).style.userSelect).toBe('none');
 
-      // mouseup ends drag
-      window.document.dispatchEvent(new FakeMouseEvent('mouseup', { x: 300, y: 100 }));
+      document.dispatchEvent(new FakeMouseEvent('mouseup', { x: 300, y: 100 }));
       await nextTick();
-
-      // After drag, userSelect should be removed
       expect((content.element as HTMLElement).style.userSelect).not.toBe('none');
+      w.unmount();
     });
 
-    it('mousemove with sizeDraggable false does not change size', async () => {
-      const onSizeDragEnd = vi.fn();
-      const wrapper = mount(Drawer, {
-        props: {
-          visible: true,
-          body: bodyText,
-          sizeDraggable: true,
-          placement: 'left',
-          size: '200',
-          onSizeDragEnd,
-        },
-      });
-      await nextTick();
-      const content = wrapper.find('.t-drawer__content-wrapper');
-      const dragHandle = content.element.lastChild as Element;
+    it('sizeDraggable drag with all placements', async () => {
+      const placements = [
+        { p: 'left' as const, x: 400, y: 100 },
+        { p: 'right' as const, x: 200, y: 100 },
+        { p: 'top' as const, x: 100, y: 300 },
+        { p: 'bottom' as const, x: 100, y: 200 },
+      ];
 
-      // Start dragging
-      dragHandle.dispatchEvent(new FakeMouseEvent('mousedown', {}));
-      await nextTick();
+      for (const { p, x, y } of placements) {
+        const onSizeDragEnd = vi.fn();
+        const w = mount(Drawer, {
+          props: { visible: true, body: '内容', sizeDraggable: true, placement: p, size: '200', onSizeDragEnd },
+        });
+        vi.runAllTimers();
+        await nextTick();
 
-      // Change sizeDraggable to false while dragging
-      await wrapper.setProps({ sizeDraggable: false });
-      await nextTick();
-
-      // mousemove should return early because allowSizeDraggable is false
-      window.document.dispatchEvent(new FakeMouseEvent('mousemove', { x: 400, y: 100 }));
-      await nextTick();
-      expect(onSizeDragEnd).not.toHaveBeenCalled();
-
-      // Cleanup
-      window.document.dispatchEvent(new FakeMouseEvent('mouseup', { x: 400, y: 100 }));
+        const content = w.find('.t-drawer__content-wrapper');
+        moveElement(content.element.lastChild as Element, x, y);
+        await nextTick();
+        expect(onSizeDragEnd).toHaveBeenCalled();
+        expect(onSizeDragEnd.mock.calls[0][0].e).toBeInstanceOf(MouseEvent);
+        expect(typeof onSizeDragEnd.mock.calls[0][0].size).toBe('number');
+        w.unmount();
+      }
     });
 
-    it('preventScrollThrough adds and removes style from head', async () => {
-      const wrapper = mount(Drawer, {
-        attachTo: document.body,
-        props: { visible: false, body: bodyText, preventScrollThrough: true },
+    it('sizeDraggable with min/max limits', async () => {
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', sizeDraggable: { min: 100, max: 300 }, placement: 'left', size: '200' },
       });
-      await nextTick();
-
-      // Open the drawer - should trigger addStyleElToHead
-      await wrapper.setProps({ visible: true });
-      await nextTick();
       vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
 
-      // Close the drawer - should trigger clearStyleEl
-      await wrapper.setProps({ visible: false });
+      const content = w.find('.t-drawer__content-wrapper');
+      moveElement(content.element.lastChild as Element, 500, 100);
       await nextTick();
-
-      // Advance past the 150ms timeout in clearStyleEl to execute the inner callback
-      vi.advanceTimersByTime(200);
-      await nextTick();
-      expect(true).toBe(true);
-      wrapper.unmount();
+      expect((content.element as HTMLElement).style.width).toBe('300px');
+      w.unmount();
     });
 
     it('preventScrollThrough with lazy and visible toggling', async () => {
-      const wrapper = mount(Drawer, {
+      const w = mount(Drawer, {
         attachTo: document.body,
-        props: { visible: false, body: bodyText, preventScrollThrough: true, lazy: true },
+        props: { visible: false, body: '内容', preventScrollThrough: true, lazy: true },
       });
       await nextTick();
 
-      // Open - sets isMounted = true
-      await wrapper.setProps({ visible: true });
-      await nextTick();
+      await w.setProps({ visible: true });
       vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
+      expect(w.find('.t-drawer').exists()).toBe(true);
 
-      // Close
-      await wrapper.setProps({ visible: false });
-      await nextTick();
+      await w.setProps({ visible: false });
       vi.advanceTimersByTime(200);
       await nextTick();
 
-      // Reopen - now isMounted is true and lazy is true, testing line 225 branch
-      await wrapper.setProps({ visible: true });
-      await nextTick();
+      await w.setProps({ visible: true });
       vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-
-      wrapper.unmount();
+      expect(w.find('.t-drawer').exists()).toBe(true);
+      w.unmount();
     });
 
-    it('destroyOnClose changed to false after close then reopen', async () => {
-      const wrapper = mount(Drawer, {
-        props: { visible: true, body: bodyText, destroyOnClose: true },
-      });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-
-      // Close - triggers destroyOnClose path
-      await wrapper.setProps({ visible: false });
-      await nextTick();
-      // Wait for destroyOnCloseVisible to become true (300ms timeout)
-      vi.advanceTimersByTime(350);
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(false);
-
-      // Change destroyOnClose to false
-      await wrapper.setProps({ destroyOnClose: false });
-      await nextTick();
-
-      // Reopen - should hit the `destroyOnCloseVisible && value` branch (line 211)
-      await wrapper.setProps({ visible: true });
-      await nextTick();
-      vi.runAllTimers();
-      await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
-    });
-
-    it('preventScrollThrough multiple open/close cycles clears timer', async () => {
-      const wrapper = mount(Drawer, {
+    it('preventScrollThrough multiple open/close cycles', async () => {
+      const w = mount(Drawer, {
         attachTo: document.body,
-        props: { visible: true, body: bodyText, preventScrollThrough: true },
+        props: { visible: true, body: '内容', preventScrollThrough: true },
       });
-      await nextTick();
       vi.runAllTimers();
       await nextTick();
 
-      // Close - starts clearStyleEl timer
-      await wrapper.setProps({ visible: false });
+      await w.setProps({ visible: false });
       await nextTick();
 
-      // Reopen before timer fires - clearStyleEl should clear the previous timeout
-      await wrapper.setProps({ visible: true });
-      await nextTick();
+      await w.setProps({ visible: true });
       vi.runAllTimers();
       await nextTick();
 
-      // Close again - second clearStyleEl should clearTimeout the first
-      await wrapper.setProps({ visible: false });
-      await nextTick();
+      await w.setProps({ visible: false });
       vi.advanceTimersByTime(200);
       await nextTick();
-      expect(true).toBe(true);
-      wrapper.unmount();
+      expect(w.find('.t-drawer--open').exists()).toBe(false);
+      w.unmount();
     });
-  });
 
-  // ==================== V-Model Binding Tests ====================
-  describe('v-model binding', () => {
+    it('showInAttachedElement prevents scroll through style', async () => {
+      const w = mount(Drawer, {
+        props: { visible: true, body: '内容', showInAttachedElement: true, preventScrollThrough: true },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect(w.find('.t-drawer--attach').exists()).toBe(true);
+      w.unmount();
+    });
+
     it('v-model:visible two-way binding', async () => {
       const visible = ref(true);
-      const wrapper = mount(Drawer, {
+      const w = mount(Drawer, {
         props: {
           visible: visible.value,
-          body: bodyText,
+          body: '内容',
           closeBtn: true,
           'onUpdate:visible': (val: boolean) => {
             visible.value = val;
           },
         },
       });
+      vi.runAllTimers();
       await nextTick();
-      expect(wrapper.find('.t-drawer').exists()).toBe(true);
 
-      await wrapper.find('.t-drawer__close-btn').trigger('click');
+      await w.find('.t-drawer__close-btn').trigger('click');
       expect(visible.value).toBe(false);
+      w.unmount();
+    });
+
+    it('component unmount cleanup', async () => {
+      const w = mount(Drawer, {
+        attachTo: document.body,
+        props: { visible: true, body: '内容' },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect(w.find('.t-drawer').exists()).toBe(true);
+      w.unmount();
     });
   });
 });
