@@ -16,30 +16,24 @@ import type { TdCalendarProps } from '@tdesign/components/calendar/type';
 MockDate.set('2020-12-28');
 
 describe('Calendar Utils', () => {
-  // ==================== getDay Tests ====================
   describe('getDay', () => {
     it('should return 1 for Monday', () => {
-      // 2020-12-28 is Monday
       expect(getDay(new Date(2020, 11, 28))).toBe(1);
     });
 
     it('should return 7 for Sunday', () => {
-      // 2020-12-27 is Sunday
       expect(getDay(new Date(2020, 11, 27))).toBe(7);
     });
 
     it('should return 5 for Friday', () => {
-      // 2020-12-25 is Friday
       expect(getDay(new Date(2020, 11, 25))).toBe(5);
     });
 
     it('should return 6 for Saturday', () => {
-      // 2020-12-26 is Saturday
       expect(getDay(new Date(2020, 11, 26))).toBe(6);
     });
   });
 
-  // ==================== getDayCn Tests ====================
   describe('getDayCn', () => {
     it('should return Chinese day names for valid numbers', () => {
       expect(getDayCn(1)).toBe('一');
@@ -58,24 +52,23 @@ describe('Calendar Utils', () => {
     });
   });
 
-  // ==================== getCellColIndex Tests ====================
   describe('getCellColIndex', () => {
-    it('should return correct index when day >= firstDayOfWeek', () => {
+    it('should return 0 when day equals firstDayOfWeek', () => {
       // Monday(1), firstDayOfWeek=1 => index 0
       const monday = new Date(2020, 11, 28);
       expect(getCellColIndex(1, monday)).toBe(0);
+    });
+
+    it('should return correct index when day > firstDayOfWeek', () => {
+      // Friday(5), firstDayOfWeek=1 => 5-1=4
+      const friday = new Date(2020, 11, 25);
+      expect(getCellColIndex(1, friday)).toBe(4);
     });
 
     it('should return correct index when day < firstDayOfWeek', () => {
       // Monday(1), firstDayOfWeek=3 => 7-3+1=5
       const monday = new Date(2020, 11, 28);
       expect(getCellColIndex(3, monday)).toBe(5);
-    });
-
-    it('should return 0 for same day as firstDayOfWeek', () => {
-      // Wednesday(3), firstDayOfWeek=3 => 0
-      const wednesday = new Date(2020, 11, 30);
-      expect(getCellColIndex(3, wednesday)).toBe(0);
     });
 
     it('should handle Sunday (day=7) with firstDayOfWeek=1', () => {
@@ -89,7 +82,6 @@ describe('Calendar Utils', () => {
     });
   });
 
-  // ==================== addDate Tests ====================
   describe('addDate', () => {
     it('should add positive days', () => {
       const date = new Date(2020, 11, 28);
@@ -107,7 +99,7 @@ describe('Calendar Utils', () => {
     it('should handle month boundary', () => {
       const date = new Date(2020, 11, 28);
       const result = addDate(date, 5);
-      expect(result.getMonth()).toBe(0); // January
+      expect(result.getMonth()).toBe(0);
       expect(result.getFullYear()).toBe(2021);
     });
 
@@ -118,7 +110,6 @@ describe('Calendar Utils', () => {
     });
   });
 
-  // ==================== createDefaultCurDate Tests ====================
   describe('createDefaultCurDate', () => {
     it('should return current date as dayjs object', () => {
       const result = createDefaultCurDate();
@@ -126,7 +117,6 @@ describe('Calendar Utils', () => {
     });
   });
 
-  // ==================== createYearCellsData Tests ====================
   describe('createYearCellsData', () => {
     const defaultState: CalendarState = {
       realFirstDayOfWeek: 1,
@@ -151,16 +141,15 @@ describe('Calendar Utils', () => {
 
     it('should mark current month as isCurrent', () => {
       const result = createYearCellsData(defaultProps, defaultState);
-      // December (index 11) should be current
       expect(result[11].isCurrent).toBe(true);
       expect(result[0].isCurrent).toBe(false);
     });
 
     it('should set mode to year for all cells', () => {
       const result = createYearCellsData(defaultProps, defaultState);
-      result.forEach((cell) => {
+      for (const cell of result) {
         expect(cell.mode).toBe('year');
-      });
+      }
     });
 
     it('should handle multiple mode', () => {
@@ -170,9 +159,9 @@ describe('Calendar Utils', () => {
       };
       const multiProps = { ...defaultProps, multiple: true };
       const result = createYearCellsData(multiProps, multiState);
-      expect(result[0].isCurrent).toBe(true); // January
-      expect(result[5].isCurrent).toBe(true); // June
-      expect(result[2].isCurrent).toBe(false); // March
+      expect(result[0].isCurrent).toBe(true);
+      expect(result[5].isCurrent).toBe(true);
+      expect(result[2].isCurrent).toBe(false);
     });
 
     it('should format date with custom format', () => {
@@ -182,7 +171,6 @@ describe('Calendar Utils', () => {
     });
   });
 
-  // ==================== createMonthCellsData Tests ====================
   describe('createMonthCellsData', () => {
     const defaultState: CalendarState = {
       realFirstDayOfWeek: 1,
@@ -202,26 +190,25 @@ describe('Calendar Utils', () => {
 
     it('should create week rows for a month', () => {
       const result = createMonthCellsData(defaultProps, defaultState);
-      // December 2020 starts on Tuesday, with firstDayOfWeek=1, should have 5 rows
       expect(result.length).toBeGreaterThanOrEqual(4);
       expect(result.length).toBeLessThanOrEqual(6);
     });
 
     it('each row should have 7 cells', () => {
       const result = createMonthCellsData(defaultProps, defaultState);
-      result.forEach((row) => {
+      for (const row of result) {
         expect(row.length).toBe(7);
-      });
+      }
     });
 
     it('should mark current date as isCurrent in single mode', () => {
       const result = createMonthCellsData(defaultProps, defaultState);
       let foundCurrent = false;
-      result.forEach((row) => {
-        row.forEach((cell) => {
+      for (const row of result) {
+        for (const cell of row) {
           if (cell.isCurrent) foundCurrent = true;
-        });
-      });
+        }
+      }
       expect(foundCurrent).toBe(true);
     });
 
@@ -233,18 +220,17 @@ describe('Calendar Utils', () => {
       const multiProps = { ...defaultProps, multiple: true };
       const result = createMonthCellsData(multiProps, multiState);
       let currentCount = 0;
-      result.forEach((row) => {
-        row.forEach((cell) => {
+      for (const row of result) {
+        for (const cell of row) {
           if (cell.isCurrent) currentCount++;
-        });
-      });
+        }
+      }
       expect(currentCount).toBe(2);
     });
 
     it('should include previous month days with belongTo = -1', () => {
       const result = createMonthCellsData(defaultProps, defaultState);
       const firstRow = result[0];
-      // December 2020 starts on Tuesday, so Monday cell should be from previous month
       const prevMonthCells = firstRow.filter((cell) => cell.belongTo === -1);
       expect(prevMonthCells.length).toBeGreaterThan(0);
     });
@@ -258,11 +244,11 @@ describe('Calendar Utils', () => {
 
     it('should set mode to month for all cells', () => {
       const result = createMonthCellsData(defaultProps, defaultState);
-      result.forEach((row) => {
-        row.forEach((cell) => {
+      for (const row of result) {
+        for (const cell of row) {
           expect(cell.mode).toBe('month');
-        });
-      });
+        }
+      }
     });
 
     it('should handle different firstDayOfWeek', () => {
@@ -275,7 +261,6 @@ describe('Calendar Utils', () => {
     });
 
     it('should fill last row with next month dates', () => {
-      // Use a month where last day doesn't end on the last day of week
       const febState = {
         ...defaultState,
         curSelectedMonth: 2,

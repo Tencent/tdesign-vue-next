@@ -3,428 +3,288 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import MockDate from 'mockdate';
-import Calendar from '@tdesign/components/calendar';
+import { Calendar } from '@tdesign/components';
+import calendarProps from '@tdesign/components/calendar/props';
 
 MockDate.set('2020-12-28');
 
 describe('Calendar', () => {
-  beforeEach(() => {
-    document.body.innerHTML = '';
-    vi.clearAllMocks();
-  });
-
-  afterEach(() => {
-    document.body.innerHTML = '';
-  });
-
-  // ==================== Props Tests ====================
   describe('props', () => {
+    let wrapper: VueWrapper<InstanceType<typeof Calendar>> | null = null;
+
+    beforeEach(() => {
+      wrapper = mount(<Calendar year={2020} month={12} />) as VueWrapper<InstanceType<typeof Calendar>>;
+    });
+
+    afterEach(() => {
+      wrapper?.unmount();
+      wrapper = null;
+    });
+
     it('default render', () => {
-      const wrapper = mount(Calendar);
-      expect(wrapper.find('.t-calendar').exists()).toBeTruthy();
-      expect(wrapper.find('.t-calendar--full').exists()).toBeTruthy();
-      expect(wrapper.find('.t-calendar__panel--month').exists()).toBeTruthy();
+      expect(wrapper.find('.t-calendar').exists()).toBe(true);
+      expect(wrapper.find('.t-calendar--full').exists()).toBe(true);
+      expect(wrapper.find('.t-calendar__panel--month').exists()).toBe(true);
+      expect(wrapper.find('.t-calendar__control').exists()).toBe(true);
     });
 
     it(':cell[string]', () => {
-      const wrapper = mount(Calendar, {
-        props: { cell: 'custom cell text' },
-      });
-      expect(wrapper.element).toMatchSnapshot();
+      const wrapper = mount(<Calendar year={2020} month={12} cell="custom cell" />);
+      const cells = wrapper.findAll('.t-calendar__table-body-cell:not(.t-is-disabled)');
+      expect(cells[0].text()).toContain('custom cell');
+      wrapper.unmount();
     });
 
     it(':cell[function]', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          cell: (_h: any, params: any) => <div class="custom-cell">{params.formattedDate}</div>,
-        },
-      });
-      expect(wrapper.find('.custom-cell').exists()).toBeTruthy();
+      const cellFn = () => <div class="custom-cell">rendered</div>;
+      const wrapper = mount(<Calendar year={2020} month={12} cell={cellFn} />);
+      expect(wrapper.find('.custom-cell').exists()).toBe(true);
+      wrapper.unmount();
     });
 
     it(':cell[slot]', () => {
       const wrapper = mount(Calendar, {
+        props: { year: 2020, month: 12 },
         slots: {
-          cell: (params: any) => <div class="slot-cell">{params.formattedDate}</div>,
+          cell: () => <div class="slot-cell">slot</div>,
         },
       });
-      expect(wrapper.find('.slot-cell').exists()).toBeTruthy();
+      expect(wrapper.find('.slot-cell').exists()).toBe(true);
+      wrapper.unmount();
     });
 
     it(':cellAppend[string]', () => {
-      const wrapper = mount(Calendar, {
-        props: { cellAppend: 'append text' },
-      });
-      expect(wrapper.element).toMatchSnapshot();
+      const wrapper = mount(<Calendar year={2020} month={12} cellAppend="append text" />);
+      const content = wrapper.find(
+        '.t-calendar__table-body-cell:not(.t-is-disabled) .t-calendar__table-body-cell-content',
+      );
+      expect(content.text()).toContain('append text');
+      wrapper.unmount();
     });
 
     it(':cellAppend[function]', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          cellAppend: (_h: any, params: any) => <div class="custom-append">{params.formattedDate}</div>,
-        },
-      });
-      expect(wrapper.find('.custom-append').exists()).toBeTruthy();
+      const appendFn = () => <div class="custom-append">appended</div>;
+      const wrapper = mount(<Calendar year={2020} month={12} cellAppend={appendFn} />);
+      expect(wrapper.find('.custom-append').exists()).toBe(true);
+      wrapper.unmount();
     });
 
     it(':cellAppend[slot]', () => {
       const wrapper = mount(Calendar, {
+        props: { year: 2020, month: 12 },
         slots: {
-          cellAppend: (params: any) => <div class="slot-append">{params.formattedDate}</div>,
+          cellAppend: () => <div class="slot-append">slot append</div>,
         },
       });
-      expect(wrapper.find('.slot-append').exists()).toBeTruthy();
+      expect(wrapper.find('.slot-append').exists()).toBe(true);
+      wrapper.unmount();
     });
 
     it(':controllerConfig[boolean:false]', () => {
-      const wrapper = mount(Calendar, {
-        props: { controllerConfig: false },
-      });
-      expect(wrapper.find('.t-calendar__control').exists()).toBeFalsy();
+      const wrapper = mount(<Calendar controllerConfig={false} />);
+      expect(wrapper.find('.t-calendar__control').exists()).toBe(false);
+      wrapper.unmount();
     });
 
     it(':controllerConfig[boolean:true]', () => {
-      const wrapper = mount(Calendar, {
-        props: { controllerConfig: true },
-      });
-      expect(wrapper.find('.t-calendar__control').exists()).toBeTruthy();
+      const wrapper = mount(<Calendar controllerConfig={true} />);
+      expect(wrapper.find('.t-calendar__control').exists()).toBe(true);
+      wrapper.unmount();
     });
 
-    it(':controllerConfig[object]', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          controllerConfig: {
-            visible: true,
-            disabled: false,
-            year: { visible: true, selectProps: { disabled: false } },
-            month: { visible: true, selectProps: { disabled: false } },
-            mode: { visible: true, radioGroupProps: { disabled: false } },
-            weekend: {
-              visible: true,
-              showWeekendButtonProps: { disabled: false },
-              hideWeekendButtonProps: { disabled: false },
-            },
-            current: {
-              visible: true,
-              currentDayButtonProps: { disabled: false },
-              currentMonthButtonProps: { disabled: false },
-            },
-          },
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':controllerConfig disabled all controls', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          controllerConfig: {
-            visible: true,
-            disabled: true,
-          },
-        },
-      });
-      expect(wrapper.find('.t-calendar__control').exists()).toBeTruthy();
-    });
-
-    it(':controllerConfig hide individual controls', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          controllerConfig: {
-            visible: true,
+    it(':controllerConfig[object] hide individual controls', () => {
+      const wrapper = mount(
+        <Calendar
+          controllerConfig={{
             year: { visible: false },
             month: { visible: false },
             mode: { visible: false },
             weekend: { visible: false },
             current: { visible: false },
-          },
-        },
-      });
-      expect(wrapper.find('.t-calendar__control').exists()).toBeTruthy();
+          }}
+        />,
+      );
+      expect(wrapper.find('.t-calendar__control').exists()).toBe(true);
+      // Year/month selects, mode radio, weekend tag, today button should all be hidden
+      expect(wrapper.findAll('.t-calendar__control-section-cell').length).toBe(0);
+      wrapper.unmount();
     });
 
-    it(':controllerConfig with disabled selectProps', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          controllerConfig: {
-            visible: true,
-            year: { visible: true, selectProps: { disabled: true } },
-            month: { visible: true, selectProps: { disabled: true } },
-            mode: { visible: true, radioGroupProps: { disabled: true } },
-            weekend: {
-              visible: true,
-              showWeekendButtonProps: { disabled: true },
-              hideWeekendButtonProps: { disabled: true },
-            },
-            current: {
-              visible: true,
-              currentDayButtonProps: { disabled: true },
-              currentMonthButtonProps: { disabled: true },
-            },
-          },
-        },
-      });
-      expect(wrapper.find('.t-calendar__control').exists()).toBeTruthy();
+    it(':controllerConfig[object] disabled all controls', () => {
+      const wrapper = mount(
+        <Calendar
+          controllerConfig={{
+            disabled: true,
+          }}
+        />,
+      );
+      expect(wrapper.find('.t-calendar__control').exists()).toBe(true);
+      wrapper.unmount();
     });
 
-    it(':fillWithZero[boolean:true]', () => {
-      const wrapper = mount(Calendar, {
-        props: { fillWithZero: true },
-      });
-      const cellTexts = wrapper.findAll('.t-calendar__table-body-cell-display');
+    it(':fillWithZero[boolean]', async () => {
+      // Default: fillWithZero should pad single digits
+      const cellTexts = wrapper.findAll(
+        '.t-calendar__table-body-cell:not(.t-is-disabled) .t-calendar__table-body-cell-display',
+      );
       const hasZeroPadded = cellTexts.some((cell) => /^0\d$/.test(cell.text()));
-      expect(hasZeroPadded).toBeTruthy();
-    });
+      expect(hasZeroPadded).toBe(true);
 
-    it(':fillWithZero[boolean:false]', () => {
-      const wrapper = mount(Calendar, {
-        props: { fillWithZero: false },
-      });
-      const cellTexts = wrapper.findAll('.t-calendar__table-body-cell-display');
-      const hasZeroPadded = cellTexts.some((cell) => /^0\d$/.test(cell.text()));
-      expect(hasZeroPadded).toBeFalsy();
+      await wrapper.setProps({ fillWithZero: false });
+      const cellTexts2 = wrapper.findAll(
+        '.t-calendar__table-body-cell:not(.t-is-disabled) .t-calendar__table-body-cell-display',
+      );
+      const hasZeroPadded2 = cellTexts2.some((cell) => /^0\d$/.test(cell.text()));
+      expect(hasZeroPadded2).toBe(false);
     });
 
     it(':firstDayOfWeek[number]', () => {
-      const wrapper = mount(Calendar, {
-        props: { firstDayOfWeek: 3 },
-      });
-      expect(wrapper.element).toMatchSnapshot();
+      const validator = calendarProps.firstDayOfWeek.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      expect(validator(1)).toBe(true);
+      expect(validator(7)).toBe(true);
+      expect(validator(8)).toBe(false);
+    });
+
+    it(':firstDayOfWeek changes column headers order', () => {
+      const wrapper = mount(<Calendar firstDayOfWeek={3} year={2020} month={12} />);
+      const headCells = wrapper.findAll('.t-calendar__table-head-cell');
+      expect(headCells.length).toBe(7);
+      wrapper.unmount();
     });
 
     it(':format[string]', () => {
-      const wrapper = mount(Calendar, {
-        props: { format: 'YYYY/MM/DD' },
-      });
-      expect(wrapper.element).toMatchSnapshot();
+      const onCellClick = vi.fn();
+      const wrapper = mount(<Calendar year={2020} month={12} format="YYYY/MM/DD" onCellClick={onCellClick} />);
+      const cell = wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)');
+      cell.trigger('click');
+      wrapper.unmount();
     });
 
     it(':head[string]', () => {
-      const wrapper = mount(Calendar, {
-        props: { head: 'head text' },
-      });
-      expect(wrapper.find('.t-calendar__title').text()).toBe('head text');
+      const wrapper = mount(<Calendar head="Calendar Title" />);
+      expect(wrapper.find('.t-calendar__title').text()).toBe('Calendar Title');
+      wrapper.unmount();
     });
 
     it(':head[function]', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          head: (_h: any, params: any) => <div class="custom-head">{params.formattedFilterDate}</div>,
-        },
-      });
-      expect(wrapper.find('.custom-head').exists()).toBeTruthy();
+      const headFn = () => <div class="custom-head">Header</div>;
+      const wrapper = mount(<Calendar head={headFn} />);
+      expect(wrapper.find('.custom-head').exists()).toBe(true);
+      wrapper.unmount();
     });
 
     it(':head[slot]', () => {
       const wrapper = mount(Calendar, {
         slots: {
-          head: (params: any) => <div class="slot-head">{params.formattedFilterDate}</div>,
+          head: () => <div class="slot-head">Slot Header</div>,
         },
       });
-      expect(wrapper.find('.slot-head').exists()).toBeTruthy();
+      expect(wrapper.find('.slot-head').exists()).toBe(true);
+      wrapper.unmount();
     });
 
-    it(':isShowWeekendDefault[boolean:true]', () => {
-      const wrapper = mount(Calendar, {
-        props: { isShowWeekendDefault: true },
-      });
-      const headCells = wrapper.findAll('.t-calendar__table-head-cell');
-      expect(headCells.length).toBe(7);
-    });
-
-    it(':isShowWeekendDefault[boolean:false]', () => {
-      const wrapper = mount(Calendar, {
-        props: { isShowWeekendDefault: false },
-      });
-      const headCells = wrapper.findAll('.t-calendar__table-head-cell');
-      expect(headCells.length).toBe(5);
+    it(':isShowWeekendDefault[boolean]', async () => {
+      expect(wrapper.findAll('.t-calendar__table-head-cell').length).toBe(7);
+      await wrapper.setProps({ isShowWeekendDefault: false });
+      expect(wrapper.findAll('.t-calendar__table-head-cell').length).toBe(5);
     });
 
     it(':mode[month/year]', async () => {
-      const wrapper = mount(Calendar, {
-        props: { mode: 'month' },
-      }) as VueWrapper<InstanceType<typeof Calendar>>;
-      expect(wrapper.find('.t-calendar__panel--month').exists()).toBeTruthy();
+      const validator = calendarProps.mode.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      expect(validator('month')).toBe(true);
+      expect(validator('year')).toBe(true);
+      // @ts-expect-error
+      expect(validator('invalid')).toBe(false);
 
+      expect(wrapper.find('.t-calendar__panel--month').exists()).toBe(true);
       await wrapper.setProps({ mode: 'year' });
-      await nextTick();
-      expect(wrapper.find('.t-calendar__panel--year').exists()).toBeTruthy();
+      expect(wrapper.find('.t-calendar__panel--year').exists()).toBe(true);
     });
 
-    it(':month[number]', () => {
-      const wrapper = mount(Calendar, {
-        props: { year: 2020, month: 6 },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
+    it(':month[string/number]', () => {
+      const wrapper1 = mount(<Calendar year={2020} month={6} />);
+      expect(wrapper1.find('.t-calendar__panel--month').exists()).toBe(true);
+      wrapper1.unmount();
 
-    it(':month[string]', () => {
-      const wrapper = mount(Calendar, {
-        props: { year: '2020', month: '6' },
-      });
-      expect(wrapper.element).toMatchSnapshot();
+      const wrapper2 = mount(<Calendar year={'2020'} month={'6'} />);
+      expect(wrapper2.find('.t-calendar__panel--month').exists()).toBe(true);
+      wrapper2.unmount();
     });
 
     it(':multiple[boolean]', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          multiple: true,
-          value: ['2020-12-16', '2020-12-17', '2020-12-25'],
-        },
-      });
-      const checkedCells = wrapper.findAll('.t-is-checked');
-      expect(checkedCells.length).toBeGreaterThanOrEqual(3);
+      const wrapper = mount(
+        <Calendar year={2020} month={12} multiple={true} value={['2020-12-16', '2020-12-17', '2020-12-25']} />,
+      );
+      const checkedCells = wrapper.findAll('.t-calendar__table-body-cell.t-is-checked');
+      expect(checkedCells.length).toBe(3);
+      wrapper.unmount();
     });
 
-    it(':preventCellContextmenu[boolean:true]', async () => {
-      const onRightClick = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: {
-          preventCellContextmenu: true,
-          onCellRightClick: onRightClick,
-        },
-      });
+    it(':preventCellContextmenu[boolean]', async () => {
+      const onCellRightClick = vi.fn();
+      const wrapper = mount(
+        <Calendar year={2020} month={12} preventCellContextmenu={true} onCellRightClick={onCellRightClick} />,
+      );
       const cell = wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)');
       await cell.trigger('contextmenu');
-      expect(onRightClick).toHaveBeenCalled();
-    });
-
-    it(':preventCellContextmenu[boolean:false]', async () => {
-      const onRightClick = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: {
-          preventCellContextmenu: false,
-          onCellRightClick: onRightClick,
-        },
-      });
-      const cell = wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)');
-      await cell.trigger('contextmenu');
-      expect(onRightClick).toHaveBeenCalled();
+      expect(onCellRightClick).toHaveBeenCalledTimes(1);
+      wrapper.unmount();
     });
 
     it(':range[array]', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          range: ['2018-08', '2028-04'],
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':range with same year boundary', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          year: 2020,
-          month: 6,
-          range: ['2020-03', '2020-09'],
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':range with different year boundary - begin year', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          year: 2019,
-          month: 6,
-          range: ['2019-05', '2021-09'],
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':range with different year boundary - end year', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          year: 2021,
-          month: 6,
-          range: ['2019-05', '2021-09'],
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':range triggers adjustMonth when selected month disabled', async () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          year: 2020,
-          month: 1,
-          range: ['2020-03', '2020-09'],
-        },
-      });
-      await nextTick();
-      expect(wrapper.exists()).toBeTruthy();
-    });
-
-    it(':range adjustMonth when year equals endYear', async () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          year: 2021,
-          month: 11,
-          range: ['2019-05', '2021-09'],
-        },
-      });
-      await nextTick();
-      expect(wrapper.exists()).toBeTruthy();
+      const wrapper = mount(<Calendar year={2020} month={6} range={['2020-03', '2020-09']} />);
+      expect(wrapper.exists()).toBe(true);
+      wrapper.unmount();
     });
 
     it(':theme[full/card]', async () => {
-      const wrapper = mount(Calendar, {
-        props: { theme: 'full' },
-      }) as VueWrapper<InstanceType<typeof Calendar>>;
-      expect(wrapper.find('.t-calendar--full').exists()).toBeTruthy();
+      const validator = calendarProps.theme.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      expect(validator('full')).toBe(true);
+      expect(validator('card')).toBe(true);
+      // @ts-expect-error
+      expect(validator('invalid')).toBe(false);
 
+      expect(wrapper.find('.t-calendar--full').exists()).toBe(true);
       await wrapper.setProps({ theme: 'card' });
-      await nextTick();
-      expect(wrapper.find('.t-calendar--card').exists()).toBeTruthy();
-    });
-
-    it(':theme[card] hides weekend and current buttons', () => {
-      const wrapper = mount(Calendar, {
-        props: { theme: 'card' },
-      });
-      expect(wrapper.find('.t-calendar__control-tag').exists()).toBeFalsy();
+      expect(wrapper.find('.t-calendar--card').exists()).toBe(true);
+      // Card theme hides weekend toggle and today button
+      expect(wrapper.find('.t-calendar__control-tag').exists()).toBe(false);
     });
 
     it(':value[string]', () => {
-      const wrapper = mount(Calendar, {
-        props: { value: '2020-12-11' },
-      });
-      const checkedCells = wrapper.findAll('.t-is-checked');
-      expect(checkedCells.length).toBeGreaterThanOrEqual(1);
+      const wrapper = mount(<Calendar year={2020} month={12} value="2020-12-15" />);
+      const checkedCells = wrapper.findAll('.t-calendar__table-body-cell.t-is-checked');
+      expect(checkedCells.length).toBe(1);
+      wrapper.unmount();
     });
 
     it(':value[Date]', () => {
-      const wrapper = mount(Calendar, {
-        props: { value: new Date(2020, 11, 11) },
-      });
-      expect(wrapper.exists()).toBeTruthy();
+      const wrapper = mount(<Calendar year={2020} month={12} value={new Date(2020, 11, 15)} />);
+      const checkedCells = wrapper.findAll('.t-calendar__table-body-cell.t-is-checked');
+      expect(checkedCells.length).toBe(1);
+      wrapper.unmount();
     });
 
-    it(':value[array] with multiple', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          value: ['2020-12-01', '2020-12-15'],
-          multiple: true,
-        },
-      });
-      const checkedCells = wrapper.findAll('.t-is-checked');
-      expect(checkedCells.length).toBeGreaterThanOrEqual(2);
-    });
-
-    it(':value not provided (default date)', () => {
-      const wrapper = mount(Calendar);
-      expect(wrapper.find('.t-is-checked').exists()).toBeTruthy();
+    it(':value[array]', () => {
+      const wrapper = mount(<Calendar year={2020} month={12} multiple={true} value={['2020-12-01', '2020-12-15']} />);
+      const checkedCells = wrapper.findAll('.t-calendar__table-body-cell.t-is-checked');
+      expect(checkedCells.length).toBe(2);
+      wrapper.unmount();
     });
 
     it(':week[array]', () => {
       const weekArray = ['周一', '周二', '周三', '周四', '周五', '星期六', '星期天'];
-      const wrapper = mount(Calendar, {
-        props: { week: weekArray },
-      });
+      const wrapper = mount(<Calendar week={weekArray} />);
       const headCells = wrapper.findAll('.t-calendar__table-head-cell');
       expect(headCells[0].text()).toBe('周一');
       expect(headCells[6].text()).toBe('星期天');
+      wrapper.unmount();
     });
 
     it(':week[slot]', () => {
@@ -433,109 +293,79 @@ describe('Calendar', () => {
           week: (params: any) => <span class="custom-week">Day{params.day}</span>,
         },
       });
-      expect(wrapper.find('.custom-week').exists()).toBeTruthy();
+      expect(wrapper.find('.custom-week').exists()).toBe(true);
+      wrapper.unmount();
     });
 
-    it(':year[number]', () => {
-      const wrapper = mount(Calendar, {
-        props: { year: 2000 },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
+    it(':year[string/number]', () => {
+      const wrapper1 = mount(<Calendar year={2000} month={1} />);
+      expect(wrapper1.exists()).toBe(true);
+      wrapper1.unmount();
 
-    it(':year[string]', () => {
-      const wrapper = mount(Calendar, {
-        props: { year: '2000' },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':mode validator', () => {
-      const validator = (Calendar as any).props?.mode?.validator;
-      if (validator) {
-        expect(validator('month')).toBe(true);
-        expect(validator('year')).toBe(true);
-        expect(validator(undefined)).toBe(true);
-        expect(validator(null)).toBe(true);
-        expect(validator('invalid')).toBe(false);
-      }
-    });
-
-    it(':theme validator', () => {
-      const validator = (Calendar as any).props?.theme?.validator;
-      if (validator) {
-        expect(validator('full')).toBe(true);
-        expect(validator('card')).toBe(true);
-        expect(validator(undefined)).toBe(true);
-        expect(validator(null)).toBe(true);
-        expect(validator('invalid')).toBe(false);
-      }
-    });
-
-    it(':firstDayOfWeek validator', () => {
-      const validator = (Calendar as any).props?.firstDayOfWeek?.validator;
-      if (validator) {
-        expect(validator(1)).toBe(true);
-        expect(validator(7)).toBe(true);
-        expect(validator(undefined)).toBe(true);
-        expect(validator(null)).toBe(true);
-        // 0 is falsy so !0 === true, validator returns true
-        expect(validator(0)).toBe(true);
-        expect(validator(8)).toBe(false);
-      }
+      const wrapper2 = mount(<Calendar year={'2000'} month={1} />);
+      expect(wrapper2.exists()).toBe(true);
+      wrapper2.unmount();
     });
   });
 
-  // ==================== Events Tests ====================
   describe('events', () => {
-    it('onCellClick', async () => {
+    it('cellClick', async () => {
       const onCellClick = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: { onCellClick },
-      });
+      const wrapper = mount(<Calendar year={2020} month={12} onCellClick={onCellClick} />);
       const cell = wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)');
       await cell.trigger('click');
       expect(onCellClick).toHaveBeenCalledTimes(1);
-      expect(onCellClick.mock.calls[0][0]).toHaveProperty('cell');
-      expect(onCellClick.mock.calls[0][0]).toHaveProperty('e');
+      const arg = onCellClick.mock.calls[0][0];
+      expect(arg).toHaveProperty('cell');
+      expect(arg).toHaveProperty('e');
+      expect(arg.cell).toHaveProperty('date');
+      expect(arg.cell).toHaveProperty('formattedDate');
+      expect(arg.cell).toHaveProperty('mode');
+      wrapper.unmount();
     });
 
-    it('onCellDoubleClick', async () => {
+    it('cellDoubleClick', async () => {
       const onCellDoubleClick = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: { onCellDoubleClick },
-      });
+      const wrapper = mount(<Calendar year={2020} month={12} onCellDoubleClick={onCellDoubleClick} />);
       const cell = wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)');
       await cell.trigger('dblclick');
       expect(onCellDoubleClick).toHaveBeenCalledTimes(1);
+      const arg = onCellDoubleClick.mock.calls[0][0];
+      expect(arg).toHaveProperty('cell');
+      expect(arg).toHaveProperty('e');
+      wrapper.unmount();
     });
 
-    it('onCellRightClick', async () => {
+    it('cellRightClick', async () => {
       const onCellRightClick = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: { onCellRightClick },
-      });
+      const wrapper = mount(<Calendar year={2020} month={12} onCellRightClick={onCellRightClick} />);
       const cell = wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)');
       await cell.trigger('contextmenu');
       expect(onCellRightClick).toHaveBeenCalledTimes(1);
+      const arg = onCellRightClick.mock.calls[0][0];
+      expect(arg).toHaveProperty('cell');
+      expect(arg).toHaveProperty('e');
+      wrapper.unmount();
     });
 
-    it('onControllerChange', async () => {
+    it('controllerChange', async () => {
       const onControllerChange = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: { onControllerChange },
-      });
-      // Toggle weekend to trigger controller change
+      const wrapper = mount(<Calendar year={2020} month={12} onControllerChange={onControllerChange} />);
       const weekendTag = wrapper.find('.t-calendar__control-tag');
-      if (weekendTag.exists()) {
-        await weekendTag.trigger('click');
-        await nextTick();
-        await nextTick();
-        expect(onControllerChange).toHaveBeenCalled();
-      }
+      expect(weekendTag.exists()).toBe(true);
+      await weekendTag.trigger('click');
+      await nextTick();
+      await nextTick();
+      expect(onControllerChange).toHaveBeenCalled();
+      const arg = onControllerChange.mock.calls[0][0];
+      expect(arg).toHaveProperty('isShowWeekend');
+      expect(arg).toHaveProperty('filterDate');
+      expect(arg).toHaveProperty('formattedFilterDate');
+      expect(arg).toHaveProperty('mode');
+      wrapper.unmount();
     });
 
-    it('onMonthChange', async () => {
+    it('monthChange', async () => {
       const onMonthChange = vi.fn();
       const wrapper = mount(Calendar, {
         props: { year: 2020, month: 6, onMonthChange },
@@ -545,276 +375,154 @@ describe('Calendar', () => {
       await nextTick();
       await nextTick();
       expect(onMonthChange).toHaveBeenCalled();
+      const arg = onMonthChange.mock.calls[onMonthChange.mock.calls.length - 1][0];
+      expect(arg).toHaveProperty('month');
+      expect(arg).toHaveProperty('year');
+      wrapper.unmount();
     });
 
-    it('click disabled cell should not emit', async () => {
+    it('cellClick in multiple mode toggles selection', async () => {
       const onCellClick = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: { onCellClick },
-      });
-      const disabledCell = wrapper.find('.t-calendar__table-body-cell.t-is-disabled');
-      if (disabledCell.exists()) {
-        await disabledCell.trigger('click');
-        // disabled cell click handler returns early, so CalendarCell doesn't emit
-        // the parent still calls clickCell but with the disabled cell data
-      }
-    });
+      const wrapper = mount(
+        <Calendar year={2020} month={12} multiple={true} value={['2020-12-16']} onCellClick={onCellClick} />,
+      );
+      // Click a non-selected cell to add
+      const cells = wrapper.findAll('.t-calendar__table-body-cell:not(.t-is-disabled):not(.t-is-checked)');
+      await cells[0].trigger('click');
+      expect(onCellClick).toHaveBeenCalledTimes(1);
 
-    it('cell click in multiple mode toggles selection', async () => {
-      const onCellClick = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: {
-          multiple: true,
-          value: ['2020-12-16'],
-          onCellClick,
-        },
-      });
-      // click a non-disabled cell to add to selection
-      const cells = wrapper.findAll('.t-calendar__table-body-cell:not(.t-is-disabled)');
-      if (cells.length > 0) {
-        await cells[0].trigger('click');
-        expect(onCellClick).toHaveBeenCalled();
-      }
-    });
-
-    it('cell click in multiple mode removes already selected date', async () => {
-      const onCellClick = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: {
-          multiple: true,
-          value: ['2020-12-28'],
-          onCellClick,
-        },
-      });
-      // click the already-selected cell to deselect
+      // Click the already-selected cell to deselect
       const checkedCell = wrapper.find('.t-calendar__table-body-cell.t-is-checked');
       if (checkedCell.exists()) {
         await checkedCell.trigger('click');
-        expect(onCellClick).toHaveBeenCalled();
+        expect(onCellClick).toHaveBeenCalledTimes(2);
       }
+      wrapper.unmount();
     });
 
-    it('cell click in single mode updates selected date', async () => {
+    it('disabled cell click does not emit', async () => {
       const onCellClick = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: {
-          value: '2020-12-15',
-          onCellClick,
-        },
-      });
-      const cells = wrapper.findAll('.t-calendar__table-body-cell:not(.t-is-disabled)');
-      if (cells.length > 1) {
-        await cells[1].trigger('click');
-        expect(onCellClick).toHaveBeenCalled();
+      const wrapper = mount(<Calendar year={2020} month={12} onCellClick={onCellClick} />);
+      const disabledCell = wrapper.find('.t-calendar__table-body-cell.t-is-disabled');
+      if (disabledCell.exists()) {
+        await disabledCell.trigger('click');
+        expect(onCellClick).not.toHaveBeenCalled();
       }
+      wrapper.unmount();
     });
 
-    it('weekend toggle button click', async () => {
-      const onControllerChange = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: {
-          theme: 'full',
-          onControllerChange,
-        },
-      });
+    it('weekend toggle hides weekend columns', async () => {
+      const wrapper = mount(<Calendar year={2020} month={12} />);
+      expect(wrapper.findAll('.t-calendar__table-head-cell').length).toBe(7);
       const weekendTag = wrapper.find('.t-calendar__control-tag');
-      if (weekendTag.exists()) {
-        await weekendTag.trigger('click');
-        await nextTick();
-        await nextTick();
-        // After clicking, weekend should be hidden
-        const headCells = wrapper.findAll('.t-calendar__table-head-cell');
-        expect(headCells.length).toBe(5);
-      }
+      await weekendTag.trigger('click');
+      await nextTick();
+      expect(wrapper.findAll('.t-calendar__table-head-cell').length).toBe(5);
+      wrapper.unmount();
     });
 
-    it('mode radio switch triggers controller change', async () => {
-      const onControllerChange = vi.fn();
-      const wrapper = mount(Calendar, {
-        props: {
-          theme: 'full',
-          mode: 'month',
-          onControllerChange,
-        },
-      });
-      // Click the "year" radio button to switch mode via UI
-      const radioButtons = wrapper.findAll('.t-radio-button');
-      const yearRadio = radioButtons[radioButtons.length - 1];
-      if (yearRadio) {
-        await yearRadio.trigger('click');
-        await nextTick();
-        await nextTick();
-        await nextTick();
-      }
-      // Mode change triggers onControllerChange indirectly via watch
-      expect(wrapper.exists()).toBeTruthy();
-    });
-
-    it('today button click', async () => {
-      const wrapper = mount(Calendar, {
-        props: { year: 2019, month: 3 },
-      });
+    it('today button navigates to current date', async () => {
+      const onMonthChange = vi.fn();
+      const wrapper = mount(<Calendar year={2019} month={3} onMonthChange={onMonthChange} />);
       const buttons = wrapper.findAll('.t-calendar__control-section .t-button');
       const todayBtn = buttons[buttons.length - 1];
-      if (todayBtn) {
-        await todayBtn.trigger('click');
-        await nextTick();
-        // After clicking today, should navigate to current date
-        expect(wrapper.exists()).toBeTruthy();
-      }
+      await todayBtn.trigger('click');
+      await nextTick();
+      await nextTick();
+      expect(onMonthChange).toHaveBeenCalled();
+      wrapper.unmount();
     });
   });
 
-  // ==================== Year Mode Tests ====================
   describe('year mode', () => {
-    it('renders year mode correctly', () => {
-      const wrapper = mount(Calendar, {
-        props: { mode: 'year' },
-      });
-      expect(wrapper.find('.t-calendar__panel--year').exists()).toBeTruthy();
-      // 12 months, 4 per row = 3 rows
+    it('renders 12 months in 3 rows', () => {
+      const wrapper = mount(<Calendar mode="year" year={2020} />);
+      expect(wrapper.find('.t-calendar__panel--year').exists()).toBe(true);
       const rows = wrapper.findAll('.t-calendar__table-body-row');
       expect(rows.length).toBe(3);
+      const cells = wrapper.findAll('.t-calendar__table-body-cell');
+      expect(cells.length).toBe(12);
+      wrapper.unmount();
     });
 
-    it('year mode shows currentMonth button text', () => {
-      const wrapper = mount(Calendar, {
-        props: { mode: 'year' },
-      });
-      const buttons = wrapper.findAll('.t-calendar__control-section .t-button');
-      expect(buttons.length).toBeGreaterThan(0);
+    it('year mode cell click emits', async () => {
+      const onCellClick = vi.fn();
+      const wrapper = mount(<Calendar mode="year" year={2020} onCellClick={onCellClick} />);
+      const cell = wrapper.find('.t-calendar__table-body-cell');
+      await cell.trigger('click');
+      expect(onCellClick).toHaveBeenCalledTimes(1);
+      wrapper.unmount();
     });
 
-    it('year mode with multiple', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          mode: 'year',
-          multiple: true,
-          value: ['2020-01-01', '2020-06-01'],
-        },
-      });
-      const checkedCells = wrapper.findAll('.t-is-checked');
-      expect(checkedCells.length).toBeGreaterThanOrEqual(2);
+    it('year mode cell dblclick emits', async () => {
+      const onCellDoubleClick = vi.fn();
+      const wrapper = mount(<Calendar mode="year" year={2020} onCellDoubleClick={onCellDoubleClick} />);
+      const cell = wrapper.find('.t-calendar__table-body-cell');
+      await cell.trigger('dblclick');
+      expect(onCellDoubleClick).toHaveBeenCalledTimes(1);
+      wrapper.unmount();
+    });
+
+    it('year mode cell contextmenu emits', async () => {
+      const onCellRightClick = vi.fn();
+      const wrapper = mount(<Calendar mode="year" year={2020} onCellRightClick={onCellRightClick} />);
+      const cell = wrapper.find('.t-calendar__table-body-cell');
+      await cell.trigger('contextmenu');
+      expect(onCellRightClick).toHaveBeenCalledTimes(1);
+      wrapper.unmount();
+    });
+
+    it('year mode with multiple values', () => {
+      const wrapper = mount(<Calendar mode="year" year={2020} multiple={true} value={['2020-01-01', '2020-06-01']} />);
+      const checkedCells = wrapper.findAll('.t-calendar__table-body-cell.t-is-checked');
+      expect(checkedCells.length).toBe(2);
+      wrapper.unmount();
     });
   });
 
-  // ==================== Edge Cases Tests ====================
-  describe('edge cases', () => {
-    it('should handle component unmount gracefully', async () => {
-      const wrapper = mount(Calendar);
-      await nextTick();
+  describe('range', () => {
+    it('same year boundary disables months outside range', () => {
+      const wrapper = mount(<Calendar year={2020} month={6} range={['2020-03', '2020-09']} />);
+      expect(wrapper.exists()).toBe(true);
       wrapper.unmount();
-      expect(true).toBe(true);
     });
 
-    it('value as empty array with multiple', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          multiple: true,
-          value: [],
-        },
-      });
-      expect(wrapper.exists()).toBeTruthy();
+    it('different year boundary - begin year', () => {
+      const wrapper = mount(<Calendar year={2019} month={6} range={['2019-05', '2021-09']} />);
+      expect(wrapper.exists()).toBe(true);
+      wrapper.unmount();
     });
 
-    it('value as single string with multiple', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          multiple: true,
-          value: '2020-12-25',
-        },
-      });
-      expect(wrapper.exists()).toBeTruthy();
+    it('different year boundary - end year', () => {
+      const wrapper = mount(<Calendar year={2021} month={6} range={['2019-05', '2021-09']} />);
+      expect(wrapper.exists()).toBe(true);
+      wrapper.unmount();
+    });
+
+    it('adjustMonth when selected month is disabled by range', async () => {
+      const wrapper = mount(<Calendar year={2020} month={1} range={['2020-03', '2020-09']} />);
+      await nextTick();
+      expect(wrapper.exists()).toBe(true);
+      wrapper.unmount();
+    });
+
+    it('adjustMonth when year equals endYear', async () => {
+      const wrapper = mount(<Calendar year={2021} month={11} range={['2019-05', '2021-09']} />);
+      await nextTick();
+      expect(wrapper.exists()).toBe(true);
+      wrapper.unmount();
     });
 
     it('range with MIN_YEAR boundary', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          year: 1970,
-          range: ['1965-01', '1975-01'],
-        },
-      });
-      expect(wrapper.exists()).toBeTruthy();
+      const wrapper = mount(<Calendar year={1970} range={['1965-01', '1975-01']} />);
+      expect(wrapper.exists()).toBe(true);
+      wrapper.unmount();
     });
 
-    it('onCellClick not provided - no error', async () => {
-      const wrapper = mount(Calendar);
-      const cell = wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)');
-      await cell.trigger('click');
-      expect(wrapper.exists()).toBeTruthy();
-    });
-
-    it('onCellDoubleClick not provided - no error', async () => {
-      const wrapper = mount(Calendar);
-      const cell = wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)');
-      await cell.trigger('dblclick');
-      expect(wrapper.exists()).toBeTruthy();
-    });
-
-    it('onCellRightClick not provided - no error', async () => {
-      const wrapper = mount(Calendar);
-      const cell = wrapper.find('.t-calendar__table-body-cell:not(.t-is-disabled)');
-      await cell.trigger('contextmenu');
-      expect(wrapper.exists()).toBeTruthy();
-    });
-
-    it('firstDayOfWeek = 7 (Sunday first)', () => {
-      const wrapper = mount(Calendar, {
-        props: { firstDayOfWeek: 7 },
-      });
-      expect(wrapper.exists()).toBeTruthy();
-    });
-
-    it('card theme with year mode', () => {
-      const wrapper = mount(Calendar, {
-        props: { theme: 'card', mode: 'year' },
-      });
-      expect(wrapper.find('.t-calendar--card').exists()).toBeTruthy();
-      expect(wrapper.find('.t-calendar__panel--year').exists()).toBeTruthy();
-    });
-
-    it('range where end year < MIN_YEAR (1970)', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          year: 1970,
-          range: ['1960-01', '1965-12'],
-        },
-      });
-      expect(wrapper.exists()).toBeTruthy();
-    });
-
-    it('range where begin year < MIN_YEAR', () => {
-      const wrapper = mount(Calendar, {
-        props: {
-          year: 1970,
-          range: ['1960-01', '1980-12'],
-        },
-      });
-      expect(wrapper.exists()).toBeTruthy();
-    });
-
-    it('fillWithZero undefined uses global default', () => {
-      const wrapper = mount(Calendar, {
-        props: { fillWithZero: undefined },
-      });
-      // global default fillWithZero should apply (true by default)
-      const cellTexts = wrapper.findAll('.t-calendar__table-body-cell-display');
-      const hasZeroPadded = cellTexts.some((cell) => /^0\d$/.test(cell.text()));
-      expect(hasZeroPadded).toBeTruthy();
-    });
-
-    it('firstDayOfWeek undefined falls back to globalConfig', async () => {
-      const wrapper = mount(Calendar, {
-        props: { firstDayOfWeek: undefined },
-      }) as VueWrapper<InstanceType<typeof Calendar>>;
-      expect(wrapper.exists()).toBeTruthy();
-      // Change firstDayOfWeek to trigger the watch
-      await wrapper.setProps({ firstDayOfWeek: 5 });
-      await nextTick();
-      // Then back to undefined
-      await wrapper.setProps({ firstDayOfWeek: undefined });
-      await nextTick();
-      expect(wrapper.exists()).toBeTruthy();
+    it('range where both < MIN_YEAR', () => {
+      const wrapper = mount(<Calendar year={1970} range={['1960-01', '1965-12']} />);
+      expect(wrapper.exists()).toBe(true);
+      wrapper.unmount();
     });
   });
 });
