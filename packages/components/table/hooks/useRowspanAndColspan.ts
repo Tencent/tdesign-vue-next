@@ -55,7 +55,10 @@ export default function useRowspanAndColspan(
     columns: BaseTableCol<TableRowData>[],
     rowspanAndColspan: TableRowspanAndColspanFunc<TableRowData>,
   ) => {
-    skipSpansMap.value?.clear();
+    // 只有当 skipSpansMap 不为空时才清空，避免不必要的响应式更新
+    if (skipSpansMap.value?.size > 0) {
+      skipSpansMap.value.clear();
+    }
     if (!data || !rowspanAndColspan) return;
     for (let i = 0, len = data.length; i < len; i++) {
       const row = data[i];
@@ -81,7 +84,7 @@ export default function useRowspanAndColspan(
   };
 
   watch(
-    () => [data.value, columns.value, rowspanAndColspan],
+    () => [data.value, columns.value, rowspanAndColspan?.value],
     () => {
       updateSkipSpansMap(data.value, columns.value, rowspanAndColspan?.value);
     },
