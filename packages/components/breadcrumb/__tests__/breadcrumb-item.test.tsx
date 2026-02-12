@@ -34,53 +34,58 @@ describe('BreadcrumbItem', () => {
 
     it(':disabled[boolean]', async () => {
       // 默认不禁用
-      const w1 = mountItem({}, { default: () => '页面' });
+      const wrapper1 = mountItem({}, { default: () => '页面' });
       await nextTick();
-      expect(w1.find('.t-breadcrumb--text-overflow').classes()).not.toContain('t-is-disabled');
-      w1.unmount();
+      expect(wrapper1.find('.t-breadcrumb--text-overflow').classes()).not.toContain('t-is-disabled');
+      wrapper1.unmount();
 
-      // disabled=true
-      const w2 = mountItem({ disabled: true }, { default: () => '页面' });
+      // disabled=true: class 变化
+      const wrapper2 = mountItem({ disabled: true }, { default: () => '页面' });
       await nextTick();
-      expect(w2.find('.t-breadcrumb--text-overflow').classes()).toContain('t-is-disabled');
-      w2.unmount();
-    });
+      expect(wrapper2.find('.t-breadcrumb--text-overflow').classes()).toContain('t-is-disabled');
+      wrapper2.unmount();
 
-    it(':disabled[boolean] prevents onClick', async () => {
+      // disabled 阻止 onClick
       const onClick = vi.fn();
-      const wrapper = mountItem({ disabled: true, onClick }, { default: () => '页面' });
+      const wrapper3 = mountItem({ disabled: true, onClick }, { default: () => '页面' });
       await nextTick();
-      await wrapper.findComponent(BreadcrumbItem).trigger('click');
+      await wrapper3.findComponent(BreadcrumbItem).trigger('click');
       expect(onClick).not.toHaveBeenCalled();
-      wrapper.unmount();
-    });
+      wrapper3.unmount();
 
-    it(':disabled[boolean] with href does not render link', async () => {
-      const wrapper = mountItem({ disabled: true, href: 'https://tdesign.tencent.com' }, { default: () => '页面' });
+      // disabled + href 不渲染链接
+      const wrapper4 = mountItem({ disabled: true, href: 'https://tdesign.tencent.com' }, { default: () => '页面' });
       await nextTick();
-      expect(wrapper.find('a.t-link').exists()).toBe(false);
-      expect(wrapper.find('.t-is-disabled').exists()).toBe(true);
-      wrapper.unmount();
+      expect(wrapper4.find('a.t-link').exists()).toBe(false);
+      expect(wrapper4.find('.t-is-disabled').exists()).toBe(true);
+      wrapper4.unmount();
     });
 
     it(':href[string]', async () => {
-      const wrapper = mountItem({ href: 'https://tdesign.tencent.com' }, { default: () => '页面' });
+      // 正常 href
+      const wrapper1 = mountItem({ href: 'https://tdesign.tencent.com' }, { default: () => '页面' });
       await nextTick();
-      const link = wrapper.find('a.t-link');
+      const link = wrapper1.find('a.t-link');
       expect(link.exists()).toBe(true);
       expect(link.attributes('href')).toBe('https://tdesign.tencent.com');
-      wrapper.unmount();
-    });
+      wrapper1.unmount();
 
-    it(':href[string] empty does not render link', async () => {
-      const wrapper = mountItem({ href: '' }, { default: () => '页面' });
+      // 空 href 不渲染链接
+      const wrapper2 = mountItem({ href: '' }, { default: () => '页面' });
       await nextTick();
-      expect(wrapper.find('a.t-link').exists()).toBe(false);
-      expect(wrapper.find('.t-breadcrumb--text-overflow').element.tagName).toBe('SPAN');
-      wrapper.unmount();
+      expect(wrapper2.find('a.t-link').exists()).toBe(false);
+      expect(wrapper2.find('.t-breadcrumb--text-overflow').element.tagName).toBe('SPAN');
+      wrapper2.unmount();
+
+      // 无 href 无 to 渲染为 span
+      const wrapper3 = mountItem({}, { default: () => '页面' });
+      await nextTick();
+      expect(wrapper3.find('.t-breadcrumb--text-overflow').element.tagName).toBe('SPAN');
+      wrapper3.unmount();
     });
 
-    it(':target[_blank/_self/_parent/_top]', () => {
+    it(':target[_blank/_self/_parent/_top]', async () => {
+      // validator
       const validator = breadcrumbItemProps.target.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
@@ -90,82 +95,76 @@ describe('BreadcrumbItem', () => {
       expect(validator('_top')).toBe(true);
       // @ts-expect-error
       expect(validator('invalid')).toBe(false);
-    });
 
-    it(':target[_blank] with href opens new window', async () => {
+      // _blank + href: 调用 window.open
       const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null);
-      const wrapper = mountItem({ href: 'https://tdesign.tencent.com', target: '_blank' }, { default: () => '页面' });
+      const wrapper1 = mountItem({ href: 'https://tdesign.tencent.com', target: '_blank' }, { default: () => '页面' });
       await nextTick();
-      expect(wrapper.find('a.t-link').attributes('target')).toBe('_blank');
-      await wrapper.find('a.t-link').trigger('click');
+      expect(wrapper1.find('a.t-link').attributes('target')).toBe('_blank');
+      await wrapper1.find('a.t-link').trigger('click');
       expect(openSpy).toHaveBeenCalledWith('https://tdesign.tencent.com');
       openSpy.mockRestore();
-      wrapper.unmount();
-    });
+      wrapper1.unmount();
 
-    it(':target[_blank] with to opens new window', async () => {
-      const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null);
-      const wrapper = mountItem({ to: '/home', target: '_blank' }, { default: () => '页面' });
+      // _blank + to: 调用 window.open
+      const openSpy2 = vi.spyOn(window, 'open').mockImplementation(() => null);
+      const wrapper2 = mountItem({ to: '/home', target: '_blank' }, { default: () => '页面' });
       await nextTick();
-      await wrapper.find('a.t-link').trigger('click');
-      expect(openSpy).toHaveBeenCalledWith('/home');
-      openSpy.mockRestore();
-      wrapper.unmount();
+      await wrapper2.find('a.t-link').trigger('click');
+      expect(openSpy2).toHaveBeenCalledWith('/home');
+      openSpy2.mockRestore();
+      wrapper2.unmount();
     });
 
-    it(':to[string] with router uses router.push', async () => {
-      const push = vi.fn();
-      const wrapper = mountItem({ to: '/home' }, { default: () => '页面' }, { push });
+    it(':to[string/object] + :replace[boolean] + :router[object]', async () => {
+      // string to + router.push
+      const push1 = vi.fn();
+      const wrapper1 = mountItem({ to: '/home' }, { default: () => '页面' }, { push: push1 });
       await nextTick();
-      await wrapper.find('.t-breadcrumb__inner').trigger('click');
-      expect(push).toHaveBeenCalledWith('/home');
-      wrapper.unmount();
-    });
+      await wrapper1.find('.t-breadcrumb__inner').trigger('click');
+      expect(push1).toHaveBeenCalledWith('/home');
+      wrapper1.unmount();
 
-    it(':to[object] with router uses router.push', async () => {
-      const push = vi.fn();
-      const wrapper = mountItem({ to: { path: '/detail' } }, { default: () => '页面' }, { push });
+      // object to + router.push
+      const push2 = vi.fn();
+      const wrapper2 = mountItem({ to: { path: '/detail' } }, { default: () => '页面' }, { push: push2 });
       await nextTick();
-      await wrapper.find('.t-breadcrumb__inner').trigger('click');
-      expect(push).toHaveBeenCalledWith({ path: '/detail' });
-      wrapper.unmount();
-    });
+      await wrapper2.find('.t-breadcrumb__inner').trigger('click');
+      expect(push2).toHaveBeenCalledWith({ path: '/detail' });
+      wrapper2.unmount();
 
-    it(':replace[boolean] with router uses router.replace', async () => {
-      const replace = vi.fn();
-      const wrapper = mountItem({ to: '/home', replace: true }, { default: () => '页面' }, { replace });
+      // replace=true + router.replace
+      const replaceFn = vi.fn();
+      const wrapper3 = mountItem({ to: '/home', replace: true }, { default: () => '页面' }, { replace: replaceFn });
       await nextTick();
-      await wrapper.find('.t-breadcrumb__inner').trigger('click');
-      expect(replace).toHaveBeenCalledWith('/home');
-      wrapper.unmount();
-    });
+      await wrapper3.find('.t-breadcrumb__inner').trigger('click');
+      expect(replaceFn).toHaveBeenCalledWith('/home');
+      wrapper3.unmount();
 
-    it(':router[object] uses custom router over $router', async () => {
-      const push = vi.fn();
-      const wrapper = mount(Breadcrumb, {
+      // 自定义 router prop 优先于 $router
+      const push3 = vi.fn();
+      const wrapper4 = mount(Breadcrumb, {
         slots: {
           default: () => (
-            <BreadcrumbItem to="/page" router={{ push }}>
+            <BreadcrumbItem to="/page" router={{ push: push3 }}>
               页面
             </BreadcrumbItem>
           ),
         },
       });
       await nextTick();
-      await wrapper.find('.t-breadcrumb__inner').trigger('click');
-      expect(push).toHaveBeenCalledWith('/page');
-      wrapper.unmount();
-    });
+      await wrapper4.find('.t-breadcrumb__inner').trigger('click');
+      expect(push3).toHaveBeenCalledWith('/page');
+      wrapper4.unmount();
 
-    it(':to without router falls back to window.location', async () => {
-      const wrapper = mountItem({ to: '/page' }, { default: () => '页面' });
+      // 无 router: 降级渲染为 <a>
+      const wrapper5 = mountItem({ to: '/page' }, { default: () => '页面' });
       await nextTick();
-      // 无 router 时仍渲染为 <a>
-      expect(wrapper.find('a.t-link').exists()).toBe(true);
-      wrapper.unmount();
+      expect(wrapper5.find('a.t-link').exists()).toBe(true);
+      wrapper5.unmount();
     });
 
-    it(':maxWidth[string] overrides parent maxItemWidth', async () => {
+    it(':maxWidth[string]', async () => {
       const wrapper = mount(Breadcrumb, {
         props: { maxItemWidth: '150' },
         slots: {
@@ -174,7 +173,9 @@ describe('BreadcrumbItem', () => {
       });
       await nextTick();
       const items = wrapper.findAllComponents(BreadcrumbItem);
+      // maxWidth 覆盖 maxItemWidth
       expect((items[0].find('.t-breadcrumb__inner').element as HTMLElement).style.maxWidth).toBe('80px');
+      // 未设置 maxWidth 时使用 maxItemWidth
       expect((items[1].find('.t-breadcrumb__inner').element as HTMLElement).style.maxWidth).toBe('150px');
       wrapper.unmount();
     });
@@ -184,58 +185,6 @@ describe('BreadcrumbItem', () => {
       await nextTick();
       expect(wrapper.find('.my-icon').exists()).toBe(true);
       expect(wrapper.find('.my-icon').text()).toBe('I');
-      wrapper.unmount();
-    });
-
-    it('no href no to renders as span', async () => {
-      const wrapper = mountItem({}, { default: () => '页面' });
-      await nextTick();
-      expect(wrapper.find('.t-breadcrumb--text-overflow').element.tagName).toBe('SPAN');
-      wrapper.unmount();
-    });
-
-    it('isCutOff shows tooltip', async () => {
-      const spy = vi.spyOn(sharedUtils, 'isTextEllipsis').mockReturnValue(true);
-      const wrapper = mountItem({}, { default: () => '超长文本超长文本超长文本' });
-      await nextTick();
-      expect(wrapper.findComponent({ name: 'TTooltip' }).exists()).toBe(true);
-      spy.mockRestore();
-      wrapper.unmount();
-    });
-
-    it('isCutOff false hides tooltip', async () => {
-      const spy = vi.spyOn(sharedUtils, 'isTextEllipsis').mockReturnValue(false);
-      const wrapper = mountItem({}, { default: () => '短' });
-      await nextTick();
-      expect(wrapper.findComponent({ name: 'TTooltip' }).exists()).toBe(false);
-      spy.mockRestore();
-      wrapper.unmount();
-    });
-
-    it('isCutOff recalculates on update', async () => {
-      const spy = vi.spyOn(sharedUtils, 'isTextEllipsis').mockReturnValue(false);
-      const Wrapper = defineComponent({
-        setup() {
-          const text = ref('短');
-          return { text };
-        },
-        render() {
-          return (
-            <Breadcrumb>
-              <BreadcrumbItem>{this.text}</BreadcrumbItem>
-            </Breadcrumb>
-          );
-        },
-      });
-      const wrapper = mount(Wrapper);
-      await nextTick();
-      const callsBefore = spy.mock.calls.length;
-
-      spy.mockReturnValue(true);
-      wrapper.vm.text = '超长文本超长文本超长文本超长文本';
-      await nextTick();
-      expect(spy.mock.calls.length).toBeGreaterThan(callsBefore);
-      spy.mockRestore();
       wrapper.unmount();
     });
 
@@ -256,45 +205,88 @@ describe('BreadcrumbItem', () => {
       expect(ellipsisItem.find('div[style*="display: flex"]').exists()).toBe(true);
       wrapper.unmount();
     });
+
+    it('isCutOff tooltip', async () => {
+      // isCutOff=true: 显示 tooltip
+      const spy1 = vi.spyOn(sharedUtils, 'isTextEllipsis').mockReturnValue(true);
+      const wrapper1 = mountItem({}, { default: () => '超长文本超长文本超长文本' });
+      await nextTick();
+      expect(wrapper1.findComponent({ name: 'TTooltip' }).exists()).toBe(true);
+      spy1.mockRestore();
+      wrapper1.unmount();
+
+      // isCutOff=false: 不显示 tooltip
+      const spy2 = vi.spyOn(sharedUtils, 'isTextEllipsis').mockReturnValue(false);
+      const wrapper2 = mountItem({}, { default: () => '短' });
+      await nextTick();
+      expect(wrapper2.findComponent({ name: 'TTooltip' }).exists()).toBe(false);
+      spy2.mockRestore();
+      wrapper2.unmount();
+
+      // 更新时重新计算
+      const spy3 = vi.spyOn(sharedUtils, 'isTextEllipsis').mockReturnValue(false);
+      const UpdateWrapper = defineComponent({
+        setup() {
+          const text = ref('短');
+          return { text };
+        },
+        render() {
+          return (
+            <Breadcrumb>
+              <BreadcrumbItem>{this.text}</BreadcrumbItem>
+            </Breadcrumb>
+          );
+        },
+      });
+      const wrapper3 = mount(UpdateWrapper);
+      await nextTick();
+      const callsBefore = spy3.mock.calls.length;
+      spy3.mockReturnValue(true);
+      wrapper3.vm.text = '超长文本超长文本超长文本超长文本';
+      await nextTick();
+      expect(spy3.mock.calls.length).toBeGreaterThan(callsBefore);
+      spy3.mockRestore();
+      wrapper3.unmount();
+    });
   });
 
   describe('events', () => {
     it('onClick', async () => {
+      // 正常触发
       const onClick = vi.fn();
-      const wrapper = mountItem({ onClick }, { default: () => '页面' });
+      const wrapper1 = mountItem({ onClick }, { default: () => '页面' });
       await nextTick();
-      await wrapper.findComponent(BreadcrumbItem).trigger('click');
+      await wrapper1.findComponent(BreadcrumbItem).trigger('click');
       expect(onClick).toHaveBeenCalledTimes(1);
-      wrapper.unmount();
-    });
+      wrapper1.unmount();
 
-    it('onClick disabled does not fire', async () => {
-      const onClick = vi.fn();
-      const wrapper = mountItem({ disabled: true, onClick }, { default: () => '页面' });
+      // disabled 时不触发
+      const onClick2 = vi.fn();
+      const wrapper2 = mountItem({ disabled: true, onClick: onClick2 }, { default: () => '页面' });
       await nextTick();
-      await wrapper.findComponent(BreadcrumbItem).trigger('click');
-      expect(onClick).not.toHaveBeenCalled();
-      wrapper.unmount();
+      await wrapper2.findComponent(BreadcrumbItem).trigger('click');
+      expect(onClick2).not.toHaveBeenCalled();
+      wrapper2.unmount();
     });
   });
 
   describe('edge cases', () => {
-    it('separator textOverflow is ellipsis when isCutOff', async () => {
-      const spy = vi.spyOn(sharedUtils, 'isTextEllipsis').mockReturnValue(true);
-      const wrapper = mountItem({}, { default: () => '超长文本' });
+    it('separator textOverflow', async () => {
+      // isCutOff=true: textOverflow=ellipsis
+      const spy1 = vi.spyOn(sharedUtils, 'isTextEllipsis').mockReturnValue(true);
+      const wrapper1 = mountItem({}, { default: () => '超长文本' });
       await nextTick();
-      expect((wrapper.find('.t-breadcrumb__separator').element as HTMLElement).style.textOverflow).toBe('ellipsis');
-      spy.mockRestore();
-      wrapper.unmount();
-    });
+      expect((wrapper1.find('.t-breadcrumb__separator').element as HTMLElement).style.textOverflow).toBe('ellipsis');
+      spy1.mockRestore();
+      wrapper1.unmount();
 
-    it('separator textOverflow is clip when not cut off', async () => {
-      const spy = vi.spyOn(sharedUtils, 'isTextEllipsis').mockReturnValue(false);
-      const wrapper = mountItem({}, { default: () => '短' });
+      // isCutOff=false: textOverflow=clip
+      const spy2 = vi.spyOn(sharedUtils, 'isTextEllipsis').mockReturnValue(false);
+      const wrapper2 = mountItem({}, { default: () => '短' });
       await nextTick();
-      expect((wrapper.find('.t-breadcrumb__separator').element as HTMLElement).style.textOverflow).toBe('clip');
-      spy.mockRestore();
-      wrapper.unmount();
+      expect((wrapper2.find('.t-breadcrumb__separator').element as HTMLElement).style.textOverflow).toBe('clip');
+      spy2.mockRestore();
+      wrapper2.unmount();
     });
   });
 });

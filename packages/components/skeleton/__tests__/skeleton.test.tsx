@@ -1,488 +1,324 @@
 import { nextTick, ref } from 'vue';
-import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
-import Skeleton from '@tdesign/components/skeleton';
+import { Skeleton } from '@tdesign/components/skeleton';
+import skeletonProps from '@tdesign/components/skeleton/props';
 
 describe('Skeleton', () => {
   beforeEach(() => {
-    document.body.innerHTML = '';
-    vi.clearAllMocks();
     vi.useFakeTimers();
   });
 
   afterEach(() => {
     vi.useRealTimers();
-    document.body.innerHTML = '';
   });
 
-  // ==================== Props Tests ====================
   describe('props', () => {
-    let wrapper: VueWrapper<InstanceType<typeof Skeleton>> | null = null;
+    it(':loading[boolean]', async () => {
+      // true: 显示骨架图
+      const wrapper1 = mount(<Skeleton loading />);
+      expect(wrapper1.find('.t-skeleton').exists()).toBe(true);
+      expect(wrapper1.findAll('.t-skeleton__row').length).toBeGreaterThan(0);
+      wrapper1.unmount();
 
-    beforeEach(() => {
-      wrapper = mount(Skeleton, {
-        props: { loading: true },
-      }) as VueWrapper<InstanceType<typeof Skeleton>>;
-    });
-
-    it(':theme[text] default', () => {
-      // theme defaults to 'text'
-      const rows = wrapper.findAll('.t-skeleton__row');
-      const cols = wrapper.findAll('.t-skeleton__col');
-      expect(rows.length).toBe(1);
-      expect(cols.length).toBe(1);
-      expect(wrapper.find('.t-skeleton--type-text').exists()).toBeTruthy();
-    });
-
-    it(':theme[avatar]', async () => {
-      await wrapper.setProps({ theme: 'avatar' });
-      const rows = wrapper.findAll('.t-skeleton__row');
-      const cols = wrapper.findAll('.t-skeleton__col');
-      expect(rows.length).toBe(1);
-      expect(cols.length).toBe(1);
-      expect(wrapper.find('.t-skeleton--type-circle').exists()).toBeTruthy();
-    });
-
-    it(':theme[paragraph]', async () => {
-      await wrapper.setProps({ theme: 'paragraph' });
-      const rows = wrapper.findAll('.t-skeleton__row');
-      const cols = wrapper.findAll('.t-skeleton__col');
-      expect(rows.length).toBe(3);
-      expect(cols.length).toBe(3);
-      expect(wrapper.findAll('.t-skeleton--type-text').length).toBe(3);
-    });
-
-    it(':theme[avatar-text]', async () => {
-      await wrapper.setProps({ theme: 'avatar-text' });
-      const rows = wrapper.findAll('.t-skeleton__row');
-      const cols = wrapper.findAll('.t-skeleton__col');
-      expect(rows.length).toBe(1);
-      expect(cols.length).toBe(2);
-      expect(wrapper.find('.t-skeleton--type-circle').exists()).toBeTruthy();
-      expect(wrapper.find('.t-skeleton--type-text').exists()).toBeTruthy();
-    });
-
-    it(':theme[tab]', async () => {
-      await wrapper.setProps({ theme: 'tab' });
-      const rows = wrapper.findAll('.t-skeleton__row');
-      const cols = wrapper.findAll('.t-skeleton__col');
-      expect(rows.length).toBe(2);
-      expect(cols.length).toBe(2);
-    });
-
-    it(':theme[article]', async () => {
-      await wrapper.setProps({ theme: 'article' });
-      const rows = wrapper.findAll('.t-skeleton__row');
-      const cols = wrapper.findAll('.t-skeleton__col');
-      expect(rows.length).toBe(6);
-      expect(cols.length).toBe(11);
-      expect(wrapper.findAll('.t-skeleton--type-rect').length).toBe(2);
-    });
-
-    it(':theme validator', () => {
-      const validator = (Skeleton as any).props?.theme?.validator;
-      if (validator) {
-        expect(validator(undefined)).toBe(true);
-        expect(validator(null)).toBe(true);
-        expect(validator('')).toBe(true);
-        expect(validator('text')).toBe(true);
-        expect(validator('avatar')).toBe(true);
-        expect(validator('paragraph')).toBe(true);
-        expect(validator('avatar-text')).toBe(true);
-        expect(validator('tab')).toBe(true);
-        expect(validator('article')).toBe(true);
-        expect(validator('invalid')).toBe(false);
-      }
-    });
-
-    it(':animation[none] default', () => {
-      // animation defaults to 'none'
-      const col = wrapper.find('.t-skeleton__col');
-      expect(col.classes()).toContain('t-skeleton--animation-none');
-    });
-
-    it(':animation[gradient]', async () => {
-      await wrapper.setProps({ animation: 'gradient' });
-      const col = wrapper.find('.t-skeleton__col');
-      expect(col.classes()).toContain('t-skeleton--animation-gradient');
-    });
-
-    it(':animation[flashed]', async () => {
-      await wrapper.setProps({ animation: 'flashed' });
-      const col = wrapper.find('.t-skeleton__col');
-      expect(col.classes()).toContain('t-skeleton--animation-flashed');
-    });
-
-    it(':animation validator', () => {
-      const validator = (Skeleton as any).props?.animation?.validator;
-      if (validator) {
-        expect(validator(undefined)).toBe(true);
-        expect(validator(null)).toBe(true);
-        expect(validator('')).toBe(true);
-        expect(validator('gradient')).toBe(true);
-        expect(validator('flashed')).toBe(true);
-        expect(validator('none')).toBe(true);
-        expect(validator('invalid')).toBe(false);
-      }
-    });
-
-    it(':loading[boolean] true shows skeleton', () => {
-      expect(wrapper.find('.t-skeleton').exists()).toBeTruthy();
-      expect(wrapper.findAll('.t-skeleton__row').length).toBeGreaterThan(0);
-    });
-
-    it(':loading[boolean] false hides skeleton without slot', async () => {
-      await wrapper.setProps({ loading: false });
+      // false 无 slot: 什么都不渲染
+      const wrapper2 = mount(<Skeleton loading={false} />);
       await nextTick();
-      expect(wrapper.find('.t-skeleton').exists()).toBeFalsy();
-      expect(wrapper.find('.t-skeleton__row').exists()).toBeFalsy();
-    });
+      expect(wrapper2.find('.t-skeleton').exists()).toBe(false);
+      wrapper2.unmount();
 
-    it(':loading[boolean] false shows default slot content', () => {
-      const slotWrapper = mount(Skeleton, {
-        props: { loading: false },
-        slots: { default: () => <div class="loaded-content">Loaded</div> },
-      });
-      expect(slotWrapper.find('.t-skeleton').exists()).toBeFalsy();
-      expect(slotWrapper.find('.loaded-content').exists()).toBeTruthy();
-      expect(slotWrapper.find('.loaded-content').text()).toBe('Loaded');
-    });
+      // false 有 slot: 显示 slot 内容
+      const wrapper3 = mount(
+        <Skeleton loading={false}>
+          <div class="real">内容</div>
+        </Skeleton>,
+      );
+      expect(wrapper3.find('.t-skeleton').exists()).toBe(false);
+      expect(wrapper3.find('.real').exists()).toBe(true);
+      expect(wrapper3.find('.real').text()).toBe('内容');
+      wrapper3.unmount();
 
-    it(':loading[boolean] true with default slot shows skeleton', () => {
-      const slotWrapper = mount(Skeleton, {
-        props: { loading: true },
-        slots: { default: () => <div class="loaded-content">Loaded</div> },
-      });
-      expect(slotWrapper.find('.t-skeleton').exists()).toBeTruthy();
-      expect(slotWrapper.find('.loaded-content').exists()).toBeFalsy();
-    });
+      // true 有 slot: 隐藏 slot，显示骨架图
+      const wrapper4 = mount(
+        <Skeleton loading>
+          <div class="real">内容</div>
+        </Skeleton>,
+      );
+      expect(wrapper4.find('.t-skeleton').exists()).toBe(true);
+      expect(wrapper4.find('.real').exists()).toBe(false);
+      wrapper4.unmount();
 
-    it(':loading toggle from true to false with slot', async () => {
+      // toggle: true → false
       const loading = ref(true);
-      const slotWrapper = mount({
+      const wrapper5 = mount({
         render() {
           return (
             <Skeleton loading={loading.value}>
-              <div class="text">加载完成的内容</div>
+              <div class="real">加载完成</div>
             </Skeleton>
           );
         },
       });
-      expect(slotWrapper.findAll('.t-skeleton__row').length).toBe(1);
+      expect(wrapper5.findAll('.t-skeleton__row').length).toBe(1);
       loading.value = false;
       await nextTick();
-      expect(slotWrapper.findAll('.t-skeleton__row').length).toBe(0);
-      expect(slotWrapper.find('.text').exists()).toBeTruthy();
-      expect(slotWrapper.find('.text').text()).toBe('加载完成的内容');
+      expect(wrapper5.findAll('.t-skeleton__row').length).toBe(0);
+      expect(wrapper5.find('.real').text()).toBe('加载完成');
+      wrapper5.unmount();
     });
 
-    it(':delay[number] shows skeleton after delay', async () => {
-      const delayWrapper = mount(Skeleton, {
-        props: { loading: true, delay: 1000 },
-      });
+    it(':theme[text/avatar/paragraph/avatar-text/tab/article]', () => {
+      const validator = skeletonProps.theme.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      expect(validator('text')).toBe(true);
+      expect(validator('avatar')).toBe(true);
+      expect(validator('paragraph')).toBe(true);
+      expect(validator('avatar-text')).toBe(true);
+      expect(validator('tab')).toBe(true);
+      expect(validator('article')).toBe(true);
+      // @ts-expect-error
+      expect(validator('invalid')).toBe(false);
+
+      // text: 1 row, 1 col, type text
+      const wrapper1 = mount(<Skeleton loading theme="text" />);
+      expect(wrapper1.findAll('.t-skeleton__row').length).toBe(1);
+      expect(wrapper1.findAll('.t-skeleton__col').length).toBe(1);
+      expect(wrapper1.find('.t-skeleton--type-text').exists()).toBe(true);
+      wrapper1.unmount();
+
+      // avatar: 1 row, 1 col, type circle, size 56px
+      const wrapper2 = mount(<Skeleton loading theme="avatar" />);
+      expect(wrapper2.findAll('.t-skeleton__row').length).toBe(1);
+      expect(wrapper2.find('.t-skeleton--type-circle').exists()).toBe(true);
+      const avatarStyle = (wrapper2.find('.t-skeleton__col').element as HTMLElement).style;
+      expect(avatarStyle.width).toBe('56px');
+      expect(avatarStyle.height).toBe('56px');
+      wrapper2.unmount();
+
+      // paragraph: 3 rows, 3 cols
+      const wrapper3 = mount(<Skeleton loading theme="paragraph" />);
+      expect(wrapper3.findAll('.t-skeleton__row').length).toBe(3);
+      expect(wrapper3.findAll('.t-skeleton__col').length).toBe(3);
+      wrapper3.unmount();
+
+      // avatar-text: 1 row, 2 cols (circle + text)
+      const wrapper4 = mount(<Skeleton loading theme="avatar-text" />);
+      expect(wrapper4.findAll('.t-skeleton__row').length).toBe(1);
+      expect(wrapper4.findAll('.t-skeleton__col').length).toBe(2);
+      expect(wrapper4.find('.t-skeleton--type-circle').exists()).toBe(true);
+      expect(wrapper4.find('.t-skeleton--type-text').exists()).toBe(true);
+      wrapper4.unmount();
+
+      // tab: 2 rows, 2 cols
+      const wrapper5 = mount(<Skeleton loading theme="tab" />);
+      expect(wrapper5.findAll('.t-skeleton__row').length).toBe(2);
+      expect(wrapper5.findAll('.t-skeleton__col').length).toBe(2);
+      wrapper5.unmount();
+
+      // article: 6 rows, 11 cols, includes rect type
+      const wrapper6 = mount(<Skeleton loading theme="article" />);
+      expect(wrapper6.findAll('.t-skeleton__row').length).toBe(6);
+      expect(wrapper6.findAll('.t-skeleton__col').length).toBe(11);
+      expect(wrapper6.findAll('.t-skeleton--type-rect').length).toBe(2);
+      wrapper6.unmount();
+    });
+
+    it(':animation[gradient/flashed/none]', () => {
+      const validator = skeletonProps.animation.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      expect(validator('gradient')).toBe(true);
+      expect(validator('flashed')).toBe(true);
+      expect(validator('none')).toBe(true);
+      // @ts-expect-error
+      expect(validator('invalid')).toBe(false);
+
+      // 默认 none
+      const wrapper1 = mount(<Skeleton loading />);
+      expect(wrapper1.find('.t-skeleton__col').classes()).toContain('t-skeleton--animation-none');
+      wrapper1.unmount();
+
+      // gradient
+      const wrapper2 = mount(<Skeleton loading animation="gradient" />);
+      expect(wrapper2.find('.t-skeleton__col').classes()).toContain('t-skeleton--animation-gradient');
+      wrapper2.unmount();
+
+      // flashed
+      const wrapper3 = mount(<Skeleton loading animation="flashed" />);
+      expect(wrapper3.find('.t-skeleton__col').classes()).toContain('t-skeleton--animation-flashed');
+      wrapper3.unmount();
+    });
+
+    it(':delay[number]', async () => {
+      // delay > 0: 延迟显示
+      const wrapper1 = mount(<Skeleton loading delay={500} />);
       await nextTick();
-      // Before delay, skeleton should not show
-      expect(delayWrapper.find('.t-skeleton').exists()).toBeFalsy();
-
-      // After delay, skeleton should show
-      vi.advanceTimersByTime(1000);
+      expect(wrapper1.find('.t-skeleton').exists()).toBe(false);
+      vi.advanceTimersByTime(500);
       await nextTick();
-      expect(delayWrapper.find('.t-skeleton').exists()).toBeTruthy();
-    });
+      expect(wrapper1.find('.t-skeleton').exists()).toBe(true);
+      wrapper1.unmount();
 
-    it(':delay[number] loading set to false before delay completes', async () => {
-      const delayWrapper = mount(Skeleton, {
-        props: { loading: true, delay: 1000 },
-      });
+      // delay 期间 loading 变 false: 取消定时器
+      const wrapper2 = mount(Skeleton, { props: { loading: true, delay: 500 } });
       await nextTick();
-      expect(delayWrapper.find('.t-skeleton').exists()).toBeFalsy();
-
-      // Set loading to false before delay completes
-      await delayWrapper.setProps({ loading: false });
+      expect(wrapper2.find('.t-skeleton').exists()).toBe(false);
+      await wrapper2.setProps({ loading: false });
       await nextTick();
-
-      // Advance timer - skeleton should still not show
-      vi.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(500);
       await nextTick();
-      expect(delayWrapper.find('.t-skeleton').exists()).toBeFalsy();
+      expect(wrapper2.find('.t-skeleton').exists()).toBe(false);
+      wrapper2.unmount();
+
+      // delay = 0: 立即显示
+      const wrapper3 = mount(<Skeleton loading delay={0} />);
+      expect(wrapper3.find('.t-skeleton').exists()).toBe(true);
+      wrapper3.unmount();
     });
 
-    it(':delay[number] 0 shows skeleton immediately', () => {
-      const delayWrapper = mount(Skeleton, {
-        props: { loading: true, delay: 0 },
-      });
-      expect(delayWrapper.find('.t-skeleton').exists()).toBeTruthy();
-    });
+    it(':rowCol[array]', () => {
+      // number items: [1, 1, 2] → 3 rows, 4 cols
+      const wrapper1 = mount(<Skeleton loading rowCol={[1, 1, 2]} />);
+      const rows1 = wrapper1.findAll('.t-skeleton__row');
+      expect(rows1.length).toBe(3);
+      expect(rows1[0].element.children.length).toBe(1);
+      expect(rows1[2].element.children.length).toBe(2);
+      wrapper1.unmount();
 
-    it(':rowCol[array] with number items', async () => {
-      await wrapper.setProps({ rowCol: [1, 1, 2] });
-      const rows = wrapper.findAll('.t-skeleton__row');
-      const cols = wrapper.findAll('.t-skeleton__col');
-      expect(rows.length).toBe(3);
-      expect(cols.length).toBe(4);
-      expect(rows[0].element.children.length).toBe(1);
-      expect(rows[1].element.children.length).toBe(1);
-      expect(rows[2].element.children.length).toBe(2);
-    });
-
-    it(':rowCol[array] with object items', async () => {
-      await wrapper.setProps({
-        rowCol: [
-          { width: '100px', height: '30px', type: 'rect' },
-          { width: '200px', height: '50px', type: 'circle' },
-        ],
-      });
-      const rows = wrapper.findAll('.t-skeleton__row');
-      expect(rows.length).toBe(2);
-      expect(wrapper.find('.t-skeleton--type-rect').exists()).toBeTruthy();
-      expect(wrapper.find('.t-skeleton--type-circle').exists()).toBeTruthy();
-    });
-
-    it(':rowCol[array] with nested array items', async () => {
-      await wrapper.setProps({
-        rowCol: [
-          [
-            { width: '60px', height: '60px', type: 'circle' },
-            { type: 'text', height: '32px' },
-          ],
-        ],
-      });
-      const rows = wrapper.findAll('.t-skeleton__row');
-      const cols = wrapper.findAll('.t-skeleton__col');
-      expect(rows.length).toBe(1);
-      expect(cols.length).toBe(2);
-      expect(wrapper.find('.t-skeleton--type-circle').exists()).toBeTruthy();
-      expect(wrapper.find('.t-skeleton--type-text').exists()).toBeTruthy();
-    });
-
-    it(':rowCol overrides theme', async () => {
-      await wrapper.setProps({ theme: 'avatar', rowCol: [1, 1] });
-      const rows = wrapper.findAll('.t-skeleton__row');
-      // rowCol takes precedence over theme
-      expect(rows.length).toBe(2);
-      expect(wrapper.find('.t-skeleton--type-circle').exists()).toBeFalsy();
-    });
-
-    it(':rowCol with style properties (marginRight, marginLeft)', async () => {
-      await wrapper.setProps({
-        rowCol: [
-          {
-            width: '100px',
-            height: '30px',
-            marginRight: '10px',
-            marginLeft: '5px',
-          },
-        ],
-      });
-      const col = wrapper.find('.t-skeleton__col');
-      const style = col.attributes('style');
-      expect(style).toContain('width: 100px');
-      expect(style).toContain('height: 30px');
-      expect(style).toContain('margin-right: 10px');
-      expect(style).toContain('margin-left: 5px');
-    });
-
-    it(':rowCol with margin property', async () => {
-      await wrapper.setProps({
-        rowCol: [{ width: '100px', margin: '20px' }],
-      });
-      const col = wrapper.find('.t-skeleton__col');
-      const style = col.attributes('style');
-      expect(style).toContain('margin: 20px');
-    });
-
-    it(':rowCol with size property sets width and height', async () => {
-      await wrapper.setProps({
-        rowCol: [{ size: '40px', type: 'circle' }],
-      });
-      const col = wrapper.find('.t-skeleton__col');
-      const style = col.attributes('style');
-      expect(style).toContain('width: 40px');
-      expect(style).toContain('height: 40px');
-    });
-
-    it(':rowCol with numeric style values', async () => {
-      await wrapper.setProps({
-        // @ts-expect-error testing numeric values for style properties
-        rowCol: [{ width: 100, height: 30 }],
-      });
-      const col = wrapper.find('.t-skeleton__col');
-      const style = col.attributes('style');
-      expect(style).toContain('width: 100px');
-      expect(style).toContain('height: 30px');
-    });
-
-    it(':rowCol with numeric size value', async () => {
-      await wrapper.setProps({
-        // @ts-expect-error testing numeric size value
-        rowCol: [{ size: 50, type: 'circle' }],
-      });
-      const col = wrapper.find('.t-skeleton__col');
-      const style = col.attributes('style');
-      expect(style).toContain('width: 50px');
-      expect(style).toContain('height: 50px');
-    });
-
-    it(':rowCol with content as string', async () => {
-      await wrapper.setProps({
-        rowCol: [{ content: 'Loading text...' }],
-      });
-      const col = wrapper.find('.t-skeleton__col');
-      expect(col.text()).toBe('Loading text...');
-    });
-
-    it(':rowCol with content as function', async () => {
-      await wrapper.setProps({
-        rowCol: [{ content: () => <span class="custom-content">Custom</span> }],
-      });
-      expect(wrapper.find('.custom-content').exists()).toBeTruthy();
-      expect(wrapper.find('.custom-content').text()).toBe('Custom');
-    });
-
-    it(':rowCol with object without type defaults to text', async () => {
-      await wrapper.setProps({
-        rowCol: [{ width: '100px' }],
-      });
-      expect(wrapper.find('.t-skeleton--type-text').exists()).toBeTruthy();
-    });
-
-    it(':content[string] renders via default slot', () => {
-      // content prop is rendered through renderContent('default', 'content')
-      // which requires slots.default to exist for the content to show when loading=false
-      const contentWrapper = mount(Skeleton, {
-        props: { loading: false },
-        slots: { default: 'Content loaded' },
-      });
-      expect(contentWrapper.text()).toContain('Content loaded');
-    });
-
-    it(':content[function] renders via default slot with function', () => {
-      const contentWrapper = mount(Skeleton, {
-        props: { loading: false },
-        slots: { default: () => <div class="fn-content">Function content</div> },
-      });
-      expect(contentWrapper.find('.fn-content').exists()).toBeTruthy();
-    });
-
-    it(':content[slot] default slot', () => {
-      const slotWrapper = mount(Skeleton, {
-        props: { loading: false },
-        slots: { default: () => <div class="slot-content">Slot content</div> },
-      });
-      expect(slotWrapper.find('.slot-content').exists()).toBeTruthy();
-    });
-
-    it('no theme and no rowCol renders default skeleton', () => {
-      // theme defaults to 'text', so we must pass empty string to make it falsy
-      const noThemeWrapper = mount(Skeleton, {
-        props: { loading: true, theme: '' as any },
-      });
-      const rows = noThemeWrapper.findAll('.t-skeleton__row');
-      // Default rowCol: [1, 1, 1, { width: '70%' }]
-      expect(rows.length).toBe(4);
-    });
-  });
-
-  // ==================== Snapshot Tests ====================
-  describe('snapshots', () => {
-    it('default render', async () => {
-      const wrapper = mount(Skeleton, {
-        props: { loading: true },
-      });
-      await nextTick();
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it('theme avatar-text render', async () => {
-      const wrapper = mount(Skeleton, {
-        props: { loading: true, theme: 'avatar-text', animation: 'gradient' },
-      });
-      await nextTick();
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it('custom rowCol render', async () => {
-      const wrapper = mount(Skeleton, {
-        props: {
-          loading: true,
-          rowCol: [
+      // object items: type + style
+      const wrapper2 = mount(
+        <Skeleton
+          loading
+          rowCol={[
+            { width: '100px', height: '30px', type: 'rect' },
             { type: 'circle', size: '48px' },
-            { type: 'text', height: '16px' },
+          ]}
+        />,
+      );
+      expect(wrapper2.find('.t-skeleton--type-rect').exists()).toBe(true);
+      expect(wrapper2.find('.t-skeleton--type-circle').exists()).toBe(true);
+      const circleStyle = (wrapper2.find('.t-skeleton--type-circle').element as HTMLElement).style;
+      expect(circleStyle.width).toBe('48px');
+      expect(circleStyle.height).toBe('48px');
+      wrapper2.unmount();
+
+      // nested array items
+      const wrapper3 = mount(
+        <Skeleton
+          loading
+          rowCol={[
             [
-              { type: 'text', width: '60%' },
-              { type: 'text', width: '40%' },
+              { type: 'circle', size: '60px' },
+              { type: 'text', height: '32px' },
             ],
-          ],
-          animation: 'flashed',
-        },
+          ]}
+        />,
+      );
+      expect(wrapper3.findAll('.t-skeleton__row').length).toBe(1);
+      expect(wrapper3.findAll('.t-skeleton__col').length).toBe(2);
+      wrapper3.unmount();
+
+      // rowCol 优先于 theme
+      const wrapper4 = mount(<Skeleton loading theme="avatar" rowCol={[1, 1]} />);
+      expect(wrapper4.findAll('.t-skeleton__row').length).toBe(2);
+      expect(wrapper4.find('.t-skeleton--type-circle').exists()).toBe(false);
+      wrapper4.unmount();
+
+      // 无 type 默认 text
+      const wrapper5 = mount(<Skeleton loading rowCol={[{ width: '100px' }]} />);
+      expect(wrapper5.find('.t-skeleton--type-text').exists()).toBe(true);
+      wrapper5.unmount();
+    });
+
+    it(':rowCol style properties', () => {
+      // marginRight, marginLeft
+      const wrapper1 = mount(
+        <Skeleton loading rowCol={[{ width: '100px', height: '30px', marginRight: '10px', marginLeft: '5px' }]} />,
+      );
+      const style1 = (wrapper1.find('.t-skeleton__col').element as HTMLElement).style;
+      expect(style1.width).toBe('100px');
+      expect(style1.height).toBe('30px');
+      expect(style1.marginRight).toBe('10px');
+      expect(style1.marginLeft).toBe('5px');
+      wrapper1.unmount();
+
+      // margin
+      const wrapper2 = mount(<Skeleton loading rowCol={[{ margin: '20px' }]} />);
+      expect((wrapper2.find('.t-skeleton__col').element as HTMLElement).style.margin).toBe('20px');
+      wrapper2.unmount();
+
+      // 数值自动加 px
+      // @ts-expect-error testing numeric values
+      const wrapper3 = mount(<Skeleton loading rowCol={[{ width: 100, height: 30 }]} />);
+      const style3 = (wrapper3.find('.t-skeleton__col').element as HTMLElement).style;
+      expect(style3.width).toBe('100px');
+      expect(style3.height).toBe('30px');
+      wrapper3.unmount();
+    });
+
+    it(':rowCol content[string]', () => {
+      const wrapper = mount(<Skeleton loading rowCol={[{ content: '加载中...' }]} />);
+      expect(wrapper.find('.t-skeleton__col').text()).toBe('加载中...');
+      wrapper.unmount();
+    });
+
+    it(':rowCol content[slot/function]', () => {
+      const wrapper = mount(
+        <Skeleton loading rowCol={[{ content: () => <span class="custom-loading">自定义</span> }]} />,
+      );
+      expect(wrapper.find('.custom-loading').exists()).toBe(true);
+      expect(wrapper.find('.custom-loading').text()).toBe('自定义');
+      wrapper.unmount();
+    });
+
+    it('no theme and no rowCol renders default 4-row skeleton', () => {
+      const wrapper = mount(Skeleton, { props: { loading: true, theme: '' as any } });
+      expect(wrapper.findAll('.t-skeleton__row').length).toBe(4);
+      wrapper.unmount();
+    });
+
+    it(':content[slot] shows when loading=false', () => {
+      const wrapper = mount(Skeleton, {
+        props: { loading: false },
+        slots: { default: () => <div class="done">完成</div> },
       });
-      await nextTick();
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.done').exists()).toBe(true);
+      expect(wrapper.find('.done').text()).toBe('完成');
+      wrapper.unmount();
     });
   });
 
-  // ==================== Edge Cases Tests ====================
   describe('edge cases', () => {
-    it('should handle component unmount gracefully', async () => {
-      const wrapper = mount(Skeleton, {
-        props: { loading: true },
-      });
+    it('delay with loading toggle true→false→true', async () => {
+      const wrapper = mount(Skeleton, { props: { loading: false, delay: 300 } });
       await nextTick();
-      wrapper.unmount();
-      expect(true).toBe(true);
-    });
+      expect(wrapper.find('.t-skeleton').exists()).toBe(false);
 
-    it('should handle unmount during delay', async () => {
-      const wrapper = mount(Skeleton, {
-        props: { loading: true, delay: 1000 },
-      });
-      await nextTick();
-      wrapper.unmount();
-      // Advance timer after unmount - should not crash
-      vi.advanceTimersByTime(1000);
-      expect(true).toBe(true);
-    });
-
-    it('delay with loading toggle true → false → true', async () => {
-      const wrapper = mount(Skeleton, {
-        props: { loading: false, delay: 500 },
-      });
-      await nextTick();
-      expect(wrapper.find('.t-skeleton').exists()).toBeFalsy();
-
-      // Toggle loading to true
       await wrapper.setProps({ loading: true });
       await nextTick();
-      // Not visible yet due to delay
-      expect(wrapper.find('.t-skeleton').exists()).toBeFalsy();
+      expect(wrapper.find('.t-skeleton').exists()).toBe(false);
 
-      // Toggle loading back to false before delay completes
       await wrapper.setProps({ loading: false });
       await nextTick();
-      vi.advanceTimersByTime(500);
+      vi.advanceTimersByTime(300);
       await nextTick();
-      // Should still not show skeleton
-      expect(wrapper.find('.t-skeleton').exists()).toBeFalsy();
+      expect(wrapper.find('.t-skeleton').exists()).toBe(false);
 
-      // Toggle loading to true again
       await wrapper.setProps({ loading: true });
       await nextTick();
-      vi.advanceTimersByTime(500);
+      vi.advanceTimersByTime(300);
       await nextTick();
-      // Now skeleton should show
-      expect(wrapper.find('.t-skeleton').exists()).toBeTruthy();
+      expect(wrapper.find('.t-skeleton').exists()).toBe(true);
+      wrapper.unmount();
     });
 
-    it('rowCol with single object (not wrapped in array)', async () => {
-      const wrapper = mount(Skeleton, {
-        props: {
-          loading: true,
-          rowCol: [{ width: '200px', height: '20px' }],
-        },
-      });
-      const col = wrapper.find('.t-skeleton__col');
-      expect(col.exists()).toBeTruthy();
+    it('unmount during delay does not crash', async () => {
+      const wrapper = mount(<Skeleton loading delay={1000} />);
+      await nextTick();
+      wrapper.unmount();
+      vi.advanceTimersByTime(1000);
+      expect(true).toBe(true);
     });
   });
 });

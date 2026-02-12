@@ -21,8 +21,9 @@ const mountEllipsis = (props: TdBreadcrumbProps, itemData: { content: string; in
 
 describe('Breadcrumb hooks', () => {
   describe('useBreadcrumbOptions', () => {
-    it('returns empty array when no options and no slots', async () => {
-      const wrapper = mount({
+    it('returns items from options prop', async () => {
+      // 无 options: 空数组
+      const wrapper1 = mount({
         setup() {
           const { breadcrumbOptions } = useBreadcrumbOptions({});
           return { breadcrumbOptions };
@@ -32,12 +33,11 @@ describe('Breadcrumb hooks', () => {
         },
       });
       await nextTick();
-      expect((wrapper.vm as any).breadcrumbOptions).toEqual([]);
-      wrapper.unmount();
-    });
+      expect((wrapper1.vm as any).breadcrumbOptions).toEqual([]);
+      wrapper1.unmount();
 
-    it('returns items from options prop with correct index', async () => {
-      const wrapper = mount({
+      // 有 options: 正确的 content/href/index
+      const wrapper2 = mount({
         setup() {
           const { breadcrumbOptions } = useBreadcrumbOptions({
             options: [{ content: '首页', href: '/' }, { content: '产品' }, { content: '详情' }],
@@ -49,7 +49,7 @@ describe('Breadcrumb hooks', () => {
         },
       });
       await nextTick();
-      const opts = (wrapper.vm as any).breadcrumbOptions;
+      const opts = (wrapper2.vm as any).breadcrumbOptions;
       expect(opts.length).toBe(3);
       expect(opts[0].content).toBe('首页');
       expect(opts[0].href).toBe('/');
@@ -57,24 +57,24 @@ describe('Breadcrumb hooks', () => {
       expect(opts[1].content).toBe('产品');
       expect(opts[1].index).toBe(1);
       expect(opts[2].index).toBe(2);
-      wrapper.unmount();
+      wrapper2.unmount();
     });
 
-    it('collects slot children as breadcrumb items', async () => {
-      const wrapper = mount(Breadcrumb, {
+    it('collects items from slot children', async () => {
+      // 文本子节点
+      const wrapper1 = mount(Breadcrumb, {
         slots: {
           default: () => [<BreadcrumbItem>A</BreadcrumbItem>, <BreadcrumbItem>B</BreadcrumbItem>],
         },
       });
       await nextTick();
-      expect(wrapper.findAll('.t-breadcrumb__item').length).toBe(2);
-      expect(wrapper.findAll('.t-breadcrumb__inner')[0].text()).toBe('A');
-      expect(wrapper.findAll('.t-breadcrumb__inner')[1].text()).toBe('B');
-      wrapper.unmount();
-    });
+      expect(wrapper1.findAll('.t-breadcrumb__item').length).toBe(2);
+      expect(wrapper1.findAll('.t-breadcrumb__inner')[0].text()).toBe('A');
+      expect(wrapper1.findAll('.t-breadcrumb__inner')[1].text()).toBe('B');
+      wrapper1.unmount();
 
-    it('handles VNode children in slots', async () => {
-      const wrapper = mount(Breadcrumb, {
+      // VNode 子节点
+      const wrapper2 = mount(Breadcrumb, {
         slots: {
           default: () => (
             <BreadcrumbItem>
@@ -84,50 +84,50 @@ describe('Breadcrumb hooks', () => {
         },
       });
       await nextTick();
-      expect(wrapper.find('.vnode').exists()).toBe(true);
-      expect(wrapper.find('.vnode').text()).toBe('复杂');
-      wrapper.unmount();
-    });
+      expect(wrapper2.find('.vnode').exists()).toBe(true);
+      expect(wrapper2.find('.vnode').text()).toBe('复杂');
+      wrapper2.unmount();
 
-    it('handles icon slot', async () => {
-      const wrapper = mount(Breadcrumb, {
+      // icon slot
+      const wrapper3 = mount(Breadcrumb, {
         slots: {
           default: () => <BreadcrumbItem v-slots={{ icon: () => <span class="ic">I</span> }}>A</BreadcrumbItem>,
         },
       });
       await nextTick();
-      expect(wrapper.find('.ic').exists()).toBe(true);
-      wrapper.unmount();
+      expect(wrapper3.find('.ic').exists()).toBe(true);
+      wrapper3.unmount();
     });
   });
 
   describe('useEllipsis', () => {
-    it('does not ellipsis when maxItems <= 0', async () => {
-      const wrapper = mountEllipsis({ maxItems: 0, itemsBeforeCollapse: 1, itemsAfterCollapse: 1 }, makeItems(5));
+    it('does not ellipsis in boundary cases', async () => {
+      // maxItems <= 0
+      const wrapper1 = mountEllipsis({ maxItems: 0, itemsBeforeCollapse: 1, itemsAfterCollapse: 1 }, makeItems(5));
       await nextTick();
-      expect(wrapper.vm.displayItems.length).toBe(5);
-      expect(wrapper.vm.ellipsisItems.length).toBe(0);
-      wrapper.unmount();
+      expect(wrapper1.vm.displayItems.length).toBe(5);
+      expect(wrapper1.vm.ellipsisItems.length).toBe(0);
+      wrapper1.unmount();
+
+      // totalItems <= maxItems
+      const wrapper2 = mountEllipsis({ maxItems: 10, itemsBeforeCollapse: 2, itemsAfterCollapse: 1 }, makeItems(3));
+      await nextTick();
+      expect(wrapper2.vm.displayItems.length).toBe(3);
+      expect(wrapper2.vm.ellipsisItems.length).toBe(0);
+      wrapper2.unmount();
+
+      // collapse sum >= totalItems
+      const wrapper3 = mountEllipsis({ maxItems: 2, itemsBeforeCollapse: 3, itemsAfterCollapse: 3 }, makeItems(4));
+      await nextTick();
+      expect(wrapper3.vm.displayItems.length).toBe(4);
+      wrapper3.unmount();
     });
 
-    it('does not ellipsis when totalItems <= maxItems', async () => {
-      const wrapper = mountEllipsis({ maxItems: 10, itemsBeforeCollapse: 2, itemsAfterCollapse: 1 }, makeItems(3));
-      await nextTick();
-      expect(wrapper.vm.displayItems.length).toBe(3);
-      expect(wrapper.vm.ellipsisItems.length).toBe(0);
-      wrapper.unmount();
-    });
-
-    it('does not ellipsis when collapse sum >= totalItems', async () => {
-      const wrapper = mountEllipsis({ maxItems: 2, itemsBeforeCollapse: 3, itemsAfterCollapse: 3 }, makeItems(4));
-      await nextTick();
-      expect(wrapper.vm.displayItems.length).toBe(4);
-      wrapper.unmount();
-    });
-
-    it('inserts ellipsis item correctly', async () => {
+    it('inserts ellipsis item and returns collapsed items', async () => {
       const wrapper = mountEllipsis({ maxItems: 3, itemsBeforeCollapse: 1, itemsAfterCollapse: 1 }, makeItems(5));
       await nextTick();
+
+      // displayItems: P1 + ellipsis + P5
       const display = wrapper.vm.displayItems;
       expect(display.length).toBe(3);
       expect((display[0] as any).content).toBe('P1');
@@ -135,12 +135,8 @@ describe('Breadcrumb hooks', () => {
       expect((display[1] as any).isEllipsisItem).toBe(true);
       expect((display[1] as any).disabled).toBe(true);
       expect((display[2] as any).content).toBe('P5');
-      wrapper.unmount();
-    });
 
-    it('getEllipsisItems returns collapsed items with isLast', async () => {
-      const wrapper = mountEllipsis({ maxItems: 3, itemsBeforeCollapse: 1, itemsAfterCollapse: 1 }, makeItems(5));
-      await nextTick();
+      // ellipsisItems: P2/P3/P4, 最后一项 isLast=true
       const collapsed = wrapper.vm.ellipsisItems;
       expect(collapsed.length).toBe(3);
       expect(collapsed[0].content).toBe('P2');
@@ -150,26 +146,25 @@ describe('Breadcrumb hooks', () => {
       wrapper.unmount();
     });
 
-    it('warns when itemsBeforeCollapse is 0', async () => {
-      const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const wrapper = mountEllipsis({ maxItems: 3, itemsBeforeCollapse: 0, itemsAfterCollapse: 1 }, makeItems(5));
+    it('warns on invalid collapse config', async () => {
+      // itemsBeforeCollapse=0
+      const spy1 = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const wrapper1 = mountEllipsis({ maxItems: 3, itemsBeforeCollapse: 0, itemsAfterCollapse: 1 }, makeItems(5));
       await nextTick();
-      // 配置有误时不省略，显示全部
-      expect(wrapper.vm.displayItems.length).toBe(5);
-      spy.mockRestore();
-      wrapper.unmount();
-    });
+      expect(wrapper1.vm.displayItems.length).toBe(5);
+      spy1.mockRestore();
+      wrapper1.unmount();
 
-    it('warns when itemsAfterCollapse is undefined', async () => {
-      const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      const wrapper = mountEllipsis(
+      // itemsAfterCollapse=undefined
+      const spy2 = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const wrapper2 = mountEllipsis(
         { maxItems: 3, itemsBeforeCollapse: 1, itemsAfterCollapse: undefined },
         makeItems(5),
       );
       await nextTick();
-      expect(wrapper.vm.displayItems.length).toBe(5);
-      spy.mockRestore();
-      wrapper.unmount();
+      expect(wrapper2.vm.displayItems.length).toBe(5);
+      spy2.mockRestore();
+      wrapper2.unmount();
     });
 
     it('reacts to item count changes', async () => {
