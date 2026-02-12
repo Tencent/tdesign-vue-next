@@ -116,7 +116,7 @@ export default defineComponent({
         itemContent = <div style="display: flex">{content}</div>;
       }
       return (
-        <div class={itemClass} {...attrs} onClick={!props.disabled && props.onClick}>
+        <div class={itemClass} {...attrs} onClick={props.disabled ? undefined : props.onClick}>
           {isCutOff.value ? <Tooltip content={() => content}>{itemContent}</Tooltip> : itemContent}
           <span
             class={separatorClass.value}
