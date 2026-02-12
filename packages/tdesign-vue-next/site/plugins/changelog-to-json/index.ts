@@ -36,7 +36,7 @@ export default function changelog2Json() {
       await Promise.all(
         changelogConfigs.map(({ input, output }) =>
           generateChangelogJson(joinTdesignVueNextRoot(input), 'web').then((json) =>
-            writeFile(joinTdesignVueNextRoot(output), JSON.stringify(json), 'utf-8'),
+            writeFile(joinTdesignVueNextRoot(`site/dist/${output}`), JSON.stringify(json), 'utf-8'),
           ),
         ),
       );
