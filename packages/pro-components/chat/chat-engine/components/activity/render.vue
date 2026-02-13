@@ -1,61 +1,22 @@
 <template>
-  <ActivityErrorBoundary :activity-type="activity.activityType">
-    <component :is="memoizedComponent" v-if="memoizedComponent" v-bind="componentProps" />
+  <ComponentErrorBoundary :component-name="activity.activityType" log-prefix="ActivityRenderer">
+    <component :is="MemoizedComponent" v-if="MemoizedComponent" v-bind="componentProps" />
     <DefaultActivityRenderer v-else :activity="activity" />
-  </ActivityErrorBoundary>
+  </ComponentErrorBoundary>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { computed } from 'vue';
 import type { ActivityData } from 'tdesign-web-components';
 import type { ActivityComponentProps } from './types';
-import { activityRegistry } from './registry';
-import ActivityErrorBoundary from './ErrorBoundary.vue';
+import { activityRegistry, ACTIVITY_REGISTERED_EVENT, ACTIVITY_EVENT_DETAIL_KEY } from './registry';
+import { ComponentErrorBoundary, useRegistrationListener } from '../shared';
 
 interface Props {
   activity: ActivityData;
 }
 
 const props = defineProps<Props>();
-
-// 注册状态，初始化时检查是否已注册
-const isRegistered = ref(!!activityRegistry.getRenderFunction(props.activity.activityType));
-
-// 缓存组件 props
-// 包含所有必要的依赖：activityType, content, messageId
-const componentProps = computed<ActivityComponentProps>(() => ({
-  activityType: props.activity.activityType,
-  content: props.activity.content,
-  messageId: props.activity.messageId || '',
-}));
-
-// 监听组件注册事件，支持动态注册
-const handleRegistered = (event: CustomEvent) => {
-  // 精确匹配
-  if (event.detail?.activityType === props.activity.activityType) {
-    isRegistered.value = true;
-  }
-};
-
-onMounted(() => {
-  if (!isRegistered.value) {
-    window.addEventListener('activity-registered', handleRegistered as EventListener);
-  }
-});
-
-onUnmounted(() => {
-  window.removeEventListener('activity-registered', handleRegistered as EventListener);
-});
-
-// 使用 registry 的缓存渲染函数
-// 依赖 activityType 和 isRegistered 状态
-const memoizedComponent = computed(() => {
-  // 触发 isRegistered 的依赖收集
-  if (!isRegistered.value) {
-    return null;
-  }
-  return activityRegistry.getRenderFunction(props.activity.activityType);
-});
 
 /**
  * 默认的 Activity 渲染器
@@ -67,4 +28,28 @@ const DefaultActivityRenderer = ({ activity }: { activity: ActivityData }) => {
   console.warn(`[ActivityRenderer] Unknown activity type: ${activity.activityType}`, activity.content);
   return null;
 };
+
+/**
+ * Activity 渲染器组件
+ * 根据 activityType 精确匹配查找注册的组件进行渲染
+ *
+ * 性能优化：
+ * - Vue3 的响应式系统会自动进行深度比较
+ * - computed 会缓存计算结果，只在依赖变化时重新计算
+ */
+
+// 使用公共 Hook 监听动态注册
+const { MemoizedComponent } = useRegistrationListener<ActivityComponentProps>({
+  componentKey: computed(() => props.activity.activityType),
+  eventName: ACTIVITY_REGISTERED_EVENT,
+  eventDetailKey: ACTIVITY_EVENT_DETAIL_KEY,
+  getRenderFunction: activityRegistry.getRenderFunction,
+});
+
+// 缓存组件 props
+const componentProps = computed<ActivityComponentProps>(() => ({
+  activityType: props.activity.activityType,
+  content: props.activity.content,
+  messageId: props.activity.messageId || '',
+}));
 </script>
