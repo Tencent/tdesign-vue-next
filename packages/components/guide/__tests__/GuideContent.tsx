@@ -11,7 +11,7 @@ export default defineComponent({
         <div class="guide-container">
           <div class="main-title-base">
             <div class="title-major">Guide 用户引导</div>
-            <div class="title-sub">按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。</div>
+            <div class="title-sub">按钮用于开启一个闭环的操作任务，如"删除"对象、"购买"商品等。</div>
           </div>
           <div class="field label-field-base">
             <div class="label">Label</div>
