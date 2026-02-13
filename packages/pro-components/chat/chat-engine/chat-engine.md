@@ -197,3 +197,74 @@ Activity 的统一渲染组件，负责根据 Activity 类型自动查找配置�
 | activityType | string | Activity 类型名称                    |
 | content      | any    | Activity 内容数据                    |
 | messageId    | string | 消息 ID                             |
+
+## 常见问题
+
+### 回调机制 vs 事件总线如何选择？
+
+ChatEngine 提供了两种机制处理事件：`chatServiceConfig` 中的回调函数和 `eventBus` 事件总线。
+
+| 场景 | 回调机制 | 事件总线 | 说明 |
+|------|:--------:|:--------:|------|
+| 解析 SSE 数据转换为消息内容 | ✅ 推荐 | ❌ | `onMessage` 可 return 值影响消息 |
+| 自定义请求参数/headers | ✅ 推荐 | ❌ | `onRequest` 处理请求配置 |
+| 日志记录和监控 | ⚠️ 可用 | ✅ 推荐 | 事件总线更解耦 |
+| 跨组件状态同步 | ❌ | ✅ 推荐 | 多组件订阅同一事件 |
+| 埋点和数据分析 | ⚠️ 可用 | ✅ 推荐 | 与数据流分离 |
+| 等待特定事件完成（Promise） | ❌ | ✅ 推荐 | `waitFor` 独有能力 |
+
+**简单判断**：
+- **数据转换**用回调（`onMessage`/`onRequest`）—— 可以 return 值影响数据流
+- **事件总线**补充 —— 日志、统计、通知、跨组件通信
+
+```javascript
+// 推荐：混合使用
+const { chatEngine } = useChat({
+  chatServiceConfig: {
+    // ✅ 回调：数据转换
+    onMessage: (chunk) => ({ type: 'text', data: chunk.data?.content }),
+  },
+});
+```
+```javascript
+<script setup>
+import { onMounted, onUnmounted } from 'vue';
+
+let unsub = null;
+
+onMounted(() => {
+  unsub = chatEngine.eventBus.on(ChatEngineEventType.REQUEST_COMPLETE, () => {
+    // 埋点、通知等
+  });
+});
+
+onUnmounted(() => {
+  if (unsub) {
+    unsub();
+  }
+});
+</script>
+```
+
+### Activity 和 ToolCall 如何选择？
+
+| 场景 | 推荐 | 理由 |
+|------|------|------|
+| 纯展示类 UI（图表、进度条、数据可视化） | Activity | 轻量、专注展示 |
+| 需要流式增量更新的内容（实时股票、日志流） | Activity | 原生支持 JSON Patch |
+| 需要用户交互的表单收集（Human-in-the-Loop） | ToolCall | 支持 `respond` 回调 |
+| 需要订阅全局 `agentState` 的组件 | ToolCall | 支持 `subscribeKey` |
+| 需要细粒度生命周期控制（idle/executing/complete/error） | ToolCall | 完整状态机 |
+
+**简单判断**：只展示后端数据 → Activity；需要交互或全局状态 → ToolCall。
+
+### 为什么使用 useAgentToolcall 而不是自定义渲染？
+
+| 对比项 | useAgentToolcall | 自定义渲染 |
+|--------|------------------|------------|
+| 配置内聚性 | ✅ 工具定义、参数、UI 集中管理 | ❌ 分散在多处 |
+| 类型安全 | ✅ 完整的 TypeScript 支持 | ⚠️ 需手动维护 |
+| 状态订阅 | ✅ 内置 `subscribeKey` + `agentState` | ❌ 需自行实现 |
+| 可移植性 | ✅ 配置可跨项目复用 | ❌ 与业务代码耦合 |
+| 错误边界 | ✅ 内置保护 | ❌ 需自行添加 |
+
