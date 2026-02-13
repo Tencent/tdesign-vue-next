@@ -10,10 +10,7 @@ const doc = `
 `;
 
 const displayText = ref(doc);
-const isTyping = ref(false);
 const timerRef = ref(null);
-const currentIndex = ref(doc.length);
-const startTimeRef = ref(Date.now());
 
 const findTargetElement = (event: MouseEvent, selector: string | string[]): HTMLElement | null => {
   // 统一处理选择器输入格式（支持字符串或数组）
@@ -49,35 +46,9 @@ const handleResourceClick = (event: MouseEvent) => {
   }
 };
 
-// 模拟打字效果
-const typeEffect = () => {
-  if (!isTyping.value) return;
-
-  if (currentIndex.value < doc.length) {
-    const char = doc[currentIndex.value];
-    currentIndex.value += 1;
-    displayText.value += char;
-    timerRef.value = setTimeout(typeEffect, 10);
-  } else {
-    // 输入完成时自动停止
-    isTyping.value = false;
-  }
-};
-
 onMounted(() => {
   // 注册全局点击事件监听
   document.addEventListener('click', handleResourceClick);
-
-  // 处理打字效果
-  if (isTyping.value) {
-    // 如果已经完成输入，点击开始则重置
-    if (currentIndex.value >= doc.length) {
-      currentIndex.value = 0;
-      displayText.value = '';
-    }
-    startTimeRef.value = Date.now();
-    timerRef.value = setTimeout(typeEffect, 500);
-  }
 });
 
 onUnmounted(() => {
