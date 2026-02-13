@@ -323,9 +323,8 @@ const messageProps = {
   },
 };
 
-const sendHandler = async (e: any) => {
-  const { value } = e.detail;
-  await chatEngine.sendUserMessage({ prompt: value });
+const sendHandler = async (params: string) => {
+  await chatEngine.value?.sendUserMessage({ prompt: params });
   inputValue.value = '';
 };
 </script>
