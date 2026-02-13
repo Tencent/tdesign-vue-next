@@ -41,7 +41,7 @@ export default defineComponent({
     }));
 
     const { value, modelValue, expanded } = toRefs(props);
-    const [activeValue, setActiveValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [activeValue, setActiveValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
     const [expandValues, setExpand] = useDefaultValue(expanded, props.defaultExpanded, props.onExpand, 'expanded');
     const activeValues = ref([]);
 

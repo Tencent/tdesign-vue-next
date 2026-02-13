@@ -23,7 +23,7 @@ export default defineComponent({
       visible,
       modelValue,
       props.defaultVisible,
-      props.onVisibleChange,
+      'onVisibleChange',
       'visible',
     );
     const vm = getCurrentInstance();

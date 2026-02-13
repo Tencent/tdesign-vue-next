@@ -7,10 +7,10 @@ export function useVModel<T, P extends any[]>(
   value: Ref<T>,
   modelValue: Ref<T>,
   defaultValue: T,
-  onChange: ChangeHandler<T, P>,
+  eventPropName = 'onChange',
   propName = 'value',
 ): [Ref<T>, ChangeHandler<T, P>] {
-  const { emit, vnode } = getCurrentInstance();
+  const { emit, vnode, proxy } = getCurrentInstance();
   const internalValue: Ref<T> = ref();
 
   const vProps = vnode.props || {};
@@ -26,7 +26,7 @@ export function useVModel<T, P extends any[]>(
       modelValue,
       (newValue, ...args) => {
         emit('update:modelValue', newValue);
-        onChange?.(newValue, ...args);
+        proxy[eventPropName]?.(newValue, ...args);
       },
     ];
   }
@@ -36,7 +36,7 @@ export function useVModel<T, P extends any[]>(
       value,
       (newValue, ...args) => {
         emit(`update:${propName}`, newValue);
-        onChange?.(newValue, ...args);
+        proxy[eventPropName]?.(newValue, ...args);
       },
     ];
   }
@@ -46,7 +46,7 @@ export function useVModel<T, P extends any[]>(
     internalValue,
     (newValue, ...args) => {
       internalValue.value = newValue;
-      onChange?.(newValue, ...args);
+      proxy[eventPropName]?.(newValue, ...args);
     },
   ];
 }

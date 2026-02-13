@@ -105,7 +105,7 @@ export const useContext = (
 export const useCascaderContext = (props: TdCascaderProps) => {
   const isDisabled = useDisabled();
   const { value, modelValue, popupVisible } = toRefs(props);
-  const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+  const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
   const [innerPopupVisible, setPopupVisible] = useDefaultValue(
     popupVisible,
     false,

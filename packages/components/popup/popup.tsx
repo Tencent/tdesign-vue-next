@@ -95,7 +95,7 @@ export default defineComponent({
       propVisible,
       modelValue,
       props.defaultVisible,
-      props.onVisibleChange,
+      'onVisibleChange',
       'visible',
     );
     const renderTNodeJSX = useTNodeJSX();

@@ -26,7 +26,7 @@ export function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<st
   const innerClickElement = ref();
   const disabled = useDisabled();
   const readonly = useReadonly();
-  const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+  const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
 
   const isHover = ref(false);
   const focused = ref(false);

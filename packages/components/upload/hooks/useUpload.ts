@@ -23,7 +23,7 @@ export default function useUpload(props: TdUploadProps) {
   // TODO: Form 表单控制上传组件是否禁用
   const { disabled, autoUpload, isBatchUpload, multiple, files, modelValue, defaultFiles } = toRefs(props);
   const { globalConfig, t, classPrefix } = useConfig('upload');
-  const [uploadValue, setUploadValue] = useVModel(files, modelValue, defaultFiles.value, props.onChange, 'files');
+  const [uploadValue, setUploadValue] = useVModel(files, modelValue, defaultFiles.value, 'onChange', 'files');
   const xhrReq = ref<{ files: UploadFile[]; xhrReq: XMLHttpRequest }[]>([]);
   const toUploadFiles = ref<UploadFile[]>([]);
   const sizeOverLimitMessage = ref('');

@@ -14,13 +14,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('steps');
 
     const { current, modelValue } = toRefs(props);
-    const [innerCurrent, setInnerCurrent] = useVModel(
-      current,
-      modelValue,
-      props.defaultCurrent,
-      props.onChange,
-      'current',
-    );
+    const [innerCurrent, setInnerCurrent] = useVModel(current, modelValue, props.defaultCurrent, 'onChange', 'current');
 
     provide(
       'StepsState',
