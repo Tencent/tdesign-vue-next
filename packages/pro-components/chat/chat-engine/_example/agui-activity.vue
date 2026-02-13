@@ -39,7 +39,7 @@
 import { ref, computed } from 'vue';
 import { Space as TSpace, Card, Tag, Progress } from 'tdesign-vue-next';
 import { CheckCircleFilledIcon, TimeFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { useChat, useAgentActivity, isActivityContent, ActivityRenderer } from '../index';
+import { useChat, useAgentActivity, isActivityContent, ActivityRenderer } from '@tdesign-vue-next/chat';
 import type { ActivityComponentProps } from '../components/activity/types';
 
 /**
