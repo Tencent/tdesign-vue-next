@@ -886,8 +886,8 @@ importers:
         specifier: workspace:^
         version: link:../tdesign-vue-next
       tdesign-web-components:
-        specifier: 1.3.1-alpha.1
-        version: 1.3.1-alpha.1
+        specifier: 1.3.1-alpha.8
+        version: 1.3.1-alpha.8
       vue:
         specifier: '>=3.1.0'
         version: 3.3.9(typescript@5.8.3)
@@ -3377,8 +3377,8 @@ packages:
     resolution: {integrity: sha512-OAlb+T7V4Op9OwdkjmguYRqncdlx5JiofwOAUkmTF+jNdHwzTaTs4sRAGpzLF3oOz5xAyDGrPgeIDFQmDOTiJw==}
     engines: {node: '>= 16'}
 
-  cherry-markdown@0.11.0-alpha-2:
-    resolution: {integrity: sha512-yx2jFkr8nFZbfB27Y3EWan8E0xdRnLvKes1LUuTJeY/lu9NYKxjFJN/w88QhV1DvyOxBBBcI2rLPb9oRjKOIDQ==}
+  cherry-markdown@0.11.0-alpha-3:
+    resolution: {integrity: sha512-kEGSlD7YkesN/XS+RRycd04qlJPhWqF5+T7bgvM0SWBWVveDunG+QKjmmHb4iAW2k5KmyTg4JqhggpRHIcWz/A==}
 
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
@@ -7309,8 +7309,8 @@ packages:
     peerDependencies:
       vue: ~2.7.14
 
-  tdesign-web-components@1.3.1-alpha.1:
-    resolution: {integrity: sha512-8UL2wl1LfVvIyam9duT+nbggBOB1LqeKr0ip3NPbScpDfph4KT55lTOmTCnZyyipDTDpeOB8C1DZi+5yeGHFzw==}
+  tdesign-web-components@1.3.1-alpha.8:
+    resolution: {integrity: sha512-c5yLFl1kHIG+v35IR7O1IToE3rZaahUcHTwfOu3CSHz+M7oGXD4RjIeEx3680BijNAWMSEIZ+/ZpFzTcEtpMoA==}
 
   temp-dir@2.0.0:
     resolution: {integrity: sha512-aoBAniQmmwtcKp/7BzsH8Cxzv8OL736p7v1ihGb5e9DJ9kTwGWHrQrVB5+lfVDzfGrdRzXch+ig7LHaY1JTOrg==}
@@ -9029,7 +9029,7 @@ snapshots:
       '@types/node': 20.5.1
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.8.3)
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.8.3)
+      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.8.3))(typescript@5.8.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -10864,7 +10864,7 @@ snapshots:
 
   check-error@2.1.1: {}
 
-  cherry-markdown@0.11.0-alpha-2:
+  cherry-markdown@0.11.0-alpha-3:
     dependencies:
       '@types/codemirror': 0.0.108
       crypto-js: 4.2.0
@@ -11210,7 +11210,7 @@ snapshots:
       - '@swc/core'
       - '@swc/wasm'
 
-  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.8.3):
+  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.3.6(typescript@5.8.3)
@@ -15325,11 +15325,11 @@ snapshots:
       validator: 13.15.23
       vue: 2.7.14
 
-  tdesign-web-components@1.3.1-alpha.1:
+  tdesign-web-components@1.3.1-alpha.8:
     dependencies:
       '@babel/runtime': 7.27.6
       '@popperjs/core': 2.11.8
-      cherry-markdown: 0.11.0-alpha-2
+      cherry-markdown: 0.11.0-alpha-3
       class-variance-authority: 0.7.1
       clsx: 2.1.1
       copy-to-clipboard: 3.3.3
