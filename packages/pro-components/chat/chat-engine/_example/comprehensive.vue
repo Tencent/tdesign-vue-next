@@ -22,7 +22,7 @@
         "
         allow-content-segment-custom
       >
-        <t-chat-action-bar
+        <t-chat-actionbar
           v-if="isAIMessage(message) && message.status === 'complete'"
           slot="actionbar"
           :action-bar="getActionBar(message, idx === messages.length - 1)"
