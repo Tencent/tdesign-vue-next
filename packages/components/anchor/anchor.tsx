@@ -24,7 +24,7 @@ import { SlotReturnValue } from '../common';
 import Affix from '../affix';
 import { TdAnchorProps } from './type';
 
-import { AnchorInjectionKey } from './consts';
+import { AnchorInjectionKey } from './constants';
 
 export interface Anchor extends ComponentPublicInstance {
   scrollContainer: ANCHOR_CONTAINER;

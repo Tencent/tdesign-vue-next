@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ImageItem > props > :src[string] 1`] = `
+<div
+  class="t-image-viewer__modal-pic"
+>
+  <div
+    class="t-image-viewer__modal-box"
+    style="transform: translate(0px, 0px) scale(1, 1);"
+  >
+    <!---->
+    <!---->
+    <img
+      alt="image"
+      class="t-image-viewer__modal-image"
+      draggable="false"
+      src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+      style="transform: rotate(0deg); display: block;"
+    />
+    <!---->
+  </div>
+</div>
+`;

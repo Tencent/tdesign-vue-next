@@ -11,7 +11,10 @@ export default {
   /** 宽度随内容自适应 */
   autoWidth: Boolean,
   /** 是否禁用范围输入框，值为数组表示可分别控制某一个输入框是否禁用 */
-  disabled: Boolean,
+  disabled: {
+    type: [Boolean, Array] as PropType<TdRangeInputPopupProps['disabled']>,
+    default: undefined,
+  },
   /** 输入框的值 */
   inputValue: {
     type: Array as PropType<TdRangeInputPopupProps['inputValue']>,
