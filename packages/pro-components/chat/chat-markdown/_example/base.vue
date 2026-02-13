@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
 
 const doc = `
 # This is TDesign
@@ -61,14 +61,6 @@ import App from './app.vue';
 const app = createApp(App);
 app.use(TDesignChat);
 \`\`\`
-\`\`\`mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-
-\`\`\`
   `;
 
 const displayText = ref(doc);
@@ -110,15 +102,17 @@ watch(isTyping, (newValue) => {
   }
 });
 
-onMounted(() => {
-  const handleResourceClick = (event) => {
-    console.log(event.target);
-  };
-  document.addEventListener('click', handleResourceClick);
+// 定义事件处理函数，确保在onMounted和onUnmounted中使用同一个引用
+const handleResourceClick = (event) => {
+  console.log(event.target);
+};
 
-  return () => {
-    document.removeEventListener('click', handleResourceClick);
-  };
+onMounted(() => {
+  document.addEventListener('click', handleResourceClick);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleResourceClick);
 });
 </script>
 

@@ -115,7 +115,18 @@ const onActions = {
 <template>
   <t-space direction="vertical" style="width: 100%">
     <t-divider>文件附件</t-divider>
-    <t-chat-message variant="base" :content="userMessage1.content" :role="userMessage1.role" />
+    <t-chat-message
+      variant="base"
+      :content="userMessage1.content"
+      :role="userMessage1.role"
+      :chat-content-props="{
+        attachments: {
+          onFileClick: (e) => {
+            console.log('自定义附件点击逻辑', e.detail);
+          },
+        },
+      }"
+    />
     <t-divider>思考过程，资料来源与搜索联想</t-divider>
     <t-chat-message
       :content="aiMessages.content"
