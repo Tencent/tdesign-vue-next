@@ -222,6 +222,15 @@ export default defineComponent({
     //   return !!eventFuncs?.length;
     // };
 
+    const shouldRender = computed(() => {
+      const { destroyOnClose, visible, lazy } = props;
+      if (!isMounted.value) {
+        return !lazy;
+      } else {
+        return visible || !destroyOnClose;
+      }
+    });
+
     const renderDialog = () => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
@@ -239,11 +248,12 @@ export default defineComponent({
               ref={dialogCardRef}
               theme={theme}
               {...otherProps}
-              v-slots={context.slots}
               onConfirm={confirmBtnAction}
               onCancel={cancelBtnAction}
               onCloseBtnClick={closeBtnAction}
-            />
+            >
+              {shouldRender.value && context.slots.default?.()}
+            </TDialogCard>
           </div>
         </div>
       );
@@ -265,15 +275,6 @@ export default defineComponent({
     onBeforeUnmount(() => {
       addKeyboardEvent(false);
       destroySelf();
-    });
-
-    const shouldRender = computed(() => {
-      const { destroyOnClose, visible, lazy } = props;
-      if (!isMounted.value) {
-        return !lazy;
-      } else {
-        return visible || !destroyOnClose;
-      }
     });
 
     return () => {
@@ -303,11 +304,9 @@ export default defineComponent({
             onBeforeLeave={beforeLeave}
             onAfterLeave={afterLeave}
           >
-            {shouldRender.value && (
-              <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
-                {view}
-              </div>
-            )}
+            <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
+              {view}
+            </div>
           </Transition>
         </Teleport>
       );
