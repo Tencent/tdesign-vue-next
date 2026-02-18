@@ -63,9 +63,10 @@ export default defineComponent({
 
     // 递归render options
     const renderOptionsContent = (options: SelectOption[]) => {
+      let globalIndex = 0;
       return (
         <ul class={`${COMPONENT_NAME.value}__list`}>
-          {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }, index) => {
+          {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }) => {
             if (item.children) {
               return (
                 <OptionGroup label={item.group} divider={item.divider}>
@@ -73,6 +74,8 @@ export default defineComponent({
                 </OptionGroup>
               );
             }
+
+            const currentIndex = globalIndex++;
 
             const defaultOmit = ['index', '$index', 'className', 'tagName'];
 
@@ -91,12 +94,12 @@ export default defineComponent({
                       scrollType: props.scroll?.type,
                       isVirtual: isVirtual.value,
                       bufferSize: props.scroll?.bufferSize,
-                      key: `${item.$index || ''}_${index}_${item.value}`,
+                      key: `${item.$index || ''}_${currentIndex}_${item.value}`,
                     }
                   : {
-                      key: `${index}_${item.value}`,
+                      key: `${currentIndex}_${item.value}`,
                     })}
-                index={index}
+                index={currentIndex}
                 multiple={props.multiple}
                 v-slots={item.slots}
                 onRowMounted={handleRowMounted}
