@@ -75,14 +75,3 @@ export const triggerMap = {
   prev: 'arrow-previous',
   next: 'arrow-next',
 };
-
-// 解析 range（数组）为边界日期，纠正顺序
-export function getRangeBounds(range: PickerDateRange): { min: Date | null; max: Date | null } {
-  if (!isArray(range)) return { min: null, max: null };
-  const [rawMin, rawMax] = range;
-  const min = rawMin == null ? null : new Date(rawMin);
-  const max = rawMax == null ? null : new Date(rawMax);
-  if (min == null || max == null) return { min, max };
-  if (min > max) return { min: max, max: min };
-  return { min, max };
-}
