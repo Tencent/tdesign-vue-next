@@ -24,8 +24,8 @@ import {
   getDefaultFormat,
   initYearMonthTime,
 } from '@tdesign/common-js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
-import { dateCorrection, triggerMap, getRangeBounds } from './utils';
+import { subtractMonth, addMonth, extractTimeObj, getRangeBounds } from '@tdesign/common-js/date-picker/utils';
+import { dateCorrection, triggerMap } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePicker',

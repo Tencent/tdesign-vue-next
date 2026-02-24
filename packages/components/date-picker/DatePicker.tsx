@@ -15,11 +15,18 @@ import {
 
 import { useSingle } from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@tdesign/common-js/date-picker/utils';
+import {
+  subtractMonth,
+  addMonth,
+  extractTimeObj,
+  covertToDate,
+  isSame,
+  getRangeBounds,
+} from '@tdesign/common-js/date-picker/utils';
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';
-import { triggerMap, getRangeBounds } from './utils';
+import { triggerMap } from './utils';
 
 import type {
   TdDatePickerProps,
