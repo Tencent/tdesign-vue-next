@@ -459,11 +459,14 @@ export default defineComponent({
       isOverlayHover.value = false;
       if (props.trigger !== 'hover' || triggerEl.value.contains(ev.target as Node)) return;
 
-      const isCursorOverlaps = getPopperTree(id).some((el) => {
+      // 检查鼠标是否在任何 popup 内（包括当前 popup 和嵌套 popup）
+      const allPopups = [popperEl.value, ...getPopperTree(id)];
+      const isCursorOverlaps = allPopups.some((el) => {
+        if (!el) return false;
         const rect = el.getBoundingClientRect();
-
         return ev.x > rect.x && ev.x < rect.x + rect.width && ev.y > rect.y && ev.y < rect.y + rect.height;
       });
+
       if (!isCursorOverlaps) {
         hide(ev);
         parent?.assertMouseLeave(ev);
