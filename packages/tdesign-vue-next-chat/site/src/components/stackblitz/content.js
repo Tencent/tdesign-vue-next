@@ -90,6 +90,7 @@ export const packageJSONContent = JSON.stringify(
       'tdesign-web-components': '1.1.18',
       'omi-vueify': '^0.0.12',
       'tvision-charts-vue-next': '^3.3.13',
+      'highlight.js': '^11.11.1',
     },
   },
   null,

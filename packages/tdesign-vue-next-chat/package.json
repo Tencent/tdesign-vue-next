@@ -47,7 +47,8 @@
     "omi-vueify": "^0.0.12"
   },
   "devDependencies": {
-    "tvision-charts-vue-next": "^3.3.13"
+    "tvision-charts-vue-next": "^3.3.13",
+    "highlight.js": "^11.11.1"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"
