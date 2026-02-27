@@ -30,6 +30,7 @@ import {
   type ChatMessagesData,
   type ChatServiceConfig,
   type TdChatbotApi,
+  type SuggestionItem,
 } from '@tdesign-vue-next/chat';
 
 /**
@@ -157,7 +158,7 @@ const messageProps = {
   assistant: {
     handleActions: {
       // 点击建议问题时，填充到输入框
-      suggestion: ({ content }) => {
+      suggestion: ({ content }: { content: SuggestionItem }) => {
         chatRef.value?.addPrompt(content.prompt);
       },
     },

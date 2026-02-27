@@ -1,14 +1,19 @@
 <template>
-  <div v-if="MemoizedComponent">
+  <ComponentErrorBoundary
+    v-if="MemoizedComponent"
+    :component-name="toolCall.toolCallName"
+    log-prefix="ToolCallRenderer"
+  >
     <component :is="MemoizedComponent" v-bind="componentProps" />
-  </div>
+  </ComponentErrorBoundary>
 </template>
 
 <script setup lang="tsx">
-import { ref, computed, onMounted, watch, type Ref } from 'vue';
-import type { ToolCall } from 'tdesign-web-components/lib/chat-engine';
+import { ref, computed, watch, type Ref } from 'vue';
+import { AGUIEventType, type ToolCall } from 'tdesign-web-components/lib/chat-engine';
 import { isNonInteractiveConfig, type ToolcallComponentProps } from './types';
-import { agentToolcallRegistry } from './registry';
+import { agentToolcallRegistry, TOOLCALL_REGISTERED_EVENT, TOOLCALL_EVENT_DETAIL_KEY } from './registry';
+import { ComponentErrorBoundary, useRegistrationListener } from '../shared';
 import { useAgentStateDataByKey } from '../../hooks/useAgentState';
 
 interface ToolCallRendererProps {
@@ -31,8 +36,13 @@ const config = computed(() => {
   return agentToolcallRegistry.get(props.toolCall.toolCallName);
 });
 
-// 添加注册状态监听
-const isRegistered = ref(() => !!agentToolcallRegistry.getRenderFunction(props.toolCall.toolCallName));
+// 使用公共 Hook 监听动态注册
+const { MemoizedComponent } = useRegistrationListener<ToolcallComponentProps>({
+  componentKey: computed(() => props.toolCall.toolCallName),
+  eventName: TOOLCALL_REGISTERED_EVENT,
+  eventDetailKey: TOOLCALL_EVENT_DETAIL_KEY,
+  getRenderFunction: agentToolcallRegistry.getRenderFunction,
+});
 
 // 缓存参数解析
 const args = computed(() => {
@@ -104,8 +114,11 @@ watch(
           error: error as Error,
         };
       }
-    } else if (props.toolCall.eventType === 'TOOL_CALL_END' || props.toolCall.eventType === 'TOOL_CALL_RESULT') {
-      // 🔑 关键修复：工具调用已结束（无 result 的情况，如 show_progress）
+    } else if (
+      props.toolCall.eventType === AGUIEventType.TOOL_CALL_END ||
+      props.toolCall.eventType === AGUIEventType.TOOL_CALL_RESULT
+    ) {
+      // 工具调用已结束（无 result 的情况，如 show_progress）
       actionState.value = { status: 'complete' };
     } else {
       // 等待用户交互或工具执行中
@@ -134,23 +147,6 @@ const targetStateKey = computed(() => {
   return subscribeKeyExtractor.value(fullProps);
 });
 
-// 监听组件注册事件
-onMounted(() => {
-  const handleRegistered = (event: CustomEvent) => {
-    if (event.detail?.name === props.toolCall.toolCallName) {
-      isRegistered.value = true;
-    }
-  };
-
-  if (!isRegistered.value) {
-    window.addEventListener('toolcall-registered', handleRegistered as EventListener);
-  }
-
-  return () => {
-    window.removeEventListener('toolcall-registered', handleRegistered as EventListener);
-  };
-});
-
 // 使用精确订阅
 const agentState = useAgentStateDataByKey(targetStateKey);
 
@@ -163,7 +159,4 @@ const componentProps = computed<ToolcallComponentProps>(() => ({
   respond: handleRespond,
   agentState: agentState.value,
 }));
-
-// 使用registry的缓存渲染函数
-const MemoizedComponent = computed(() => agentToolcallRegistry.getRenderFunction(props.toolCall.toolCallName));
 </script>
