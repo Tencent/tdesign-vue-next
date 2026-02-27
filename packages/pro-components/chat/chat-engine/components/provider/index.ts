@@ -1,1 +1,1 @@
-export * from './agent-state.vue';
+export * from './agent-state';
