@@ -53,11 +53,6 @@ export function useSingle(props: TdDatePickerProps) {
           [`${COMPONENT_NAME.value}__input--placeholder`]: isHoverCell.value,
         },
       ],
-      onClear: (context: { e: InputEvent }) => {
-        context?.e?.stopPropagation();
-        popupVisible.value = false;
-        onChange?.('', { dayjsValue: dayjs(), trigger: 'clear' });
-      },
     };
     return props.multiple
       ? defaultInputProps

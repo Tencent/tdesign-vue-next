@@ -263,7 +263,7 @@ export default defineComponent({
     function onTagClearClick({ e }: { e: MouseEvent }) {
       e.stopPropagation();
       popupVisible.value = false;
-      onChange?.([], { dayjsValue: dayjs(), trigger: 'clear' });
+      onChange?.(props.multiple ? [] : '', { dayjsValue: dayjs(), trigger: 'clear' });
       props.onClear?.({ e });
     }
 
