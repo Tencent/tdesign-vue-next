@@ -1,10 +1,8 @@
 <template>
-  <ChatMarkdown :content="doc" />
+  <t-chat-markdown :content="doc" />
 </template>
 
 <script setup lang="ts">
-import { ChatMarkdown } from '@tdesign-vue-next/chat';
-
 const doc = `
 \`\`\`mermaid
 graph TD;

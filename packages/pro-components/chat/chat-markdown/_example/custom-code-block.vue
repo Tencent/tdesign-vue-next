@@ -1,9 +1,8 @@
 <template>
-  <ChatMarkdown :content="mdContent" :options="options" />
+  <t-chat-markdown :content="mdContent" :options="options" />
 </template>
 
 <script setup lang="ts">
-import { ChatMarkdown } from '@tdesign-vue-next/chat';
 // 自定义代码块示例引入
 import hljs from 'highlight.js/lib/core';
 import bash from 'highlight.js/lib/languages/bash';
