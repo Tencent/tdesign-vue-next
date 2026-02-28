@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watch, type Ref } from 'vue';
+import { defineComponent, ref, computed, watch, h, type Ref } from 'vue';
 import { AGUIEventType, type ToolCall } from 'tdesign-web-components/lib/chat-engine';
 import { isNonInteractiveConfig, type ToolcallComponentProps } from './types';
 import { agentToolcallRegistry, TOOLCALL_REGISTERED_EVENT, TOOLCALL_EVENT_DETAIL_KEY } from './registry';
@@ -18,7 +18,7 @@ export default defineComponent({
       required: true,
     },
     onRespond: {
-      type: Function as () => (toolCall: ToolCall, response: any) => void,
+      type: Function as unknown as () => (toolCall: ToolCall, response: any) => void,
       default: undefined,
     },
   },
@@ -167,7 +167,7 @@ export default defineComponent({
 
       return (
         <ComponentErrorBoundary componentName={props.toolCall.toolCallName} logPrefix="ToolCallRenderer">
-          <MemoizedComponent.value {...componentProps.value} />
+          {h(MemoizedComponent.value, componentProps.value)}
         </ComponentErrorBoundary>
       );
     };

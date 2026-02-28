@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 import { useAgentState, provideAgentState } from '../../hooks/useAgentState';
 
 interface Props {
-  initialState?: Record<string, any>;
+  initialState?: object;
   subscribeKey?: string;
 }
 
@@ -10,7 +10,7 @@ export default defineComponent({
   name: 'AgentStateProvider',
   props: {
     initialState: {
-      type: Object as () => Record<string, any>,
+      type: Object,
       default: () => ({}),
     },
     subscribeKey: {

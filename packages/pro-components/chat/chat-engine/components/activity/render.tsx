@@ -1,4 +1,4 @@
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent, h } from 'vue';
 import type { ActivityData } from 'tdesign-web-components';
 import type { ActivityComponentProps } from './types';
 import { activityRegistry, ACTIVITY_REGISTERED_EVENT, ACTIVITY_EVENT_DETAIL_KEY } from './registry';
@@ -13,7 +13,7 @@ interface Props {
  * 当没有注册对应类型的组件时使用
  * TODO: 后续支持配置化的默认 UI
  */
-const DefaultActivityRenderer = ({ activity }: { activity: ActivityData }) => {
+const DefaultActivityRenderer = ({ activity }: { activity: ActivityData }): null => {
   // 空白兜底，仅在控制台输出警告
   console.warn(`[ActivityRenderer] Unknown activity type: ${activity.activityType}`, activity.content);
   return null;
@@ -54,7 +54,7 @@ export default defineComponent({
     return () => (
       <ComponentErrorBoundary componentName={props.activity.activityType} logPrefix="ActivityRenderer">
         {MemoizedComponent.value ? (
-          <MemoizedComponent.value {...componentProps.value} />
+          h(MemoizedComponent.value, componentProps.value)
         ) : (
           <DefaultActivityRenderer activity={props.activity} />
         )}

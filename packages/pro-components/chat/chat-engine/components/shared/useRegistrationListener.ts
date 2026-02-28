@@ -13,9 +13,9 @@ interface UseRegistrationListenerOptions<TProps> {
 
 interface UseRegistrationListenerResult<TProps> {
   /** 是否已注册 */
-  isRegistered: boolean;
+  isRegistered: Ref<boolean>;
   /** 缓存的 Memo 组件 */
-  MemoizedComponent: Component | null;
+  MemoizedComponent: Ref<Component | null>;
 }
 
 /**
@@ -61,5 +61,5 @@ export function useRegistrationListener<TProps>(
     return getRenderFunction(unref(componentKey));
   });
 
-  return { isRegistered: isRegistered.value, MemoizedComponent: MemoizedComponent.value };
+  return { isRegistered, MemoizedComponent };
 }
