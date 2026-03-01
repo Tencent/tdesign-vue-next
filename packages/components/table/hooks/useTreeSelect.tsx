@@ -181,10 +181,12 @@ export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: 
   }
 
   function onInnerSelectChange(rowKeys: SelectChangeParams[0], extraData: SelectChangeParams[1]) {
+    // 非关联选择无论单选多选直接返回，数据格式与非树形table一致
     if (!tree.value || tree.value.checkStrictly) {
       setTSelectedRowKeys(rowKeys, extraData);
       return;
     }
+    // 关联选择，行选择和全选，均使用getRowDataByKeys获取带tree元数据的结构返回
     if (extraData.currentRowKey === 'CHECK_ALL_BOX') {
       handleSelectAll(extraData);
     } else {
@@ -194,20 +196,20 @@ export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: 
 
   function handleSelectAll(extraData: SelectChangeParams[1]) {
     const newRowKeys: Array<string | number> = [];
-    const newRowData: TableRowData[] = [];
     if (extraData.type === 'check') {
       const arr = [...treeDataMap.value.values()];
       for (let i = 0, len = arr.length; i < len; i++) {
         const item = arr[i];
         if (!item.disabled) {
-          newRowData.push(item.row);
           newRowKeys.push(get(item.row, rowDataKeys.value.rowKey));
         }
       }
     }
+    // 这里用getRowDataByKeys返回带row的节点对象（全选）
+    const newRowData = getRowDataByKeys({ treeDataMap: treeDataMap.value, selectedRowKeys: newRowKeys });
     const newExtraData = {
       ...extraData,
-      selectedRowData: newRowData || [],
+      selectedRowData: newRowData,
     };
     setTSelectedRowKeys(newRowKeys, newExtraData);
   }
@@ -230,6 +232,7 @@ export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: 
       }
     }
     newRowKeys = updateParentCheckedState(newRowKeys, extraData.currentRowKey, extraData.type);
+    // 这里用getRowDataByKeys返回带row的节点对象（行选择）
     const newRowData = getRowDataByKeys({ treeDataMap: treeDataMap.value, selectedRowKeys: newRowKeys });
     const newExtraData = {
       ...extraData,
