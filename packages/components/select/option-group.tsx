@@ -21,11 +21,14 @@ export default defineComponent({
       },
     ]);
 
-    return () => (
-      <li class={classes.value}>
-        {(props.label ?? false) && <div class={`${COMPONENT_NAME.value}__header`}>{props.label}</div>}
-        {renderTNodeJSX('default')}
-      </li>
-    );
+    return () => {
+      const label = renderTNodeJSX('label');
+      return (
+        <li class={classes.value}>
+          {![null, undefined].includes(label) && <div class={`${COMPONENT_NAME.value}__header`}>{label}</div>}
+          {renderTNodeJSX('default')}
+        </li>
+      );
+    };
   },
 });
