@@ -59,6 +59,8 @@ export default defineComponent({
     const tableBodyRef = ref<InstanceType<typeof TBody>>();
     const bottomContentRef = ref<HTMLDivElement>();
     const tableFootHeight = ref(0);
+    // affixHeaderHeight 需要在 setup 中定义，避免在 render 函数中重复创建
+    const affixHeaderHeight = ref(0);
     const { classPrefix, virtualScrollClasses, tableLayoutClasses, tableBaseClass, tableColFixedClasses } =
       useClassName();
     // 表格基础样式类
@@ -168,6 +170,22 @@ export default defineComponent({
       return (bottomRect?.height || 0) + (paginationRect?.height || 0);
     });
 
+    // IE 浏览器需要遮挡 header 吸顶滚动条，要减去 getBoundingClientRect.height 的滚动条高度 4 像素
+    const IEHeaderWrap = getIEVersion() <= 11 ? 4 : 0;
+    // affixHeaderWrapHeight 需要在 setup 中定义，避免在 render 函数中重复创建 computed
+    const affixHeaderWrapHeight = computed(() => {
+      const barWidth = isWidthOverflow.value ? scrollbarWidth.value : 0;
+      return affixHeaderHeight.value - barWidth;
+    });
+
+    // 更新 affixHeaderHeight 的函数
+    const updateAffixHeaderHeight = () => {
+      const newHeight = (affixHeaderRef.value?.getBoundingClientRect().height || 0) - IEHeaderWrap;
+      if (affixHeaderHeight.value !== newHeight) {
+        affixHeaderHeight.value = newHeight;
+      }
+    };
+
     // 行高亮
     const { tActiveRow, onHighlightRow, addHighlightKeyboardListener, removeHighlightKeyboardListener } =
       useRowHighlight(props, tableRef);
@@ -186,10 +204,11 @@ export default defineComponent({
     });
 
     watch(
-      () => [props.data, dataSource],
+      () => [props.data, dataSource.value],
       () => {
         setData(isPaginateData.value ? dataSource.value : props.data);
       },
+      { immediate: true },
     );
 
     watch(
@@ -197,6 +216,20 @@ export default defineComponent({
       () => {
         props.onLeafColumnsChange?.(spansAndLeafNodes.value.leafColumns);
         setEffectColMap(spansAndLeafNodes.value.leafColumns, null);
+      },
+      { immediate: true },
+    );
+
+    // 监听 affixHeaderRef 变化来更新高度，替代在 render 函数中的 setTimeout
+    watch(
+      [affixHeaderRef, () => props.columns],
+      () => {
+        // 只有当 affixHeaderRef 有值时才更新
+        if (!affixHeaderRef.value) return;
+        // 使用 nextTick 确保 DOM 已渲染完成
+        nextTick(() => {
+          updateAffixHeaderHeight();
+        });
       },
       { immediate: true },
     );
@@ -457,25 +490,13 @@ export default defineComponent({
       /**
        * Affixed Header
        */
-      // IE 浏览器需要遮挡 header 吸顶滚动条，要减去 getBoundingClientRect.height 的滚动条高度 4 像素
-      const IEHeaderWrap = getIEVersion() <= 11 ? 4 : 0;
-      const barWidth = isWidthOverflow.value ? scrollbarWidth.value : 0;
-      const affixHeaderHeight = ref((affixHeaderRef.value?.getBoundingClientRect().height || 0) - IEHeaderWrap);
-      // 等待表头渲染完成后再更新高度，有可能列变动带来多级表头的高度变化，错误高度会导致滚动条显示
-      const timer = setTimeout(() => {
-        affixHeaderHeight.value = (affixHeaderRef.value?.getBoundingClientRect().height || 0) - IEHeaderWrap;
-        clearTimeout(timer);
-      }, 0);
-      const affixHeaderWrapHeight = computed(() => affixHeaderHeight.value - barWidth);
       // 两类场景：1. 虚拟滚动，永久显示表头，直到表头消失在可视区域； 2. 表头吸顶，根据滚动情况判断是否显示吸顶表头
       const headerOpacity = props.headerAffixedTop ? Number(showAffixHeader.value) : 1;
-      const affixHeaderWrapHeightStyle = computed(() => {
-        return {
-          width: `${tableWidth.value}px`,
-          height: `${affixHeaderWrapHeight.value}px`,
-          opacity: headerOpacity,
-        };
-      });
+      const affixHeaderWrapHeightStyle = {
+        width: `${tableWidth.value}px`,
+        height: `${affixHeaderWrapHeight.value}px`,
+        opacity: headerOpacity,
+      };
       // 多级表头左边线缺失
       const affixedLeftBorder = props.bordered ? 1 : 0;
       const affixedHeader = Boolean(
@@ -507,7 +528,7 @@ export default defineComponent({
       // 添加这一层，是为了隐藏表头的横向滚动条。如果以后不需要照顾 IE 10 以下的项目，则可直接移除这一层
       // 彼时，可更为使用 CSS 样式中的 .hideScrollbar()
       const affixHeaderWithWrap = (
-        <div class={tableBaseClass.affixedHeaderWrap} style={affixHeaderWrapHeightStyle.value}>
+        <div class={tableBaseClass.affixedHeaderWrap} style={affixHeaderWrapHeightStyle}>
           {affixedHeader}
         </div>
       );
