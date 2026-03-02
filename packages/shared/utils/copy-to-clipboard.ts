@@ -50,7 +50,7 @@ const deselectCurrent = () => {
   };
 };
 
-const copy = (text: string, options?: Options) => {
+export const copy = (text: string, options?: Options) => {
   let message,
     reselectPrevious,
     range,
@@ -128,5 +128,3 @@ const copy = (text: string, options?: Options) => {
 
   return success;
 };
-
-export default copy;

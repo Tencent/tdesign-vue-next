@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import copy from '../utils/copy-to-clipboard';
+import { copy } from '../copy-to-clipboard';
 
 describe('copy-to-clipboard', () => {
   // 保存原始的document.execCommand
