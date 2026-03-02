@@ -11,6 +11,8 @@ import {
   CopyIcon,
   Share1Icon,
 } from 'tdesign-icons-vue-next';
+import { copy as fallbackCopy } from '@tdesign/shared-utils';
+
 import Clipboard from 'clipboard';
 import { MessagePluginSingleton } from '../utils';
 import props from './chat-actionbar-props';
@@ -36,7 +38,18 @@ export default defineComponent({
       const actionButtons = props.actionBar || props.operationBtn;
       // 向后兼容：优先使用 comment，如果没有则根据 isGood/isBad 计算
       const commentValue = props.comment || (props.isGood ? 'good' : props.isBad ? 'bad' : '');
-      const copyAnswer = () => {
+      const copyAnswer = (e: MouseEvent, content: string) => {
+        // 使用示例
+        if (!navigator.clipboard) {
+          // 如果浏览器不支持 Clipboard API，使用自定义的复制方法
+          const success = fallbackCopy(content);
+          if (success) {
+            messagePluginInstance.showSuccess(copyTextSuccess);
+          } else {
+            messagePluginInstance.showError(copyTextFail);
+          }
+          return;
+        }
         // 根据e获取当前按钮选择器
         const copyBtn = new Clipboard(`.copy-btn`);
         copyBtn.on('success', () => {
@@ -48,7 +61,7 @@ export default defineComponent({
       };
       const handleClick = (e: MouseEvent, type: string) => {
         if (type === 'copy') {
-          copyAnswer();
+          copyAnswer(e, content);
         }
         // 如果通过default传入的chat-item 组件，如何获取index值todo
         emit('actions', type, {
@@ -84,7 +97,7 @@ export default defineComponent({
               size="small"
               class="copy-btn"
               disabled={disabled}
-              onClick={(e: MouseEvent) => handleClick(e, 'copy')}
+              onClick={(e: MouseEvent) => handleClick(e, 'copy', content)}
               data-clipboard-text={content}
             >
               <CopyIcon />
