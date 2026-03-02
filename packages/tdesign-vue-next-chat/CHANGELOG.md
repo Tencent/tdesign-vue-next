@@ -23,6 +23,7 @@ spline: explain
 - `ChatEngine`: 修复 ToolCallRenderer 类型文件丢失导致的报错
 - `ChatActionbar`: 兼容部分场景复制文本内容报错的问题
 - `ChatThinking`: 修复控制台报错的问题
+- `Chatbot`: 修复 unplugin 引入方式的组件异常问题
 
 ## 🌈 0.5.0-alpha.10 `2025-12-18`
 
@@ -213,3 +214,4 @@ spline: explain
 - `t-chat` 新增`scroll`事件回调
 - `t-chat-input` 组件添加 `v-model`支持, 添加 `change` 事件
 - `t-chat-input` 新增 `disabled` 属性
+
