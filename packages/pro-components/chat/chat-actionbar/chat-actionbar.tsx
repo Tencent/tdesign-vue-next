@@ -39,7 +39,6 @@ export default defineComponent({
       // 向后兼容：优先使用 comment，如果没有则根据 isGood/isBad 计算
       const commentValue = props.comment || (props.isGood ? 'good' : props.isBad ? 'bad' : '');
       const copyAnswer = (e: MouseEvent, content: string) => {
-        // 使用示例
         if (!navigator.clipboard) {
           // 如果浏览器不支持 Clipboard API，使用自定义的复制方法
           const success = fallbackCopy(content);
