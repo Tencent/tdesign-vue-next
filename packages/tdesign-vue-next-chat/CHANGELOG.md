@@ -5,6 +5,25 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.5.0-alpha.11 `2026-03-02`
+
+### 🚨 Breaking Change
+
+- `ChatMarkdown`: 优化 Markdown 渲染相关依赖以减少默认体积，包括 Mermaid 在内调整为按需引入，如果存在 Mermaid 渲染需求具体使用方式请参考示例文档
+
+### 🚀 Features
+
+- `Chatbot`: 修复消息内容过长的样式问题
+- `ChatEngine`: 新增支持 agui activity
+- `ChatEngine`: 新增支持 eventbus
+- `ChatThinking`: `content` 新增插槽支持，用于自定义渲染的场景
+
+### 🐞 Bug Fixes
+
+- `ChatEngine`: 修复 ToolCallRenderer 类型文件丢失导致的报错
+- `ChatActionbar`: 兼容部分场景复制文本内容报错的问题
+- `ChatThinking`: 修复控制台报错的问题
+
 ## 🌈 0.5.0-alpha.10 `2025-12-18`
 
 ### 🚀 Features
