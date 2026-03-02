@@ -1,3 +1,20 @@
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const percent = ref(10);
+let timer;
+
+onMounted(() => {
+  timer = setInterval(() => {
+    percent.value = (percent.value % 100) + 10;
+  }, 1000);
+});
+
+onUnmounted(() => {
+  if (timer) clearInterval(timer);
+});
+</script>
+
 <template>
   <t-space direction="vertical">
     <div>默认</div>
@@ -5,20 +22,24 @@
     <t-space class="t-progress-demo-box" size="large">
       <t-space align="center" direction="vertical" size="small" class="t-progress-demo-inner">
         <div class="t-progress-demo-margin">默认样式</div>
-        <t-progress theme="circle" :percentage="30" />
+        <t-progress theme="circle" :percentage="percent" />
       </t-space>
       <t-space align="center" direction="vertical" size="small" class="t-progress-demo-inner">
         <div class="t-progress-demo-margin">不显示数字</div>
-        <t-progress theme="circle" :label="false" :percentage="100" :status="'success'" />
+        <t-progress theme="circle" :label="false" :percentage="percent" />
       </t-space>
       <t-space align="center" direction="vertical" size="small" class="t-progress-demo-inner">
         <div class="t-progress-demo-margin">自定义内容</div>
-        <t-progress theme="circle" :label="'75day'" :percentage="50" :status="'success'" />
+        <t-progress theme="circle" :percentage="percent">
+          <template #label>
+            <div>{{ percent }}day</div>
+          </template>
+        </t-progress>
       </t-space>
     </t-space>
     <t-space class="t-progress-demo-box" size="large">
       <t-space align="center" direction="vertical" size="small" class="t-progress-demo-inner">
-        <div class="t-progress-demo-margin">进度完成</div>
+        <div class="t-progress-demo-margin">进度状态完成</div>
         <t-progress theme="circle" :percentage="100" :status="'success'" />
       </t-space>
       <t-space align="center" direction="vertical" size="small" class="t-progress-demo-inner">
@@ -26,7 +47,7 @@
         <t-progress theme="circle" :percentage="75" :status="'error'" />
       </t-space>
       <t-space align="center" direction="vertical" size="small" class="t-progress-demo-inner">
-        <div class="t-progress-demo-margin">进度被中断</div>
+        <div class="t-progress-demo-margin">进度状态被中断</div>
         <t-progress theme="circle" :percentage="50" :status="'warning'" />
       </t-space>
     </t-space>

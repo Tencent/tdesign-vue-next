@@ -1,4 +1,13 @@
-import { defineComponent, ref, computed, inject, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue';
+import {
+  defineComponent,
+  ref,
+  computed,
+  inject,
+  onMounted,
+  onBeforeUnmount,
+  getCurrentInstance,
+  ComputedRef,
+} from 'vue';
 
 import props from './option-props';
 import Checkbox from '../checkbox/index';
@@ -7,7 +16,7 @@ import Checkbox from '../checkbox/index';
 import { useRipple, useContent, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import { getNewMultipleValue } from './utils';
-import { selectInjectKey } from './consts';
+import { selectInjectKey } from './constants';
 import { SelectValue } from './type';
 
 export default defineComponent({
@@ -28,7 +37,7 @@ export default defineComponent({
 
   setup(props, context) {
     const selectProvider = inject(selectInjectKey);
-    const formDisabled = useDisabled();
+    const formDisabled = useDisabled() as ComputedRef<boolean>;
     const { vnode } = getCurrentInstance();
 
     const isReachMax = computed(

@@ -17,7 +17,7 @@ import { isFunction } from 'lodash-es';
 import { useTNodeJSX, useGlobalIcon, useEventForward } from '@tdesign/shared-hooks';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../types';
-import { commonProps } from '../consts';
+import { commonProps } from '../constants';
 import TButton, { TdButtonProps } from '../../button';
 import { UploadFile, TdUploadProps } from '../types';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';

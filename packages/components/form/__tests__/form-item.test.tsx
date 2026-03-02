@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { FormItem, Form, Input } from '@tdesign/components';
-import FormItemProps from '@tdesign/components/form/form-item-props';
+import formItemProps from '@tdesign/components/form/form-item-props';
 
 describe('FormItem', () => {
   describe('props', () => {
@@ -83,13 +83,13 @@ describe('FormItem', () => {
     });
 
     it('labelAlign[string]', () => {
-      const formItemWrapper = mount(
+      mount(
         <FormItem label="label" name="name">
           <Input id="name" />
         </FormItem>,
       );
 
-      const validator = (formItemWrapper.vm.$options.props as typeof FormItemProps)?.labelAlign.validator;
+      const validator = formItemProps.labelAlign.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
       // @ts-expect-error
@@ -147,7 +147,7 @@ describe('FormItem', () => {
       expect(wrapper.find('.t-input__extra').text()).toBe('name is required');
     });
 
-    it('requiredMark[bookean]', () => {});
+    it.todo('requiredMark[boolean]');
 
     it('rules[array]', async () => {
       const wrapper = mount({
@@ -197,7 +197,7 @@ describe('FormItem', () => {
         </Form>,
       );
       await wrapper.findComponent(Form).vm.$.exposed.validate();
-      expect(wrapper.find('.t-input__extra').exists()).eq(false);
+      expect(wrapper.find('.t-input__extra').exists()).toBe(false);
     });
 
     it('status[string]', async () => {
@@ -212,17 +212,19 @@ describe('FormItem', () => {
           </Form>,
         );
       const classes = getWrapper().find('.t-form__controls').classes();
-      expect(classes.length).eq(1);
-      expect(classes[0]).eq('t-form__controls');
+      expect(classes.length).toBe(1);
+      expect(classes[0]).toBe('t-form__controls');
 
-      (['error', 'warning', 'success'] as const).forEach(async (status) => {
+      for (const status of ['error', 'warning', 'success'] as const) {
         const wrapper = getWrapper(status);
         await wrapper.findComponent(Form).vm.$.exposed.validate();
         const classes = wrapper.find('.t-form__controls').classes();
-        expect(classes.length).eq(status === 'success' ? 3 : 2);
-        expect(classes[1]).eq(`t-is-${status}`);
-        status === 'success' && expect(classes[2]).eq('t-form--success-border');
-      });
+        expect(classes.length).toBe(status === 'success' ? 3 : 2);
+        expect(classes[1]).toBe(`t-is-${status}`);
+        if (status === 'success') {
+          expect(classes[2]).toBe('t-form--success-border');
+        }
+      }
     });
 
     it('statusIcon[boolean]', async () => {
@@ -236,7 +238,7 @@ describe('FormItem', () => {
         </Form>,
       );
       await wrapper.findComponent(Form).vm.$.exposed.validate();
-      expect(wrapper.findComponent(CloseCircleFilledIcon).exists()).eq(false);
+      expect(wrapper.findComponent(CloseCircleFilledIcon).exists()).toBe(false);
     });
 
     it('statusIcon[slot/function]', async () => {
@@ -250,7 +252,7 @@ describe('FormItem', () => {
         </Form>,
       );
       await slotWrapper.findComponent(Form).vm.$.exposed.validate();
-      expect(slotWrapper.findComponent(CheckCircleFilledIcon).exists()).eq(true);
+      expect(slotWrapper.findComponent(CheckCircleFilledIcon).exists()).toBe(true);
 
       const renderIcon = () => <CheckCircleFilledIcon />;
       const functionWrapper = mount(
@@ -261,7 +263,7 @@ describe('FormItem', () => {
         </Form>,
       );
       await functionWrapper.findComponent(Form).vm.$.exposed.validate();
-      expect(functionWrapper.findComponent(CheckCircleFilledIcon).exists()).eq(true);
+      expect(functionWrapper.findComponent(CheckCircleFilledIcon).exists()).toBe(true);
     });
 
     it('successBorder[boolean]', async () => {
@@ -275,7 +277,7 @@ describe('FormItem', () => {
         </Form>,
       );
       await wrapper.findComponent(Form).vm.$.exposed.validate();
-      expect(wrapper.find('.t-input--success').exists()).eq(false);
+      expect(wrapper.find('.t-input--success').exists()).toBe(false);
     });
 
     it('tips[boolean]', async () => {
@@ -290,10 +292,10 @@ describe('FormItem', () => {
         </Form>,
       );
       await wrapper.findComponent(Form).vm.$.exposed.validate();
-      expect(wrapper.find('.t-form-item-tips').exists()).eq(true);
+      expect(wrapper.find('.t-form-item-tips').exists()).toBe(true);
       const classes = wrapper.find('.t-form-item-tips').classes();
       expect(classes).toContain('t-is-default');
-      expect(wrapper.find('.t-form-item-tips').text()).eq(tips);
+      expect(wrapper.find('.t-form-item-tips').text()).toBe(tips);
     });
 
     it('tips[slot/function]', async () => {
@@ -307,7 +309,7 @@ describe('FormItem', () => {
           </FormItem>
         </Form>,
       );
-      expect(slotWrapper.find('.t-form-item-tips').text()).eq(tips);
+      expect(slotWrapper.find('.t-form-item-tips').text()).toBe(tips);
 
       const renderIcon = () => <CheckCircleFilledIcon />;
       const functionWrapper = mount(
@@ -317,8 +319,8 @@ describe('FormItem', () => {
           </FormItem>
         </Form>,
       );
-      expect(slotWrapper.find('.t-form-item-tips').text()).eq(tips);
-      expect(functionWrapper.find('.t-form-item-tips').findComponent(CheckCircleFilledIcon).exists()).eq(true);
+      expect(slotWrapper.find('.t-form-item-tips').text()).toBe(tips);
+      expect(functionWrapper.find('.t-form-item-tips').findComponent(CheckCircleFilledIcon).exists()).toBe(true);
     });
   });
 });

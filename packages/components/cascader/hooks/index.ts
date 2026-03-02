@@ -103,7 +103,7 @@ export const useContext = (
 
 // 内聚组件核心的副作用与状态处理
 export const useCascaderContext = (props: TdCascaderProps) => {
-  const disabled = useDisabled();
+  const isDisabled = useDisabled();
   const { value, modelValue, popupVisible } = toRefs(props);
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
   const [innerPopupVisible, setPopupVisible] = useDefaultValue(
@@ -189,7 +189,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
       const { checkStrictly, lazy, load, valueMode } = props;
       const treeProps = {
         checkStrictly,
-        disabled,
+        disable: isDisabled.value,
         load,
         lazy,
         valueMode,

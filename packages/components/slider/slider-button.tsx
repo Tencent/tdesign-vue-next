@@ -14,7 +14,7 @@ import { isFunction } from 'lodash-es';
 import { formatPrecision } from '@tdesign/common-js/slider/utils';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import TTooltip from '../tooltip/index';
-import { sliderPropsInjectKey } from './consts';
+import { sliderPropsInjectKey } from './constants';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
 
 import type { TdSliderProps } from './type';

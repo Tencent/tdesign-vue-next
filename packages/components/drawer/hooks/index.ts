@@ -8,8 +8,37 @@ export const useDrag = (props: TdDrawerProps) => {
   const isSizeDragging = ref(false);
   const draggedSizeValue = ref<string>(null);
 
+  // 获取当前内容容器的实际尺寸
+  const getCurrentWrapperSize = (e: MouseEvent): string => {
+    const target = e.target as HTMLElement;
+    const wrapper = target?.parentElement as HTMLElement;
+
+    if (!wrapper) return null;
+
+    const isHorizontal = ['right', 'left'].includes(props.placement);
+    const size = isHorizontal ? wrapper.offsetWidth : wrapper.offsetHeight;
+
+    // 计算限制条件
+    const maxHeight = document.documentElement.clientHeight;
+    const maxWidth = document.documentElement.clientWidth;
+    const offsetHeight = 8;
+    const offsetWidth = 8;
+    const max = isHorizontal ? maxWidth : maxHeight;
+    const min = isHorizontal ? offsetWidth : offsetHeight;
+    const { max: limitMax, min: limitMin } = getSizeDraggable(props.sizeDraggable, { max, min });
+
+    // 应用限制条件
+    const limitedSize = Math.max(limitMin, Math.min(limitMax, size));
+    return `${limitedSize}px`;
+  };
+
   const enableDrag = (e: MouseEvent) => {
     e.stopPropagation(); // 阻止事件冒泡
+    // 在开始拖拽前，先根据当前容器宽高和限制条件计算出最新的值
+    const currentSize = getCurrentWrapperSize(e);
+    if (currentSize) {
+      draggedSizeValue.value = currentSize;
+    }
     // mousedown绑定mousemove和mouseup事件
     document.addEventListener('mouseup', handleMouseup, true);
     document.addEventListener('mousemove', handleMousemove, true);
