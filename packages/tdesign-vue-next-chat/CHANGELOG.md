@@ -5,7 +5,7 @@ toc: false
 spline: explain
 ---
 
-## 🌈 0.5.0-alpha.11 `2026-03-02`
+## 🌈 0.5.0-alpha.11 `2026-03-03`
 
 ### 🚨 Breaking Change
 
@@ -214,5 +214,3 @@ spline: explain
 - `t-chat` 新增`scroll`事件回调
 - `t-chat-input` 组件添加 `v-model`支持, 添加 `change` 事件
 - `t-chat-input` 新增 `disabled` 属性
-
-

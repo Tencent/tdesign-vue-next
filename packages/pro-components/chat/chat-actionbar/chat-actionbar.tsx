@@ -58,7 +58,7 @@ export default defineComponent({
           messagePluginInstance.showError(copyTextFail);
         });
       };
-      const handleClick = (e: MouseEvent, type: string) => {
+      const handleClick = (e: MouseEvent, type: string, content?: string) => {
         if (type === 'copy') {
           copyAnswer(e, content);
         }
