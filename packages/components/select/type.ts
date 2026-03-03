@@ -325,7 +325,7 @@ export type SelectValue<T extends SelectOption = SelectOption> =
 export type SelectValueChangeTrigger = 'clear' | 'tag-remove' | 'backspace' | 'check' | 'uncheck' | 'default';
 
 export interface SelectRemoveContext<T> {
-  value: string | number;
+  value: string | number | bigint;
   data: T;
   e: MouseEvent | KeyboardEvent;
 }

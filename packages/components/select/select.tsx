@@ -215,7 +215,7 @@ export default defineComponent({
         );
 
         props.onRemove?.({
-          value: values.value as string | number,
+          value: values.value as string | number | bigint,
           data: values,
           e,
         });
@@ -228,7 +228,7 @@ export default defineComponent({
       }
 
       props.onRemove?.({
-        value: value as string | number,
+        value: value as string | number | bigint,
         data: optionsMap.value.get(value),
         e,
       });
