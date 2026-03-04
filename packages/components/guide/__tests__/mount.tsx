@@ -3,6 +3,7 @@ import type { VueWrapper } from '@vue/test-utils';
 import GuideContent from './GuideContent';
 import { Guide } from '@tdesign/components/guide';
 import type { TdGuideProps, GuideStep } from '@tdesign/components/guide';
+import { VNode } from 'vue';
 
 const STEPS: GuideStep[] = [
   {
@@ -48,7 +49,7 @@ function mountSingleStep(
 /** 三步引导 — Guide 级别 props */
 function mountMultiStep(
   guideProps: Partial<TdGuideProps> = {},
-  slots?: Record<string, (...args: never[]) => JSX.Element>,
+  slots?: Record<string, (...args: never[]) => VNode>,
 ): VueWrapper {
   return mount(
     {
@@ -68,7 +69,7 @@ function mountMultiStep(
 /** 单步引导 — GuideStep 级别 props */
 function mountCustomStep(
   stepProps: Partial<GuideStep> = {},
-  slots?: Record<string, (...args: never[]) => JSX.Element>,
+  slots?: Record<string, (...args: never[]) => VNode>,
 ): VueWrapper {
   const steps: GuideStep[] = [{ ...STEPS[0], ...stepProps }];
   return mount(

@@ -1,7 +1,7 @@
-import { computed, defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref, h } from 'vue';
 import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './text-props';
-import copy from './utils/copy-to-clipboard';
+import { copy } from '@tdesign/shared-utils';
 import { CopyIcon, CheckIcon } from 'tdesign-icons-vue-next';
 import Ellipsis from './components/ellipsis';
 import TTooltip from '../tooltip';
@@ -28,7 +28,7 @@ export default defineComponent({
 
       function wrap(needed: boolean, Tag: string, styles: object = {}) {
         if (!needed) return;
-        currentContent = <Tag style={styles}>{currentContent}</Tag>;
+        currentContent = h(Tag, { style: styles }, [currentContent]);
       }
 
       wrap(strong, 'strong');

@@ -12,8 +12,24 @@ import { TNode } from 'tdesign-vue-next';
 export interface TdChatProps {
   /**
    * 自定义操作按钮的插槽
+   * @deprecated
    */
   actions?: TNode;
+  /**
+   * 自定义操作按钮的插槽（推荐使用）
+   */
+  actionbar?: TNode;
+  /**
+   * 是否开启自动滚动
+   * @default true
+   */
+  autoScroll?: boolean;
+  /**
+   * 默认滚动位置
+   * @default 'bottom'
+   */
+  defaultScrollTo?: 'top' | 'bottom';
+
   /**
    * 动画效果，支持「渐变加载动画」,「闪烁加载动画」, 「骨架屏」三种
    * @default skeleton
@@ -64,6 +80,11 @@ export interface TdChatProps {
    */
   reverse?: boolean;
   /**
+   * 是否显示“回到底部”按钮
+   * @default true
+   */
+  showScrollButton?: boolean;
+  /**
    * 新消息是否处于加载状态，加载状态默认显示骨架屏，接口请求返回数据时请将新消息加载状态置为false
    * @default false
    */
@@ -83,7 +104,7 @@ export interface ChatInstanceFunctions {
   /**
    * 对话列表过长时，支持对话列表重新滚动回底部的方法
    */
-  scrollToBottom?: (params: ScrollToBottomParams) => void;
+  scrollToBottom?: (params?: ScrollToBottomParams) => void;
 }
 
 export interface TdChatLoadingProps {
@@ -102,8 +123,13 @@ export interface TdChatLoadingProps {
 export interface TdChatItemProps {
   /**
    * 自定义的操作内容
+   * @deprecated
    */
   actions?: string | TNode;
+  /**
+   * 自定义的操作内容（推荐使用）
+   */
+  actionbar?: string | TNode;
   /**
    * 动画效果，支持「渐变加载动画」,「闪烁加载动画」, 「骨架屏」三种
    * @default skeleton
@@ -144,18 +170,36 @@ export interface TdChatItemProps {
    * @default text
    */
   variant?: 'base' | 'outline' | 'text';
+  status?: '' | 'error';
+}
+
+type ChatContentType = 'text' | 'markdown';
+
+export interface ChatContentData {
+  type: ChatContentType;
+  data: any;
 }
 
 export interface TdChatContentProps {
   /**
-   * 聊天内容，支持 markdown 格式
+   * 聊天内容，支持多种内容类型
    * @default ''
    */
-  content?: string;
+  content?: string | ChatContentData;
   /**
    * 角色，不同选项配置不同的样式，支持类型包括用户、助手、错误、模型切换、系统消息
    */
-  role?: 'user' | 'assistant' | 'error' | 'model-change' | 'system';
+  role?: 'user' | 'assistant' | 'model-change' | 'system';
+  /**
+   * Markdown引擎类型，用于解析Markdown内容
+   */
+  markdownProps?: {
+    engine: 'marked' | 'cherry-markdown';
+    options: {
+      [key: string]: any;
+    };
+  };
+  status?: '' | 'error';
 }
 
 export interface TdChatActionProps {
@@ -170,22 +214,40 @@ export interface TdChatActionProps {
    */
   disabled?: boolean;
   /**
-   * 是否点踩
+   * 评价类型，可选值：'good(点赞)'/'bad(点踩)'，默认为空
+   * @default ''
+   */
+  comment?: 'good' | 'bad' | '';
+  /**
+   * 是否点踩（待废弃，请尽快使用comment）
    * @default false
+   * @deprecated
    */
   isBad?: boolean;
   /**
-   * 是否点赞
+   * 是否点赞（待废弃，请尽快使用comment）
    * @default false
+   * @deprecated
    */
   isGood?: boolean;
   /**
    * 操作按钮配置项，可配置操作按钮选项和顺序
    * @default ["replay", "copy", "good", "bad"]
    */
-  operationBtn?: Array<'replay' | 'copy' | 'good' | 'bad'>;
+  actionBar?: Array<'replay' | 'copy' | 'good' | 'bad' | 'share'>;
+  /**
+   * 操作按钮配置项，可配置操作按钮选项和顺序（待废弃，请尽快使用actionBar）
+   * @default ["replay", "copy", "good", "bad"]
+   * @deprecated
+   */
+  operationBtn?: Array<'replay' | 'copy' | 'good' | 'bad' | 'share'>;
   /**
    * 点击点赞，点踩，复制，重新生成按钮时触发
+   */
+  onActions?: (value: string, context: { e: MouseEvent }) => void;
+  /**
+   * 点击点赞，点踩，复制，重新生成按钮时触发（待废弃，请尽快使用onActions）
+   * @deprecated
    */
   onOperation?: (value: string, context: { e: MouseEvent }) => void;
 }
@@ -271,7 +333,7 @@ export interface TdChatSenderProps {
   /**
    * 输入框左下角区域扩展
    */
-  prefix?: string | TNode;
+  footerPrefix?: string | TNode;
   /**
    * 发送按钮是否处于加载状态，待废弃，请尽快使用 loading 替换
    * @deprecated
@@ -325,6 +387,13 @@ export interface TdChatSenderProps {
    * 点击消息终止的回调方法
    */
   onStop?: (value: string, context: { e: MouseEvent }) => void;
+  /**
+   * 附件配置属性
+   */
+  attachmentsProps?: {
+    items: any[];
+    overflow: 'scrollX' | 'scrollY' | 'wrap';
+  };
 }
 
 export interface TdChatReasoningProps {
@@ -358,6 +427,14 @@ export interface TdChatReasoningProps {
    * 是否折叠
    */
   collapsed?: boolean;
+  /**
+   * 布局方式
+   */
+  layout?: 'border' | 'block';
+  /**
+   * 加载过程动画
+   */
+  animation?: 'moving' | 'gradient' | 'circle';
 }
 
 export interface TdChatItemMeta {
@@ -366,7 +443,7 @@ export interface TdChatItemMeta {
   role?: string;
   datetime?: string;
   content?: string;
-  reasoning?: string;
+  status?: string;
 }
 
 export type ScrollToBottomParams = { behavior: 'auto' | 'smooth' };
@@ -403,6 +480,13 @@ export interface UploadActionConfig {
    * @param params - 上传参数对象
    * @param params.files - 上传的文件列表
    * @param params.name - 上传动作名称
+   * @param params.e - 事件对象
    */
-  action: (params: { files: File[]; name: UploadActionType }) => void;
+  action: (params: { files: File[]; name: UploadActionType; e?: Event }) => void;
 }
+
+export type * from 'tdesign-web-components/lib/chat-sender/type';
+export type * from 'tdesign-web-components/lib/filecard/type';
+export type * from 'tdesign-web-components/lib/chat-message/index';
+export type * from 'tdesign-web-components/lib/chatbot/type';
+export type * from 'tdesign-web-components/lib/chat-action/type';

@@ -10,10 +10,13 @@ import Space from '../space';
 
 export default defineComponent({
   name: 'TImage',
-  props,
+  props: {
+    ...props,
+    onClick: Function,
+  },
   setup(props) {
-    const divRef = ref<HTMLElement>(null);
-    const imgRef = ref<HTMLImageElement>(null);
+    const divRef = ref<HTMLElement>();
+    const imgRef = ref<HTMLImageElement>();
     let io: IntersectionObserver = null;
 
     const { src } = toRefs(props);
@@ -170,6 +173,7 @@ export default defineComponent({
           ]}
           onMouseenter={handleToggleOverlay}
           onMouseleave={handleToggleOverlay}
+          onClick={(e) => props.onClick?.({ e })}
           {...omit(props, [
             'src',
             'alt',
@@ -185,6 +189,7 @@ export default defineComponent({
             'gallery',
             'onLoad',
             'onError',
+            'onClick',
           ])}
         >
           {renderPlaceholder()}

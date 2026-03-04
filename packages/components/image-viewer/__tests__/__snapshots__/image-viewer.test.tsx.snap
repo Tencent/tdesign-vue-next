@@ -521,7 +521,6 @@ exports[`ImageViewer > props > :mode[modal/modeless] 1`] = `
       </div>
       <div
         class="t-image-viewer__modal-icon t-image-viewer__utils-scale"
-        size="medium"
       >
         <!---->
         <span
