@@ -56,7 +56,6 @@ export default defineComponent({
     });
 
     const handleClick = () => {
-      // @ts-ignore
       const router = props.router || proxy.$router;
 
       if (props.to && router) {

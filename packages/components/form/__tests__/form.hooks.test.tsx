@@ -20,7 +20,6 @@ describe('Form hooks', () => {
       const wrapper = mount(TestComponent, {
         props: { disabled: true },
       });
-      // @ts-ignore: TODO
       expect(wrapper.vm.disabledState).toBe(true);
     });
 
@@ -33,7 +32,6 @@ describe('Form hooks', () => {
           },
         },
       });
-      // @ts-ignore: TODO
       expect(wrapper.vm.disabledState).toBe(true);
     });
 
@@ -51,7 +49,6 @@ describe('Form hooks', () => {
           return { disabledState };
         },
       });
-      // @ts-ignore: TODO
       expect(wrapper.vm.disabledState).toBe(true);
     });
 
@@ -69,7 +66,6 @@ describe('Form hooks', () => {
           return { disabledState };
         },
       });
-      // @ts-ignore: TODO
       expect(wrapper.vm.disabledState).toBe(false);
     });
   });

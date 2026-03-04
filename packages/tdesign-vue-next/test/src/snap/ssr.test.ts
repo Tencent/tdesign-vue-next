@@ -17,6 +17,8 @@ const router = createRouter({
 
 const createSSRApp = (comp: any) => {
   const app = createApp(comp);
+
+  app.config.globalProperties.$route = undefined;
   // @ts-ignore TODO
   app.use(TDesign);
   app.use(router);
