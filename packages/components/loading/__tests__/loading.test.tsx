@@ -91,7 +91,7 @@ describe('Loading', () => {
     });
 
     it(':fullscreen[boolean]', async () => {
-      const wrapper = mount(<Loading fullscreen={true} loading={true} attach={() => document.body} />);
+      const wrapper = mount(<Loading fullscreen={true} loading={true} />);
       await nextTick();
       expect(wrapper.find('.t-loading__fullscreen').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();

@@ -59,8 +59,8 @@ export const catalogs = {
     raf: '^3.4.1',
     sortablejs: '^1.15.0',
     tinycolor2: '^1.6.0',
-    validator: '^13.9.0',
-    vue: '^3.3.9',
+    validator: '^13.15.23',
+    vue: '~3.3.9',
     'vue-router': '^4.2.4',
   },
   docs: {

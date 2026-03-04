@@ -10,7 +10,10 @@ import Space from '../space';
 
 export default defineComponent({
   name: 'TImage',
-  props,
+  props: {
+    ...props,
+    onClick: Function,
+  },
   setup(props) {
     const divRef = ref<HTMLElement>();
     const imgRef = ref<HTMLImageElement>();

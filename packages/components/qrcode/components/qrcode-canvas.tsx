@@ -55,7 +55,7 @@ export default defineComponent({
       const haveImageToRender =
         calculatedImageSettings.value &&
         image !== null &&
-        image.complete &&
+        image?.complete &&
         image.naturalHeight !== 0 &&
         image.naturalWidth !== 0;
 

@@ -38,46 +38,6 @@ exports[`Menu > props > :collapsed 1`] = `
 </div>
 `;
 
-exports[`Menu > props > :collapsedWidth 1`] = `
-<div
-  class="t-default-menu t-menu--light"
-  collapsedwidth="100px"
-  style="height: 100%; width: 232px;"
->
-  <div
-    class="t-default-menu__inner"
-  >
-    <!---->
-    <ul
-      class="t-menu t-menu--scroll"
-    >
-      <!---->
-    </ul>
-    <!---->
-  </div>
-</div>
-`;
-
-exports[`Menu > props > :height 1`] = `
-<div
-  class="t-default-menu t-menu--light"
-  height="750px"
-  style="height: 100%; width: 232px;"
->
-  <div
-    class="t-default-menu__inner"
-  >
-    <!---->
-    <ul
-      class="t-menu t-menu--scroll"
-    >
-      <!---->
-    </ul>
-    <!---->
-  </div>
-</div>
-`;
-
 exports[`Menu > props > :theme 1`] = `
 <div
   class="t-default-menu t-menu--light"
