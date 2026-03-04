@@ -188,6 +188,7 @@ export default defineComponent({
             'gallery',
             'onLoad',
             'onError',
+            'onClick',
           ])}
         >
           {renderPlaceholder()}
