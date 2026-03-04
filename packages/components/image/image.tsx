@@ -173,6 +173,7 @@ export default defineComponent({
           ]}
           onMouseenter={handleToggleOverlay}
           onMouseleave={handleToggleOverlay}
+          onClick={(e) => props.onClick?.({ e })}
           {...omit(props, [
             'src',
             'alt',
