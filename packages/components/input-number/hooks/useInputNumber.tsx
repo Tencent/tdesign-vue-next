@@ -1,4 +1,4 @@
-import { computed, ref, toRefs, watch } from 'vue';
+import { computed, ComputedRef, ref, toRefs, watch } from 'vue';
 import { useVModel, useReadonly, useDisabled, useCommonClassName } from '@tdesign/shared-hooks';
 
 import { InputNumberValue, TdInputNumberProps } from '../type';
@@ -29,7 +29,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const inputRef = ref();
   const userInput = ref('');
 
-  const tDisabled = useDisabled();
+  const tDisabled = useDisabled() as ComputedRef<boolean>;
 
   const isReadonly = useReadonly();
 

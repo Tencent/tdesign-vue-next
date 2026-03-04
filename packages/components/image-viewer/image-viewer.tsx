@@ -18,7 +18,7 @@ import TImageItem from './base/ImageItem';
 import TImageViewerIcon from './base/ImageModalIcon';
 import TImageViewerModal from './base/ImageViewerModal';
 import TImageViewerUtils from './base/ImageViewerUtils';
-import { EVENT_CODE } from './consts';
+import { EVENT_CODE } from './constants';
 import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
 import { ImageScale, TdImageViewerProps } from './type';

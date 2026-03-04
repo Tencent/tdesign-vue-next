@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, watch, type Ref } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
 import type { ActivityConfig } from '../components/activity/types';
 import { activityRegistry } from '../components/activity/registry';
 

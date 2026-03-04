@@ -85,7 +85,7 @@ export default defineComponent({
         result = <Image {...(data as ImageProps)} />;
       }
 
-      return data ? result : null;
+      return result;
     };
 
     return () => {

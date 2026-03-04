@@ -1,7 +1,7 @@
 import { defineComponent, ref, computed, Ref, CSSProperties } from 'vue';
 import Notification from './notification';
 import { TdNotificationProps, NotificationOptions } from './type';
-import { DEFAULT_Z_INDEX, PLACEMENT_OFFSET, DISTANCE } from './consts';
+import { DEFAULT_Z_INDEX, PLACEMENT_OFFSET, DISTANCE } from './constants';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({

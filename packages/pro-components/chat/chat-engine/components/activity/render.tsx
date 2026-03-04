@@ -37,7 +37,7 @@ export default defineComponent({
   },
   setup(props: Props) {
     // 使用公共 Hook 监听动态注册
-    const { MemoizedComponent } = useRegistrationListener<ActivityComponentProps>({
+    const { MemoizedComponent } = useRegistrationListener({
       componentKey: computed(() => props.activity.activityType),
       eventName: ACTIVITY_REGISTERED_EVENT,
       eventDetailKey: ACTIVITY_EVENT_DETAIL_KEY,

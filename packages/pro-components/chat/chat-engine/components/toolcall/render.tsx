@@ -37,7 +37,7 @@ export default defineComponent({
     });
 
     // 使用公共 Hook 监听动态注册
-    const { MemoizedComponent } = useRegistrationListener<ToolcallComponentProps>({
+    const { MemoizedComponent } = useRegistrationListener({
       componentKey: computed(() => props.toolCall.toolCallName),
       eventName: TOOLCALL_REGISTERED_EVENT,
       eventDetailKey: TOOLCALL_EVENT_DETAIL_KEY,

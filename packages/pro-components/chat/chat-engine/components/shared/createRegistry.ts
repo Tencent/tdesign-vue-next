@@ -23,7 +23,7 @@ export interface RegistryOptions<TConfig extends BaseConfig> {
 /**
  * 泛型 Registry 管理器接口
  */
-export interface IRegistryManager<TConfig extends BaseConfig, TProps> {
+export interface IRegistryManager<TConfig extends BaseConfig> {
   register(config: TConfig): boolean;
   get(key: string): TConfig | undefined;
   getRenderFunction(key: string): Component | null;
@@ -38,9 +38,9 @@ export interface IRegistryManager<TConfig extends BaseConfig, TProps> {
  * 创建泛型 Registry 管理器
  * 用于统一管理 Activity 和 Toolcall 的注册逻辑
  */
-export function createRegistryManager<TConfig extends BaseConfig, TProps>(
+export function createRegistryManager<TConfig extends BaseConfig>(
   options: RegistryOptions<TConfig>,
-): IRegistryManager<TConfig, TProps> {
+): IRegistryManager<TConfig> {
   const { getKey, eventName, eventDetailKey } = options;
 
   // 内部状态

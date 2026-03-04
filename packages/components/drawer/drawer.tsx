@@ -119,8 +119,8 @@ export default defineComponent({
       });
     };
 
+    const TRANSITION_CSS_MARGIN = 'transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;';
     const createStyleEl = () => {
-      if (!styleEl.value) return;
       const hasScrollBar = window.innerWidth > document.documentElement.clientWidth;
       const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
       styleEl.value = document.createElement('style');
@@ -128,7 +128,7 @@ export default defineComponent({
       styleEl.value.innerHTML = `
         html body {
           overflow-y: hidden;
-          transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;
+          ${TRANSITION_CSS_MARGIN}
           ${props.mode === 'push' ? '' : `width: calc(100% - ${scrollWidth}px);`}
         }
       `;
@@ -138,7 +138,7 @@ export default defineComponent({
       if (props.mode !== 'push') return;
       nextTick(() => {
         if (!parentNode.value) return;
-        parentNode.value.style.cssText = 'transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;';
+        parentNode.value.style.cssText = TRANSITION_CSS_MARGIN;
       });
     };
 
@@ -147,9 +147,9 @@ export default defineComponent({
       if (!parentNode.value || props.mode !== 'push') return;
       const marginValueData = {
         left: { name: 'margin-left', value: sizeValue.value },
-        right: { name: 'margin-right', value: `-${sizeValue.value}` },
+        right: { name: 'margin-left', value: `-${sizeValue.value}` },
         top: { name: 'margin-top', value: sizeValue.value },
-        bottom: { name: 'margin-bottom', value: `-${sizeValue.value}` },
+        bottom: { name: 'margin-top', value: `-${sizeValue.value}` },
       }[props.placement];
       if (isVisible.value) {
         parentNode.value.style.setProperty(marginValueData.name, marginValueData.value);

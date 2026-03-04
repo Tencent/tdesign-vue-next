@@ -349,6 +349,7 @@ export default defineComponent({
       presets: props.presets,
       time: time.value,
       disableDate: props.disableDate,
+      range: props.range,
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,

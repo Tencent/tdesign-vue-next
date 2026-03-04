@@ -1,6 +1,6 @@
 import { ref, computed, watch, unref, type Component, type Ref, type ComputedRef } from 'vue';
 
-interface UseRegistrationListenerOptions<TProps> {
+interface UseRegistrationListenerOptions {
   /** 组件唯一标识 */
   componentKey: string | Ref<string> | ComputedRef<string>;
   /** 监听的事件名称 */
@@ -11,7 +11,7 @@ interface UseRegistrationListenerOptions<TProps> {
   getRenderFunction: (key: string) => Component | null;
 }
 
-interface UseRegistrationListenerResult<TProps> {
+interface UseRegistrationListenerResult {
   /** 是否已注册 */
   isRegistered: Ref<boolean>;
   /** 缓存的 Memo 组件 */
@@ -22,9 +22,7 @@ interface UseRegistrationListenerResult<TProps> {
  * 动态注册监听 Hook
  * 统一处理 Activity 和 Toolcall 的动态注册逻辑
  */
-export function useRegistrationListener<TProps>(
-  options: UseRegistrationListenerOptions<TProps>,
-): UseRegistrationListenerResult<TProps> {
+export function useRegistrationListener(options: UseRegistrationListenerOptions): UseRegistrationListenerResult {
   const { componentKey, eventName, eventDetailKey, getRenderFunction } = options;
 
   // 注册状态

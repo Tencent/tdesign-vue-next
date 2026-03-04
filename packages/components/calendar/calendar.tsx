@@ -17,7 +17,7 @@ import {
   FIRST_MONTH_OF_YEAR,
   LAST_MONTH_OF_YEAR,
   DEFAULT_YEAR_CELL_NUMINROW,
-} from './consts';
+} from './constants';
 
 // 子组件
 import { Select as TSelect } from '../select';

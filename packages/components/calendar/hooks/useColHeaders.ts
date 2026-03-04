@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { CellColHeader, CalendarState } from '../types';
 import { TdCalendarProps, WeekDay } from '../type';
 import { useConfig } from '@tdesign/shared-hooks';
-import { COMPONENT_NAME } from '../consts';
+import { COMPONENT_NAME } from '../constants';
 import * as utils from '../utils';
 import { isObject } from 'lodash-es';
 
