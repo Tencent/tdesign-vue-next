@@ -7,7 +7,7 @@ spline: explain
 
 ## 🌈 0.5.0 `2026-03-05`
 
-### 🚨 Major Changes
+### 🚨 Breaking Changes
 
 - `ChatAction`: Renamed to `ChatActionbar` for dialogue operations. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
 
