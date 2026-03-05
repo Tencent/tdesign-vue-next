@@ -170,7 +170,7 @@ const messageProps = {
 .quick-actions {
   margin-bottom: 16px;
   padding: 12px;
-  background: #f5f5f5;
+  background: var(--td-bg-color-secondarycontainer);
   border-radius: 4px;
 
   .actions-title {
