@@ -23,10 +23,6 @@ spline: explain
 
 - 新组件均基于 Web Components 实现，样式覆盖方式请参考 [自定义样式](https://tdesign.tencent.com/chat/custom-style) @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
 
-### 🚧 Others
-
-- release tdesign-vue-next-chat 0.5.0-alpha.11 @uyarn ([#6459](https://github.com/Tencent/tdesign-vue-next/pull/6459))
-
 ## 🌈 0.5.0-alpha.11 `2026-03-03`
 
 ### 🚨 Breaking Change
