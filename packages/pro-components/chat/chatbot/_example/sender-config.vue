@@ -149,7 +149,7 @@ const handleQuickPrompt = (prompt: string) => {
   left: -40px;
   width: calc(100% + 80px);
   padding: 12px 0 12px 16px;
-  background: #f5f5f5;
+  background: var(--td-bg-color-secondarycontainer);
   box-sizing: border-box;
   display: flex;
   align-items: center;

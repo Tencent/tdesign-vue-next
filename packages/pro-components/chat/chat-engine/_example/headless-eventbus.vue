@@ -46,7 +46,16 @@
         <!-- 事件日志 -->
         <div>
           <h4>事件日志（最新20条）</h4>
-          <t-list style="max-height: 400px; overflow: auto; background: #f5f5f5; border-radius: 4px" size="small" split>
+          <t-list
+            style="
+              max-height: 400px;
+              overflow: auto;
+              background: var(--td-bg-color-secondarycontainer);
+              border-radius: 4px;
+            "
+            size="small"
+            split
+          >
             <t-list-item v-if="eventLogs.length === 0" style="color: #999"> 暂无事件日志，请先初始化引擎 </t-list-item>
             <t-list-item v-for="(log, index) in eventLogs" :key="index">
               <div style="font-family: monospace; font-size: 12px">
