@@ -5,6 +5,24 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.5.0 `2026-03-05`
+
+### 🚨 Major Changes
+
+- `ChatAction`: Renamed to `ChatActionbar` for dialogue operations. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+
+### 🚀 New Features
+
+- `Attachments`: Added a new `Attachments` component for displaying file attachments. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatMarkdown`: Introduced a `ChatMarkdown` component for rendering Markdown content, supporting advanced streaming rendering capabilities including various formats like Mermaid. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatMessage`: Added a `ChatMessage` component for displaying individual messages in chat conversations. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatThinking`: A component for representing thought processes, similar to the original `ChatReasoning` function. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `Chatbot`: Added a `Chatbot` component for intelligent dialogue systems, useful for quickly integrating AI applications such as customer service and Q&A systems. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+
+### 📝 Documentation
+
+- All new components are implemented using Web Components. For style customization, refer to [Custom Styles](https://tdesign.tencent.com/chat/custom-style). @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+
 ## 🌈 0.4.6 `2025-09-12` 
 
 ### 🐞 Bug Fixes
