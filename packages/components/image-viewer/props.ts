@@ -30,6 +30,11 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 是否允许拖拽遮罩层来移动图片 */
+  draggableOverlay: {
+    type: Boolean,
+    default: false,
+  },
   /** 图片预览中的 `<img>` 标签的原生属性，[MDN 定义](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) */
   imageReferrerpolicy: {
     type: String as PropType<TdImageViewerProps['imageReferrerpolicy']>,
