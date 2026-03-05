@@ -37,6 +37,15 @@ export const docs = [
         component: () => import('@tdesign/common/docs/web/overview.md'),
         componentEn: () => import('@tdesign/common/docs/web/overview.en-US.md'),
       },
+      {
+        title: 'MCP',
+        titleEn: 'MCP',
+        name: 'MCP',
+        path: '/mcp',
+        redirect: () => {
+          window.open('https://cloud.tencent.com/developer/mcp/server/11721', '_blank');
+        },
+      },
     ],
   },
   {
