@@ -11,19 +11,19 @@ spline: ai
 推荐使用 npm 方式进行开发
 
 ```shell
-npm i @tdesign-vue-next/chat@alpha
+npm i @tdesign-vue-next/chat
 ```
 
 ### 使用 yarn 安装
 
 ```shell
-yarn add @tdesign-vue-next/chat@alpha
+yarn add @tdesign-vue-next/chat
 ```
 
 ### 使用 pnpm 安装
 
 ```shell
-pnpm add @tdesign-vue-next/chat@alpha
+pnpm add @tdesign-vue-next/chat
 ```
 
 ## 使用
@@ -149,6 +149,13 @@ module.exports = {
   ],
 };
 ```
+
+### FAQ
+
+#### 多语言配置的支持
+
+- ⚠️ 由于底层实现方式的调整，如果您需要使用到多语言配置等功能，建议暂时使用 [0.4 版本的 @tdesign-vue-next/chat](https://0_4_6-tdesign-vue-next-chat.surge.sh/chat/getting-started), 后续我们将逐步在最新版本中支持多语言配置等功能
+
 
 ## 配置服务
 
