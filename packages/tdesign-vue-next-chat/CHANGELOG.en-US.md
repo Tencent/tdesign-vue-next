@@ -21,7 +21,8 @@ spline: explain
 
 ### 📝 Documentation
 
-- All new components are implemented using Web Components. For style customization, refer to [Custom Styles](https://tdesign.tencent.com/chat/custom-style). @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- All new components are implemented using Web Components. For style customization, refer to [Custom Styles](https://tdesign.tencent.com/chat/custom-style).
+- If there is a need for multi-language configuration, it is recommended to continue using [version 0.4.x](https://0_4_6-tdesign-vue-next-chat.surge.sh/chat/getting-started)
 
 ## 🌈 0.4.6 `2025-09-12` 
 
