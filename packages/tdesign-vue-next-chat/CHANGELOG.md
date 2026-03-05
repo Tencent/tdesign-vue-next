@@ -5,6 +5,26 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.5.0 `2026-03-05`
+
+### 🚨 Breaking Changes
+
+- `ChatAction`: 更名为 ChatActionbar 对话操作 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatList`: 更名为 ChatList 对话列表 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150)
+
+### 🚀 Features
+- `Attachments`: 新增 `Attachments` 文件附件组件，用于展示文件附件 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatEngine`: 新增 `ChatEngine` 底层对话引擎，提供灵活的 Hook API 用于深度定制 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatMarkdown`: 新增 `ChatMarkdown`内容渲染组件，内置支持完善的 Markdown 流式渲染能力，包括 mermaid 等多种格式的渲染 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatMessage`: 新增 `ChatMessage` 对话消息体组件、用于在聊天对话中显示单个消息项 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatThinking`: 思考过程组件，与原 ChatReasoning 功能一致 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `Chatbot`: 新增 `Chatbot` 智能对话组件，用于需要快速集成智能客服、问答系统等的 AI 应用 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+
+### 📝 Documentation
+
+- 新组件均基于 Web Components 实现，样式覆盖方式请参考 [自定义样式](https://tdesign.tencent.com/chat/custom-style)
+- 如果有多语言配置需求的场景，建议暂时继续使用 0.4.x 版本, 点击 [0.4.x](https://0_4_6-tdesign-vue-next-chat.surge.sh/chat/getting-started) 查看使用文档
+
 ## 🌈 0.5.0-alpha.11 `2026-03-03`
 
 ### 🚨 Breaking Change
@@ -214,3 +234,6 @@ spline: explain
 - `t-chat` 新增`scroll`事件回调
 - `t-chat-input` 组件添加 `v-model`支持, 添加 `change` 事件
 - `t-chat-input` 新增 `disabled` 属性
+
+
+
