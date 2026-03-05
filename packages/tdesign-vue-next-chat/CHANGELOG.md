@@ -21,7 +21,8 @@ spline: explain
 
 ### 📝 Documentation
 
-- 新组件均基于 Web Components 实现，样式覆盖方式请参考 [自定义样式](https://tdesign.tencent.com/chat/custom-style) @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- 新组件均基于 Web Components 实现，样式覆盖方式请参考 [自定义样式](https://tdesign.tencent.com/chat/custom-style)
+- 如果有多语言配置需求的场景，建议暂时继续使用 0.4.x 版本, 点击 [0.4.x](https://0_4_6-tdesign-vue-next-chat.surge.sh/chat/getting-started) 查看使用文档
 
 ## 🌈 0.5.0-alpha.11 `2026-03-03`
 
@@ -232,3 +233,4 @@ spline: explain
 - `t-chat` 新增`scroll`事件回调
 - `t-chat-input` 组件添加 `v-model`支持, 添加 `change` 事件
 - `t-chat-input` 新增 `disabled` 属性
+
