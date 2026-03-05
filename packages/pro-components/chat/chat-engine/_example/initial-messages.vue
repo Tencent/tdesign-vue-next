@@ -181,6 +181,6 @@ const handleStop = () => {
   width: calc(100% + 80px);
   box-sizing: border-box;
   padding: 12px 0 12px 16px;
-  background: #f5f5f5;
+  background: var(--td-bg-color-secondarycontainer);
 }
 </style>

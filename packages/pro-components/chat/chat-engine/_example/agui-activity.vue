@@ -1,6 +1,8 @@
 <template>
   <t-space direction="vertical" style="width: 100%">
-    <div style="margin-bottom: 16px; padding: 12px; background: #f5f5f5; border-radius: 4px">
+    <div
+      style="margin-bottom: 16px; padding: 12px; background: var(--td-bg-color-secondarycontainer); border-radius: 4px"
+    >
       <div style="margin-bottom: 8px; font-size: 14px; font-weight: 500">示例说明：</div>
       <p style="margin: 8px 0; font-size: 14px; color: #666">演示多个不同 activityType 的 Activity 同时流式更新：</p>
       <ul style="margin: 8px 0; font-size: 13px; color: #666; padding-left: 20px">

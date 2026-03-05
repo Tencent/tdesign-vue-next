@@ -173,7 +173,7 @@ const handleGetStatus = () => {
   .operations-panel {
     margin-bottom: 16px;
     padding: 12px;
-    background: #f5f5f5;
+    background: var(--td-bg-color-secondarycontainer);
     border-radius: 4px;
 
     .operations-title {
