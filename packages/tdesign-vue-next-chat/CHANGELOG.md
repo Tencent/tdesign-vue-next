@@ -10,7 +10,7 @@ spline: explain
 ### 🚨 Breaking Changes
 
 - `ChatAction`: 更名为 ChatActionbar 对话操作 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
-- `ChatList`: 更名为 ChatList 对话列表
+- `ChatList`: 更名为 ChatList 对话列表 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150)
 
 ### 🚀 Features
 - `Attachments`: 新增 `Attachments` 文件附件组件，用于展示文件附件 @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
@@ -234,5 +234,6 @@ spline: explain
 - `t-chat` 新增`scroll`事件回调
 - `t-chat-input` 组件添加 `v-model`支持, 添加 `change` 事件
 - `t-chat-input` 新增 `disabled` 属性
+
 
 
