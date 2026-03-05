@@ -52,7 +52,7 @@ describe('Form hooks', () => {
       expect(wrapper.vm.disabledState).toBe(true);
     });
 
-    it('return falsee when all conditions are not met', async () => {
+    it('return false when all conditions are not met', async () => {
       const wrapper = mount(TestComponent, {
         props: { disabled: false },
         global: {

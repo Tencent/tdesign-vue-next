@@ -5,6 +5,21 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.3 `2026-03-05`
+
+### 🚀 Features
+
+- `Select`: 新增支持 BigInt 类型的选项 @Jie-echo ([#6460](https://github.com/Tencent/tdesign-vue-next/pull/6460))
+
+### 🐞 Bug Fixes
+
+- `DatePicker`: 修复单选的情况下清除数据时会触发多次 onChange 回调的错误 @RSS1102 ([#6451](https://github.com/Tencent/tdesign-vue-next/pull/6451))
+- `Drawer`: 修复 push mode 下弹窗样式异常的问题 @Zn-Dk ([#6446](https://github.com/Tencent/tdesign-vue-next/pull/6446))
+- `DrawerPlugin`: 修正使用 `className` 时的打开动画异常问题 @Cat1007 ([#6424](https://github.com/Tencent/tdesign-vue-next/pull/6424))
+- `InputNumber`: 修复 `disabled` 时，hover 对应颜色异常的问题 @RylanBot ([common#2402](https://github.com/Tencent/tdesign-common/pull/2402))
+- `Progress`: 修复 line 和 plump 主题不支持小尺寸的问题 @liweijie0812 ([#6340](https://github.com/Tencent/tdesign-vue-next/pull/6340))
+- `Swiper`: 修复 `点状` 与 `点条状` 导航器中，`navigation.size` 配置无效、`navigation.placement=outside`时导航器颜色不正确的问题 @Wesley-0808 ([common#2418](https://github.com/Tencent/tdesign-common/pull/2418))
+
 ## 🌈 1.18.2 `2026-02-05`
 
 ### 🐞 Bug Fixes

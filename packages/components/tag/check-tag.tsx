@@ -71,6 +71,7 @@ export default defineComponent({
         <Tag
           class={tagClass.value}
           disabled={props.disabled}
+          // @ts-expect-error
           tabindex={props.disabled ? undefined : '0'}
           onFocus={onCheckboxFocus}
           onBlur={onCheckboxBlur}

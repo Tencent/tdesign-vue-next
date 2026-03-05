@@ -15,11 +15,18 @@ import {
 
 import { useSingle } from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@tdesign/common-js/date-picker/utils';
+import {
+  subtractMonth,
+  addMonth,
+  extractTimeObj,
+  covertToDate,
+  isSame,
+  getRangeBounds,
+} from '@tdesign/common-js/date-picker/utils';
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';
-import { triggerMap, getRangeBounds } from './utils';
+import { triggerMap } from './utils';
 
 import type {
   TdDatePickerProps,
@@ -256,7 +263,7 @@ export default defineComponent({
     function onTagClearClick({ e }: { e: MouseEvent }) {
       e.stopPropagation();
       popupVisible.value = false;
-      onChange?.([], { dayjsValue: dayjs(), trigger: 'clear' });
+      onChange?.(props.multiple ? [] : '', { dayjsValue: dayjs(), trigger: 'clear' });
       props.onClear?.({ e });
     }
 
@@ -453,7 +460,7 @@ export default defineComponent({
           }
           popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
-          needConfirm={props.needConfirm}
+          {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
           panel={() => <TSinglePanel {...panelProps.value} />}
           tagInputProps={{
             onRemove: onTagRemoveClick,

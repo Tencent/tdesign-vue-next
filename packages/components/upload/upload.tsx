@@ -151,7 +151,6 @@ export default defineComponent({
         cancelUpload={cancelUpload}
         triggerUpload={triggerUpload}
         uploadFiles={uploadFiles}
-        onCancelUpload={props.onCancelUpload}
         v-slots={{
           fileListDisplay: slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],

@@ -7,7 +7,7 @@ const { docs } = config;
 function getDocsRoutes(docs, type) {
   let docsRoutes = [];
   let docRoute;
-  console.log(docs, 'docs');
+
   docs?.forEach((item) => {
     const docType = item.type || type;
     let { children } = item;
