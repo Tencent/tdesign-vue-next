@@ -10,10 +10,12 @@ spline: explain
 ### 🚨 Breaking Changes
 
 - `ChatAction`: Renamed to `ChatActionbar` for dialogue operations. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `Chat`: Renamed to `ChatList` @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
 
 ### 🚀 New Features
 
 - `Attachments`: Added a new `Attachments` component for displaying file attachments. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatEngine`: Added a headless enigne core `ChatEngine`. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
 - `ChatMarkdown`: Introduced a `ChatMarkdown` component for rendering Markdown content, supporting advanced streaming rendering capabilities including various formats like Mermaid. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
 - `ChatMessage`: Added a `ChatMessage` component for displaying individual messages in chat conversations. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
 - `ChatThinking`: A component for representing thought processes, similar to the original `ChatReasoning` function. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
