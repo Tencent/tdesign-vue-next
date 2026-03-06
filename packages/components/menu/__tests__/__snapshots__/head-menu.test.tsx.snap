@@ -20,27 +20,6 @@ exports[`HeadMenu > props > :active 1`] = `
 </div>
 `;
 
-exports[`HeadMenu > props > :height 1`] = `
-<div
-  class="t-menu t-head-menu t-menu--light"
-  height="750px"
->
-  <div
-    class="t-head-menu__inner"
-  >
-    <!---->
-    <ul
-      class="t-menu"
-    >
-      
-      
-    </ul>
-    <!---->
-  </div>
-  <!---->
-</div>
-`;
-
 exports[`HeadMenu > props > :theme 1`] = `
 <div
   class="t-menu t-head-menu t-menu--light"

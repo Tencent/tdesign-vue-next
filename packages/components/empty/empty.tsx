@@ -5,7 +5,7 @@ import { useConfig, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tde
 
 import props from './props';
 import type { TdEmptyProps } from './type';
-import Image from '../image';
+import Image, { ImageProps } from '../image';
 import MaintenanceSvg from './components/MaintenanceSvg';
 import NetworkErrorSvg from './components/NetworkErrorSvg';
 import EmptySvg from './components/EmptySvg';
@@ -82,10 +82,10 @@ export default defineComponent({
       } else if (data && Reflect.has(data, 'setup')) {
         result = h(data as unknown);
       } else if (isPlainObject(data)) {
-        result = <Image {...data} />;
+        result = <Image {...(data as ImageProps)} />;
       }
 
-      return data ? result : null;
+      return result;
     };
 
     return () => {

@@ -33,6 +33,7 @@ export default defineComponent({
         [`${classPrefix.value}-submenu__item`]: !!submenu && !menu.isHead,
       },
     ]);
+    // @ts-ignore
     const router = computed(() => props.router || instance?.proxy.$router);
 
     const handleClick = (e: MouseEvent) => {
@@ -94,9 +95,9 @@ export default defineComponent({
         </li>
       );
 
-      const node = instance?.parent;
       // 菜单收起，且只有本身为一级菜单才需要显示 tooltip
-      if (collapsed.value && /tmenu/i.test(node?.type.name)) {
+      // 判断条件：菜单折叠 + 没有父级 submenu（即为一级菜单项）
+      if (collapsed.value && !submenu) {
         return (
           <Tooltip content={() => renderContent('default', 'content')} placement="right">
             {liContent}

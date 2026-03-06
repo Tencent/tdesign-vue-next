@@ -1,6 +1,6 @@
-import { defineComponent, computed, watch } from 'vue';
+import { defineComponent, computed, watch, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
-import { isFunction, isDate } from 'lodash-es';
+import { isFunction, isDate, isArray } from 'lodash-es';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
 import {
@@ -15,7 +15,14 @@ import {
 
 import { useSingle } from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@tdesign/common-js/date-picker/utils';
+import {
+  subtractMonth,
+  addMonth,
+  extractTimeObj,
+  covertToDate,
+  isSame,
+  getRangeBounds,
+} from '@tdesign/common-js/date-picker/utils';
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';
@@ -51,7 +58,7 @@ export default defineComponent({
       onChange,
     } = useSingle(props);
 
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('datePicker');
     const isReadOnly = useReadonly();
@@ -123,8 +130,17 @@ export default defineComponent({
 
       // 面板展开重置数据
       if (visible) {
-        year.value = parseToDayjs(value.value as DateValue, formatRef.value.valueType).year();
-        month.value = parseToDayjs(value.value as DateValue, formatRef.value.format).month();
+        if (((props.range && isArray(props.range)) || props.panelActiveDate) && !value.value) {
+          const rangeBounds = getRangeBounds(props.range);
+          const yearFromRange = rangeBounds.min?.getFullYear() ?? rangeBounds.max?.getFullYear();
+          const monthFromRange = rangeBounds.min?.getMonth() ?? rangeBounds.max?.getMonth();
+          year.value = (props.panelActiveDate?.year ?? yearFromRange) as number;
+          month.value = props.panelActiveDate?.month ? Number(props.panelActiveDate?.month) - 1 : monthFromRange;
+        } else {
+          year.value = parseToDayjs(value.value as DateValue, formatRef.value.valueType).year();
+          month.value = parseToDayjs(value.value as DateValue, formatRef.value.format).month();
+        }
+
         time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
       } else {
         isHoverCell.value = false;
@@ -247,7 +263,8 @@ export default defineComponent({
     function onTagClearClick({ e }: { e: MouseEvent }) {
       e.stopPropagation();
       popupVisible.value = false;
-      onChange?.([], { dayjsValue: dayjs(), trigger: 'clear' });
+      onChange?.(props.multiple ? [] : '', { dayjsValue: dayjs(), trigger: 'clear' });
+      props.onClear?.({ e });
     }
 
     // 头部快速切换
@@ -406,6 +423,8 @@ export default defineComponent({
       presetsPlacement: props.presetsPlacement,
       popupVisible: popupVisible.value,
       needConfirm: props.needConfirm,
+      disableTime: props.disableTime,
+      range: props.range,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
@@ -426,7 +445,7 @@ export default defineComponent({
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
           borderless={props.borderless}
-          disabled={disabled.value}
+          disabled={isDisabled.value}
           value={inputValue.value}
           label={() => renderTNodeJSX('label')}
           status={props.status}
@@ -441,7 +460,7 @@ export default defineComponent({
           }
           popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
-          needConfirm={props.needConfirm}
+          {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
           panel={() => <TSinglePanel {...panelProps.value} />}
           tagInputProps={{
             onRemove: onTagRemoveClick,

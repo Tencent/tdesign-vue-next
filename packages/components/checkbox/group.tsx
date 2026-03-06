@@ -4,7 +4,7 @@ import { isObject, isUndefined, intersection } from 'lodash-es';
 import Checkbox from './checkbox';
 import props from './checkbox-group-props';
 import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
-import { CheckboxGroupInjectionKey } from './consts';
+import { CheckboxGroupInjectionKey } from './constants';
 import { useVModel, useTNodeJSX, usePrefixClass, useChildComponentSlots } from '@tdesign/shared-hooks';
 
 export default defineComponent({

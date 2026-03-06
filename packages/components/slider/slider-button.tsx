@@ -1,20 +1,10 @@
-import {
-  ComponentPublicInstance,
-  PropType,
-  computed,
-  defineComponent,
-  inject,
-  nextTick,
-  reactive,
-  ref,
-  watchEffect,
-} from 'vue';
+import { PropType, computed, defineComponent, inject, nextTick, reactive, ref, watchEffect } from 'vue';
 import { isFunction } from 'lodash-es';
 
 import { formatPrecision } from '@tdesign/common-js/slider/utils';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import TTooltip from '../tooltip/index';
-import { sliderPropsInjectKey } from './consts';
+import { sliderPropsInjectKey } from './constants';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
 
 import type { TdSliderProps } from './type';
@@ -110,7 +100,7 @@ export default defineComponent({
     };
 
     const handleMouseEnter = () => {
-      (buttonRef.value as ComponentPublicInstance).focus();
+      (buttonRef.value as HTMLDivElement).focus();
       toggleTooltip(true);
     };
     const handleMouseLeave = () => {

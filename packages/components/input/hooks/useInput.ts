@@ -1,6 +1,6 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
 import { InputValue, TdInputProps } from './../type';
-import { FormItemInjectionKey } from '../../form/consts';
+import { FormItemInjectionKey } from '../../form/constants';
 import { useVModel, useDisabled, useReadonly } from '@tdesign/shared-hooks';
 
 import { useLengthLimit } from './useLengthLimit';
@@ -31,7 +31,7 @@ export function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<st
   const isHover = ref(false);
   const focused = ref(false);
   const renderType = ref(props.type);
-  const inputRef = ref<HTMLInputElement>(null);
+  const inputRef = ref<HTMLInputElement>();
 
   const limitParams = computed(() => ({
     value: [undefined, null].includes(innerValue.value) ? undefined : String(innerValue.value),

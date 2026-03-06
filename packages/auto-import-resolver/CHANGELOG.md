@@ -1,3 +1,9 @@
+## 🌈 0.1.6 `2026-01-31`
+
+### 🐞 Bug Fixes
+
+- 修复 mobile-vue 自动导入  ActionSheetPlugin、 DrawerPlugin 和 ToastPlugin 三个插件无效 @liweijie0812 ([#6369](https://github.com/Tencent/tdesign-vue-next/pull/6369))
+
 ## 🌈 0.1.5 `2026-01-23`
 
 ### 🚀 Features

@@ -20,6 +20,7 @@ export default defineComponent({
     isFooterDisplay: Boolean,
     handleConfirmClick: Function,
     onChange: Function,
+    position: String,
   },
   setup(props) {
     const { globalConfig } = useConfig('timePicker');

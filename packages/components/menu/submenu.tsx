@@ -27,8 +27,16 @@ import { TdSubmenuProps } from './type';
 
 export default defineComponent({
   name: 'TSubmenu',
-  props,
-  setup(props: TdSubmenuProps, { attrs, slots }) {
+  props: {
+    ...props,
+    expandType: String,
+  },
+  setup(
+    props: TdSubmenuProps & {
+      expandType: string;
+    },
+    { slots },
+  ) {
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
@@ -41,7 +49,7 @@ export default defineComponent({
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', {});
     const { setSubPopup, closeParentPopup, cancelHideTimer } = submenu;
 
-    const mode = computed(() => attrs.expandType || menu.mode.value);
+    const mode = computed(() => props.expandType || menu.mode.value);
 
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
     const isActive = computed(() => activeValues.value.indexOf(props.value) > -1);
@@ -75,6 +83,18 @@ export default defineComponent({
         clearTimeout(hideTimer.value);
         hideTimer.value = null;
       }
+    };
+
+    const handlePlacementChange = ({ placement }: { placement: string }) => {
+      const spacerEl = popupWrapperRef.value;
+      if (!spacerEl) return;
+
+      const prefixClassName = `${classPrefix.value}-menu__spacer`;
+      const isBottom = placement.startsWith('bottom');
+      const isTop = placement.startsWith('top');
+
+      spacerEl.classList.toggle(`${prefixClassName}--bottom`, isBottom);
+      spacerEl.classList.toggle(`${prefixClassName}--top`, isTop);
     };
 
     const classes = computed(() => [
@@ -265,7 +285,9 @@ export default defineComponent({
           ref={popupWrapperRef}
           class={[
             `${classPrefix.value}-menu__spacer`,
-            `${classPrefix.value}-menu__spacer--${!isNested.value && isHead ? 'top' : 'left'}`,
+            {
+              [`${classPrefix.value}-menu__spacer--left`]: isNested.value || !isHead,
+            },
           ]}
           onMouseenter={handleEnterPopup}
           onMouseleave={handleMouseLeavePopup}
@@ -278,6 +300,23 @@ export default defineComponent({
         content: () => popupWrapper,
       };
 
+      // 合并 popperOptions，保留原有的 modifiers
+      const existingModifiers = (props.popupProps?.popperOptions as any)?.modifiers || [];
+      const popperOptions = {
+        ...(props.popupProps?.popperOptions ?? {}),
+        modifiers: [
+          {
+            name: 'onPlacementChange',
+            enabled: true,
+            phase: 'main',
+            fn: ({ state }: any) => {
+              handlePlacementChange({ placement: state.placement });
+            },
+          },
+          ...existingModifiers,
+        ],
+      };
+
       const realPopup = (
         <Popup
           {...(props.popupProps ?? {})}
@@ -285,6 +324,7 @@ export default defineComponent({
           overlayClassName={[...overlayClassName.value]}
           visible={popupVisible.value}
           placement={placement}
+          popperOptions={popperOptions}
           v-slots={slots}
         >
           <div ref={submenuRef} class={submenuClass.value}>

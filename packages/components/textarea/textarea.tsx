@@ -12,7 +12,7 @@ import {
 } from 'vue';
 import { isObject, merge, omit } from 'lodash-es';
 
-import { FormItemInjectionKey } from '../form/consts';
+import { FormItemInjectionKey } from '../form/constants';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 import { getCharacterLength, getValidAttrs } from '@tdesign/common-js/utils/helper';
 

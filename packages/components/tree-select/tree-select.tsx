@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watch, onMounted, toRefs } from 'vue';
+import { defineComponent, ref, computed, watch, onMounted, toRefs, ComputedRef } from 'vue';
 import { isNil, isArray, isEmpty, isBoolean, isFunction } from 'lodash-es';
 
 import { findParentValues } from '@tdesign/common-js/tree-select/utils';
@@ -34,7 +34,7 @@ export default defineComponent({
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
     const { globalConfig } = useConfig('treeSelect');
-    const formDisabled = useDisabled();
+    const formDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
 
     // ref
@@ -359,47 +359,40 @@ export default defineComponent({
       treeKey.value += 1;
     };
 
-    const renderTree = () => {
-      const treeEvents = useEventForward(props.treeProps as TdTreeSelectProps['treeProps'], {
-        onChange: treeNodeChange,
-        onActive: treeNodeActive,
-        onExpand: treeNodeExpand,
-        onLoad: treeNodeLoad,
-      });
-
-      return (
-        <Tree
-          ref={treeRef}
-          v-show={!props.loading}
-          key={treeKey.value}
-          value={[...checked.value]}
-          hover
-          keys={props.keys}
-          data={props.data}
-          activable={!props.multiple}
-          checkable={props.multiple}
-          disabled={tDisabled.value || multiLimitDisabled.value}
-          size={props.size}
-          filter={filterByText.value}
-          actived={actived.value}
-          expanded={expanded.value}
-          activeMultiple={props.multiple}
-          expandOnClickNode={false}
-          v-slots={{
-            empty: () =>
-              renderDefaultTNode('empty', {
-                defaultNode: <div class={`${classPrefix.value}-select__empty`}>{globalConfig.value.empty}</div>,
-              }),
-          }}
-          {...treeEvents.value}
-        />
-      );
-    };
+    const renderTree = () => (
+      <Tree
+        ref={treeRef}
+        v-show={!props.loading}
+        key={treeKey.value}
+        value={[...checked.value]}
+        hover
+        keys={props.keys}
+        data={props.data}
+        activable={!props.multiple}
+        checkable={props.multiple}
+        disabled={tDisabled.value || multiLimitDisabled.value}
+        filter={filterByText.value}
+        actived={actived.value}
+        expanded={expanded.value}
+        activeMultiple={props.multiple}
+        onChange={treeNodeChange}
+        onActive={treeNodeActive}
+        onExpand={treeNodeExpand}
+        onLoad={treeNodeLoad}
+        expandOnClickNode={false}
+        v-slots={{
+          empty: () =>
+            renderDefaultTNode('empty', {
+              defaultNode: <div class={`${classPrefix.value}-select__empty`}>{globalConfig.value.empty}</div>,
+            }),
+        }}
+        {...(props.treeProps as TdTreeSelectProps['treeProps'])}
+      />
+    );
 
     const renderSuffixIcon = () => (
       <FakeArrow
         isActive={innerVisible.value}
-        disabled={props.disabled}
         overlayClassName={{
           [`${classPrefix.value}-fake-arrow--highlight`]: innerVisible.value,
           [`${classPrefix.value}-fake-arrow--disable`]: props.disabled,

@@ -42,7 +42,7 @@ export default defineComponent({
     // dialog ref
     const dialogTooltipRef = ref<HTMLElement>();
     // ! popup ref 不确定这里的类型是否完全正确
-    const popupTooltipRef = ref<InstanceType<typeof Popup>>();
+    const popupTooltipRef = ref();
     // 是否开始展示
     const actived = ref<boolean>(false);
     // 步骤总数

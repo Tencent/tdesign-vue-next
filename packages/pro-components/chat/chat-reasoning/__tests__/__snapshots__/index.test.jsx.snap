@@ -1,0 +1,469 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChatReasoning > :props > :collapsed - boolean 1`] = `
+<div
+  class="t-chat__detail-reasoning"
+>
+  <div
+    class="t-collapse t--border-less"
+  >
+    
+    <div
+      class="t-collapse-panel"
+    >
+      <div
+        class="t-collapse-panel__wrapper"
+      >
+        <div
+          class="t-collapse-panel__header t-is-clickable"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-collapse-panel__header--blank"
+          />
+          <!---->
+          <div
+            class="t-collapse-panel__icon t-collapse-panel__icon--right "
+          >
+            <svg
+              class="t-fake-arrow t-collapse-panel__icon--default"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </div>
+        </div>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="t-slide-down"
+          persisted="false"
+        >
+          <div
+            class="t-collapse-panel__body"
+            style="display: none;"
+          >
+            <div
+              class="t-collapse-panel__content"
+            >
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`ChatReasoning > :props > :collapsed 1`] = `
+<div
+  class="t-chat__detail-reasoning"
+>
+  <div
+    class="t-collapse t--border-less"
+  >
+    
+    <div
+      class="t-collapse-panel"
+    >
+      <div
+        class="t-collapse-panel__wrapper"
+      >
+        <div
+          class="t-collapse-panel__header t-is-clickable"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-collapse-panel__header--blank"
+          />
+          <!---->
+          <div
+            class="t-collapse-panel__icon t-collapse-panel__icon--right "
+          >
+            <svg
+              class="t-fake-arrow t-collapse-panel__icon--default"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </div>
+        </div>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="t-slide-down"
+          persisted="false"
+        >
+          <div
+            class="t-collapse-panel__body"
+            style="display: none;"
+          >
+            <div
+              class="t-collapse-panel__content"
+            >
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`ChatReasoning > :props > :expandIconPlacement - string 1`] = `
+<div
+  class="t-chat__detail-reasoning"
+>
+  <div
+    class="t-collapse t--border-less"
+  >
+    
+    <div
+      class="t-collapse-panel"
+    >
+      <div
+        class="t-collapse-panel__wrapper"
+      >
+        <div
+          class="t-collapse-panel__header t-is-clickable"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-collapse-panel__header--blank"
+          />
+          <!---->
+          <div
+            class="t-collapse-panel__icon t-collapse-panel__icon--right t-collapse-panel__icon--active"
+          >
+            <svg
+              class="t-fake-arrow t-collapse-panel__icon--default"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </div>
+        </div>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="t-slide-down"
+          persisted="false"
+        >
+          <div
+            class="t-collapse-panel__body"
+          >
+            <div
+              class="t-collapse-panel__content"
+            >
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`ChatReasoning > :props > :expandIconPlacement 1`] = `
+<div
+  class="t-chat__detail-reasoning"
+>
+  <div
+    class="t-collapse t--border-less"
+  >
+    
+    <div
+      class="t-collapse-panel"
+    >
+      <div
+        class="t-collapse-panel__wrapper"
+      >
+        <div
+          class="t-collapse-panel__header t-is-clickable"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-collapse-panel__header--blank"
+          />
+          <!---->
+          <div
+            class="t-collapse-panel__icon t-collapse-panel__icon--right t-collapse-panel__icon--active"
+          >
+            <svg
+              class="t-fake-arrow t-collapse-panel__icon--default"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </div>
+        </div>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="t-slide-down"
+          persisted="false"
+        >
+          <div
+            class="t-collapse-panel__body"
+          >
+            <div
+              class="t-collapse-panel__content"
+            >
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`ChatReasoning > :props > :layout - string 1`] = `
+<div
+  class="t-chat__detail-reasoning"
+>
+  <div
+    class="t-collapse t--border-less t-chat__detail-reasoning-border"
+  >
+    
+    <div
+      class="t-collapse-panel"
+    >
+      <div
+        class="t-collapse-panel__wrapper"
+      >
+        <div
+          class="t-collapse-panel__header t-is-clickable"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-collapse-panel__header--blank"
+          />
+          <!---->
+          <div
+            class="t-collapse-panel__icon t-collapse-panel__icon--right t-collapse-panel__icon--active"
+          >
+            <svg
+              class="t-fake-arrow t-collapse-panel__icon--default"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </div>
+        </div>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="t-slide-down"
+          persisted="false"
+        >
+          <div
+            class="t-collapse-panel__body"
+          >
+            <div
+              class="t-collapse-panel__content"
+            >
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`ChatReasoning > :props > :layout 1`] = `
+<div
+  class="t-chat__detail-reasoning"
+>
+  <div
+    class="t-collapse t--border-less t-chat__detail-reasoning-border"
+  >
+    
+    <div
+      class="t-collapse-panel"
+    >
+      <div
+        class="t-collapse-panel__wrapper"
+      >
+        <div
+          class="t-collapse-panel__header t-is-clickable"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-collapse-panel__header--blank"
+          />
+          <!---->
+          <div
+            class="t-collapse-panel__icon t-collapse-panel__icon--right t-collapse-panel__icon--active"
+          >
+            <svg
+              class="t-fake-arrow t-collapse-panel__icon--default"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </div>
+        </div>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="t-slide-down"
+          persisted="false"
+        >
+          <div
+            class="t-collapse-panel__body"
+          >
+            <div
+              class="t-collapse-panel__content"
+            >
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`ChatReasoning > <slot> > default slot 1`] = `
+<div
+  class="t-chat__detail-reasoning"
+>
+  <div
+    class="t-collapse t--border-less"
+  >
+    
+    <div
+      class="t-collapse-panel"
+    >
+      <div
+        class="t-collapse-panel__wrapper"
+      >
+        <div
+          class="t-collapse-panel__header t-is-clickable"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-collapse-panel__header--blank"
+          />
+          <!---->
+          <div
+            class="t-collapse-panel__icon t-collapse-panel__icon--right t-collapse-panel__icon--active"
+          >
+            <svg
+              class="t-fake-arrow t-collapse-panel__icon--default"
+              fill="none"
+              height="16"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                stroke="black"
+                stroke-opacity="0.9"
+                stroke-width="1.3"
+              />
+            </svg>
+          </div>
+        </div>
+        <transition-stub
+          appear="false"
+          css="true"
+          name="t-slide-down"
+          persisted="false"
+        >
+          <div
+            class="t-collapse-panel__body"
+          >
+            <div
+              class="t-collapse-panel__content"
+            >
+              
+              <div>
+                custom content
+              </div>
+              
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;

@@ -81,7 +81,6 @@ exports[`Switch > :props > :loading 1`] = `
       <svg
         class="t-loading__gradient t-icon-loading"
         height="1em"
-        size="small"
         version="1.1"
         viewBox="0 0 12 12"
         width="1em"
