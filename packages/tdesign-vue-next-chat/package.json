@@ -23,10 +23,6 @@
       "import": "./es/index.mjs",
       "types": "./es/index.d.ts"
     },
-    "./config-provider": {
-      "import": "./es/config-provider.mjs",
-      "types": "./es/config-provider.d.ts"
-    },
     "./global": {
       "types": "./global.d.ts"
     },
