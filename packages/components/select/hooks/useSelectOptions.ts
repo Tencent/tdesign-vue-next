@@ -133,7 +133,8 @@ export const useSelectOptions = (
     searchOptions.value = uniqBy([...searchOptions.value, ...currentSelectedOptions], 'value');
     const searchSelectedOptions = getSelectedOptions(searchOptions.value, innerValue.value);
 
-    return uniqBy([...searchSelectedOptions, ...optionsList.value], 'value');
+    // 确保使用最新的 optionsList 数据，避免缓存旧的 label
+    return uniqBy([...optionsList.value, ...searchSelectedOptions], 'value');
   });
 
   const displayOptions = computed(() => {

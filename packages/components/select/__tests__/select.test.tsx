@@ -638,6 +638,89 @@ describe('Select', () => {
       expect(onPopupVisibleChangeFn).not.toHaveBeenCalled();
       wrapper.unmount();
     });
+
+    describe('options label reactivity', () => {
+      const testData = [
+        { label: '选项 1', value: '1' },
+        { label: '选项 2', value: '2' },
+      ];
+
+      it('should update display label in single mode', async () => {
+        const data = ref(testData);
+        const selectedValue = ref('1');
+
+        const wrapper = mount({
+          setup() {
+            return { data, selectedValue };
+          },
+          render() {
+            return <Select v-model={selectedValue.value} options={data.value} />;
+          },
+        });
+
+        await nextTick();
+        expect(selectedValue.value).toBe('1');
+
+        data.value[0].label = '选项 1 (已修改)';
+        await nextTick();
+
+        expect(data.value[0].label).toBe('选项 1 (已修改)');
+        expect(selectedValue.value).toBe('1');
+
+        wrapper.unmount();
+      });
+
+      it('should update display label in remote search mode', async () => {
+        const data = ref(testData);
+        const selectedValue = ref('1');
+        const onSearch = vi.fn();
+
+        const wrapper = mount({
+          setup() {
+            return { data, selectedValue, onSearch };
+          },
+          render() {
+            return <Select v-model={selectedValue.value} options={data.value} filterable onSearch={onSearch} />;
+          },
+        });
+
+        await nextTick();
+        expect(selectedValue.value).toBe('1');
+
+        data.value[0].label = '选项 1 (远程搜索已修改)';
+        await nextTick();
+
+        expect(data.value[0].label).toBe('选项 1 (远程搜索已修改)');
+        expect(selectedValue.value).toBe('1');
+
+        wrapper.unmount();
+      });
+
+      it('should update display label in multiple mode', async () => {
+        const data = ref(testData);
+        const selectedValue = ref(['1', '2']);
+
+        const wrapper = mount({
+          setup() {
+            return { data, selectedValue };
+          },
+          render() {
+            return <Select v-model={selectedValue.value} options={data.value} multiple />;
+          },
+        });
+
+        await nextTick();
+        expect(selectedValue.value).toEqual(['1', '2']);
+
+        data.value[0].label = '选项 1 (多选已修改)';
+        await nextTick();
+
+        expect(data.value[0].label).toBe('选项 1 (多选已修改)');
+        expect(selectedValue.value).toEqual(['1', '2']);
+
+        wrapper.unmount();
+      });
+    });
   });
 
   describe('checkAll', () => {
