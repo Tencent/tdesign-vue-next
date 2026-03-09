@@ -38,6 +38,8 @@ const handleResourceClick = (event: MouseEvent) => {
   const targetResource = findTargetElement(event, ['a[part=md_a]']);
   if (targetResource) {
     // 获取链接地址并触发回调
+    event.preventDefault();
+
     const href = targetResource.getAttribute('href');
     if (href) {
       console.log('跳转链接href', href);
