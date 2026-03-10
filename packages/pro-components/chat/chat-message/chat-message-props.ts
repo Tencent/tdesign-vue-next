@@ -26,6 +26,10 @@ export default {
   datetime: {
     type: [String, Function] as PropType<TdChatMessageProps['datetime']>,
   },
+  /** 消息类型 */
+  role: {
+    type: String as PropType<TdChatMessageProps['role']>,
+  },
   /** 自定义的昵称 */
   name: {
     type: [String, Function] as PropType<TdChatMessageProps['name']>,
