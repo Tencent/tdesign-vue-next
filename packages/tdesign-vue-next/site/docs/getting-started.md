@@ -19,7 +19,7 @@ npm i tdesign-vue-next
 
 ```html
 <!-- vue 3 -->
-<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.css" />
 <script src="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js"></script>
 ...
