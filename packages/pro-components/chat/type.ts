@@ -8,6 +8,7 @@ import { AvatarProps } from 'tdesign-vue-next';
 import { TextareaProps } from 'tdesign-vue-next';
 import { CollapsePanelProps } from 'tdesign-vue-next';
 import { TNode } from 'tdesign-vue-next';
+import { AIMessageContent, ChatMessageRole, ChatMessageStatus, UserMessageContent } from 'tdesign-web-components';
 
 export interface TdChatProps {
   /**
@@ -440,10 +441,10 @@ export interface TdChatReasoningProps {
 export interface TdChatItemMeta {
   avatar?: string;
   name?: string;
-  role?: string;
+  role?: ChatMessageRole;
   datetime?: string;
-  content?: string;
-  status?: string;
+  content?: AIMessageContent[] | UserMessageContent[];
+  status?: ChatMessageStatus;
 }
 
 export type ScrollToBottomParams = { behavior: 'auto' | 'smooth' };

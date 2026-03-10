@@ -93,7 +93,7 @@ export default defineComponent({
             status={
               item.status || (props.textLoading && (props.reverse ? index === 0 : index === data.length - 1))
                 ? 'pending'
-                : ''
+                : null
             }
             content={item.content}
             datetime={item.datetime}

@@ -30,6 +30,14 @@ export default {
   role: {
     type: String as PropType<TdChatMessageProps['role']>,
   },
+  /** 消息状态 */
+  status: {
+    type: String as PropType<TdChatMessageProps['status']>,
+  },
+  /** 消息内容 */
+  content: {
+    type: [Array, Function] as PropType<TdChatMessageProps['content']>,
+  },
   /** 自定义的昵称 */
   name: {
     type: [String, Function] as PropType<TdChatMessageProps['name']>,
