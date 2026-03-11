@@ -44,6 +44,15 @@ export default defineComponent({
     showOverlay: Boolean,
     closeBtn: props.closeBtn,
     imageReferrerpolicy: props.imageReferrerpolicy,
+    // 接收外部传入的拖拽状态和处理器
+    transform: {
+      type: Object as PropType<{ translateX: number; translateY: number }>,
+      default: undefined,
+    },
+    mouseDownHandler: {
+      type: Function as PropType<(e: MouseEvent) => void>,
+      default: undefined,
+    },
   },
   setup(props) {
     const classPrefix = usePrefixClass();
@@ -93,6 +102,8 @@ export default defineComponent({
             placementSrc={props.currentImage.thumbnail}
             isSvg={props.currentImage.isSvg}
             imageReferrerpolicy={props.imageReferrerpolicy}
+            transform={props.transform}
+            mouseDownHandler={props.mouseDownHandler}
           />
         </div>
       </TDialog>
