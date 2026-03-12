@@ -66,26 +66,12 @@ export default defineComponent({
     const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale as ImageScale);
     const { rotate, onRotate, resetRotate } = useRotate();
 
-    // 用于区分点击和拖拽
-    const dragDistance = ref(0);
-
-    const handleDragStart = () => {
-      dragDistance.value = 0;
-    };
-
-    const handleDragEnd = (distance: number) => {
-      dragDistance.value = distance;
-    };
-
     // 拖拽功能
     const {
       transform: dragTransform,
       mouseDownHandler: imageDragHandler,
       resetTransform: resetDragTransform,
-    } = useDrag({ translateX: 0, translateY: 0 }, handleDragStart, handleDragEnd, {
-      maxTranslateX: 2000,
-      maxTranslateY: 2000,
-    });
+    } = useDrag({ translateX: 0, translateY: 0 });
 
     const onRest = () => {
       resetMirror();
@@ -136,16 +122,10 @@ export default defineComponent({
       onClose({ e, trigger: 'close-btn' });
     };
     const clickOverlayHandler = (e: MouseEvent) => {
-      // 如果拖拽距离小于 5px，则认为是点击，否则认为是拖拽
-      if (props.closeOnOverlay && dragDistance.value < 5) {
+      if (props.closeOnOverlay) {
         onClose({ e, trigger: 'overlay' });
       }
     };
-    // 重置拖拽距离（在鼠标按下时）
-    const resetDragDistance = () => {
-      dragDistance.value = 0;
-    };
-
     const keydownHandler = (e: KeyboardEvent) => {
       e.stopPropagation();
 
@@ -403,19 +383,7 @@ export default defineComponent({
                   onKeydown={keydownHandler}
                 >
                   {!!showOverlayValue.value && (
-                    <div
-                      class={`${COMPONENT_NAME.value}__modal-mask`}
-                      onClick={clickOverlayHandler}
-                      onMousedown={
-                        props.draggableOverlay
-                          ? (e: MouseEvent) => {
-                              e.preventDefault();
-                              resetDragDistance();
-                              imageDragHandler(e);
-                            }
-                          : undefined
-                      }
-                    />
+                    <div class={`${COMPONENT_NAME.value}__modal-mask`} onClick={clickOverlayHandler} />
                   )}
                   {images.value.length > 1 && (
                     <>

@@ -7,17 +7,7 @@ interface InitTransform {
   translateY: number;
 }
 
-interface DragOptions {
-  maxTranslateX?: number;
-  maxTranslateY?: number;
-}
-
-export function useDrag(
-  initTransform: InitTransform,
-  onDragStart?: () => void,
-  onDragEnd?: (distance: number) => void,
-  options?: DragOptions,
-) {
+export function useDrag(initTransform: InitTransform) {
   const transform = ref(initTransform);
 
   const mouseDownHandler = (e: MouseEvent) => {
@@ -26,33 +16,12 @@ export function useDrag(
 
     const { pageX: startX, pageY: startY } = e;
     const { translateX, translateY } = transform.value;
-    let totalDistance = 0;
-
-    onDragStart?.();
 
     const mouseMoveHandler = (e: MouseEvent) => {
       const { pageX, pageY } = e;
-      const deltaX = pageX - startX;
-      const deltaY = pageY - startY;
-
-      // 计算移动距离
-      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-      totalDistance = distance;
-
-      let newTranslateX = translateX + deltaX;
-      let newTranslateY = translateY + deltaY;
-
-      // 应用边界限制
-      if (options?.maxTranslateX !== undefined) {
-        newTranslateX = Math.max(-options.maxTranslateX, Math.min(options.maxTranslateX, newTranslateX));
-      }
-      if (options?.maxTranslateY !== undefined) {
-        newTranslateY = Math.max(-options.maxTranslateY, Math.min(options.maxTranslateY, newTranslateY));
-      }
-
       transform.value = {
-        translateX: newTranslateX,
-        translateY: newTranslateY,
+        translateX: translateX + pageX - startX,
+        translateY: translateY + pageY - startY,
       };
     };
 
@@ -60,7 +29,6 @@ export function useDrag(
       document.removeEventListener('mousemove', mouseMoveHandler);
       document.removeEventListener('mouseup', mouseUpHandler);
       document.removeEventListener('mouseleave', mouseLeaveHandler);
-      onDragEnd?.(totalDistance);
     };
 
     const mouseUpHandler = () => removeHandler();

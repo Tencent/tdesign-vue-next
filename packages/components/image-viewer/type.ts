@@ -30,11 +30,7 @@ export interface TdImageViewerProps {
    * 是否允许拖拽调整位置。`mode=modal` 时，默认不允许拖拽；`mode=modeless` 时，默认允许拖拽
    */
   draggable?: boolean;
-  /**
-   * 是否允许拖拽遮罩层来移动图片。默认为 false
-   * @default false
-   */
-  draggableOverlay?: boolean;
+
   /**
    * 图片预览中的 `<img>` 标签的原生属性，[MDN 定义](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
    */
