@@ -15,42 +15,21 @@ export default defineComponent({
     placementSrc: [String, Object] as PropType<string | File>,
     isSvg: Boolean,
     imageReferrerpolicy: String as PropType<TdImageViewerProps['imageReferrerpolicy']>,
-    // 接收外部传入的拖拽状态和处理器
-    transform: {
-      type: Object as PropType<{ translateX: number; translateY: number }>,
-      default: () => ({ translateX: 0, translateY: 0 }),
-    },
-    mouseDownHandler: {
-      type: Function as PropType<(e: MouseEvent) => void>,
-      default: undefined,
-    },
   },
 
   setup(props, { expose }) {
-    const {
-      src,
-      placementSrc,
-      isSvg,
-      transform: transformProp,
-      mouseDownHandler: mouseDownHandlerProp,
-    } = toRefs(props);
+    const { src, placementSrc, isSvg } = toRefs(props);
     const classPrefix = usePrefixClass();
     const error = ref(false);
     const loaded = ref(false);
-    // 使用外部传入的 transform 和 mouseDownHandler，如果没有则使用内部的
-    const { transform: internalTransform, mouseDownHandler: internalMouseDownHandler } = useDrag({
-      translateX: 0,
-      translateY: 0,
-    });
-    const transform = transformProp.value ? transformProp : internalTransform;
-    const mouseDownHandler = mouseDownHandlerProp.value || internalMouseDownHandler;
+    const { transform, mouseDownHandler, resetTransform } = useDrag({ translateX: 0, translateY: 0 });
     const { globalConfig } = useConfig('imageViewer');
     const errorText = globalConfig.value.errorText;
     const svgElRef = ref<HTMLDivElement>();
     const modalBoxRef = ref<HTMLDivElement>();
 
-    // 暴露 modal-box ref，用于检测鼠标是否在图片上
-    expose({ modalBoxRef });
+    // 暴露内部状态，供父组件在缩放时读取和修改 transform
+    expose({ modalBoxRef, transform, resetTransform });
 
     const imgStyle = computed(() => ({
       transform: `rotate(${props.rotate}deg)`,

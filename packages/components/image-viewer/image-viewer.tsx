@@ -19,7 +19,7 @@ import TImageViewerIcon from './base/ImageModalIcon';
 import TImageViewerModal from './base/ImageViewerModal';
 import TImageViewerUtils from './base/ImageViewerUtils';
 import { EVENT_CODE } from './constants';
-import { useMirror, useRotate, useScale, useDrag } from './hooks';
+import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
 import { ImageScale, TdImageViewerProps } from './type';
 import { getOverlay } from './utils';
@@ -66,18 +66,11 @@ export default defineComponent({
     const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale as ImageScale);
     const { rotate, onRotate, resetRotate } = useRotate();
 
-    // 拖拽功能
-    const {
-      transform: dragTransform,
-      mouseDownHandler: imageDragHandler,
-      resetTransform: resetDragTransform,
-    } = useDrag({ translateX: 0, translateY: 0 });
-
     const onRest = () => {
       resetMirror();
       resetScale();
       resetRotate();
-      resetDragTransform();
+      imageItemRef.value?.resetTransform?.();
     };
 
     const images = computed(() => formatImages(props.images));
@@ -153,7 +146,11 @@ export default defineComponent({
     };
 
     const divRef = ref<HTMLDivElement>();
-    const imageItemRef = ref<{ modalBoxRef: HTMLDivElement }>();
+    const imageItemRef = ref<{
+      modalBoxRef: HTMLDivElement;
+      transform: { translateX: number; translateY: number };
+      resetTransform: () => void;
+    }>();
 
     watch(
       () => visibleValue.value,
@@ -223,16 +220,17 @@ export default defineComponent({
       // - 缩小且图片在视口内：基于 image box 中心
       // - 缩小且图片超出视口：向视口中心缩小
       if (isZoomOut && isOverflow) {
+        const currentTranslate = imageItemRef.value?.transform ?? { translateX: 0, translateY: 0 };
         // 向视口中心缩小：使用固定的中心点 (0, 0)
         const zoomOptions = {
           mouseOffsetX: 0,
           mouseOffsetY: 0,
-          currentTranslate: dragTransform.value,
+          currentTranslate,
         };
 
         const result = onZoomOut(zoomOptions);
-        if (result?.newTranslate) {
-          dragTransform.value = result.newTranslate;
+        if (result?.newTranslate && imageItemRef.value) {
+          imageItemRef.value.transform = result.newTranslate;
         }
       } else {
         isZoomOut ? onZoomOut() : onZoomIn();
@@ -358,8 +356,6 @@ export default defineComponent({
               showOverlay={showOverlayValue.value}
               title={renderTitle}
               imageReferrerpolicy={imageReferrerpolicy.value}
-              transform={dragTransform.value}
-              mouseDownHandler={imageDragHandler}
             />
           </>
         );
@@ -414,8 +410,6 @@ export default defineComponent({
                     placementSrc={currentImage.value.thumbnail}
                     isSvg={currentImage.value.isSvg}
                     imageReferrerpolicy={imageReferrerpolicy.value}
-                    transform={dragTransform.value}
-                    mouseDownHandler={imageDragHandler}
                   />
                 </div>
               )}
