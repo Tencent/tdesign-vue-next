@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.5 `2026-03-12`
+
+### 🐞 Bug Fixes
+
+- `Tree`: Fixed an issue where blank spaces appeared during scrolling after enabling virtual scrolling in version 1.18.3 @uyarn ([#6483](https://github.com/Tencent/tdesign-vue-next/pull/6483))
+
 ## 🌈 1.18.4 `2026-03-11`
 
 ### 🐞 Bug Fixes

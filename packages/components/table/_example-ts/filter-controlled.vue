@@ -108,11 +108,11 @@ const columns = computed<TableProps['columns']>(() => {
             value: 0,
           },
           {
-            label: '已过期',
+            label: '审批失败',
             value: 1,
           },
           {
-            label: '审批失败',
+            label: '审批过期',
             value: 2,
           },
         ],
@@ -124,10 +124,12 @@ const columns = computed<TableProps['columns']>(() => {
         // },
       },
       cell: (h, { row }) => {
+        const status = row.status as keyof typeof statusNameListMap;
+        const { theme, icon, label } = statusNameListMap[status];
         return (
-          <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
-            {statusNameListMap[row.status].icon}
-            {statusNameListMap[row.status].label}
+          <t-tag shape="round" theme={theme} variant="light-outline">
+            {icon}
+            {label}
           </t-tag>
         );
       },
@@ -220,11 +222,11 @@ const request = (filters: FilterValue) => {
       if (result && filters.channel && filters.channel.length) {
         result = filters.channel.includes(item.channel);
       }
-      if (result && filters.email) {
-        result = item.detail.email.indexOf(filters.email) !== -1;
+      if (result && filters['detail.email']) {
+        result = item.detail.email.indexOf(filters['detail.email']) !== -1;
       }
       if (result && filters.createTime && filters.createTime.length) {
-        result = item.createTime === filters.createTime;
+        result = item.createTime >= filters.createTime[0] && item.createTime <= filters.createTime[1];
       }
       return result;
     });
