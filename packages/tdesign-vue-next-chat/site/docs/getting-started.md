@@ -156,7 +156,6 @@ module.exports = {
 
 - ⚠️ 由于底层实现方式的调整，如果您需要使用到多语言配置等功能，建议暂时使用 [0.4 版本的 @tdesign-vue-next/chat](https://0_4_6-tdesign-vue-next-chat.surge.sh/chat/getting-started), 后续我们将逐步在最新版本中支持多语言配置等功能
 
-
 ## 配置服务
 
 TDesign Chat 支持两种后端 AI Agent 服务返回数据协议模式：**自定义协议**和**AG-UI 标准协议**。您可以根据后端服务的实际情况选择合适的协议模式。
@@ -238,7 +237,15 @@ const chatServiceConfig = {
 
 安装注册 TDesign 之后，在开发项目时，可以配合插件在 VSCode 等主流编辑器中达到提示组件名及 API 的效果。
 
-推荐安装 `volar`，并在项目的 tsconfig.json 的 `includes` 属性中增加`node_modules/@tdesign-vue-next/chat/global.d.ts`，即可实现该效果。
+推荐安装 [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) 插件，并在项目的 `tsconfig.json` 的 `compilerOptions.types` 属性中增加 `@tdesign-vue-next/chat/global`，即可实现提示效果。
+
+```json
+{
+  "compilerOptions": {
+    "types": ["@tdesign-vue-next/chat/global"]
+  }
+}
+```
 
 ## 浏览器兼容性
 

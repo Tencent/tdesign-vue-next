@@ -34,11 +34,12 @@ const findTargetElement = (event: MouseEvent, selector: string | string[]): HTML
 };
 // 自定义链接的点击
 const handleResourceClick = (event: MouseEvent) => {
-  event.preventDefault();
   // 查找符合条件的目标元素
   const targetResource = findTargetElement(event, ['a[part=md_a]']);
   if (targetResource) {
     // 获取链接地址并触发回调
+    event.preventDefault();
+
     const href = targetResource.getAttribute('href');
     if (href) {
       console.log('跳转链接href', href);
