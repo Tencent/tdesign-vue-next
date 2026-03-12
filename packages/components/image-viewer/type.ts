@@ -30,7 +30,6 @@ export interface TdImageViewerProps {
    * 是否允许拖拽调整位置。`mode=modal` 时，默认不允许拖拽；`mode=modeless` 时，默认允许拖拽
    */
   draggable?: boolean;
-
   /**
    * 图片预览中的 `<img>` 标签的原生属性，[MDN 定义](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
    */
@@ -44,7 +43,7 @@ export interface TdImageViewerProps {
     | 'strict-origin-when-cross-origin'
     | 'unsafe-url';
   /**
-   *  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度; `imageScale.defaultScale` 默认的缩放比例; `imageScale.scaleFromMousePosition` 是否以鼠标位置为缩放中心
+   *  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度; `imageScale.defaultScale` 默认的缩放比例
    */
   imageScale?: Partial<ImageScale>;
   /**
@@ -126,11 +125,6 @@ export interface ImageScale {
   min: number;
   step: number;
   defaultScale: number;
-  /**
-   * 是否以鼠标位置为缩放中心。启用后，滚轮缩放时图片将以鼠标指向的点为中心进行缩放
-   * @default false
-   */
-  scaleFromMousePosition?: boolean;
 }
 
 export interface ImageInfo {
