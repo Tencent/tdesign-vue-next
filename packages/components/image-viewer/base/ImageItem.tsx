@@ -28,7 +28,7 @@ export default defineComponent({
     const svgElRef = ref<HTMLDivElement>();
     const modalBoxRef = ref<HTMLDivElement>();
 
-    // 暴露内部状态，供父组件在缩放时读取和修改 transform
+    // 暴露内部状态，供父组件在缩放时读写 transform
     expose({ modalBoxRef, transform, resetTransform });
 
     const imgStyle = computed(() => ({

@@ -176,22 +176,16 @@ export default defineComponent({
       clearTimeout(animationTimer.value);
     });
 
-    /**
-     * 检测图片 box 是否超出容器边界
-     */
+    // 检测图片是否超出视口
     const isImageOverflow = (): boolean => {
       const container = divRef.value;
-      const imageItem = imageItemRef.value;
-      const modalBox = imageItem?.modalBoxRef;
+      const modalBox = imageItemRef.value?.modalBoxRef;
 
-      if (!container || !modalBox) {
-        return false;
-      }
+      if (!container || !modalBox) return false;
 
       const containerRect = container.getBoundingClientRect();
       const modalBoxRect = modalBox.getBoundingClientRect();
 
-      // 检查 modal-box 是否超出容器边界
       return (
         modalBoxRect.left < containerRect.left ||
         modalBoxRect.right > containerRect.right ||
@@ -200,36 +194,22 @@ export default defineComponent({
       );
     };
 
+    // 滚轮缩放：缩小且图片超出视口时，向视口中心收敛
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const { deltaY } = e;
+      const isZoomOut = e.deltaY > 0;
 
+      // 无视口信息时，直接缩放
       if (!divRef.value) {
-        deltaY > 0 ? onZoomOut() : onZoomIn();
+        isZoomOut ? onZoomOut() : onZoomIn();
         return;
       }
 
-      // 判断是否为缩小操作
-      const isZoomOut = deltaY > 0;
-
-      // 判断图片 box 是否超出视口
-      const isOverflow = isImageOverflow();
-
-      // 规则：
-      // - 放大：始终基于 image box 中心
-      // - 缩小且图片在视口内：基于 image box 中心
-      // - 缩小且图片超出视口：向视口中心缩小
-      if (isZoomOut && isOverflow) {
+      // 缩小且图片超出视口：向视口中心收敛
+      if (isZoomOut && isImageOverflow()) {
         const currentTranslate = imageItemRef.value?.transform ?? { translateX: 0, translateY: 0 };
-        // 向视口中心缩小：使用固定的中心点 (0, 0)
-        const zoomOptions = {
-          mouseOffsetX: 0,
-          mouseOffsetY: 0,
-          currentTranslate,
-        };
-
-        const result = onZoomOut(zoomOptions);
-        if (result?.newTranslate && imageItemRef.value) {
+        const result = onZoomOut({ mouseOffsetX: 0, mouseOffsetY: 0, currentTranslate });
+        if (result?.newTranslate) {
           imageItemRef.value.transform = result.newTranslate;
         }
       } else {

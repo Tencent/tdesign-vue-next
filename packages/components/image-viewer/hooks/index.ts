@@ -59,16 +59,16 @@ export function useMirror() {
 }
 
 export interface ZoomOptions {
-  /** 鼠标相对于容器中心的 X 偏移 */
+  /** 缩放中心点 X 坐标 */
   mouseOffsetX?: number;
-  /** 鼠标相对于容器中心的 Y 偏移 */
+  /** 缩放中心点 Y 坐标 */
   mouseOffsetY?: number;
-  /** 当前的位移值 */
+  /** 当前位移 */
   currentTranslate?: { translateX: number; translateY: number };
 }
 
 export interface ZoomResult {
-  /** 新的位移值（用于替换，而不是累加） */
+  /** 缩放后的新位移 */
   newTranslate?: { translateX: number; translateY: number };
 }
 
@@ -78,10 +78,9 @@ export function useScale(imageScale: ImageScale) {
   const scale = ref(defaultScale);
 
   /**
-   * 计算缩放后的位移补偿，保持鼠标指向的图片内容在屏幕上的位置不变
-   *
-   * 公式推导：设 Z = 缩放中心(鼠标位置)，T = 当前位移，λ'/λ = scaleRatio
-   * newTranslate = scaleRatio * T + (1 - scaleRatio) * Z
+   * 计算缩放后的位移补偿
+   * 公式：newTranslate = scaleRatio * T + (1 - scaleRatio) * Z
+   * 其中 Z 为缩放中心，T 为当前位移，scaleRatio = newScale / oldScale
    */
   const calculateTranslateOffset = (
     oldScale: number,
