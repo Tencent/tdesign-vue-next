@@ -552,7 +552,7 @@ export default defineComponent({
           popupProps={popupProps.value}
           rangeInputProps={rangeInputProps.value}
           popupVisible={popupVisible.value}
-          panel={() => <TRangePanel {...panelProps.value} />}
+          panel={() => <TRangePanel {...panelProps.value} v-slots={{ presets: slots.presets }} />}
         />
       </div>
     );

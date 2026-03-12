@@ -40,7 +40,7 @@ import type { TagInputRemoveContext } from '../tag-input';
 export default defineComponent({
   name: 'TDatePicker',
   props,
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-picker');
 
     const {
@@ -385,6 +385,7 @@ export default defineComponent({
         format: formatRef.value.format,
       });
       popupVisible.value = false;
+      props.onPresetClick?.({ preset: { presetVal }, e: new MouseEvent('click') });
     }
 
     function onYearChange(nextYear: number) {
@@ -461,7 +462,7 @@ export default defineComponent({
           popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
           {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
-          panel={() => <TSinglePanel {...panelProps.value} />}
+          panel={() => <TSinglePanel {...panelProps.value} v-slots={{ presets: slots.presets }} />}
           tagInputProps={{
             onRemove: onTagRemoveClick,
           }}
