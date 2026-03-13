@@ -326,6 +326,7 @@ export interface TdChatSenderProps {
    * @default false
    */
   disabled?: boolean;
+  sendBtnDisabled?: boolean;
   /**
    * 输入框默认文案
    * @default ''
