@@ -51,9 +51,15 @@ export const useSelectOptions = (
 
     if (isArray(groupSlots)) {
       for (const group of groupSlots) {
-        const groupOption = {
+        // group.children 可能是 string | VNodeArrayChildren | RawSlots，需要确保是有效的 slots 对象
+        const groupChildrenSlots =
+          group.children && typeof group.children === 'object' && !isArray(group.children)
+            ? (group.children as Slots)
+            : undefined;
+        const groupOption: UniOption = {
           group: group.props?.label,
           ...group.props,
+          slots: groupChildrenSlots,
           children: [] as TdOptionProps[],
         };
         const res = getChildComponentSlots('Option', group.children as Slots);
