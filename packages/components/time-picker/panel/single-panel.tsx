@@ -192,8 +192,15 @@ export default defineComponent({
       else val = meridiem;
 
       const distance = getScrollDistance(col, val);
-      if (!dayjs(dayjsValue.value).isValid() || (value.value && !dayjs(value.value, format.value, true).isValid()))
+
+      if (!dayjs(dayjsValue.value).isValid()) {
+        console.error(`${dayjsValue.value} is invalid time`);
         return;
+      }
+      if (value.value && !dayjs(value.value, format.value, true).isValid()) {
+        console.error(`${value.value} is invalid time`);
+        return;
+      }
 
       if (timeArr.includes(col)) {
         // @ts-ignore
