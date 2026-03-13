@@ -37,7 +37,7 @@
         </template>
 
         <template #footer>
-          <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
+          <t-chat-input :loading="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
         </template>
       </t-chat-list>
     </template>

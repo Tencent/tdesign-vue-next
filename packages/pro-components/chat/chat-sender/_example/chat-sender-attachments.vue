@@ -1,7 +1,7 @@
 <template>
   <t-chat-sender
     v-model="query"
-    :stop-disabled="loading"
+    :loading="false"
     :textarea-props="{
       placeholder: '请输入消息...',
     }"

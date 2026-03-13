@@ -30,6 +30,9 @@ export default defineComponent({
     const focusFlag = ref(false);
     const showStopBtn = computed(() => props.loading || props.stopDisabled);
     const disabled = computed(() => props.disabled || false);
+    const isSendDisabled = computed(
+      () => props.sendBtnDisabled || disabled.value || showStopBtn.value || !textValue.value,
+    );
     const uploadImageRef = ref(null);
     const uploadFileRef = ref(null);
     const renderTNodeJSX = useTNodeJSX();
@@ -186,10 +189,10 @@ export default defineComponent({
               variant="text"
               class={[
                 `${COMPONENT_NAME.value}-sender__button__default`,
-                textValue.value ? '' : `${COMPONENT_NAME.value}-sender__button--disabled`,
+                isSendDisabled.value ? `${COMPONENT_NAME.value}-sender__button--disabled` : '',
               ]}
               onClick={sendClick}
-              disabled={disabled.value || showStopBtn.value || !textValue.value}
+              disabled={isSendDisabled.value}
             >
               <SendFilledIcon />
             </Button>
