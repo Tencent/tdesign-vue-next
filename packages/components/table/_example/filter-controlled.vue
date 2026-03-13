@@ -91,8 +91,8 @@ const columns = computed(() => [
       type: 'single',
       list: [
         { label: '审批通过', value: 0 },
-        { label: '已过期', value: 1 },
-        { label: '审批失败', value: 2 },
+        { label: '审批失败', value: 1 },
+        { label: '审批过期', value: 2 },
       ],
       // confirm to search and hide filter popup
       confirmEvents: ['onChange'],
@@ -184,11 +184,11 @@ const request = (filters) => {
       if (result && filters.channel && filters.channel.length) {
         result = filters.channel.includes(item.channel);
       }
-      if (result && filters.email) {
-        result = item.email.indexOf(filters.email) !== -1;
+      if (result && filters['detail.email']) {
+        result = item.detail.email.indexOf(filters['detail.email']) !== -1;
       }
       if (result && filters.createTime && filters.createTime.length) {
-        result = item.createTime === filters.createTime;
+        result = item.createTime >= filters.createTime[0] && item.createTime <= filters.createTime[1];
       }
       return result;
     });

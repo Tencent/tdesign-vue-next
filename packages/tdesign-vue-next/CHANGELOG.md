@@ -5,6 +5,19 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.5 `2026-03-12`
+
+### 🐞 Bug Fixes
+
+- `Tree`: 修复 1.18.3 中开启虚拟滚动后滚动中出现空白的错误 @uyarn ([#6483](https://github.com/Tencent/tdesign-vue-next/pull/6483))
+
+## 🌈 1.18.4 `2026-03-11`
+
+### 🐞 Bug Fixes
+
+- `FormItem`: 单独使用时触发校验会在控制台报错的问题 @betavs ([#6467](https://github.com/Tencent/tdesign-vue-next/pull/6467))
+- `Table`: 修复 1.18.3 版本更新导致的筛选功能失效的问题 @betavs ([#6481](https://github.com/Tencent/tdesign-vue-next/pull/6481))
+
 ## 🌈 1.18.3 `2026-03-05`
 
 ### 🚀 Features

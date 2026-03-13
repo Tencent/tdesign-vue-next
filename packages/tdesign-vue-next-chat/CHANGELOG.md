@@ -5,6 +5,13 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.5.1 `2026-03-09`
+
+### 🐞 Bug Fixes
+
+- `Attachments`: 修复图片附件展示效果的问题 @uyarn ([#6472](https://github.com/Tencent/tdesign-vue-next/pull/6472))
+- `ChatMarkdown`: 修复 Markdown 中存在跳转链接没有正常打开的问题 @uyarn ([#6472](https://github.com/Tencent/tdesign-vue-next/pull/6472))
+
 ## 🌈 0.5.0 `2026-03-05`
 
 ### 🚨 Breaking Changes
