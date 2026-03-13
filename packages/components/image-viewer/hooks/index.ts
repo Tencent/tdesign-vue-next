@@ -59,9 +59,9 @@ export function useMirror() {
 }
 
 export interface ZoomOptions {
-  /** 缩放中心点 X 坐标 */
+  /** 缩放中心点 X 坐标（相对于预览图片容器中心的偏移量） */
   mouseOffsetX?: number;
-  /** 缩放中心点 Y 坐标 */
+  /** 缩放中心点 Y 坐标（相对于预览图片容器中心的偏移量） */
   mouseOffsetY?: number;
   /** 当前位移 */
   currentTranslate?: { translateX: number; translateY: number };

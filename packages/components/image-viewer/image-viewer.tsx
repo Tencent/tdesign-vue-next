@@ -147,9 +147,9 @@ export default defineComponent({
 
     const divRef = ref<HTMLDivElement>();
     const imageItemRef = ref<{
-      modalBoxRef: HTMLDivElement;
-      transform: { translateX: number; translateY: number };
-      resetTransform: () => void;
+      modalBoxRef?: HTMLDivElement;
+      transform?: { translateX: number; translateY: number };
+      resetTransform?: () => void;
     }>();
 
     watch(
@@ -177,42 +177,45 @@ export default defineComponent({
     });
 
     // 检测图片是否超出视口
-    const isImageOverflow = (): boolean => {
-      const container = divRef.value;
-      const modalBox = imageItemRef.value?.modalBoxRef;
-
-      if (!container || !modalBox) return false;
-
+    const isImageExceedsViewport = (container: HTMLDivElement, modalBox: HTMLDivElement): boolean => {
       const containerRect = container.getBoundingClientRect();
-      const modalBoxRect = modalBox.getBoundingClientRect();
-
+      const modalRect = modalBox.getBoundingClientRect();
       return (
-        modalBoxRect.left < containerRect.left ||
-        modalBoxRect.right > containerRect.right ||
-        modalBoxRect.top < containerRect.top ||
-        modalBoxRect.bottom > containerRect.bottom
+        modalRect.left < containerRect.left ||
+        modalRect.right > containerRect.right ||
+        modalRect.top < containerRect.top ||
+        modalRect.bottom > containerRect.bottom
       );
     };
 
-    // 滚轮缩放：缩小且图片超出视口时，向视口中心收敛
+    // 滚轮缩放
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const isZoomOut = e.deltaY > 0;
 
+      const container = divRef.value;
+      const modalBox = imageItemRef.value?.modalBoxRef;
+
       // 无视口信息时，直接缩放
-      if (!divRef.value) {
+      if (!container || !modalBox) {
         isZoomOut ? onZoomOut() : onZoomIn();
         return;
       }
 
-      // 缩小且图片超出视口：向视口中心收敛
-      if (isZoomOut && isImageOverflow()) {
+      // 缩小且图片超出视口：以视口中心为基准，向视口中心收敛
+      if (isZoomOut && isImageExceedsViewport(container, modalBox)) {
         const currentTranslate = imageItemRef.value?.transform ?? { translateX: 0, translateY: 0 };
-        const result = onZoomOut({ mouseOffsetX: 0, mouseOffsetY: 0, currentTranslate });
+
+        const result = onZoomOut({
+          mouseOffsetX: 0,
+          mouseOffsetY: 0,
+          currentTranslate,
+        });
         if (result?.newTranslate) {
           imageItemRef.value.transform = result.newTranslate;
         }
       } else {
+        // 正常缩放
         isZoomOut ? onZoomOut() : onZoomIn();
       }
     };
