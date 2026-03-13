@@ -42,5 +42,8 @@ export type { TreeNodeValue } from '@tdesign/common-js/tree/types';
 export type { TreeOptionData } from '@tdesign/common-js/common';
 export type { TreeNodeModel } from '../tree';
 export type { TdSelectInputProps } from '../select-input/type';
+import { TypeTreeNodeData } from '@tdesign/common-js/tree/types';
+
+export type CascaderOption = TreeOptionData | TypeTreeNodeData;
 
 export const EVENT_NAME_WITH_KEBAB = ['remove', 'blur', 'focus'];
