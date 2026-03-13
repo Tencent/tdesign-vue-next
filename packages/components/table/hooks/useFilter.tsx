@@ -175,6 +175,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         popupProps={col.filter.popupProps}
         attach={props.attach}
         locale={props.locale}
+        onInnerFilterChange={onInnerFilterChange}
         onReset={onReset}
         onConfirm={onConfirm}
         primaryTableElement={primaryTableRef.value?.$el}
@@ -199,6 +200,5 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
     renderFilterIcon,
     renderFirstFilterRow,
     setFilterPrimaryTableRef,
-    onInnerFilterChange,
   };
 }

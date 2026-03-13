@@ -5,6 +5,19 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.5 `2026-03-12`
+
+### 🐞 Bug Fixes
+
+- `Tree`: Fixed an issue where blank spaces appeared during scrolling after enabling virtual scrolling in version 1.18.3 @uyarn ([#6483](https://github.com/Tencent/tdesign-vue-next/pull/6483))
+
+## 🌈 1.18.4 `2026-03-11`
+
+### 🐞 Bug Fixes
+
+- `FormItem`: An issue where validation errors were triggered when used alone, causing errors in the console. @betavs ([#6467](https://github.com/Tencent/tdesign-vue-next/pull/6467))
+- `Table`: Fixed an issue where the filtering function stopped working after the 1.18.3 version update. @betavs ([#6481](https://github.com/Tencent/tdesign-vue-next/pull/6481))
+
 ## 🌈 1.18.3 `2026-03-05`
 
 ### 🚀 Features
