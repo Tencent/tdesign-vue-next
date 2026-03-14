@@ -24,7 +24,7 @@ export default defineComponent({
     onCellMouseEnter: Function,
     onCellMouseLeave: Function,
     cell: {
-      type: Function as PropType<TdDatePickerProps['cell'] | TdDateRangePickerProps['cell']>,
+      type: Function as PropType<TdDatePickerProps['cell']>,
     },
   },
   setup(props, { slots }) {
