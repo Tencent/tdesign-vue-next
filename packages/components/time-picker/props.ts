@@ -50,6 +50,10 @@ export default {
   popupProps: {
     type: Object as PropType<TdTimePickerProps['popupProps']>,
   },
+  /** 用于自定义组件前置图标 */
+  prefixIcon: {
+    type: Function as PropType<TdTimePickerProps['prefixIcon']>,
+  },
   /** 预设快捷时间选择，示例：`{ '前一小时': '11:00:00' }` */
   presets: {
     type: Object as PropType<TdTimePickerProps['presets']>,
@@ -85,6 +89,10 @@ export default {
   steps: {
     type: Array as PropType<TdTimePickerProps['steps']>,
     default: (): TdTimePickerProps['steps'] => [1, 1, 1],
+  },
+  /** 用于自定义组件后置图标 */
+  suffixIcon: {
+    type: Function as PropType<TdTimePickerProps['suffixIcon']>,
   },
   /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
   tips: {
