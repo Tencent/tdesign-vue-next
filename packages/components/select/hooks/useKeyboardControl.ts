@@ -129,9 +129,9 @@ export function useKeyboardControl({
         break;
       case 'Escape':
         if (innerPopupVisible.value) {
-          e.stopImmediatePropagation();
-          setInnerPopupVisible(false, { e });
+          e?.stopImmediatePropagation?.();
         }
+        setInnerPopupVisible(false, { e });
         break;
     }
   };
