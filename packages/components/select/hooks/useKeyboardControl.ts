@@ -128,7 +128,10 @@ export function useKeyboardControl({
         }
         break;
       case 'Escape':
-        setInnerPopupVisible(false, { e });
+        if (innerPopupVisible.value) {
+          e.stopImmediatePropagation();
+          setInnerPopupVisible(false, { e });
+        }
         break;
     }
   };
