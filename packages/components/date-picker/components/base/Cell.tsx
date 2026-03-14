@@ -1,7 +1,8 @@
-import { defineComponent, computed } from 'vue';
-import { usePrefixClass } from '@tdesign/shared-hooks';
+import { defineComponent, computed, PropType } from 'vue';
+import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 import { extractTimeObj } from '@tdesign/common-js/date-picker/utils';
 import { Dayjs } from 'dayjs';
+import type { TdDatePickerProps, TdDateRangePickerProps } from '../../type';
 
 export default defineComponent({
   name: 'TDatePickerCell',
@@ -23,10 +24,12 @@ export default defineComponent({
     lastDayOfMonth: Boolean,
     onClick: Function,
     onMouseEnter: Function,
+    cell: Function as PropType<TdDatePickerProps['cell'] | TdDateRangePickerProps['cell']>,
     dayjsObj: Dayjs,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__cell');
+    const renderTNodeJSX = useTNodeJSX();
 
     const cellClass = computed(() => [
       COMPONENT_NAME.value,
@@ -80,7 +83,9 @@ export default defineComponent({
 
     return () => (
       <td class={cellClass.value} onClick={handleClick} onMouseenter={handleMouseEnter}>
-        <div class={`${COMPONENT_NAME.value}-inner`}>{props.text}</div>
+        <div class={`${COMPONENT_NAME.value}-inner`}>
+          {renderTNodeJSX('cell', { params: { value: props.value } }) || props.text}
+        </div>
       </td>
     );
   },
