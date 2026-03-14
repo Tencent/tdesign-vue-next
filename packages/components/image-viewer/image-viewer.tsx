@@ -1,6 +1,6 @@
 import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, onBeforeUnmount, ref, toRefs, watch } from 'vue';
-import { isNumber } from 'lodash-es';
+import { isNumber, throttle } from 'lodash-es';
 
 import {
   useVModel,
@@ -174,6 +174,7 @@ export default defineComponent({
     // Clean up timer when component is unmounted to prevent memory leaks and errors
     onBeforeUnmount(() => {
       clearTimeout(animationTimer.value);
+      onWheel.cancel?.();
     });
 
     // 检测图片是否超出视口
@@ -189,7 +190,7 @@ export default defineComponent({
     };
 
     // 滚轮缩放
-    const onWheel = (e: WheelEvent) => {
+    const handleWheelZoom = (e: WheelEvent) => {
       e.preventDefault();
       const isZoomOut = e.deltaY > 0;
 
@@ -219,6 +220,9 @@ export default defineComponent({
         isZoomOut ? onZoomOut() : onZoomIn();
       }
     };
+
+    // 对滚轮事件进行 50ms 节流，防止高频触发导致的快速缩放和多余渲染
+    const onWheel = throttle(handleWheelZoom, 50);
 
     const transStyle = computed(() => ({
       transform: `translateX(calc(-${indexValue.value} * (40px / 9 * 16 + 4px)))`,
