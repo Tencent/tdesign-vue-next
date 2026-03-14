@@ -220,6 +220,10 @@ export interface TdTimeRangePickerProps {
    */
   popupProps?: PopupProps;
   /**
+   * 用于自定义组件前置图标
+   */
+  prefixIcon?: TNode;
+  /**
    * 预设快捷时间范围选择，示例：{ '下午': ['13:00:00', '18:00:00'] }
    */
   presets?: PresetTimeRange;
@@ -246,6 +250,10 @@ export interface TdTimeRangePickerProps {
    * @default [1, 1, 1]
    */
   steps?: Array<string | number>;
+  /**
+   * 用于自定义组件后置图标
+   */
+  suffixIcon?: TNode;
   /**
    * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
    */

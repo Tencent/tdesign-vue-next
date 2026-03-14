@@ -69,12 +69,14 @@ hideDisabledTime | Boolean | true | \- | N
 label | String / Slot / Function | - | Typescript: `string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 placeholder | String / Array | undefined | Typescript: `string \| Array<string>` | N
 popupProps | Object | - | Typescript: `PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/time-picker/type.ts) | N
+prefixIcon | Slot / Function | - | Typescript: `TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 presets | Object | - | Typescript: `PresetTimeRange` `interface PresetTimeRange { [presetRageName: string]: TimeRangeValue \| (() => TimeRangeValue)}`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/time-picker/type.ts) | N
 rangeInputProps | Object | - | Typescript: `RangeInputProps`，[RangeInput API Documents](./range-input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/time-picker/type.ts) | N
 readonly | Boolean | undefined | Whether it is read only, the priority is greater than `allowInput` | N
 size | String | medium | options: small/medium/large | N
 status | String | default | options: default/success/warning/error | N
 steps | Array | [1, 1, 1] | Typescript: `Array<string \| number>` | N
+suffixIcon | Slot / Function | - | Typescript: `TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 tips | String / Slot / Function | - | Typescript: `string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 value | Array | - | `v-model` and `v-model:value` is supported。Typescript: `TimeRangeValue` `type TimeRangeValue = Array<string>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/time-picker/type.ts) | N
 defaultValue | Array | - | uncontrolled property。Typescript: `TimeRangeValue` `type TimeRangeValue = Array<string>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/time-picker/type.ts) | N
