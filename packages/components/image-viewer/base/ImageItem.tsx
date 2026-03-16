@@ -17,15 +17,19 @@ export default defineComponent({
     imageReferrerpolicy: String as PropType<TdImageViewerProps['imageReferrerpolicy']>,
   },
 
-  setup(props) {
+  setup(props, { expose }) {
     const { src, placementSrc, isSvg } = toRefs(props);
     const classPrefix = usePrefixClass();
     const error = ref(false);
     const loaded = ref(false);
-    const { transform, mouseDownHandler } = useDrag({ translateX: 0, translateY: 0 });
+    const { transform, mouseDownHandler, resetTransform } = useDrag({ translateX: 0, translateY: 0 });
     const { globalConfig } = useConfig('imageViewer');
     const errorText = globalConfig.value.errorText;
     const svgElRef = ref<HTMLDivElement>();
+    const modalBoxRef = ref<HTMLDivElement>();
+
+    // 暴露内部状态，供父组件在缩放时读写 transform
+    expose({ modalBoxRef, transform, resetTransform });
 
     const imgStyle = computed(() => ({
       transform: `rotate(${props.rotate}deg)`,
@@ -121,7 +125,7 @@ export default defineComponent({
 
     return () => (
       <div class={`${classPrefix.value}-image-viewer__modal-pic`}>
-        <div class={`${classPrefix.value}-image-viewer__modal-box`} style={boxStyle.value}>
+        <div ref={modalBoxRef} class={`${classPrefix.value}-image-viewer__modal-box`} style={boxStyle.value}>
           {error.value && (
             <div class={`${classPrefix.value}-image-viewer__img-error`}>
               {/* 脱离文档流 */}

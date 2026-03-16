@@ -1,6 +1,6 @@
 import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, onBeforeUnmount, ref, toRefs, watch } from 'vue';
-import { isNumber } from 'lodash-es';
+import { isNumber, throttle } from 'lodash-es';
 
 import {
   useVModel,
@@ -65,10 +65,12 @@ export default defineComponent({
     const { mirror, onMirror, resetMirror } = useMirror();
     const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale as ImageScale);
     const { rotate, onRotate, resetRotate } = useRotate();
+
     const onRest = () => {
       resetMirror();
       resetScale();
       resetRotate();
+      imageItemRef.value?.resetTransform?.();
     };
 
     const images = computed(() => formatImages(props.images));
@@ -117,7 +119,6 @@ export default defineComponent({
         onClose({ e, trigger: 'overlay' });
       }
     };
-
     const keydownHandler = (e: KeyboardEvent) => {
       e.stopPropagation();
 
@@ -145,6 +146,12 @@ export default defineComponent({
     };
 
     const divRef = ref<HTMLDivElement>();
+    const imageItemRef = ref<{
+      modalBoxRef?: HTMLDivElement;
+      transform?: { translateX: number; translateY: number };
+      resetTransform?: () => void;
+    }>();
+
     watch(
       () => visibleValue.value,
       (val) => {
@@ -167,13 +174,61 @@ export default defineComponent({
     // Clean up timer when component is unmounted to prevent memory leaks and errors
     onBeforeUnmount(() => {
       clearTimeout(animationTimer.value);
+      cancelWheel();
     });
 
+    // 检测图片是否超出视口
+    const isImageExceedsViewport = (container: HTMLDivElement, modalBox: HTMLDivElement): boolean => {
+      const containerRect = container.getBoundingClientRect();
+      const modalRect = modalBox.getBoundingClientRect();
+      return (
+        modalRect.left < containerRect.left ||
+        modalRect.right > containerRect.right ||
+        modalRect.top < containerRect.top ||
+        modalRect.bottom > containerRect.bottom
+      );
+    };
+
+    // 滚轮缩放
+    const handleWheelZoom = (e: WheelEvent) => {
+      const isZoomOut = e.deltaY > 0;
+
+      const container = divRef.value;
+      const modalBox = imageItemRef.value?.modalBoxRef;
+
+      // 无视口信息时，直接缩放
+      if (!container || !modalBox) {
+        isZoomOut ? onZoomOut() : onZoomIn();
+        return;
+      }
+
+      // 缩小且图片超出视口：以视口中心为基准，向视口中心收敛
+      if (isZoomOut && isImageExceedsViewport(container, modalBox)) {
+        const currentTranslate = imageItemRef.value?.transform ?? { translateX: 0, translateY: 0 };
+
+        const result = onZoomOut({
+          mouseOffsetX: 0,
+          mouseOffsetY: 0,
+          currentTranslate,
+        });
+        if (result?.newTranslate) {
+          imageItemRef.value.transform = result.newTranslate;
+        }
+      } else {
+        // 正常缩放
+        isZoomOut ? onZoomOut() : onZoomIn();
+      }
+    };
+
+    // 对滚轮事件进行 50ms 节流，防止高频触发导致的快速缩放和多余渲染
+    // 注意：在 throttle 包装之前调用 preventDefault，确保阻止默认滚动行为
+    const throttledHandleWheelZoom = throttle(handleWheelZoom, 50);
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const { deltaY } = e;
-      deltaY > 0 ? onZoomOut() : onZoomIn();
+      throttledHandleWheelZoom(e);
     };
+    // 保存 cancel 方法供组件卸载时调用
+    const cancelWheel = () => throttledHandleWheelZoom.cancel?.();
 
     const transStyle = computed(() => ({
       transform: `translateX(calc(-${indexValue.value} * (40px / 9 * 16 + 4px)))`,
@@ -340,6 +395,7 @@ export default defineComponent({
                     currentImage={currentImage.value}
                   />
                   <TImageItem
+                    ref={imageItemRef}
                     scale={scale.value}
                     rotate={rotate.value}
                     mirror={mirror.value}
