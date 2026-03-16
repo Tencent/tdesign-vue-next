@@ -1,6 +1,6 @@
 import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, onBeforeUnmount, ref, toRefs, watch } from 'vue';
-import { isNumber, throttle } from 'lodash-es';
+import { isNumber } from 'lodash-es';
 
 import {
   useVModel,
@@ -63,7 +63,7 @@ export default defineComponent({
     };
 
     const { mirror, onMirror, resetMirror } = useMirror();
-    const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale as ImageScale);
+    const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale);
     const { rotate, onRotate, resetRotate } = useRotate();
 
     const onRest = () => {
@@ -220,15 +220,13 @@ export default defineComponent({
       }
     };
 
-    // 对滚轮事件进行 50ms 节流，防止高频触发导致的快速缩放和多余渲染
-    // 注意：在 throttle 包装之前调用 preventDefault，确保阻止默认滚动行为
-    const throttledHandleWheelZoom = throttle(handleWheelZoom, 50);
+    // 滚轮事件处理，节流已在 useScale hook 内部实现（50ms）
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      throttledHandleWheelZoom(e);
+      handleWheelZoom(e);
     };
-    // 保存 cancel 方法供组件卸载时调用
-    const cancelWheel = () => throttledHandleWheelZoom.cancel?.();
+    // 空函数，用于 onBeforeUnmount 中清理（保持接口一致性）
+    const cancelWheel = () => {};
 
     const transStyle = computed(() => ({
       transform: `translateX(calc(-${indexValue.value} * (40px / 9 * 16 + 4px)))`,

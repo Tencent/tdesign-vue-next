@@ -1,5 +1,6 @@
 import { positiveSubtract, positiveAdd } from '@tdesign/common-js/input-number/number';
 import { ref, watch } from 'vue';
+import { throttle } from 'lodash-es';
 import { ImageScale } from '../type';
 
 interface InitTransform {
@@ -72,7 +73,7 @@ export interface ZoomResult {
   newTranslate?: { translateX: number; translateY: number };
 }
 
-export function useScale(imageScale: ImageScale) {
+export function useScale(imageScale: Partial<ImageScale> | undefined) {
   const params = { max: 2, min: 0.5, step: 0.2, defaultScale: 1, ...imageScale };
   const { max, min, step, defaultScale } = params;
   const scale = ref(defaultScale);
@@ -102,26 +103,48 @@ export function useScale(imageScale: ImageScale) {
     };
   };
 
-  const onZoomIn = (options?: ZoomOptions): ZoomResult => {
-    const oldScale = scale.value;
-    const result = positiveAdd(oldScale, step);
-    const newScale = Math.min(result, max);
-    setScale(newScale);
+  // 节流内部实现（50ms 间隔），确保快速调用时不会过度触发缩放
+  const doZoomIn = throttle(
+    (options: ZoomOptions | undefined) => {
+      const oldScale = scale.value;
+      const result = positiveAdd(oldScale, step);
+      const newScale = Math.min(result, max);
+      setScale(newScale);
 
-    return {
-      newTranslate: calculateTranslateOffset(oldScale, newScale, options),
-    };
+      lastZoomResult.value = {
+        newTranslate: calculateTranslateOffset(oldScale, newScale, options),
+      };
+    },
+    50,
+    { leading: true, trailing: false },
+  );
+
+  const doZoomOut = throttle(
+    (options: ZoomOptions | undefined) => {
+      const oldScale = scale.value;
+      const result = positiveSubtract(oldScale, step);
+      const newScale = Math.max(result, min);
+      setScale(newScale);
+
+      lastZoomResult.value = {
+        newTranslate: calculateTranslateOffset(oldScale, newScale, options),
+      };
+    },
+    50,
+    { leading: true, trailing: false },
+  );
+
+  // 存储上一次缩放的结果，供同步调用时返回
+  const lastZoomResult = ref<ZoomResult>({});
+
+  const onZoomIn = (options?: ZoomOptions): ZoomResult => {
+    doZoomIn(options);
+    return lastZoomResult.value;
   };
 
   const onZoomOut = (options?: ZoomOptions): ZoomResult => {
-    const oldScale = scale.value;
-    const result = positiveSubtract(oldScale, step);
-    const newScale = Math.max(result, min);
-    setScale(newScale);
-
-    return {
-      newTranslate: calculateTranslateOffset(oldScale, newScale, options),
-    };
+    doZoomOut(options);
+    return lastZoomResult.value;
   };
 
   const resetScale = () => {
