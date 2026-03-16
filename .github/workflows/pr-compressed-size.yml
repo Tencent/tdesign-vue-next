@@ -1,0 +1,65 @@
+name: pr-compressed-size
+
+on:
+  pull_request:
+    branches: [develop]
+jobs:
+  tdesign-vue-next:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          build-script: 'build:vue'
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          pattern: './packages/tdesign-vue-next/dist/**/*.{js,css}'
+          comment-key: tdesign-vue-next
+
+  tdesign-vue-next-chat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          build-script: 'build:chat'
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          pattern: './packages/tdesign-vue-next-chat/es/**/*.{mjs,css}'
+          comment-key: tdesign-vue-next-chat
+
+  auto-import-resolver:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          build-script: 'build:auto-import-resolver'
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          pattern: './packages/auto-import-resolver/dist/*.{js,cjs,mjs}'
+          comment-key: auto-import-resolver
