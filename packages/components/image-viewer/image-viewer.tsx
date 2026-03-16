@@ -174,7 +174,7 @@ export default defineComponent({
     // Clean up timer when component is unmounted to prevent memory leaks and errors
     onBeforeUnmount(() => {
       clearTimeout(animationTimer.value);
-      onWheel.cancel?.();
+      cancelWheel();
     });
 
     // 检测图片是否超出视口
@@ -227,6 +227,8 @@ export default defineComponent({
       e.preventDefault();
       throttledHandleWheelZoom(e);
     };
+    // 保存 cancel 方法供组件卸载时调用
+    const cancelWheel = () => throttledHandleWheelZoom.cancel?.();
 
     const transStyle = computed(() => ({
       transform: `translateX(calc(-${indexValue.value} * (40px / 9 * 16 + 4px)))`,
