@@ -122,7 +122,8 @@ export default defineComponent({
           allowInput={allowInput.value}
           class={inputClasses.value}
           label={props.label}
-          suffixIcon={() => <TimeIcon />}
+          prefixIcon={() => renderTNodeJSX('prefixIcon')}
+          suffixIcon={() => renderTNodeJSX('suffixIcon') || <TimeIcon />}
           popupVisible={!isReadonly.value && isShowPanel.value}
           placeholder={!innerValue.value ? props.placeholder || globalConfig.value.placeholder : undefined}
           value={isShowPanel.value ? currentValue.value : innerValue.value ?? undefined}
