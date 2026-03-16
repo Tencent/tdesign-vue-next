@@ -43,9 +43,10 @@ export default defineComponent({
     };
     return () => {
       const presetsContent = renderPresets();
+      const hasPresetsContent = Array.isArray(presetsContent) ? presetsContent.length > 0 : !!presetsContent;
       return (
         <div class={footerClass.value}>
-          {presetsContent ? <div class={presetsClass.value}>{presetsContent}</div> : null}
+          {hasPresetsContent ? <div class={presetsClass.value}>{presetsContent}</div> : null}
           {props.enableTimePicker && props.needConfirm && (
             <TButton
               disabled={!props.selectedValue}
