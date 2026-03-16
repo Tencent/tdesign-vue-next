@@ -15,7 +15,7 @@ export default defineComponent({
   setup(props) {
     const imgSrc = computed(() => props.imageSettings?.src);
 
-    const imageRef = ref<HTMLImageElement>(null);
+    const imageRef = ref<HTMLImageElement>();
 
     const canvasRef = ref<HTMLCanvasElement>(null);
 
@@ -55,7 +55,7 @@ export default defineComponent({
       const haveImageToRender =
         calculatedImageSettings.value &&
         image !== null &&
-        image.complete &&
+        image?.complete &&
         image.naturalHeight !== 0 &&
         image.naturalWidth !== 0;
 

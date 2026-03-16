@@ -6,7 +6,6 @@ exports[`DatePicker > :mode 1`] = `
 >
   <div
     class="t-select-input t-select-input--empty"
-    needconfirm="true"
   >
     
     <div
@@ -189,7 +188,6 @@ exports[`DatePicker > :value 1`] = `
 >
   <div
     class="t-select-input"
-    needconfirm="true"
   >
     
     <div

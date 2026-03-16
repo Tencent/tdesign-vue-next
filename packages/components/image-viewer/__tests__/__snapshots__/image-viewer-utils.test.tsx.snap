@@ -130,7 +130,6 @@ exports[`ImageViewerUtils > props > :scale[number] renders utils container and i
     </div>
     <div
       class="t-image-viewer__modal-icon t-image-viewer__utils-scale"
-      size="medium"
     >
       <!---->
       <span

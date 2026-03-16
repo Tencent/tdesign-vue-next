@@ -144,6 +144,7 @@ export default defineComponent({
     };
     const submit = async (params?: Pick<FormValidateParams, 'showErrorMessage'>) => {
       submitParams.value = params;
+      // @ts-ignore TODO
       requestSubmit(formRef.value);
     };
 

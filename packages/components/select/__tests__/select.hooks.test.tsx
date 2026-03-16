@@ -51,6 +51,7 @@ const createKeyboardControlContext = (
     optionsList: computed((): TdOptionProps[] => simpleOptions),
     innerPopupVisible: ref(true),
     setInnerPopupVisible: vi.fn(),
+    // @ts-ignore
     selectPanelRef: ref(mockSelectPanelRef),
     isFilterable: computed((): boolean => false),
     isRemoteSearch: computed((): boolean => false),
@@ -257,6 +258,7 @@ describe('Select Hooks', () => {
           innerRef: { querySelector: () => ({ clientHeight: 32 }) } as unknown as HTMLDivElement,
         };
         const ctx = createKeyboardControlContext({
+          // @ts-ignore
           selectPanelRef: ref(mockSelectPanelRef),
           isFilterable: computed((): boolean => true),
         });

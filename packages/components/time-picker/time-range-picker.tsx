@@ -207,7 +207,6 @@ export default defineComponent({
               isFooterDisplay={true}
               value={currentValue.value[currentPanelIdx.value || 0]}
               onChange={handleTimeChange}
-              onPick={handleOnPick}
               handleConfirmClick={handleClickConfirm}
               position={currentPanelIdx.value === 0 ? 'start' : 'end'}
               activeIndex={currentPanelIdx.value}

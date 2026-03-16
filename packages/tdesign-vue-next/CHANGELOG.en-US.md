@@ -5,6 +5,34 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.5 `2026-03-12`
+
+### 🐞 Bug Fixes
+
+- `Tree`: Fixed an issue where blank spaces appeared during scrolling after enabling virtual scrolling in version 1.18.3 @uyarn ([#6483](https://github.com/Tencent/tdesign-vue-next/pull/6483))
+
+## 🌈 1.18.4 `2026-03-11`
+
+### 🐞 Bug Fixes
+
+- `FormItem`: An issue where validation errors were triggered when used alone, causing errors in the console. @betavs ([#6467](https://github.com/Tencent/tdesign-vue-next/pull/6467))
+- `Table`: Fixed an issue where the filtering function stopped working after the 1.18.3 version update. @betavs ([#6481](https://github.com/Tencent/tdesign-vue-next/pull/6481))
+
+## 🌈 1.18.3 `2026-03-05`
+
+### 🚀 Features
+
+- `Select`: Added support for BigInt type options @Jie-echo ([#6460](https://github.com/Tencent/tdesign-vue-next/pull/6460))
+
+### 🐞 Bug Fixes
+
+- `DatePicker`: Fixed an error where clearing data triggered multiple onChange callbacks when only one option was selected @RSS1102 ([#6451](https://github.com/Tencent/tdesign-vue-next/pull/6451))
+- `Drawer`: Fixed an issue with abnormal pop-up styles in push mode @Zn-Dk ([#6446](https://github.com/Tencent/tdesign-vue-next/pull/6446))
+- `DrawerPlugin`: Corrected an issue with abnormal opening animations when using `className` @Cat1007 ([#6424](https://github.com/Tencent/tdesign-vue-next/pull/6424))
+- `InputNumber`: Fixed an issue where the hover color was incorrect when `disabled` @RylanBot ([common#2402](https://github.com/Tencent/tdesign-common/pull/2402))
+- `Progress`: Fixed an issue where the line and plump themes were not compatible with small screen sizes @liweijie0812 ([#6340](https://github.com/Tencent/tdesign-vue-next/pull/6340))
+- `Swiper`: Fixed issues where the `navigation.size` configuration was ineffective, and the navigator color was incorrect when `navigation.placement=outside` in both "dot" and "bar" navigation styles @Wesley-0808 ([common#2418](https://github.com/Tencent/tdesign-common/pull/2418))
+
 ## 🌈 1.18.2 `2026-02-05`
 
 ### 🐞 Bug Fixes
