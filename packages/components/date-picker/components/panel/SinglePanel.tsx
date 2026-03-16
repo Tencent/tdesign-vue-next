@@ -45,7 +45,7 @@ export default defineComponent({
     onTimePickerChange: Function,
     disableTime: Function,
   },
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
     const { globalConfig } = useConfig('datePicker');
 
@@ -129,9 +129,13 @@ export default defineComponent({
         ]}
         onClick={(e) => props.onPanelClick?.({ e })}
       >
-        {['top', 'left'].includes(props.presetsPlacement) ? <TExtraContent {...extraProps.value} /> : null}
+        {['top', 'left'].includes(props.presetsPlacement) ? (
+          <TExtraContent {...extraProps.value} v-slots={slots.presets ? { presets: slots.presets } : {}} />
+        ) : null}
         <TPanelContent {...panelContentProps.value} />
-        {['bottom', 'right'].includes(props.presetsPlacement) ? <TExtraContent {...extraProps.value} /> : null}
+        {['bottom', 'right'].includes(props.presetsPlacement) ? (
+          <TExtraContent {...extraProps.value} v-slots={slots.presets ? { presets: slots.presets } : {}} />
+        ) : null}
       </div>
     );
   },
