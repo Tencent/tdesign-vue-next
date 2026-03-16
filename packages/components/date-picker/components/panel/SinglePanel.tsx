@@ -130,11 +130,11 @@ export default defineComponent({
         onClick={(e) => props.onPanelClick?.({ e })}
       >
         {['top', 'left'].includes(props.presetsPlacement) ? (
-          <TExtraContent {...extraProps.value} v-slots={{ presets: slots.presets }} />
+          <TExtraContent {...extraProps.value} v-slots={slots.presets ? { presets: slots.presets } : {}} />
         ) : null}
         <TPanelContent {...panelContentProps.value} />
         {['bottom', 'right'].includes(props.presetsPlacement) ? (
-          <TExtraContent {...extraProps.value} v-slots={{ presets: slots.presets }} />
+          <TExtraContent {...extraProps.value} v-slots={slots.presets ? { presets: slots.presets } : {}} />
         ) : null}
       </div>
     );
