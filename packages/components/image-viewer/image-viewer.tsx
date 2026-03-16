@@ -21,7 +21,7 @@ import TImageViewerUtils from './base/ImageViewerUtils';
 import { EVENT_CODE } from './constants';
 import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
-import { ImageScale, TdImageViewerProps } from './type';
+import { TdImageViewerProps } from './type';
 import { getOverlay } from './utils';
 
 export default defineComponent({
