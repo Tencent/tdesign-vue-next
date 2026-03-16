@@ -66,7 +66,7 @@ export default defineComponent({
     const theadClasses = computed(() => [
       tableHeaderClasses.header,
       {
-        [tableHeaderClasses.fixed]: Boolean(props.maxHeight || props.height),
+        [tableHeaderClasses.fixed]: props.isFixedHeader,
         [tableBaseClass.bordered]: props.bordered && props.isMultipleHeader,
         [tableHeaderClasses.multipleHeader]: props.isMultipleHeader,
       },
