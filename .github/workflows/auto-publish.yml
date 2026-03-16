@@ -14,7 +14,6 @@ jobs:
           fetch-depth: 0
           submodules: recursive
           token: ${{ secrets.TDESIGN_BOT_TOKEN }}
-          
 
       - name: update official website
         run: |
@@ -37,7 +36,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
 
       - run: pnpm install
 
@@ -70,7 +69,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
 
       - run: pnpm install
 
