@@ -191,7 +191,6 @@ export default defineComponent({
 
     // 滚轮缩放
     const handleWheelZoom = (e: WheelEvent) => {
-      e.preventDefault();
       const isZoomOut = e.deltaY > 0;
 
       const container = divRef.value;
@@ -222,7 +221,12 @@ export default defineComponent({
     };
 
     // 对滚轮事件进行 50ms 节流，防止高频触发导致的快速缩放和多余渲染
-    const onWheel = throttle(handleWheelZoom, 50);
+    // 注意：在 throttle 包装之前调用 preventDefault，确保阻止默认滚动行为
+    const throttledHandleWheelZoom = throttle(handleWheelZoom, 50);
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      throttledHandleWheelZoom(e);
+    };
 
     const transStyle = computed(() => ({
       transform: `translateX(calc(-${indexValue.value} * (40px / 9 * 16 + 4px)))`,
