@@ -299,8 +299,11 @@ export default defineComponent({
       treeNodeList = (
         <TransitionGroup
           tag="div"
+          // @ts-ignore
+          class={`${cname}__list`}
           enter-active-class={`${cname}__item--enter-active`}
           leave-active-class={`${cname}__item--leave-active`}
+          style={scrollStyles}
         >
           {treeNodeViews}
         </TransitionGroup>

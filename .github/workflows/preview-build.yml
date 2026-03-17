@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
@@ -48,13 +48,13 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm -C packages/tdesign-vue-next-chat/site run preview
-      
+
       - uses: actions/upload-artifact@v4
         with:
           name: tdesign-vue-next-chat-site

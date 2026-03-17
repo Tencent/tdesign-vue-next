@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.5 `2026-03-12`
+
+### 🐞 Bug Fixes
+
+- `Tree`: 修复 1.18.3 中开启虚拟滚动后滚动中出现空白的错误 @uyarn ([#6483](https://github.com/Tencent/tdesign-vue-next/pull/6483))
+
 ## 🌈 1.18.4 `2026-03-11`
 
 ### 🐞 Bug Fixes
