@@ -56,6 +56,102 @@ describe('DatePicker', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('DatePicker: the presets slot appears when the pop-up panel is opened', async () => {
+    const presetsSlotId = 'date-picker-presets-slot-content';
+    const attachClass = 'date-picker-presets-slot-attach';
+
+    const wrapper = mount({
+      render() {
+        return (
+          <div class={attachClass}>
+            <DatePicker popupProps={{ attach: `.${attachClass}` }}>
+              {{
+                presets: () => <span data-testid={presetsSlotId}>presets</span>,
+              }}
+            </DatePicker>
+          </div>
+        );
+      },
+    });
+
+    const trigger = wrapper.find('.t-input');
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
+    await trigger.trigger('click');
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    const presetsEl = wrapper.find(`[data-testid="${presetsSlotId}"]`);
+    expect(presetsEl.exists()).toBe(true);
+    expect(presetsEl.text()).toBe('presets');
+  });
+
+  it('DatePicker: clicking the preset button triggers preset-click and passes { preset, e }', async () => {
+    const onPresetClick = vi.fn();
+    const attachClass = 'date-picker-preset-click-attach';
+    const presets = { today: '2020-12-28', yesterday: '2020-12-27' };
+
+    const wrapper = mount({
+      render() {
+        return (
+          <div class={attachClass}>
+            <DatePicker presets={presets} onPresetClick={onPresetClick} popupProps={{ attach: `.${attachClass}` }} />
+          </div>
+        );
+      },
+    });
+
+    const trigger = wrapper.find('.t-input');
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
+    await trigger.trigger('click');
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    const buttons = wrapper.findAll('.t-button');
+    const todayButton = buttons.find((b) => b.text() === 'today');
+    expect(todayButton).toBeTruthy();
+    if (todayButton) await todayButton.trigger('click');
+    await nextTick();
+
+    expect(onPresetClick).toHaveBeenCalledTimes(1);
+    const context = onPresetClick.mock.calls[0][0];
+    expect(context).toHaveProperty('preset');
+    expect(context).toHaveProperty('e');
+    expect(context.preset).toEqual({ today: '2020-12-28' });
+    expect(context.e).toBeInstanceOf(MouseEvent);
+  });
+
+  it('DateRangePicker: the presets slot appears when the pop-up panel is opened', async () => {
+    const presetsSlotId = 'date-range-presets-slot-content';
+    const attachClass = 'date-range-presets-test-attach';
+
+    const wrapper = mount({
+      render() {
+        return (
+          <div class={attachClass}>
+            <DateRangePicker popupProps={{ attach: `.${attachClass}` }}>
+              {{
+                presets: () => <span data-testid={presetsSlotId}>presets</span>,
+              }}
+            </DateRangePicker>
+          </div>
+        );
+      },
+    });
+
+    const trigger = wrapper.find('.t-input');
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
+    await trigger.trigger('click');
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    const presetsEl = wrapper.find(`[data-testid="${presetsSlotId}"]`);
+    expect(presetsEl.exists()).toBe(true);
+    expect(presetsEl.text()).toBe('presets');
+  });
+
   it("DatePicker: :defaultTime[string] & :valueType['time-stamp'] without enableTimePicker", async () => {
     // 测试 DatePicker 当 valueType 为 time-stamp 且提供 defaultTime 但不启用 enableTimePicker 时
     const defaultTime = '10:30:45';
