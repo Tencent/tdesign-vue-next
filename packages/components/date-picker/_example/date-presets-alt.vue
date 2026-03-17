@@ -2,7 +2,7 @@
   <t-space direction="vertical">
     <t-date-picker v-model="value" :presets="presets1" @preset-click="handlePresetClick" />
     <t-date-picker v-model="value">
-      <template #presets> <t-button>今天</t-button> </template>
+      <template #presets> <t-button @click="value = dayjs().toDate().toLocaleDateString()">今天</t-button> </template>
     </t-date-picker>
     <t-date-range-picker v-model="range1" :presets="presets" />
     <t-date-range-picker v-model="range2" :presets="presets" enable-time-picker />
@@ -26,7 +26,7 @@ const value = ref('2022-01-01');
 const range1 = ref(['2022-01-01', '2022-08-08']);
 const range2 = ref(['2022-01-01 11:11:11', '2022-08-08 12:12:12']);
 
-const handlePresetClick = (preset) => {
-  console.log(preset);
+const handlePresetClick = (context) => {
+  console.log(context);
 };
 </script>
