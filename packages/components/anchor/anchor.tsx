@@ -89,6 +89,39 @@ export default defineComponent({
         const latest = filters.reduce((prev, cur) => (prev.top > cur.top ? prev : cur));
         active = latest.link;
       }
+      // 当容器滚动到底部时，检查超出阈值但仍在视口内的锚点
+      // 避免最后几个锚点因无法滚动到顶部而无法被激活
+      if (scrollContainer.value) {
+        let scrollTop: number;
+        let scrollHeight: number;
+        let clientHeight: number;
+        if (scrollContainer.value === window) {
+          scrollTop = window.scrollY;
+          scrollHeight = document.documentElement.scrollHeight;
+          clientHeight = window.innerHeight;
+        } else {
+          const el = scrollContainer.value as HTMLElement;
+          scrollTop = el.scrollTop;
+          scrollHeight = el.scrollHeight;
+          clientHeight = el.clientHeight;
+        }
+        // +1 为容差，处理浏览器子像素渲染导致的浮点误差
+        if (scrollTop + clientHeight + 1 >= scrollHeight) {
+          const visibleFilters: { top: number; link: string }[] = [];
+          links.value.forEach((link) => {
+            const anchor = getAnchorTarget(link);
+            if (!anchor) return;
+            const top = getOffsetTop(anchor, scrollContainer.value);
+            if (top >= bounds + targetOffset && top < clientHeight) {
+              visibleFilters.push({ link, top });
+            }
+          });
+          if (visibleFilters.length) {
+            const topMost = visibleFilters.reduce((prev, cur) => (prev.top < cur.top ? prev : cur));
+            active = topMost.link;
+          }
+        }
+      }
       setCurrentActiveLink(active);
     };
     /**
