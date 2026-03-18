@@ -98,12 +98,12 @@ export default defineComponent({
       }
 
       // 如果滚动到底部，且当前计算出的 active 在视口中，且用户没有手动切换到更后的锚点
-      // 我们需要判断当前 active 是否由于触底而无法到达顶部触发线
+      // 需要判断当前 active 是否由于触底而无法到达顶部触发线
       if (isScrollBottom && links.value.length) {
         const currentActiveIndex = links.value.indexOf(active.value);
         const calcActiveIndex = links.value.indexOf(nextActive);
 
-        // 如果当前已经激活的项（比如点击选中的）索引比计算出来的更大，说明它是在底部可见的，不应被跳回到前面的项
+        // 如果当前已经激活的项索引比计算出来的更大，说明它是在底部可见的，不应被跳回到前面的项
         if (currentActiveIndex > calcActiveIndex) {
           const anchor = getAnchorTarget(active.value);
           if (anchor) {
@@ -198,9 +198,9 @@ export default defineComponent({
      */
     const handleScrollTo = async (link: string): Promise<void> => {
       const anchor = getAnchorTarget(link);
+      setCurrentActiveLink(link);
       if (!anchor) return;
       handleScrollLock.value = true;
-      setCurrentActiveLink(link);
       const { targetOffset } = props;
       const scrollTop = getScroll(scrollContainer.value);
       const offsetTop = getOffsetTop(anchor, scrollContainer.value);
