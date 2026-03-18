@@ -69,7 +69,14 @@ export default defineComponent({
       if (handleScrollLock.value) return;
       const { bounds, targetOffset } = props;
       const filters: { top: number; link: string }[] = [];
-      let active = '';
+      let nextActive = '';
+
+      const isScrollBottom =
+        scrollContainer.value instanceof HTMLElement &&
+        Math.abs(
+          scrollContainer.value.scrollTop + scrollContainer.value.clientHeight - scrollContainer.value.scrollHeight,
+        ) < 2;
+
       // 找出所有当前top小于预设值
       links.value.forEach((link) => {
         const anchor = getAnchorTarget(link);
@@ -87,9 +94,29 @@ export default defineComponent({
       // 找出小于预设值集合中top最大的
       if (filters.length) {
         const latest = filters.reduce((prev, cur) => (prev.top > cur.top ? prev : cur));
-        active = latest.link;
+        nextActive = latest.link;
       }
-      setCurrentActiveLink(active);
+
+      // 如果滚动到底部，且当前计算出的 active 在视口中，且用户没有手动切换到更后的锚点
+      // 我们需要判断当前 active 是否由于触底而无法到达顶部触发线
+      if (isScrollBottom && links.value.length) {
+        const currentActiveIndex = links.value.indexOf(active.value);
+        const calcActiveIndex = links.value.indexOf(nextActive);
+
+        // 如果当前已经激活的项（比如点击选中的）索引比计算出来的更大，说明它是在底部可见的，不应被跳回到前面的项
+        if (currentActiveIndex > calcActiveIndex) {
+          const anchor = getAnchorTarget(active.value);
+          if (anchor) {
+            const top = getOffsetTop(anchor, scrollContainer.value);
+            // 只要还在视口内，就维持它的激活状态
+            if (scrollContainer.value instanceof HTMLElement && top < scrollContainer.value.clientHeight) {
+              nextActive = active.value;
+            }
+          }
+        }
+      }
+
+      setCurrentActiveLink(nextActive);
     };
     /**
      * 获取锚点对应的target元素
@@ -171,9 +198,9 @@ export default defineComponent({
      */
     const handleScrollTo = async (link: string): Promise<void> => {
       const anchor = getAnchorTarget(link);
-      setCurrentActiveLink(link);
       if (!anchor) return;
       handleScrollLock.value = true;
+      setCurrentActiveLink(link);
       const { targetOffset } = props;
       const scrollTop = getScroll(scrollContainer.value);
       const offsetTop = getOffsetTop(anchor, scrollContainer.value);
