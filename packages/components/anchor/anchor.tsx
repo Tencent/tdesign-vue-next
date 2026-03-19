@@ -108,9 +108,13 @@ export default defineComponent({
           const anchor = getAnchorTarget(active.value);
           if (anchor) {
             const top = getOffsetTop(anchor, scrollContainer.value);
-            // 只要还在视口内，就维持它的激活状态
-            if (scrollContainer.value instanceof HTMLElement && top < scrollContainer.value.clientHeight) {
-              nextActive = active.value;
+            // 只要还在视口内（元素与视口有重叠），就维持它的激活状态
+            if (scrollContainer.value instanceof HTMLElement) {
+              const clientHeight = scrollContainer.value.clientHeight;
+              const bottom = top + anchor.offsetHeight;
+              if (bottom > 0 && top < clientHeight) {
+                nextActive = active.value;
+              }
             }
           }
         }
