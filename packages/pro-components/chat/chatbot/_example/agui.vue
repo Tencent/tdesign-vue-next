@@ -44,12 +44,24 @@
       @send="sendHandler"
       @stop="stopHandler"
     >
-      <template #suffix="{ renderPresets }">
-        <!-- 在这里可以进行自由的组合使用，或者新增预设 -->
-        <!-- 不需要附件操作的使用方式 -->
-        <component :is="renderPresets([])" />
+      <template #input-prefix> <Robot2Icon size="large" style="margin-top: 2px; margin-right: 10px" /> </template>
+      <template #suffix>
+        <t-button size="small" variant="text" @click="handleCustomButtonClick">
+          <template #icon>
+            <AiEditIcon />
+          </template>
+        </t-button>
       </template>
     </t-chat-sender>
+
+    <t-dialog
+      v-model:visible="dialogVisible"
+      title="输入内容"
+      @confirm="handleDialogCancel"
+      @cancel="handleDialogCancel"
+    >
+      <div>{{ dialogInputValue }}</div>
+    </t-dialog>
   </div>
 </template>
 
@@ -65,11 +77,14 @@ import {
   useChat,
 } from '@tdesign-vue-next/chat';
 import { MessagePlugin } from 'tdesign-vue-next';
+import { AiEditIcon, Robot2Icon } from 'tdesign-icons-vue-next';
 import CustomToolCallRenderer from './components/Toolcall.vue';
 
 const listRef = ref<TdChatListApi | null>(null);
 const inputRef = ref<TdChatSenderApi | null>(null);
 const inputValue = ref<string>('AG-UI协议的作用是什么');
+const dialogVisible = ref(false);
+const dialogInputValue = ref('');
 
 const { chatEngine, messages, status } = useChat({
   defaultMessages: [],
@@ -167,6 +182,17 @@ const sendHandler = async (params) => {
 // 停止处理
 const stopHandler = () => {
   chatEngine.value?.abortChat();
+};
+
+// 自定义按钮点击处理
+const handleCustomButtonClick = () => {
+  dialogVisible.value = true;
+  dialogInputValue.value = inputValue.value;
+};
+
+// 弹窗关闭处理
+const handleDialogCancel = () => {
+  dialogVisible.value = false;
 };
 </script>
 

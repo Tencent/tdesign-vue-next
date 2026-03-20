@@ -28,10 +28,13 @@
       @send="sendHandler"
       @stop="stopHandler"
     >
-      <template #suffix="{ renderPresets }">
-        <!-- 在这里可以进行自由的组合使用，或者新增预设 -->
+      <template #suffix>
         <!-- 不需要附件操作的使用方式 -->
-        <component :is="renderPresets([])" />
+        <t-button size="small" variant="text">
+          <template #icon>
+            <AppIcon />
+          </template>
+        </t-button>
       </template>
     </t-chat-sender>
   </div>
