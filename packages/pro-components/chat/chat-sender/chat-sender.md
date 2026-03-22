@@ -7,6 +7,7 @@
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 disabled | Boolean | false | 是否禁用输入框 | N
+sendBtnDisabled | Boolean | false | 是否禁用发送按钮 | N
 placeholder | String | - | 输入框默认文案 | N
 footer-prefix | String / Slot / Function | - | 输入框左下角区域扩展。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 input-prefix | String / Slot / Function | - | 输入框前方区域。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N

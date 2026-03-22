@@ -1,11 +1,12 @@
 <template>
   <t-chat-sender
     v-model="query"
-    :stop-disabled="loading"
+    :loading="loading"
     :textarea-props="{
       placeholder: '请输入消息...',
     }"
     @send="inputEnter"
+    @stop="onStop"
   >
     <template #suffix="{ renderPresets }">
       <!-- 在这里可以进行自由的组合使用，或者新增预设 -->
@@ -29,6 +30,9 @@ const inputEnter = function () {
   setTimeout(() => {
     loading.value = false;
   }, 5000);
+};
+const onStop = function () {
+  loading.value = false;
 };
 </script>
 <style>
