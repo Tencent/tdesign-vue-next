@@ -1,7 +1,7 @@
 <template>
   <t-space direction="vertical">
     <!-- 示例1: 显示农历日期 -->
-    <t-date-picker v-model="date1">
+    <t-date-picker v-model="date1" placeholder="显示农历日期">
       <template #cell="{ value }">
         <div class="lunar-cell">
           <span class="solar-day">{{ value.getDate() }}</span>
