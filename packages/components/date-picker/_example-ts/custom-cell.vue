@@ -26,14 +26,32 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { DateRangeValue } from 'tdesign-vue-next';
 
-const date1 = ref('');
-const date2 = ref(['', '']);
+const date1 = ref<string>('');
+const date2 = ref<DateRangeValue>(['', '']);
 
-function isSpecialDay(date) {
+function isSpecialDay(date: Date): boolean {
   return date.getDate() === 1 || date.getDate() === 15;
+}
+
+/** 农历年份信息类型 */
+interface LunarYearInfo {
+  monthDays: number[];
+  leapMonth: number;
+  leapDays: number;
+}
+
+/** 农历日期信息类型 */
+interface LunarDateInfo {
+  year: number;
+  month: number;
+  day: number;
+  isLeapMonth: boolean;
+  monthName: string;
+  dayName: string;
 }
 
 /**
@@ -44,7 +62,7 @@ function isSpecialDay(date) {
  * - leapMonth: 闰月月份，0表示无闰月
  * - leapDays: 闰月天数，30或29
  */
-function getLunarYearInfo(year) {
+function getLunarYearInfo(year: number): LunarYearInfo {
   /**
    * 农历数据表，每个数字编码了一年的信息：
    * - 低4位(0-3): 闰月月份(0-12，0表示无闰月)
@@ -108,7 +126,7 @@ const LUNAR_DAY_NAMES = [
 /**
  * 计算农历年的总天数
  */
-function getLunarYearTotalDays(year) {
+function getLunarYearTotalDays(year: number): number {
   const { monthDays, leapDays } = getLunarYearInfo(year);
   // 12个月的天数之和 + 闰月天数
   return monthDays.reduce((sum, days) => sum + days, 0) + leapDays;
@@ -116,16 +134,16 @@ function getLunarYearTotalDays(year) {
 
 /**
  * 公历日期转农历日期
- * @param {Date} solarDate - 公历日期
- * @returns {Object} 农历日期信息
+ * @param solarDate - 公历日期
+ * @returns 农历日期信息
  */
-function solarToLunar(solarDate) {
+function solarToLunar(solarDate: Date): LunarDateInfo {
   // 农历1900年正月初一对应的公历日期
   const BASE_DATE = new Date(1900, 0, 31);
   const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
 
   // 计算与基准日期相差的天数
-  let remainingDays = Math.floor((solarDate - BASE_DATE) / MILLISECONDS_PER_DAY);
+  let remainingDays = Math.floor((solarDate.getTime() - BASE_DATE.getTime()) / MILLISECONDS_PER_DAY);
 
   // 计算农历年份
   let lunarYear = 1900;
@@ -192,7 +210,7 @@ function solarToLunar(solarDate) {
  * 获取农历日期的显示文本
  * 规则：每月初一显示月份名，其他日期显示日期名
  */
-function getLunarDay(date) {
+function getLunarDay(date: Date): string {
   const lunar = solarToLunar(date);
   return lunar.day === 1 ? lunar.monthName : lunar.dayName;
 }
