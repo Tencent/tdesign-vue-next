@@ -40,7 +40,7 @@ import type { TagInputRemoveContext } from '../tag-input';
 export default defineComponent({
   name: 'TDatePicker',
   props,
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-picker');
 
     const {
@@ -425,6 +425,7 @@ export default defineComponent({
       needConfirm: props.needConfirm,
       disableTime: props.disableTime,
       range: props.range,
+      cell: props.cell,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
@@ -461,7 +462,7 @@ export default defineComponent({
           popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
           {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
-          panel={() => <TSinglePanel {...panelProps.value} />}
+          panel={() => <TSinglePanel {...panelProps.value} v-slots={slots} />}
           tagInputProps={{
             onRemove: onTagRemoveClick,
           }}
