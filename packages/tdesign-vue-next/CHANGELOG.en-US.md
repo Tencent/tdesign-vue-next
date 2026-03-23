@@ -5,6 +5,26 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.6 `2026-03-23`
+
+### 🚀 New Features
+
+- **DatePicker**: A new `cell` API has been added, allowing for custom date cell formatting and lunar calendar display. For details, please refer to the examples. @Wesley-0808 ([#6495](https://github.com/Tencent/tdesign-vue-next/pull/6495))
+- **DateRangePicker**: Similarly, a new `cell` API has been added for custom date cell formatting and lunar calendar support. See the examples for more details. @Wesley-0808 ([#6495](https://github.com/Tencent/tdesign-vue-next/pull/6495))
+- **TimePicker**: New `prefixIcon` and `suffixIcon` APIs have been added, enabling customization of the icons displayed before and after the selected time. @Wesley-0808 ([#6497](https://github.com/Tencent/tdesign-vue-next/pull/6497))
+- **TimeRangePicker**: New `prefixIcon` and `suffixIcon` APIs have been added, enabling customization of the icons displayed before and after the selected time. @Wesley-0808 ([#6497](https://github.com/Tencent/tdesign-vue-next/pull/6497))
+
+### 🐞 Bug Fixes
+
+- **DatePicker**:
+  - Fixed an issue where the `presets` slot wasn’t functioning properly, and the `onPresetClick` event wasn’t being triggered correctly. @ZTH520 ([#6490](https://github.com/Tencent/tdesign-vue-next/pull/6490))
+  - Fixed an issue where millisecond values were lost due to format incompatibility. @Wesley-0808 ([common#2446](https://github.com/Tencent/tdesign-common/pull/2446))
+- **Select**: Fixed an issue where using the `esc` key caused conflicts with the dialog’s shortcut keys. @Wesley-0808 ([#6496](https://github.com/Tencent/tdesign-vue-next/pull/6496))
+- **Table**:
+  - Fixed an issue where the Tooltip component caused the editable state to be unexpectedly disabled when ellipsis was enabled. @RSS1102 ([#6480](https://github.com/Tencent/tdesign-vue-next/pull/6480))
+  - Fixed an issue where the table header always had a background color, regardless of the context. @Jie-echo ([#6504](https://github.com/Tencent/tdesign-vue-next/pull/6504))
+- **Text**: Fixed an issue where the rendering position of the copy button became incorrect when both `copyable` and `ellipsis` were enabled. @uyarn ([#6522](https://github.com/Tencent/tdesign-vue-next/pull/6522))
+
 ## 🌈 1.18.5 `2026-03-12`
 
 ### 🐞 Bug Fixes
