@@ -24,6 +24,10 @@ export default {
     type: Boolean as PropType<TdChatSenderProps['stopDisabled']>,
     default: false,
   },
+  sendBtnDisabled: {
+    type: Boolean as PropType<TdChatSenderProps['sendBtnDisabled']>,
+    default: false,
+  },
   /** 发送按钮是否处于加载状态 */
   loading: {
     type: Boolean as PropType<TdChatSenderProps['loading']>,

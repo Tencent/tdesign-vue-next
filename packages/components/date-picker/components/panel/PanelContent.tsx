@@ -40,8 +40,11 @@ export default defineComponent({
     internalYear: Array as PropType<Array<number>>,
     disableTime: Function,
     defaultTime: [String, Array] as PropType<TdDatePickerProps['defaultTime'] | TdDateRangePickerProps['defaultTime']>,
+    cell: {
+      type: Function as PropType<TdDatePickerProps['cell'] | TdDateRangePickerProps['cell']>,
+    },
   },
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
 
     const { timeFormat } = getDefaultFormat({
@@ -106,6 +109,8 @@ export default defineComponent({
             }
             onCellMouseEnter={(date: Date) => props.onCellMouseEnter?.(date, { partial: props.partial })}
             onCellMouseLeave={props.onCellMouseLeave}
+            cell={props.cell}
+            v-slots={slots}
           />
         </div>
 

@@ -52,8 +52,11 @@ export default defineComponent({
     onMonthChange: Function,
     onTimePickerChange: Function,
     needConfirm: Boolean,
+    cell: {
+      type: Function as PropType<TdDateRangePickerProps['cell']>,
+    },
   },
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker__panel');
     const { globalConfig } = useConfig('datePicker');
 
@@ -186,6 +189,7 @@ export default defineComponent({
       onTimePickerChange: props.onTimePickerChange,
       disableTime: props.disableTime,
       defaultTime: props.defaultTime,
+      cell: props.cell,
     }));
 
     return () => (
@@ -222,6 +226,7 @@ export default defineComponent({
                 tableData={startTableData.value}
                 range={rangeValue.value.start}
                 {...panelContentProps.value}
+                v-slots={slots}
               />,
               <TPanelContent
                 key="endPanel"
@@ -233,6 +238,7 @@ export default defineComponent({
                 tableData={endTableData.value}
                 range={rangeValue.value.end}
                 {...panelContentProps.value}
+                v-slots={slots}
               />,
             ]
           ) : (
