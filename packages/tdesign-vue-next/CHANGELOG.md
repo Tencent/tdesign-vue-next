@@ -5,6 +5,26 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.18.6 `2026-03-23`
+
+### 🚀 Features
+
+- `DatePicker`: 新增 `cell` API，支持如自定义日期单元格、农历等内容，具体使用请查看示例。 @Wesley-0808 ([#6495](https://github.com/Tencent/tdesign-vue-next/pull/6495))
+- `DateRangePicker`: 新增 `cell` API，支持如自定义日期单元格、农历等内容，具体使用请查看示例。 @Wesley-0808 ([#6495](https://github.com/Tencent/tdesign-vue-next/pull/6495))
+- `TimePicker`: 新增 `prefixIcon` 和 `suffixIcon` API，用于自定义前置和后置图标 @Wesley-0808 ([#6497](https://github.com/Tencent/tdesign-vue-next/pull/6497))
+- `TimeRangePicker`: 新增 `prefixIcon` 和 `suffixIcon` API，用于自定义前置和后置图标 @Wesley-0808 ([#6497](https://github.com/Tencent/tdesign-vue-next/pull/6497))
+
+### 🐞 Bug Fixes
+
+- `DatePicker`: 
+  - 修复 `presets` 插槽用法无效和 `onPresetClick`事件未正确触发的问题 @ZTH520 ([#6490](https://github.com/Tencent/tdesign-vue-next/pull/6490))
+  - 修复因格式不兼容导致的毫秒值丢失的问题 @Wesley-0808 ([common#2446](https://github.com/Tencent/tdesign-common/pull/2446))
+- `Select`: 修复在 `Dialog` 中使用时，`ESC` 快捷键与 `Dialog` 快捷键冲突的问题 @Wesley-0808 ([#6496](https://github.com/Tencent/tdesign-vue-next/pull/6496))
+- `Table`: 
+  - 修复开启 `ellipsis` 时，可编辑状态意外关闭的问题 @RSS1102 ([#6480](https://github.com/Tencent/tdesign-vue-next/pull/6480))
+  - 修复设置高度后表头在任何场景下都存在背景色的问题 @Jie-echo ([#6504](https://github.com/Tencent/tdesign-vue-next/pull/6504))
+- `Text`: 修复同时开启`copyable`和 `ellipsis` 时复制按钮渲染位置异常的问题 @uyarn ([#6522](https://github.com/Tencent/tdesign-vue-next/pull/6522))
+
 ## 🌈 1.18.5 `2026-03-12`
 
 ### 🐞 Bug Fixes
