@@ -134,7 +134,7 @@ export default defineComponent({
         {['top', 'left'].includes(props.presetsPlacement) ? (
           <TExtraContent {...extraProps.value} v-slots={slots.presets ? { presets: slots.presets } : {}} />
         ) : null}
-        <TPanelContent {...panelContentProps.value} />
+        <TPanelContent {...panelContentProps.value} v-slots={slots} />
         {['bottom', 'right'].includes(props.presetsPlacement) ? (
           <TExtraContent {...extraProps.value} v-slots={slots.presets ? { presets: slots.presets } : {}} />
         ) : null}
