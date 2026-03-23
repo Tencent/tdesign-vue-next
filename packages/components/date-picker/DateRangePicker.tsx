@@ -538,6 +538,7 @@ export default defineComponent({
       onYearChange,
       onMonthChange,
       onTimePickerChange,
+      cell: props.cell,
     }));
 
     return () => (

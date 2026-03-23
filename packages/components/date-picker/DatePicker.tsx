@@ -427,6 +427,7 @@ export default defineComponent({
       needConfirm: props.needConfirm,
       disableTime: props.disableTime,
       range: props.range,
+      cell: props.cell,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,

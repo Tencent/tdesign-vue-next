@@ -44,6 +44,7 @@ export default defineComponent({
     onMonthChange: Function,
     onTimePickerChange: Function,
     disableTime: Function,
+    cell: Function as PropType<TdDatePickerProps['cell']>,
   },
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
@@ -107,6 +108,7 @@ export default defineComponent({
       onTimePickerChange: props.onTimePickerChange,
       defaultTime: props.defaultTime,
       disableTime: props.disableTime,
+      cell: props.cell,
     }));
 
     const extraProps = computed(() => ({
