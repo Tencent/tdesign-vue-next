@@ -12,6 +12,10 @@ export default {
   allowInput: Boolean,
   /** 无边框模式 */
   borderless: Boolean,
+  /** 用于自定义日期单元格的内容 */
+  cell: {
+    type: Function as PropType<TdDatePickerProps['cell']>,
+  },
   /** 是否显示清除按钮 */
   clearable: Boolean,
   /** 时间选择器默认值，当 value/defaultValue 未设置值时有效 */
@@ -30,7 +34,7 @@ export default {
   /** 是否禁用组件 */
   disabled: {
     type: Boolean,
-    default: undefined,
+    default: undefined as TdDatePickerProps['disabled'],
   },
   /** 是否显示时间选择 */
   enableTimePicker: Boolean,
@@ -102,7 +106,7 @@ export default {
       return ['left', 'top', 'right', 'bottom'].includes(val);
     },
   },
-  /** 日期可选择范围。示例：`['2025-01-01', '2025-12-31']` 表示'2025-01-01'至'2025-12-31'为可选日期。值为`null`表示不限制；`['2025-01-01', null]` 表示可选日期从'2025-01-01'开始，不限制结束。类型为 Function 则函数返回值为 `true` 的日期为可选。⚠️ 此参数应与 `panelActiveDate` 一起使用，若未设置 `panelActiveDate` 则以 `range` 左区间为默认面板展示，如果没有左区间，则以右区间为默认展示。与`disableDate`共用时，`disableDate`优先级更高。 */
+  /** 日期可选择范围。示例：`['2025-01-01', '2025-12-31']` 表示'2025-01-01'至'2025-12-31'为可选日期。值为`null`表示不限制；`['2025-01-01', null]` 表示可选日期从'2025-01-01'开始，不限制结束。类型为 Function 则函数返回值为 `true` 的日期为可选。⚠️ 此参数应与 `panelActiveDate` 一起使用，若未设置 `panelActiveDate` 则以 `range` 左区间为默认面板展示，如果没有左区间，则以右区间为默认展示。与`disableDate`共用时，`disableDate`优先级更高 */
   range: {
     type: [Array, Function] as PropType<TdDatePickerProps['range']>,
   },

@@ -1,5 +1,6 @@
 import { defineComponent, computed, ref } from 'vue';
 import { usePrefixClass, useConfig } from '@tdesign/shared-hooks';
+
 import props from '../paragraph-props';
 import TTooltip from '../../tooltip/index';
 
@@ -8,7 +9,10 @@ import type { TypographyEllipsis } from '../type';
 export default defineComponent({
   name: 'TEllipsis',
   components: { TTooltip },
-  props,
+  props: {
+    ...props,
+    renderCopy: Function,
+  },
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('typography');
     const { globalConfig } = useConfig('typography');
@@ -58,13 +62,14 @@ export default defineComponent({
 
     const renderEllipsisExpand = () => {
       const { suffix } = ellipsisState.value;
-
+      const symbolStyle = {
+        textDecoration: 'none',
+        whiteSpace: 'nowrap',
+        flex: 1,
+        marginRight: props.renderCopy ? '8px' : 0,
+      };
       const moreNode = (
-        <span
-          class={`${COMPONENT_NAME.value}-ellipsis-symbol`}
-          onClick={onExpand}
-          style="text-decoration:none;white-space:nowrap;flex: 1;"
-        >
+        <span class={`${COMPONENT_NAME.value}-ellipsis-symbol`} onClick={onExpand} style={symbolStyle}>
           {suffix || globalConfig.value.expandText}
         </span>
       );
@@ -81,11 +86,7 @@ export default defineComponent({
       }
       if (expandable && isExpand.value && collapsible) {
         return (
-          <span
-            class={`${COMPONENT_NAME.value}-ellipsis-symbol`}
-            onClick={onCollapse}
-            style="text-decoration:none;white-space:nowrap;flex: 1;"
-          >
+          <span class={`${COMPONENT_NAME.value}-ellipsis-symbol`} onClick={onCollapse} style={symbolStyle}>
             {globalConfig.value.collapseText}
           </span>
         );
@@ -104,6 +105,7 @@ export default defineComponent({
           {tooltipProps && <TTooltip content={tooltipProps.content} placement="top-right"></TTooltip>}
           <p style={props.ellipsis ? ellipsisStyles.value : {}}>{content.value}</p>
           {renderEllipsisExpand()}
+          {props.renderCopy?.()}
         </div>
       );
     };
