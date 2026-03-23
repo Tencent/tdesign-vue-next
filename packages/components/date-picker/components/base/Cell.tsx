@@ -84,7 +84,7 @@ export default defineComponent({
     return () => (
       <td class={cellClass.value} onClick={handleClick} onMouseenter={handleMouseEnter}>
         <div class={`${COMPONENT_NAME.value}-inner`}>
-          {renderTNodeJSX('cell', { params: { value: props.value } }) || props.text}
+          {renderTNodeJSX('cell', { params: { value: props.value } }) ?? props.text}
         </div>
       </td>
     );
