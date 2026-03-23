@@ -10,7 +10,7 @@ docClass: timeline
 ### 🚀 New Features
 
 - **DatePicker**: A new `cell` API has been added, allowing for custom date cell formatting and lunar calendar display. For details, please refer to the examples. @Wesley-0808 ([#6495](https://github.com/Tencent/tdesign-vue-next/pull/6495))
-- **DateRangePicker**: Similarly, a new `cell` API has been added for custom date cell formatting and lunar calendar support. See the examples for more details. @Wesley-0808 ([#6495](https://github.com/Tencent/tdesign-vue-next/pull/6495))
+- **DateRangePicker**: A new `cell` API has been added, allowing for custom date cell formatting and lunar calendar display. For details, please refer to the examples.  @Wesley-0808 ([#6495](https://github.com/Tencent/tdesign-vue-next/pull/6495))
 - **TimePicker**: New `prefixIcon` and `suffixIcon` APIs have been added, enabling customization of the icons displayed before and after the selected time. @Wesley-0808 ([#6497](https://github.com/Tencent/tdesign-vue-next/pull/6497))
 - **TimeRangePicker**: New `prefixIcon` and `suffixIcon` APIs have been added, enabling customization of the icons displayed before and after the selected time. @Wesley-0808 ([#6497](https://github.com/Tencent/tdesign-vue-next/pull/6497))
 
