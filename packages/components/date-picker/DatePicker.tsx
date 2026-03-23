@@ -464,7 +464,7 @@ export default defineComponent({
           popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
           {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
-          panel={() => <TSinglePanel {...panelProps.value} v-slots={{ presets: slots.presets }} />}
+          panel={() => <TSinglePanel {...panelProps.value} v-slots={slots} />}
           tagInputProps={{
             onRemove: onTagRemoveClick,
           }}
