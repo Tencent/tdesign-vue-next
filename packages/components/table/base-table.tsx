@@ -700,9 +700,10 @@ export default defineComponent({
             <div
               class={tableBaseClass.scrollbarDivider}
               style={{
+                top: '0px',
                 right: `${scrollbarWidth.value}px`,
                 bottom: dividerBottom.value ? `${dividerBottom.value}px` : undefined,
-                height: `${tableContentRef.value?.getBoundingClientRect().height}px`,
+                height: `${tableContentRef.value?.clientHeight}px`,
               }}
             ></div>
           )}
