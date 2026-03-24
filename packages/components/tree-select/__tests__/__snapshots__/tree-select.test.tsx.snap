@@ -20,6 +20,7 @@ exports[`TreeSelect > :props > :clearable 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -108,6 +109,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <span
         class="t-input__input-pre"
@@ -165,6 +167,7 @@ exports[`TreeSelect > :props > :disabled 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -217,6 +220,7 @@ exports[`TreeSelect > :props > :empty string 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -268,6 +272,7 @@ exports[`TreeSelect > :props > :filterable 1`] = `
         spellcheck="false"
         type="text"
         unselectable="off"
+        value=""
       />
       <!---->
       <!---->
@@ -320,6 +325,7 @@ exports[`TreeSelect > :props > :loading 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -381,6 +387,7 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -433,6 +440,7 @@ exports[`TreeSelect > :props > :max 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -485,6 +493,7 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -573,6 +582,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <span
         class="t-input__input-pre"
@@ -629,6 +639,7 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -681,6 +692,7 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -733,6 +745,7 @@ exports[`TreeSelect > :props > :size 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -785,6 +798,7 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -837,6 +851,7 @@ exports[`TreeSelect > :props > :value 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -889,6 +904,7 @@ exports[`TreeSelect > :props > :valueType 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -977,6 +993,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <span
         class="t-input__input-pre"
@@ -1033,6 +1050,7 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -1085,6 +1103,7 @@ exports[`TreeSelect > <slot> > <loadingText> 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -1157,6 +1176,7 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -1215,6 +1235,7 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -1303,6 +1324,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <span
         class="t-input__input-pre"
@@ -1359,6 +1381,7 @@ exports[`TreeSelect > function > :empty 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -1411,6 +1434,7 @@ exports[`TreeSelect > function > :loadingText 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -1483,6 +1507,7 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->
@@ -1541,6 +1566,7 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
         spellcheck="false"
         type="text"
         unselectable="on"
+        value=""
       />
       <!---->
       <!---->

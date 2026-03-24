@@ -23,6 +23,7 @@ exports[`DatePicker > :mode 1`] = `
           spellcheck="false"
           type="text"
           unselectable="on"
+          value=""
         />
         <!---->
         <!---->
@@ -102,6 +103,7 @@ exports[`DatePicker > :range 1`] = `
               spellcheck="false"
               type="text"
               unselectable="on"
+              value="2018-08-01"
             />
             <!---->
             <!---->
@@ -130,6 +132,7 @@ exports[`DatePicker > :range 1`] = `
               spellcheck="false"
               type="text"
               unselectable="on"
+              value="2028-04-01"
             />
             <!---->
             <!---->
@@ -205,6 +208,7 @@ exports[`DatePicker > :value 1`] = `
           spellcheck="false"
           type="text"
           unselectable="on"
+          value="1998-11-11"
         />
         <!---->
         <!---->

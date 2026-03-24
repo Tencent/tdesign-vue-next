@@ -20,6 +20,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 1`]
           tabindex="0"
         >
           <input
+            checked=""
             class="t-radio-button__former"
             data-value="'monochrome'"
             name=""
@@ -152,6 +153,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 1`]
                   spellcheck="false"
                   type="text"
                   unselectable="on"
+                  value="RGB"
                 />
                 <!---->
                 <!---->
@@ -216,6 +218,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 1`]
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="0"
                   />
                   <!---->
                   <!---->
@@ -252,6 +255,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 1`]
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="31"
                   />
                   <!---->
                   <!---->
@@ -288,6 +292,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 1`]
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="151"
                   />
                   <!---->
                   <!---->
@@ -966,6 +971,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 2`]
                 spellcheck="false"
                 type="text"
                 unselectable="off"
+                value="90°"
               />
               <!---->
               <!---->
@@ -1058,6 +1064,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 2`]
                   spellcheck="false"
                   type="text"
                   unselectable="on"
+                  value="RGB"
                 />
                 <!---->
                 <!---->
@@ -1122,6 +1129,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 2`]
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="241"
                   />
                   <!---->
                   <!---->
@@ -1158,6 +1166,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 2`]
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="29"
                   />
                   <!---->
                   <!---->
@@ -1194,6 +1203,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 2`]
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="0"
                   />
                   <!---->
                   <!---->
@@ -1312,6 +1322,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`]
           tabindex="0"
         >
           <input
+            checked=""
             class="t-radio-button__former"
             data-value="'linear-gradient'"
             name=""
@@ -1404,6 +1415,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`]
                 spellcheck="false"
                 type="text"
                 unselectable="off"
+                value="45°"
               />
               <!---->
               <!---->
@@ -1496,6 +1508,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`]
                   spellcheck="false"
                   type="text"
                   unselectable="on"
+                  value="RGB"
                 />
                 <!---->
                 <!---->
@@ -1560,6 +1573,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`]
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="79"
                   />
                   <!---->
                   <!---->
@@ -1596,6 +1610,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`]
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="172"
                   />
                   <!---->
                   <!---->
@@ -1632,6 +1647,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`]
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="254"
                   />
                   <!---->
                   <!---->
@@ -2262,6 +2278,7 @@ exports[`ColorPickerPanel > :ui > :mount 1`] = `
           tabindex="0"
         >
           <input
+            checked=""
             class="t-radio-button__former"
             data-value="'monochrome'"
             name=""
@@ -2394,6 +2411,7 @@ exports[`ColorPickerPanel > :ui > :mount 1`] = `
                   spellcheck="false"
                   type="text"
                   unselectable="on"
+                  value="RGB"
                 />
                 <!---->
                 <!---->
@@ -2458,6 +2476,7 @@ exports[`ColorPickerPanel > :ui > :mount 1`] = `
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="0"
                   />
                   <!---->
                   <!---->
@@ -2494,6 +2513,7 @@ exports[`ColorPickerPanel > :ui > :mount 1`] = `
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="31"
                   />
                   <!---->
                   <!---->
@@ -2530,6 +2550,7 @@ exports[`ColorPickerPanel > :ui > :mount 1`] = `
                     spellcheck="false"
                     type="text"
                     unselectable="off"
+                    value="151"
                   />
                   <!---->
                   <!---->
