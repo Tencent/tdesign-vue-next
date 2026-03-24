@@ -91,6 +91,7 @@
 </template>
 
 <script setup lang="jsx">
+import { ref } from 'vue';
 import { ErrorIcon, ChevronRightIcon, CloseIcon, CloseCircleIcon } from 'tdesign-icons-vue-next';
 import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
@@ -153,14 +154,14 @@ const globalConfig = merge(enConfig, {
   },
 });
 
-const transferChecked = [];
-const transferTargetValue = [];
+const transferChecked = ref([]);
+const transferTargetValue = ref([]);
 const options1 = [
   { label: 'Shanghai', value: 'shanghai' },
   { label: 'Beijing', value: 'beijing' },
   { label: 'Shenzhen', value: 'shenzhen' },
 ];
-const treeValue = '';
+const treeValue = ref('');
 
 const treeOptions = [
   {
@@ -193,10 +194,10 @@ const treeData = [
   { value: '2', label: 'Department B', children: [{ label: '2.1' }, { label: '2.2' }] },
 ];
 
-const formData = {
+const formData = ref({
   username: '',
   password: '',
-};
+});
 const rules = {
   username: [{ required: true, message: '此项必填', type: 'error' }],
 };
