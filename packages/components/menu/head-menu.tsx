@@ -12,7 +12,6 @@ import {
   VNode,
   Component,
   getCurrentInstance,
-  nextTick,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isArray, isFunction } from 'lodash-es';
