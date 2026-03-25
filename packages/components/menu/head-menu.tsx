@@ -12,6 +12,7 @@ import {
   VNode,
   Component,
   getCurrentInstance,
+  nextTick,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isArray, isFunction } from 'lodash-es';
@@ -157,6 +158,8 @@ export default defineComponent({
 
     const subMoreNodes = ref<VNode[]>([]);
 
+    const nodeWidthRecord = new Map<number, number>();
+
     const handleResize = () => {
       if (props.expandType !== 'popup') return;
 
@@ -166,28 +169,29 @@ export default defineComponent({
       if (nodes.length === 0) return;
 
       const menuWidth = calcMenuWidth();
-      const subMoreWidth = 64;
+      const subMoreWidth = 64 + 8;
       const originalSlot = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
       // 提取当前渲染的节点（过滤掉“更多”）
       const itemNodes = nodes.filter((n) => !n.classList.contains(`${classPrefix.value}-head-menu__submenu--more`));
 
-      // 计算当前已显示的菜单项总宽度
-      const totalItemsWidth = itemNodes.reduce((sum, el) => {
+      // 计算当前已显示的菜单项总宽度，记录宽度
+      const totalItemsWidth = itemNodes.reduce((sum, el, index) => {
         const style = window.getComputedStyle(el);
-        return sum + el.offsetWidth + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
+        const rect = el.getBoundingClientRect();
+        const w = rect.width + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
+        nodeWidthRecord.set(index, w);
+        return sum + w;
       }, 0);
 
       const isFolded = subMoreNodes.value.length > 0;
 
       if (!isFolded) {
-        // 当内容总宽溢出容器时，计算截断位置并预留“更多”空间
+        // 未折叠状态：如果总宽溢出，计算截断点
         if (totalItemsWidth > menuWidth) {
           let currentWidth = 0;
           for (let i = 0; i < itemNodes.length; i++) {
-            const el = itemNodes[i];
-            const style = window.getComputedStyle(el);
-            const w = el.offsetWidth + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
+            const w = nodeWidthRecord.get(i);
             if (currentWidth + w + subMoreWidth > menuWidth) {
               subMoreNodes.value = originalSlot.slice(i);
               break;
@@ -200,27 +204,26 @@ export default defineComponent({
         const remainSpace = menuWidth - totalItemsWidth - subMoreWidth;
 
         if (remainSpace < 0) {
-          // 空间收缩：进一步减少一个可见项，将其移入“更多”子菜单
-          const currentVisibleCount = originalSlot.length - subMoreNodes.value.length;
-          if (currentVisibleCount > 0) {
-            subMoreNodes.value = originalSlot.slice(currentVisibleCount - 1);
+          // 空间收缩
+          let adjustedTotalWidth = totalItemsWidth;
+          let newVisibleCount = itemNodes.length;
+          while (newVisibleCount > 0 && menuWidth - adjustedTotalWidth - subMoreWidth < -0.5) {
+            const w = nodeWidthRecord.get(newVisibleCount - 1);
+            adjustedTotalWidth -= w;
+            newVisibleCount -= 1;
+          }
+          if (newVisibleCount < itemNodes.length) {
+            subMoreNodes.value = originalSlot.slice(newVisibleCount);
           }
         } else {
-          // 空间扩张：计算释放阈值（使用最后一项的宽度作为动态步进参考，避免死循环）
-          const lastItem = itemNodes[itemNodes.length - 1];
-          let threshold = 0;
-          if (lastItem) {
-            const style = window.getComputedStyle(lastItem);
-            threshold =
-              lastItem.offsetWidth + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
-          }
+          // 空间扩张
+          const nextItemIndex = itemNodes.length;
+          const nextItemWidth = nodeWidthRecord.get(nextItemIndex) || 0;
 
-          // 如果剩余空间足以容纳下一项，则展开一个项，利用 ResizeObserver 的触发机制进行自适应探测
-          if (remainSpace > threshold) {
+          // 如果记录过下一项宽度，且剩余空间足以容纳，则恢复
+          if (remainSpace >= nextItemWidth) {
             const currentVisibleCount = originalSlot.length - subMoreNodes.value.length;
-            if (currentVisibleCount < originalSlot.length) {
-              subMoreNodes.value = originalSlot.slice(currentVisibleCount + 1);
-            }
+            subMoreNodes.value = originalSlot.slice(currentVisibleCount + 1);
           }
         }
       }
@@ -309,6 +312,8 @@ export default defineComponent({
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
 
       const content = formatContent();
+      vMenu.data.children = [];
+      vMenu.cache.clear();
       initVMenu(content);
 
       return (
