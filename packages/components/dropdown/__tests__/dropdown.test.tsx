@@ -2,7 +2,7 @@ import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
-import { Dropdown, DropdownMenu, DropdownItem, Button } from '@tdesign/components';
+import { Dropdown, DropdownMenu, DropdownItem, Button, TdPopupProps } from '@tdesign/components';
 import { DropdownOption } from '@tdesign/components/dropdown/type';
 import DropdownProps from '@tdesign/components/dropdown/props';
 import { sleep } from '@tdesign/internal-utils';
@@ -639,7 +639,7 @@ describe('Dropdown', () => {
       it('calls popupProps["on-visible-change"] when hideAfterItemClick is true', async () => {
         const onVisibleChange = vi.fn();
         const options = [{ content: 'Option 1', value: '1' }];
-        const popupProps = { 'on-visible-change': onVisibleChange };
+        const popupProps = { 'on-visible-change': onVisibleChange } as TdPopupProps;
 
         const wrapper = mount(
           <Dropdown options={options} popupProps={popupProps} hideAfterItemClick={true} trigger="click">

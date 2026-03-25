@@ -5,16 +5,17 @@ import { describe, expect, vi, it } from 'vitest';
 import Transfer from '@tdesign/components/transfer';
 import TransferProps from '@tdesign/components/transfer/props';
 import { transferMockData, pagination } from './mount';
+import { CheckboxProps } from '@tdesign/components/checkbox';
 
 describe('Transfer', () => {
   describe('props', () => {
-    let wrapper: VueWrapper<InstanceType<typeof Transfer>> | null = null;
+    let wrapper: VueWrapper | null = null;
     beforeEach(() => {
-      wrapper = mount(<Transfer data={transferMockData} />) as VueWrapper<InstanceType<typeof Transfer>>;
+      wrapper = mount(<Transfer data={transferMockData} />);
     });
 
     it(':checkboxProps[object]', () => {
-      const checkboxProps = { size: 'small' };
+      const checkboxProps = { size: 'small' } as CheckboxProps;
       const wrapper = mount(<Transfer data={transferMockData} checkboxProps={checkboxProps} />);
       const transfer = wrapper.find('.t-transfer');
       expect(transfer.exists()).toBeTruthy();
@@ -38,8 +39,8 @@ describe('Transfer', () => {
     });
 
     it(':defaultChecked[array]', () => {
-      const checked = ref(['2']);
-      const wrapper = mount(<Transfer data={transferMockData} checked={checked.value} />);
+      const defaultChecked = ['2'];
+      const wrapper = mount(<Transfer data={transferMockData} defaultChecked={defaultChecked} />);
       const list = wrapper.findAll('.t-transfer__list');
       const items = list[0].findAll('.t-transfer__list-item');
       expect(items[2].classes()).toContain('t-is-checked');
