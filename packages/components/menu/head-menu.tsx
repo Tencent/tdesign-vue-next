@@ -24,7 +24,7 @@ import { Tabs, TabPanel } from '../tabs';
 import Submenu from './submenu';
 import { VMenu } from './utils';
 
-import { useVModel, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
+import { useVModel, usePrefixClass, useDefaultValue, useResizeObserver } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'THeadMenu',
@@ -155,6 +155,93 @@ export default defineComponent({
     const logoRef = ref<HTMLDivElement>();
     const operationRef = ref<HTMLDivElement>();
 
+    const subMoreNodes = ref<VNode[]>([]);
+
+    const handleResize = () => {
+      if (props.expandType !== 'popup') return;
+
+      const nodes = Array.from(menuRef.value?.childNodes || []).filter(
+        (item) => item instanceof HTMLElement,
+      ) as HTMLElement[];
+      if (nodes.length === 0) return;
+
+      const menuWidth = calcMenuWidth();
+      const subMoreWidth = 64;
+      const originalSlot = ctx.slots.default?.() || ctx.slots.content?.() || [];
+
+      // 提取当前渲染的节点（过滤掉“更多”）
+      const itemNodes = nodes.filter((n) => !n.classList.contains(`${classPrefix.value}-head-menu__submenu--more`));
+
+      // 计算当前已显示的菜单项总宽度
+      const totalItemsWidth = itemNodes.reduce((sum, el) => {
+        const style = window.getComputedStyle(el);
+        return sum + el.offsetWidth + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
+      }, 0);
+
+      const isFolded = subMoreNodes.value.length > 0;
+
+      if (!isFolded) {
+        // 当内容总宽溢出容器时，计算截断位置并预留“更多”空间
+        if (totalItemsWidth > menuWidth) {
+          let currentWidth = 0;
+          for (let i = 0; i < itemNodes.length; i++) {
+            const el = itemNodes[i];
+            const style = window.getComputedStyle(el);
+            const w = el.offsetWidth + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
+            if (currentWidth + w + subMoreWidth > menuWidth) {
+              subMoreNodes.value = originalSlot.slice(i);
+              break;
+            }
+            currentWidth += w;
+          }
+        }
+      } else {
+        // 计算当前主菜单区域的剩余可用空间
+        const remainSpace = menuWidth - totalItemsWidth - subMoreWidth;
+
+        if (remainSpace < 0) {
+          // 空间收缩：进一步减少一个可见项，将其移入“更多”子菜单
+          const currentVisibleCount = originalSlot.length - subMoreNodes.value.length;
+          if (currentVisibleCount > 0) {
+            subMoreNodes.value = originalSlot.slice(currentVisibleCount - 1);
+          }
+        } else {
+          // 空间扩张：计算释放阈值（使用最后一项的宽度作为动态步进参考，避免死循环）
+          const lastItem = itemNodes[itemNodes.length - 1];
+          let threshold = 0;
+          if (lastItem) {
+            const style = window.getComputedStyle(lastItem);
+            threshold =
+              lastItem.offsetWidth + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
+          }
+
+          // 如果剩余空间足以容纳下一项，则展开一个项，利用 ResizeObserver 的触发机制进行自适应探测
+          if (remainSpace > threshold) {
+            const currentVisibleCount = originalSlot.length - subMoreNodes.value.length;
+            if (currentVisibleCount < originalSlot.length) {
+              subMoreNodes.value = originalSlot.slice(currentVisibleCount + 1);
+            }
+          }
+        }
+      }
+    };
+
+    useResizeObserver(innerRef, handleResize);
+
+    // 监听 logo 内部图片的加载
+    // Q: why?
+    // A: logo 中图片加载完成后可能会导致 menu 的宽度发生变化（初始化时图片未加载完成，初始化获取的宽度不准确），从而影响菜单项的展示，因此需要监听图片的加载事件来重新计算菜单的布局。
+    watch(logoRef, (el) => {
+      if (el) {
+        const imgs = el.querySelectorAll('img');
+        imgs.forEach((img) => {
+          if (!img.complete) {
+            img.onload = () => handleResize();
+          }
+        });
+      }
+    });
+
     const getComputedCss = (el: Element, cssProperty: keyof CSSStyleDeclaration) =>
       getComputedStyle(el)[cssProperty] ?? '';
 
@@ -180,42 +267,25 @@ export default defineComponent({
       return totalWidth - menuPaddingLeft - menuPaddingRight;
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const formatContent = () => {
-      let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
+      const originalContent = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
-      if (menuRef.value && innerRef.value) {
-        const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
-          (item) => item.nodeName !== '#text' || item.nodeValue,
-        ) as HTMLElement[];
-
-        const menuWidth = calcMenuWidth();
-        const menuItemMinWidth = 104;
-
-        let remainWidth = menuWidth;
-        let sliceIndex = validNodes.length;
-
-        for (let index = 0; index < validNodes.length; index++) {
-          const element = validNodes[index];
-          remainWidth -= element.offsetWidth || 0;
-          if (remainWidth < menuItemMinWidth) {
-            sliceIndex = index;
-            break;
-          }
-        }
-
-        const defaultSlot = slot.slice(0, sliceIndex);
-        const subMore = slot.slice(sliceIndex);
-
-        if (subMore.length) {
-          slot = defaultSlot.concat(
-            <Submenu expandType="popup" title={() => <EllipsisIcon />}>
-              {subMore}
-            </Submenu>,
-          );
-        }
+      let content = originalContent;
+      if (props.expandType === 'popup' && subMoreNodes.value.length > 0) {
+        const sliceIndex = originalContent.length - subMoreNodes.value.length;
+        content = [
+          ...originalContent.slice(0, sliceIndex),
+          <Submenu
+            class={`${classPrefix.value}-head-menu__submenu--more`}
+            expandType="popup"
+            title={() => <EllipsisIcon />}
+          >
+            {subMoreNodes.value}
+          </Submenu>,
+        ];
       }
-      return slot;
+
+      return content;
     };
 
     const initVMenu = (slots: VNode[], parentValue?: string) => {
@@ -238,9 +308,7 @@ export default defineComponent({
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
 
-      // TODO: 判断逻辑不够完善 影响封装组件的子菜单样式渲染 暂时先不执行 待调整实现方案
-      // const content = formatContent();
-      const content = ctx.slots.default?.() || ctx.slots.content?.() || [];
+      const content = formatContent();
       initVMenu(content);
 
       return (
