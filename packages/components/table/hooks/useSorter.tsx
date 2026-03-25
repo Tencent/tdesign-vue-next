@@ -48,6 +48,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   function handleDataSort(sortInfo: SortInfo | Array<SortInfo>) {
     const sort = sortInfo;
     if (!Object.keys(sorterFuncMap.value).length) return;
+
     if (!originalData.value) {
       originalData.value = tData.value;
     }
@@ -168,7 +169,10 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
    */
   watch(
     () => [tSortInfo, props.data],
-    () => {
+    (val) => {
+      if (props.data.length === 0) {
+        originalData.value = props.data;
+      }
       if (!tSortInfo.value || !Object.keys(tSortInfo.value).length || !tData.value.length) return;
       // isSortInfoSame 的两个参数顺序不可变
       if (!isSortInfoSame(tSortInfo.value, innerSort.value)) {
