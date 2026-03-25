@@ -11,9 +11,9 @@ import { sleep } from '@tdesign/internal-utils';
 
 describe('Avatar', () => {
   describe('props', () => {
-    let wrapper: VueWrapper<InstanceType<typeof Avatar>> | null = null;
+    let wrapper: VueWrapper | null = null;
     beforeEach(() => {
-      wrapper = mount(<Avatar>Avatar</Avatar>) as VueWrapper<InstanceType<typeof Avatar>>;
+      wrapper = mount(<Avatar>Avatar</Avatar>);
     });
 
     it(':alt[string]', () => {

@@ -5,7 +5,7 @@ import { Space, Button } from '@tdesign/components';
 
 describe('Space', () => {
   describe('props', () => {
-    let wrapper: VueWrapper<InstanceType<typeof Space>> | null = null;
+    let wrapper: VueWrapper | null = null;
 
     beforeEach(() => {
       wrapper = mount(
@@ -13,7 +13,7 @@ describe('Space', () => {
           <Button>Button 1</Button>
           <Button>Button 2</Button>
         </Space>,
-      ) as VueWrapper<InstanceType<typeof Space>>;
+      );
     });
 
     it(':align', async () => {

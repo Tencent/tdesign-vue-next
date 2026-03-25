@@ -7,14 +7,14 @@ import collapseProps from '@tdesign/components/collapse/props';
 
 describe('Collapse', () => {
   describe('props', () => {
-    let wrapper: VueWrapper<InstanceType<typeof Collapse>> | null = null;
+    let wrapper: VueWrapper | null = null;
     beforeEach(() => {
       wrapper = mount(
         <Collapse>
           <CollapsePanel value="1" header="标题1" default="内容1" />
           <CollapsePanel value="2" header="标题2" default="内容2" />
         </Collapse>,
-      ) as VueWrapper<InstanceType<typeof Collapse>>;
+      );
     });
 
     it(':borderless[boolean]', async () => {

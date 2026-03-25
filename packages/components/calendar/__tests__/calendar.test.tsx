@@ -10,10 +10,10 @@ MockDate.set('2020-12-28');
 
 describe('Calendar', () => {
   describe('props', () => {
-    let wrapper: VueWrapper<InstanceType<typeof Calendar>> | null = null;
+    let wrapper: VueWrapper | null = null;
 
     beforeEach(() => {
-      wrapper = mount(<Calendar year={2020} month={12} />) as VueWrapper<InstanceType<typeof Calendar>>;
+      wrapper = mount(<Calendar year={2020} month={12} />);
     });
 
     afterEach(() => {

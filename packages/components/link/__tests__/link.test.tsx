@@ -8,10 +8,10 @@ import { JumpIcon } from 'tdesign-icons-vue-next';
 
 describe('Link', () => {
   describe('props', () => {
-    let wrapper!: VueWrapper<InstanceType<typeof Link>>;
+    let wrapper!: VueWrapper;
 
     beforeEach(() => {
-      wrapper = mount(<Link>链接</Link>) as VueWrapper<InstanceType<typeof Link>>;
+      wrapper = mount(<Link>链接</Link>);
     });
 
     afterEach(() => {
