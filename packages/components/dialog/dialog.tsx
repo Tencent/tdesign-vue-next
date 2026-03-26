@@ -280,7 +280,7 @@ export default defineComponent({
       const maskView = (isModal.value || isFullScreen.value) && <div key="mask" class={maskClass.value}></div>;
       const dialogView = renderDialog();
       const view = [maskView, dialogView];
-      const ctxStyle = { zIndex: props.zIndex };
+      const ctxStyle = { zIndex: props.zIndex || globalConfig.value.dialogZIndex };
       // dialog__ctx--fixed 绝对定位
       // dialog__ctx--absolute 挂载在attach元素上 相对定位
       // __ctx--modeless modeless 点击穿透

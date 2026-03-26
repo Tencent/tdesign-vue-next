@@ -166,6 +166,10 @@ export interface GlobalConfigProvider {
    * 上传组件全局配置
    */
   upload?: UploadConfig;
+  /**
+   * loding zindex全局配置
+   */
+  loading?: LoadingConfig;
 }
 
 export interface AlertConfig {
@@ -540,6 +544,10 @@ export interface DialogConfig {
    * 确认按钮主题色，即 Dialog 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }
    */
   confirmBtnTheme?: { default: string; info: string; warning: string; danger: string; success: string };
+  /**
+   * Dialog层级配置
+   */
+  dialogZIndex: number | string;
 }
 
 export interface DrawerConfig {
@@ -1096,6 +1104,13 @@ export interface UploadConfigProgress {
    * @default ''
    */
   waitingText?: string;
+}
+
+export interface LoadingConfig {
+  /**
+   * Loading层级配置
+   */
+  loadingZIndex: number | string;
 }
 
 export type AnimationType = 'ripple' | 'expand' | 'fade';
