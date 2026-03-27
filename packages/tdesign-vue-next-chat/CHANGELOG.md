@@ -5,6 +5,20 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.5.2 `2026-03-27`
+
+### 🚀 Features
+
+- `ChatSender`: 新增 `sendBtnDisabled`, 用于控制发送按钮是否禁用 @zydemail ([#6494](https://github.com/Tencent/tdesign-vue-next/pull/6494))
+
+### 🐞 Bug Fixes
+
+- 修复全局引入方式，组件类型丢失的问题 @liweijie0812 ([#6470](https://github.com/Tencent/tdesign-vue-next/pull/6470))
+- `ChatSender`: 
+  - suffix 支持  `[{ name: 'uploadImage', uploadProps: {...} }]` 配置 @RSS1102 ([#6519](https://github.com/Tencent/tdesign-vue-next/pull/6519))
+  - suffix 配置 `attachment` 即将废弃，建议使用 `uploadAttachment` @RSS1102 ([#6519](https://github.com/Tencent/tdesign-vue-next/pull/6519))
+- `Chatbot`: `senderProps` 中配置 `input-prefix` 不生效问题 @RSS1102 ([#6519](https://github.com/Tencent/tdesign-vue-next/pull/6519))
+
 ## 🌈 0.5.1 `2026-03-09`
 
 ### 🐞 Bug Fixes
