@@ -39,7 +39,7 @@ const showFullScreen: ButtonProps['onClick'] = () => {
   const timer = setTimeout(() => {
     LoadingPlugin(false);
     clearTimeout(timer);
-  }, 10000);
+  }, 1000);
 };
 // 函数式：全屏加载，允许滚动穿透
 const showFullScrollScreen: ButtonProps['onClick'] = () => {

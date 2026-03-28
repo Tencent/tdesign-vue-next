@@ -13,7 +13,7 @@ const inputStatus = computed(() => {
 });
 
 const tips = computed(() => {
-  if (!inputStatus.value) {
+  if (inputStatus.value !== 'error') {
     return '';
   }
   return '请输入数字';

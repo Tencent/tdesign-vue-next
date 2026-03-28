@@ -81,7 +81,7 @@ const onSave = (e: MouseEvent) => {
   const { id } = (e.currentTarget as HTMLElement).dataset;
   currentSaveId.value = id;
   // 触发内部校验，而后也可在 onRowValidate 中接收异步校验结果
-  tableRef.value.validateRowData(id).then((params) => {
+  tableRef.value?.validateRowData(id).then((params) => {
     console.log('Event Table Promise Validate:', params);
     if (params.result.length) {
       const r = params.result[0];
@@ -106,7 +106,7 @@ const onRowValidate: TableProps['onRowValidate'] = (params) => {
 };
 function onValidateTableData() {
   // 执行结束后触发事件 validate
-  tableRef.value.validateTableData().then((params) => {
+  tableRef.value?.validateTableData().then((params) => {
     console.log('Promise Table Data Validate:', params);
     const cellKeys = Object.keys(params.result);
     const firstError = params.result[cellKeys[0]];

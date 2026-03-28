@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<script setup lang="js">
+<script setup>
 import { reactive } from 'vue';
 import { BrowseIcon, ImageErrorIcon } from 'tdesign-icons-vue-next';
 

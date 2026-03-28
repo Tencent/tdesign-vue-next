@@ -15,7 +15,7 @@
 import { NotificationProps } from 'tdesign-vue-next';
 const footer: NotificationProps['footer'] = () => {
   return (
-    <div slot="footer" class="t-notification__detail">
+    <div class="t-notification__detail">
       <span class="t-notification__detail-item t-is-active">查看详情</span>
     </div>
   );

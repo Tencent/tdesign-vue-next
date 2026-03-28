@@ -12,6 +12,7 @@
       <t-checkbox key="a" value="选项一">选项一</t-checkbox>
       <t-checkbox key="b" label="选项二" value="选项二" />
       <t-checkbox key="c" label="选项三" value="选项三" :disabled="true" />
+      <t-checkbox key="d" label="选项四" value="选项四" :readonly="true" />
     </t-checkbox-group>
 
     <br />
@@ -57,6 +58,11 @@ const options2: CheckboxGroupProps['options'] = [
   {
     value: '选项三',
     label: '选项三',
+  },
+  {
+    value: '设为只读',
+    label: '设为只读',
+    readonly: true,
   },
 ];
 const value1 = ref(['选项一']);

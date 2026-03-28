@@ -3,7 +3,7 @@
     <t-space>
       <t-button @click="start = true">Start</t-button>
       <t-button @click="value = 98.12">Update value</t-button>
-      <t-button @click="$refs.refUp.start()">refs</t-button>
+      <t-button @click="refUp.start()">refs</t-button>
     </t-space>
     <t-statistic
       ref="refUp"
@@ -22,6 +22,7 @@
 
 <script setup>
 import { ref } from 'vue';
+const refUp = ref();
 const start = ref(false);
 const value = ref(56.32);
 </script>

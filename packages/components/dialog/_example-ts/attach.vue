@@ -64,10 +64,10 @@
       placement="center"
       :on-confirm="() => (visibleShowInAttachedElement = false)"
     >
-      <div slot="body">
+      <template #body>
         <div>父元素（挂载元素）需要有定位属性，如：position: relative</div>
         <div>showInAttachedElement API 仅针对模态对话框有效</div>
-      </div>
+      </template>
     </t-dialog>
   </div>
 </template>

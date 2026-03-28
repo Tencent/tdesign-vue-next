@@ -12,7 +12,7 @@ const inputStatus = computed<InputProps['status']>(() => {
   return 'default';
 });
 const tips = computed<InputProps['tips']>(() => {
-  if (!inputStatus.value) {
+  if (inputStatus.value !== 'error') {
     return '';
   }
   return '请输入数字';
