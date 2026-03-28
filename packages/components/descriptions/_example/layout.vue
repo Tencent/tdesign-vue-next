@@ -37,5 +37,5 @@ const firstItemSpan = ref(1);
 
 const layoutOptions = ['horizontal', 'vertical'];
 const itemLayoutOptions = ['horizontal', 'vertical'];
-const firstItemSpanOptions = [1, 2, 3, 4];
+const firstItemSpanOptions = [1, 2, 3];
 </script>

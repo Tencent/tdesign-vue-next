@@ -7,6 +7,8 @@
       transition
       expand-all
       draggable
+      check-strictly
+      :allow-drop="handleAllowDrop"
       @drag-start="handleDragStart"
       @drag-end="handleDragEnd"
       @drag-over="handleDragOver"
@@ -49,6 +51,7 @@ const items = ref<TreeProps['data']>([
               {
                 value: '1.1.2.1',
                 label: '1.1.2.1',
+                disabled: true,
               },
               {
                 value: '1.1.2.2',
@@ -70,7 +73,7 @@ const items = ref<TreeProps['data']>([
       },
       {
         value: '2.2',
-        label: '2.2',
+        label: '2.2 （不允许其它节点拖放为其子节点）',
       },
     ],
   },
@@ -89,5 +92,11 @@ const handleDragLeave: TreeProps['onDragLeave'] = (ctx) => {
 };
 const handleDrop: TreeProps['onDrop'] = (ctx) => {
   console.log('handleDrop', ctx);
+};
+const handleAllowDrop: TreeProps['allowDrop'] = (ctx) => {
+  const { dropNode, dropPosition } = ctx;
+  if (dropNode.value === '2.2' && dropPosition === 0) {
+    return false;
+  }
 };
 </script>

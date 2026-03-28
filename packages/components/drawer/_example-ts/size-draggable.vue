@@ -7,6 +7,7 @@
       :on-overlay-click="() => (visible = false)"
       :placement="placement"
       :size-draggable="true"
+      :on-size-drag-end="handleSizeDrag"
       @cancel="visible = false"
     >
       <p>抽屉的内容</p>
@@ -25,7 +26,12 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { RadioGroupProps } from 'tdesign-vue-next';
+import { DrawerProps } from 'tdesign-vue-next';
+
 const visible = ref(false);
-const placement = ref<RadioGroupProps['defaultValue']>('right');
+const placement = ref<DrawerProps['placement']>('right');
+
+const handleSizeDrag: DrawerProps['onSizeDragEnd'] = ({ size }) => {
+  console.log('size drag size: ', size);
+};
 </script>

@@ -5,7 +5,7 @@
     <t-link theme="danger" hover="color" disabled @click="clickLink"> 跳转链接 </t-link>
     <t-link theme="warning" hover="underline" disabled :on-click="clickLink"> 跳转链接 </t-link>
     <t-link theme="success" disabled @click="clickLink">
-      <template #suffixIcon>
+      <template #suffix-icon>
         <jump-icon />
       </template>
       跳转链接

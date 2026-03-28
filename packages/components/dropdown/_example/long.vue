@@ -5,7 +5,7 @@
     </t-dropdown>
   </t-space>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
 const options = Array.from({ length: 20 }).map((_, k) => ({
   content: `选项${k + 1}`,
   value: k + 1,
