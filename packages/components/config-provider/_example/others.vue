@@ -105,7 +105,7 @@ for (let i = 0; i < 20; i++) {
 }
 
 // 全局特性配置，可以引入英文默认配置 enConfig，还可以在默认配置的基础上进行自定义配置
-const globalConfig = merge(enConfig, {
+const globalConfig = merge({}, enConfig, {
   image: {
     // 全局替换图片地址
     replaceImageSrc() {

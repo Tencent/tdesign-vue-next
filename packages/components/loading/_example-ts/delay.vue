@@ -20,7 +20,7 @@ import { ref, onMounted } from 'vue';
 const loading = ref(true);
 const data = ref('');
 const delay = ref(500);
-const loadingData = (time: number) => {
+const loadingData = (time = 100) => {
   loading.value = true;
   data.value = '';
   const timer = setTimeout(() => {
@@ -30,6 +30,6 @@ const loadingData = (time: number) => {
   }, time || 100);
 };
 onMounted(() => {
-  loadingData(250);
+  loadingData();
 });
 </script>

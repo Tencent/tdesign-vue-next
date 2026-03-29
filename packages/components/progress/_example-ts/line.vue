@@ -45,7 +45,7 @@ onUnmounted(() => {
 
       <t-progress theme="line" :status="'warning'" :percentage="60" />
       <div class="t-progress-demo-margin">渐变色</div>
-      <t-progress theme="line" :color="{ from: '#0052D9', to: '#00A870' }" :percentage="60" :status="'active'" />
+      <t-progress theme="line" :color="{ from: '#0052D9', to: '#00A870' }" :percentage="100" :status="'active'" />
     </t-space>
 
     <h3>可以在线形内展示进度信息</h3>
