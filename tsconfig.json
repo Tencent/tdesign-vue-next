@@ -18,9 +18,9 @@
     "allowJs": true,
 
     /* Emit */
-    "declaration": true,  
+    "declaration": true,
     "outDir": "lib",
-    "removeComments": true,
+    "removeComments": false,
 
     /* Interop Constraints */
     "isolatedModules": true,
