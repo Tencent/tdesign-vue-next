@@ -3,11 +3,12 @@ import {
   calcResetRotation,
   toggleMirror,
   MIRROR_DEFAULT,
+  clampScale,
   zoomIn,
   zoomOut,
 } from '@tdesign/common-js/image-viewer/transform';
 import type { ZoomOptions, ZoomResult, TranslateOffset } from '@tdesign/common-js/image-viewer/transform';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import { throttle } from 'lodash-es';
 import { ImageScale } from '../type';
 import { DEFAULT_IMAGE_SCALE } from './constants';
@@ -95,17 +96,8 @@ export function useMirror() {
 }
 
 export function useScale(imageScale: Partial<ImageScale> | undefined) {
-  const params = { ...DEFAULT_IMAGE_SCALE, ...imageScale };
-  // defaultScale 不能超出本身设置的最大和最小值
-  if (imageScale?.defaultScale !== undefined) {
-    if (imageScale.defaultScale > params.max) {
-      params.defaultScale = params.max;
-    }
-    if (imageScale.defaultScale < params.min) {
-      params.defaultScale = params.min;
-    }
-  }
-  const { max, min, step, defaultScale } = params;
+  const { max, min, step, defaultScale: rawDefault } = { ...DEFAULT_IMAGE_SCALE, ...imageScale };
+  const defaultScale = clampScale(rawDefault, min, max);
   const scale = ref(defaultScale);
 
   // 存储上一次缩放的结果，供同步调用时返回
@@ -118,7 +110,7 @@ export function useScale(imageScale: Partial<ImageScale> | undefined) {
   const doZoomIn = throttle(
     (options: ZoomOptions | undefined) => {
       const { newScale, zoomResult } = zoomIn(scale.value, step, min, max, options);
-      setScale(newScale);
+      scale.value = newScale;
       lastZoomResult.value = zoomResult;
     },
     50,
@@ -128,7 +120,7 @@ export function useScale(imageScale: Partial<ImageScale> | undefined) {
   const doZoomOut = throttle(
     (options: ZoomOptions | undefined) => {
       const { newScale, zoomResult } = zoomOut(scale.value, step, min, max, options);
-      setScale(newScale);
+      scale.value = newScale;
       lastZoomResult.value = zoomResult;
     },
     50,
@@ -147,10 +139,6 @@ export function useScale(imageScale: Partial<ImageScale> | undefined) {
 
   const resetScale = () => {
     scale.value = defaultScale;
-  };
-
-  const setScale = (newScale: number) => {
-    scale.value = Math.max(min, Math.min(max, newScale));
   };
 
   // 双指触摸缩放（pinch-to-zoom），与 React 端保持一致
@@ -177,11 +165,6 @@ export function useScale(imageScale: Partial<ImageScale> | undefined) {
   const onTouchEnd = () => {
     pinchDistance = 0;
   };
-
-  watch(
-    () => imageScale,
-    () => resetScale(),
-  );
 
   return { scale, onZoomIn, onZoomOut, resetScale, onTouchStart, onTouchMove, onTouchEnd };
 }

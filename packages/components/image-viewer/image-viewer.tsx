@@ -69,6 +69,12 @@ export default defineComponent({
     );
     const { rotate, onRotate, resetRotate } = useRotate();
 
+    // imageScale 动态变化时重置缩放
+    watch(
+      () => props.imageScale,
+      () => resetScale(),
+    );
+
     const onRest = () => {
       resetMirror();
       resetScale();
