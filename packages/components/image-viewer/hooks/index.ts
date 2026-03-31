@@ -5,9 +5,8 @@ import {
   MIRROR_DEFAULT,
   zoomIn,
   zoomOut,
-  calculateTranslateOffset,
 } from '@tdesign/common-js/image-viewer/transform';
-import type { ZoomOptions, ZoomResult, TranslateOffset } from '@tdesign/common-js/image-viewer/types';
+import type { ZoomOptions, ZoomResult, TranslateOffset } from '@tdesign/common-js/image-viewer/transform';
 import { ref, watch } from 'vue';
 import { throttle } from 'lodash-es';
 import { ImageScale } from '../type';
