@@ -759,4 +759,153 @@ describe('DatePicker', () => {
     const html = wrapper.element.innerHTML;
     expect(html).toContain('01:02:03');
   });
+
+  it('DateRangePicker: should not trigger onChange but trigger onConfirm when confirming unchanged value', async () => {
+    const onChange = vi.fn();
+    const onConfirm = vi.fn();
+    const attachClass = 'drp-confirm-unchanged-attach';
+    const value = ['2020-12-10 08:00:00', '2020-12-20 18:00:00'];
+
+    const wrapper = mount({
+      render() {
+        return (
+          <div class={attachClass}>
+            <DateRangePicker
+              value={value}
+              format="YYYY-MM-DD HH:mm:ss"
+              enableTimePicker={true}
+              onChange={onChange}
+              onConfirm={onConfirm}
+              popupProps={{ attach: `.${attachClass}` }}
+            />
+          </div>
+        );
+      },
+    });
+
+    const trigger = wrapper.find('.t-input');
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
+    await trigger.trigger('click');
+    await nextTick();
+    await new Promise((r) => setTimeout(r, 0));
+
+    const findConfirmBtn = () =>
+      (wrapper.element.querySelector('.t-date-picker__footer button') as HTMLElement | null) ||
+      (Array.from(document.querySelectorAll('button.t-button') as NodeListOf<HTMLElement>).find((b) =>
+        b.textContent?.trim().includes('确定'),
+      ) as HTMLElement | null);
+
+    const btn = findConfirmBtn();
+    expect(btn).toBeTruthy();
+    btn?.click();
+    await nextTick();
+
+    // onConfirm always fires when user clicks confirm; onChange only fires when value actually changes
+    expect(onConfirm).toHaveBeenCalledTimes(1);
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it('DateRangePicker: should not trigger onChange when confirming unchanged value with valueType=Date', async () => {
+    const onChange = vi.fn();
+    const attachClass = 'drp-confirm-unchanged-date-attach';
+    const value = [new Date('2020-12-10 08:00:00'), new Date('2020-12-20 18:00:00')];
+
+    const wrapper = mount({
+      render() {
+        return (
+          <div class={attachClass}>
+            <DateRangePicker
+              value={value}
+              valueType="Date"
+              enableTimePicker={true}
+              onChange={onChange}
+              popupProps={{ attach: `.${attachClass}` }}
+            />
+          </div>
+        );
+      },
+    });
+
+    const trigger = wrapper.find('.t-input');
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
+    await trigger.trigger('click');
+    await nextTick();
+    await new Promise((r) => setTimeout(r, 0));
+
+    const findConfirmBtn = () =>
+      (wrapper.element.querySelector('.t-date-picker__footer button') as HTMLElement | null) ||
+      (Array.from(document.querySelectorAll('button.t-button') as NodeListOf<HTMLElement>).find((b) =>
+        b.textContent?.trim().includes('确定'),
+      ) as HTMLElement | null);
+
+    const btn = findConfirmBtn();
+    expect(btn).toBeTruthy();
+    btn?.click();
+    await nextTick();
+
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it('DateRangePicker: should trigger onChange/onConfirm when confirming changed value', async () => {
+    const onChange = vi.fn();
+    const onConfirm = vi.fn();
+    const attachClass = 'drp-confirm-changed-attach';
+    const value = ['2020-12-10 08:00:00', '2020-12-20 18:00:00'];
+
+    const wrapper = mount({
+      render() {
+        return (
+          <div class={attachClass}>
+            <DateRangePicker
+              value={value}
+              format="YYYY-MM-DD HH:mm:ss"
+              enableTimePicker={true}
+              onChange={onChange}
+              onConfirm={onConfirm}
+              popupProps={{ attach: `.${attachClass}` }}
+            />
+          </div>
+        );
+      },
+    });
+
+    const trigger = wrapper.find('.t-input');
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
+    await trigger.trigger('click');
+    await nextTick();
+    await new Promise((r) => setTimeout(r, 0));
+
+    // activeIndex defaults to 0 (start), click a different start date
+    const findCells = () => {
+      const cs = Array.from(wrapper.element.querySelectorAll('td.t-date-picker__cell')) as HTMLElement[];
+      return cs.length > 0 ? cs : (Array.from(document.querySelectorAll('td.t-date-picker__cell')) as HTMLElement[]);
+    };
+    const cells = findCells();
+    const newStartCell = cells.find((c) => c.textContent?.trim() === '15' && !c.className.includes('--additional'));
+    expect(newStartCell).toBeTruthy();
+    newStartCell?.click();
+
+    const findConfirmBtn = () =>
+      (wrapper.element.querySelector('.t-date-picker__footer button') as HTMLElement | null) ||
+      (Array.from(document.querySelectorAll('button.t-button') as NodeListOf<HTMLElement>).find((b) =>
+        b.textContent?.trim().includes('确定'),
+      ) as HTMLElement | null);
+
+    let btn: HTMLElement | null = null;
+    for (let i = 0; i < 10; i++) {
+      await nextTick();
+      await new Promise((r) => setTimeout(r, 0));
+      btn = findConfirmBtn();
+      if (btn) break;
+    }
+    expect(btn).toBeTruthy();
+    btn?.click();
+    await nextTick();
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onConfirm).toHaveBeenCalledTimes(1);
+  });
 });
