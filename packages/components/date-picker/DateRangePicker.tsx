@@ -369,10 +369,14 @@ export default defineComponent({
             defaultTime: props.defaultTime,
           }) as DateValue[];
           const isSame =
-            Array.isArray(value.value) &&
-            value.value.length === 2 &&
-            formattedValue[0] === value.value[0] &&
-            formattedValue[1] === value.value[1];
+            Array.isArray(formattedValue) &&
+            formattedValue.length === 2 &&
+            formattedValue[0] != null &&
+            formattedValue[1] != null &&
+            value.value[0] != null &&
+            value.value[1] != null &&
+            dayjs(formattedValue[0] as any).valueOf() === dayjs(value.value[0] as any).valueOf() &&
+            dayjs(formattedValue[1] as any).valueOf() === dayjs(value.value[1] as any).valueOf();
           //判断传入的值和当前值是否相同，不同再触发 onChange，避免不必要的事件触发
           props?.onConfirm?.({
             date: nextValue.map((v) => dayjs(v).toDate()),
