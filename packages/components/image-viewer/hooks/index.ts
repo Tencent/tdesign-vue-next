@@ -1,119 +1,126 @@
-import { positiveSubtract, positiveAdd } from '@tdesign/common-js/input-number/number';
+import {
+  ROTATE_DEG,
+  calcResetRotation,
+  toggleMirror,
+  MIRROR_DEFAULT,
+  zoomIn,
+  zoomOut,
+  calculateTranslateOffset,
+} from '@tdesign/common-js/image-viewer/transform';
+import type { ZoomOptions, ZoomResult, TranslateOffset } from '@tdesign/common-js/image-viewer/types';
 import { ref, watch } from 'vue';
 import { throttle } from 'lodash-es';
 import { ImageScale } from '../type';
+import { DEFAULT_IMAGE_SCALE } from './constants';
+
+// 从 common 包重新导出类型，保持向后兼容
+export type { ZoomOptions, ZoomResult, TranslateOffset };
 
 interface InitTransform {
   translateX: number;
   translateY: number;
 }
 
+/**
+ * 从 MouseEvent 或 TouchEvent 中提取统一的坐标
+ */
+function getEventCoords(e: MouseEvent | TouchEvent): { pageX: number; pageY: number } | undefined {
+  if ('touches' in e) {
+    // touch 事件：仅处理单指拖拽
+    const touch = e.touches[0] || e.changedTouches[0];
+    return touch ? { pageX: touch.pageX, pageY: touch.pageY } : undefined;
+  }
+  return { pageX: (e as MouseEvent).pageX, pageY: (e as MouseEvent).pageY };
+}
+
 export function useDrag(initTransform: InitTransform) {
   const transform = ref(initTransform);
 
-  const mouseDownHandler = (e: MouseEvent) => {
-    // only move by left mouse click
+  const pointerDownHandler = (e: MouseEvent | TouchEvent) => {
+    // 鼠标事件只处理左键
     if ('button' in e && e.button !== 0) return;
 
-    const { pageX: startX, pageY: startY } = e;
+    const startCoords = getEventCoords(e);
+    if (!startCoords) return;
+    const { pageX: startX, pageY: startY } = startCoords;
     const { translateX, translateY } = transform.value;
 
-    const mouseMoveHandler = (e: MouseEvent) => {
-      const { pageX, pageY } = e;
+    const moveHandler = (e: MouseEvent | TouchEvent) => {
+      const coords = getEventCoords(e);
+      if (!coords) return;
       transform.value = {
-        translateX: translateX + pageX - startX,
-        translateY: translateY + pageY - startY,
+        translateX: translateX + coords.pageX - startX,
+        translateY: translateY + coords.pageY - startY,
       };
     };
 
     const removeHandler = () => {
-      document.removeEventListener('mousemove', mouseMoveHandler);
-      document.removeEventListener('mouseup', mouseUpHandler);
-      document.removeEventListener('mouseleave', mouseLeaveHandler);
+      document.removeEventListener('mousemove', moveHandler);
+      document.removeEventListener('mouseup', upHandler);
+      document.removeEventListener('mouseleave', leaveHandler);
+      document.removeEventListener('touchmove', moveHandler);
+      document.removeEventListener('touchend', upHandler);
+      document.removeEventListener('touchcancel', upHandler);
     };
 
-    const mouseUpHandler = () => removeHandler();
-    const mouseLeaveHandler = () => removeHandler();
+    const upHandler = () => removeHandler();
+    const leaveHandler = () => removeHandler();
 
-    document.addEventListener('mousemove', mouseMoveHandler);
-    document.addEventListener('mouseup', mouseUpHandler);
-    document.addEventListener('mouseleave', mouseLeaveHandler);
+    document.addEventListener('mousemove', moveHandler);
+    document.addEventListener('mouseup', upHandler);
+    document.addEventListener('mouseleave', leaveHandler);
+    // touch 事件：passive: false 以支持在需要时 preventDefault
+    document.addEventListener('touchmove', moveHandler, { passive: false });
+    document.addEventListener('touchend', upHandler);
+    document.addEventListener('touchcancel', upHandler);
   };
 
   const resetTransform = () => {
     transform.value = { ...initTransform };
   };
 
-  return { transform, mouseDownHandler, resetTransform };
+  // 保持向后兼容：mouseDownHandler 指向同一个 handler
+  return { transform, mouseDownHandler: pointerDownHandler, pointerDownHandler, resetTransform };
 }
 
 export function useMirror() {
-  const mirror = ref(1);
+  const mirror = ref(MIRROR_DEFAULT);
   const onMirror = () => {
-    mirror.value *= -1;
+    mirror.value = toggleMirror(mirror.value);
   };
   const resetMirror = () => {
-    mirror.value = 1;
+    mirror.value = MIRROR_DEFAULT;
   };
 
   return { mirror, onMirror, resetMirror };
 }
 
-export interface ZoomOptions {
-  /** 缩放中心点 X 坐标（相对于预览图片容器中心的偏移量） */
-  mouseOffsetX?: number;
-  /** 缩放中心点 Y 坐标（相对于预览图片容器中心的偏移量） */
-  mouseOffsetY?: number;
-  /** 当前位移 */
-  currentTranslate?: { translateX: number; translateY: number };
-}
-
-export interface ZoomResult {
-  /** 缩放后的新位移 */
-  newTranslate?: { translateX: number; translateY: number };
-}
-
 export function useScale(imageScale: Partial<ImageScale> | undefined) {
-  const params = { max: 2, min: 0.5, step: 0.2, defaultScale: 1, ...imageScale };
+  const params = { ...DEFAULT_IMAGE_SCALE, ...imageScale };
+  // defaultScale 不能超出本身设置的最大和最小值
+  if (imageScale?.defaultScale !== undefined) {
+    if (imageScale.defaultScale > params.max) {
+      params.defaultScale = params.max;
+    }
+    if (imageScale.defaultScale < params.min) {
+      params.defaultScale = params.min;
+    }
+  }
   const { max, min, step, defaultScale } = params;
   const scale = ref(defaultScale);
 
-  /**
-   * 计算缩放后的位移补偿
-   * 公式：newTranslate = scaleRatio * T + (1 - scaleRatio) * Z
-   * 其中 Z 为缩放中心，T 为当前位移，scaleRatio = newScale / oldScale
-   */
-  const calculateTranslateOffset = (
-    oldScale: number,
-    newScale: number,
-    options?: ZoomOptions,
-  ): { translateX: number; translateY: number } | undefined => {
-    // 缺少鼠标位置信息时，不计算位移补偿
-    if (options?.mouseOffsetX == null || options?.mouseOffsetY == null) {
-      return undefined;
-    }
+  // 存储上一次缩放的结果，供同步调用时返回
+  const lastZoomResult = ref<ZoomResult>({});
 
-    const scaleRatio = newScale / oldScale;
-    const { translateX = 0, translateY = 0 } = options?.currentTranslate ?? {};
-    const { mouseOffsetX, mouseOffsetY } = options;
-
-    return {
-      translateX: scaleRatio * translateX + (1 - scaleRatio) * mouseOffsetX,
-      translateY: scaleRatio * translateY + (1 - scaleRatio) * mouseOffsetY,
-    };
-  };
+  // 双指缩放时记录两指间距
+  let pinchDistance = 0;
 
   // 节流内部实现（50ms 间隔），确保快速调用时不会过度触发缩放
   const doZoomIn = throttle(
     (options: ZoomOptions | undefined) => {
-      const oldScale = scale.value;
-      const result = positiveAdd(oldScale, step);
-      const newScale = Math.min(result, max);
+      const { newScale, zoomResult } = zoomIn(scale.value, step, min, max, options);
       setScale(newScale);
-
-      lastZoomResult.value = {
-        newTranslate: calculateTranslateOffset(oldScale, newScale, options),
-      };
+      lastZoomResult.value = zoomResult;
     },
     50,
     { leading: true, trailing: false },
@@ -121,21 +128,13 @@ export function useScale(imageScale: Partial<ImageScale> | undefined) {
 
   const doZoomOut = throttle(
     (options: ZoomOptions | undefined) => {
-      const oldScale = scale.value;
-      const result = positiveSubtract(oldScale, step);
-      const newScale = Math.max(result, min);
+      const { newScale, zoomResult } = zoomOut(scale.value, step, min, max, options);
       setScale(newScale);
-
-      lastZoomResult.value = {
-        newTranslate: calculateTranslateOffset(oldScale, newScale, options),
-      };
+      lastZoomResult.value = zoomResult;
     },
     50,
     { leading: true, trailing: false },
   );
-
-  // 存储上一次缩放的结果，供同步调用时返回
-  const lastZoomResult = ref<ZoomResult>({});
 
   const onZoomIn = (options?: ZoomOptions): ZoomResult => {
     doZoomIn(options);
@@ -155,23 +154,50 @@ export function useScale(imageScale: Partial<ImageScale> | undefined) {
     scale.value = Math.max(min, Math.min(max, newScale));
   };
 
+  // 双指触摸缩放（pinch-to-zoom），与 React 端保持一致
+  const onTouchStart = (e: TouchEvent) => {
+    if (e.touches.length !== 2) return;
+    e.preventDefault();
+    const [touch1, touch2] = Array.from(e.touches);
+    pinchDistance = Math.hypot(touch2.pageX - touch1.pageX, touch2.pageY - touch1.pageY);
+  };
+
+  const onTouchMove = (e: TouchEvent) => {
+    if (e.touches.length !== 2) return;
+    e.preventDefault();
+    const [touch1, touch2] = Array.from(e.touches);
+    const currentDistance = Math.hypot(touch2.pageX - touch1.pageX, touch2.pageY - touch1.pageY);
+    if (currentDistance > pinchDistance) {
+      onZoomIn();
+    } else {
+      onZoomOut();
+    }
+    pinchDistance = currentDistance;
+  };
+
+  const onTouchEnd = () => {
+    pinchDistance = 0;
+  };
+
   watch(
     () => imageScale,
     () => resetScale(),
   );
 
-  return { scale, onZoomIn, onZoomOut, resetScale };
+  return { scale, onZoomIn, onZoomOut, resetScale, onTouchStart, onTouchMove, onTouchEnd };
 }
 
 export function useRotate() {
   const rotate = ref(0);
-  const ROTATE_DEG = 90;
 
   const onRotate = () => {
     rotate.value += ROTATE_DEG;
   };
   const resetRotate = () => {
-    rotate.value = 0;
+    const adjusted = calcResetRotation(rotate.value);
+    if (adjusted !== 0) {
+      rotate.value -= adjusted;
+    }
   };
 
   return { rotate, onRotate, resetRotate };

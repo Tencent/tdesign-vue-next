@@ -477,15 +477,15 @@ describe('ImageViewer Hooks', () => {
       // initial
       expect(rotate.value).toBe(0);
 
-      // increment by 90
+      // decrement by 90 (counterclockwise)
       onRotate();
-      expect(rotate.value).toBe(90);
+      expect(rotate.value).toBe(-90);
       onRotate();
-      expect(rotate.value).toBe(180);
+      expect(rotate.value).toBe(-180);
       onRotate();
-      expect(rotate.value).toBe(270);
+      expect(rotate.value).toBe(-270);
       onRotate();
-      expect(rotate.value).toBe(360);
+      expect(rotate.value).toBe(-360);
     });
 
     it('resetRotate', () => {
@@ -494,10 +494,11 @@ describe('ImageViewer Hooks', () => {
       onRotate();
       onRotate();
       onRotate();
-      expect(rotate.value).toBe(270);
+      expect(rotate.value).toBe(-270);
 
       resetRotate();
-      expect(rotate.value).toBe(0);
+      // 最短路径：-270 % 360 = -270，abs > 180 → adjusted = (-270+360)%360 = 90 → -270 - 90 = -360
+      expect(rotate.value).toBe(-360);
     });
 
     it('continues beyond 360 degrees', () => {
@@ -506,7 +507,7 @@ describe('ImageViewer Hooks', () => {
       for (let i = 0; i < 5; i++) {
         onRotate();
       }
-      expect(rotate.value).toBe(450);
+      expect(rotate.value).toBe(-450);
     });
 
     it('multiple full rotations', () => {
@@ -515,7 +516,7 @@ describe('ImageViewer Hooks', () => {
       for (let i = 0; i < 8; i++) {
         onRotate();
       }
-      expect(rotate.value).toBe(720);
+      expect(rotate.value).toBe(-720);
     });
 
     it('reset during rotation sequence', () => {
@@ -526,7 +527,12 @@ describe('ImageViewer Hooks', () => {
       resetRotate();
       onRotate();
 
-      expect(rotate.value).toBe(90);
+      // -180 → reset(最短路径: -180%360=-180, abs=180 不>180, adjusted=-180, rotate=-180-(-180)=0) → 无变化，然后 onRotate → -90
+      // 实际：-180%360 = -180, abs(180) > 180 为 false, adjusted = -180, rotate = 0 - (-180) 不对
+      // 重新推算：degreeToRotate = -180 % 360 = -180, abs(-180) > 180 为 false, adjusted = -180, rotate = 0 - (-180)...
+      // 代码逻辑：rotate.value -= adjusted → 0 - (-180) = 180? 不对，此时 rotate.value = -180
+      // rotate.value -= adjusted → -180 - (-180) = 0 → 然后 onRotate → -90
+      expect(rotate.value).toBe(-90);
     });
   });
 
@@ -540,7 +546,7 @@ describe('ImageViewer Hooks', () => {
       onRotate();
 
       expect(mirror.value).toBe(-1);
-      expect(rotate.value).toBe(180);
+      expect(rotate.value).toBe(-180);
 
       resetMirror();
       resetRotate();
@@ -566,7 +572,7 @@ describe('ImageViewer Hooks', () => {
       expect(transform.value).toEqual({ translateX: 100, translateY: 100 });
       expect(scale.value).toBe(1.2);
       expect(mirror.value).toBe(-1);
-      expect(rotate.value).toBe(90);
+      expect(rotate.value).toBe(-90);
 
       resetTransform();
       resetScale();
@@ -597,7 +603,7 @@ describe('ImageViewer Hooks', () => {
 
       expect(scale.value).toBe(1.5);
       expect(mirror.value).toBe(-1);
-      expect(rotate.value).toBe(450);
+      expect(rotate.value).toBe(-450);
 
       vi.useRealTimers();
     });

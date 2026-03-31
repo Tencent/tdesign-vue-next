@@ -13,6 +13,7 @@ import {
 } from '@tdesign/shared-hooks';
 import { isPropsUsed } from '@tdesign/shared-utils';
 import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';
+import { isImageExceedsViewport } from '@tdesign/common-js/image-viewer/transform';
 import Image from '../image';
 import TImageItem from './base/ImageItem';
 import TImageViewerIcon from './base/ImageModalIcon';
@@ -63,7 +64,9 @@ export default defineComponent({
     };
 
     const { mirror, onMirror, resetMirror } = useMirror();
-    const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale);
+    const { scale, onZoomIn, onZoomOut, resetScale, onTouchStart, onTouchMove, onTouchEnd } = useScale(
+      props.imageScale,
+    );
     const { rotate, onRotate, resetRotate } = useRotate();
 
     const onRest = () => {
@@ -150,6 +153,7 @@ export default defineComponent({
       modalBoxRef?: HTMLDivElement;
       transform?: { translateX: number; translateY: number };
       resetTransform?: () => void;
+      enableTransition?: () => void;
     }>();
 
     watch(
@@ -174,25 +178,13 @@ export default defineComponent({
     // Clean up timer when component is unmounted to prevent memory leaks and errors
     onBeforeUnmount(() => {
       clearTimeout(animationTimer.value);
-      cancelWheel();
     });
 
-    // 检测图片是否超出视口
-    const isImageExceedsViewport = (container: HTMLDivElement, modalBox: HTMLDivElement): boolean => {
-      const containerRect = container.getBoundingClientRect();
-      const modalRect = modalBox.getBoundingClientRect();
-      return (
-        modalRect.left < containerRect.left ||
-        modalRect.right > containerRect.right ||
-        modalRect.top < containerRect.top ||
-        modalRect.bottom > containerRect.bottom
-      );
-    };
-
     // 滚轮缩放
-    const handleWheelZoom = (e: WheelEvent) => {
-      const isZoomOut = e.deltaY > 0;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
 
+      const isZoomOut = e.deltaY > 0;
       const container = divRef.value;
       const modalBox = imageItemRef.value?.modalBoxRef;
 
@@ -212,6 +204,8 @@ export default defineComponent({
           currentTranslate,
         });
         if (result?.newTranslate) {
+          // 启用向中心缩放的 transition 动画（CSS 类名驱动）
+          imageItemRef.value?.enableTransition?.();
           imageItemRef.value.transform = result.newTranslate;
         }
       } else {
@@ -220,13 +214,46 @@ export default defineComponent({
       }
     };
 
-    // 滚轮事件处理，节流已在 useScale hook 内部实现（50ms）
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      handleWheelZoom(e);
+    // 容器级 wheel + 触摸缩放事件绑定（原生事件版）
+    // ⚠️ 不能用 Vue JSX 的 onWheel —— 某些浏览器（Chrome 73+）将 wheel 注册为 passive: true，
+    //    导致 e.preventDefault() 无效，无法阻止页面滚动。
+    //    必须用原生 addEventListener + { passive: false } 绕过。
+    const bindContainerEvents = () => {
+      const container = divRef.value;
+      if (!container) return;
+      container.addEventListener('wheel', onWheel, { passive: false });
+      document.addEventListener('touchstart', onTouchStart, { passive: false });
+      document.addEventListener('touchmove', onTouchMove, { passive: false });
+      document.addEventListener('touchend', onTouchEnd);
     };
-    // 空函数，用于 onBeforeUnmount 中清理（保持接口一致性）
-    const cancelWheel = () => {};
+
+    const unbindContainerEvents = () => {
+      const container = divRef.value;
+      if (container) {
+        container.removeEventListener('wheel', onWheel);
+      }
+      document.removeEventListener('touchstart', onTouchStart);
+      document.removeEventListener('touchmove', onTouchMove);
+      document.removeEventListener('touchend', onTouchEnd);
+    };
+
+    // visible 变化时绑定/解绑事件
+    watch(
+      () => visibleValue.value,
+      (val) => {
+        if (val) {
+          // nextTick 确保 DOM 已渲染
+          nextTick().then(() => bindContainerEvents());
+        } else {
+          unbindContainerEvents();
+        }
+      },
+    );
+
+    // 组件卸载时确保清理
+    onBeforeUnmount(() => {
+      unbindContainerEvents();
+    });
 
     const transStyle = computed(() => ({
       transform: `translateX(calc(-${indexValue.value} * (40px / 9 * 16 + 4px)))`,
@@ -365,7 +392,6 @@ export default defineComponent({
                   v-show={visibleValue.value}
                   class={wrapClass.value}
                   style={{ zIndex: zIndexValue.value }}
-                  onWheel={onWheel}
                   tabindex={-1}
                   onKeydown={keydownHandler}
                 >
