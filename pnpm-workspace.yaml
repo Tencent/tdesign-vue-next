@@ -1,6 +1,11 @@
 packages:
   - packages/**
   - internal/**
+allowBuilds:
+  canvas: true
+  core-js: true
+  esbuild: true
+  msw: true
 catalogs:
   bundle:
     '@babel/cli': ^7.22.9
