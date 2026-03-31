@@ -111,3 +111,6 @@ catalogs:
     '@types/validator': ^13.7.17
     typescript: ^5.7.3
     vue-tsc: ^2.2.4
+
+# 提升依赖项到根目录，以避免重复安装相同的包
+shamefullyHoist: true
