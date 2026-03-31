@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-mono",
   "private": true,
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.33.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
