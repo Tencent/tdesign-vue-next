@@ -39,12 +39,14 @@ export default defineComponent({
     // 点击了发送按钮
     const sendClick = (e: MouseEvent | KeyboardEvent) => {
       if (textValue.value && !disabled.value) {
+        props?.onSend?.(textValue.value, { e });
         emit('send', textValue.value, { e });
       }
     };
     // 点击了停止按钮
     const handleStop = (e: MouseEvent) => {
       e.stopPropagation(); // 阻止事件冒泡
+      props?.onStop?.(textValue.value, { e });
       emit('stop', textValue.value, {
         e,
       });
