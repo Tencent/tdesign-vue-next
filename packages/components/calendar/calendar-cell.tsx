@@ -35,7 +35,7 @@ export default defineComponent({
     cell: [String, Function],
     cellAppend: [String, Function],
   },
-  emits: [...Object.values(clickTypeEmitEventMap)],
+  emits: Object.values(clickTypeEmitEventMap),
   setup(props, { emit }) {
     const renderContent = useContent();
     const cls = useCalendarCellClass();
