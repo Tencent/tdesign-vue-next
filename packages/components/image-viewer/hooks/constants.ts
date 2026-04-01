@@ -4,6 +4,6 @@ import type { ImageScale } from '../type';
 export const DEFAULT_IMAGE_SCALE: ImageScale = {
   max: 2,
   min: 0.5,
-  step: 0.5,
+  step: 0.2,
   defaultScale: 1,
 };
