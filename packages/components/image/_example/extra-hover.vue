@@ -8,7 +8,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { ImageProps } from 'tdesign-vue-next';
+import type { ImageProps } from 'tdesign-vue-next';
 const renderMask: ImageProps['overlayContent'] = () => (
   <div
     style={{

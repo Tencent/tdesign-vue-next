@@ -49,7 +49,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { ImageViewerProps } from 'tdesign-vue-next';
+import type { ImageViewerProps } from 'tdesign-vue-next';
 import { BrowseIcon, EllipsisIcon } from 'tdesign-icons-vue-next';
 const img3 = 'https://tdesign.gtimg.com/demo/demo-image-3.png';
 const img2 = 'https://tdesign.gtimg.com/demo/demo-image-2.png';

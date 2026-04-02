@@ -3,6 +3,6 @@
 </template>
 
 <script lang="tsx" setup>
-import { RangeInputPopupProps } from 'tdesign-vue-next';
+import type { RangeInputPopupProps } from 'tdesign-vue-next';
 const panel: RangeInputPopupProps['panel'] = () => <div>hello world</div>;
 </script>

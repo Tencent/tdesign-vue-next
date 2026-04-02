@@ -19,7 +19,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { InputAdornmentProps } from 'tdesign-vue-next';
+import type { InputAdornmentProps } from 'tdesign-vue-next';
 const protocolSelect = ref<InputAdornmentProps['prepend']>(() => (
   <t-select
     autoWidth

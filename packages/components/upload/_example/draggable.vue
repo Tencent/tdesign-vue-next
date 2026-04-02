@@ -43,7 +43,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UploadProps } from 'tdesign-vue-next';
+import type { UploadProps } from 'tdesign-vue-next';
 function getCurrentDate(needTime = false) {
   const d = new Date();
   let month = d.getMonth() + 1;

@@ -22,7 +22,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { TreeProps } from 'tdesign-vue-next';
+import type { TreeProps } from 'tdesign-vue-next';
 const mutex = ref(true);
 const expandOnClickNode = ref(true);
 const items = ref<TreeProps['data']>([

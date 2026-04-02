@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { TreeProps } from 'tdesign-vue-next';
+import type { TreeProps } from 'tdesign-vue-next';
 const items = ref<TreeProps['data']>([
   {
     label: '1',

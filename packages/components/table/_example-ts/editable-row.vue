@@ -29,9 +29,9 @@ import {
   Select,
   DatePicker,
   MessagePlugin,
-  TableInstanceFunctions,
-  TableProps,
-  PrimaryTableValidateContext,
+  type TableInstanceFunctions,
+  type TableProps,
+  type PrimaryTableValidateContext,
   BaseTableCol,
 } from 'tdesign-vue-next';
 const initData = new Array(5).fill(null).map((_, i) => ({

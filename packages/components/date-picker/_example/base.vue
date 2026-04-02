@@ -23,7 +23,7 @@
 import { Dayjs } from 'dayjs';
 import { ref } from 'vue';
 import {
-  DateValue,
+  type DateValue,
   DatePickerTriggerSource,
   DatePickerMonthChangeTrigger,
   DatePickerYearChangeTrigger,

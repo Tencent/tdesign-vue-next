@@ -16,7 +16,7 @@
 </template>
 <script lang="tsx" setup>
 import { ref, computed } from 'vue';
-import { PopupTriggerEvent, PopupTriggerSource, TreeNodeModel, TreeSelectProps } from 'tdesign-vue-next';
+import type { PopupTriggerEvent, PopupTriggerSource, TreeNodeModel, TreeSelectProps } from 'tdesign-vue-next';
 import { Icon } from 'tdesign-icons-vue-next';
 interface TreeSelectPopupVisibleContext<T> {
   e?: PopupTriggerEvent | Event;

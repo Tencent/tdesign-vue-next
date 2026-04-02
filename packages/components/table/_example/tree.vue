@@ -60,9 +60,9 @@ import {
   EnhancedTable as TEnhancedTable,
   MessagePlugin,
   Loading,
-  EnhancedTableProps,
-  EnhancedTableInstanceFunctions,
-  ButtonProps,
+  type EnhancedTableProps,
+  type EnhancedTableInstanceFunctions,
+  type ButtonProps,
   TableTreeNodeExpandOptions,
   TableRowData,
 } from 'tdesign-vue-next';

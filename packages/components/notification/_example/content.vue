@@ -8,7 +8,7 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { NotificationProps } from 'tdesign-vue-next';
+import type { NotificationProps } from 'tdesign-vue-next';
 const content: NotificationProps['content'] = () => {
   return <div>这是一条消息通知</div>;
 };

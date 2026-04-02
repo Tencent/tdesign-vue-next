@@ -31,7 +31,7 @@
 </template>
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { TagInputProps, CollapseProps } from 'tdesign-vue-next';
+import type { TagInputProps, CollapseProps } from 'tdesign-vue-next';
 const currentItem = ref<number[]>([1]);
 const tags1 = ref(['Vue', 'React']);
 const tags2 = ref<TagInputProps['value']>(['Vue', 'React']);

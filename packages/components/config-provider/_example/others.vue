@@ -93,7 +93,7 @@
 <script lang="tsx" setup>
 import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
-import {
+import type {
   TransferProps,
   GlobalConfigProvider,
   SelectProps,

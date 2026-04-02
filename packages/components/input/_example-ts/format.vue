@@ -3,7 +3,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { InputProps } from 'tdesign-vue-next';
+import type { InputProps } from 'tdesign-vue-next';
 const input = ref('');
 const inputStatus = computed<InputProps['status']>(() => {
   if (isNaN(+input.value)) {

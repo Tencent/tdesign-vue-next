@@ -19,7 +19,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { TextareaProps } from 'tdesign-vue-next';
+import type { TextareaProps } from 'tdesign-vue-next';
 const value = ref('');
 const value2 = ref('');
 const value3 = ref('');

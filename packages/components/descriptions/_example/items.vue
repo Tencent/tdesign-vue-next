@@ -3,7 +3,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { DescriptionsProps } from 'tdesign-vue-next';
+import type { DescriptionsProps } from 'tdesign-vue-next';
 const items: DescriptionsProps['items'] = [
   {
     label: 'Name',

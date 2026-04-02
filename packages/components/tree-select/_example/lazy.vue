@@ -11,7 +11,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { TreeNodeModel } from 'tdesign-vue-next';
+import type { TreeNodeModel } from 'tdesign-vue-next';
 interface TreeNode {
   label: string;
   value: string;

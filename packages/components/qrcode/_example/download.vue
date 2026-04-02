@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { QRCodeProps } from 'tdesign-vue-next';
+import type { QRCodeProps } from 'tdesign-vue-next';
 
 const type = ref<QRCodeProps['type']>('canvas');
 

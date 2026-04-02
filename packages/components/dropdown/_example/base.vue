@@ -11,7 +11,7 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { MessagePlugin, DropdownProps } from 'tdesign-vue-next';
+import { MessagePlugin, type DropdownProps } from 'tdesign-vue-next';
 const options: DropdownProps['options'] = [
   {
     content: '操作一',

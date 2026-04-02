@@ -17,7 +17,7 @@
 </template>
 <script lang="tsx" setup>
 import { computed, getCurrentInstance } from 'vue';
-import { AnchorProps } from 'tdesign-vue-next';
+import type { AnchorProps } from 'tdesign-vue-next';
 import { get } from 'lodash-es';
 const { appContext } = getCurrentInstance();
 const path = computed(() => get(appContext, '$route.path', ''));

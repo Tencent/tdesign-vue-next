@@ -10,7 +10,7 @@
   </div>
 </template>
 <script lang="tsx" setup>
-import { TableProps } from 'tdesign-vue-next';
+import type { TableProps } from 'tdesign-vue-next';
 const data: TableProps['data'] = [];
 const columns: TableProps['columns'] = [
   {

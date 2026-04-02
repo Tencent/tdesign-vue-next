@@ -14,7 +14,7 @@
 <script lang="ts" setup>
 import dayjs from 'dayjs';
 import { ref } from 'vue';
-import { DateRangePickerProps, DatePickerProps } from 'tdesign-vue-next';
+import type { DateRangePickerProps, DatePickerProps } from 'tdesign-vue-next';
 
 const presets1 = ref<DatePickerProps['presets']>({
   今天: dayjs().toDate(),

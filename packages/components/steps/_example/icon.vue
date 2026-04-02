@@ -8,7 +8,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { StepItemProps } from 'tdesign-vue-next';
+import type { StepItemProps } from 'tdesign-vue-next';
 import { LoginIcon, CartIcon, WalletIcon, CheckCircleIcon } from 'tdesign-icons-vue-next';
 const renderLoginIcon: StepItemProps['icon'] = () => {
   return <LoginIcon size="24" class="icon-margin" />;

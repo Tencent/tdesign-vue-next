@@ -22,7 +22,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
-import { MessagePlugin, FormInstanceFunctions, FormProps, CustomValidator } from 'tdesign-vue-next';
+import { MessagePlugin, type FormInstanceFunctions, type FormProps, type CustomValidator } from 'tdesign-vue-next';
 const form = ref<FormInstanceFunctions>(null);
 const formData: FormProps['data'] = reactive({
   account: '',

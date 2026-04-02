@@ -26,7 +26,7 @@
 </template>
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import { CheckboxGroupProps, CheckboxGroupValue, SelectInputProps } from 'tdesign-vue-next';
+import type { CheckboxGroupProps, CheckboxGroupValue, SelectInputProps } from 'tdesign-vue-next';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 interface CustomOptionInfo {
   label: string;

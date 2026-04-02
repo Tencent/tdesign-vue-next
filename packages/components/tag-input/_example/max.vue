@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { MessagePlugin, TagInputProps } from 'tdesign-vue-next';
+import { MessagePlugin, type TagInputProps } from 'tdesign-vue-next';
 const tags = ref([]);
 const onEnter: TagInputProps['onEnter'] = (value, { inputValue }) => {
   if (value.length >= 3 && inputValue) {

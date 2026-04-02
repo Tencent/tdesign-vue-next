@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { GlobalConfigProvider } from 'tdesign-vue-next';
+import type { GlobalConfigProvider } from 'tdesign-vue-next';
 import { LockOnIcon, LockOffIcon } from 'tdesign-icons-vue-next';
 
 // 支持全局定义 icon

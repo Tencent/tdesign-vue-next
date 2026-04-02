@@ -31,7 +31,7 @@
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { TreeProps, InputProps, InputValue } from 'tdesign-vue-next';
+import type { TreeProps, InputProps, InputValue } from 'tdesign-vue-next';
 const valueMode = ref<TreeProps['valueMode']>('onlyLeaf');
 const checked = ref<TreeProps['value']>(['1.1.1.1', '1.1.1.2']);
 const expanded = ref<TreeProps['expanded']>(['1', '1.1', '1.1.1', '2']);

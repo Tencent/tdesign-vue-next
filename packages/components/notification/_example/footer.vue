@@ -12,7 +12,7 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { NotificationProps } from 'tdesign-vue-next';
+import type { NotificationProps } from 'tdesign-vue-next';
 const footer: NotificationProps['footer'] = () => {
   return (
     <div class="t-notification__detail">

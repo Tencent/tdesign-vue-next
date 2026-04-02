@@ -22,7 +22,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { CalendarCell, CalendarProps } from 'tdesign-vue-next';
+import { CalendarCell, type CalendarProps } from 'tdesign-vue-next';
 const themeOptions = [
   {
     value: 'full',

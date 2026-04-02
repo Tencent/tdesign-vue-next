@@ -51,9 +51,9 @@ import { ref, watch } from 'vue';
 import {
   EnhancedTable as TEnhancedTable,
   MessagePlugin,
-  EnhancedTableProps,
-  ButtonProps,
-  AllTableInstanceFunctions,
+  type EnhancedTableProps,
+  type ButtonProps,
+  type AllTableInstanceFunctions,
 } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 interface TableData {

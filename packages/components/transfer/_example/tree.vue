@@ -16,7 +16,7 @@
 import { ref } from 'vue';
 
 // support using keys to rename data attributes, keys should be defined in transfer
-import { TransferProps } from 'tdesign-vue-next';
+import type { TransferProps } from 'tdesign-vue-next';
 const keys: TransferProps['keys'] = {
   value: 'id',
   label: 'name',

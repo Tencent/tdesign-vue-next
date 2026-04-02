@@ -64,7 +64,7 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { MessagePlugin, CardProps, AvatarProps, DropdownProps } from 'tdesign-vue-next';
+import { MessagePlugin, type CardProps, type AvatarProps, type DropdownProps } from 'tdesign-vue-next';
 import { ThumbUpIcon, ChatIcon, ShareIcon, HeartIcon, MoreIcon, UserIcon } from 'tdesign-icons-vue-next';
 const cover: CardProps['cover'] = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 const icon: AvatarProps['icon'] = () => <UserIcon />;

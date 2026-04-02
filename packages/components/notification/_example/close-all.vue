@@ -5,7 +5,7 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { NotifyPlugin, ButtonProps } from 'tdesign-vue-next';
+import { NotifyPlugin, type ButtonProps } from 'tdesign-vue-next';
 const openSomeNotification: ButtonProps['onClick'] = () => {
   NotifyPlugin.info({
     title: '这是第一条通知',

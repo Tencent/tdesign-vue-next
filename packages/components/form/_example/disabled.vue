@@ -88,7 +88,13 @@
 </template>
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
-import { MessagePlugin, FormProps, CheckboxGroupProps, SelectProps, CascaderProps } from 'tdesign-vue-next';
+import {
+  MessagePlugin,
+  type FormProps,
+  type CheckboxGroupProps,
+  type SelectProps,
+  type CascaderProps,
+} from 'tdesign-vue-next';
 const formDisabled = ref(true);
 const formData: FormProps['data'] = reactive({
   name: '',

@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { MessagePlugin, DrawerProps, ButtonProps } from 'tdesign-vue-next';
+import { MessagePlugin, type DrawerProps, type ButtonProps } from 'tdesign-vue-next';
 const visible = ref(false);
 const handleClick: ButtonProps['onClick'] = () => {
   visible.value = true;

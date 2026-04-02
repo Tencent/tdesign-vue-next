@@ -44,7 +44,7 @@
 </template>
 <script lang="tsx" setup>
 import { ref, computed } from 'vue';
-import { TableProps, TableInstanceFunctions, TableRowData } from 'tdesign-vue-next';
+import { type TableProps, type TableInstanceFunctions, TableRowData } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const statusNameListMap = {
   0: {

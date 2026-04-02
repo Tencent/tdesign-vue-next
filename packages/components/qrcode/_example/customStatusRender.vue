@@ -24,7 +24,7 @@
 
 <script lang="tsx" setup>
 import { CloseCircleFilledIcon, RefreshIcon } from 'tdesign-icons-vue-next';
-import { QRCodeProps } from 'tdesign-vue-next';
+import type { QRCodeProps } from 'tdesign-vue-next';
 
 const renderStatus: QRCodeProps['statusRender'] = (_h, { status }) => {
   return (

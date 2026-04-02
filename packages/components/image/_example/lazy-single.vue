@@ -16,7 +16,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { Loading, ImageProps, ButtonProps } from 'tdesign-vue-next';
+import { Loading, type ImageProps, type ButtonProps } from 'tdesign-vue-next';
 import { RefreshIcon } from 'tdesign-icons-vue-next';
 const loadingCount = ref(0);
 const renderPlaceholder: ImageProps['placeholder'] = () => (

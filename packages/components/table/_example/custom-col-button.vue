@@ -60,7 +60,7 @@
 </template>
 <script lang="tsx" setup>
 import { computed, ref } from 'vue';
-import { TableColumnController, TableProps } from 'tdesign-vue-next';
+import { TableColumnController, type TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const placement = ref<TableColumnController['placement']>('top-right');
 const bordered = ref(true);

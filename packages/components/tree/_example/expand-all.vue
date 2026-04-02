@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { TreeProps, SwitchProps } from 'tdesign-vue-next';
+import type { TreeProps, SwitchProps } from 'tdesign-vue-next';
 const data1 = [
   {
     value: 't1',

@@ -138,7 +138,7 @@
 </template>
 
 <script lang="ts" setup>
-import { MenuProps } from 'tdesign-vue-next';
+import type { MenuProps } from 'tdesign-vue-next';
 const changeHandler: MenuProps['onChange'] = (active) => {
   console.log('change', active);
 };

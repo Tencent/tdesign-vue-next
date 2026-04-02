@@ -38,7 +38,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { CheckTagProps } from 'tdesign-vue-next';
+import type { CheckTagProps } from 'tdesign-vue-next';
 const checked1 = ref(false);
 const checked2 = ref(false);
 const checked3 = ref(false);

@@ -29,7 +29,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { TabsProps } from 'tdesign-vue-next';
+import type { TabsProps } from 'tdesign-vue-next';
 const value1 = ref<TabsProps['value']>('first');
 const value2 = ref<TabsProps['value']>('first');
 const onTabChange1: TabsProps['onChange'] = (newValue) => (value1.value = newValue);

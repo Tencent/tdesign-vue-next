@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { TagInputProps } from 'tdesign-vue-next';
+import type { TagInputProps } from 'tdesign-vue-next';
 const tags1 = ref(['Vue', 'React']);
 const tags2 = ref<TagInputProps['value']>(['Vue', 'React']);
 const tags3 = ref<TagInputProps['defaultValue']>(['Vue', 'React']);

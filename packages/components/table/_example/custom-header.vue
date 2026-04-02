@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="tsx" setup>
-import { TableProps } from 'tdesign-vue-next';
+import type { TableProps } from 'tdesign-vue-next';
 import {
   UserCircleIcon,
   CheckCircleFilledIcon,

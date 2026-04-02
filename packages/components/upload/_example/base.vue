@@ -96,10 +96,10 @@
 import { ref, watch } from 'vue';
 import {
   MessagePlugin,
-  UploadInstanceFunctions,
-  UploadProps,
-  UploadSelectChangeContext,
-  ButtonProps,
+  type UploadInstanceFunctions,
+  type UploadProps,
+  type UploadSelectChangeContext,
+  type ButtonProps,
 } from 'tdesign-vue-next';
 // import { CloseIcon } from 'tdesign-icons-vue-next';
 

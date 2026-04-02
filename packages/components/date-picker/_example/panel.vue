@@ -40,7 +40,7 @@
 
 <script lang="ts" setup>
 import {
-  DateRangeValue,
+  type DateRangeValue,
   DateRangePickerPartial,
   DatePickerMonthChangeTrigger,
   DatePickerYearChangeTrigger,

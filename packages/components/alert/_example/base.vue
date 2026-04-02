@@ -9,6 +9,6 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { AlertProps } from 'tdesign-vue-next';
+import type { AlertProps } from 'tdesign-vue-next';
 const infoMessage: AlertProps['message'] = () => <div>这是一条普通的消息提示</div>;
 </script>

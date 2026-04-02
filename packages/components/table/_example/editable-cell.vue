@@ -28,12 +28,12 @@ import {
   Select,
   DatePicker,
   MessagePlugin,
-  TableProps,
-  TableInstanceFunctions,
-  ButtonProps,
+  type TableProps,
+  type TableInstanceFunctions,
+  type ButtonProps,
   BaseTableCol,
   TableEditableCellPropsParams,
-  PrimaryTableOnEditedContext,
+  type PrimaryTableOnEditedContext,
 } from 'tdesign-vue-next';
 interface TableData {
   key: string;

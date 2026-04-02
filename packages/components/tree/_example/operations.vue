@@ -68,7 +68,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import {
+import type {
   TreeInstanceFunctions,
   TreeProps,
   ButtonProps,

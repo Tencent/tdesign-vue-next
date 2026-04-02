@@ -43,7 +43,7 @@
 <script lang="tsx" setup>
 import { TypeCreateElement } from '../adapt';
 import { ref } from 'vue';
-import { TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
+import type { TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
 import { Icon } from 'tdesign-icons-vue-next';
 const showLine = ref<TreeProps['line']>(true);
 const showIcon = ref<TreeProps['icon']>(true);

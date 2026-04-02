@@ -24,7 +24,13 @@
 </template>
 <script lang="ts" setup>
 import { ref, onMounted, reactive } from 'vue';
-import { MessagePlugin, FormProps, FormInstanceFunctions, ButtonProps, FormValidateMessage } from 'tdesign-vue-next';
+import {
+  MessagePlugin,
+  type FormProps,
+  type FormInstanceFunctions,
+  type ButtonProps,
+  type FormValidateMessage,
+} from 'tdesign-vue-next';
 const formData: FormProps['data'] = reactive({
   account: '',
   description: '',

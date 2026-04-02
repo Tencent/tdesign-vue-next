@@ -4,7 +4,7 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { InputProps } from 'tdesign-vue-next';
+import type { InputProps } from 'tdesign-vue-next';
 const onFocus: InputProps['onFocus'] = () => {
   console.log('focused');
 };

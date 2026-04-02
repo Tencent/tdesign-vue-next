@@ -7,7 +7,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { CascaderProps } from 'tdesign-vue-next';
+import type { CascaderProps } from 'tdesign-vue-next';
 const options: CascaderProps['options'] = [
   {
     label: '当选项一数据展示文本过长时',

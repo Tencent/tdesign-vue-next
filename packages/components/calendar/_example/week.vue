@@ -22,7 +22,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { CalendarProps } from 'tdesign-vue-next';
+import type { CalendarProps } from 'tdesign-vue-next';
 const week: CalendarProps['week'] = ['星期1', '星期2', '星期3', '星期4', '星期5', '星期6', '星期天'];
 const renderWeek: CalendarProps['week'] = (h, params) => {
   if (params.day === 3) return <span style="color:#dd4a68">周三啦</span>;

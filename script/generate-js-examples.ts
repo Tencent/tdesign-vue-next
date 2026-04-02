@@ -57,7 +57,7 @@ async function transformVueSFC(source: string): Promise<string> {
       // 去掉 import type 等类型导入
       tsconfigRaw: {
         compilerOptions: {
-          // 保留 JSX
+          // @ts-ignore
           jsx: 'preserve',
           // 确保 verbatimModuleSyntax 关闭，让 esbuild 处理 type-only imports
           verbatimModuleSyntax: false,

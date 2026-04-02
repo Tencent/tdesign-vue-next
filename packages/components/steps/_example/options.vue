@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { StepsProps } from 'tdesign-vue-next';
+import type { StepsProps } from 'tdesign-vue-next';
 const options: StepsProps['options'] = [
   {
     title: '步骤一',

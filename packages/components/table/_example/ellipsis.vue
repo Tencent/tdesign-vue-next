@@ -24,7 +24,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { MessagePlugin, TableProps } from 'tdesign-vue-next';
+import { MessagePlugin, type TableProps } from 'tdesign-vue-next';
 import {
   FileCopyIcon,
   ErrorCircleFilledIcon,

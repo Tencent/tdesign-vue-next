@@ -27,7 +27,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { MinusIcon, AddIcon } from 'tdesign-icons-vue-next';
-import { QRCodeProps } from 'tdesign-vue-next';
+import type { QRCodeProps } from 'tdesign-vue-next';
 
 const minSize = 40;
 const maxSize = 300;

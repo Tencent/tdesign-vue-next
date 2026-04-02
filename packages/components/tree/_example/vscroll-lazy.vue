@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
+import type { TreeOptionData, TreeProps } from 'tdesign-vue-next';
 const allLevels = [5, 5, 5];
 function createTreeData() {
   let cacheIndex = 0;

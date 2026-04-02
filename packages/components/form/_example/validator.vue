@@ -68,11 +68,11 @@
 import { ref, reactive, computed } from 'vue';
 import {
   MessagePlugin,
-  FormInstanceFunctions,
-  FormProps,
-  CheckboxGroupProps,
-  AutoCompleteProps,
-  ButtonProps,
+  type FormInstanceFunctions,
+  type FormProps,
+  type CheckboxGroupProps,
+  type AutoCompleteProps,
+  type ButtonProps,
 } from 'tdesign-vue-next';
 const form = ref<FormInstanceFunctions>(null);
 const formData: FormProps['data'] = reactive({

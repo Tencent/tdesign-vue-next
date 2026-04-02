@@ -4,7 +4,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { CascaderProps, TreeOptionData } from 'tdesign-vue-next';
+import type { CascaderProps, TreeOptionData } from 'tdesign-vue-next';
 const options = ref<CascaderProps['options']>([
   {
     label: '选项1',

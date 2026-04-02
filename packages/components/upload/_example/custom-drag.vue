@@ -33,7 +33,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { MessagePlugin, UploadInstanceFunctions, UploadProps, ButtonProps } from 'tdesign-vue-next';
+import { MessagePlugin, type UploadInstanceFunctions, type UploadProps, type ButtonProps } from 'tdesign-vue-next';
 import { CloudUploadIcon } from 'tdesign-icons-vue-next';
 const files = ref<UploadProps['value']>([]);
 const uploadRef = ref<UploadInstanceFunctions>();

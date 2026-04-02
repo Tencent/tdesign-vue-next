@@ -21,7 +21,7 @@
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';
-import { FormProps } from 'tdesign-vue-next';
+import type { FormProps } from 'tdesign-vue-next';
 const formData: FormProps['data'] = reactive({
   labelAlign: 'right',
   name: '',

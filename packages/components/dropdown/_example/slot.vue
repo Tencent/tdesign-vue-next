@@ -69,7 +69,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { MessagePlugin, DropdownProps, DropdownItemProps } from 'tdesign-vue-next';
+import { MessagePlugin, type DropdownProps, type DropdownItemProps } from 'tdesign-vue-next';
 const operationMenu = ref([
   {
     label: '操作一',

@@ -16,7 +16,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue';
-import { ListItemMetaProps, ListInstanceFunctions } from 'tdesign-vue-next';
+import type { ListItemMetaProps, ListInstanceFunctions } from 'tdesign-vue-next';
 
 const list = ref<ListInstanceFunctions>(); // 用于存储对 t-list 的引用
 const listData = ref([]); // 使用 ref 来存储列表数据

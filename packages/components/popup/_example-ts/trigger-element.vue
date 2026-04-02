@@ -32,7 +32,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { PopupProps } from 'tdesign-vue-next';
+import type { PopupProps } from 'tdesign-vue-next';
 const renderTriggerElement1: PopupProps['default'] = () => {
   return <t-button variant="outline">渲染函数定义触发元素1</t-button>;
 };

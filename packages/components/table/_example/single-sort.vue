@@ -34,7 +34,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { TableProps } from 'tdesign-vue-next';
+import type { TableProps } from 'tdesign-vue-next';
 import { CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const statusNameListMap = {
   0: {

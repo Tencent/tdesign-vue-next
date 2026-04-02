@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { GlobalConfigProvider } from 'tdesign-vue-next';
+import type { GlobalConfigProvider } from 'tdesign-vue-next';
 const globalConfig: GlobalConfigProvider = {
   dialog: {
     confirm: 'confirm',

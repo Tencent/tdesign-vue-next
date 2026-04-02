@@ -27,7 +27,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SelectInputProps, SelectInputValue, SelectInputFocusContext } from 'tdesign-vue-next';
+import type { SelectInputProps, SelectInputValue, SelectInputFocusContext } from 'tdesign-vue-next';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 const options = [
   {

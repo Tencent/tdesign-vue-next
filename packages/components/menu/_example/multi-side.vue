@@ -140,7 +140,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { MenuProps, ButtonProps } from 'tdesign-vue-next';
+import type { MenuProps, ButtonProps } from 'tdesign-vue-next';
 const collapsed = ref(false);
 const collapsed2 = ref(false);
 const changeCollapsed: ButtonProps['onClick'] = () => {

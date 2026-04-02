@@ -23,7 +23,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SelectProps } from 'tdesign-vue-next';
+import type { SelectProps } from 'tdesign-vue-next';
 const options: SelectProps['options'] = [
   {
     label: '选项一',

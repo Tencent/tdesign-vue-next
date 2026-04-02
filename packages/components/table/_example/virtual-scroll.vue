@@ -28,7 +28,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { TableProps, TableInstanceFunctions, ButtonProps } from 'tdesign-vue-next';
+import type { TableProps, TableInstanceFunctions, ButtonProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const statusNameListMap = {
   0: {

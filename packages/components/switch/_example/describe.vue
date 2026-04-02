@@ -34,7 +34,7 @@
 </template>
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { SwitchProps } from 'tdesign-vue-next';
+import type { SwitchProps } from 'tdesign-vue-next';
 import { CloseIcon, CheckIcon } from 'tdesign-icons-vue-next';
 const checked = ref(true);
 const renderChecked = ref(true);

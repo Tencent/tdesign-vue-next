@@ -16,7 +16,7 @@
 </template>
 <script lang="tsx" setup>
 import { ref, onMounted } from 'vue';
-import { PaginationProps, TableProps } from 'tdesign-vue-next';
+import type { PaginationProps, TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const statusNameListMap = {
   0: {

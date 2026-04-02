@@ -27,7 +27,7 @@
 
 <script lang="tsx" setup>
 import { watch, ref } from 'vue';
-import { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
+import type { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
 import {
   CheckCircleFilledIcon,
   CaretDownSmallIcon,

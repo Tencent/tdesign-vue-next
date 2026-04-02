@@ -13,7 +13,7 @@ import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 
 // 全局特性配置，引入英文语言配置包 enConfig
-import { GlobalConfigProvider } from 'tdesign-vue-next';
+import type { GlobalConfigProvider } from 'tdesign-vue-next';
 const empty: GlobalConfigProvider = {};
 const customConfig: GlobalConfigProvider = {
   // 可以在此处定义更多自定义配置，具体可配置内容参看 API 文档

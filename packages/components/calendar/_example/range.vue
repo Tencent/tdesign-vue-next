@@ -28,7 +28,7 @@
 
 <script lang="tsx" setup>
 import { ref, computed } from 'vue';
-import { CalendarProps, CalendarValue } from 'tdesign-vue-next';
+import type { CalendarProps, CalendarValue } from 'tdesign-vue-next';
 
 const maxDate = ref<CalendarValue>('2028-04');
 const minDate = ref<CalendarValue>('2018-08');

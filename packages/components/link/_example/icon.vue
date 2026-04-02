@@ -17,7 +17,7 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { LinkProps } from 'tdesign-vue-next';
+import type { LinkProps } from 'tdesign-vue-next';
 import { LinkIcon, JumpIcon } from 'tdesign-icons-vue-next';
 const renderPrefixIcon: LinkProps['prefixIcon'] = () => <LinkIcon />;
 const renderSuffixIcon: LinkProps['suffixIcon'] = () => <JumpIcon />;

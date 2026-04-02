@@ -31,7 +31,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { AutoCompleteProps } from 'tdesign-vue-next';
+import type { AutoCompleteProps } from 'tdesign-vue-next';
 import { SearchIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const value = ref('');
 const value2 = ref('');

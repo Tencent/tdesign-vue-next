@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { DateRangePickerProps } from 'tdesign-vue-next';
+import type { DateRangePickerProps } from 'tdesign-vue-next';
 
 const onPick: DateRangePickerProps['onPick'] = (value, context) => console.log('onPick:', value, context);
 

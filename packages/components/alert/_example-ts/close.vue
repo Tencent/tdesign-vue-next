@@ -18,7 +18,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { AlertProps } from 'tdesign-vue-next';
+import type { AlertProps } from 'tdesign-vue-next';
 
 const beforeClose: AlertProps['onClose'] = () => window.confirm('确认关闭吗？');
 

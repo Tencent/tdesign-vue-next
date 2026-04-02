@@ -20,7 +20,7 @@
 </template>
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { SelectInputProps } from 'tdesign-vue-next';
+import type { SelectInputProps } from 'tdesign-vue-next';
 const options = [
   {
     label: 'tdesign-vue',
