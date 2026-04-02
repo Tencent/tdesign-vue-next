@@ -9,14 +9,14 @@ name | type | default | description | required
 allowUncheck | Boolean | false | \- | N
 checked | Boolean | false | `v-model` and `v-model:checked` is supported | N
 defaultChecked | Boolean | false | uncontrolled property | N
-default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+default | String / Slot / Function | - | Typescript: `string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 disabled | Boolean | undefined | \- | N
-label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+label | String / Slot / Function | - | Typescript: `string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 name | String | - | \- | N
 readonly | Boolean | undefined | \- | N
-value | String / Number / Boolean | undefined | Typescript：`T` | N
-onChange | Function |  | Typescript：`(checked: boolean, context: { e: Event }) => void`<br/> | N
-onClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>trigger on click | N
+value | String / Number / Boolean | undefined | Typescript: `T` | N
+onChange | Function |  | Typescript: `(checked: boolean, context: { e: Event }) => void`<br/> | N
+onClick | Function |  | Typescript: `(context: { e: MouseEvent }) => void`<br/>trigger on click | N
 
 ### Radio Events
 
@@ -34,15 +34,14 @@ allowUncheck | Boolean | false | \- | N
 direction | String | horizontal | When the value is vertical, the radio options are displayed in a vertical layout.。options: horizontal/vertical | N
 disabled | Boolean | undefined | \- | N
 name | String | - | \- | N
-options | Array | - | Typescript：`Array<RadioOption>` `type RadioOption = string \| number \| RadioOptionObj` `interface RadioOptionObj { label?: string \| TNode; value?: string \| number \| boolean; disabled?: boolean }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/radio/type.ts) | N
+options | Array | - | Typescript: `Array<RadioOption>` `type RadioOption = string \| number \| RadioOptionObj` `interface RadioOptionObj { label?: string \| TNode; value?: string \| number \| boolean; disabled?: boolean }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/radio/type.ts) | N
 readonly | Boolean | undefined | \- | N
-size | String | medium | options: small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-theme | String | radio | component Style。options: radio/button | N
-value | String / Number / Boolean | - | `v-model` and `v-model:value` is supported。Typescript：`T` `type RadioValue = string \| number \| boolean`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/radio/type.ts) | N
-defaultValue | String / Number / Boolean | - | uncontrolled property。Typescript：`T` `type RadioValue = string \| number \| boolean`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/radio/type.ts) | N
+size | String | medium | options: small/medium/large。Typescript: `SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+theme | String | radio | Determine the style of radio when using options API。options: radio/button | N
+value | String / Number / Boolean | - | `v-model` and `v-model:value` is supported。Typescript: `T` `type RadioValue = string \| number \| boolean`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/radio/type.ts) | N
+defaultValue | String / Number / Boolean | - | uncontrolled property。Typescript: `T` `type RadioValue = string \| number \| boolean`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/radio/type.ts) | N
 variant | String | outline | options: outline/primary-filled/default-filled | N
-vertical | Boolean | false | When set to true, the Radio Group will be displayed vertically. | N
-onChange | Function |  | Typescript：`(value: T, context: { e: Event; name?:string }) => void`<br/> | N
+onChange | Function |  | Typescript: `(value: T, context: { e: Event; name?:string }) => void`<br/> | N
 
 ### RadioGroup Events
 
