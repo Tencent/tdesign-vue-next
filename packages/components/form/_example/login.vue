@@ -23,21 +23,18 @@
     </t-form>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { MessagePlugin, FormProps } from 'tdesign-vue-next';
 import { DesktopIcon, LockOnIcon } from 'tdesign-icons-vue-next';
-
-const formData = reactive({
+const formData: FormProps['data'] = reactive({
   account: '',
   password: '',
 });
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {

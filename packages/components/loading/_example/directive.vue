@@ -12,9 +12,9 @@
     >
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { ButtonProps } from 'tdesign-vue-next';
 const loading1 = ref(false);
 const loading2 = ref(false);
 const customLoading = ref({
@@ -22,28 +22,30 @@ const customLoading = ref({
   showOverlay: true,
   text: 'loading...',
 });
-
-const handleLoading = () => {
+const handleLoading: ButtonProps['onClick'] = () => {
   loading1.value = true;
   const timer = setTimeout(() => {
     loading1.value = false;
     clearTimeout(timer);
   }, 1000);
 };
-
-const handleLoadingFullscreen = () => {
+const handleLoadingFullscreen: ButtonProps['onClick'] = () => {
   loading2.value = true;
   const timer = setTimeout(() => {
     loading2.value = false;
     clearTimeout(timer);
   }, 1000);
 };
-
-const handleCustomLoading = () => {
-  customLoading.value = { ...customLoading.value, loading: true };
+const handleCustomLoading: ButtonProps['onClick'] = () => {
+  customLoading.value = {
+    ...customLoading.value,
+    loading: true,
+  };
   const timer = setTimeout(() => {
-    customLoading.value = { ...customLoading.value, loading: false };
-
+    customLoading.value = {
+      ...customLoading.value,
+      loading: false,
+    };
     clearTimeout(timer);
   }, 1000);
 };

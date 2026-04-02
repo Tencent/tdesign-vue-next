@@ -12,8 +12,9 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { TreeProps, SwitchProps } from 'tdesign-vue-next';
 const data1 = [
   {
     value: 't1',
@@ -93,12 +94,12 @@ const data2 = [
   },
 ];
 const transition = ref(true);
-const items = ref(data1);
-const toggleData = () => {
+const items = ref<TreeProps['data']>(data1);
+const toggleData: SwitchProps['onChange'] = () => {
   const tmpItems = items.value[0].value === 't1' ? data2 : data1;
   items.value = tmpItems;
 };
-const label = (h, node) => {
+const label: TreeProps['label'] = (h, node) => {
   return node.label || String(node.value);
 };
 </script>

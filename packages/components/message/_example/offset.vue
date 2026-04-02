@@ -5,10 +5,9 @@
   </t-space>
 </template>
 
-<script setup>
-import { MessagePlugin } from 'tdesign-vue-next';
-
-const showOffsetMsg = () => {
+<script lang="ts" setup>
+import { MessagePlugin, ButtonProps } from 'tdesign-vue-next';
+const showOffsetMsg: ButtonProps['onClick'] = () => {
   MessagePlugin.info({
     content: '用户表示普通操作信息提示',
     placement: 'top',

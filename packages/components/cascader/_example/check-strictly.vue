@@ -5,10 +5,10 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
-const options = [
+import { CascaderProps } from 'tdesign-vue-next';
+const options: CascaderProps['options'] = [
   {
     value: '1',
     label: '1',
@@ -98,7 +98,6 @@ const options = [
     ],
   },
 ];
-
 const value1 = ref('1.2.2');
 const value2 = ref(['1.1.2.1', '2']);
 </script>

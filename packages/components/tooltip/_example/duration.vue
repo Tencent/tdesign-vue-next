@@ -4,13 +4,11 @@
   </t-tooltip>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, onUnmounted, watch } from 'vue';
-
 const timeout = ref(0);
 const renderId = ref(0);
-let timer;
-
+let timer: NodeJS.Timeout;
 watch(
   renderId,
   () => {
@@ -22,9 +20,10 @@ watch(
       }
     }, 1000);
   },
-  { immediate: true },
+  {
+    immediate: true,
+  },
 );
-
 onUnmounted(() => {
   clearInterval(timer);
 });

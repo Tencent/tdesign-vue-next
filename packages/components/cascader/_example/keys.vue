@@ -16,10 +16,10 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
-const options = [
+import { CascaderProps } from 'tdesign-vue-next';
+const options: CascaderProps['options'] = [
   {
     name: '选项一',
     code: '1',
@@ -53,7 +53,6 @@ const options = [
     ],
   },
 ];
-
 const value = ref('1.1');
 const value2 = ref(['1.1']);
 </script>

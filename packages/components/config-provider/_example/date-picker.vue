@@ -15,7 +15,8 @@
   </t-config-provider>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { GlobalConfigProvider } from 'tdesign-vue-next';
 const DATE_PICK_CONFIGS = {
   placeholder: {
     date: 'select date',
@@ -31,8 +32,7 @@ const DATE_PICK_CONFIGS = {
   selectTime: 'Select Time',
   selectDate: 'Select Date',
 };
-
-const globalConfig = {
+const globalConfig: GlobalConfigProvider = {
   datePicker: DATE_PICK_CONFIGS,
 };
 </script>

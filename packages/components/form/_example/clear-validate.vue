@@ -57,12 +57,18 @@
     </t-form-item>
   </t-form>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, reactive, computed } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
-
-const form = ref(null);
-const formData = reactive({
+import {
+  MessagePlugin,
+  FormInstanceFunctions,
+  FormProps,
+  AutoCompleteProps,
+  CheckboxGroupProps,
+  ButtonProps,
+} from 'tdesign-vue-next';
+const form = ref<FormInstanceFunctions>(null);
+const formData: FormProps['data'] = reactive({
   account: '',
   password: '',
   description: '',
@@ -76,52 +82,115 @@ const formData = reactive({
   course: [],
 });
 const emailSuffix = ['@qq.com', '@163.com', '@gmail.com'];
-const emailOptions = computed(() => {
+const emailOptions = computed<AutoCompleteProps['options']>(() => {
   const emailPrefix = formData.email.split('@')[0];
   if (!emailPrefix) return [];
-
   return emailSuffix.map((suffix) => emailPrefix + suffix);
 });
-
-const courseOptions = [
-  { label: '语文', value: '1' },
-  { label: '数学', value: '2' },
-  { label: '英语', value: '3' },
-  { label: '体育', value: '4' },
+const courseOptions: CheckboxGroupProps['options'] = [
+  {
+    label: '语文',
+    value: '1',
+  },
+  {
+    label: '数学',
+    value: '2',
+  },
+  {
+    label: '英语',
+    value: '3',
+  },
+  {
+    label: '体育',
+    value: '4',
+  },
 ];
-
 const options = [
-  { label: '计算机学院', value: '1' },
-  { label: '软件学院', value: '2' },
-  { label: '物联网学院', value: '3' },
+  {
+    label: '计算机学院',
+    value: '1',
+  },
+  {
+    label: '软件学院',
+    value: '2',
+  },
+  {
+    label: '物联网学院',
+    value: '3',
+  },
 ];
-
-const rules = {
+const rules: FormProps['rules'] = {
   account: [
-    { required: true, message: '姓名必填' },
-    { min: 2, message: '至少需要两个字符，一个中文等于两个字符' },
-    { max: 10, message: '姓名字符长度超出' },
+    {
+      required: true,
+      message: '姓名必填',
+    },
+    {
+      min: 2,
+      message: '至少需要两个字符，一个中文等于两个字符',
+    },
+    {
+      max: 10,
+      message: '姓名字符长度超出',
+    },
   ],
   description: [
-    { validator: (val) => val.length >= 5, message: '至少 5 个字，中文长度等于英文长度' },
-    { validator: (val) => val.length < 20, message: '不能超过 20 个字，中文长度等于英文长度' },
+    {
+      validator: (val) => val.length >= 5,
+      message: '至少 5 个字，中文长度等于英文长度',
+    },
+    {
+      validator: (val) => val.length < 20,
+      message: '不能超过 20 个字，中文长度等于英文长度',
+    },
   ],
   password: [
-    { required: true, message: '密码必填' },
-    { len: 8, message: '请输入 8 位密码' },
-    { pattern: /[A-Z]+/, message: '密码必须包含大写字母' },
+    {
+      required: true,
+      message: '密码必填',
+    },
+    {
+      len: 8,
+      message: '请输入 8 位密码',
+    },
+    {
+      pattern: /[A-Z]+/,
+      message: '密码必须包含大写字母',
+    },
   ],
   email: [
-    { required: true, message: '邮箱必填' },
-    { email: { ignore_max_length: true }, message: '请输入正确的邮箱地址' },
+    {
+      required: true,
+      message: '邮箱必填',
+    },
+    {
+      email: {
+        ignore_max_length: true,
+      },
+      message: '请输入正确的邮箱地址',
+    },
   ],
-  gender: [{ required: true, message: '性别必填' }],
+  gender: [
+    {
+      required: true,
+      message: '性别必填',
+    },
+  ],
   course: [
-    { required: true, message: '课程必填' },
-    { validator: (val) => val.length <= 2, message: '最多选择 2 门课程' },
+    {
+      required: true,
+      message: '课程必填',
+    },
+    {
+      validator: (val) => val.length <= 2,
+      message: '最多选择 2 门课程',
+    },
   ],
   'content.url': [
-    { required: true, message: '个人网站必填' },
+    {
+      required: true,
+      message: '个人网站必填',
+    },
     {
       url: {
         protocols: ['http', 'https', 'ftp'],
@@ -131,12 +200,11 @@ const rules = {
     },
   ],
 };
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
   console.log('formData', formData.value);
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
@@ -144,11 +212,10 @@ const onSubmit = ({ validateResult, firstError }) => {
     MessagePlugin.warning(firstError);
   }
 };
-
-const handleClear = () => {
+const handleClear: ButtonProps['onClick'] = () => {
   form.value.clearValidate();
 };
-const clearFieldsValidateResult = () => {
+const clearFieldsValidateResult: ButtonProps['onClick'] = () => {
   form.value.clearValidate(['email', 'course', 'content.url']);
   MessagePlugin.success('已清除邮箱、课程、个人网站等字段校验结果');
 };

@@ -23,28 +23,61 @@
     </t-select-input>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { computed, ref } from 'vue';
-
-const OPTIONS = [
+import { CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
+interface CustomOptionInfo {
+  label: string;
+  value?: number;
+  checkAll?: boolean;
+}
+const OPTIONS: CustomOptionInfo[] = [
   // 全选
-  { label: 'all frameworks', checkAll: true },
-  { label: 'tdesign-vue', value: 1 },
-  { label: 'tdesign-react', value: 2 },
-  { label: 'tdesign-miniprogram', value: 3 },
-  { label: 'tdesign-angular', value: 4 },
-  { label: 'tdesign-mobile-vue', value: 5 },
-  { label: 'tdesign-mobile-react', value: 6 },
+  {
+    label: 'all frameworks',
+    checkAll: true,
+  },
+  {
+    label: 'tdesign-vue',
+    value: 1,
+  },
+  {
+    label: 'tdesign-react',
+    value: 2,
+  },
+  {
+    label: 'tdesign-miniprogram',
+    value: 3,
+  },
+  {
+    label: 'tdesign-angular',
+    value: 4,
+  },
+  {
+    label: 'tdesign-mobile-vue',
+    value: 5,
+  },
+  {
+    label: 'tdesign-mobile-react',
+    value: 6,
+  },
 ];
-
-const options = ref([...OPTIONS]);
-const value = ref([
-  { label: 'Vue', value: 1 },
-  { label: 'React', value: 2 },
-  { label: 'Miniprogram', value: 3 },
+const options = ref<CustomOptionInfo[]>([...OPTIONS]);
+const value = ref<CustomOptionInfo[]>([
+  {
+    label: 'Vue',
+    value: 1,
+  },
+  {
+    label: 'React',
+    value: 2,
+  },
+  {
+    label: 'Miniprogram',
+    value: 3,
+  },
 ]);
-
-const checkboxValue = computed(() => {
+const checkboxValue = computed<CheckboxGroupProps['value']>(() => {
   const arr = [];
   const list = value.value;
   // 此处不使用 forEach，减少函数迭代
@@ -55,10 +88,16 @@ const checkboxValue = computed(() => {
 });
 
 // 直接 checkboxgroup 组件渲染输出下拉选项
-const onCheckedChange = (val, { current, type }) => {
+const onCheckedChange: CheckboxGroupProps['onChange'] = (val, { current, type }) => {
   // current 不存在，则表示操作全选
   if (!current) {
-    value.value = type === 'check' ? options.value.slice(1) : [];
+    value.value =
+      type === 'check'
+        ? options.value.slice(1).map((option) => ({
+            ...option,
+            value: option?.value || 0,
+          }))
+        : [];
     return;
   }
   // 普通操作
@@ -71,7 +110,7 @@ const onCheckedChange = (val, { current, type }) => {
 };
 
 // 可以根据触发来源，自由定制标签变化时的筛选器行为
-const onTagChange = (currentTags, context) => {
+const onTagChange: SelectInputProps['onTagChange'] = (currentTags, context) => {
   console.log(currentTags, context);
   const { trigger, index, item } = context;
   if (trigger === 'clear') {
@@ -82,7 +121,10 @@ const onTagChange = (currentTags, context) => {
   }
   // 如果允许创建新条目
   if (trigger === 'enter') {
-    const current = { label: item, value: item };
+    const current = {
+      label: item.toString(),
+      value: Number(item) || index,
+    };
     value.value.push(current);
     options.value = options.value.concat(current);
   }

@@ -33,9 +33,9 @@
   </t-head-menu>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { HeadMenuProps } from 'tdesign-vue-next';
 const menus = [
   {
     title: '菜单1',
@@ -80,10 +80,8 @@ const menus = [
     ],
   },
 ];
-
-const active = ref('2-1');
-
-const changeHandler = (val) => {
+const active = ref<HeadMenuProps['value']>('2-1');
+const changeHandler: HeadMenuProps['onChange'] = (val) => {
   active.value = val;
 };
 </script>

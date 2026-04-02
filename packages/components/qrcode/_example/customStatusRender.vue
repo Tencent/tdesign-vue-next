@@ -22,10 +22,11 @@
   </t-space>
 </template>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { CloseCircleFilledIcon, RefreshIcon } from 'tdesign-icons-vue-next';
+import { QRCodeProps } from 'tdesign-vue-next';
 
-const renderStatus = (_h, { status }) => {
+const renderStatus: QRCodeProps['statusRender'] = (_h, { status }) => {
   return (
     status === 'loading' && (
       <t-space direction="vertical" size="4px">
@@ -36,7 +37,7 @@ const renderStatus = (_h, { status }) => {
   );
 };
 
-const handleRefresh = () => {
+const handleRefresh: QRCodeProps['onRefresh'] = () => {
   console.log('Click Refresh');
 };
 </script>

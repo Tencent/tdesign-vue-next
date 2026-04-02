@@ -22,18 +22,16 @@
     </t-form-item>
   </t-form>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, onMounted, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
-
-const formData = reactive({
+import { MessagePlugin, FormProps, FormInstanceFunctions, ButtonProps, FormValidateMessage } from 'tdesign-vue-next';
+const formData: FormProps['data'] = reactive({
   account: '',
   description: '',
   password: '',
 });
-const form = ref(null);
-
-const validateMessage = {
+const form = ref<FormInstanceFunctions>(null);
+const validateMessage: FormValidateMessage<FormProps['data']> = {
   account: [
     {
       type: 'error',
@@ -47,18 +45,39 @@ const validateMessage = {
     },
   ],
 };
-
-const rules = {
-  account: [{ required: true }, { min: 2 }, { max: 10, type: 'warning' }],
-  description: [{ validator: (val) => val.length < 10, message: '不能超过 20 个字，中文长度等于英文长度' }],
-  password: [{ required: true }, { len: 8, message: '请输入 8 位密码' }],
+const rules: FormProps['rules'] = {
+  account: [
+    {
+      required: true,
+    },
+    {
+      min: 2,
+    },
+    {
+      max: 10,
+      type: 'warning',
+    },
+  ],
+  description: [
+    {
+      validator: (val) => val.length < 10,
+      message: '不能超过 20 个字，中文长度等于英文长度',
+    },
+  ],
+  password: [
+    {
+      required: true,
+    },
+    {
+      len: 8,
+      message: '请输入 8 位密码',
+    },
+  ],
 };
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
@@ -66,12 +85,10 @@ const onSubmit = ({ validateResult, firstError }) => {
     MessagePlugin.warning(firstError);
   }
 };
-
-const handleValidateMessage = () => {
+const handleValidateMessage: ButtonProps['onClick'] = () => {
   MessagePlugin.success('设置表单校验信息提示成功');
   form.value.setValidateMessage(validateMessage);
 };
-
 onMounted(() => {
   form.value.setValidateMessage(validateMessage);
 });

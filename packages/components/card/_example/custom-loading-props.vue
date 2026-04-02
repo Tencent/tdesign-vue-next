@@ -10,10 +10,11 @@
   </t-card>
 </template>
 
-<script setup lang="jsx">
-const customProps = {
+<script lang="tsx" setup>
+import { CardProps } from 'tdesign-vue-next';
+const customProps: CardProps['loadingProps'] = {
   text: 'TDesign努力加载中...',
 };
-const isLoading = true;
+const isLoading: CardProps['loading'] = true;
 const infoMessage = `卡片内容，以描述性为主，可以是文字、图片或图文组合的形式。按业务需求进行自定义组合。`;
 </script>

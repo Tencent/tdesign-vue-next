@@ -1,19 +1,14 @@
 <template>
   <t-space direction="vertical">
-    <t-cascader v-model="value1" :options="options" clearable placeholder="请选择" size="small" />
     <t-cascader v-model="value1" :options="options" clearable placeholder="请选择" />
-    <t-cascader v-model="value1" :options="options" clearable placeholder="请选择" size="large" />
-
-    <t-cascader v-model="value2" multiple :options="options" clearable placeholder="请选择" size="small" />
     <t-cascader v-model="value2" multiple :options="options" clearable placeholder="请选择" />
-    <t-cascader v-model="value2" multiple :options="options" clearable placeholder="请选择" size="large" />
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
-const options = [
+import { CascaderProps } from 'tdesign-vue-next';
+const options: CascaderProps['options'] = [
   {
     label: '当选项一数据展示文本过长时',
     value: '1',
@@ -47,7 +42,6 @@ const options = [
     ],
   },
 ];
-
 const value1 = ref('1.1');
 const value2 = ref(['1.1']);
 </script>

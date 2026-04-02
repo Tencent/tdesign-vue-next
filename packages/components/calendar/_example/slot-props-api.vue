@@ -2,19 +2,18 @@
   <t-calendar :head="renderHead" :cell="renderCell" />
 </template>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import dayjs from 'dayjs';
-
-const renderHead = (h, params) => {
-  let title = params.filterDate.getFullYear();
+import { CalendarProps } from 'tdesign-vue-next';
+const renderHead: CalendarProps['head'] = (h, params) => {
+  let title = String(params.filterDate.getFullYear());
   if (params.mode === 'month') {
     title += `-${params.filterDate.getMonth() + 1}`;
   }
   title += ' 工作安排';
   return <div>{title}</div>;
 };
-
-const renderCell = (h, params) => {
+const renderCell: CalendarProps['cell'] = (h, params) => {
   const dataList = [
     {
       value: 'error',

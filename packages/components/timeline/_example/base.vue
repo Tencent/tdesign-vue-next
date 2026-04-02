@@ -14,10 +14,10 @@
     </t-timeline>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
-const layout = ref('vertical');
+import { TimelineProps } from 'tdesign-vue-next';
+const layout = ref<TimelineProps['layout']>('vertical');
 const options = [
   {
     label: '2022-01-01',

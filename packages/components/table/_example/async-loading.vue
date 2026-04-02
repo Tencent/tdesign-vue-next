@@ -18,16 +18,28 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
+import { TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-const data = [];
+const data: TableProps['data'] = [];
 for (let i = 0; i < 5; i++) {
   data.push({
     index: i + 1,
@@ -42,9 +54,12 @@ for (let i = 0; i < 5; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
-const columns = [
-  { colKey: 'applicant', title: '申请人', width: '100' },
+const columns: TableProps['columns'] = [
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -58,19 +73,31 @@ const columns = [
       );
     },
   },
-  { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+    width: '120',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    ellipsis: true,
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ];
-
-const asyncLoading = ref('loading');
+const asyncLoading = ref<'loading' | 'load-more' | 'loading-custom'>('loading');
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const customLoadingNode = (h) => <div class="t-table--loading-async">这是自定义加载状态和内容</div>;
-
-const loadingNode = computed(() => (asyncLoading.value === 'loading-custom' ? customLoadingNode : asyncLoading.value));
-
-const onAsyncLoadingClick = ({ status }) => {
+const customLoadingNode: TableProps['asyncLoading'] = (h) => (
+  <div class="t-table--loading-async">这是自定义加载状态和内容</div>
+);
+const loadingNode = computed<TableProps['asyncLoading']>(() =>
+  asyncLoading.value === 'loading-custom' ? customLoadingNode : asyncLoading.value,
+);
+const onAsyncLoadingClick: TableProps['onAsyncLoadingClick'] = ({ status }) => {
   if (status === 'load-more') {
     asyncLoading.value = 'loading';
   }

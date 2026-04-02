@@ -4,10 +4,10 @@
   </t-config-provider>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
-
+import { GlobalConfigProvider } from 'tdesign-vue-next';
 const MONTHS = [
   'January',
   'February',
@@ -24,7 +24,8 @@ const MONTHS = [
 ];
 
 // 全局特性配置，可以引入英文默认配置 enConfig，还可以在默认配置的基础上进行自定义配置
-const globalConfig = merge({}, enConfig, {
+const empty: GlobalConfigProvider = {};
+const customConfig: GlobalConfigProvider = {
   calendar: {
     yearSelection: '{year}',
     // 1 表示周一；7 表示周日
@@ -80,5 +81,6 @@ const globalConfig = merge({}, enConfig, {
       },
     },
   },
-});
+};
+const globalConfig = merge(empty, enConfig, customConfig);
 </script>

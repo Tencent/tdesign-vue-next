@@ -15,18 +15,33 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import { TableProps, ButtonProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const columns = [
-  { colKey: 'applicant', title: '申请人', width: '100' },
+const columns: TableProps['columns'] = [
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -41,13 +56,23 @@ const columns = [
       );
     },
   },
-  { colKey: 'matters', title: '申请事项', width: '140' },
-  { colKey: 'detail.email', title: '邮箱地址' },
-  { colKey: 'createTime', title: '申请时间' },
+  {
+    colKey: 'matters',
+    title: '申请事项',
+    width: '140',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ];
 
 // 本地数据排序，表示组件内部会对参数 data 进行数据排序。如果 data 数据为 10 条，就仅对这 10 条数据进行排序。
-const initialData = [];
+const initialData: TableProps['data'] = [];
 for (let i = 0; i < 10; i++) {
   initialData.push({
     id: i + 1,
@@ -64,14 +89,16 @@ for (let i = 0; i < 10; i++) {
 
 // 为了使得表格滚动更加平稳，建议指定row-height参数值为接近表格的平均行高
 const times = Array.from(new Array(1000), () => ''); // 测试共计1k条数据
-const testData = [];
+const testData: TableProps['data'] = [];
 times.forEach((item, i) => {
   const k = i % 10;
-  testData[i] = { ...initialData[k], id: i + 1 };
+  testData[i] = {
+    ...initialData[k],
+    id: i + 1,
+  };
 });
-
-const data = ref([...testData]);
-const reset = () => {
+const data = ref<TableProps['data']>([...testData]);
+const reset: ButtonProps['onClick'] = () => {
   data.value = [];
   setTimeout(() => {
     data.value = testData;

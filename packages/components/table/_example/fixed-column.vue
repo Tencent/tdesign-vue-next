@@ -42,17 +42,28 @@
     </t-table>
   </div>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
+import { TableProps, TableInstanceFunctions, TableRowData } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const data = [];
+const data: TableProps['data'] = [];
 for (let i = 0; i < 5; i++) {
   data.push({
     index: i + 1,
@@ -67,15 +78,18 @@ for (let i = 0; i < 5; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
 const leftFixedColumn = ref(2);
 const rightFixedColumn = ref(1);
-const tableLayout = ref('fixed');
+const tableLayout = ref<TableProps['tableLayout']>('fixed');
 const emptyData = ref(false);
-
-const columns = computed(() => {
+const columns = computed<TableProps['columns']>(() => {
   return [
-    { colKey: 'applicant', title: '申请人', width: 100, fixed: 'left' },
+    {
+      colKey: 'applicant',
+      title: '申请人',
+      width: 100,
+      fixed: 'left',
+    },
     {
       colKey: 'status',
       title: '审批状态',
@@ -91,21 +105,38 @@ const columns = computed(() => {
         );
       },
     },
-    { colKey: 'detail.email', title: '邮箱地址', width: 180 },
-    { colKey: 'matters', title: '申请事项', width: 200 },
-    { colKey: 'createTime', title: '申请日期', width: 120, fixed: rightFixedColumn.value >= 2 ? 'right' : undefined },
-    { colKey: 'operation', title: '操作', width: 100, fixed: 'right' },
+    {
+      colKey: 'detail.email',
+      title: '邮箱地址',
+      width: 180,
+    },
+    {
+      colKey: 'matters',
+      title: '申请事项',
+      width: 200,
+    },
+    {
+      colKey: 'createTime',
+      title: '申请日期',
+      width: 120,
+      fixed: rightFixedColumn.value >= 2 ? 'right' : undefined,
+    },
+    {
+      colKey: 'operation',
+      title: '操作',
+      width: 100,
+      fixed: 'right',
+    },
   ];
 });
-
-const tableRef = ref(null);
+const tableRef = ref<TableInstanceFunctions>(null);
 // eslint-disable-next-line
 const scrollToCreateTime = () => {
   // 横向滚动到指定列
   tableRef.value.scrollColumnIntoView('matters');
 };
 
-const rehandleClickOp = (context) => {
+const rehandleClickOp = (context: TableRowData) => {
   console.log(context);
 };
 </script>

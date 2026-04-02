@@ -27,19 +27,29 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import { TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 const selectOnRowClick = ref(true);
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const data = [];
+const data: TableProps['data'] = [];
 for (let i = 0; i < 5; i++) {
   data.push({
     index: i + 100,
@@ -54,8 +64,7 @@ for (let i = 0; i < 5; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
-const columns = [
+const columns: TableProps['columns'] = [
   {
     colKey: 'row-select',
     type: 'multiple',
@@ -65,10 +74,17 @@ const columns = [
 
     // 禁用行选中方式二：使用 checkProps 禁用行（示例代码有效，勿删）
     // 这种方式禁用行选中，行文本不会变灰
-    checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0, title: rowIndex % 2 !== 0 ? '不可选' : null }),
+    checkProps: ({ rowIndex }) => ({
+      disabled: rowIndex % 2 !== 0,
+      title: rowIndex % 2 !== 0 ? '不可选' : null,
+    }),
     width: 50,
   },
-  { colKey: 'applicant', title: '申请人', width: '100' },
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -82,15 +98,24 @@ const columns = [
       );
     },
   },
-  { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+    width: '120',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    ellipsis: true,
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ];
-
 const activeRow = ref(false);
-const selectedRowKeys = ref([]);
-
-const rehandleSelectChange = (value, ctx) => {
+const selectedRowKeys = ref<TableProps['selectedRowKeys']>([]);
+const rehandleSelectChange: TableProps['onSelectChange'] = (value, ctx) => {
   selectedRowKeys.value = value;
   console.log(value, ctx);
 };

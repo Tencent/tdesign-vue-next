@@ -53,16 +53,17 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed, nextTick } from 'vue';
+import { TreeProps, InputProps, ButtonProps } from 'tdesign-vue-next';
 const syncProps = ref(false);
 const checkable = ref(true);
 const activable = ref(false);
-const valueMode = ref('onlyLeaf');
-const checked = ref(['1.2.1', '1.2.2']);
-const expanded = ref(['1', '1.1']);
-const actived = ref([]);
-const items = ref([
+const valueMode = ref<TreeProps['valueMode']>('onlyLeaf');
+const checked = ref<TreeProps['value']>(['1.2.1', '1.2.2']);
+const expanded = ref<TreeProps['expanded']>(['1', '1.1']);
+const actived = ref<TreeProps['actived']>([]);
+const items = ref<TreeProps['data']>([
   {
     value: '1',
     label: '1',
@@ -131,40 +132,40 @@ const items = ref([
     ],
   },
 ]);
-const allChecked = computed(() => {
-  let arr = [];
+const allChecked = computed<InputProps['value']>(() => {
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(checked.value)) {
     arr = checked.value;
   }
   return arr.join(', ');
 });
-const allExpanded = computed(() => {
-  let arr = [];
+const allExpanded = computed<InputProps['value']>(() => {
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(expanded.value)) {
     arr = expanded.value;
   }
   return arr.join(', ');
 });
-const allActived = computed(() => {
-  let arr = [];
+const allActived = computed<InputProps['value']>(() => {
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(actived.value)) {
     arr = actived.value;
   }
   return arr.join(', ');
 });
-const selectNode = () => {
+const selectNode: ButtonProps['onClick'] = () => {
   checked.value = ['1.1'];
 };
-const activeNode = () => {
+const activeNode: ButtonProps['onClick'] = () => {
   actived.value = ['2'];
 };
-const expandNode = () => {
+const expandNode: ButtonProps['onClick'] = () => {
   expanded.value = ['1', '1.2'];
 };
-const onClick = (context) => {
+const onClick: TreeProps['onClick'] = (context) => {
   console.info('onClick context:', context);
 };
-const onChange = (vals, context) => {
+const onChange: TreeProps['onChange'] = (vals, context) => {
   console.info('onChange value:', vals, 'context:', context);
   const { node } = context;
   // onChange 事件发生时，context.node 状态预先发生变更，此时拿到预先变更的节点状态
@@ -187,11 +188,11 @@ const onChange = (vals, context) => {
     console.info(node.value, 'nextTick context.node.checked:', node.checked);
   });
 };
-const onActive = (vals, context) => {
+const onActive: TreeProps['onActive'] = (vals, context) => {
   console.info('onActive actived:', vals, 'context:', context);
   const { node } = context;
   console.info(node.value, 'context.node.actived:', node.actived);
-  const filterActived = vals.filter((val) => {
+  const filterActived: TreeProps['actived'] = vals.filter((val) => {
     if (val === '2.2') {
       console.info('节点 2.2 不允许激活');
       return false;
@@ -202,11 +203,11 @@ const onActive = (vals, context) => {
     actived.value = filterActived;
   }
 };
-const onExpand = (vals, context) => {
+const onExpand: TreeProps['onExpand'] = (vals, context) => {
   console.info('onExpand expanded:', vals, 'context:', context);
   const { node } = context;
   console.info(node.value, 'context.node.expanded:', node.expanded);
-  const filterExpanded = vals.filter((val) => {
+  const filterExpanded: TreeProps['expanded'] = vals.filter((val) => {
     if (val === '2.3') {
       console.info('节点 2.3 不允许展开');
       return false;

@@ -23,21 +23,18 @@
     /></t-space>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { ColorPickerPanelProps } from 'tdesign-vue-next';
 const color = ref('#0052d9');
 const color2 = ref('linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)');
-
-const handleChange = (value, context) => {
+const handleChange: ColorPickerPanelProps['onChange'] = (value, context) => {
   console.log(value, context);
 };
-
-const handlePaletteChange = (context) => {
+const handlePaletteChange: ColorPickerPanelProps['onPaletteBarChange'] = (context) => {
   console.log('色相面板改变', context);
 };
-
-const handleRecentColorsChange = (value, context) => {
+const handleRecentColorsChange: ColorPickerPanelProps['onRecentColorsChange'] = (value, context) => {
   console.log('最近使用颜色改变', value, context);
 };
 </script>

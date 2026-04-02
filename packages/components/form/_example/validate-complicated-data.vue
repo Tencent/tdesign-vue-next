@@ -55,17 +55,15 @@
     </t-tabs>
   </t-form>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, computed, watch, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
-
+import { MessagePlugin, FormProps, RadioGroupProps, CheckboxGroupProps, TabsProps } from 'tdesign-vue-next';
 let id = 0;
 const getId = () => {
   return ++id;
 };
-
 const studentTab = ref(1);
-const formData = reactive({
+const formData: FormProps['data'] = reactive({
   school: 1,
   students: [
     {
@@ -84,24 +82,58 @@ const formData = reactive({
     },
   ],
 });
-
 const COURSE_OPTIONS = [
-  { label: '全部', checkAll: true },
-  { label: '语文', value: '1', courseTypes: ['wenke', 'like'] },
-  { label: '数学', value: '2', courseTypes: ['wenke', 'like'] },
-  { label: '物理', value: '3', courseTypes: ['like'] },
-  { label: '化学', value: '4', courseTypes: ['like'] },
-  { label: '地理', value: '5', courseTypes: ['wenke'] },
-  { label: '历史', value: '6', courseTypes: ['wenke'] },
+  {
+    label: '全部',
+    checkAll: true,
+  },
+  {
+    label: '语文',
+    value: '1',
+    courseTypes: ['wenke', 'like'],
+  },
+  {
+    label: '数学',
+    value: '2',
+    courseTypes: ['wenke', 'like'],
+  },
+  {
+    label: '物理',
+    value: '3',
+    courseTypes: ['like'],
+  },
+  {
+    label: '化学',
+    value: '4',
+    courseTypes: ['like'],
+  },
+  {
+    label: '地理',
+    value: '5',
+    courseTypes: ['wenke'],
+  },
+  {
+    label: '历史',
+    value: '6',
+    courseTypes: ['wenke'],
+  },
+];
+const SCHOOL_OPTIONS: RadioGroupProps['options'] = [
+  {
+    label: '学校一',
+    value: 1,
+  },
+  {
+    label: '学校二',
+    value: 2,
+  },
+  {
+    label: '学校三',
+    value: 3,
+  },
 ];
 
-const SCHOOL_OPTIONS = [
-  { label: '学校一', value: 1 },
-  { label: '学校二', value: 2 },
-  { label: '学校三', value: 3 },
-];
-
-const rules = computed(() => ({
+const rules = computed<FormProps['rules']>(() => ({
   school: [{ required: true, message: '学校必填' }],
   students: formData.students.map(() => ({
     name: [{ required: true, message: '用户名必填' }],
@@ -110,25 +142,22 @@ const rules = computed(() => ({
   })),
 }));
 
-const courseOptions = computed(() =>
+const courseOptions = computed<CheckboxGroupProps['options']>(() =>
   COURSE_OPTIONS.filter((item) => {
     if (!formData.courseType || !item.courseTypes) return true;
     return item.courseTypes.includes(formData.courseType);
   }),
 );
-
 watch(
   () => formData.courseType,
   () => {
     formData.course = [];
   },
 );
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
@@ -147,8 +176,7 @@ const onSubmit = ({ validateResult, firstError }) => {
     }
   }
 };
-
-const onAddStudent = () => {
+const onAddStudent: TabsProps['onAdd'] = () => {
   const id = getId();
   formData.students.push({
     id,

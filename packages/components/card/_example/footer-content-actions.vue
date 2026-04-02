@@ -12,14 +12,13 @@
     </template>
   </t-card>
 </template>
-<script setup lang="jsx">
-import { MessagePlugin } from 'tdesign-vue-next';
+<script lang="tsx" setup>
+import { MessagePlugin, DropdownProps, CardProps } from 'tdesign-vue-next';
 import { MoreIcon } from 'tdesign-icons-vue-next';
-
-const clickHandler = (data) => {
+const clickHandler: DropdownProps['onClick'] = (data) => {
   MessagePlugin.success(`选中【${data.content}】`);
 };
-const options = [
+const options: DropdownProps['options'] = [
   {
     content: '操作一',
     value: 1,
@@ -29,5 +28,5 @@ const options = [
     value: 2,
   },
 ];
-const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
+const cover: CardProps['cover'] = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 </script>

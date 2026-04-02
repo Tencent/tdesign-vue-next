@@ -11,8 +11,9 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
 const treeData = [
   {
     label: '1',
@@ -27,17 +28,17 @@ const treeData = [
 ];
 const checkable = ref(true);
 const value = ref(['1.1.1']);
-const items = ref([]);
+const items = ref<TreeProps['data']>([]);
 const reload = () => {
   items.value = [];
   setTimeout(() => {
     items.value = treeData;
   });
 };
-const load = (node) => {
+const load: TreeProps['load'] = (node) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      let nodes = [];
+      let nodes: TreeOptionData[] = [];
       if (node.level < 2) {
         nodes = [
           {

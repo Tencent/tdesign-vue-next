@@ -27,11 +27,11 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
-const tags1 = ref(['Vue', 'React', 'Miniprogram']);
-const tags2 = ref(['Vue', 'React', 'Miniprogram']);
+import { TagInputProps } from 'tdesign-vue-next';
+const tags1 = ref<TagInputProps['value']>(['Vue', 'React', 'Miniprogram']);
+const tags2 = ref<TagInputProps['value']>(['Vue', 'React', 'Miniprogram']);
 const tags3 = ref(['Vue', 'React', 'Miniprogram']);
 const tags4 = ref(['Vue', 'React', 'Miniprogram']);
 const tags5 = ref(['Vue', 'React', 'Miniprogram']);

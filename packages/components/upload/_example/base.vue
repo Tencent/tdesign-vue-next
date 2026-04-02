@@ -92,17 +92,22 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, watch } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import {
+  MessagePlugin,
+  UploadInstanceFunctions,
+  UploadProps,
+  UploadSelectChangeContext,
+  ButtonProps,
+} from 'tdesign-vue-next';
 // import { CloseIcon } from 'tdesign-icons-vue-next';
 
-const uploadRef1 = ref();
-const uploadRef2 = ref();
-const uploadRef3 = ref();
-
-const files1 = ref([]);
-const files2 = ref([
+const uploadRef1 = ref<UploadInstanceFunctions>();
+const uploadRef2 = ref<UploadInstanceFunctions>();
+const uploadRef3 = ref<UploadInstanceFunctions>();
+const files1 = ref<UploadProps['value']>([]);
+const files2 = ref<UploadProps['value']>([
   {
     name: '这是一个默认文件',
     status: 'success',
@@ -110,14 +115,12 @@ const files2 = ref([
     size: 1000,
   },
 ]);
-const files3 = ref([]);
-
+const files3 = ref<UploadProps['value']>([]);
 const multiple = ref(false);
 const uploadInOneRequest = ref(false);
 const autoUpload = ref(true);
 const isBatchUpload = ref(false);
 const disabled = ref(false);
-
 watch(multiple, (multiple) => {
   files3.value = multiple
     ? [
@@ -149,27 +152,24 @@ watch(multiple, (multiple) => {
       ]
     : [];
 });
-
-const handleFail = ({ file }) => {
+const handleFail: UploadProps['onFail'] = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);
 };
-
-function handleSelectChange(files, context) {
+function handleSelectChange(files: File[], context: UploadSelectChangeContext) {
   console.log('onSelectChange', files, context);
 }
-
-const handleSuccess = (params) => {
+const handleSuccess: UploadProps['onSuccess'] = (params) => {
   console.log('success', params);
   MessagePlugin.success('上传成功');
 };
 
 // 多文件上传，一个文件一个请求场景，每个文件也会单独触发上传成功的事件
-const onOneFileSuccess = (params) => {
+const onOneFileSuccess: UploadProps['onOneFileSuccess'] = (params) => {
   console.log('onOneFileSuccess', params);
 };
 
 // 有文件数量超出时会触发，文件大小超出限制、文件同名时会触发等场景。注意如果设置允许上传同名文件，则此事件不会触发
-const onValidate = (params) => {
+const onValidate: UploadProps['onValidate'] = (params) => {
   const { files, type } = params;
   console.log('onValidate', type, files);
   const messageMap = {
@@ -193,17 +193,17 @@ const onValidate = (params) => {
 // };
 
 // 非自动上传文件，需要在父组件单独执行上传请求
-const uploadFiles = () => {
+const uploadFiles: ButtonProps['onClick'] = () => {
   uploadRef1.value.uploadFiles();
   uploadRef2.value.uploadFiles();
   uploadRef3.value.uploadFiles();
 };
-
-const formatResponse = () => {
-  return { error: '上传失败，请重试' };
+const formatResponse: UploadProps['formatResponse'] = () => {
+  return {
+    error: '上传失败，请重试',
+  };
 };
-
-const handleProgress = (params) => {
+const handleProgress: UploadProps['onProgress'] = (params) => {
   console.log('progress', params);
 };
 

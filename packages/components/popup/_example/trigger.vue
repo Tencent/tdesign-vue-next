@@ -15,8 +15,9 @@
   </t-space>
 </template>
 
-<script setup>
-const onVisibleChange = (visible, context) => {
+<script lang="ts" setup>
+import { PopupProps } from 'tdesign-vue-next';
+const onVisibleChange: PopupProps['onVisibleChange'] = (visible, context) => {
   console.log(visible, context);
 };
 </script>

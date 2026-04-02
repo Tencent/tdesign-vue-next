@@ -18,9 +18,10 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-const items = ref([
+import { TreeProps } from 'tdesign-vue-next';
+const items = ref<TreeProps['data']>([
   {
     value: '1',
     label: '1',
@@ -77,22 +78,22 @@ const items = ref([
     ],
   },
 ]);
-const handleDragStart = (ctx) => {
+const handleDragStart: TreeProps['onDragStart'] = (ctx) => {
   console.log('handleDragStart', ctx);
 };
-const handleDragEnd = (ctx) => {
+const handleDragEnd: TreeProps['onDragEnd'] = (ctx) => {
   console.log('handleDragEnd', ctx);
 };
-const handleDragOver = (ctx) => {
+const handleDragOver: TreeProps['onDragOver'] = (ctx) => {
   console.log('handleDragOver', ctx);
 };
-const handleDragLeave = (ctx) => {
+const handleDragLeave: TreeProps['onDragLeave'] = (ctx) => {
   console.log('handleDragLeave', ctx);
 };
-const handleDrop = (ctx) => {
+const handleDrop: TreeProps['onDrop'] = (ctx) => {
   console.log('handleDrop', ctx);
 };
-const handleAllowDrop = (ctx) => {
+const handleAllowDrop: TreeProps['allowDrop'] = (ctx) => {
   const { dropNode, dropPosition } = ctx;
   if (dropNode.value === '2.2' && dropPosition === 0) {
     return false;

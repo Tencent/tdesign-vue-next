@@ -8,22 +8,32 @@
     </t-table>
   </div>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
+import { TableProps } from 'tdesign-vue-next';
 import {
   UserCircleIcon,
   CheckCircleFilledIcon,
   ErrorCircleFilledIcon,
   CloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const data = [];
-
+const data: TableProps['data'] = [];
 for (let i = 0; i < 5; i++) {
   data.push({
     index: i + 1,
@@ -38,8 +48,7 @@ for (let i = 0; i < 5; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
-const columns = [
+const columns: TableProps['columns'] = [
   {
     colKey: 'applicant',
     title: 'title-slot-name',
@@ -62,7 +71,11 @@ const columns = [
       );
     },
   },
-  { title: '邮箱地址', colKey: 'detail.email', width: 200 },
+  {
+    title: '邮箱地址',
+    colKey: 'detail.email',
+    width: 200,
+  },
   {
     colKey: 'createTime',
     // render 可以渲染表头，也可以渲染单元格。但 title 只能渲染表头，cell 只能渲染单元格

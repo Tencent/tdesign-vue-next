@@ -28,14 +28,14 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { DescriptionsProps, RadioGroupProps } from 'tdesign-vue-next';
+const layout = ref<DescriptionsProps['layout']>('horizontal');
+const itemLayout = ref<DescriptionsProps['itemLayout']>('horizontal');
+const firstItemSpan = ref<number>(1);
 
-const layout = ref('horizontal');
-const itemLayout = ref('horizontal');
-const firstItemSpan = ref(1);
-
-const layoutOptions = ['horizontal', 'vertical'];
-const itemLayoutOptions = ['horizontal', 'vertical'];
-const firstItemSpanOptions = [1, 2, 3, 4];
+const layoutOptions: RadioGroupProps['options'] = ['horizontal', 'vertical'];
+const itemLayoutOptions: RadioGroupProps['options'] = ['horizontal', 'vertical'];
+const firstItemSpanOptions = [1, 2, 3];
 </script>

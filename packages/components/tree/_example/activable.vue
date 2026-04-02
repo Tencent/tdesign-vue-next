@@ -26,12 +26,13 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { TreeProps } from 'tdesign-vue-next';
 const activable = ref(true);
 const activeMultiple = ref(false);
 const expandOnClickNode = ref(false);
-const items = ref([
+const items = ref<TreeProps['data']>([
   {
     value: 't1',
     label: '1',
@@ -61,17 +62,17 @@ const items = ref([
     ],
   },
 ]);
-const onClick = (context) => {
+const onClick: TreeProps['onClick'] = (context) => {
   console.info('onClick', context);
   const { node } = context;
   console.info(node.value, 'actived:', node.actived);
 };
-const onActive = (value, context) => {
+const onActive: TreeProps['onActive'] = (value, context) => {
   console.info('onActive', value, context);
   const { node } = context;
   console.info(node.value, 'actived:', node.actived);
 };
-const propOnActive = (value, context) => {
+const propOnActive: TreeProps['onActive'] = (value, context) => {
   console.info('propOnActive', value, context);
   const { node } = context;
   console.info(node.value, 'actived:', node.actived);

@@ -16,9 +16,9 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { TabsProps } from 'tdesign-vue-next';
 let id = 0;
 const value = ref('first');
 const panelData = ref([
@@ -35,8 +35,7 @@ const panelData = ref([
     content: '原有选项卡2内容',
   },
 ]);
-
-const addTab = () => {
+const addTab: TabsProps['onAdd'] = () => {
   panelData.value.push({
     value: `${id}`,
     label: `新选项卡${id}`,
@@ -46,8 +45,7 @@ const addTab = () => {
   value.value = `${id}`;
   id += 1;
 };
-
-const removeTab = ({ value: val, index }) => {
+const removeTab: TabsProps['onRemove'] = ({ value: val, index }) => {
   if (index < 0) return false;
   panelData.value.splice(index, 1);
   if (panelData.value.length === 0) return;

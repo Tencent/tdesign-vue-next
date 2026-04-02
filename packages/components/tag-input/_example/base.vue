@@ -8,29 +8,26 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { TagInputProps } from 'tdesign-vue-next';
 const tags1 = ref(['Vue', 'React']);
-const tags2 = ref(['Vue', 'React']);
-const tags3 = ref(['Vue', 'React']);
-
-const onTagInputEnter = (val, context) => {
+const tags2 = ref<TagInputProps['value']>(['Vue', 'React']);
+const tags3 = ref<TagInputProps['defaultValue']>(['Vue', 'React']);
+const onTagInputEnter: TagInputProps['onEnter'] = (val, context) => {
   console.log(val, context);
 };
-const onChange = (val, context) => {
+const onChange: TagInputProps['onChange'] = (val, context) => {
   console.log(val, context);
   tags2.value = val;
 };
-const onPaste = (context) => {
+const onPaste: TagInputProps['onPaste'] = (context) => {
   console.log(context);
 };
-
-const onFocus = (val, ctx) => {
+const onFocus: TagInputProps['onFocus'] = (val, ctx) => {
   console.log('focus:', val, ctx);
 };
-
-const onBlur = (val, ctx) => {
+const onBlur: TagInputProps['onBlur'] = (val, ctx) => {
   console.log('blur:', val, ctx);
 };
 </script>

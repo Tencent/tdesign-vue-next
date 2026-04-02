@@ -28,15 +28,21 @@
     </t-space>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import { PopconfirmProps } from 'tdesign-vue-next';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
-
 const visible1 = ref(false);
 const visible2 = ref(false);
 const visible3 = ref(false);
-
-const customIcon = () => {
-  return <BrowseIcon style={{ marginRight: 8, color: ' #0052d9' }} />;
+const customIcon: PopconfirmProps['icon'] = () => {
+  return (
+    <BrowseIcon
+      style={{
+        marginRight: 8,
+        color: ' #0052d9',
+      }}
+    />
+  );
 };
 </script>

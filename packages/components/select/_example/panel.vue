@@ -30,42 +30,68 @@
     </t-select>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
+import { SelectProps, TextareaProps, ButtonProps } from 'tdesign-vue-next';
 const OPTIONS = [
-  { label: '架构云', value: '1' },
-  { label: '大数据', value: '2' },
-  { label: '区块链', value: '3' },
-  { label: '物联网', value: '4', disabled: true },
-  { label: '人工智能', value: '5' },
+  {
+    label: '架构云',
+    value: '1',
+  },
+  {
+    label: '大数据',
+    value: '2',
+  },
+  {
+    label: '区块链',
+    value: '3',
+  },
+  {
+    label: '物联网',
+    value: '4',
+    disabled: true,
+  },
+  {
+    label: '人工智能',
+    value: '5',
+  },
 ];
-
-const options1 = ref(OPTIONS);
+const options1 = ref<SelectProps['options']>(OPTIONS);
 const options2 = ref([
-  { label: '云服务器', value: '1' },
-  { label: '云数据库', value: '2' },
-  { label: '域名注册', value: '3' },
+  {
+    label: '云服务器',
+    value: '1',
+  },
+  {
+    label: '云数据库',
+    value: '2',
+  },
+  {
+    label: '域名注册',
+    value: '3',
+  },
 ]);
 const search = ref('');
 const value1 = ref('');
 const value2 = ref('');
 const editOrCreate = ref('create');
 const newOption = ref('');
-
-const onSearch = () => {
+const onSearch: TextareaProps['onChange'] = () => {
   options1.value = OPTIONS.filter((item) => item.label.indexOf(search.value) !== -1);
 };
-const onAdd = () => {
+const onAdd: ButtonProps['onClick'] = () => {
   editOrCreate.value = 'edit';
 };
-const onAddConfirm = () => {
+const onAddConfirm: ButtonProps['onClick'] = () => {
   const id = Math.round(Math.random() * 100);
-  options2.value.push({ label: newOption.value, value: id });
+  options2.value.push({
+    label: newOption.value,
+    value: id.toString(),
+  });
   newOption.value = '';
   editOrCreate.value = 'create';
 };
-const onAddCancel = () => {
+const onAddCancel: ButtonProps['onClick'] = () => {
   editOrCreate.value = 'create';
 };
 </script>

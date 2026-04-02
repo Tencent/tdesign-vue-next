@@ -22,34 +22,44 @@
     />
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
-const options = [
-  { label: '选项一', value: '1' },
-  { label: '选项二', value: '2' },
-  { label: '选项三', value: '3' },
-  { label: 'option4', value: '4' },
-  { label: 'OPTION5', value: '5' },
+import { SelectProps } from 'tdesign-vue-next';
+const options: SelectProps['options'] = [
+  {
+    label: '选项一',
+    value: '1',
+  },
+  {
+    label: '选项二',
+    value: '2',
+  },
+  {
+    label: '选项三',
+    value: '3',
+  },
+  {
+    label: 'option4',
+    value: '4',
+  },
+  {
+    label: 'OPTION5',
+    value: '5',
+  },
 ];
-
 const value = ref('');
 const value2 = ref([]);
-
-const filterMethod = (search, option) => {
+const filterMethod: SelectProps['filter'] = (search, option) => {
   console.log('filter:', search, option);
   return option.label.indexOf(search) !== -1;
 };
-
-const handleBlur = ({ value, e }) => {
+const handleBlur: SelectProps['onBlur'] = ({ value, e }) => {
   console.log('handleBlur: ', value, e);
 };
-
-const handleFocus = ({ value, e }) => {
+const handleFocus: SelectProps['onFocus'] = ({ value, e }) => {
   console.log('handleFocus: ', value, e);
 };
-
-const handleEnter = ({ value, e, inputValue }) => {
+const handleEnter: SelectProps['onEnter'] = ({ value, e, inputValue }) => {
   console.log('handleEnter: ', value, e, inputValue);
 };
 </script>

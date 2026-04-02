@@ -67,10 +67,9 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
-
+import { MessagePlugin, DropdownProps, DropdownItemProps } from 'tdesign-vue-next';
 const operationMenu = ref([
   {
     label: '操作一',
@@ -81,11 +80,11 @@ const operationMenu = ref([
     value: 222,
   },
 ]);
-const clickHandler = (data) => {
+const clickHandler: DropdownProps['onClick'] = (data) => {
   console.log(data, 'data');
   if (data.value !== 212) MessagePlugin.success(`选中【${data.value}】`);
 };
-const handleClick = () => {
+const handleClick: DropdownItemProps['onClick'] = () => {
   MessagePlugin.success(`点击 操作2-1-2`);
 };
 </script>

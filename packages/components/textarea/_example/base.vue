@@ -17,14 +17,13 @@
     />
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { TextareaProps } from 'tdesign-vue-next';
 const value = ref('');
 const value2 = ref('');
 const value3 = ref('');
-
-const onChange = (value, e) => {
+const onChange: TextareaProps['onChange'] = (value, e) => {
   console.log('onChange：', value, e);
 };
 </script>

@@ -20,11 +20,12 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { TreeProps } from 'tdesign-vue-next';
 const mutex = ref(true);
 const expandOnClickNode = ref(true);
-const items = ref([
+const items = ref<TreeProps['data']>([
   {
     label: '1',
     children: [
@@ -80,13 +81,13 @@ const items = ref([
     ],
   },
 ]);
-const onClick = (context) => {
+const onClick: TreeProps['onClick'] = (context) => {
   console.info('onClick', context);
 };
-const onExpand = (value, context) => {
+const onExpand: TreeProps['onExpand'] = (value, context) => {
   console.info('onExpand', value, context);
 };
-const propOnExpand = (value, context) => {
+const propOnExpand: TreeProps['onExpand'] = (value, context) => {
   console.info('propOnExpand', value, context);
 };
 </script>

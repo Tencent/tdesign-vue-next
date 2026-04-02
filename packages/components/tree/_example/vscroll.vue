@@ -65,8 +65,9 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed } from 'vue';
+import { TreeProps, TreeInstanceFunctions, TreeOptionData, TypeTreeNodeModel } from 'tdesign-vue-next';
 const allLevels = [5, 5, 5];
 function createTreeData() {
   let cacheIndex = 0;
@@ -74,13 +75,13 @@ function createTreeData() {
     cacheIndex += 1;
     return `t${cacheIndex}`;
   }
-  function createNodes(items, level) {
+  function createNodes(items: TreeProps['data'], level: number) {
     const count = allLevels[level];
     if (count) {
       let index = 0;
       for (index = 0; index < count; index += 1) {
         const value = getValue();
-        const item = {
+        const item: TreeOptionData = {
           value,
         };
         items.push(item);
@@ -91,8 +92,7 @@ function createTreeData() {
       }
     }
   }
-
-  const items = [];
+  const items: TreeProps['data'] = [];
   createNodes(items, 0);
   return {
     getValue,
@@ -100,20 +100,21 @@ function createTreeData() {
   };
 }
 const virtualTree = createTreeData();
-const tree = ref();
+const tree = ref<TreeInstanceFunctions>();
 const transition = ref(true);
 const textInsertCount = ref('1');
-const showLine = ref(true);
-const showIcon = ref(true);
+const showLine = ref<TreeProps['line']>(true);
+const showIcon = ref<TreeProps['icon']>(true);
 const isCheckable = ref(true);
 const isOperateAble = ref(true);
-const items = ref(virtualTree.items);
+const items = ref<TreeProps['data']>(virtualTree.items);
 const insertCount = computed(() => {
   return parseInt(textInsertCount.value, 10) || 1;
 });
-const label = (h, node) => {
+const label: TreeProps['label'] = (h, node) => {
   return `${node.value}`;
 };
+
 const handleScroll = () => {
   tree.value.scrollTo({
     // 指定key滚动，即当前节点对应的唯一值，推荐使用
@@ -122,13 +123,15 @@ const handleScroll = () => {
     // index: 100,
   });
 };
+
 const getInsertItem = () => {
   const value = virtualTree.getValue();
   return {
     value,
   };
 };
-const append = (node) => {
+
+const append = (node?: TypeTreeNodeModel) => {
   if (!node) {
     for (let index = 0; index < insertCount.value; index += 1) {
       const item = getInsertItem();
@@ -141,7 +144,7 @@ const append = (node) => {
     }
   }
 };
-const remove = (node) => {
+const remove = (node: TypeTreeNodeModel) => {
   node.remove();
 };
 </script>

@@ -4,6 +4,7 @@
   </t-list>
 </template>
 
-<script setup>
-const scrollHandler = (e) => console.log(e);
+<script lang="ts" setup>
+import { ListProps } from 'tdesign-vue-next';
+const scrollHandler: ListProps['onScroll'] = (e) => console.log(e);
 </script>

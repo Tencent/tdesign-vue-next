@@ -21,17 +21,41 @@
   </div>
 </template>
 
-<script setup lang="jsx">
-const rowCol = [
-  [1, 1, 1].map(() => ({ type: 'rect', content: 'image', width: '33%', height: '180px' })),
+<script lang="tsx" setup>
+import { SkeletonProps } from 'tdesign-vue-next';
+const rowCol: SkeletonProps['rowCol'] = [
+  [1, 1, 1].map(() => ({
+    type: 'rect',
+    content: 'image',
+    width: '33%',
+    height: '180px',
+  })),
   [
-    { type: 'circle', size: '50px' },
-    { type: 'rect', margin: '20px 0', width: '80%', height: '30px' },
-    { type: 'rect', marginLeft: '20px', width: '80px', height: '30px', content: '确定' },
+    {
+      type: 'circle',
+      size: '50px',
+    },
+    {
+      type: 'rect',
+      margin: '20px 0',
+      width: '80%',
+      height: '30px',
+    },
+    {
+      type: 'rect',
+      marginLeft: '20px',
+      width: '80px',
+      height: '30px',
+      content: '确定',
+    },
   ],
   1,
   1,
-  { type: 'text', width: '70%', margin: '0 0 16px 0' },
+  {
+    type: 'text',
+    width: '70%',
+    margin: '0 0 16px 0',
+  },
   {
     type: 'rect',
     width: '100%',
@@ -46,7 +70,7 @@ const rowCol = [
 ];
 </script>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 .t-skeleton-demo {
   width: 100%;
   &-list {

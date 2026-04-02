@@ -51,37 +51,40 @@
     </div>
   </section>
 </template>
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import { UploadFile, UploadProps } from 'tdesign-vue-next';
 import { UploadIcon } from 'tdesign-icons-vue-next';
-
-const files = ref([]);
-
-const handleChange = (files) => {
+const files = ref<UploadProps['files']>([]);
+const handleChange: UploadProps['onChange'] = (files) => {
   console.log(files);
 };
-
-const handleDelete = (file) => {
+const handleDelete = (file: UploadFile) => {
   files.value = files.value.filter((item) => item.uid !== file.uid);
 };
-
-const beforeUpload = () => true;
-
-const getStatusText = (status) =>
+const beforeUpload: UploadProps['beforeUpload'] = () => true;
+const getStatusText = (status: UploadFile['status']) =>
   ({
     success: '上传成功',
     fail: '上传失败',
     progress: '上传中',
     waiting: '等待中',
   }[status]);
-
-const getFileSize = (size) => `${(size / 1024 / 1024).toFixed(2)}Mb`;
-
-const getIcon = (status) =>
+const getFileSize = (size: UploadFile['size']) => `${(size / 1024 / 1024).toFixed(2)}Mb`;
+const getIcon = (status: UploadFile['status']) =>
   ({
-    success: { name: 'check-circle-filled', fill: 'green' },
-    fail: { name: 'error-circle-filled', fill: '#ff3e00' },
-    progress: { name: 'loading', fill: '#0052d9' },
+    success: {
+      name: 'check-circle-filled',
+      fill: 'green',
+    },
+    fail: {
+      name: 'error-circle-filled',
+      fill: '#ff3e00',
+    },
+    progress: {
+      name: 'loading',
+      fill: '#0052d9',
+    },
     waiting: {
       name: 'time-filled',
       fill: 'rgba(0,0,0,0.4)',

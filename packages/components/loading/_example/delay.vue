@@ -15,13 +15,12 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, onMounted } from 'vue';
-
 const loading = ref(true);
 const data = ref('');
 const delay = ref(500);
-const loadingData = (time) => {
+const loadingData = (time = 100) => {
   loading.value = true;
   data.value = '';
   const timer = setTimeout(() => {
@@ -30,7 +29,6 @@ const loadingData = (time) => {
     clearTimeout(timer);
   }, time || 100);
 };
-
 onMounted(() => {
   loadingData();
 });

@@ -14,12 +14,13 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { QRCodeProps } from 'tdesign-vue-next';
 
-const type = ref('canvas');
+const type = ref<QRCodeProps['type']>('canvas');
 
-function downloadFile(url, fileName) {
+function downloadFile(url: string, fileName: string) {
   const a = document.createElement('a');
   a.download = fileName;
   a.href = url;

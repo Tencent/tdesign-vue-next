@@ -22,11 +22,12 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
 const checkable = ref(true);
 const checkStrictly = ref(false);
-const items = ref([
+const items = ref<TreeProps['data']>([
   {
     label: '1',
     value: '1',
@@ -38,13 +39,13 @@ const items = ref([
     children: true,
   },
 ]);
-const onLoad = (state) => {
+const onLoad: TreeProps['onLoad'] = (state) => {
   console.log('on load:', state);
 };
-const load = (node) => {
+const load: TreeProps['load'] = (node) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      let nodes = [];
+      let nodes: TreeOptionData[] = [];
       if (node.level < 2) {
         nodes = [
           {

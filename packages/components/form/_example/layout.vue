@@ -24,21 +24,18 @@
     </t-form>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
-
-const formData = reactive({
+import { MessagePlugin, FormProps } from 'tdesign-vue-next';
+const formData: FormProps['data'] = reactive({
   layout: 'inline',
   name: '',
   password: '',
 });
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {

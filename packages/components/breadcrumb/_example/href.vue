@@ -12,12 +12,11 @@
     <div style="margin-top: 20px">点击计数器：{{ count }}</div>
   </t-space>
 </template>
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
+import { BreadcrumbItemProps } from 'tdesign-vue-next';
 const count = ref(0);
-
-const onClickItem = () => {
+const onClickItem: BreadcrumbItemProps['onClick'] = () => {
   count.value += 1;
 };
 </script>

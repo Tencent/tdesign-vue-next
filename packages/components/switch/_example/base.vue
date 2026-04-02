@@ -5,12 +5,11 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { SwitchProps } from 'tdesign-vue-next';
 const checked = ref(true);
-
-const onChange = (val) => {
+const onChange: SwitchProps['onChange'] = (val) => {
   console.log(val);
 };
 </script>

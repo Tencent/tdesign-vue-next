@@ -46,17 +46,28 @@
     ></t-table> -->
   </div>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
+import { TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const initialData = [];
+const initialData: TableProps['data'] = [];
 for (let i = 0; i < 100; i++) {
   initialData.push({
     index: i + 1,
@@ -75,30 +86,27 @@ for (let i = 0; i < 100; i++) {
     data4: '132434',
   });
 }
-
-const data = ref([...initialData]);
-
+const data = ref<TableProps['data']>([...initialData]);
 const staticColumn = ['applicant', 'status'];
-const displayColumns = ref(staticColumn.concat(['channel', 'detail.email', 'createTime']));
-
-const tableLocale = ref({
+const displayColumns = ref<TableProps['displayColumns']>(
+  staticColumn.concat(['channel', 'detail.email', 'createTime']),
+);
+const tableLocale = ref<TableProps['locale']>({
   columnConfigDescriptionText: 'Please check columns need to show in table.',
 });
 
 // show columns in controller dialog by group
 const groupColumn = ref(true);
 const columnControllerVisible = ref(false);
-
-const columnControllerConfig = computed(() => ({
+const columnControllerConfig = computed<TableProps['columnController']>(() => ({
   // 隐藏组件内部的 列配置按钮
   hideTriggerButton: true,
-
   // 允许哪些列参与显示-隐藏控制
   fields: ['channel', 'detail.email', 'createTime', 'data1', 'data2', 'data3', 'data4'],
-
   // 透传弹框组件全部属性
-  dialogProps: { preventScrollThrough: true },
-
+  dialogProps: {
+    preventScrollThrough: true,
+  },
   // 数据字段分组显示
   groupColumns: groupColumn.value
     ? [
@@ -120,9 +128,12 @@ const columnControllerConfig = computed(() => ({
       ]
     : undefined,
 }));
-
-const columns = ref([
-  { colKey: 'applicant', title: '申请人', width: '100' },
+const columns = ref<TableProps['columns']>([
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -136,19 +147,45 @@ const columns = ref([
       );
     },
   },
-  { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
-  { colKey: 'data1', title: 'Data A', align: 'right' },
-  { colKey: 'data2', title: 'Data B', align: 'right' },
-  { colKey: 'data3', title: 'Data C', align: 'right' },
-  { colKey: 'data4', title: 'Data D', align: 'right' },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+    width: '120',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    ellipsis: true,
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
+  {
+    colKey: 'data1',
+    title: 'Data A',
+    align: 'right',
+  },
+  {
+    colKey: 'data2',
+    title: 'Data B',
+    align: 'right',
+  },
+  {
+    colKey: 'data3',
+    title: 'Data C',
+    align: 'right',
+  },
+  {
+    colKey: 'data4',
+    title: 'Data D',
+    align: 'right',
+  },
 ]);
-const onColumnChange = (params) => {
+const onColumnChange: TableProps['onColumnChange'] = (params) => {
   console.log(params);
 };
-
-const onColumnResizeChange = (columnsWidth) => {
+const onColumnResizeChange: TableProps['onColumnResizeChange'] = (columnsWidth) => {
   // 注意：宽度可能存在小数点，根据实际需求处理保存数值
   console.log(columnsWidth);
 };

@@ -13,10 +13,10 @@
   </t-calendar>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import dayjs from 'dayjs';
-
-const getShow = (data) =>
+import { CalendarCell } from 'tdesign-vue-next';
+const getShow = (data: CalendarCell) =>
   data.mode === 'month'
     ? dayjs().format('YYYY-MM-DD') === data.formattedDate
     : data.date.getMonth() === new Date().getMonth();

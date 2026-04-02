@@ -18,10 +18,10 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { DrawerProps, RadioGroupProps } from 'tdesign-vue-next';
 const visible = ref(false);
-const size = ref('small');
-const placement = ref('right');
+const size = ref<RadioGroupProps['defaultValue']>('small');
+const placement = ref<DrawerProps['placement']>('right');
 </script>

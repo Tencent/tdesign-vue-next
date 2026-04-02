@@ -50,21 +50,20 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { UploadProps, CheckboxProps } from 'tdesign-vue-next';
 const autoUpload = ref(false);
 const showImageFileName = ref(true);
-const showUploadButton = ref(true);
-const files = ref([
+const showUploadButton = ref<CheckboxProps['value']>(true);
+const files = ref<UploadProps['value']>([
   {
     url: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
     name: 'loading.svg',
     status: 'success',
   },
 ]);
-
-const staticFiles = ref([
+const staticFiles = ref<UploadProps['files']>([
   {
     url: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
     name: 'loading.svg',
@@ -90,7 +89,7 @@ const staticFiles = ref([
 
 // 示例代码：自定义上传方法，一个请求上传一个文件
 // eslint-disable-next-line
-const requestMethod1 = () => {
+const requestMethod1: UploadProps['requestMethod'] = () => {
   return new Promise((resolve) => {
     resolve({
       status: 'success',

@@ -41,9 +41,9 @@
     </t-space>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { UploadProps } from 'tdesign-vue-next';
 function getCurrentDate(needTime = false) {
   const d = new Date();
   let month = d.getMonth() + 1;
@@ -53,10 +53,9 @@ function getCurrentDate(needTime = false) {
   if (needTime) return [date, time].join(' ');
   return date;
 }
-
 const autoUpload = ref(true);
-const files = ref([]);
-const files2 = ref([
+const files = ref<UploadProps['value']>([]);
+const files2 = ref<UploadProps['value']>([
   {
     name: '默认文件',
     url: 'https://tdesign.gtimg.com/site/source/figma-pc.png',
@@ -67,10 +66,10 @@ const files2 = ref([
     uploadTime: '2022-09-25',
   },
 ]);
-const display = ref('file');
+const display = ref<UploadProps['theme']>('file');
 
 // res.url 图片地址；res.uploadTime 文件上传时间；res.error 上传失败的原因
-function formatResponse(res) {
+function formatResponse(res: any) {
   // 响应结果添加上传时间字段，用于 UI 显示
   res.uploadTime = getCurrentDate();
   return res;

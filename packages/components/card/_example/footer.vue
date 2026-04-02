@@ -23,8 +23,8 @@
     </template>
   </t-card>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
+import { CardProps } from 'tdesign-vue-next';
 import { ThumbUpIcon, ChatIcon, ShareIcon } from 'tdesign-icons-vue-next';
-
-const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
+const cover: CardProps['cover'] = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 </script>

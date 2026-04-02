@@ -11,15 +11,20 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
+import { CalendarProps } from 'tdesign-vue-next';
 const options = [
-  { value: 'month', label: '日历' },
-  { value: 'year', label: '月历' },
+  {
+    value: 'month',
+    label: '日历',
+  },
+  {
+    value: 'year',
+    label: '月历',
+  },
 ];
-
-const mode = ref('year');
+const mode = ref<CalendarProps['mode']>('year');
 </script>
 
 <style scoped>

@@ -23,9 +23,10 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
+import { TreeProps } from 'tdesign-vue-next';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const empty = () => {
+const empty: TreeProps['empty'] = () => {
   return <div>😊 空数据（ empty props ）</div>;
 };
 </script>

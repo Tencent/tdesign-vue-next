@@ -23,8 +23,9 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
 const allLevels = [5, 5, 5];
 function createTreeData() {
   let cacheIndex = 0;
@@ -32,13 +33,13 @@ function createTreeData() {
     cacheIndex += 1;
     return `t${cacheIndex}`;
   }
-  function createNodes(items, level) {
+  function createNodes(items: TreeProps['data'], level: number) {
     const count = allLevels[level];
     if (count) {
       let index = 0;
       for (index = 0; index < count; index += 1) {
         const value = getValue();
-        const item = {
+        const item: TreeOptionData = {
           value,
         };
         items.push(item);
@@ -49,7 +50,7 @@ function createTreeData() {
       }
     }
   }
-  const items = [];
+  const items: TreeProps['data'] = [];
   createNodes(items, 0);
   return {
     getValue,
@@ -57,8 +58,8 @@ function createTreeData() {
   };
 }
 const lazyTree = createTreeData();
-const lazyItems = ref(lazyTree.items);
-const label = (h, node) => {
+const lazyItems = ref<TreeProps['data']>(lazyTree.items);
+const label: TreeProps['label'] = (h, node) => {
   return `${node.value}`;
 };
 </script>

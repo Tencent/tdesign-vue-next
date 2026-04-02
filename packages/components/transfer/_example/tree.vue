@@ -12,12 +12,16 @@
     </template>
   </t-transfer>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 
 // support using keys to rename data attributes, keys should be defined in transfer
-const keys = { value: 'id', label: 'name' };
-const items = [
+import { TransferProps } from 'tdesign-vue-next';
+const keys: TransferProps['keys'] = {
+  value: 'id',
+  label: 'name',
+};
+const items: TransferProps['data'] = [
   {
     id: '12',
     name: '1',
@@ -68,11 +72,9 @@ const items = [
     children: [],
   },
 ];
-
 const targetValue = ref([]);
-const checkedRef = ref([]);
-
-const handleCheckedChange = ({ checked, sourceChecked, targetChecked, type }) => {
+const checkedRef = ref<TransferProps['checked']>([]);
+const handleCheckedChange: TransferProps['onCheckedChange'] = ({ checked, sourceChecked, targetChecked, type }) => {
   checkedRef.value = checked;
   console.log('handleCheckedChange', {
     checked,
@@ -81,8 +83,7 @@ const handleCheckedChange = ({ checked, sourceChecked, targetChecked, type }) =>
     type,
   });
 };
-
-const onChange = (newTargetValue) => {
+const onChange: TransferProps['onChange'] = (newTargetValue) => {
   console.log('onChange', newTargetValue);
 };
 </script>

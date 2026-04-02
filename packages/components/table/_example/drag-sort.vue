@@ -16,18 +16,29 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import { TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
 function getData(total = 500) {
-  const initialData = [];
+  const initialData: TableProps['data'] = [];
   for (let i = 0; i < total; i++) {
     initialData.push({
       index: i + 1,
@@ -44,11 +55,10 @@ function getData(total = 500) {
   }
   return initialData;
 }
-
-const data = ref(getData());
+const data = ref<TableProps['data']>(getData());
 
 // 受控用法
-const pagination = ref({
+const pagination = ref<TableProps['pagination']>({
   current: 2,
   pageSize: 5,
   total: 500,
@@ -65,8 +75,12 @@ const pagination = ref({
 //   total: 500,
 // })
 
-const columns = [
-  { colKey: 'applicant', title: '申请人', width: '100' },
+const columns: TableProps['columns'] = [
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -80,13 +94,24 @@ const columns = [
       );
     },
   },
-  { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+    width: '120',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    ellipsis: true,
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ];
 
 // { currentIndex, targetIndex, current, target, data, newData, e }
-const onDragSort = (params) => {
+const onDragSort: TableProps['onDragSort'] = (params) => {
   console.log('交换行', params);
   data.value = params.newData;
 };

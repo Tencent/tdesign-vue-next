@@ -22,13 +22,12 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
-const value = ref('first');
-const placement = ref('top');
-
-const handlerChange = (newValue) => {
+import { TabsProps } from 'tdesign-vue-next';
+const value = ref<TabsProps['value']>('first');
+const placement = ref<TabsProps['placement']>('top');
+const handlerChange: TabsProps['onChange'] = (newValue) => {
   value.value = newValue;
 };
 </script>

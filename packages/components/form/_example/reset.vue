@@ -31,29 +31,34 @@
     </t-form>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
-
-const formData = reactive({
+import { MessagePlugin, FormProps, FormInstanceFunctions, CheckboxGroupProps, ButtonProps } from 'tdesign-vue-next';
+const formData: FormProps['data'] = reactive({
   name: 'TDesign',
   tel: '12345678910',
   course: ['1'],
 });
-const form = ref(null);
-const resetType = ref('initial');
-
-const courseOptions = [
-  { label: '语文', value: '1' },
-  { label: '数学', value: '2' },
-  { label: '英语', value: '3' },
+const form = ref<FormInstanceFunctions>(null);
+const resetType = ref<FormProps['resetType']>('initial');
+const courseOptions: CheckboxGroupProps['options'] = [
+  {
+    label: '语文',
+    value: '1',
+  },
+  {
+    label: '数学',
+    value: '2',
+  },
+  {
+    label: '英语',
+    value: '3',
+  },
 ];
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
@@ -61,8 +66,9 @@ const onSubmit = ({ validateResult, firstError }) => {
     MessagePlugin.warning(firstError);
   }
 };
-
-const resetPhoneNumber = () => {
-  form.value?.reset({ fields: ['tel'] });
+const resetPhoneNumber: ButtonProps['onClick'] = () => {
+  form.value?.reset({
+    fields: ['tel'],
+  });
 };
 </script>

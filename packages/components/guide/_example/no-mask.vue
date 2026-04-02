@@ -38,13 +38,12 @@
   </t-row>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { GuideProps, ButtonProps } from 'tdesign-vue-next';
 const visible = ref(false);
 const current = ref(-1);
-
-const steps = [
+const steps: GuideProps['steps'] = [
   {
     element: '.main-title',
     title: '新手引导标题',
@@ -64,32 +63,26 @@ const steps = [
     placement: 'right',
   },
 ];
-
-const handleClick = () => {
+const handleClick: ButtonProps['onClick'] = () => {
   visible.value = true;
   setTimeout(() => {
     current.value = 0;
   }, 800);
 };
-
-const handleChange = (current, { e, total }) => {
+const handleChange: GuideProps['onChange'] = (current, { e, total }) => {
   console.log(current, e, total);
 };
-
-const handlePrevStepClick = ({ e, prev, current, total }) => {
+const handlePrevStepClick: GuideProps['onPrevStepClick'] = ({ e, prev, current, total }) => {
   console.log(e, prev, current, total);
 };
-
-const handleNextStepClick = ({ e, next, current, total }) => {
+const handleNextStepClick: GuideProps['onNextStepClick'] = ({ e, next, current, total }) => {
   console.log(e, next, current, total);
 };
-
-const handleFinish = ({ e, current, total }) => {
+const handleFinish: GuideProps['onFinish'] = ({ e, current, total }) => {
   visible.value = false;
   console.log(e, current, total);
 };
-
-const handleSkip = ({ e, current, total }) => {
+const handleSkip: GuideProps['onSkip'] = ({ e, current, total }) => {
   visible.value = false;
   console.log(e, current, total);
 };

@@ -28,12 +28,13 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import { TreeInstanceFunctions, TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
 import { Icon } from 'tdesign-icons-vue-next';
-const tree = ref();
+const tree = ref<TreeInstanceFunctions>();
 const index = ref(2);
-const items = ref([
+const items = ref<TreeProps['data']>([
   {
     value: 'node1',
   },
@@ -41,10 +42,10 @@ const items = ref([
     value: 'node2',
   },
 ]);
-const icon = (h, node) => {
+const icon: TreeProps['icon'] = (h, node) => {
   const { data } = node;
   let name = 'file';
-  if (node.getChildren()) {
+  if (node.getChildren(false)) {
     if (node.expanded) {
       name = 'folder-open';
     } else {
@@ -56,7 +57,7 @@ const icon = (h, node) => {
   }
   return <Icon name={name} />;
 };
-const label = (h, node) => {
+const label: TreeProps['label'] = (h, node) => {
   const timeStamp = node.data.timeStamp || '--';
   return `${node.value}: ${timeStamp}`;
 };
@@ -69,7 +70,7 @@ const getInsertItem = () => {
   };
   return item;
 };
-const append = (node) => {
+const append = (node?: TypeTreeNodeModel) => {
   const item = getInsertItem();
   if (item) {
     if (!node) {
@@ -79,10 +80,10 @@ const append = (node) => {
     }
   }
 };
-const check = (node) => {
+const check = (node: TypeTreeNodeModel) => {
   console.info('check:', node);
 };
-const changeIcon = (node) => {
+const changeIcon = (node: TypeTreeNodeModel) => {
   const { data } = node;
   const icon = data.icon === 'folder' ? 'folder-open' : 'folder';
   // vue3 中，由于并未使用 defineProperty 进行属性监听，所以节点数据的直接变更未能反馈到 ui 组件
@@ -91,13 +92,13 @@ const changeIcon = (node) => {
     icon,
   });
 };
-const changeTime = (node) => {
+const changeTime = (node: TypeTreeNodeModel) => {
   const timeStamp = new Date().getTime();
   node.setData({
     timeStamp,
   });
 };
-const remove = (node) => {
+const remove = (node: TypeTreeNodeModel) => {
   node.remove();
 };
 </script>

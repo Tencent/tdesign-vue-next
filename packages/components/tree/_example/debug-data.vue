@@ -33,8 +33,9 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { TreeProps, SwitchProps, TNode, TreeNodeModel, TreeOptionData, SlotReturnValue } from 'tdesign-vue-next';
 const data1 = [
   {
     value: 't1',
@@ -117,12 +118,12 @@ const expandAll = ref(true);
 const activable = ref(true);
 const checkable = ref(true);
 const transition = ref(true);
-const items = ref(data1);
-const toggleData = () => {
+const items = ref<TreeProps['data']>(data1);
+const toggleData: SwitchProps['onChange'] = () => {
   const tmpItems = items.value[0].value === 't1' ? data2 : data1;
   items.value = tmpItems;
 };
-const label = (h, node) => {
-  return node.label || node.value;
+const label: TNode<TreeNodeModel<TreeOptionData>> = (h, node) => {
+  return (node.label || node.value) as SlotReturnValue;
 };
 </script>

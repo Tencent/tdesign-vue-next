@@ -56,9 +56,9 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { AutoCompleteProps } from 'tdesign-vue-next';
 const value1 = ref('第一个默认联想词');
 const value2 = ref('第一个默认联想词');
 const value3 = ref('');
@@ -66,16 +66,14 @@ const value4 = ref('');
 const value5 = ref('');
 const value6 = ref('');
 const timer = ref(null);
-
-const options = ref(['第一个默认联想词', '第二个默认联想词', '第三个默认联想词']);
+const options = ref<AutoCompleteProps<string>['options']>(['第一个默认联想词', '第二个默认联想词', '第三个默认联想词']);
 
 // 输入框内容发生变化时进行搜索，200ms 搜索一次
-function onChange(value) {
+function onChange(value: string) {
   clearTimeout(timer.value);
   timer.value = setTimeout(() => {
     const text = '搜索联想词';
     const pureValue = value.replace(`第一个${text}`, '').replace(`第二个${text}`, '').replace(`第三个${text}`, '');
-
     options.value = [`${pureValue}第一个${text}`, `${pureValue}第二个${text}`, `${pureValue}第三个${text}`];
     clearTimeout(timer.value);
   }, 200);

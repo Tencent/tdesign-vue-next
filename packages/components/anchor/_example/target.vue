@@ -10,10 +10,9 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { computed, getCurrentInstance } from 'vue';
 import { get } from 'lodash-es';
-
 const { appContext } = getCurrentInstance();
 const path = computed(() => get(appContext, '$route.path', ''));
 </script>

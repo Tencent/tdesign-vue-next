@@ -25,30 +25,33 @@
     </div>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
+import { SliderProps } from 'tdesign-vue-next';
 const value1 = ref(12);
 const value2 = ref([30, 70]);
-
-const layout = 'vertical';
-const marks1 = {
+const layout: SliderProps['layout'] = 'vertical';
+const marks1: SliderProps['marks'] = {
   0: '0°C',
   20: '20°C',
   40: '40°C',
   60: '60°C',
+  // @ts-ignore
   80: <span style="color: #0052d9">80°C</span>,
+  // @ts-ignore
   100: <span style="color: #0052d9">100°C</span>,
 };
-const marks2 = {
+const marks2: SliderProps['marks'] = {
   0: '0°C',
   20: '20°C',
   40: '40°C',
   60: '60°C',
+  // @ts-ignore
   80: <span style="color: #0052d9">80°C</span>,
+  // @ts-ignore
   100: <span style="color: #0052d9">100°C</span>,
 };
-const change = (value) => {
+const change: SliderProps['onChange'] = (value) => {
   console.log('change value', value);
 };
 </script>

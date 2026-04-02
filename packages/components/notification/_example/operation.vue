@@ -18,19 +18,17 @@
     </t-notification>
   </t-space>
 </template>
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
+import { ButtonProps, NotificationProps } from 'tdesign-vue-next';
 const visible = ref(true);
-
-const remind = () => {
+const remind: ButtonProps['onClick'] = () => {
   visible.value = false;
   setTimeout(() => {
     visible.value = true;
   }, 10000);
 };
-
-const footer = () => {
+const footer: NotificationProps['footer'] = () => {
   return (
     <div slot="footer" class="t-notification__detail">
       <t-button class="t-notification__detail-item" theme="primary" variant="text">
@@ -39,8 +37,7 @@ const footer = () => {
     </div>
   );
 };
-
-const footer2 = () => {
+const footer2: NotificationProps['footer'] = () => {
   return (
     <div slot="footer" class="t-notification__detail">
       <t-button class="t-notification__detail-item" theme="primary" variant="text">
@@ -49,8 +46,7 @@ const footer2 = () => {
     </div>
   );
 };
-
-const content = () => {
+const content: NotificationProps['content'] = () => {
   return '文案不限长度，但在实际使用时建议文案显示内容不易过多，建议最大展示行数数量以三行为宜，最后一行折行末尾处超出文本建议会变为省略号显示。';
 };
 </script>

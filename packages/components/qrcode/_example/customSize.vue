@@ -24,12 +24,13 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MinusIcon, AddIcon } from 'tdesign-icons-vue-next';
+import { QRCodeProps } from 'tdesign-vue-next';
 
 const minSize = 40;
 const maxSize = 300;
 
-const size = ref(160);
+const size = ref<QRCodeProps['level']>(160);
 </script>

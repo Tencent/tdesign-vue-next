@@ -28,19 +28,27 @@
     />
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { SelectProps } from 'tdesign-vue-next';
 const options = [
-  { label: '选项一', value: '1' },
-  { label: '选项二', value: '2' },
-  { label: '选项三', value: '3' },
+  {
+    label: '选项一',
+    value: '1',
+  },
+  {
+    label: '选项二',
+    value: '2',
+  },
+  {
+    label: '选项三',
+    value: '3',
+  },
 ];
-
 const value = ref('');
 const value1 = ref('');
 const value2 = ref('');
-const popupProps = {
+const popupProps: SelectProps['popupProps'] = {
   overlayStyle: {
     width: '300px',
   },

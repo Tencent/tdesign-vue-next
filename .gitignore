@@ -7,6 +7,7 @@ esm/
 cjs/
 lib/
 dist/
+_example-js/
 
 _site
 _static_site

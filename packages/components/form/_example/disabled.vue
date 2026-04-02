@@ -86,12 +86,11 @@
     </t-form>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
-
+import { MessagePlugin, FormProps, CheckboxGroupProps, SelectProps, CascaderProps } from 'tdesign-vue-next';
 const formDisabled = ref(true);
-const formData = reactive({
+const formData: FormProps['data'] = reactive({
   name: '',
   message: true,
   gender: '',
@@ -102,32 +101,76 @@ const formData = reactive({
   address2: undefined,
   gradePoint: undefined,
   date: '',
-  avatar: [{ url: 'https://tdesign.gtimg.com/site/avatar.jpg' }],
+  avatar: [
+    {
+      url: 'https://tdesign.gtimg.com/site/avatar.jpg',
+    },
+  ],
 });
-
-const courseOptions = [
-  { label: '语文', value: '1' },
-  { label: '数学', value: '2' },
-  { label: '英语', value: '3' },
+const courseOptions: CheckboxGroupProps['options'] = [
+  {
+    label: '语文',
+    value: '1',
+  },
+  {
+    label: '数学',
+    value: '2',
+  },
+  {
+    label: '英语',
+    value: '3',
+  },
 ];
-
-const COLLEGE_OPTIONS = [
-  { label: '学院 A', value: 1 },
-  { label: '学院 B', value: 2 },
-  { label: '学院 C', value: 3 },
+const COLLEGE_OPTIONS: SelectProps['options'] = [
+  {
+    label: '学院 A',
+    value: 1,
+  },
+  {
+    label: '学院 B',
+    value: 2,
+  },
+  {
+    label: '学院 C',
+    value: 3,
+  },
 ];
-
-const ADDRESS_OPTIONS = [
-  { label: '江苏', value: 1, children: [{ label: '南京市', value: 300 }] },
-  { label: '上海', value: 2, children: [{ label: '徐汇区', value: 400 }] },
-  { label: '四川', value: 3, children: [{ label: '成都市', value: 500 }] },
+const ADDRESS_OPTIONS: CascaderProps['options'] = [
+  {
+    label: '江苏',
+    value: 1,
+    children: [
+      {
+        label: '南京市',
+        value: 300,
+      },
+    ],
+  },
+  {
+    label: '上海',
+    value: 2,
+    children: [
+      {
+        label: '徐汇区',
+        value: 400,
+      },
+    ],
+  },
+  {
+    label: '四川',
+    value: 3,
+    children: [
+      {
+        label: '成都市',
+        value: 500,
+      },
+    ],
+  },
 ];
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {

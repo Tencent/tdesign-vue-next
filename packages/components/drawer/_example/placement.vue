@@ -22,9 +22,9 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { RadioGroupProps } from 'tdesign-vue-next';
 const visible = ref(false);
-const placement = ref('right');
+const placement = ref<RadioGroupProps['defaultValue']>('right');
 </script>

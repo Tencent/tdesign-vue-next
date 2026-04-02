@@ -18,6 +18,7 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
-const separator = () => <t-divider layout="vertical" />;
+<script lang="tsx" setup>
+import { SpaceProps } from 'tdesign-vue-next';
+const separator: SpaceProps['separator'] = () => <t-divider layout="vertical" />;
 </script>

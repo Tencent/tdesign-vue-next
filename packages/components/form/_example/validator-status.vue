@@ -81,10 +81,9 @@
     </t-form>
   </t-space>
 </template>
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref, onMounted } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
-
+import { MessagePlugin, FormProps, FormInstanceFunctions, ButtonProps, FormItemProps } from 'tdesign-vue-next';
 const INITIAL_DATA = {
   fail: '',
   warning: '',
@@ -95,37 +94,73 @@ const INITIAL_DATA = {
   add: '',
   help: '',
 };
-
-const rules = {
-  fail: [{ required: true, message: '必填', type: 'error' }],
-  warning: [{ required: true, message: '必填', type: 'warning' }],
-  success: [{ validator: () => true }],
-  failB: [{ required: true, message: '必填', type: 'error' }],
-  warningB: [{ required: true, message: '必填', type: 'warning' }],
+const rules: FormProps['rules'] = {
+  fail: [
+    {
+      required: true,
+      message: '必填',
+      type: 'error',
+    },
+  ],
+  warning: [
+    {
+      required: true,
+      message: '必填',
+      type: 'warning',
+    },
+  ],
+  success: [
+    {
+      validator: () => true,
+    },
+  ],
+  failB: [
+    {
+      required: true,
+      message: '必填',
+      type: 'error',
+    },
+  ],
+  warningB: [
+    {
+      required: true,
+      message: '必填',
+      type: 'warning',
+    },
+  ],
 };
-
-const formData = ref({ ...INITIAL_DATA });
-const formValidatorStatus = ref(null);
-
-const addlist = ref([{ id: 0, name: 'add0' }]);
+const formData = ref<FormProps['data']>({
+  ...INITIAL_DATA,
+});
+const formValidatorStatus = ref<FormInstanceFunctions>(null);
+interface DataInfo {
+  id: number;
+  name: string;
+}
+const addlist = ref<DataInfo[]>([
+  {
+    id: 0,
+    name: 'add0',
+  },
+]);
 const lastAddItem = ref(1);
-
-const addItem = () => {
+const addItem: ButtonProps['onClick'] = () => {
   const addNum = lastAddItem.value;
   INITIAL_DATA[`add${addNum}`] = '';
-  addlist.value.push({ id: addNum, name: `add${addNum}` });
+  addlist.value.push({
+    id: addNum,
+    name: `add${addNum}`,
+  });
   lastAddItem.value += 1;
 };
-const removeItem = (item, index) => {
+const removeItem = (item: DataInfo, index: number) => {
   delete INITIAL_DATA[`add${item.id}`];
   addlist.value.splice(index, 1);
 };
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
@@ -133,13 +168,19 @@ const onSubmit = ({ validateResult, firstError }) => {
     MessagePlugin.warning(firstError);
   }
 };
-
 onMounted(() => {
   formValidatorStatus.value.validate();
 });
-const formStatusIcon = ref(true);
-
-const getStatusIcon = () => <t-icon name="help-circle" size="16px" style={{ color: '#0006' }} />;
+const formStatusIcon = ref<FormProps['statusIcon']>(true);
+const getStatusIcon: FormItemProps['statusIcon'] = () => (
+  <t-icon
+    name="help-circle"
+    size="16px"
+    style={{
+      color: '#0006',
+    }}
+  />
+);
 </script>
 <style>
 .tdesign-demo-form-status .t-input {

@@ -32,17 +32,13 @@
     </template>
   </t-card>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
+import { MessagePlugin, CardProps, DropdownProps } from 'tdesign-vue-next';
 import { ThumbUpIcon, ChatIcon, ShareIcon, MoreIcon } from 'tdesign-icons-vue-next';
-import { MessagePlugin } from 'tdesign-vue-next';
-
-const title = '标题';
-
-const subtitle = '副标题';
-
-const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
-
-const options = [
+const title: CardProps['title'] = '标题';
+const subtitle: CardProps['subtitle'] = '副标题';
+const cover: CardProps['cover'] = 'https://tdesign.gtimg.com/site/source/card-demo.png';
+const options: DropdownProps['options'] = [
   {
     content: '操作一',
     value: 1,
@@ -52,8 +48,7 @@ const options = [
     value: 2,
   },
 ];
-
-const clickHandler = (data) => {
+const clickHandler: DropdownProps['onClick'] = (data) => {
   MessagePlugin.success(`选中【${data.content}】`);
 };
 </script>

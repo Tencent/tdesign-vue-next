@@ -49,35 +49,33 @@
     </t-space>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
+import { DialogProps } from 'tdesign-vue-next';
 const visible1 = ref(false);
 const visible2 = ref(false);
 const visible3 = ref(false);
 const visible4 = ref(false);
-
-const getConfirmBtn = () => {
+const getConfirmBtn: DialogProps['confirmBtn'] = () => {
   return (
     <t-button theme="primary" disabled>
       我知道了
     </t-button>
   );
 };
-const close1 = () => {
+const close1: DialogProps['onClose'] = () => {
   visible1.value = false;
 };
-const close2 = () => {
+const close2: DialogProps['onClose'] = () => {
   visible2.value = false;
 };
-const close3 = () => {
+const close3: DialogProps['onClose'] = () => {
   visible3.value = false;
 };
-const close4 = () => {
+const close4: DialogProps['onClose'] = () => {
   visible4.value = false;
 };
-
-const onConfirm = () => {
+const onConfirm: DialogProps['onConfirm'] = () => {
   visible1.value = false;
   alert('跳转支付~');
 };

@@ -6,7 +6,6 @@
     :loading="isLoading"
     :pagination="pagination"
     :selected-row-keys="selectedRowKeys"
-    :reserve-selected-row-on-paginate="false"
     bordered
     stripe
     lazy-load
@@ -15,16 +14,28 @@
     @select-change="onSelectChange"
   />
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, onMounted } from 'vue';
+import { PaginationProps, TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-const columns = [
+const columns: TableProps['columns'] = [
   {
     colKey: 'serial-number',
   },
@@ -44,8 +55,7 @@ const columns = [
   {
     colKey: 'status',
     title: '申请状态',
-    // eslint-disable-next-line
-    cell: (h, { row, rowIndex }) => {
+    cell: (h, { rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">
@@ -68,18 +78,15 @@ const columns = [
     ellipsis: true,
   },
 ];
-
-const data = ref([]);
-const isLoading = ref(false);
-const selectedRowKeys = ref([]);
-
-const pagination = ref({
+const data = ref<TableProps['data']>([]);
+const isLoading = ref<TableProps['loading']>(false);
+const selectedRowKeys = ref<TableProps['selectedRowKeys']>([]);
+const pagination = ref<TableProps['pagination']>({
   defaultPageSize: 20,
   total: 100,
   defaultCurrent: 1,
 });
-
-const fetchData = async (paginationInfo) => {
+const fetchData = async (paginationInfo: PaginationProps) => {
   try {
     isLoading.value = true;
     const { current, pageSize } = paginationInfo;
@@ -97,30 +104,27 @@ const fetchData = async (paginationInfo) => {
 };
 
 // BaseTable 中只有 page-change 事件，没有 change 事件
-const rehandleChange = (changeParams, triggerAndData) => {
+const rehandleChange: TableProps['onChange'] = (changeParams, triggerAndData) => {
   console.log('分页、排序、过滤等发生变化时会触发 change 事件：', changeParams, triggerAndData);
 };
 
 // BaseTable 中只有 page-change 事件，没有 change 事件
-const onPageChange = async (pageInfo) => {
+const onPageChange: TableProps['onPageChange'] = async (pageInfo) => {
   console.log('page-change', pageInfo);
   // 下面为受控方式，如果使用此方式，将pagination内的defaultCurrent改为current
   // pagination.value.current = pageInfo.current;
   // pagination.value.pageSize = pageInfo.pageSize;
   await fetchData(pageInfo);
 };
-
 onMounted(async () => {
   await fetchData({
     current: pagination.value.current || pagination.value.defaultCurrent,
     pageSize: pagination.value.pageSize || pagination.value.defaultPageSize,
   });
 });
-
-const onSelectChange = (value, params) => {
+const onSelectChange: TableProps['onSelectChange'] = (value, params) => {
   selectedRowKeys.value = value;
   console.log(value, params);
 };
-
-const rowKey = 'phone';
+const rowKey: TableProps['rowKey'] = 'phone';
 </script>

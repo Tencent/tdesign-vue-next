@@ -12,7 +12,7 @@
       <t-checkbox key="a" value="选项一">选项一</t-checkbox>
       <t-checkbox key="b" label="选项二" value="选项二" />
       <t-checkbox key="c" label="选项三" value="选项三" :disabled="true" />
-      <t-checkbox key="c" label="选项四" value="选项四" :readonly="true" />
+      <t-checkbox key="d" label="选项四" value="选项四" :readonly="true" />
     </t-checkbox-group>
 
     <br />
@@ -21,45 +21,65 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
-
-const options1 = [
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  { value: '选项一', label: (h) => <div>选项一</div> },
-  { value: '选项二', label: '选项二' },
-  { value: '选项三', label: '选项三' },
+import { CheckboxGroupProps, CheckboxProps } from 'tdesign-vue-next';
+const options1: CheckboxGroupProps['options'] = [
+  {
+    value: '选项一',
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    label: (h) => <div>选项一</div>,
+  },
+  {
+    value: '选项二',
+    label: '选项二',
+  },
+  {
+    value: '选项三',
+    label: '选项三',
+  },
 ];
-
-const options2 = [
-  { label: '全选', checkAll: true },
+const options2: CheckboxGroupProps['options'] = [
+  {
+    label: '全选',
+    checkAll: true,
+  },
   // html attribute: title, hover to see more label text info
-  { value: '选项一', label: '选项一', title: '选项一' },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  { value: '选项二', label: (h) => <div>选项二</div> },
-  { value: '选项三', label: '选项三' },
-  { value: '设为只读', label: '设为只读', readonly: true },
+  {
+    value: '选项一',
+    label: '选项一',
+    title: '选项一',
+  },
+  {
+    value: '选项二',
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    label: (h) => <div>选项二</div>,
+  },
+  {
+    value: '选项三',
+    label: '选项三',
+  },
+  {
+    value: '设为只读',
+    label: '设为只读',
+    readonly: true,
+  },
 ];
-
 const value1 = ref(['选项一']);
 const value2 = ref(['选项一']);
 const value3 = ref(['选项一', '选项二', '选项三']);
-
 const checkAll = computed(() => options1.length === value1.value.length);
-
 const indeterminate = computed(() => !!(options1.length > value1.value.length && value1.value.length));
-
-const handleSelectAll = (checked) => {
+const handleSelectAll: CheckboxProps['onChange'] = (checked) => {
   value1.value = checked ? ['选项一', '选项二', '选项三'] : [];
 };
-
-const onChange1 = (val) => {
+const onChange1: CheckboxGroupProps['onChange'] = (val) => {
   console.log(value1.value, val);
 };
-const onChange2 = (val) => {
+const onChange2: CheckboxGroupProps['onChange'] = (val) => {
   console.log(value2.value, val);
 };
-const onChange3 = (val) => {
+const onChange3: CheckboxGroupProps['onChange'] = (val) => {
   console.log(value3.value, val);
 };
 </script>

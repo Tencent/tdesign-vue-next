@@ -15,8 +15,9 @@
     <t-table :data="data" :columns="columns" :empty="empty" :row-key="rowKey" />
   </div>
 </template>
-<script setup lang="jsx">
-const columns = [
+<script lang="tsx" setup>
+import { TableProps } from 'tdesign-vue-next';
+const columns: TableProps['columns'] = [
   {
     colKey: 'type',
     title: '类型',
@@ -42,11 +43,9 @@ const columns = [
     title: '说明',
   },
 ];
-
-const data = [];
-const rowKey = 'property';
-
-const empty = () => (
+const data: TableProps['data'] = [];
+const rowKey: TableProps['rowKey'] = 'property';
+const empty: TableProps['empty'] = () => (
   <span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">
     😊 我是自定义的空内容 😊: empty function
   </span>

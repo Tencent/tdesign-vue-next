@@ -5,15 +5,14 @@
   </t-space>
 </template>
 
-<script setup>
-import { MessagePlugin } from 'tdesign-vue-next';
-
-const openSomeMsg = () => {
+<script lang="ts" setup>
+import { MessagePlugin, ButtonProps } from 'tdesign-vue-next';
+const openSomeMsg: ButtonProps['onClick'] = () => {
   MessagePlugin.info('这是第一条消息');
   MessagePlugin.warning('这是第二条消息');
   MessagePlugin.error('这是第三条消息');
 };
-const closeAll = () => {
+const closeAll: ButtonProps['onClick'] = () => {
   MessagePlugin.closeAll();
 };
 </script>

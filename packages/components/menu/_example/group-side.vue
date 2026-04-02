@@ -62,20 +62,18 @@
   </t-menu>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { MenuProps, ButtonProps } from 'tdesign-vue-next';
 const collapsed = ref(true);
 const iconUrl = ref('https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png');
-
-const changeCollapsed = () => {
+const changeCollapsed: ButtonProps['onClick'] = () => {
   collapsed.value = !collapsed.value;
   iconUrl.value = collapsed.value
     ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png'
     : 'https://tdesign.gtimg.com/site/baseLogo-light.png';
 };
-
-const changeHandler = (active) => {
+const changeHandler: MenuProps['onChange'] = (active) => {
   console.log('change', active);
 };
 </script>

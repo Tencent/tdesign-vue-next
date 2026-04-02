@@ -139,12 +139,13 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { ref } from 'vue';
-
-const expanded = ref(['1']);
-const expanded2 = ref(['1']);
+import { HeadMenuProps } from 'tdesign-vue-next';
+const expanded = ref<HeadMenuProps['defaultExpanded']>(['1']);
+const expanded2 = ref<HeadMenuProps['defaultExpanded']>(['1']);
 </script>
+
 <style lang="less" scoped>
 .t-menu__operations {
   .t-button {

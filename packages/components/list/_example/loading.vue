@@ -17,21 +17,19 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed } from 'vue';
-
+import { ListProps, ListItemMetaProps } from 'tdesign-vue-next';
 const listCount = ref(3);
 const asyncLoadingRadio = ref('load-more');
-
-const loadMore = () => {
+const loadMore: ListProps['onLoadMore'] = () => {
   asyncLoadingRadio.value = 'loading';
 };
-
-const asyncLoading = computed(() => {
+const asyncLoading = computed<ListProps['asyncLoading']>(() => {
   if (asyncLoadingRadio.value === 'loading-custom') {
     return '没有更多数据了';
   }
   return asyncLoadingRadio.value;
 });
-const imageUrl = 'https://tdesign.gtimg.com/site/avatar.jpg';
+const imageUrl: ListItemMetaProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>

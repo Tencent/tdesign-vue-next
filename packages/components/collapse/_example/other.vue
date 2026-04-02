@@ -29,13 +29,13 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
+import { CollapseProps } from 'tdesign-vue-next';
 const disabled = ref(false);
 const borderless = ref(false);
-const showArrow = ref(true);
-const handlePanelChange = (val) => {
+const showArrow = ref<CollapseProps['expandIcon']>(true);
+const handlePanelChange: CollapseProps['onChange'] = (val) => {
   console.log('panel', val);
 };
 </script>

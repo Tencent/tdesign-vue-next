@@ -2,10 +2,10 @@
   <t-cascader v-model="value" :options="options" clearable :load="load" />
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
-const options = ref([
+import { CascaderProps, TreeOptionData } from 'tdesign-vue-next';
+const options = ref<CascaderProps['options']>([
   {
     label: '选项1',
     value: '1',
@@ -17,13 +17,11 @@ const options = ref([
     children: true,
   },
 ]);
-
 const value = ref();
-
-const load = (node) =>
+const load: CascaderProps['load'] = (node) =>
   new Promise((resolve) => {
     setTimeout(() => {
-      let nodes = [];
+      let nodes: TreeOptionData[] = [];
       if (node.level < 2) {
         nodes = [
           {

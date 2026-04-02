@@ -35,11 +35,10 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
+import { Tag, ImageProps } from 'tdesign-vue-next';
 import { PrintIcon } from 'tdesign-icons-vue-next';
-import { Tag } from 'tdesign-vue-next';
-
-const renderMask = () => (
+const renderMask: ImageProps['overlayContent'] = () => (
   <div
     style={{
       background: 'rgba(0,0,0,.4)',
@@ -64,8 +63,7 @@ const renderMask = () => (
     </Tag>
   </div>
 );
-
-const renderButton = () => (
+const renderButton: ImageProps['overlayContent'] = () => (
   <Tag
     shape="mark"
     theme="primary"

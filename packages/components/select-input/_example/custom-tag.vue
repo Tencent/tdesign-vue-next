@@ -59,37 +59,56 @@
     </t-select-input>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { SelectInputProps } from 'tdesign-vue-next';
 import { ControlPlatformIcon } from 'tdesign-icons-vue-next';
-
 const options = [
-  { label: 'tdesign-vue', value: 1 },
-  { label: 'tdesign-react', value: 2 },
-  { label: 'tdesign-miniprogram', value: 3 },
-  { label: 'tdesign-angular', value: 4 },
-  { label: 'tdesign-mobile-vue', value: 5 },
-  { label: 'tdesign-mobile-react', value: 6 },
+  {
+    label: 'tdesign-vue',
+    value: 1,
+  },
+  {
+    label: 'tdesign-react',
+    value: 2,
+  },
+  {
+    label: 'tdesign-miniprogram',
+    value: 3,
+  },
+  {
+    label: 'tdesign-angular',
+    value: 4,
+  },
+  {
+    label: 'tdesign-mobile-vue',
+    value: 5,
+  },
+  {
+    label: 'tdesign-mobile-react',
+    value: 6,
+  },
 ];
-
-const selectValue1 = ref({ label: 'tdesign-vue', value: 1 });
-const selectValue2 = ref(['tdesign-vue', 'tdesign-react']);
-const selectValue3 = ref(['tdesign-vue', 'tdesign-react', 'tdesign-mobile-vue']);
-
-const onOptionClick = (item) => {
+const selectValue1 = ref<{
+  label: string;
+  value: number;
+}>({
+  label: 'tdesign-vue',
+  value: 1,
+});
+const selectValue2 = ref<string[]>(['tdesign-vue', 'tdesign-react']);
+const selectValue3 = ref<string[]>(['tdesign-vue', 'tdesign-react', 'tdesign-mobile-vue']);
+const onOptionClick = (item: { label: string; value: number }) => {
   selectValue1.value = item;
 };
-
-const onClear = () => {
+const onClear: SelectInputProps['onClear'] = () => {
   selectValue1.value = undefined;
 };
-
-const onTagChange2 = (val) => {
-  selectValue2.value = val;
+const onTagChange2: SelectInputProps['onTagChange'] = (val) => {
+  selectValue2.value = val.map((t) => String(t));
 };
-
-const onTagChange3 = (val) => {
-  selectValue3.value = val;
+const onTagChange3: SelectInputProps['onTagChange'] = (val) => {
+  selectValue3.value = val.map((t) => String(t));
 };
 </script>
 <style lang="less" scoped>

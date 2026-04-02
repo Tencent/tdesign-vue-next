@@ -8,12 +8,11 @@
     </t-popup>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { ButtonProps } from 'tdesign-vue-next';
 const visible = ref(false);
-
-const onToggle = () => {
+const onToggle: ButtonProps['onClick'] = () => {
   visible.value = !visible.value;
 };
 </script>

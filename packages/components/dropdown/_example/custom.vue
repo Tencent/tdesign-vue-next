@@ -5,8 +5,9 @@
     </t-dropdown>
   </t-space>
 </template>
-<script setup lang="ts">
-const options = [
+<script lang="ts" setup>
+import { DropdownProps } from 'tdesign-vue-next';
+const options: DropdownProps['options'] = [
   {
     content: '选项一',
     value: 1,

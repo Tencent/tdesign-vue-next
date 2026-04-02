@@ -18,32 +18,51 @@
     </template>
   </t-select-input>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
+import { SelectInputProps } from 'tdesign-vue-next';
 const options = [
-  { label: 'tdesign-vue', value: 1 },
-  { label: 'tdesign-react', value: 2 },
-  { label: 'tdesign-miniprogram', value: 3 },
-  { label: 'tdesign-angular', value: 4 },
-  { label: 'tdesign-mobile-vue', value: 5 },
-  { label: 'tdesign-mobile-react', value: 6 },
+  {
+    label: 'tdesign-vue',
+    value: 1,
+  },
+  {
+    label: 'tdesign-react',
+    value: 2,
+  },
+  {
+    label: 'tdesign-miniprogram',
+    value: 3,
+  },
+  {
+    label: 'tdesign-angular',
+    value: 4,
+  },
+  {
+    label: 'tdesign-mobile-vue',
+    value: 5,
+  },
+  {
+    label: 'tdesign-mobile-react',
+    value: 6,
+  },
 ];
-
-const selectValue = ref({ label: 'tdesign-vue', value: 1 });
-
+const selectValue = ref<{
+  label: string;
+  value: number;
+}>({
+  label: 'tdesign-vue',
+  value: 1,
+});
 const popupVisible = ref(false);
-
-const onOptionClick = (item) => {
+const onOptionClick = (item: { label: string; value: number }) => {
   selectValue.value = item;
   popupVisible.value = false;
 };
-
-const onClear = () => {
+const onClear: SelectInputProps['onClear'] = () => {
   selectValue.value = undefined;
 };
-
-const onPopupVisibleChange = (val) => {
+const onPopupVisibleChange: SelectInputProps['onPopupVisibleChange'] = (val) => {
   popupVisible.value = val;
 };
 </script>

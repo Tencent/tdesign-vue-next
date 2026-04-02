@@ -7,17 +7,32 @@
     <t-select v-model="value3" :options="options" loading placeholder="请选择云解决方案" />
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
-const options = [
-  { label: '架构云', value: '1' },
-  { label: '大数据', value: '2' },
-  { label: '区块链', value: '3' },
-  { label: '物联网', value: '4', disabled: true },
-  { label: '人工智能', value: '5' },
+import { SelectProps } from 'tdesign-vue-next';
+const options: SelectProps['options'] = [
+  {
+    label: '架构云',
+    value: '1',
+  },
+  {
+    label: '大数据',
+    value: '2',
+  },
+  {
+    label: '区块链',
+    value: '3',
+  },
+  {
+    label: '物联网',
+    value: '4',
+    disabled: true,
+  },
+  {
+    label: '人工智能',
+    value: '5',
+  },
 ];
-
 const value1 = ref('');
 const value2 = ref('');
 const value3 = ref('');

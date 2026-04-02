@@ -7,35 +7,30 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed, onMounted } from 'vue';
-
-const status1 = ref('loading');
-const status2 = ref('loading');
-
+import { MessageProps, ButtonProps } from 'tdesign-vue-next';
+const status1 = ref<MessageProps['theme']>('loading');
+const status2 = ref<MessageProps['theme']>('loading');
 const isDisabled = computed(() => {
   return status1.value === 'loading' && status2.value === 'loading';
 });
-
 const fn1 = () => {
   setTimeout(() => {
     status1.value = 'success';
   }, 10000);
 };
-
 const fn2 = () => {
   setTimeout(() => {
     status2.value = 'warning';
   }, 10000);
 };
-
-const reset = () => {
+const reset: ButtonProps['onClick'] = () => {
   status1.value = 'loading';
   status2.value = 'loading';
   fn1();
   fn2();
 };
-
 onMounted(() => {
   fn1();
   fn2();

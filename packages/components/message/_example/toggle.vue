@@ -4,13 +4,11 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
-
+import { MessagePlugin, ButtonProps } from 'tdesign-vue-next';
 const msg = ref(null);
-
-const closeFunc = () => {
+const closeFunc: ButtonProps['onClick'] = () => {
   if (!msg.value) {
     msg.value = MessagePlugin.info({
       content: '调用关闭函数关闭信息提示框',

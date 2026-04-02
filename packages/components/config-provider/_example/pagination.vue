@@ -6,11 +6,11 @@
   </t-config-provider>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { GlobalConfigProvider } from 'tdesign-vue-next';
 const current = ref(1);
-const globalConfig = {
+const globalConfig: GlobalConfigProvider = {
   pagination: {
     itemsPerPage: '{size} / page',
     jumpTo: 'jump to',

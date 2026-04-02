@@ -100,7 +100,7 @@
           <t-icon name="mail" />
         </template>
         <template #title>
-          <span>消息区 dark</span>
+          <span>消息区</span>
         </template>
         <t-menu-item value="3-1"> 二级菜单内容 </t-menu-item>
         <t-menu-item value="3-2"> 二级菜单内容 </t-menu-item>
@@ -138,23 +138,21 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { MenuProps, ButtonProps } from 'tdesign-vue-next';
 const collapsed = ref(false);
 const collapsed2 = ref(false);
-
-const changeCollapsed = () => {
+const changeCollapsed: ButtonProps['onClick'] = () => {
   collapsed.value = !collapsed.value;
 };
-
-const changeCollapsed2 = () => {
+const changeCollapsed2: ButtonProps['onClick'] = () => {
   collapsed2.value = !collapsed2.value;
 };
-
-const expanded = ref(['2', '3']);
-const expanded2 = ref(['2']);
+const expanded = ref<MenuProps['expanded']>(['2', '3']);
+const expanded2 = ref<MenuProps['expanded']>(['2']);
 </script>
+
 <style lang="less" scoped>
 .t-demo-collapse-btn {
   color: #fff;

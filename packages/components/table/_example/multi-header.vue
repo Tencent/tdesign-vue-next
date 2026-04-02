@@ -33,17 +33,28 @@
     ></t-table>
   </div>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { computed, ref } from 'vue';
+import { TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const initialData = [];
+const initialData: TableProps['data'] = [];
 for (let i = 0; i < 1900; i++) {
   initialData.push({
     index: i + 1,
@@ -70,9 +81,8 @@ for (let i = 0; i < 1900; i++) {
     field7: `审批单号00${i + 1}`,
   });
 }
-
-function getColumns(fixedLeftCol, fixedRightCol) {
-  return [
+function getColumns(fixedLeftCol: boolean, fixedRightCol: boolean) {
+  const columns: TableProps['columns'] = [
     {
       title: '申请人',
       colKey: 'applicant',
@@ -160,10 +170,22 @@ function getColumns(fixedLeftCol, fixedRightCol) {
           filter: {
             type: 'single',
             list: [
-              { label: '所有状态', value: '' },
-              { label: '组长审批', value: '组长审批' },
-              { label: '部门审批', value: '部门审批' },
-              { label: '财务审批', value: '财务审批' },
+              {
+                label: '所有状态',
+                value: '',
+              },
+              {
+                label: '组长审批',
+                value: '组长审批',
+              },
+              {
+                label: '部门审批',
+                value: '部门审批',
+              },
+              {
+                label: '财务审批',
+                value: '财务审批',
+              },
             ],
           },
         },
@@ -199,25 +221,21 @@ function getColumns(fixedLeftCol, fixedRightCol) {
       width: '120',
     },
   ];
+  return columns;
 }
-
-const data = ref([...initialData]);
-const sortInfo = ref();
+const data = ref<TableProps['data']>([...initialData]);
+const sortInfo = ref<TableProps['sort']>();
 const bordered = ref(true);
 const fixedHeader = ref(true);
 const fixedLeftCol = ref(false);
 const fixedRightCol = ref(false);
-const headerAffixedTop = ref(false);
-
-const columns = computed(() => getColumns(fixedLeftCol.value, fixedRightCol.value));
-
-const onDataChange = (val) => {
+const headerAffixedTop = ref<TableProps['headerAffixedTop']>(false);
+const columns = computed<TableProps['columns']>(() => getColumns(fixedLeftCol.value, fixedRightCol.value));
+const onDataChange: TableProps['onDataChange'] = (val) => {
   data.value = val.concat();
 };
-
-const onFilterChange = (filterValue) => {
+const onFilterChange: TableProps['onFilterChange'] = (filterValue) => {
   data.value = initialData.filter((t) => !filterValue.property || filterValue.property === t.property);
 };
-
-const filterRowMethod = () => null;
+const filterRowMethod: TableProps['filterRow'] = () => null;
 </script>

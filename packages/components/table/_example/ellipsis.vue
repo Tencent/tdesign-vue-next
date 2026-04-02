@@ -22,26 +22,37 @@
   </div>
 </template>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { MessagePlugin, TableProps } from 'tdesign-vue-next';
 import {
   FileCopyIcon,
   ErrorCircleFilledIcon,
   CheckCircleFilledIcon,
   CloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
 
 // const getAttach = () => document.body;
 
 // thanks to https://www.zhangxinxu.com/wordpress/2021/10/js-copy-paste-clipboard/
-function copyToClipboard(text) {
+function copyToClipboard(text: string) {
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text);
   } else {
@@ -57,8 +68,7 @@ function copyToClipboard(text) {
   }
   MessagePlugin.success('文本复制成功');
 }
-
-const data = [];
+const data: TableProps['data'] = [];
 const total = 5;
 for (let i = 0; i < total; i++) {
   data.push({
@@ -77,8 +87,7 @@ for (let i = 0; i < total; i++) {
     propsAndContent2: [2, 3, 1, 4][i % 4],
   });
 }
-
-const columns = ref([
+const columns = ref<TableProps['columns']>([
   {
     colKey: 'applicant',
     title: '申请人',
@@ -120,7 +129,10 @@ const columns = ref([
       <div>
         {row.ellipsisContent}
         <FileCopyIcon
-          style={{ cursor: 'pointer', marginLeft: '4px' }}
+          style={{
+            cursor: 'pointer',
+            marginLeft: '4px',
+          }}
           onClick={() => copyToClipboard(row.ellipsisContent)}
         />
       </div>
@@ -153,7 +165,7 @@ const columns = ref([
     colKey: 'link',
     // 超出省略的内容显示纯文本，不带任何样式和元素
     ellipsis: (h, { row }) => row.link,
-    // 注意这种 JSX 写法需设置 <script lang="jsx" setup>
+    // 注意这种 JSX 写法需设置 <script lang='tsx' setup>
     cell: (h, { row }) => (
       <a href="/vue-next/components/table" target="_blank">
         {row.link}

@@ -40,14 +40,12 @@
   </t-menu>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed } from 'vue';
-
+import { ButtonProps } from 'tdesign-vue-next';
 const collapsed = ref(false);
-
 const iconName = computed(() => (collapsed.value ? 'chevron-right' : 'chevron-left'));
-
-const changeCollapsed = () => {
+const changeCollapsed: ButtonProps['onClick'] = () => {
   collapsed.value = !collapsed.value;
 };
 </script>

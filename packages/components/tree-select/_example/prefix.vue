@@ -5,10 +5,10 @@
     </template>
   </t-tree-select>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
-const options = [
+import { TreeSelectProps } from 'tdesign-vue-next';
+const options: TreeSelectProps['data'] = [
   {
     label: '开发一组',
     value: 'group1',
@@ -38,6 +38,5 @@ const options = [
     ],
   },
 ];
-
 const value = ref('');
 </script>

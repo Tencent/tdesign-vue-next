@@ -7,20 +7,23 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { AutoCompleteProps } from 'tdesign-vue-next';
 const value = ref('');
 const timer = ref(null);
-const options = ref(['First AutoComplete Textarea', 'Second AutoComplete Textarea', 'Third AutoComplete Textarea']);
+const options = ref<AutoCompleteProps['options']>([
+  'First AutoComplete Textarea',
+  'Second AutoComplete Textarea',
+  'Third AutoComplete Textarea',
+]);
 
 // 输入框内容发生变化时进行搜索，200ms 搜索一次
-function onChange(value) {
+function onChange(value: string) {
   clearTimeout(timer.value);
   timer.value = setTimeout(() => {
     const text = 'AutoComplete Textarea';
     const pureValue = value.replace(`First ${text}`, '').replace(`Second ${text}`, '').replace(`Third ${text}`, '');
-
     options.value = [`${pureValue}First ${text}`, `${pureValue}Second ${text}`, `${pureValue}Third ${text}`];
     clearTimeout(timer.value);
   }, 200);

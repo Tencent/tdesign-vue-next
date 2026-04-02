@@ -18,16 +18,27 @@
     </t-table>
   </div>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
+import { TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
-const data = [];
+const data: TableProps['data'] = [];
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
 for (let i = 0; i < 5; i++) {
   data.push({
     index: i + 1,
@@ -40,8 +51,7 @@ for (let i = 0; i < 5; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
-const columns = [
+const columns: TableProps['columns'] = [
   {
     colKey: 'applicant',
     title: '申请人',
@@ -71,6 +81,9 @@ const columns = [
       return <div>{row[col.colKey]}</div>;
     },
   },
-  { colKey: 'createTime', title: '申请时间' },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ];
 </script>

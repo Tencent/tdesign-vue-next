@@ -59,9 +59,8 @@
     </t-dialog>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
 const visibleNormalDrag = ref(false);
 const visibleModal = ref(false);
 const visibleModelessDrag = ref(false);

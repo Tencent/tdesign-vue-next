@@ -26,24 +26,59 @@
     </t-select>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
-
+import { SelectProps } from 'tdesign-vue-next';
 const options = [
-  { label: '用户一', value: '1', description: '这是一段用户描述信息，可自定义内容' },
-  { label: '用户二', value: '2', description: '这是一段用户描述信息，可自定义内容' },
-  { label: '用户三', value: '3', description: '这是一段用户描述信息，可自定义内容' },
-  { label: '用户四', value: '4', description: '这是一段用户描述信息，可自定义内容' },
-  { label: '用户五', value: '5', description: '这是一段用户描述信息，可自定义内容' },
-  { label: '用户六', value: '6', description: '这是一段用户描述信息，可自定义内容' },
-  { label: '用户七', value: '7', description: '这是一段用户描述信息，可自定义内容' },
-  { label: '用户八', value: '8', description: '这是一段用户描述信息，可自定义内容' },
-  { label: '用户九', value: '9', description: '这是一段用户描述信息，可自定义内容' },
+  {
+    label: '用户一',
+    value: '1',
+    description: '这是一段用户描述信息，可自定义内容',
+  },
+  {
+    label: '用户二',
+    value: '2',
+    description: '这是一段用户描述信息，可自定义内容',
+  },
+  {
+    label: '用户三',
+    value: '3',
+    description: '这是一段用户描述信息，可自定义内容',
+  },
+  {
+    label: '用户四',
+    value: '4',
+    description: '这是一段用户描述信息，可自定义内容',
+  },
+  {
+    label: '用户五',
+    value: '5',
+    description: '这是一段用户描述信息，可自定义内容',
+  },
+  {
+    label: '用户六',
+    value: '6',
+    description: '这是一段用户描述信息，可自定义内容',
+  },
+  {
+    label: '用户七',
+    value: '7',
+    description: '这是一段用户描述信息，可自定义内容',
+  },
+  {
+    label: '用户八',
+    value: '8',
+    description: '这是一段用户描述信息，可自定义内容',
+  },
+  {
+    label: '用户九',
+    value: '9',
+    description: '这是一段用户描述信息，可自定义内容',
+  },
 ];
-
 const value1 = ref('');
 const value2 = ref('');
-const optionRender = (h, option) => (
+const optionRender = (option: { label: string; value: string; description: string }) => (
   <div class="tdesign-demo__user-option">
     <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
     <div class="tdesign-demo__user-option-info">
@@ -52,11 +87,11 @@ const optionRender = (h, option) => (
     </div>
   </div>
 );
-const optionsData = computed(() =>
+const optionsData = computed<SelectProps['options']>(() =>
   options.map((item) => ({
     ...item,
     // options 自定义下拉选项关键代码
-    content: (h) => optionRender(h, item),
+    content: () => optionRender(item),
   })),
 );
 </script>

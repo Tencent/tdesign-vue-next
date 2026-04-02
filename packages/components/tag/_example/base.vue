@@ -35,8 +35,9 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
-const onClick = ({ e }) => {
+<script lang="ts" setup>
+import { TagProps } from 'tdesign-vue-next';
+const onClick: TagProps['onClick'] = ({ e }) => {
   e.stopPropagation();
 };
 </script>

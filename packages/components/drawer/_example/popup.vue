@@ -17,10 +17,10 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { DrawerProps } from 'tdesign-vue-next';
 const visible = ref(false);
-const mode = ref('push');
-const placement = ref('right');
+const mode = ref<DrawerProps['mode']>('push');
+const placement = ref<DrawerProps['placement']>('right');
 </script>

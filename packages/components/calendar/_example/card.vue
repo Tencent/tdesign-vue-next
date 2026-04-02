@@ -15,16 +15,21 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
+import { CalendarProps, CalendarInstanceFunctions } from 'tdesign-vue-next';
 const options = [
-  { value: 'full', label: '全屏风格' },
-  { value: 'card', label: '卡片风格' },
+  {
+    value: 'full',
+    label: '全屏风格',
+  },
+  {
+    value: 'card',
+    label: '卡片风格',
+  },
 ];
-
-const theme = ref('card');
-const myCalendar = ref();
+const theme = ref<CalendarProps['theme']>('card');
+const myCalendar = ref<CalendarInstanceFunctions>();
 const fillWithZero = ref(true);
 const toCurrent = () => {
   if (myCalendar.value) {

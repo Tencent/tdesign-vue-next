@@ -29,13 +29,14 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed } from 'vue';
-const valueMode = ref('onlyLeaf');
-const checked = ref(['1.1.1.1', '1.1.1.2']);
-const expanded = ref(['1', '1.1', '1.1.1', '2']);
-const actived = ref(['2']);
-const items = ref([
+import { TreeProps, InputProps, InputValue } from 'tdesign-vue-next';
+const valueMode = ref<TreeProps['valueMode']>('onlyLeaf');
+const checked = ref<TreeProps['value']>(['1.1.1.1', '1.1.1.2']);
+const expanded = ref<TreeProps['expanded']>(['1', '1.1', '1.1.1', '2']);
+const actived = ref<TreeProps['actived']>(['2']);
+const items = ref<TreeProps['data']>([
   {
     value: '1',
     label: '1',
@@ -128,30 +129,30 @@ const items = ref([
     ],
   },
 ]);
-const allChecked = computed(() => {
-  let arr = [];
+const allChecked = computed<InputProps['value']>(() => {
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(checked.value)) {
     arr = checked.value;
   }
   return arr.map((val) => `{${val}}`).join(', ');
 });
-const allExpanded = computed(() => {
-  let arr = [];
+const allExpanded = computed<InputProps['value']>(() => {
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(expanded.value)) {
     arr = expanded.value;
   }
   return arr.map((val) => `{${val}}`).join(', ');
 });
-const allActived = computed(() => {
-  let arr = [];
+const allActived = computed<InputProps['value']>(() => {
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(actived.value)) {
     arr = actived.value;
   }
   return arr.map((val) => `{${val}}`).join(', ');
 });
-const getValueFromString = (val) => {
-  const arr = val.split(',');
-  const vals = [];
+const getValueFromString = (val: InputValue) => {
+  const arr = String(val).split(',');
+  const vals: TreeProps['value'] = [];
   arr
     .map((str) => str.trim())
     .forEach((tag) => {
@@ -162,17 +163,17 @@ const getValueFromString = (val) => {
     });
   return vals;
 };
-const onAllCheckedInput = (val) => {
+const onAllCheckedInput: InputProps['onChange'] = (val) => {
   console.log('checked input on change', val);
   const vals = getValueFromString(val);
   checked.value = vals;
 };
-const onAllExpandedInput = (val) => {
+const onAllExpandedInput: InputProps['onChange'] = (val) => {
   console.log('expanded input on change', val);
   const vals = getValueFromString(val);
   expanded.value = vals;
 };
-const onAllActivedInput = (val) => {
+const onAllActivedInput: InputProps['onChange'] = (val) => {
   console.log('actived input on change', val);
   const vals = getValueFromString(val);
   actived.value = vals;

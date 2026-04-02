@@ -29,25 +29,24 @@
     <p>当前展开项:{{ currentItem }}</p>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
-const currentItem = ref([1]);
+import { TagInputProps, CollapseProps } from 'tdesign-vue-next';
+const currentItem = ref<number[]>([1]);
 const tags1 = ref(['Vue', 'React']);
-const tags2 = ref(['Vue', 'React']);
-const tags3 = ref(['Vue', 'React']);
-const handlePanelChange = (val) => {
-  currentItem.value = val;
+const tags2 = ref<TagInputProps['value']>(['Vue', 'React']);
+const tags3 = ref<TagInputProps['defaultValue']>(['Vue', 'React']);
+const handlePanelChange: CollapseProps['onChange'] = (val) => {
+  currentItem.value = val.map((n) => Number(n));
 };
-
-const onTagInputEnter = (val, context) => {
+const onTagInputEnter: TagInputProps['onEnter'] = (val, context) => {
   console.log(val, context);
 };
-const onChange = (val, context) => {
+const onChange: TagInputProps['onChange'] = (val, context) => {
   console.log(val, context);
   tags2.value = val;
 };
-const onPaste = (context) => {
+const onPaste: TagInputProps['onPaste'] = (context) => {
   console.log(context);
 };
 </script>

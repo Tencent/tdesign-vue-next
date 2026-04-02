@@ -14,11 +14,22 @@
     </template> -->
   </t-tree-select>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
+import { PopupTriggerEvent, PopupTriggerSource, TreeNodeModel, TreeSelectProps } from 'tdesign-vue-next';
 import { Icon } from 'tdesign-icons-vue-next';
-
-const options = [
+interface TreeSelectPopupVisibleContext<T> {
+  e?: PopupTriggerEvent | Event;
+  node?: TreeNodeModel<T>;
+  trigger?: PopupTriggerSource | 'clear';
+}
+interface Option {
+  label: string;
+  value: string;
+  disabled?: boolean;
+  children?: Option[];
+}
+const options: TreeSelectProps['data'] = [
   {
     label: '广东省',
     value: 'guangdong',
@@ -49,11 +60,9 @@ const options = [
     ],
   },
 ];
-
 const value = ref('');
 const popupVisible = ref(false);
-
-const onVisibleChange = (visible, context) => {
+const onVisibleChange = (visible: boolean, context: TreeSelectPopupVisibleContext<Option>) => {
   console.log(visible, context);
   if (context.trigger || context.node?.label !== '广州市') {
     popupVisible.value = visible;
@@ -61,7 +70,7 @@ const onVisibleChange = (visible, context) => {
 };
 
 // props传递suffixIcon，如需实现激活/未激活状态不同图标，可参考此用例onVisibleChange接收事件自行维护状态，传递不同图标。
-const renderArrowIcon = computed(() =>
+const renderArrowIcon = computed<TreeSelectProps['suffixIcon']>(() =>
   popupVisible.value ? () => '我是选择器激活时内容' : () => <Icon name="center-focus-strong" />,
 );
 </script>

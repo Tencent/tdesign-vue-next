@@ -1,10 +1,10 @@
 <template>
   <t-tree-select v-model="value" :data="options" multiple clearable placeholder="请选择" />
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
-const options = [
+import { TreeSelectProps } from 'tdesign-vue-next';
+const options: TreeSelectProps['data'] = [
   {
     label: '广东省',
     value: 'guangdong',
@@ -34,6 +34,5 @@ const options = [
     ],
   },
 ];
-
 const value = ref(['guangzhou', 'shenzhen']);
 </script>

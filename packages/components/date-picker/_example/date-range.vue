@@ -22,10 +22,12 @@
   </t-space>
 </template>
 
-<script setup>
-const onPick = (value, context) => console.log('onPick:', value, context);
+<script lang="ts" setup>
+import { DateRangePickerProps } from 'tdesign-vue-next';
 
-const onChange = (value, context) => {
+const onPick: DateRangePickerProps['onPick'] = (value, context) => console.log('onPick:', value, context);
+
+const onChange: DateRangePickerProps['onChange'] = (value, context) => {
   console.log('onChange:', value, context);
   console.log(
     'timestamp:',
@@ -37,11 +39,11 @@ const onChange = (value, context) => {
   );
 };
 
-const onMonthChange = (context) => {
+const onMonthChange: DateRangePickerProps['onMonthChange'] = (context) => {
   console.log('onMonthChange:', context);
 };
 
-const onYearChange = (context) => {
+const onYearChange: DateRangePickerProps['onYearChange'] = (context) => {
   console.log('onYearChange:', context);
 };
 </script>

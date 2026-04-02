@@ -16,12 +16,12 @@
     <t-link theme="warning" :suffix-icon="renderSuffixIcon" disabled> 跳转链接 </t-link>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
+import { LinkProps } from 'tdesign-vue-next';
 import { LinkIcon, JumpIcon } from 'tdesign-icons-vue-next';
-
-const renderPrefixIcon = () => <LinkIcon />;
-const renderSuffixIcon = () => <JumpIcon />;
-const clickLink = () => {
+const renderPrefixIcon: LinkProps['prefixIcon'] = () => <LinkIcon />;
+const renderSuffixIcon: LinkProps['suffixIcon'] = () => <JumpIcon />;
+const clickLink: LinkProps['onClick'] = () => {
   console.log('不触发');
 };
 </script>

@@ -32,18 +32,33 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import { TableProps } from 'tdesign-vue-next';
 import { CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const columns = ref([
-  { colKey: 'applicant', title: '申请人', width: '100' },
+const columns = ref<TableProps['columns']>([
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -67,10 +82,16 @@ const columns = ref([
     sortType: 'all',
     sorter: true,
   },
-  { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'createTime', title: '申请时间' },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+    width: '120',
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ]);
-
 const initialData = new Array(4).fill(null).map((_, i) => ({
   index: i + 1,
   applicant: ['贾明', '张三', '王芳'][i % 3],
@@ -83,17 +104,15 @@ const initialData = new Array(4).fill(null).map((_, i) => ({
   time: [2, 3, 1, 4][i % 4],
   createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
 }));
-
-const sort = ref({
+const sort = ref<TableProps['sort']>({
   sortBy: 'status',
   descending: true,
 });
-
-const data = ref([...initialData]);
+const data = ref<TableProps['data']>([...initialData]);
 const hideSortTips = ref(false);
-
-const request = (sort) => {
+const request = (sort: TableProps['sort']) => {
   // 模拟异步请求，进行数据排序
+  if (Array.isArray(sort)) return;
   const timer = setTimeout(() => {
     if (sort) {
       data.value = data.value
@@ -105,14 +124,13 @@ const request = (sort) => {
     clearTimeout(timer);
   }, 100);
 };
-
-const sortChange = (val) => {
+const sortChange: TableProps['onSortChange'] = (val) => {
   sort.value = val;
   request(val);
 };
 
 // 排序、分页、过滤等发生变化时会触发 change 事件
-const onChange = (info, context) => {
+const onChange: TableProps['onChange'] = (info, context) => {
   console.log('change', info, context);
 };
 

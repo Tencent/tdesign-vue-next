@@ -44,24 +44,23 @@
     </t-space>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-
+import { DialogProps } from 'tdesign-vue-next';
 const visible1 = ref(false);
 const visible2 = ref(false);
 const visible3 = ref(false);
 const visible4 = ref(false);
-
-const close1 = () => {
+const close1: DialogProps['onConfirm'] = () => {
   visible1.value = false;
 };
-const close2 = () => {
+const close2: DialogProps['onConfirm'] = () => {
   visible2.value = false;
 };
-const close3 = () => {
+const close3: DialogProps['onConfirm'] = () => {
   visible3.value = false;
 };
-const close4 = () => {
+const close4: DialogProps['onConfirm'] = () => {
   visible4.value = false;
 };
 </script>

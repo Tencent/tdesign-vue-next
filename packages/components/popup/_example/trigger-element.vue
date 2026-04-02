@@ -31,11 +31,12 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
-const renderTriggerElement1 = () => {
+<script lang="tsx" setup>
+import { PopupProps } from 'tdesign-vue-next';
+const renderTriggerElement1: PopupProps['default'] = () => {
   return <t-button variant="outline">渲染函数定义触发元素1</t-button>;
 };
-const renderTriggerElement2 = () => {
+const renderTriggerElement2: PopupProps['triggerElement'] = () => {
   return <t-button variant="outline">渲染函数定义触发元素2</t-button>;
 };
 </script>

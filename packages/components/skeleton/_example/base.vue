@@ -13,9 +13,8 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
-
 const loading = ref(true);
 </script>
 
