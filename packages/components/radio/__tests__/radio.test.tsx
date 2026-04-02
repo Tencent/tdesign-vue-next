@@ -407,7 +407,7 @@ describe('RadioGroup', () => {
       ));
       expect(wrapper3.find('.t-radio-group').classes()).toContain(`t-radio-group--filled`);
     });
-    it(':vertical is false by default', () => {
+    it(':direction default is horizontal', () => {
       const wrapper = mount(() => (
         <RadioGroup>
           <Radio value="1">选项一</Radio>
@@ -417,9 +417,19 @@ describe('RadioGroup', () => {
       expect(wrapper.find('.t-radio-group').classes()).not.toContain('t-radio-group--vertical');
     });
 
-    it(':vertical is true', () => {
+    it(':direction is horizontal', () => {
       const wrapper = mount(() => (
-        <RadioGroup vertical>
+        <RadioGroup direction="horizontal">
+          <Radio value="1">选项一</Radio>
+          <Radio value="2">选项二</Radio>
+        </RadioGroup>
+      ));
+      expect(wrapper.find('.t-radio-group').classes()).not.toContain('t-radio-group--vertical');
+    });
+
+    it(':direction is vertical', () => {
+      const wrapper = mount(() => (
+        <RadioGroup direction="vertical">
           <Radio value="1">选项一</Radio>
           <Radio value="2">选项二</Radio>
         </RadioGroup>
@@ -427,12 +437,12 @@ describe('RadioGroup', () => {
       expect(wrapper.find('.t-radio-group').classes()).toContain('t-radio-group--vertical');
     });
 
-    it(':vertical works with options prop', () => {
+    it(':direction is vertical with options prop', () => {
       const options = [
         { value: '1', label: '选项一' },
         { value: '2', label: '选项二' },
       ];
-      const wrapper = mount(() => <RadioGroup vertical options={options}></RadioGroup>);
+      const wrapper = mount(() => <RadioGroup direction="vertical" options={options}></RadioGroup>);
       expect(wrapper.find('.t-radio-group').classes()).toContain('t-radio-group--vertical');
     });
 
