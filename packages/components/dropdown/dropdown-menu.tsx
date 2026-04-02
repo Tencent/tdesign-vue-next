@@ -5,7 +5,7 @@ import DropdownItem from './dropdown-item';
 import { DropdownOption } from './type';
 import props from './props';
 import TDivider from '../divider';
-import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+import { useGlobalIcon, usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 
 import { TNode } from '../common';
 import { isFunction } from 'lodash-es';
@@ -16,6 +16,7 @@ export default defineComponent({
   setup(props) {
     const dropdownClass = usePrefixClass('dropdown');
     const dropdownMenuClass = usePrefixClass('dropdown__menu');
+    const renderTNodeJSX = useTNodeJSX();
     const scrollTopMap = reactive<Record<string, number>>({});
     const itemHeight = ref(null);
     const menuRef = ref<HTMLElement>();
@@ -161,7 +162,9 @@ export default defineComponent({
           ref={menuRef}
           onScroll={(e: MouseEvent) => handleScroll(e, 0)}
         >
+          {renderTNodeJSX('panelTopContent')}
           {renderOptions(props.options, 0)}
+          {renderTNodeJSX('panelBottomContent')}
         </div>
       );
     };
