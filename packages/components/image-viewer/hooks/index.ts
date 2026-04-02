@@ -11,7 +11,7 @@ import type { ZoomOptions, ZoomResult, TranslateOffset } from '@tdesign/common-j
 import { ref } from 'vue';
 import { throttle } from 'lodash-es';
 import { ImageScale } from '../type';
-import { DEFAULT_IMAGE_SCALE } from './constants';
+import { DEFAULT_IMAGE_SCALE } from '@tdesign/common-js/image-viewer/transform';
 
 // 从 common 包重新导出类型，保持向后兼容
 export type { ZoomOptions, ZoomResult, TranslateOffset };

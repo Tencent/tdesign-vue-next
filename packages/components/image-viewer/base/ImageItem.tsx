@@ -51,9 +51,8 @@ export default defineComponent({
       if (!modalBox) return;
 
       cleanupTransition();
-      // 读取 offsetHeight 强制重绘，确保类名移除后再添加能触发新动画
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      modalBox.offsetHeight;
+      // 强制浏览器 reflow，确保类名移除生效后再添加能触发新的 transition 动画
+      modalBox.getBoundingClientRect();
       modalBox.classList.add(transitioningClass);
 
       const handleTransitionEnd = (e: TransitionEvent) => {
