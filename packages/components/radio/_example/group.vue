@@ -5,7 +5,7 @@
     <t-radio-group default-value="选项一" name="city" :options="itemOptions" @change="onChange"></t-radio-group>
     <h5>垂直排布的单选框组</h5>
     <t-radio-group
-      vertical
+      direction="vertical"
       default-value="选项一"
       name="city"
       :options="itemOptions"

@@ -38,6 +38,15 @@ export default {
       return ['small', 'medium', 'large'].includes(val);
     },
   },
+  /**排列方向  */
+  direction: {
+    type: String as PropType<TdRadioGroupProps['direction']>,
+    default: 'horizontal' as TdRadioGroupProps['direction'],
+    validator(val: TdRadioGroupProps['direction']): boolean {
+      if (!val) return true;
+      return ['horizontal', 'vertical'].includes(val);
+    },
+  },
   /** 组件风格 */
   theme: {
     type: String as PropType<TdRadioGroupProps['theme']>,
