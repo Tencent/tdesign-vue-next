@@ -79,10 +79,7 @@ export default defineComponent({
                     {...omit(props, 'onClick')}
                     options={options.value}
                     onClick={handleMenuClick}
-                    v-slots={{
-                      panelTopContent: slots.panelTopContent,
-                      panelBottomContent: slots.panelBottomContent,
-                    }}
+                    v-slots={slots}
                   />
                 ) : null}
               </>
