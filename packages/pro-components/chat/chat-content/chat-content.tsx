@@ -25,7 +25,7 @@ const escapeReplacements: IEscape = {
 };
 const getEscapeReplacement = (ch: string): string => escapeReplacements[ch as keyof IEscape];
 
-function escape(html: string, encode: Boolean = false) {
+function escape(html: string, encode = false) {
   if (encode) {
     if (escapeTest.test(html)) {
       return html.replace(escapeReplace, getEscapeReplacement);

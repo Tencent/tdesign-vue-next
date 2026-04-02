@@ -79,7 +79,7 @@ export default defineComponent({
       if (isFullScreen.value) {
         dialogClass.push(`${COMPONENT_NAME.value}__fullscreen`);
       } else {
-        dialogClass.push(...[`${COMPONENT_NAME.value}--default`, `${COMPONENT_NAME.value}--${props.placement}`]);
+        dialogClass.push(`${COMPONENT_NAME.value}--default`, `${COMPONENT_NAME.value}--${props.placement}`);
       }
       return dialogClass;
     });

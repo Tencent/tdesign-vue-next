@@ -29,7 +29,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { TextareaProps } from 'tdesign-vue-next';
 interface Option {
   label: string;
   value: string;
@@ -45,7 +44,7 @@ const optionsRef = ref(options);
 const value = ref('');
 const value2 = ref('');
 const search = ref('');
-const onSearch: TextareaProps['onChange'] = () => {
+const onSearch = () => {
   optionsRef.value = options.filter((item) => item.label.indexOf(search.value) !== -1);
 };
 </script>

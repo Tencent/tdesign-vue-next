@@ -39,7 +39,7 @@ const visibleTop = ref(false);
 const visibleOverflow = ref(false);
 const placement: DialogProps['placement'] = 'top';
 const top: DialogProps['top'] = '50px';
-const close1: DialogProps['onConfirm'] = () => {
+const close1: DialogProps['onClose'] = () => {
   visible.value = false;
 };
 const close2: DialogProps['onClose'] = () => {
