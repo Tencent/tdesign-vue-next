@@ -113,6 +113,11 @@ export interface TdRadioGroupProps<T = RadioValue> {
    */
   variant?: 'outline' | 'primary-filled' | 'default-filled';
   /**
+   * 控制Radio Group 为垂直排列
+   * @default false
+   */
+  vertical?: boolean;
+  /**
    * 选中值发生变化时触发, `context.name` 指 RadioGroup 的 name 属性
    */
   onChange?: (value: T, context: { e: Event; name?: string }) => void;

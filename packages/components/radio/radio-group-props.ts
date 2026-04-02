@@ -69,6 +69,8 @@ export default {
       return ['outline', 'primary-filled', 'default-filled'].includes(val);
     },
   },
+  /** 控制Radio Group 为垂直排列 */
+  vertical: Boolean,
   /** 选中值发生变化时触发, `context.name` 指 RadioGroup 的 name 属性 */
   onChange: Function as PropType<TdRadioGroupProps['onChange']>,
 };

@@ -40,6 +40,7 @@ theme | String | radio | component Style。options: radio/button | N
 value | String / Number / Boolean | - | `v-model` and `v-model:value` is supported。Typescript：`T` `type RadioValue = string \| number \| boolean`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/radio/type.ts) | N
 defaultValue | String / Number / Boolean | - | uncontrolled property。Typescript：`T` `type RadioValue = string \| number \| boolean`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/radio/type.ts) | N
 variant | String | outline | options: outline/primary-filled/default-filled | N
+vertical | Boolean | false | When set to true, the Radio Group will be displayed vertically. | N
 onChange | Function |  | Typescript：`(value: T, context: { e: Event; name?:string }) => void`<br/> | N
 
 ### RadioGroup Events

@@ -40,6 +40,7 @@ theme | String | radio | 组件风格。可选项：radio/button | N
 value | String / Number / Boolean | - | 选中的值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`T` `type RadioValue = string \| number \| boolean`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/radio/type.ts) | N
 defaultValue | String / Number / Boolean | - | 选中的值。非受控属性。TS 类型：`T` `type RadioValue = string \| number \| boolean`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/radio/type.ts) | N
 variant | String | outline | 单选组件按钮形式。可选项：outline/primary-filled/default-filled | N
+vertical | Boolean | false | 控制Radio Group 为垂直排列 | N
 onChange | Function |  | TS 类型：`(value: T, context: { e: Event; name?:string }) => void`<br/>选中值发生变化时触发, `context.name` 指 RadioGroup 的 name 属性 | N
 
 ### RadioGroup Events
