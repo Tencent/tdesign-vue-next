@@ -38,9 +38,11 @@
 </template>
 
 <script lang="ts" setup>
-import DialogBody from './dialog-body.vue';
 import { ref } from 'vue';
 import type { GuideProps, ButtonProps } from 'tdesign-vue-next';
+
+import DialogBody from './dialog-body.vue';
+
 const visible = ref(false);
 const current = ref(-1);
 const steps: GuideProps['steps'] = [
@@ -53,6 +55,7 @@ const steps: GuideProps['steps'] = [
   {
     element: '.label-field',
     title: '新手引导标题',
+    // @ts-ignore
     body: DialogBody,
     placement: 'bottom',
     mode: 'dialog',
