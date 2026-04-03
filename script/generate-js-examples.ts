@@ -14,8 +14,13 @@
 import { readdirSync, statSync, existsSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { join, relative, dirname } from 'node:path';
 import { transform } from 'esbuild';
+// @ts-ignore prettier v2 没有类型声明
+import * as prettier from 'prettier';
 
 const COMPONENTS_DIR = join(__dirname, '..', 'packages', 'components');
+
+// 通过 prettier.resolveConfig 自动解析项目根目录的 prettier 配置
+const prettierConfig = prettier.resolveConfig.sync(join(__dirname, '..')) || {};
 
 // 匹配 lang="ts" 或 lang="tsx"
 const LANG_ATTR_RE = /\s+lang=["'](tsx?)["']/;
@@ -25,7 +30,7 @@ const SCRIPT_BLOCK_RE = /(<script\b[^>]*>)([\s\S]*?)(<\/script>)/g;
 /**
  * 将 Vue SFC 中的 TS/TSX script 块转换为 JS
  */
-async function transformVueSFC(source: string): Promise<string> {
+async function transformVueSFC(source: string, filePath?: string): Promise<string> {
   // 检查是否有 lang="ts" 或 lang="tsx"
   if (!LANG_ATTR_RE.test(source)) {
     // 没有 TS，原样返回
@@ -82,8 +87,17 @@ async function transformVueSFC(source: string): Promise<string> {
   }
 
   // 替换所有转换过的 script 块
+  // 使用函数形式的 replace 以避免 $& 等特殊替换模式被错误解释
   for (const block of blocks) {
-    result = result.replace(block.original, block.transformed);
+    result = result.replace(block.original, () => block.transformed);
+  }
+
+  // 使用 prettier 格式化，确保生成的代码符合项目规范
+  try {
+    result = prettier.format(result, { ...prettierConfig, parser: 'vue' });
+  } catch {
+    // prettier 格式化失败时，返回未格式化的结果
+    console.warn(`[generate-js-examples] prettier 格式化失败: ${filePath || 'unknown'}`);
   }
 
   return result;
@@ -144,7 +158,7 @@ async function main() {
       const targetPath = join(jsExampleDir, relativePath);
 
       try {
-        const transformed = await transformVueSFC(source);
+        const transformed = await transformVueSFC(source, vuePath);
 
         // 确保目标目录存在
         const targetDir = dirname(targetPath);
