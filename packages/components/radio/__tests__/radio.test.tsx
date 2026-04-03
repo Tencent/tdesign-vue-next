@@ -407,6 +407,30 @@ describe('RadioGroup', () => {
       ));
       expect(wrapper3.find('.t-radio-group').classes()).toContain(`t-radio-group--filled`);
     });
+    it(':direction', () => {
+      const wrapper1 = mount(() => (
+        <RadioGroup>
+          <Radio value="1">选项一</Radio>
+          <Radio value="2">选项二</Radio>
+        </RadioGroup>
+      ));
+      expect(wrapper1.find('.t-radio-group').classes()).not.toContain('t-radio-group--vertical');
+      const wrapper2 = mount(() => (
+        <RadioGroup direction="horizontal">
+          <Radio value="1">选项一</Radio>
+          <Radio value="2">选项二</Radio>
+        </RadioGroup>
+      ));
+      expect(wrapper2.find('.t-radio-group').classes()).not.toContain('t-radio-group--vertical');
+      const wrapper3 = mount(() => (
+        <RadioGroup direction="vertical">
+          <Radio value="1">选项一</Radio>
+          <Radio value="2">选项二</Radio>
+        </RadioGroup>
+      ));
+      expect(wrapper3.find('.t-radio-group').classes()).toContain('t-radio-group--vertical');
+    });
+
     it(':theme', () => {
       const wrapper = mount(() => (
         <RadioGroup theme="radio">
