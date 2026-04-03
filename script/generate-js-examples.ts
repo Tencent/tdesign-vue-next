@@ -6,7 +6,7 @@
  *
  * 转换逻辑:
  *   1. <script lang="ts" setup>  →  <script setup>   (去掉类型标注)
- *   2. <script lang="tsx" setup> →  <script setup>   (去掉类型标注，JSX 保留)
+ *   2. <script lang="tsx" setup> →  <script lang="jsx" setup>  (去掉类型标注，保留 JSX)
  *   3. 无 script 或已经是 JS   →  原样复制
  *   4. <template> / <style> 部分保持不变
  */
@@ -70,8 +70,9 @@ async function transformVueSFC(source: string, filePath?: string): Promise<strin
       },
     });
 
-    // 重建 open tag：去掉 lang 属性
-    const newOpenTag = openTag.replace(LANG_ATTR_RE, '');
+    // 重建 open tag：ts → 去掉 lang 属性；tsx → 改为 lang="jsx"
+    const newOpenTag =
+      lang === 'tsx' ? openTag.replace(LANG_ATTR_RE, ' lang="jsx"') : openTag.replace(LANG_ATTR_RE, '');
 
     // 清理 esbuild 输出：去掉尾部多余空行，确保开头有换行
     let cleanedCode = jsCode.replace(/\n{3,}/g, '\n\n').replace(/\n+$/, '\n');
