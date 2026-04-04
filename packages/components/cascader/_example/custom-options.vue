@@ -99,7 +99,7 @@ const optionRender: CascaderProps['option'] = (h, { item }) => (
   </div>
 );
 const getDeepOptions = (options: CascaderProps['options']): CascaderProps['options'] => {
-  if (!options) return null;
+  if (!options) return [];
   return options.map((item, index) => ({
     ...item,
     children: typeof item.children !== 'boolean' ? getDeepOptions(item.children) : item.children,
