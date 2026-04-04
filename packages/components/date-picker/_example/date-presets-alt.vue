@@ -26,7 +26,7 @@ const presets = ref<DateRangePickerProps['presets']>({
 });
 
 const value = ref('2022-01-01');
-const value2 = ref();
+const value2 = ref<Date | null>(null);
 const range1 = ref(['2022-01-01', '2022-08-08']);
 const range2 = ref(['2022-01-01 11:11:11', '2022-08-08 12:12:12']);
 
