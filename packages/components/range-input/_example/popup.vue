@@ -4,5 +4,6 @@
 
 <script lang="tsx" setup>
 import type { RangeInputPopupProps } from 'tdesign-vue-next';
+
 const panel: RangeInputPopupProps['panel'] = () => <div>hello world</div>;
 </script>

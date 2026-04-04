@@ -13,6 +13,7 @@
 
 <script lang="ts" setup>
 import { ArrowUpIcon } from 'tdesign-icons-vue-next';
+
 defineProps({
   handlePrev: Function,
   handleNext: Function,

@@ -5,6 +5,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { InputNumberProps } from 'tdesign-vue-next';
+
 const value = ref(3.2);
 const onChange: InputNumberProps['onChange'] = (ev) => {
   console.info(ev);

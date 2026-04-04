@@ -12,5 +12,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 const value = ref('item2');
 </script>

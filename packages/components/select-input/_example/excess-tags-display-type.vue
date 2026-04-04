@@ -48,6 +48,7 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import type { CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
+
 interface CustomOptionInfo {
   label: string;
   value?: number;

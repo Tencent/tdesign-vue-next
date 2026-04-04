@@ -56,6 +56,7 @@
 <script lang="ts" setup>
 import { ref, computed, nextTick } from 'vue';
 import type { TreeProps, InputProps, ButtonProps } from 'tdesign-vue-next';
+
 const syncProps = ref(false);
 const checkable = ref(true);
 const activable = ref(false);

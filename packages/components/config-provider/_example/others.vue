@@ -93,6 +93,7 @@
 <script lang="tsx" setup>
 import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
+import { ErrorIcon, ChevronRightIcon, CloseIcon, CloseCircleIcon } from 'tdesign-icons-vue-next';
 import type {
   TransferProps,
   GlobalConfigProvider,
@@ -101,7 +102,7 @@ import type {
   TreeProps,
   FormProps,
 } from 'tdesign-vue-next';
-import { ErrorIcon, ChevronRightIcon, CloseIcon, CloseCircleIcon } from 'tdesign-icons-vue-next';
+
 const transferList: TransferProps['data'] = [];
 for (let i = 0; i < 20; i++) {
   transferList.push({

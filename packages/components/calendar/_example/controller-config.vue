@@ -89,6 +89,7 @@
 
 <script lang="tsx" setup>
 import { reactive } from 'vue';
+
 const controllerConfig = reactive({
   visible: true,
   disabled: false,

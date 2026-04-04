@@ -13,8 +13,9 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import type { LinkProps } from 'tdesign-vue-next';
 import { JumpIcon } from 'tdesign-icons-vue-next';
+import type { LinkProps } from 'tdesign-vue-next';
+
 const clickLink: LinkProps['onClick'] = () => {
   console.log('不触发');
 };

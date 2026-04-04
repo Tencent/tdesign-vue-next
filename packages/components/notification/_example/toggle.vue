@@ -5,7 +5,9 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { NotifyPlugin, type ButtonProps } from 'tdesign-vue-next';
+import { NotifyPlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
+
 const notification = ref(null);
 const toggle: ButtonProps['onClick'] = () => {
   if (!notification.value) {

@@ -16,5 +16,6 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 const loading = ref(true);
 </script>

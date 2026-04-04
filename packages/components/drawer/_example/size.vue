@@ -21,6 +21,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { DrawerProps, RadioGroupProps } from 'tdesign-vue-next';
+
 const visible = ref(false);
 const size = ref<RadioGroupProps['defaultValue']>('small');
 const placement = ref<DrawerProps['placement']>('right');

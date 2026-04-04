@@ -10,6 +10,7 @@
 <script lang="ts" setup>
 import { onBeforeMount, ref } from 'vue';
 import type { ImageProps } from 'tdesign-vue-next';
+
 const mode = ['fill', 'contain', 'cover', 'none', 'scale-down'];
 const asyncImageUrl = ref<ImageProps['src']>('');
 onBeforeMount(() => {

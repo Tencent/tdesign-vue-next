@@ -9,6 +9,7 @@
 
 <script setup lang="tsx">
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
+
 const content = `TDesign was founded with the principles of open-source collaboration from the beginning. The collaboration scheme discussion, component design, and API design, including source code, are fully open within the company, garnering widespread attention from internal developers and designers. TDesign follows an equal, open, and strict policy, regardless of the participants' roles.`;
 const ellipsisState1 = {
   row: 2,

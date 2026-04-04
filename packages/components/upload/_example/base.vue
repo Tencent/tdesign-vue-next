@@ -94,13 +94,9 @@
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
-import {
-  MessagePlugin,
-  type UploadInstanceFunctions,
-  type UploadProps,
-  type UploadSelectChangeContext,
-  type ButtonProps,
-} from 'tdesign-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
+import type { UploadInstanceFunctions, UploadProps, UploadSelectChangeContext, ButtonProps } from 'tdesign-vue-next';
+
 // import { CloseIcon } from 'tdesign-icons-vue-next';
 
 const uploadRef1 = ref<UploadInstanceFunctions>();

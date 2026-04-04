@@ -32,5 +32,6 @@
 
 <script lang="ts" setup>
 import type { ListItemMetaProps } from 'tdesign-vue-next';
+
 const imageUrl: ListItemMetaProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>

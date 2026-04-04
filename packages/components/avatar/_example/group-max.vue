@@ -20,8 +20,9 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import type { AvatarProps, AvatarGroupProps } from 'tdesign-vue-next';
 import { UserIcon, EllipsisIcon } from 'tdesign-icons-vue-next';
+import type { AvatarProps, AvatarGroupProps } from 'tdesign-vue-next';
+
 const icon: AvatarProps['icon'] = () => <UserIcon />;
 const ellipsisIcon: AvatarGroupProps['collapseAvatar'] = () => <EllipsisIcon />;
 const image: AvatarProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';

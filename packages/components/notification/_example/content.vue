@@ -9,6 +9,7 @@
 </template>
 <script lang="tsx" setup>
 import type { NotificationProps } from 'tdesign-vue-next';
+
 const content: NotificationProps['content'] = () => {
   return <div>这是一条消息通知</div>;
 };

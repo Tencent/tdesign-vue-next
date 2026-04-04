@@ -31,6 +31,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { TabsProps } from 'tdesign-vue-next';
+
 const value = ref<TabsProps['value']>('first');
 const theme = ref<TabsProps['theme']>('normal');
 const handlerChange: TabsProps['onChange'] = (newValue) => {

@@ -8,5 +8,6 @@
 </template>
 <script lang="ts" setup>
 import type { TransferProps } from 'tdesign-vue-next';
+
 const list: TransferProps['data'] = [];
 </script>

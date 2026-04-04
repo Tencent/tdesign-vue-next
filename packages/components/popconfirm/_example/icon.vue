@@ -30,8 +30,9 @@
 </template>
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import type { PopconfirmProps } from 'tdesign-vue-next';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
+import type { PopconfirmProps } from 'tdesign-vue-next';
+
 const visible1 = ref(false);
 const visible2 = ref(false);
 const visible3 = ref(false);

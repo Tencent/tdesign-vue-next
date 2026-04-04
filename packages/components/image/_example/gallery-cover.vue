@@ -8,7 +8,9 @@
 </template>
 
 <script lang="tsx" setup>
-import { Tag, type ImageProps } from 'tdesign-vue-next';
+import { Tag } from 'tdesign-vue-next';
+import type { ImageProps } from 'tdesign-vue-next';
+
 const label: ImageProps['overlayContent'] = () => (
   <Tag
     shape="mark"

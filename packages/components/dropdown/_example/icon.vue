@@ -11,8 +11,10 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { MessagePlugin, type DropdownProps } from 'tdesign-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
 import { DiscountIcon } from 'tdesign-icons-vue-next';
+import type { DropdownProps } from 'tdesign-vue-next';
+
 const options: DropdownProps['options'] = [
   {
     content: '选项一',

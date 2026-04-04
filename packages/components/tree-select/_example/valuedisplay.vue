@@ -15,6 +15,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { TreeSelectProps } from 'tdesign-vue-next';
+
 const value = ref('shenzhen');
 const mulValue = ref(['shenzhen', 'guangzhou']);
 const options: TreeSelectProps['data'] = [

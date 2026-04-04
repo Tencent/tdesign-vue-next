@@ -22,12 +22,8 @@
 <script lang="ts" setup>
 import { Dayjs } from 'dayjs';
 import { ref } from 'vue';
-import {
-  type DateValue,
-  DatePickerTriggerSource,
-  DatePickerMonthChangeTrigger,
-  DatePickerYearChangeTrigger,
-} from 'tdesign-vue-next';
+import { DatePickerTriggerSource, DatePickerMonthChangeTrigger, DatePickerYearChangeTrigger } from 'tdesign-vue-next';
+import type { DateValue } from 'tdesign-vue-next';
 
 const date = ref('');
 const date2 = ref('');

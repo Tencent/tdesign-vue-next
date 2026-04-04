@@ -6,7 +6,9 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { DialogPlugin, type ButtonProps } from 'tdesign-vue-next';
+import { DialogPlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
+
 const count = ref(0);
 const showDialog: ButtonProps['onClick'] = () => {
   count.value += 1;

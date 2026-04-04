@@ -11,6 +11,7 @@
 </template>
 <script lang="tsx" setup>
 import type { TableProps } from 'tdesign-vue-next';
+
 const data: TableProps['data'] = [];
 const columns: TableProps['columns'] = [
   {

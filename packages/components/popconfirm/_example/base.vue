@@ -18,7 +18,9 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { MessagePlugin, type PopconfirmProps } from 'tdesign-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
+import type { PopconfirmProps } from 'tdesign-vue-next';
+
 const visible = ref(false);
 const onVisibleChange: PopconfirmProps['onVisibleChange'] = (val, context = {}) => {
   if (context && context.trigger === 'confirm') {

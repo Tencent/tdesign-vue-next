@@ -60,9 +60,6 @@ import {
   EnhancedTable as TEnhancedTable,
   MessagePlugin,
   Loading,
-  type EnhancedTableProps,
-  type EnhancedTableInstanceFunctions,
-  type ButtonProps,
   TableTreeNodeExpandOptions,
   TableRowData,
 } from 'tdesign-vue-next';
@@ -73,6 +70,8 @@ import {
   AddRectangleIcon,
   MinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
+import type { EnhancedTableProps, EnhancedTableInstanceFunctions, ButtonProps } from 'tdesign-vue-next';
+
 interface TableData {
   id: number;
   key: string;

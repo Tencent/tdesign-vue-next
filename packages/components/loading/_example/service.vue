@@ -14,7 +14,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { LoadingPlugin, type ButtonProps } from 'tdesign-vue-next';
+import { LoadingPlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
 
 const content = ref(null);
 const attachLoading = ref(false);

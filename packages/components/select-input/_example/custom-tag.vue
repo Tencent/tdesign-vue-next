@@ -61,8 +61,9 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import type { SelectInputProps } from 'tdesign-vue-next';
 import { ControlPlatformIcon } from 'tdesign-icons-vue-next';
+import type { SelectInputProps } from 'tdesign-vue-next';
+
 const options = [
   {
     label: 'tdesign-vue',

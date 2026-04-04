@@ -37,6 +37,7 @@
 </template>
 <script lang="ts" setup>
 import type { TagProps } from 'tdesign-vue-next';
+
 const onClick: TagProps['onClick'] = ({ e }) => {
   e.stopPropagation();
 };

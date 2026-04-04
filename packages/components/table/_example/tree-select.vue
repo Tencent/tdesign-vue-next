@@ -48,14 +48,10 @@
 <script lang="tsx" setup>
 import { cloneDeep } from 'lodash-es';
 import { ref, watch } from 'vue';
-import {
-  EnhancedTable as TEnhancedTable,
-  MessagePlugin,
-  type EnhancedTableProps,
-  type ButtonProps,
-  type AllTableInstanceFunctions,
-} from 'tdesign-vue-next';
+import { EnhancedTable as TEnhancedTable, MessagePlugin } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import type { EnhancedTableProps, ButtonProps, AllTableInstanceFunctions } from 'tdesign-vue-next';
+
 interface TableData {
   key: string;
   applicant: string;

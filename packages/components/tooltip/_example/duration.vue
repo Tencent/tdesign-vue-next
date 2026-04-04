@@ -6,6 +6,7 @@
 
 <script lang="ts" setup>
 import { ref, onUnmounted, watch } from 'vue';
+
 const timeout = ref(0);
 const renderId = ref(0);
 let timer: NodeJS.Timeout;

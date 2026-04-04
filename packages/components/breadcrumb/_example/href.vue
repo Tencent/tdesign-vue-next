@@ -15,6 +15,7 @@
 <script lang="tsx" setup>
 import { ref } from 'vue';
 import type { BreadcrumbItemProps } from 'tdesign-vue-next';
+
 const count = ref(0);
 const onClickItem: BreadcrumbItemProps['onClick'] = () => {
   count.value += 1;

@@ -15,7 +15,8 @@
 
 <script lang="tsx" setup>
 import dayjs from 'dayjs';
-import { CalendarCell } from 'tdesign-vue-next';
+import type { CalendarCell } from 'tdesign-vue-next';
+
 const getShow = (data: CalendarCell) =>
   data.mode === 'month'
     ? dayjs().format('YYYY-MM-DD') === data.formattedDate

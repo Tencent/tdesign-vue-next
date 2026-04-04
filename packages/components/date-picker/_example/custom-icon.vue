@@ -14,7 +14,8 @@
 </template>
 
 <script lang="tsx" setup>
-import type { DateRangePickerProps } from 'tdesign-vue-next';
 import { BrowseIcon, LockOnIcon } from 'tdesign-icons-vue-next';
+import type { DateRangePickerProps } from 'tdesign-vue-next';
+
 const renderPrefixIcon: DateRangePickerProps['prefixIcon'] = () => <BrowseIcon />;
 </script>

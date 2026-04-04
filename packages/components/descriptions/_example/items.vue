@@ -4,6 +4,7 @@
 
 <script lang="tsx" setup>
 import type { DescriptionsProps } from 'tdesign-vue-next';
+
 const items: DescriptionsProps['items'] = [
   {
     label: 'Name',

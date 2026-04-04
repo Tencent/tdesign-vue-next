@@ -85,15 +85,16 @@
 </template>
 <script lang="ts" setup>
 import { ref, reactive, computed } from 'vue';
-import {
-  MessagePlugin,
-  type FormProps,
-  type FormInstanceFunctions,
-  type AutoCompleteProps,
-  type CheckboxGroupProps,
-  type FormItemProps,
-  type ButtonProps,
+import { MessagePlugin } from 'tdesign-vue-next';
+import type {
+  FormProps,
+  FormInstanceFunctions,
+  AutoCompleteProps,
+  CheckboxGroupProps,
+  FormItemProps,
+  ButtonProps,
 } from 'tdesign-vue-next';
+
 const formData: FormProps['data'] = reactive({
   account: '',
   password: '',

@@ -17,8 +17,9 @@
 </template>
 <script lang="tsx" setup>
 import { computed, getCurrentInstance } from 'vue';
-import type { AnchorProps } from 'tdesign-vue-next';
 import { get } from 'lodash-es';
+import type { AnchorProps } from 'tdesign-vue-next';
+
 const { appContext } = getCurrentInstance();
 const path = computed(() => get(appContext, '$route.path', ''));
 const handleClick: AnchorProps['onClick'] = ({ e, href, title }) => {

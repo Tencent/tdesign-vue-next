@@ -45,6 +45,7 @@ import { ref } from 'vue'; // 预期规则:
 // 父节点操作选中，不影响被禁用的子节点的原始选中状态。
 // 子节点被禁用且未选中，父节点半选状态再次点击可切换为未选中状态。
 import type { TreeInstanceFunctions, TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
+
 const tree = ref<TreeInstanceFunctions>();
 const checkable = ref(true);
 const activable = ref(false);

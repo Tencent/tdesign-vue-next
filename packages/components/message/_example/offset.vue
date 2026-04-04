@@ -6,7 +6,9 @@
 </template>
 
 <script lang="ts" setup>
-import { MessagePlugin, type ButtonProps } from 'tdesign-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
+
 const showOffsetMsg: ButtonProps['onClick'] = () => {
   MessagePlugin.info({
     content: '用户表示普通操作信息提示',

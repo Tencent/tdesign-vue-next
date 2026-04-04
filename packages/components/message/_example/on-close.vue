@@ -5,7 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import { MessagePlugin, type ButtonProps } from 'tdesign-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
+
 const closeFunc: ButtonProps['onClick'] = () => {
   MessagePlugin.info({
     content: '调用关闭函数关闭信息提示框',

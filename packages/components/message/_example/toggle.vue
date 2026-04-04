@@ -6,7 +6,9 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { MessagePlugin, type ButtonProps } from 'tdesign-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
+
 const msg = ref(null);
 const closeFunc: ButtonProps['onClick'] = () => {
   if (!msg.value) {

@@ -36,6 +36,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { TreeProps, SwitchProps, TNode, TreeNodeModel, TreeOptionData, SlotReturnValue } from 'tdesign-vue-next';
+
 const data1 = [
   {
     value: 't1',

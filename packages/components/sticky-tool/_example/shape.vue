@@ -37,8 +37,9 @@
 </template>
 
 <script lang="tsx" setup>
-import type { StickyItemProps, StickyToolProps } from 'tdesign-vue-next';
 import { ChatIcon, AddIcon, QrcodeIcon } from 'tdesign-icons-vue-next';
+import type { StickyItemProps, StickyToolProps } from 'tdesign-vue-next';
+
 const renderChatIcon: StickyItemProps['icon'] = () => {
   return <ChatIcon />;
 };

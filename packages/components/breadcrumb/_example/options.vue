@@ -4,6 +4,7 @@
 
 <script lang="tsx" setup>
 import type { BreadcrumbProps } from 'tdesign-vue-next';
+
 const options: BreadcrumbProps['options'] = [
   {
     content: '页面1',

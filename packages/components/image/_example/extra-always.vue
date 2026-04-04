@@ -36,8 +36,10 @@
 </template>
 
 <script lang="tsx" setup>
-import { Tag, type ImageProps } from 'tdesign-vue-next';
+import { Tag } from 'tdesign-vue-next';
 import { PrintIcon } from 'tdesign-icons-vue-next';
+import type { ImageProps } from 'tdesign-vue-next';
+
 const renderMask: ImageProps['overlayContent'] = () => (
   <div
     style={{

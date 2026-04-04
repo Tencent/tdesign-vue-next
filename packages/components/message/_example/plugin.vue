@@ -63,6 +63,7 @@
 
 <script lang="tsx" setup>
 import { MessagePlugin } from 'tdesign-vue-next';
+
 const content = () => {
   return (
     <div>

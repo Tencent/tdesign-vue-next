@@ -10,6 +10,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { AutoCompleteProps } from 'tdesign-vue-next';
+
 const value = ref('');
 const timer = ref(null);
 const options = ref<AutoCompleteProps['options']>([

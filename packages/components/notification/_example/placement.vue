@@ -18,6 +18,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
+
 const offsetX = ref('');
 const offsetY = ref('');
 const infoList = computed(() =>

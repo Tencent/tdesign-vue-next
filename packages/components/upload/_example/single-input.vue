@@ -13,7 +13,9 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { MessagePlugin, type UploadProps } from 'tdesign-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
+import type { UploadProps } from 'tdesign-vue-next';
+
 const files = ref<UploadProps['value']>([]);
 const handleFail: UploadProps['onFail'] = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);

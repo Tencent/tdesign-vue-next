@@ -10,6 +10,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { TransferProps } from 'tdesign-vue-next';
+
 const list: TransferProps['data'] = [];
 for (let i = 0; i < 20; i++) {
   list.push({

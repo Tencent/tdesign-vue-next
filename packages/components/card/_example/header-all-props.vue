@@ -7,7 +7,9 @@
   </t-card>
 </template>
 <script lang="tsx" setup>
-import { MessagePlugin, type CardProps } from 'tdesign-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
+import type { CardProps } from 'tdesign-vue-next';
+
 const clickHandler = () => {
   MessagePlugin.success('操作');
 };

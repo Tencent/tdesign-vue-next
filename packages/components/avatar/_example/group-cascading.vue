@@ -18,8 +18,9 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import type { AvatarProps } from 'tdesign-vue-next';
 import { UserIcon } from 'tdesign-icons-vue-next';
+import type { AvatarProps } from 'tdesign-vue-next';
+
 const icon: AvatarProps['icon'] = () => <UserIcon />;
 const image: AvatarProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>

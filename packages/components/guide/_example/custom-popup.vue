@@ -41,6 +41,7 @@
 import MyPopup from './my-popup.vue';
 import { ref } from 'vue';
 import type { GuideProps, ButtonProps } from 'tdesign-vue-next';
+
 const visible = ref(false);
 const current = ref(-1);
 const steps: GuideProps['steps'] = [

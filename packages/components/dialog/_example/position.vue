@@ -33,6 +33,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { DialogProps } from 'tdesign-vue-next';
+
 const visible = ref(false);
 const visibleCenter = ref(false);
 const visibleTop = ref(false);

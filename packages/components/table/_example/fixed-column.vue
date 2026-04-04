@@ -44,8 +44,10 @@
 </template>
 <script lang="tsx" setup>
 import { ref, computed } from 'vue';
-import { type TableProps, type TableInstanceFunctions, TableRowData } from 'tdesign-vue-next';
+import { TableRowData } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import type { TableProps, TableInstanceFunctions } from 'tdesign-vue-next';
+
 const statusNameListMap = {
   0: {
     label: '审批通过',

@@ -8,6 +8,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { SwitchProps } from 'tdesign-vue-next';
+
 const checked = ref(true);
 const onChange: SwitchProps['onChange'] = (val) => {
   console.log(val);

@@ -6,5 +6,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 const range = ref(['', '']);
 </script>

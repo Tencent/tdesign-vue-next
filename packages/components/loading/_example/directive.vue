@@ -15,6 +15,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { ButtonProps } from 'tdesign-vue-next';
+
 const loading1 = ref(false);
 const loading2 = ref(false);
 const customLoading = ref({

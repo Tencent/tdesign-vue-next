@@ -5,6 +5,7 @@
 </template>
 <script lang="ts" setup>
 import type { InputProps } from 'tdesign-vue-next';
+
 const onFocus: InputProps['onFocus'] = () => {
   console.log('focused');
 };

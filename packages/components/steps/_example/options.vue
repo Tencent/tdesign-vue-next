@@ -4,6 +4,7 @@
 
 <script lang="ts" setup>
 import type { StepsProps } from 'tdesign-vue-next';
+
 const options: StepsProps['options'] = [
   {
     title: '步骤一',

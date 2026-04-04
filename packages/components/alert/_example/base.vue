@@ -10,5 +10,6 @@
 </template>
 <script lang="tsx" setup>
 import type { AlertProps } from 'tdesign-vue-next';
+
 const infoMessage: AlertProps['message'] = () => <div>这是一条普通的消息提示</div>;
 </script>

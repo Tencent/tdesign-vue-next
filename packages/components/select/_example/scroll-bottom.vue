@@ -12,6 +12,7 @@
 <script lang="tsx" setup>
 import { ref } from 'vue';
 import type { SelectProps } from 'tdesign-vue-next';
+
 const options = ref<SelectProps['options']>([]);
 for (let i = 1; i < 15; i++) {
   options.value.push({

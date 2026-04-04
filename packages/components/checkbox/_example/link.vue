@@ -9,5 +9,6 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
+
 const checked = ref(['选项二']);
 </script>

@@ -9,5 +9,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 const text = ref('https://tdesign.tencent.com/');
 </script>

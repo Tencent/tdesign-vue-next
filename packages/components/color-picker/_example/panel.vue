@@ -26,6 +26,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { ColorPickerPanelProps } from 'tdesign-vue-next';
+
 const color = ref('#0052d9');
 const color2 = ref('linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)');
 const handleChange: ColorPickerPanelProps['onChange'] = (value, context) => {

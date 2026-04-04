@@ -17,6 +17,7 @@
 
 <script lang="ts" setup>
 import type { PopupProps } from 'tdesign-vue-next';
+
 const onVisibleChange: PopupProps['onVisibleChange'] = (visible, context) => {
   console.log(visible, context);
 };

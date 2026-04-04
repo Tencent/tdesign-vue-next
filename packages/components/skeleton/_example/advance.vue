@@ -23,6 +23,7 @@
 
 <script lang="tsx" setup>
 import type { SkeletonProps } from 'tdesign-vue-next';
+
 const rowCol: SkeletonProps['rowCol'] = [
   [1, 1, 1].map(() => ({
     type: 'rect',

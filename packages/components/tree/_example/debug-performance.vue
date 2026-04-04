@@ -45,6 +45,7 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
 import type { TreeProps, TreeInstanceFunctions } from 'tdesign-vue-next';
+
 const allLevels = [3, 3, 3];
 let cacheIndex = 0;
 function getValue() {

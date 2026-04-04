@@ -40,9 +40,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import type { GuideProps, ButtonProps } from 'tdesign-vue-next';
-
 import DialogBody from './dialog-body.vue';
+import type { GuideProps, ButtonProps } from 'tdesign-vue-next';
 
 const visible = ref(false);
 const current = ref(-1);

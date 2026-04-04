@@ -8,6 +8,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 const checked1 = ref(true);
 const checked2 = ref(true);
 </script>

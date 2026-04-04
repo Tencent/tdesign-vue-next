@@ -26,6 +26,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { DialogProps, ButtonProps } from 'tdesign-vue-next';
+
 const visible = ref(false);
 const current = ref(1);
 const pageSize = ref(10);

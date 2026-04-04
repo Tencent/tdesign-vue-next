@@ -48,6 +48,7 @@
 </template>
 <script lang="ts" setup>
 import type { SelectInputProps } from 'tdesign-vue-next';
+
 const selectValue: SelectInputProps['value'] = 'TDesign';
 </script>
 <style>

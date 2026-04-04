@@ -7,7 +7,9 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { NotifyPlugin, type ButtonProps } from 'tdesign-vue-next';
+import { NotifyPlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
+
 const info: ButtonProps['onClick'] = () => {
   NotifyPlugin.info({
     title: '信息',

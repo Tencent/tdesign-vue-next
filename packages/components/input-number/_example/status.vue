@@ -83,6 +83,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 const type = ref('align-input');
 const value0 = ref(3);
 const value1 = ref(3);

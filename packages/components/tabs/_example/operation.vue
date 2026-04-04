@@ -23,6 +23,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { TabsProps } from 'tdesign-vue-next';
+
 let id = 0;
 const value = ref('first');
 const panelData = ref([

@@ -65,6 +65,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { MenuProps, ButtonProps } from 'tdesign-vue-next';
+
 const collapsed = ref(true);
 const iconUrl = ref('https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png');
 const changeCollapsed: ButtonProps['onClick'] = () => {

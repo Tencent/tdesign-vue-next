@@ -32,6 +32,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 const tags = ref(['StudentA', 'StudentB', 'StudentC']);
 </script>
 <style>

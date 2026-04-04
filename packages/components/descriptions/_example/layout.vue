@@ -31,6 +31,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { DescriptionsProps, RadioGroupProps } from 'tdesign-vue-next';
+
 const layout = ref<DescriptionsProps['layout']>('horizontal');
 const itemLayout = ref<DescriptionsProps['itemLayout']>('horizontal');
 const firstItemSpan = ref<number>(1);

@@ -40,7 +40,9 @@
 <script lang="ts" setup>
 import HighlightContent from './highlight-content.vue';
 import { ref } from 'vue';
-import { type GuideProps, type ButtonProps, GuideStep } from 'tdesign-vue-next';
+import { GuideStep } from 'tdesign-vue-next';
+import type { GuideProps, ButtonProps } from 'tdesign-vue-next';
+
 const visible = ref(false);
 const current = ref(-1);
 const steps: (GuideStep & {

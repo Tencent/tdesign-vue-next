@@ -21,7 +21,9 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { DialogPlugin, type DialogProps, type ButtonProps } from 'tdesign-vue-next';
+import { DialogPlugin } from 'tdesign-vue-next';
+import type { DialogProps, ButtonProps } from 'tdesign-vue-next';
+
 const visible = ref(false);
 const loading = ref(false);
 const close: DialogProps['onClose'] = () => {

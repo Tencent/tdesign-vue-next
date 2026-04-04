@@ -16,6 +16,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { SliderProps } from 'tdesign-vue-next';
+
 const value1 = ref(12);
 const value2 = ref([12, 20]);
 const min: SliderProps['min'] = 10;

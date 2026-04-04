@@ -78,6 +78,7 @@ import type {
   TreeNodeValue,
   TypeTreeNodeModel,
 } from 'tdesign-vue-next';
+
 const tree = ref<TreeInstanceFunctions>();
 const index = ref(2);
 const activeId = ref('');

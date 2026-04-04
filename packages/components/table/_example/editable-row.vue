@@ -24,16 +24,9 @@
 <script lang="tsx" setup>
 import dayjs from 'dayjs';
 import { ref, computed } from 'vue';
-import {
-  Input,
-  Select,
-  DatePicker,
-  MessagePlugin,
-  type TableInstanceFunctions,
-  type TableProps,
-  type PrimaryTableValidateContext,
-  BaseTableCol,
-} from 'tdesign-vue-next';
+import { Input, Select, DatePicker, MessagePlugin, BaseTableCol } from 'tdesign-vue-next';
+import type { TableInstanceFunctions, TableProps, PrimaryTableValidateContext } from 'tdesign-vue-next';
+
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
   firstName: ['贾明', '张三', '王芳'][i % 3],

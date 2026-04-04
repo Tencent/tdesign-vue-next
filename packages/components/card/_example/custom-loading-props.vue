@@ -12,6 +12,7 @@
 
 <script lang="tsx" setup>
 import type { CardProps } from 'tdesign-vue-next';
+
 const customProps: CardProps['loadingProps'] = {
   text: 'TDesign努力加载中...',
 };

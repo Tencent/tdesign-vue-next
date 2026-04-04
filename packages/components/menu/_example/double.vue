@@ -142,6 +142,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { HeadMenuProps } from 'tdesign-vue-next';
+
 const expanded = ref<HeadMenuProps['defaultExpanded']>(['1']);
 const expanded2 = ref<HeadMenuProps['defaultExpanded']>(['1']);
 </script>

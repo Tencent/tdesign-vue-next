@@ -34,6 +34,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue';
 import { BrowseIcon, ImageErrorIcon } from 'tdesign-icons-vue-next';
+
 const visible = reactive([false, false, false, false]);
 const isError = reactive([false, false, false, false]);
 const onOpen = (index: number) => {

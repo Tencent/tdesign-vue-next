@@ -8,6 +8,7 @@
 import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 import type { GlobalConfigProvider } from 'tdesign-vue-next';
+
 const MONTHS = [
   'January',
   'February',

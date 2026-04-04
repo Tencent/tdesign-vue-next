@@ -18,6 +18,7 @@
 
 <script lang="tsx" setup>
 import type { TableProps } from 'tdesign-vue-next';
+
 const columns: TableProps['columns'] = [
   {
     colKey: 'instance',

@@ -6,6 +6,7 @@
 </template>
 <script lang="ts" setup>
 import type { NotificationProps } from 'tdesign-vue-next';
+
 const content: NotificationProps['content'] = `这是一条内容为******************************
       ****************************************************
       ****************************************************

@@ -32,6 +32,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { TimelineProps } from 'tdesign-vue-next';
+
 const layout = ref<TimelineProps['layout']>('vertical');
 const labelAlign = ref<TimelineProps['labelAlign']>('left');
 const mode = ref<TimelineProps['mode']>('same');
