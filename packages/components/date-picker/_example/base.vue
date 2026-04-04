@@ -35,7 +35,7 @@ const date2 = ref('');
 function handleChange(
   value: DateValue,
   context: {
-    dayjsValue?: Dayjs;
+    dayjsValue: Dayjs;
     trigger?: DatePickerTriggerSource;
   },
 ) {
