@@ -19,7 +19,7 @@
 <script lang="tsx" setup>
 import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
-import { ChevronRightIcon, CaretDownSmallIcon /** , ChevronDownIcon */ } from 'tdesign-icons-vue-next';
+import { ChevronRightIcon, CaretDownSmallIcon } from 'tdesign-icons-vue-next';
 import type { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
 
 const columns: TableProps['columns'] = [

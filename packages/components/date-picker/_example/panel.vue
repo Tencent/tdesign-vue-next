@@ -39,8 +39,12 @@
 </template>
 
 <script lang="ts" setup>
-import { DateRangePickerPartial, DatePickerMonthChangeTrigger, DatePickerYearChangeTrigger } from 'tdesign-vue-next';
-import type { DateRangeValue } from 'tdesign-vue-next';
+import type {
+  DateRangePickerPartial,
+  DatePickerMonthChangeTrigger,
+  DatePickerYearChangeTrigger,
+  DateRangeValue,
+} from 'tdesign-vue-next';
 
 function handleChange(value: DateRangeValue) {
   console.log('onChange value', value);

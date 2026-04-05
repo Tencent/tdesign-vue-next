@@ -97,8 +97,6 @@ import { ref, watch } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 import type { UploadInstanceFunctions, UploadProps, UploadSelectChangeContext, ButtonProps } from 'tdesign-vue-next';
 
-// import { CloseIcon } from 'tdesign-icons-vue-next';
-
 const uploadRef1 = ref<UploadInstanceFunctions>();
 const uploadRef2 = ref<UploadInstanceFunctions>();
 const uploadRef3 = ref<UploadInstanceFunctions>();

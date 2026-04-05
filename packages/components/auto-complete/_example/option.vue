@@ -30,7 +30,8 @@
 
 <script lang="tsx" setup>
 import { ref, computed } from 'vue';
-import type { HighlightOption as THighlightOption, AutoCompleteProps } from 'tdesign-vue-next';
+import { HighlightOption as THighlightOption } from 'tdesign-vue-next';
+import type { AutoCompleteProps } from 'tdesign-vue-next';
 
 const TEXTS = ['第一个默认联想词', '第二个默认联想词', '第三个默认联想词'];
 const value1 = ref('');
