@@ -23,8 +23,8 @@
 <script lang="tsx" setup>
 import dayjs from 'dayjs';
 import { ref, computed } from 'vue';
-import { Input, Select, DatePicker, MessagePlugin, BaseTableCol, TableEditableCellPropsParams } from 'tdesign-vue-next';
-import type { TableProps, TableInstanceFunctions, ButtonProps, PrimaryTableOnEditedContext } from 'tdesign-vue-next';
+import { Input, Select, DatePicker, MessagePlugin } from 'tdesign-vue-next';
+import type { TableProps, TableInstanceFunctions, ButtonProps, PrimaryTableOnEditedContext, BaseTableCol, TableEditableCellPropsParams } from 'tdesign-vue-next';
 
 interface TableData {
   key: string;
