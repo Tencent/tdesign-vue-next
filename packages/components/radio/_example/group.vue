@@ -31,10 +31,11 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { RadioGroupProps } from 'tdesign-vue-next';
 
-const options = [
+const options: RadioGroupProps['options'] = [
   {
     value: '1',
     label: '选项一',
@@ -53,10 +54,9 @@ const options = [
     label: () => '选项四',
   },
 ];
-const itemOptions = ['选项一', '选项二', '选项三', '选项四'];
-
+const itemOptions: RadioGroupProps['options'] = ['选项一', '选项二', '选项三', '选项四'];
 const value = ref('');
-const onChange = (checkedValues) => {
+const onChange: RadioGroupProps['onChange'] = (checkedValues) => {
   console.log('checkedValues:', value.value, checkedValues);
 };
 </script>

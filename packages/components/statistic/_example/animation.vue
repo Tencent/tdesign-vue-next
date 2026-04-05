@@ -3,7 +3,7 @@
     <t-space>
       <t-button @click="start = true">Start</t-button>
       <t-button @click="value = 98.12">Update value</t-button>
-      <t-button @click="refUp.start()">refs</t-button>
+      <t-button @click="startAnimation">refs</t-button>
     </t-space>
     <t-statistic
       ref="refUp"
@@ -20,9 +20,14 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-const refUp = ref();
+import type { StatisticInstanceFunctions } from 'tdesign-vue-next';
+
 const start = ref(false);
 const value = ref(56.32);
+const refUp = ref<StatisticInstanceFunctions>();
+const startAnimation = () => {
+  refUp.value.start();
+};
 </script>

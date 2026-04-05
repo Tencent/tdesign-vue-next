@@ -20,17 +20,16 @@
     </header>
   </section>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
+import type { UploadProps } from 'tdesign-vue-next';
 
-const files = ref([]);
-
-const handleChange = (files) => {
+const files = ref<UploadProps['files']>([]);
+const handleChange: UploadProps['onChange'] = (files) => {
   console.log(files);
 };
-
-const handlePreview = ({ file }) => {
+const handlePreview: UploadProps['onPreview'] = ({ file }) => {
   console.log(file);
   window.open(file.thumbUrl);
 };

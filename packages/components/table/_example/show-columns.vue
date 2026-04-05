@@ -16,19 +16,34 @@
   </div>
 </template>
 
-<script setup>
-const columns = [
-  { colKey: 'instance', title: '集群名称', width: 150 },
+<script lang="tsx" setup>
+import type { TableProps } from 'tdesign-vue-next';
+
+const columns: TableProps['columns'] = [
+  {
+    colKey: 'instance',
+    title: '集群名称',
+    width: 150,
+  },
   {
     colKey: 'status',
     title: '状态',
     width: 100,
   },
-  { colKey: 'owner', title: '管理员' },
-  { colKey: 'description', title: '描述' },
-  { colKey: 'op', width: 200 },
+  {
+    colKey: 'owner',
+    title: '管理员',
+  },
+  {
+    colKey: 'description',
+    title: '描述',
+  },
+  {
+    colKey: 'op',
+    width: 200,
+  },
 ];
-const data = [
+const data: TableProps['data'] = [
   {
     id: 1,
     instance: 'JQTest1',

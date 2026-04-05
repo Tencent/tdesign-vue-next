@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import {
   ErrorCircleFilledIcon,
@@ -17,14 +17,26 @@ import {
   CheckCircleFilledIcon,
   CloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
+import type { TableProps } from 'tdesign-vue-next';
 
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const data = [];
+const data: TableProps['data'] = [];
 const total = 5;
 for (let i = 0; i < total; i++) {
   data.push({
@@ -39,9 +51,12 @@ for (let i = 0; i < total; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
-const columns = ref([
-  { colKey: 'applicant', title: '申请人', width: 100 },
+const columns = ref<TableProps['columns']>([
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: 100,
+  },
   {
     colKey: 'status',
     title: '审批状态',
@@ -87,11 +102,18 @@ const columns = ref([
       return 'custom-cell-class-name';
     },
   },
-  { colKey: 'detail.email', title: '邮箱地址', width: 160, ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    width: 160,
+    ellipsis: true,
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ]);
-
-const getRowClassName = ({ rowIndex }) => {
+const getRowClassName: TableProps['rowClassName'] = ({ rowIndex }) => {
   if (rowIndex === 2) return 'custom-third-class-name';
   return '';
 };

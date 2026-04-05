@@ -26,11 +26,13 @@
     </div>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-const size = ref('medium');
+import type { EmptyProps } from 'tdesign-vue-next';
 
-const onChange = (value) => {
+const size = ref<EmptyProps['size']>('medium');
+
+const onChange = (value: EmptyProps['size']) => {
   size.value = value;
 };
 </script>

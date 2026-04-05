@@ -28,18 +28,29 @@
     </t-table>
   </div>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import type { RowClassNameParams, TableRowData, TableProps } from 'tdesign-vue-next';
 
-const data = [];
-
+const data: TableProps['data'] = [];
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
 for (let i = 0; i < 5; i++) {
   data.push({
     index: i + 1,
@@ -64,8 +75,7 @@ const footData = [
 ];
 // 自定义表尾的方式
 const footerType = ref('normal');
-
-const columns = [
+const columns: TableProps['columns'] = [
   {
     align: 'left',
     colKey: 'applicant',
@@ -87,22 +97,33 @@ const columns = [
       );
     },
   },
-  { colKey: 'channel', title: '签署方式', foot: 't-foot-required' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true, foot: () => <div>表尾信息</div> },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+    foot: 't-foot-required',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    ellipsis: true,
+    foot: () => <div>表尾信息</div>,
+  },
   {
     colKey: 'createTime',
     title: '申请时间',
   },
 ];
-
-function rowspanAndColspanInFooter({ rowIndex, colIndex }) {
+const rowspanAndColspanInFooter: TableProps['rowspanAndColspanInFooter'] = ({ rowIndex, colIndex }) => {
   // 中间列合并，收尾两列不合并
-  if (rowIndex === 0 && colIndex === 1) return { colspan: columns.length - 2 };
+  if (rowIndex === 0 && colIndex === 1)
+    return {
+      colspan: columns.length - 2,
+    };
   return {};
-}
+};
 
 // type 可选值：foot 和 body
-function rowClassName({ type }) {
+function rowClassName({ type }: RowClassNameParams<TableRowData>) {
   if (type === 'foot') return 't-tdesign__custom-footer-tr';
   return 't-tdesign__custom-body-tr';
 }

@@ -9,12 +9,16 @@
     />
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { SelectProps } from 'tdesign-vue-next';
 
-const options = ref([]);
+const options = ref<SelectProps['options']>([]);
 for (let i = 1; i < 15; i++) {
-  options.value.push({ label: `第 ${i} 项`, value: i });
+  options.value.push({
+    label: `第 ${i} 项`,
+    value: i,
+  });
 }
 
 // 通过监听scroll滚动事件自行判断
@@ -31,7 +35,7 @@ for (let i = 1; i < 15; i++) {
 
 const loading = ref(false);
 // 直接使用滚动触底事件
-const handleScrollToBottom = async () => {
+const handleScrollToBottom = () => {
   if (loading.value) {
     return;
   }

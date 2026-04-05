@@ -9,10 +9,11 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { CascaderPanelProps } from 'tdesign-vue-next';
 
-const options = [
+const options: CascaderPanelProps['options'] = [
   {
     label: '选项一',
     value: '1',
@@ -46,7 +47,6 @@ const options = [
     ],
   },
 ];
-
 const value = ref('');
 const value2 = ref([]);
 </script>
