@@ -32,5 +32,5 @@ import type { QRCodeProps } from 'tdesign-vue-next';
 const minSize = 40;
 const maxSize = 300;
 
-const size = ref<QRCodeProps['level']>(160);
+const size = ref<QRCodeProps['size']>(160);
 </script>

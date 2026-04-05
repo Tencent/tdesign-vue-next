@@ -34,9 +34,8 @@
 </template>
 <script lang="tsx" setup>
 import { ref, watch, computed } from 'vue';
-import { RowClassNameParams, TableRowData } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import type { TableProps, DragSortContext } from 'tdesign-vue-next';
+import type { RowClassNameParams, TableProps, DragSortContext, TableRowData } from 'tdesign-vue-next';
 
 const statusNameListMap = {
   0: {

@@ -33,6 +33,7 @@ export default {
 <script lang="tsx" setup>
 import { ref } from 'vue';
 import type { TableProps } from 'tdesign-vue-next';
+
 const rowSelectionType = ref<TableProps['rowSelectionType']>('single');
 const rowSelectionAllowUncheck = ref(false);
 const data: TableProps['data'] = [];

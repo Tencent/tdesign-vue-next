@@ -50,9 +50,9 @@
 <script lang="tsx" setup>
 import { isNumber } from 'lodash-es';
 import { ref, computed } from 'vue';
-import { DateRangePickerPanel, BaseTableCol } from 'tdesign-vue-next';
+import { DateRangePickerPanel } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import type { TableProps, ButtonProps, FilterValue, InputProps } from 'tdesign-vue-next';
+import type { BaseTableCol, TableProps, ButtonProps, FilterValue, InputProps } from 'tdesign-vue-next';
 
 const statusNameListMap = {
   0: {

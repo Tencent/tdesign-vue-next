@@ -45,7 +45,7 @@
 <script lang="tsx" setup>
 import { nextTick, ref } from 'vue';
 import { AddIcon } from 'tdesign-icons-vue-next';
-import type { InputInstanceFunctions, TagProps, InputProps } from 'tdesign-vue-next';
+import type { TagProps, InputProps } from 'tdesign-vue-next';
 
 const inputVisible = ref(false);
 const tags = ref([
@@ -69,8 +69,8 @@ const tags = ref([
     disabled: true,
   },
 ]);
-const input = ref<InputInstanceFunctions>('');
-const handleClose = (index) => {
+const input = ref('');
+const handleClose = (index: number) => {
   console.log(index);
   tags.value.splice(index, 1);
 };
