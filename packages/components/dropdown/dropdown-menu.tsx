@@ -39,15 +39,17 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      const menuEl = menuRef.value;
-      if (menuEl) {
+      const menuElement = menuRef.value;
+      if (menuElement) {
+        const menuChildren = menuElement.children;
         requestAnimationFrame(() => {
           if (validPanelTopContent.value) {
-            const panelTopHeight = parseInt(getComputedStyle(menuEl.firstElementChild)?.height, 10) || 0;
-            panelTopContentHeight.value = panelTopHeight;
+            const firstEl = menuChildren[0];
+            const panelTopHeight = firstEl ? parseInt(getComputedStyle(firstEl)?.height, 10) : 0;
+            panelTopContentHeight.value = panelTopHeight || 0;
           }
         });
-        const menuHeight = parseInt(getComputedStyle(menuEl).height, 10);
+        const menuHeight = menuChildren?.length * 30;
         if (menuHeight >= props.maxHeight) isOverMaxHeight.value = true;
       }
       const dropdownItem = document.querySelector(`.${dropdownClass.value}__item`);
