@@ -17,7 +17,7 @@ export default function renderDemo(md: any, container: any) {
         const isDev = process.env.NODE_ENV === 'development';
 
         const tpl = `
-          <td-doc-demo component-name="${componentName.trim()}" demo-name="${demoName}" language="markup" languages="JavaScript,TypeScript" :data-JavaScript="${demoCodeDefName}" :data-TypeScript="${demoTSCodeDefName}">
+          <td-doc-demo component-name="${componentName.trim()}" demo-name="${demoName}" language="markup" languages="TypeScript,JavaScript" :data-TypeScript="${demoTSCodeDefName}" :data-JavaScript="${demoCodeDefName}">
             <div slot="action">
               <Stackblitz demo-name="${demoName}" component-name="${componentName.trim()}" :code=${demoCodeDefName} />
               <CodeSandbox demo-name="${demoName}" component-name="${componentName.trim()}" :code=${demoCodeDefName} />

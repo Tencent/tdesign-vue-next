@@ -20,27 +20,24 @@
     <template #suffixIcon><search-icon /></template>
   </t-select-input>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { SearchIcon } from 'tdesign-icons-vue-next';
+import type { SelectInputProps } from 'tdesign-vue-next';
 
 const OPTIONS = ['Student A', 'Student B', 'Student C', 'Student D', 'Student E', 'Student F'];
-
 const popupVisible = ref(false);
-const selectValue = ref();
+const selectValue = ref<SelectInputProps['value']>();
 const options = ref(OPTIONS);
-
-const onOptionClick = (item) => {
+const onOptionClick = (item: string) => {
   selectValue.value = item;
   popupVisible.value = false;
 };
-
-const onInputChange = (keyword) => {
+const onInputChange: SelectInputProps['onInputChange'] = (keyword) => {
   selectValue.value = keyword;
   options.value = new Array(5).fill(null).map((t, index) => `${keyword} Student ${index}`);
 };
-
-const onPopupVisibleChange = (val) => {
+const onPopupVisibleChange: SelectInputProps['onPopupVisibleChange'] = (val) => {
   popupVisible.value = val;
 };
 </script>

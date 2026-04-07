@@ -29,23 +29,24 @@
     ></t-upload>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { UploadProps } from 'tdesign-vue-next';
 
-const files = ref([]);
-
-const ABRIDGE_NAME = [10, 7];
-
+const files = ref<UploadProps['value']>([]);
+const ABRIDGE_NAME: UploadProps['abridgeName'] = [10, 7];
 const disabled = ref(false);
 const autoUpload = ref(false);
 const showThumbnail = ref(false);
 const allowUploadDuplicateFile = ref(false);
 const isBatchUpload = ref(false);
 const uploadAllFilesInOneRequest = ref(false);
-
-const formatResponse = (res) => {
+const formatResponse: UploadProps['formatResponse'] = (res) => {
   if (!res) {
-    return { status: 'fail', error: '上传失败，原因：文件过大或网络不通' };
+    return {
+      status: 'fail',
+      error: '上传失败，原因：文件过大或网络不通',
+    };
   }
   return res;
 };

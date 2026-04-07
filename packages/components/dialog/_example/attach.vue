@@ -71,15 +71,16 @@
     </t-dialog>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, getCurrentInstance } from 'vue';
+import type { DialogProps } from 'tdesign-vue-next';
 
 const visibleBody = ref(false);
 const visibleIdAttach = ref(false);
 const visibleFunctionAttach = ref(false);
 const visibleShowInAttachedElement = ref(false);
 const { ctx } = getCurrentInstance();
-const getAttach = () => ctx.$root.$el;
+const getAttach: DialogProps['attach'] = () => ctx.$root.$el;
 </script>
 <style scoped>
 .dialog-attach-wrap {

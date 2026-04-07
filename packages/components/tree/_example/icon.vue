@@ -18,10 +18,12 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
-const items = ref([
+import type { TreeOptionData, TreeProps } from 'tdesign-vue-next';
+
+const items = ref<TreeProps['data']>([
   {
     label: '1',
     children: true,
@@ -31,7 +33,7 @@ const items = ref([
     children: true,
   },
 ]);
-const icon = (h, node) => {
+const icon: TreeProps['icon'] = (h, node) => {
   let name = 'file';
   // node.children is undefined on some cases
   if (node.getChildren && node.getChildren(false)) {
@@ -46,11 +48,11 @@ const icon = (h, node) => {
   }
   return <Icon name={name} />;
 };
-const load = (node) => {
+const load: TreeProps['load'] = (node) => {
   const maxLevel = 2;
   return new Promise((resolve) => {
     setTimeout(() => {
-      let nodes = [];
+      let nodes: TreeOptionData[] = [];
       if (node.getLevel() < maxLevel) {
         nodes = [
           {

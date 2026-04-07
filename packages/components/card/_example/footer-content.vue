@@ -5,6 +5,8 @@
     </template>
   </t-card>
 </template>
-<script setup>
-const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
+<script lang="tsx" setup>
+import type { CardProps } from 'tdesign-vue-next';
+
+const cover: CardProps['cover'] = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 </script>

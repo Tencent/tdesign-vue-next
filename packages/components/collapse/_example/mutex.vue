@@ -26,11 +26,12 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { CollapseProps } from 'tdesign-vue-next';
 
-const currentItem = ref([]);
-const handlePanelChange = (val) => {
+const currentItem = ref<CollapseProps['modelValue']>([]);
+const handlePanelChange: CollapseProps['onChange'] = (val) => {
   console.log(val);
 };
 </script>

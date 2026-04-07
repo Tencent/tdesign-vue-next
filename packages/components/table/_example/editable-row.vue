@@ -21,10 +21,11 @@
   </div>
 </template>
 
-<script setup lang="jsx">
-import { ref, computed } from 'vue';
-import { Input, Select, DatePicker, MessagePlugin } from 'tdesign-vue-next';
+<script lang="tsx" setup>
 import dayjs from 'dayjs';
+import { ref, computed } from 'vue';
+import { Input, Select, DatePicker, MessagePlugin, BaseTableCol } from 'tdesign-vue-next';
+import type { TableInstanceFunctions, TableProps, PrimaryTableValidateContext } from 'tdesign-vue-next';
 
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
@@ -45,39 +46,35 @@ const initData = new Array(5).fill(null).map((_, i) => ({
   ],
   createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
 }));
-
-const tableRef = ref();
-const align = ref('left');
-const data = ref([...initData]);
-const editableRowKeys = ref(['1']);
+const tableRef = ref<TableInstanceFunctions>();
+const align = ref<BaseTableCol['align']>('left');
+const data = ref<TableProps['data']>([...initData]);
+const editableRowKeys = ref<TableProps['editableRowKeys']>(['1']);
 const currentSaveId = ref('');
 // 保存变化过的行信息
 const editMap = {};
-
-const onEdit = (e) => {
-  const { id } = e.currentTarget.dataset;
+const onEdit = (e: MouseEvent) => {
+  const { id } = (e.currentTarget as HTMLElement).dataset;
   if (!editableRowKeys.value.includes(id)) {
     editableRowKeys.value.push(id);
   }
 };
 
 // 更新 editableRowKeys
-const updateEditState = (id) => {
+const updateEditState = (id: string) => {
   const index = editableRowKeys.value.findIndex((t) => t === id);
   editableRowKeys.value.splice(index, 1);
 };
-
-const onCancel = (e) => {
-  const { id } = e.currentTarget.dataset;
+const onCancel = (e: MouseEvent) => {
+  const { id } = (e.currentTarget as HTMLElement).dataset;
   updateEditState(id);
-  tableRef.value.clearValidateData();
+  tableRef.value?.clearValidateData();
 };
-
-const onSave = (e) => {
-  const { id } = e.currentTarget.dataset;
+const onSave = (e: MouseEvent) => {
+  const { id } = (e.currentTarget as HTMLElement).dataset;
   currentSaveId.value = id;
   // 触发内部校验，而后也可在 onRowValidate 中接收异步校验结果
-  tableRef.value.validateRowData(id).then((params) => {
+  tableRef.value?.validateRowData(id).then((params) => {
     console.log('Event Table Promise Validate:', params);
     if (params.result.length) {
       const r = params.result[0];
@@ -97,13 +94,12 @@ const onSave = (e) => {
 };
 
 // 行校验反馈事件，tableRef.value.validateRowData 执行结束后触发
-const onRowValidate = (params) => {
+const onRowValidate: TableProps['onRowValidate'] = (params) => {
   console.log('Event Table Row Validate:', params);
 };
-
 function onValidateTableData() {
   // 执行结束后触发事件 validate
-  tableRef.value.validateTableData().then((params) => {
+  tableRef.value?.validateTableData().then((params) => {
     console.log('Promise Table Data Validate:', params);
     const cellKeys = Object.keys(params.result);
     const firstError = params.result[cellKeys[0]];
@@ -114,14 +110,16 @@ function onValidateTableData() {
 }
 
 // 表格全量数据校验反馈事件，tableRef.value.validateTableData() 执行结束后触发
-function onValidate(params) {
+function onValidate(params: PrimaryTableValidateContext) {
   console.log('Event Table Data Validate:', params);
 }
-
-const onRowEdit = (params) => {
+const onRowEdit: TableProps['onRowEdit'] = (params) => {
   const { row, col, value } = params;
   const oldRowData = editMap[row.key]?.editedRow || row;
-  const editedRow = { ...oldRowData, [col.colKey]: value };
+  const editedRow = {
+    ...oldRowData,
+    [col.colKey]: value,
+  };
   editMap[row.key] = {
     ...params,
     editedRow,
@@ -132,14 +130,21 @@ const onRowEdit = (params) => {
   // newData[rowIndex] = editedRow;
   // data.value = newData;
 };
-
 const STATUS_OPTIONS = [
-  { label: '审批通过', value: 0 },
-  { label: '审批过期', value: 1 },
-  { label: '审批失败', value: 2 },
+  {
+    label: '审批通过',
+    value: 0,
+  },
+  {
+    label: '审批过期',
+    value: 1,
+  },
+  {
+    label: '审批失败',
+    value: 2,
+  },
 ];
-
-const columns = computed(() => [
+const columns = computed<TableProps['columns']>(() => [
   {
     title: '申请人',
     colKey: 'user.firstName',
@@ -158,8 +163,15 @@ const columns = computed(() => [
       },
       // 校验规则，此处同 Form 表单
       rules: [
-        { required: true, message: '不能为空' },
-        { max: 10, message: '字符数量不能超过 10', type: 'warning' },
+        {
+          required: true,
+          message: '不能为空',
+        },
+        {
+          max: 10,
+          message: '字符数量不能超过 10',
+          type: 'warning',
+        },
       ],
       showEditIcon: false,
     },
@@ -177,7 +189,12 @@ const columns = computed(() => [
         options: STATUS_OPTIONS,
       },
       // 校验规则，此处同 Form 表单
-      rules: [{ required: true, message: '不能为空' }],
+      rules: [
+        {
+          required: true,
+          message: '不能为空',
+        },
+      ],
       showEditIcon: false,
       on: ({ updateEditedCellValue }) => ({
         onChange: () => {
@@ -219,18 +236,38 @@ const columns = computed(() => [
           minCollapsedNum: 1,
           autoWidth: true,
           options: [
-            { label: '宣传物料制作费用', value: '宣传物料制作费用' },
-            { label: 'algolia 服务报销', value: 'algolia 服务报销' },
-            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 H
-            { label: '相关周边制作费', value: '相关周边制作费', show: () => editedRow.status !== 0 },
-            { label: '激励奖品快递费', value: '激励奖品快递费', show: () => editedRow.status !== 0 },
+            {
+              label: '宣传物料制作费用',
+              value: '宣传物料制作费用',
+            },
+            {
+              label: 'algolia 服务报销',
+              value: 'algolia 服务报销',
+            },
+            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 h
+            {
+              label: '相关周边制作费',
+              value: '相关周边制作费',
+              show: () => editedRow.status !== 0,
+            },
+            {
+              label: '激励奖品快递费',
+              value: '激励奖品快递费',
+              show: () => editedRow.status !== 0,
+            },
           ].filter((t) => (t.show === undefined ? true : t.show())),
         };
       },
       // 校验规则，此处同 Form 表单
       rules: [
-        { validator: (val) => val && val.length < 3, message: '数量不能超过 2 个' },
-        { validator: (val) => Boolean(val?.length), message: '至少选择一个' },
+        {
+          validator: (val) => val && val.length < 3,
+          message: '数量不能超过 2 个',
+        },
+        {
+          validator: (val) => Boolean(val?.length),
+          message: '至少选择一个',
+        },
       ],
       showEditIcon: false,
     },
@@ -242,7 +279,9 @@ const columns = computed(() => [
     edit: {
       component: DatePicker,
       // props, 透传全部属性到 DatePicker 组件
-      props: { allowInput: true },
+      props: {
+        allowInput: true,
+      },
       showEditIcon: false,
       // 校验规则，此处同 Form 表单
       rules: [

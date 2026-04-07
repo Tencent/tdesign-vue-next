@@ -2,10 +2,11 @@
   <t-cascader v-model="value" :options="options" clearable @change="onChange" @focus="onFocus" @blur="onBlur" />
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { CascaderProps } from 'tdesign-vue-next';
 
-const options = [
+const options: CascaderProps['options'] = [
   {
     label: '选项一',
     value: '1',
@@ -39,18 +40,14 @@ const options = [
     ],
   },
 ];
-
 const value = ref('1.1');
-
-const onChange = (val, context) => {
+const onChange: CascaderProps['onChange'] = (val, context) => {
   console.log(val, context);
 };
-
-const onFocus = (ctx) => {
+const onFocus: CascaderProps['onFocus'] = (ctx) => {
   console.log('focus', ctx);
 };
-
-const onBlur = (ctx) => {
+const onBlur: CascaderProps['onBlur'] = (ctx) => {
   console.log('blur', ctx);
 };
 </script>

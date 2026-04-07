@@ -14,16 +14,17 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
-import { RefreshIcon } from 'tdesign-icons-vue-next';
 import { Loading } from 'tdesign-vue-next';
+import { RefreshIcon } from 'tdesign-icons-vue-next';
+import type { ImageProps, ButtonProps } from 'tdesign-vue-next';
 
 const loadingCount = ref(0);
-const renderPlaceholder = () => (
+const renderPlaceholder: ImageProps['placeholder'] = () => (
   <img width="100%" height="100%" src="https://tdesign.gtimg.com/demo/demo-image-5.png" />
 );
-const renderLoading = () => (
+const renderLoading: ImageProps['loading'] = () => (
   <div
     style={{
       display: 'flex',
@@ -47,7 +48,7 @@ const renderLoading = () => (
     />
   </div>
 );
-const renderRefreshIcon = () => {
+const renderRefreshIcon: ButtonProps['icon'] = () => {
   return <RefreshIcon />;
 };
 </script>

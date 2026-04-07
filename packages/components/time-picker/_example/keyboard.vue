@@ -7,17 +7,17 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TimePickerProps } from 'tdesign-vue-next';
 
 const time1 = ref('20:22:33');
 const time2 = ref('22:22:22');
-
-const blur = (v) => {
+const blur: TimePickerProps['onBlur'] = (v) => {
   console.log('blur');
   console.log(v);
 };
-const focus = (v) => {
+const focus: TimePickerProps['onFocus'] = (v) => {
   console.log('focus');
   console.log(v);
 };

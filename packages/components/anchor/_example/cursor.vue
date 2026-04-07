@@ -14,7 +14,7 @@
     </t-anchor>
   </t-space>
 </template>
-<script setup>
+<script lang="tsx" setup>
 import { computed, getCurrentInstance } from 'vue';
 import { get } from 'lodash-es';
 

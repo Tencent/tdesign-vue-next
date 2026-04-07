@@ -14,11 +14,12 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { TabPanelProps } from 'tdesign-vue-next';
 
 const value = ref(1);
-const panelRender = () => {
+const panelRender: TabPanelProps['panel'] = () => {
   return <p style="padding: 25px;">选项卡3的内容，隐藏会销毁</p>;
 };
 </script>
