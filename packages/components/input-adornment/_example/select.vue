@@ -17,21 +17,27 @@
   </t-space>
 </template>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { InputAdornmentProps } from 'tdesign-vue-next';
 
-const protocolSelect = ref(() => (
+const protocolSelect = ref<InputAdornmentProps['prepend']>(() => (
   <t-select
     autoWidth
-    options={['http://', 'https://'].map((value) => ({ label: value, value }))}
+    options={['http://', 'https://'].map((value) => ({
+      label: value,
+      value,
+    }))}
     defaultValue="http://"
   />
 ));
-
-const tldSelect = ref(() => (
+const tldSelect = ref<InputAdornmentProps['append']>(() => (
   <t-select
     autoWidth
-    options={['.com', '.cn', '.net', '.org'].map((value) => ({ label: value, value }))}
+    options={['.com', '.cn', '.net', '.org'].map((value) => ({
+      label: value,
+      value,
+    }))}
     defaultValue=".cn"
   />
 ));

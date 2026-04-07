@@ -17,12 +17,14 @@
   </t-space>
 </template>
 
-<script setup>
-const beforeClose = () => window.confirm('确认关闭吗？');
+<script lang="tsx" setup>
+import type { AlertProps } from 'tdesign-vue-next';
 
-const handleClosed = () => {
+const beforeClose: AlertProps['onClose'] = () => window.confirm('确认关闭吗？');
+
+const handleClosed: AlertProps['onClosed'] = () => {
   console.log('关闭');
 };
 
-const warningClose = () => 'FunctionPropClose';
+const warningClose: AlertProps['closeBtn'] = () => 'FunctionPropClose';
 </script>

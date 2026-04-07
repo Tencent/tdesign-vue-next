@@ -8,7 +8,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 const themes = [
   { label: '文本', value: 'text' },
   { label: '头像', value: 'avatar' },

@@ -12,15 +12,16 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { LoadingPlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
 
 const content = ref(null);
 const attachLoading = ref(false);
 
 // 函数式：局部加载
-const showAttach = () => {
+const showAttach: ButtonProps['onClick'] = () => {
   const loadingAttachInstance = LoadingPlugin({
     attach: () => content.value, // 等于 attach: '#loading-service-demo'
     showOverlay: true,
@@ -33,18 +34,16 @@ const showAttach = () => {
     clearTimeout(timer);
   }, 1000);
 };
-
 // 函数式：全屏加载，防止滚动穿透
-const showFullScreen = () => {
+const showFullScreen: ButtonProps['onClick'] = () => {
   LoadingPlugin(true);
   const timer = setTimeout(() => {
     LoadingPlugin(false);
     clearTimeout(timer);
   }, 1000);
 };
-
 // 函数式：全屏加载，允许滚动穿透
-const showFullScrollScreen = () => {
+const showFullScrollScreen: ButtonProps['onClick'] = () => {
   const instance = LoadingPlugin({
     fullscreen: true,
     attach: 'body',

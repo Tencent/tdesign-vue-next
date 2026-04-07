@@ -21,18 +21,35 @@
     />
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { SelectProps } from 'tdesign-vue-next';
 
-const options = [
-  { label: '选项一', value: '1' },
-  { label: '选项二', value: '2' },
-  { label: '选项三', value: '3' },
+const options: SelectProps['options'] = [
+  {
+    label: '选项一',
+    value: '1',
+  },
+  {
+    label: '选项二',
+    value: '2',
+  },
+  {
+    label: '选项三',
+    value: '3',
+  },
 ];
-
-const handleChange = (value) => {
+const handleChange: SelectProps['onChange'] = (value) => {
   console.log('handleChange:', value);
 };
-const value = ref({ value: '1', label: '选项一' });
-const value2 = ref([{ value: '1', label: '选项一' }]);
+const value = ref({
+  value: '1',
+  label: '选项一',
+});
+const value2 = ref([
+  {
+    value: '1',
+    label: '选项一',
+  },
+]);
 </script>

@@ -53,23 +53,13 @@
   </t-space>
 </template>
 
-<script setup>
-import { ref, computed } from 'vue';
+<script lang="ts" setup>
 import dayjs from 'dayjs';
+import { ref, computed } from 'vue';
+import type { DatePickerProps, DateRangePickerProps } from 'tdesign-vue-next';
 
 const pickDate = ref();
-
-const getDisableTime = (value, { partial }) => {
-  if (partial === 'start') {
-    return {
-      hour: [10, 11],
-    };
-  }
-  return {
-    hour: [12, 13],
-  };
-};
-const timePickerProps = computed(() => {
+const timePickerProps = computed<DatePickerProps['timePickerProps']>(() => {
   return {
     disableTime: () => {
       if (pickDate.value === dayjs().format('YYYY-MM-DD')) {
@@ -81,10 +71,19 @@ const timePickerProps = computed(() => {
     },
   };
 });
-
-const onPick = (date) => {
+const onPick: DatePickerProps['onPick'] = (date) => {
   pickDate.value = dayjs(date).format('YYYY-MM-DD');
 };
+const disableDate: DatePickerProps['disableDate'] = (date) => dayjs(date).day() === 6;
 
-const disableDate = (date) => dayjs(date).day() === 6;
+const getDisableTime: DateRangePickerProps['disableTime'] = (value, { partial }) => {
+  if (partial === 'start') {
+    return {
+      hour: [10, 11],
+    };
+  }
+  return {
+    hour: [12, 13],
+  };
+};
 </script>

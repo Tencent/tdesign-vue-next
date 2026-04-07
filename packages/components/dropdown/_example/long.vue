@@ -6,7 +6,11 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-const options = Array.from({ length: 20 }).map((_, k) => ({
+import type { DropdownProps } from 'tdesign-vue-next';
+
+const options: DropdownProps['options'] = Array.from({
+  length: 20,
+}).map((_, k) => ({
   content: `选项${k + 1}`,
   value: k + 1,
 }));

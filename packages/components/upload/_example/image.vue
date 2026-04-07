@@ -89,40 +89,51 @@
     ></t-upload>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import type { UploadProps, UploadInstanceFunctions, ButtonProps } from 'tdesign-vue-next';
 
-const file1 = ref([]);
-const file2 = ref([{ name: 'demo-image-1.png', url: 'https://tdesign.gtimg.com/demo/demo-image-1.png' }]);
-const files = ref([]);
-const fileFail = ref([]);
+const file1 = ref<UploadProps['value']>([]);
+const file2 = ref<UploadProps['value']>([
+  {
+    name: 'demo-image-1.png',
+    url: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
+  },
+]);
+const files = ref<UploadProps['value']>([]);
+const fileFail = ref<UploadProps['value']>([]);
 const disabled = ref(false);
 const uploadAllFilesInOneRequest = ref(false);
 const autoUpload = ref(true);
 const showImageFileName = ref(true);
-
-const uploadRef1 = ref();
-const uploadRef2 = ref();
-const uploadRef3 = ref();
-
-const imageViewerProps = ref({ closeOnEscKeydown: false });
-const sizeLimit = ref({ size: 500, unit: 'KB' });
-const abridgeName = [6, 6];
-
-const handleFail = ({ file }) => {
+const uploadRef1 = ref<UploadInstanceFunctions>();
+const uploadRef2 = ref<UploadInstanceFunctions>();
+const uploadRef3 = ref<UploadInstanceFunctions>();
+const imageViewerProps = ref<UploadProps['imageViewerProps']>({
+  closeOnEscKeydown: false,
+});
+const sizeLimit = ref<UploadProps['sizeLimit']>({
+  size: 500,
+  unit: 'KB',
+});
+const abridgeName: UploadProps['abridgeName'] = [6, 6];
+const handleFail: UploadProps['onFail'] = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);
 };
-
-const formatImgResponse = () => {
-  return { name: 'FileName', url: 'https://tdesign.gtimg.com/demo/demo-image-1.png' };
+const formatImgResponse: UploadProps['formatResponse'] = () => {
+  return {
+    name: 'FileName',
+    url: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
+  };
 };
-
-const formatResponse = () => {
-  return { name: 'FileName', error: '网络异常，图片上传失败' };
+const formatResponse: UploadProps['formatResponse'] = () => {
+  return {
+    name: 'FileName',
+    error: '网络异常，图片上传失败',
+  };
 };
-
-const uploadFiles = () => {
+const uploadFiles: ButtonProps['onClick'] = () => {
   uploadRef1.value.uploadFiles();
   uploadRef2.value.uploadFiles();
   uploadRef3.value.uploadFiles();

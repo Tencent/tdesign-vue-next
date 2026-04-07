@@ -42,9 +42,10 @@
     </t-space>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { nextTick, ref } from 'vue';
 import { AddIcon } from 'tdesign-icons-vue-next';
+import type { TagProps, InputProps } from 'tdesign-vue-next';
 
 const inputVisible = ref(false);
 const tags = ref([
@@ -69,24 +70,24 @@ const tags = ref([
   },
 ]);
 const input = ref('');
-
-const handleClose = (index) => {
+const handleClose = (index: number) => {
   console.log(index);
   tags.value.splice(index, 1);
 };
-
-const handleClick = (event) => {
+const handleClick: TagProps['onClick'] = (event) => {
   console.log(event);
 };
-
-const handleInputEnter = (val) => {
+const handleInputEnter: InputProps['onEnter'] = (val) => {
   if (val && !tags.value.some((item) => item.name === val)) {
-    tags.value.push({ name: val, type: 'default', showClose: true });
+    tags.value.push({
+      name: val,
+      type: 'default',
+      showClose: true,
+    });
   }
   inputVisible.value = false;
 };
-
-const handleClickAdd = () => {
+const handleClickAdd: TagProps['onClick'] = () => {
   inputVisible.value = true;
   nextTick(() => {
     input.value.focus();

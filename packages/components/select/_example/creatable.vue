@@ -21,18 +21,27 @@
     />
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { SelectProps } from 'tdesign-vue-next';
 
 const value1 = ref('');
 const value2 = ref('');
-const options = ref([
-  { label: '选项一', value: '1' },
-  { label: '选项二', value: '2' },
-  { label: '选项三', value: '3' },
+const options = ref<SelectProps['options']>([
+  {
+    label: '选项一',
+    value: '1',
+  },
+  {
+    label: '选项二',
+    value: '2',
+  },
+  {
+    label: '选项三',
+    value: '3',
+  },
 ]);
-
-const createOptions = (val) => {
+const createOptions: SelectProps['onCreate'] = (val) => {
   options.value.push({
     label: `选项${val}`,
     value: val,

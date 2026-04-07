@@ -4,12 +4,13 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { DialogPlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
 
 const count = ref(0);
-const showDialog = () => {
+const showDialog: ButtonProps['onClick'] = () => {
   count.value += 1;
   const confirmDia = DialogPlugin.confirm({
     header: 'use ESC to close each dialog',
