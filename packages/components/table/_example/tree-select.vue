@@ -45,21 +45,44 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
+import { cloneDeep } from 'lodash-es';
 import { ref, watch } from 'vue';
 import { EnhancedTable as TEnhancedTable, MessagePlugin } from 'tdesign-vue-next';
-import { cloneDeep } from 'lodash-es';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import type { EnhancedTableProps, ButtonProps, AllTableInstanceFunctions } from 'tdesign-vue-next';
 
+interface TableData {
+  key: string;
+  applicant: string;
+  status: number;
+  channel: string;
+  email: string;
+  matters: string;
+  time: number;
+  createTime: string;
+  childrenList?: TableData[];
+}
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
 const initData = [];
 for (let i = 0; i < 500; i++) {
-  const obj = {
+  const obj: TableData = {
     key: `first_level_${i}`,
     applicant: ['贾明', '张三', '王芳'][i % 3],
     status: i % 3,
@@ -90,10 +113,8 @@ for (let i = 0; i < 500; i++) {
   });
   initData.push(obj);
 }
-
-const enhancedTableRef = ref();
-
-const columns = [
+const enhancedTableRef = ref<AllTableInstanceFunctions>();
+const columns: EnhancedTableProps['columns'] = [
   {
     colKey: 'row-select',
     type: 'multiple',
@@ -103,12 +124,22 @@ const columns = [
 
     // 禁用行选中方式二：使用 checkProps 禁用行（示例代码有效，勿删）
     // 这种方式禁用行选中，行文本不会变灰
-    checkProps: ({ row }) => ({ disabled: !row.childrenList && row.status !== 0 }),
+    checkProps: ({ row }) => ({
+      disabled: !row.childrenList && row.status !== 0,
+    }),
     // 自由调整宽度，如果发现元素看不见，请加大宽度
     width: 50,
   },
-  { colKey: 'serial-number', width: 80, title: '编号' },
-  { colKey: 'applicant', title: '申请人', width: 120 },
+  {
+    colKey: 'serial-number',
+    width: 80,
+    title: '编号',
+  },
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: 120,
+  },
   {
     colKey: 'status',
     title: '状态',
@@ -123,15 +154,17 @@ const columns = [
       );
     },
   },
-  { colKey: 'matters', title: '申请事项', width: '150' },
+  {
+    colKey: 'matters',
+    title: '申请事项',
+    width: '150',
+  },
   // { colKey: 'email', title: '邮箱地址' },
 ];
-
 const data = ref(initData);
 const checkStrictly = ref('true');
 const selectedRowKeys = ref([]);
 const expandedRowKeys = ref([]);
-
 watch(
   () => checkStrictly.value,
   () => {
@@ -139,32 +172,24 @@ watch(
     data.value = cloneDeep(data.value);
   },
 );
-
-const rehandleSelectChange = (value, { selectedRowData }) => {
+const rehandleSelectChange: EnhancedTableProps['onSelectChange'] = (value, { selectedRowData }) => {
   selectedRowKeys.value = value;
   console.log(value, selectedRowData);
 };
-
-const expandedRowRender = (h, { row }) => <div>拓展信息：我是 {row.key} 号</div>;
-
-const onExpandChange = (val) => {
+const expandedRowRender: EnhancedTableProps['expandedRow'] = (h, { row }) => <div>拓展信息：我是 {row.key} 号</div>;
+const onExpandChange: EnhancedTableProps['onExpandChange'] = (val) => {
   expandedRowKeys.value = val;
 };
-
-const getTreeExpandedRow = () => {
+const getTreeExpandedRow: ButtonProps['onClick'] = () => {
   const treeExpandedRowKeys = enhancedTableRef.value.getTreeExpandedRow('unique');
   console.log('行唯一标识值：', treeExpandedRowKeys);
-
   const treeExpandedRow = enhancedTableRef.value.getTreeExpandedRow('data');
   console.log('行数据：', treeExpandedRow);
-
   const treeExpandedRowState = enhancedTableRef.value.getTreeExpandedRow('all');
   console.log('全部行信息：', treeExpandedRowState);
-
   MessagePlugin.success('获取成功，请打开控制台查看');
 };
-
-const scrollToElement = () => {
+const scrollToElement: ButtonProps['onClick'] = () => {
   // 方式一：通过行唯一标识跳转到指定行
   enhancedTableRef.value.scrollToElement({
     // 滚动到指定元素
@@ -190,8 +215,7 @@ const scrollToElement = () => {
   //   time: 60,
   // });
 };
-
-const onRowClick = (data) => {
+const onRowClick: EnhancedTableProps['onRowClick'] = (data) => {
   console.log(data);
 };
 </script>

@@ -38,6 +38,6 @@
     </t-space>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { JumpIcon } from 'tdesign-icons-vue-next';
 </script>

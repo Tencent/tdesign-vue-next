@@ -21,23 +21,28 @@
     </t-select>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, onMounted } from 'vue';
 
+interface Option {
+  value: string;
+  label: string;
+}
+
 // 模拟远程全部数据
-const wholeOptions = Array.from({ length: 20 }).map((_, i) => ({
+const wholeOptions: Option[] = Array.from({ length: 20 }).map((_, i) => ({
   value: `test${i + 1}`,
   label: `腾讯_test${i + 1}`,
 }));
 
 // --- 单选选择器的状态 ---
 const singleLoading = ref(false);
-const singleOptions = ref([]);
+const singleOptions = ref<Option[]>([]);
 const singleValue = ref('test1');
 
 // --- 多选选择器的状态 ---
 const multipleLoading = ref(false);
-const multipleOptions = ref([]);
+const multipleOptions = ref<Option[]>([]);
 const multipleValue = ref(['test1', 'test8']);
 
 // 初始值
@@ -55,7 +60,7 @@ const initMultipleValue = () => {
 };
 
 // 单选选择器的远程搜索方法
-const remoteMethodSingle = (search) => {
+const remoteMethodSingle = (search: string) => {
   singleLoading.value = true;
   setTimeout(() => {
     singleOptions.value = wholeOptions.slice(5, 15).filter((item) => item.label.includes(search));
@@ -64,7 +69,7 @@ const remoteMethodSingle = (search) => {
 };
 
 // 多选选择器的远程搜索方法
-const remoteMethodMultiple = (search) => {
+const remoteMethodMultiple = (search: string) => {
   multipleLoading.value = true;
   setTimeout(() => {
     multipleOptions.value = wholeOptions.slice(5, 15).filter((item) => item.label.includes(search));

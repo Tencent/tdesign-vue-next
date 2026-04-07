@@ -10,10 +10,10 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { RadioGroupProps } from 'tdesign-vue-next';
 
-const columnOptions = [2, 3, 4];
-
+const columnOptions: RadioGroupProps['options'] = [2, 3, 4];
 const column = ref(2);
 </script>

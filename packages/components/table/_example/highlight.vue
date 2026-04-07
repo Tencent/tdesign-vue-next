@@ -23,35 +23,46 @@
   </t-space>
 </template>
 
-<script>
+<script lang="tsx">
 export default {
   name: 'HighlightTable',
 };
 </script>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref, watch } from 'vue';
-const activeRowType = ref('single');
+import type { TableProps } from 'tdesign-vue-next';
+const activeRowType = ref<TableProps['activeRowType']>('single');
 const hover = ref(false);
-
-const tableData = getTableData();
-const columns = [
-  { colKey: 'applicant', title: '申请人', width: '100' },
-  { colKey: 'channel', title: '签署方式' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
+const tableData: TableProps['data'] = getTableData();
+const columns: TableProps['columns'] = [
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    ellipsis: true,
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ];
-
-const onActiveChange = (highlightRowKeys, ctx) => {
+const onActiveChange: TableProps['onActiveChange'] = (highlightRowKeys, ctx) => {
   console.log(highlightRowKeys, ctx);
 };
-
 watch([activeRowType], ([activeRowType]) => {
   if (!activeRowType) {
     hover.value = true;
   }
 });
-
 function getTableData(total = 5) {
   const data = [];
   for (let i = 0; i < total; i++) {
@@ -71,5 +82,3 @@ function getTableData(total = 5) {
   return data;
 }
 </script>
-
-<style lang="less"></style>

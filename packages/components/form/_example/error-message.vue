@@ -83,11 +83,19 @@
     </t-form>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, reactive, computed } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import type {
+  FormProps,
+  FormInstanceFunctions,
+  AutoCompleteProps,
+  CheckboxGroupProps,
+  FormItemProps,
+  ButtonProps,
+} from 'tdesign-vue-next';
 
-const formData = reactive({
+const formData: FormProps['data'] = reactive({
   account: '',
   password: '',
   description: '',
@@ -100,33 +108,46 @@ const formData = reactive({
   },
   course: [],
 });
-const form = ref(null);
+const form = ref<FormInstanceFunctions>(null);
 const errorConfig = ref('default');
-
 const emailSuffix = ['@qq.com', '@163.com', '@gmail.com'];
-const emailOptions = computed(() => {
+const emailOptions = computed<AutoCompleteProps['options']>(() => {
   const emailPrefix = formData.email.split('@')[0];
   if (!emailPrefix) return [];
-
   return emailSuffix.map((suffix) => emailPrefix + suffix);
 });
-
-const courseOptions = [
-  { label: '语文', value: '1' },
-  { label: '数学', value: '2' },
-  { label: '英语', value: '3' },
+const courseOptions: CheckboxGroupProps['options'] = [
+  {
+    label: '语文',
+    value: '1',
+  },
+  {
+    label: '数学',
+    value: '2',
+  },
+  {
+    label: '英语',
+    value: '3',
+  },
 ];
-
 const options = [
-  { label: '计算机学院', value: '1' },
-  { label: '软件学院', value: '2' },
-  { label: '物联网学院', value: '3' },
+  {
+    label: '计算机学院',
+    value: '1',
+  },
+  {
+    label: '软件学院',
+    value: '2',
+  },
+  {
+    label: '物联网学院',
+    value: '3',
+  },
 ];
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
@@ -134,8 +155,7 @@ const onSubmit = ({ validateResult, firstError }) => {
     MessagePlugin.warning(firstError);
   }
 };
-
-const renderLabel = () => '用户名';
+const renderLabel: FormItemProps['label'] = () => '用户名';
 
 /* eslint-disable no-template-curly-in-string */
 const errorMessage = {
@@ -148,28 +168,71 @@ const errorMessage = {
   pattern: '${name}不正确',
   validator: '${name}有误',
 };
-
-const rules = {
+const rules: FormProps['rules'] = {
   account: [
-    { required: true },
+    {
+      required: true,
+    },
     // { enum: ['sheep', 'name'] },
-    { min: 2 },
-    { max: 10, type: 'warning' },
+    {
+      min: 2,
+    },
+    {
+      max: 10,
+      type: 'warning',
+    },
   ],
   description: [
-    { validator: (val) => val.length >= 5 },
-    { validator: (val) => val.length < 10, message: '不能超过 20 个字，中文长度等于英文长度' },
+    {
+      validator: (val) => val.length >= 5,
+    },
+    {
+      validator: (val) => val.length < 10,
+      message: '不能超过 20 个字，中文长度等于英文长度',
+    },
   ],
   password: [
-    { required: true },
-    { len: 8, message: '请输入 8 位密码' },
-    { pattern: /[A-Z]+/, message: '密码必须包含大写字母' },
+    {
+      required: true,
+    },
+    {
+      len: 8,
+      message: '请输入 8 位密码',
+    },
+    {
+      pattern: /[A-Z]+/,
+      message: '密码必须包含大写字母',
+    },
   ],
-  email: [{ required: true }, { email: { ignore_max_length: true } }],
-  gender: [{ required: true }],
-  course: [{ required: true }, { validator: (val) => val.length <= 2, message: '最多选择 2 门课程', type: 'warning' }],
+  email: [
+    {
+      required: true,
+    },
+    {
+      email: {
+        ignore_max_length: true,
+      },
+    },
+  ],
+  gender: [
+    {
+      required: true,
+    },
+  ],
+  course: [
+    {
+      required: true,
+    },
+    {
+      validator: (val) => val.length <= 2,
+      message: '最多选择 2 门课程',
+      type: 'warning',
+    },
+  ],
   'content.url': [
-    { required: true },
+    {
+      required: true,
+    },
     {
       url: {
         protocols: ['http', 'https', 'ftp'],
@@ -178,7 +241,7 @@ const rules = {
     },
   ],
 };
-const handleClear = () => {
+const handleClear: ButtonProps['onClick'] = () => {
   form.value.clearValidate();
 };
 </script>

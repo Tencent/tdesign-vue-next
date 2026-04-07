@@ -197,6 +197,7 @@ export default defineComponent({
         [`${radioGroupName.value}__outline`]: props.variant === 'outline',
         [`${radioGroupName.value}--filled`]: props.variant.includes('filled'),
         [`${radioGroupName.value}--primary-filled`]: props.variant === 'primary-filled',
+        [`${radioGroupName.value}--vertical`]: props.direction === 'vertical',
       },
     ]);
 

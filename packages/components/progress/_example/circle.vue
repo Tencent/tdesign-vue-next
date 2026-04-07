@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const percent = ref(10);
-let timer;
+let timer: number | undefined;
 
 onMounted(() => {
-  timer = setInterval(() => {
+  timer = window.setInterval(() => {
     percent.value = (percent.value % 100) + 10;
   }, 1000);
 });

@@ -5,16 +5,14 @@
     clearable
     placeholder="请选择"
     :popup-visible="popupVisible"
-    :tree-props="{
-      checkStrictly: true,
-    }"
     @popup-visible-change="onVisibleChange"
   />
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TreeSelectProps } from 'tdesign-vue-next';
 
-const options = [
+const options: TreeSelectProps['data'] = [
   {
     label: '广东省',
     value: 'guangdong',
@@ -45,11 +43,9 @@ const options = [
     ],
   },
 ];
-
 const value = ref('');
 const popupVisible = ref(false);
-
-const onVisibleChange = (visible, context) => {
+const onVisibleChange: TreeSelectProps['onPopupVisibleChange'] = (visible, context) => {
   console.log(visible, context);
   if (context.trigger || context.node?.label !== '广州市') {
     popupVisible.value = visible;

@@ -38,20 +38,32 @@
   </t-space>
 </template>
 
-<script setup>
-function handleChange(value) {
+<script lang="ts" setup>
+import type {
+  DateRangePickerPartial,
+  DatePickerMonthChangeTrigger,
+  DatePickerYearChangeTrigger,
+  DateRangeValue,
+} from 'tdesign-vue-next';
+
+function handleChange(value: DateRangeValue) {
   console.log('onChange value', value);
 }
 
-function handleCellClick(value) {
+function handleCellClick(value: { date: Date[]; partial: DateRangePickerPartial; e: MouseEvent }) {
   console.log('onCellClick value', value);
 }
 
-function handleMonthChange(context) {
+function handleMonthChange(context: {
+  month: number;
+  date: Date;
+  e?: MouseEvent;
+  trigger: DatePickerMonthChangeTrigger;
+}) {
   console.log('onMonthChange context', context);
 }
 
-function handleYearChange(context) {
+function handleYearChange(context: { year: number; date: Date; trigger: DatePickerYearChangeTrigger; e?: MouseEvent }) {
   console.log('onYearChange context', context);
 }
 </script>

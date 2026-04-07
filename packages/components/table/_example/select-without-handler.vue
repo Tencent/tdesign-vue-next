@@ -24,19 +24,19 @@
   </t-space>
 </template>
 
-<script lang="jsx">
+<script lang="tsx">
 export default {
   name: '',
 };
 </script>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { TableProps } from 'tdesign-vue-next';
 
-const rowSelectionType = ref('single');
+const rowSelectionType = ref<TableProps['rowSelectionType']>('single');
 const rowSelectionAllowUncheck = ref(false);
-
-const data = [];
+const data: TableProps['data'] = [];
 for (let i = 0; i < 5; i++) {
   data.push({
     index: i + 1,
@@ -51,17 +51,30 @@ for (let i = 0; i < 5; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-const columns = [
-  { colKey: 'applicant', title: '申请人', width: '100' },
-  { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
+const columns: TableProps['columns'] = [
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+    width: '120',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    ellipsis: true,
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ];
-
 const activeRow = ref(false);
-const selectedRowKeys = ref([2]);
-
-const rehandleSelectChange = (value, { selectedRowData }) => {
+const selectedRowKeys = ref<TableProps['selectedRowKeys']>([2]);
+const rehandleSelectChange: TableProps['onSelectChange'] = (value, { selectedRowData }) => {
   selectedRowKeys.value = value;
   console.log(value, selectedRowData);
 };
