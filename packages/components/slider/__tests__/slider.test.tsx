@@ -5,6 +5,8 @@ import Slider from '@tdesign/components/slider';
 import sliderProps from '@tdesign/components/slider/props';
 import { formatLabel } from '@tdesign/common-js/slider/utils';
 
+import type { SliderMarks, SliderValue } from '@tdesign/components/slider';
+
 describe('Slider', () => {
   describe('props', () => {
     it(':disabled[boolean]', async () => {
@@ -144,6 +146,7 @@ describe('Slider', () => {
       });
       const sliderTooltipVm = wrapper.findComponent({ name: 'TTooltip' });
       sliderTooltipVm.trigger('mouseenter').then(() => {
+        // @ts-expect-error
         const tooltipContent = sliderTooltipVm.componentVM.content;
         expect(String(tooltipContent) === String(testValue)).toBe(true);
       });
@@ -156,6 +159,7 @@ describe('Slider', () => {
       });
       const sliderTooltipVm = wrapper.findComponent({ name: 'TTooltip' });
       sliderTooltipVm.trigger('mouseenter').then(() => {
+        // @ts-expect-error
         const tooltipContent = sliderTooltipVm.componentVM.content;
         expect(String(tooltipContent) === String(testLabel)).toBe(true);
       });
@@ -170,6 +174,7 @@ describe('Slider', () => {
       });
       const sliderTooltipVm = wrapper.findComponent({ name: 'TTooltip' });
       sliderTooltipVm.trigger('mouseenter').then(() => {
+        // @ts-expect-error
         const tooltipContent = sliderTooltipVm.componentVM.content;
         const normalizeValue = formatLabel(testLabel, testValue);
         expect(String(tooltipContent) === String(normalizeValue)).toBe(true);
@@ -186,13 +191,13 @@ describe('Slider', () => {
     });
 
     it(':marks[object]', () => {
-      const marksProp = {
+      const marksProp: SliderMarks = {
         0: '0°C',
         20: '20°C',
         40: '40°C',
         60: '60°C',
-        80: <span style="color: #0052d9">80°C</span>,
-        100: <span style="color: #0052d9">100°C</span>,
+        80: () => <span style="color: #0052d9">80°C</span>,
+        100: () => <span style="color: #0052d9">100°C</span>,
       };
       const wrapper = mount(<Slider marks={marksProp} />);
       expect(wrapper.findAll('.t-slider__mark-text').length === Object.keys(marksProp).length).toBe(true);
@@ -231,7 +236,6 @@ describe('Slider', () => {
 
     it(':tooltipProps[object]', async () => {
       const tooltipProps = { placement: 'bottom', theme: 'light' };
-      // @ts-expect-error
       const wrapper = mount(<Slider modelValue={50} tooltipProps={tooltipProps} />);
       await nextTick();
       const tooltip = wrapper.findComponent({ name: 'TTooltip' });
@@ -242,8 +246,8 @@ describe('Slider', () => {
   describe('events', () => {
     it('onChange: click inputNumber button', async () => {
       const basicValue = 50;
-      let changeEventValue = 0;
-      const changeEvent = (val: number) => {
+      let changeEventValue: SliderValue = 0;
+      const changeEvent = (val: SliderValue) => {
         changeEventValue = val;
       };
       const wrapper = mount(<Slider onChange={changeEvent} inputNumberProps modelValue={basicValue} />);
@@ -257,8 +261,8 @@ describe('Slider', () => {
     it('onChange: text inputNumber', async () => {
       const basicValue = 50;
       const inputTargetValue = 80;
-      let changeEventValue = 0;
-      const changeEvent = (val: number) => {
+      let changeEventValue: SliderValue = 0;
+      const changeEvent = (val: SliderValue) => {
         changeEventValue = val;
       };
       const wrapper = mount(<Slider onChange={changeEvent} inputNumberProps modelValue={basicValue} />);

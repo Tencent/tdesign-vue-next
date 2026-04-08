@@ -3,6 +3,8 @@ import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
 import Slider from '@tdesign/components/slider';
 
+import type { SliderValue } from '@tdesign/components/slider';
+
 describe('Slider hooks', () => {
   describe('useSliderInput', () => {
     it('renders input number with default config', async () => {
@@ -106,8 +108,8 @@ describe('Slider hooks', () => {
     });
 
     it('range slider renders two tooltips', async () => {
+      const labelFn = ({ value, position }: { value: SliderValue; position: number }) => `${position}: ${value}`;
       // @ts-expect-error
-      const labelFn = ({ value, position }) => `${position}: ${value}`;
       const wrapper = mount(<Slider range modelValue={[20, 80]} label={labelFn} />);
       await nextTick();
       const tooltips = wrapper.findAllComponents({ name: 'TTooltip' });
