@@ -64,7 +64,7 @@ export interface TdCalendarProps {
    */
   preventCellContextmenu?: boolean;
   /**
-   * 用于设置日历的年月份显示范围，[范围开始，范围结束]
+   * 用于设置日历的年月份显示范围，[范围开始，范围结束]。示例一：`['2018-08', '2028-04']`。示例二：`[new Date(2018, 8), new Date(2028, 4)]`。传入列表的两项均能被`dayjs`正常解析时才能使指定的日历范围生效，仅有一项正常解析时则为仅指定日历范围上限或下限
    */
   range?: Array<CalendarValue>;
   /**
@@ -104,6 +104,14 @@ export interface TdCalendarProps {
    * 月份切换时触发
    */
   onMonthChange?: (options: { month: string; year: string }) => void;
+}
+
+/** 组件实例方法 */
+export interface CalendarInstanceFunctions {
+  /**
+   * 跳转到今天
+   */
+  toCurrent?: () => void;
 }
 
 export interface CalendarController {
@@ -160,10 +168,6 @@ export interface CalendarCell extends ControllerOptions {
    * 日期在本月的第几周（日历展示维度是“月”时有值）
    */
   weekOrder?: number;
-}
-
-export interface CalendarInstanceFunctions {
-  toCurrent: () => void;
 }
 
 export type CalendarValue = string | Date;

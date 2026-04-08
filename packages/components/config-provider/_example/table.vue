@@ -16,12 +16,13 @@
   </t-config-provider>
 </template>
 
-<script setup lang="jsx">
-import { ChevronRightIcon, CaretDownSmallIcon /** , ChevronDownIcon */ } from 'tdesign-icons-vue-next';
+<script lang="tsx" setup>
 import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
+import { ChevronRightIcon, CaretDownSmallIcon } from 'tdesign-icons-vue-next';
+import type { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
 
-const columns = [
+const columns: TableProps['columns'] = [
   {
     colKey: 'type',
     title: 'Type',
@@ -40,26 +41,39 @@ const columns = [
     },
   },
 ];
-
-const data = [
-  { type: 'Array', platform: 'Vue(PC)', property: 'A' },
-  { type: 'String', platform: 'React(PC)', property: 'B' },
-  { type: 'Object', platform: 'Miniprogram', property: 'C' },
+const data: TableProps['data'] = [
+  {
+    type: 'Array',
+    platform: 'Vue(PC)',
+    property: 'A',
+  },
+  {
+    type: 'String',
+    platform: 'React(PC)',
+    property: 'B',
+  },
+  {
+    type: 'Object',
+    platform: 'Miniprogram',
+    property: 'C',
+  },
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const expandedRow = (h) => {
+const expandedRow: TableProps['expandedRow'] = (h) => {
   return <div>This is expanded row info</div>;
 };
 
 // 全局特性配置，可以引入英文默认配置 enConfig，还可以在默认配置的基础上进行自定义配置
-const globalConfig = merge(enConfig, {
+
+const empty: GlobalConfigProvider = {};
+const customConfig: GlobalConfigProvider = {
   table: {
     empty: 'Empty Data',
     // empty can also be a function
-    // empty: (h) => h && <div class='custom-empty-content'>Empty Data</div>,
-    expandIcon: (h) => h && <ChevronRightIcon />,
-    sortIcon: (h) => h && <CaretDownSmallIcon size="18px" />,
+    // empty: () => <div class='custom-empty-content'>Empty Data</div>,
+    expandIcon: () => <ChevronRightIcon />,
+    sortIcon: () => <CaretDownSmallIcon size="18px" />,
 
     // More config
     // filterIcon: () => <span>Filter</span>,
@@ -71,7 +85,8 @@ const globalConfig = merge(enConfig, {
     // sortDescendingOperationText: 'descending sort',
     // treeExpandAndFoldIcon: (h, { type }) => type === 'expand' ? <ChevronRightIcon /> : <ChevronDownIcon />,
   },
-});
+};
+const globalConfig = merge(empty, enConfig, customConfig);
 </script>
 
 <style scoped>

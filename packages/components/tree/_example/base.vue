@@ -4,9 +4,11 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-const items = ref([
+import type { TreeProps } from 'tdesign-vue-next';
+
+const items = ref<TreeProps['data']>([
   {
     label: '第一段',
     children: [

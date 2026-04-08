@@ -81,19 +81,21 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed } from 'vue';
-const tree = ref();
+import type { TreeInstanceFunctions, TreeProps, InputProps, ButtonProps } from 'tdesign-vue-next';
+
+const tree = ref<TreeInstanceFunctions>();
 const index = ref(0);
 const transition = ref(true);
 const textInsertCount = ref('1');
-const showLine = ref(true);
-const showIcon = ref(true);
+const showLine = ref<TreeProps['line']>(true);
+const showIcon = ref<TreeProps['icon']>(true);
 const isCheckable = ref(true);
 const isOperateAble = ref(true);
-const items = ref([]);
+const items = ref<TreeProps['data']>([]);
 const filterText = ref('');
-const filterByText = ref(null);
+const filterByText = ref<TreeProps['filter']>(null);
 const textLevel1Count = ref('10');
 const textLevel2Count = ref('10');
 const textLevel3Count = ref('10');
@@ -109,7 +111,7 @@ const level3Count = computed(() => {
 const insertCount = computed(() => {
   return parseInt(textInsertCount.value, 10) || 1;
 });
-const label = (h, node) => {
+const label: TreeProps['label'] = (h, node) => {
   return `${node.value}`;
 };
 const getValue = () => {
@@ -122,7 +124,7 @@ const getInsertItem = () => {
     value,
   };
 };
-const append = (node) => {
+const append = (node?: { value: number }) => {
   if (!node) {
     for (let index = 0; index < insertCount.value; index += 1) {
       const item = getInsertItem();
@@ -135,14 +137,16 @@ const append = (node) => {
     }
   }
 };
+// @ts-ignore
 const remove = (node) => {
   node.remove();
 };
-const onInput = (state) => {
+const onInput: InputProps['onChange'] = (state) => {
   console.info('onInput:', state);
   if (filterText.value) {
     // 存在过滤文案，才启用过滤
     filterByText.value = (node) => {
+      // @ts-ignore
       const rs = node.value.indexOf(filterText.value) >= 0;
       // 命中的节点会强制展示
       // 命中节点的路径节点会锁定展示
@@ -156,6 +160,7 @@ const onInput = (state) => {
 };
 const createTreeData = () => {
   const allLevels = [level1Count.value, level2Count.value, level3Count.value];
+  // @ts-ignore
   const createNodes = (items, level) => {
     const count = allLevels[level];
     if (count) {
@@ -167,20 +172,22 @@ const createTreeData = () => {
         };
         items.push(item);
         if (allLevels[level + 1]) {
+          // @ts-ignore
           item.children = [];
+          // @ts-ignore
           createNodes(item.children, level + 1);
         }
       }
     }
   };
-  const items = [];
+  const items: TreeProps['data'] = [];
   createNodes(items, 0);
   return items;
 };
-const createTree = () => {
+const createTree: ButtonProps['onClick'] = () => {
   items.value = createTreeData();
 };
-const clearTree = () => {
+const clearTree: ButtonProps['onClick'] = () => {
   items.value = [];
 };
 </script>

@@ -8,10 +8,11 @@
   />
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { TransferProps } from 'tdesign-vue-next';
 
-const list = [];
+const list: TransferProps['data'] = [];
 for (let i = 0; i < 20; i++) {
   list.push({
     value: i.toString(),
@@ -19,11 +20,9 @@ for (let i = 0; i < 20; i++) {
     description: `第${i + 1}段信息`,
   });
 }
-
 const targetValue = ref([]);
 const checkedValue = ref([]);
-
-const transferItem = (h, { data, index, type }) => {
+const transferItem: TransferProps['transferItem'] = (h, { data, index, type }) => {
   const sourceLabel = (
     <span class="transfer-item">
       {data.label} - {data.description}

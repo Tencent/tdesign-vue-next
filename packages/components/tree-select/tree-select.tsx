@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watch, onMounted, toRefs } from 'vue';
+import { defineComponent, ref, computed, watch, onMounted, toRefs, ComputedRef } from 'vue';
 import { isNil, isArray, isEmpty, isBoolean, isFunction } from 'lodash-es';
 
 import { findParentValues } from '@tdesign/common-js/tree-select/utils';
@@ -34,7 +34,7 @@ export default defineComponent({
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
     const { globalConfig } = useConfig('treeSelect');
-    const formDisabled = useDisabled();
+    const formDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
 
     // ref
@@ -366,7 +366,6 @@ export default defineComponent({
         onExpand: treeNodeExpand,
         onLoad: treeNodeLoad,
       });
-
       return (
         <Tree
           ref={treeRef}
@@ -379,7 +378,6 @@ export default defineComponent({
           activable={!props.multiple}
           checkable={props.multiple}
           disabled={tDisabled.value || multiLimitDisabled.value}
-          size={props.size}
           filter={filterByText.value}
           actived={actived.value}
           expanded={expanded.value}
@@ -399,7 +397,6 @@ export default defineComponent({
     const renderSuffixIcon = () => (
       <FakeArrow
         isActive={innerVisible.value}
-        disabled={props.disabled}
         overlayClassName={{
           [`${classPrefix.value}-fake-arrow--highlight`]: innerVisible.value,
           [`${classPrefix.value}-fake-arrow--disable`]: props.disabled,

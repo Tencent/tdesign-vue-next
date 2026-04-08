@@ -4,8 +4,11 @@
   "type": "module",
   "scripts": {
     "start": "pnpm run dev",
+    "generate-js-examples": "tsx ../../../script/generate-js-examples.ts",
     "dev": "vite --configLoader runner",
+    "prebuild": "pnpm run generate-js-examples",
     "build": "vite build --configLoader runner",
+    "prepreview": "pnpm run generate-js-examples",
     "preview": "vite build --mode preview --configLoader runner && cp dist/index.html dist/404.html"
   },
   "author": "tdesign",
@@ -13,7 +16,7 @@
   "dependencies": {
     "nprogress": "catalog:deps",
     "semver": "catalog:docs",
-    "@tdesign/site-components": "0.18.0-alpha.8",
+    "@tdesign/site-components": "catalog:tdesign",
     "@tdesign/theme-generator": "catalog:tdesign",
     "vue": "catalog:deps",
     "vue-router": "catalog:deps",

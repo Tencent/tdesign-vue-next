@@ -26,24 +26,22 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import type { PaginationProps } from 'tdesign-vue-next';
 
 const current = ref(12);
 const pageSize = ref(5);
-
-const onPageSizeChange = (size) => {
+const onPageSizeChange: PaginationProps['onPageSizeChange'] = (size) => {
   console.log('page-size:', size);
   MessagePlugin.success(`pageSize变化为${size}`);
 };
-
-const onCurrentChange = (index, pageInfo) => {
+const onCurrentChange: PaginationProps['onCurrentChange'] = (index, pageInfo) => {
   MessagePlugin.success(`转到第${index}页`);
   console.log(pageInfo);
 };
-
-const onChange = (pageInfo) => {
+const onChange: PaginationProps['onChange'] = (pageInfo) => {
   console.log(pageInfo);
 };
 </script>

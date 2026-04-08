@@ -6,31 +6,32 @@
     <t-button variant="outline" @click="error">错误</t-button>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { NotifyPlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
 
-const info = () => {
+const info: ButtonProps['onClick'] = () => {
   NotifyPlugin.info({
     title: '信息',
     content: '这是一条可以自动关闭的消息通知',
     duration: 3000,
   });
 };
-const success = () => {
+const success: ButtonProps['onClick'] = () => {
   NotifyPlugin.success({
     title: '成功',
     content: '这是一条可以自动关闭的消息通知',
     duration: 3000,
   });
 };
-const warning = () => {
+const warning: ButtonProps['onClick'] = () => {
   NotifyPlugin.warning({
     title: '警告',
     content: '这是一条可以自动关闭的消息通知',
     duration: 3000,
   });
 };
-const error = () => {
+const error: ButtonProps['onClick'] = () => {
   NotifyPlugin.error({
     title: '错误',
     content: '这是一条可以自动关闭的消息通知',

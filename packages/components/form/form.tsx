@@ -13,7 +13,7 @@ import {
   ValidateResultList,
 } from './type';
 import props from './props';
-import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './consts';
+import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './constants';
 import { FormResetEvent, FormSubmitEvent } from '../common';
 import { getFormItemClassName } from './utils';
 import { FormDisabledProvider, FormReadonlyProvider } from './hooks';
@@ -144,6 +144,7 @@ export default defineComponent({
     };
     const submit = async (params?: Pick<FormValidateParams, 'showErrorMessage'>) => {
       submitParams.value = params;
+      // @ts-ignore TODO
       requestSubmit(formRef.value);
     };
 

@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import { CalendarState } from '../types';
 import { TdCalendarProps } from '../type';
-import { COMPONENT_NAME } from '../consts';
+import { COMPONENT_NAME } from '../constants';
 
 export function useCalendarClass(props: TdCalendarProps, state: CalendarState) {
   const prefixClass = usePrefixClass(COMPONENT_NAME);

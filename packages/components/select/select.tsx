@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType, ComputedRef } from 'vue';
 import { get, isArray, debounce, cloneDeep, isFunction, intersection, pick as picker } from 'lodash-es';
 
 import FakeArrow from '../common-components/fake-arrow';
@@ -19,7 +19,7 @@ import {
 } from '@tdesign/shared-hooks';
 
 import { getSingleContent, getMultipleContent } from './utils';
-import { selectInjectKey } from './consts';
+import { selectInjectKey } from './constants';
 import { useSelectOptions, useKeyboardControl } from './hooks';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputChangeContext, SelectInputValueChangeContext } from '../select-input';
@@ -40,7 +40,7 @@ export default defineComponent({
   },
   setup(props: TdSelectProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, { slots }) {
     const classPrefix = usePrefixClass();
-    const isDisabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
@@ -215,7 +215,7 @@ export default defineComponent({
         );
 
         props.onRemove?.({
-          value: values.value as string | number,
+          value: values.value as string | number | bigint,
           data: values,
           e,
         });
@@ -228,7 +228,7 @@ export default defineComponent({
       }
 
       props.onRemove?.({
-        value: value as string | number,
+        value: value as string | number | bigint,
         data: optionsMap.value.get(value),
         e,
       });
@@ -296,7 +296,7 @@ export default defineComponent({
       if (!props.multiple) return;
       const { value } = keys.value;
       // disabled状态的选项，不参与全选的计算，始终保留
-      const lockedValues = innerValue.value.filter((value: string | number | boolean) => {
+      const lockedValues = innerValue.value.filter((value: string | number | boolean | bigint) => {
         return optionsList.value.find((item) => item.value === value && item.disabled);
       });
 

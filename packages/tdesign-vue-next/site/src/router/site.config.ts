@@ -37,6 +37,14 @@ export const docs = [
         component: () => import('@tdesign/common/docs/web/overview.md'),
         componentEn: () => import('@tdesign/common/docs/web/overview.en-US.md'),
       },
+      {
+        title: 'MCP',
+        titleEn: 'MCP',
+        name: 'MCP',
+        path: '/vue-next/mcp',
+        component: () => import('@tdesign/common/docs/mcp.md'),
+        componentEn: () => import('@tdesign/common/docs/mcp.en-US.md'),
+      },
     ],
   },
   {

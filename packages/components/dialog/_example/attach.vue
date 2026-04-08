@@ -64,22 +64,23 @@
       placement="center"
       :on-confirm="() => (visibleShowInAttachedElement = false)"
     >
-      <div slot="body">
+      <template #body>
         <div>父元素（挂载元素）需要有定位属性，如：position: relative</div>
         <div>showInAttachedElement API 仅针对模态对话框有效</div>
-      </div>
+      </template>
     </t-dialog>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, getCurrentInstance } from 'vue';
+import type { DialogProps } from 'tdesign-vue-next';
 
 const visibleBody = ref(false);
 const visibleIdAttach = ref(false);
 const visibleFunctionAttach = ref(false);
 const visibleShowInAttachedElement = ref(false);
 const { ctx } = getCurrentInstance();
-const getAttach = () => ctx.$root.$el;
+const getAttach: DialogProps['attach'] = () => ctx.$root.$el;
 </script>
 <style scoped>
 .dialog-attach-wrap {

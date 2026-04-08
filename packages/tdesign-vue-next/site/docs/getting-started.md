@@ -1,6 +1,6 @@
 ---
 title: Vue Next for Web
-description: TDesign 适配桌面端的组件库，适合在 vue3.x 技术栈项目中使用。
+description: TDesign 适配桌面端的组件库，适合在 Vue3.x 技术栈项目中使用。
 ---
 
 ## 安装
@@ -19,7 +19,7 @@ npm i tdesign-vue-next
 
 ```html
 <!-- vue 3 -->
-<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.css" />
 <script src="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js"></script>
 ...

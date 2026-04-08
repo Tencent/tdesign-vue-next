@@ -17,7 +17,7 @@ import { isFunction } from 'lodash-es';
 import { useTNodeJSX, useGlobalIcon, useEventForward } from '@tdesign/shared-hooks';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../types';
-import { commonProps } from '../consts';
+import { commonProps } from '../constants';
 import TButton, { TdButtonProps } from '../../button';
 import { UploadFile, TdUploadProps } from '../types';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
@@ -281,19 +281,16 @@ export default defineComponent({
       const className = `${uploadPrefix.value}__file-thumbnail`;
       if (IMAGE_REGEXP.test(fileType)) {
         return (
-          <Image
-            class={className}
-            src={file.url || file.raw}
-            fit="scale-down"
-            error=""
-            loading=""
+          <div
             onClick={(e: MouseEvent) => {
               e.preventDefault();
               currentPreviewFile.value = [file];
               previewIndex.value = 0;
               props.onPreview?.({ file, index: 0, e });
             }}
-          />
+          >
+            <Image class={className} src={file.url || file.raw} fit="scale-down" error="" loading="" />
+          </div>
         );
       }
       return <div class={className}>{getFileThumbnailIcon(fileType)}</div>;

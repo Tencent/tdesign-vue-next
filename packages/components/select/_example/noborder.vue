@@ -9,10 +9,11 @@
     :options="options"
   />
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { SelectProps } from 'tdesign-vue-next';
 
-const options = [
+const options: SelectProps['options'] = [
   {
     label: '已选择的选项',
     value: '1',
@@ -26,6 +27,5 @@ const options = [
     value: '3',
   },
 ];
-
 const value = ref('1');
 </script>

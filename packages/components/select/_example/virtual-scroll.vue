@@ -27,19 +27,24 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-const options = [];
-for (let i = 0; i < 10000; i++) {
-  options.push({ label: `选项${i + 1}`, value: String(i) });
+
+interface Option {
+  label: string;
+  value: string;
 }
-
+const options: Option[] = [];
+for (let i = 0; i < 10000; i++) {
+  options.push({
+    label: `选项${i + 1}`,
+    value: String(i),
+  });
+}
 const optionsRef = ref(options);
-
 const value = ref('');
 const value2 = ref('');
 const search = ref('');
-
 const onSearch = () => {
   optionsRef.value = options.filter((item) => item.label.indexOf(search.value) !== -1);
 };

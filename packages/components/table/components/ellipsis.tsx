@@ -74,6 +74,8 @@ export default defineComponent({
     // 当表格数据量大时，不希望默认渲染全量的 Tooltip，期望在用户 mouseenter 的时候再显示，通过 flag 判断
     const onTriggerMouseenter = () => {
       if (!root.value) return;
+      // 重新检测溢出状态，确保编辑状态切换后能正确显示
+      isOverflow.value = isTextEllipsis(root.value);
       flag.value = true;
     };
 
@@ -104,26 +106,22 @@ export default defineComponent({
           {cellNode}
         </div>
       );
-      let content = null;
       const tooltipProps = props.tooltipProps as EllipsisProps['tooltipProps'];
-      if (isOverflow.value && flag.value) {
-        const rProps = {
-          content: (props.tooltipContent as string) || (() => cellNode),
-          destroyOnClose: true,
-          zIndex: props.zIndex,
-          attach: props.attach,
-          placement: props.placement,
-          overlayClassName: tooltipProps?.overlayClassName
-            ? innerEllipsisClassName.value.concat(tooltipProps.overlayClassName)
-            : innerEllipsisClassName.value,
-          onVisibleChange: handleVisibleChange,
-          ...tooltipProps,
-        };
-        content = <TTooltip {...rProps}>{ellipsisContent}</TTooltip>;
-      } else {
-        content = ellipsisContent;
-      }
-      return content;
+      // 始终渲染 TTooltip，避免条件切换导致子组件（如可编辑单元格）重新挂载
+      const rProps = {
+        content: isOverflow.value && flag.value ? (props.tooltipContent as string) || (() => cellNode) : '',
+        destroyOnClose: true,
+        hideEmptyPopup: true,
+        zIndex: props.zIndex,
+        attach: props.attach,
+        placement: props.placement,
+        overlayClassName: tooltipProps?.overlayClassName
+          ? innerEllipsisClassName.value.concat(tooltipProps.overlayClassName)
+          : innerEllipsisClassName.value,
+        onVisibleChange: handleVisibleChange,
+        ...tooltipProps,
+      };
+      return <TTooltip {...rProps}>{ellipsisContent}</TTooltip>;
     };
   },
 });

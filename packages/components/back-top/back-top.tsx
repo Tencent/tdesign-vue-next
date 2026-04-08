@@ -22,7 +22,7 @@ export default defineComponent({
     });
     const renderContent = useContent();
     const getContainer = (container: TdBackTopProps['container']) => {
-      if (typeof container === 'string' && typeof document !== undefined) {
+      if (typeof container === 'string' && typeof document !== 'undefined') {
         if (container === 'body') {
           return document;
         }

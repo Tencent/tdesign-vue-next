@@ -2,7 +2,7 @@ import { reactive, watch } from 'vue';
 import dayjs from 'dayjs';
 
 import { useConfig } from '@tdesign/shared-hooks';
-import { COMPONENT_NAME } from '../consts';
+import { COMPONENT_NAME } from '../constants';
 import { createDefaultCurDate } from '../utils';
 import { TdCalendarProps } from '../type';
 import { CalendarState } from '../types';

@@ -19,23 +19,41 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { Dayjs } from 'dayjs';
 import { ref } from 'vue';
+import type {
+  DatePickerTriggerSource,
+  DatePickerMonthChangeTrigger,
+  DatePickerYearChangeTrigger,
+  DateValue,
+} from 'tdesign-vue-next';
 
 const date = ref('');
 const date2 = ref('');
 
-function handleChange(value, context) {
+function handleChange(
+  value: DateValue,
+  context: {
+    dayjsValue: Dayjs;
+    trigger?: DatePickerTriggerSource;
+  },
+) {
   console.log('onChange:', value, context);
   console.log('timestamp:', context.dayjsValue.valueOf());
   console.log('YYYYMMDD:', context.dayjsValue.format('YYYYMMDD'));
 }
 
-function handleMonthChange(context) {
+function handleMonthChange(context: {
+  month: number;
+  date: Date;
+  e?: MouseEvent;
+  trigger: DatePickerMonthChangeTrigger;
+}) {
   console.log('onMonthChange:', context);
 }
 
-function handleYearChange(context) {
+function handleYearChange(context: { year: number; date: Date; trigger: DatePickerYearChangeTrigger; e?: MouseEvent }) {
   console.log('onYearChange:', context);
 }
 </script>

@@ -24,7 +24,7 @@ import { SlotReturnValue } from '../common';
 import Affix from '../affix';
 import { TdAnchorProps } from './type';
 
-import { AnchorInjectionKey } from './consts';
+import { AnchorInjectionKey } from './constants';
 
 export interface Anchor extends ComponentPublicInstance {
   scrollContainer: ANCHOR_CONTAINER;
@@ -40,7 +40,7 @@ export default defineComponent({
     const anchorRef = ref<HTMLElement | null>(null);
     const links = ref<string[]>([]);
     const active = ref('');
-    const scrollContainer = ref<ANCHOR_CONTAINER>(null);
+    const scrollContainer = ref<ANCHOR_CONTAINER>();
     const handleScrollLock = ref<boolean>(false);
     const activeLineStyle = reactive({});
     const COMPONENT_NAME = usePrefixClass('anchor');
