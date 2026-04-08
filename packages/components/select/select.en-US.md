@@ -47,19 +47,19 @@ suffixIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definitio
 tagInputProps | Object | - | Typescript：`TagInputProps`，[TagInput API Documents](./tag-input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts) | N
 tagProps | Object | - | Typescript：`TagProps`，[Tag API Documents](./tag?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts) | N
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-value | String / Number / Boolean / Object / Array | - | `v-model` and `v-model:value` is supported。Typescript：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string \| number \| boolean \| T \| Array<SelectValue<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts) | N
-defaultValue | String / Number / Boolean / Object / Array | - | uncontrolled property。Typescript：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string \| number \| boolean \| T \| Array<SelectValue<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts) | N
+value | String / Number / Boolean / Bigint / Object / Array | - | `v-model` and `v-model:value` is supported。Typescript：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string \| number \| boolean \| bigint \| T \| Array<SelectValue<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts) | N
+defaultValue | String / Number / Boolean / Bigint / Object / Array | - | uncontrolled property。Typescript：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string \| number \| boolean \| bigint \| T \| Array<SelectValue<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts) | N
 valueDisplay | String / Slot / Function | - | `MouseEvent<SVGElement>`。Typescript：`string \| TNode<{ value: SelectValue; onClose: (index: number) => void; displayValue?: SelectValue; label?: string }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 valueType | String | value | options: value/object | N
 onBlur | Function |  | Typescript：`(context: { value: SelectValue; e: FocusEvent \| KeyboardEvent }) => void`<br/> | N
 onChange | Function |  | Typescript：`(value: SelectValue, context: { option?: T, selectedOptions: T[], trigger: SelectValueChangeTrigger; e?: MouseEvent \| KeyboardEvent }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts)。<br/>`type SelectValueChangeTrigger = 'clear' \| 'tag-remove' \| 'backspace' \| 'check' \| 'uncheck' \| 'default'`<br/> | N
 onClear | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
-onCreate | Function |  | Typescript：`(value: string \| number \| boolean) => void`<br/> | N
+onCreate | Function |  | Typescript：`(value: string \| number \| boolean \| bigint) => void`<br/> | N
 onEnter | Function |  | Typescript：`(context: { inputValue: string; e: KeyboardEvent; value: SelectValue }) => void`<br/> | N
 onFocus | Function |  | Typescript：`(context: { value: SelectValue; e: FocusEvent \| KeyboardEvent }) => void`<br/> | N
 onInputChange | Function |  | Typescript：`(value: InputValue, context?: SelectInputValueChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts)。<br/>`import { SelectInputValueChangeContext } from '@SelectInput'`<br/> | N
 onPopupVisibleChange | Function |  | Typescript：`(visible: boolean, context: PopupVisibleChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts)。<br/>`import { PopupVisibleChangeContext } from '@Popup'`<br/> | N
-onRemove | Function |  | Typescript：`(options: SelectRemoveContext<T>) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts)。<br/>`interface SelectRemoveContext<T> { value: string \| number; data: T; e: MouseEvent \| KeyboardEvent }`<br/> | N
+onRemove | Function |  | Typescript：`(options: SelectRemoveContext<T>) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts)。<br/>`interface SelectRemoveContext<T> { value: string \| number \| bigint; data: T; e: MouseEvent \| KeyboardEvent }`<br/> | N
 onSearch | Function |  | Typescript：`(filterWords: string, context: { e: KeyboardEvent }) => void`<br/> | N
 
 ### Select Events
@@ -74,7 +74,7 @@ enter | `(context: { inputValue: string; e: KeyboardEvent; value: SelectValue })
 focus | `(context: { value: SelectValue; e: FocusEvent \| KeyboardEvent })` | \-
 input-change | `(value: InputValue, context?: SelectInputValueChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts)。<br/>`import { SelectInputValueChangeContext } from '@SelectInput'`<br/>
 popup-visible-change | `(visible: boolean, context: PopupVisibleChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts)。<br/>`import { PopupVisibleChangeContext } from '@Popup'`<br/>
-remove | `(options: SelectRemoveContext<T>)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts)。<br/>`interface SelectRemoveContext<T> { value: string \| number; data: T; e: MouseEvent \| KeyboardEvent }`<br/>
+remove | `(options: SelectRemoveContext<T>)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/select/type.ts)。<br/>`interface SelectRemoveContext<T> { value: string \| number \| bigint; data: T; e: MouseEvent \| KeyboardEvent }`<br/>
 search | `(filterWords: string, context: { e: KeyboardEvent })` | \-
 
 
@@ -88,7 +88,7 @@ default | String / Slot / Function | - | Typescript：`string \| TNode`。[see m
 disabled | Boolean | false | \- | N
 label | String | - | \- | N
 title | String | - | \- | N
-value | String / Number / Boolean | - | \- | N
+value | String / Number / Boolean / Bigint | - | \- | N
 
 
 ### OptionGroup Props

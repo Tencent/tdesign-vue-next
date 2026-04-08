@@ -4,13 +4,16 @@
   </t-config-provider>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { LockOnIcon, LockOffIcon } from 'tdesign-icons-vue-next';
+import type { GlobalConfigProvider } from 'tdesign-vue-next';
 
 // 支持全局定义 icon
-const globalConfig = {
+const globalConfig: GlobalConfigProvider = {
   icon: {
+    // @ts-ignore TODO
     BrowseOffIcon: LockOnIcon,
+    // @ts-ignore TODO
     BrowseIcon: LockOffIcon,
   },
 };

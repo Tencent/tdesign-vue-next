@@ -19,10 +19,11 @@
     </t-avatar-group>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { UserIcon, EllipsisIcon } from 'tdesign-icons-vue-next';
+import type { AvatarProps, AvatarGroupProps } from 'tdesign-vue-next';
 
-const icon = () => <UserIcon />;
-const ellipsisIcon = () => <EllipsisIcon />;
-const image = 'https://tdesign.gtimg.com/site/avatar.jpg';
+const icon: AvatarProps['icon'] = () => <UserIcon />;
+const ellipsisIcon: AvatarGroupProps['collapseAvatar'] = () => <EllipsisIcon />;
+const image: AvatarProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>

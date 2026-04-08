@@ -4,3 +4,4 @@ export * from './useRangeValue';
 export * from './useSingle';
 export * from './useSingleValue';
 export * from './useTableData';
+export * from './useSelectRange';

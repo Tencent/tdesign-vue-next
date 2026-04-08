@@ -87,15 +87,17 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { reactive } from 'vue';
 
 const controllerConfig = reactive({
   visible: true,
-  disabled: false, // 是否禁用（全部控件）
+  disabled: false,
+  // 是否禁用（全部控件）
   // 年份选择框组件相关设置
   year: {
-    visible: true, // 是否显示
+    visible: true,
+    // 是否显示
     selectProps: {
       // 用于透传props给该select组件
       disabled: false,
@@ -104,7 +106,8 @@ const controllerConfig = reactive({
   },
   // 月份选择框组件相关设置
   month: {
-    visible: true, // 是否显示（“year”模式下本身是不显示该组件的）
+    visible: true,
+    // 是否显示（“year”模式下本身是不显示该组件的）
     selectProps: {
       // 用于透传props给该select组件
       disabled: false,
@@ -113,7 +116,8 @@ const controllerConfig = reactive({
   },
   // 模式切换单选组件设置
   mode: {
-    visible: true, // 是否显示
+    visible: true,
+    // 是否显示
     radioGroupProps: {
       disabled: false,
       size: 'small',
@@ -121,7 +125,8 @@ const controllerConfig = reactive({
   },
   // 隐藏\显示周末按钮组件相关设置
   weekend: {
-    visible: true, // 是否显示
+    visible: true,
+    // 是否显示
     showWeekendButtonProps: {
       // 用于透传props给显示周末按钮组件
       disabled: false,
@@ -136,7 +141,8 @@ const controllerConfig = reactive({
   },
   // “今天\本月”按钮组件相关设置
   current: {
-    visible: true, // 是否显示
+    visible: true,
+    // 是否显示
     currentDayButtonProps: {
       // 用于透传props给“今天”钮组件（“month”模式下有效）
       disabled: false,

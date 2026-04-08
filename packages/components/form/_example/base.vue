@@ -35,32 +35,45 @@
     </t-form-item>
   </t-form>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import type { FormProps, FormInstanceFunctions, CheckboxGroupProps, InputProps } from 'tdesign-vue-next';
 
-const FORM_RULES = { name: [{ required: true, message: '姓名必填' }] };
-
-const formData = reactive({
+const FORM_RULES: FormProps['rules'] = {
+  name: [
+    {
+      required: true,
+      message: '姓名必填',
+    },
+  ],
+};
+const formData: FormProps['data'] = reactive({
   name: '',
   tel: '',
   gender: '',
   course: [],
   status: false,
 });
-const form = ref(null);
-
-const courseOptions = [
-  { label: '语文', value: '1' },
-  { label: '数学', value: '2' },
-  { label: '英语', value: '3' },
+const form = ref<FormInstanceFunctions>(null);
+const courseOptions: CheckboxGroupProps['options'] = [
+  {
+    label: '语文',
+    value: '1',
+  },
+  {
+    label: '数学',
+    value: '2',
+  },
+  {
+    label: '英语',
+    value: '3',
+  },
 ];
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
@@ -72,7 +85,9 @@ const onSubmit = ({ validateResult, firstError }) => {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const submitForm = async () => {
   form.value.submit();
-  form.value.submit({ showErrorMessage: false });
+  form.value.submit({
+    showErrorMessage: false,
+  });
 
   // 校验数据，代码有效，勿删
   // form.value.validate();
@@ -104,7 +119,7 @@ const validateOnly = async () => {
 };
 
 // 禁用 Input 组件，按下 Enter 键时，触发 submit 事件
-const onEnter = (_, { e }) => {
+const onEnter: InputProps['onEnter'] = (_, { e }) => {
   e.preventDefault();
 };
 </script>

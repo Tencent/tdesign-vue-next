@@ -5,6 +5,48 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.5.2 `2026-03-27`
+
+### 🚀 Features
+
+- `ChatSender`: Added `sendBtnDisabled` to control whether the send button is disabled @zydemail ([#6494](https://github.com/Tencent/tdesign-vue-next/pull/6494))
+
+### 🐞 Bug Fixes
+
+- Fixed an issue where component types were lost when using global imports @liweijie0812 ([#6470](https://github.com/Tencent/tdesign-vue-next/pull/6470))
+- `ChatSender`:
+  - The `suffix` parameter now supports configuration in the format `[{ name: 'uploadImage', uploadProps: {...} }]` @RSS1102 ([#6519](https://github.com/Tencent/tdesign-vue-next/pull/6519))
+  - Using `suffix` with `attachment` will be deprecated soon; it’s recommended to use `uploadAttachment` instead @RSS1102 ([#6519](https://github.com/Tencent/tdesign-vue-next/pull/6519))
+- `Chatbot`: The `input-prefix` setting in `senderProps` no longer takes effect @RSS1102 ([#6519](https://github.com/Tencent/tdesign-vue-next/pull/6519))
+
+## 🌈 0.5.1 `2026-03-09`
+
+### 🐞 Bug Fixes
+
+- `Attachments`: Fixed an issue with the display of image attachments @uyarn ([#6472](https://github.com/Tencent/tdesign-vue-next/pull/6472))
+- `ChatMarkdown`: Fixed an issue where linked URLs in Markdown did not open properly @uyarn ([#6472](https://github.com/Tencent/tdesign-vue-next/pull/6472))
+
+## 🌈 0.5.0 `2026-03-05`
+
+### 🚨 Breaking Changes
+
+- `ChatAction`: Renamed to `ChatActionbar` for dialogue operations. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `Chat`: Renamed to `ChatList` @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+
+### 🚀 New Features
+
+- `Attachments`: Added a new `Attachments` component for displaying file attachments. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatEngine`: Added a headless enigne core `ChatEngine`. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatMarkdown`: Introduced a `ChatMarkdown` component for rendering Markdown content, supporting advanced streaming rendering capabilities including various formats like Mermaid. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatMessage`: Added a `ChatMessage` component for displaying individual messages in chat conversations. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `ChatThinking`: A component for representing thought processes, similar to the original `ChatReasoning` function. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+- `Chatbot`: Added a `Chatbot` component for intelligent dialogue systems, useful for quickly integrating AI applications such as customer service and Q&A systems. @zydemail ([#6150](https://github.com/Tencent/tdesign-vue-next/pull/6150))
+
+### 📝 Documentation
+
+- All new components are implemented using Web Components. For style customization, refer to [Custom Styles](https://tdesign.tencent.com/chat/custom-style).
+- If there is a need for multi-language configuration, it is recommended to continue using [version 0.4.x](https://0_4_6-tdesign-vue-next-chat.surge.sh/chat/getting-started)
+
 ## 🌈 0.4.6 `2025-09-12` 
 
 ### 🐞 Bug Fixes

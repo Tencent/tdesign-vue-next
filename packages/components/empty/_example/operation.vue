@@ -5,7 +5,8 @@
     </template>
   </t-empty>
 </template>
-<script setup>
+
+<script lang="ts" setup>
 const goToIndex = () => {
   console.log('go to index');
   location.href = '/';

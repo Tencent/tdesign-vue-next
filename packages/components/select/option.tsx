@@ -32,6 +32,7 @@ export default defineComponent({
     isVirtual: Boolean,
     bufferSize: Number,
     checkAll: Boolean,
+    onRowMounted: Function,
   },
   emits: ['row-mounted'],
 

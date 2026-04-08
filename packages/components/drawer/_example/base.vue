@@ -7,17 +7,16 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import type { DrawerProps, ButtonProps } from 'tdesign-vue-next';
 
 const visible = ref(false);
-
-const handleClick = () => {
+const handleClick: ButtonProps['onClick'] = () => {
   visible.value = true;
 };
-
-const onClickConfirm = () => {
+const onClickConfirm: DrawerProps['onConfirm'] = () => {
   MessagePlugin.info('数据保存中...', 1000);
   const timer = setTimeout(() => {
     clearTimeout(timer);

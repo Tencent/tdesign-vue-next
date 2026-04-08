@@ -53,27 +53,24 @@
   </t-menu>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { MenuProps, ButtonProps, MenuItemProps } from 'tdesign-vue-next';
 
 const collapsed = ref(false);
 const iconUrl = ref('https://tdesign.gtimg.com/site/baseLogo-light.png');
-
-const changeCollapsed = () => {
+const changeCollapsed: ButtonProps['onClick'] = () => {
   collapsed.value = !collapsed.value;
   iconUrl.value = collapsed.value
     ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png'
     : 'https://tdesign.gtimg.com/site/baseLogo-light.png';
 };
-
-const handleExpand = (names) => {
+const handleExpand: MenuProps['onExpand'] = (names) => {
   console.log('receive handleExpand', names);
 };
-
-const changeHandler = (active) => {
+const changeHandler: MenuProps['onChange'] = (active) => {
   console.warn(active);
 };
-
-const expanded = ['2'];
-const disabled = true;
+const expanded: MenuProps['expanded'] = ['2'];
+const disabled: MenuItemProps['disabled'] = true;
 </script>

@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 const demoCols = [
   Array(12).fill(1),
   Array(6).fill(2),

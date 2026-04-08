@@ -20,79 +20,81 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
         class="t-upload__dragger-img-wrap"
       >
         
-        <div
-          class="t-image__wrapper t-image__wrapper--shape-square"
-          fallback=""
-          referrerpolicy="strict-origin-when-cross-origin"
-        >
-          <!---->
-          <!---->
-          <!---->
-          <img
-            alt=""
-            class="t-image t-image--fit-fill t-image--position-center"
-            referrerpolicy="strict-origin-when-cross-origin"
-            src="https://image4.png"
-          />
+        <div>
           <div
-            class="t-image__loading"
+            class="t-image__wrapper t-image__wrapper--shape-square"
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
           >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://image4.png"
+            />
             <div
-              class="t-space t-space-align-center t-space-vertical"
-              style="gap: 8px;"
+              class="t-image__loading"
             >
-              
-              
               <div
-                class="t-space-item"
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
               >
-                <svg
-                  class="t-icon t-icon-image"
-                  fill="none"
-                  height="1em"
-                  style="fill: none; font-size: 24px;"
-                  viewBox="0 0 24 24"
-                  width="1em"
+                
+                
+                <div
+                  class="t-space-item"
                 >
-                  <g
-                    id="image"
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="fill: none; font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
                   >
-                    <path
-                      d="M3 21H20L9 10L3 16V21Z"
-                      fill="transparent"
-                      id="fill1"
-                    />
-                    <circle
-                      cx="15.75"
-                      cy="8.25"
-                      fill="transparent"
-                      id="fill2"
-                      r="2"
-                    />
-                    <path
-                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
-                      id="stroke1"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                    <circle
-                      cx="15.75"
-                      cy="8.25"
-                      id="stroke2"
-                      r="2"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                  </g>
-                </svg>
+                    <g
+                      id="image"
+                    >
+                      <path
+                        d="M3 21H20L9 10L3 16V21Z"
+                        fill="transparent"
+                        id="fill1"
+                      />
+                      <circle
+                        cx="15.75"
+                        cy="8.25"
+                        fill="transparent"
+                        id="fill2"
+                        r="2"
+                      />
+                      <path
+                        d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                        id="stroke1"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <circle
+                        cx="15.75"
+                        cy="8.25"
+                        id="stroke2"
+                        r="2"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <!---->
+                
+                
               </div>
-              <!---->
-              
-              
             </div>
+            <!---->
+            <!---->
           </div>
-          <!---->
-          <!---->
         </div>
         <!--teleport start-->
         <transition-stub
@@ -217,79 +219,81 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
         class="t-upload__dragger-img-wrap"
       >
         
-        <div
-          class="t-image__wrapper t-image__wrapper--shape-square"
-          fallback=""
-          referrerpolicy="strict-origin-when-cross-origin"
-        >
-          <!---->
-          <!---->
-          <!---->
-          <img
-            alt=""
-            class="t-image t-image--fit-fill t-image--position-center"
-            referrerpolicy="strict-origin-when-cross-origin"
-            src="https://image2.png"
-          />
+        <div>
           <div
-            class="t-image__loading"
+            class="t-image__wrapper t-image__wrapper--shape-square"
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
           >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://image2.png"
+            />
             <div
-              class="t-space t-space-align-center t-space-vertical"
-              style="gap: 8px;"
+              class="t-image__loading"
             >
-              
-              
               <div
-                class="t-space-item"
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
               >
-                <svg
-                  class="t-icon t-icon-image"
-                  fill="none"
-                  height="1em"
-                  style="fill: none; font-size: 24px;"
-                  viewBox="0 0 24 24"
-                  width="1em"
+                
+                
+                <div
+                  class="t-space-item"
                 >
-                  <g
-                    id="image"
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="fill: none; font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
                   >
-                    <path
-                      d="M3 21H20L9 10L3 16V21Z"
-                      fill="transparent"
-                      id="fill1"
-                    />
-                    <circle
-                      cx="15.75"
-                      cy="8.25"
-                      fill="transparent"
-                      id="fill2"
-                      r="2"
-                    />
-                    <path
-                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
-                      id="stroke1"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                    <circle
-                      cx="15.75"
-                      cy="8.25"
-                      id="stroke2"
-                      r="2"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                  </g>
-                </svg>
+                    <g
+                      id="image"
+                    >
+                      <path
+                        d="M3 21H20L9 10L3 16V21Z"
+                        fill="transparent"
+                        id="fill1"
+                      />
+                      <circle
+                        cx="15.75"
+                        cy="8.25"
+                        fill="transparent"
+                        id="fill2"
+                        r="2"
+                      />
+                      <path
+                        d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                        id="stroke1"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <circle
+                        cx="15.75"
+                        cy="8.25"
+                        id="stroke2"
+                        r="2"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <!---->
+                
+                
               </div>
-              <!---->
-              
-              
             </div>
+            <!---->
+            <!---->
           </div>
-          <!---->
-          <!---->
         </div>
         <!--teleport start-->
         <transition-stub
@@ -323,7 +327,6 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
               <svg
                 class="t-loading__gradient t-icon-loading"
                 height="1em"
-                size="medium"
                 version="1.1"
                 viewBox="0 0 12 12"
                 width="1em"
@@ -418,79 +421,81 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
         class="t-upload__dragger-img-wrap"
       >
         
-        <div
-          class="t-image__wrapper t-image__wrapper--shape-square"
-          fallback=""
-          referrerpolicy="strict-origin-when-cross-origin"
-        >
-          <!---->
-          <!---->
-          <!---->
-          <img
-            alt=""
-            class="t-image t-image--fit-fill t-image--position-center"
-            referrerpolicy="strict-origin-when-cross-origin"
-            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
-          />
+        <div>
           <div
-            class="t-image__loading"
+            class="t-image__wrapper t-image__wrapper--shape-square"
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
           >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+            />
             <div
-              class="t-space t-space-align-center t-space-vertical"
-              style="gap: 8px;"
+              class="t-image__loading"
             >
-              
-              
               <div
-                class="t-space-item"
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
               >
-                <svg
-                  class="t-icon t-icon-image"
-                  fill="none"
-                  height="1em"
-                  style="fill: none; font-size: 24px;"
-                  viewBox="0 0 24 24"
-                  width="1em"
+                
+                
+                <div
+                  class="t-space-item"
                 >
-                  <g
-                    id="image"
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="fill: none; font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
                   >
-                    <path
-                      d="M3 21H20L9 10L3 16V21Z"
-                      fill="transparent"
-                      id="fill1"
-                    />
-                    <circle
-                      cx="15.75"
-                      cy="8.25"
-                      fill="transparent"
-                      id="fill2"
-                      r="2"
-                    />
-                    <path
-                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
-                      id="stroke1"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                    <circle
-                      cx="15.75"
-                      cy="8.25"
-                      id="stroke2"
-                      r="2"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                  </g>
-                </svg>
+                    <g
+                      id="image"
+                    >
+                      <path
+                        d="M3 21H20L9 10L3 16V21Z"
+                        fill="transparent"
+                        id="fill1"
+                      />
+                      <circle
+                        cx="15.75"
+                        cy="8.25"
+                        fill="transparent"
+                        id="fill2"
+                        r="2"
+                      />
+                      <path
+                        d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                        id="stroke1"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <circle
+                        cx="15.75"
+                        cy="8.25"
+                        id="stroke2"
+                        r="2"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <!---->
+                
+                
               </div>
-              <!---->
-              
-              
             </div>
+            <!---->
+            <!---->
           </div>
-          <!---->
-          <!---->
         </div>
         <!--teleport start-->
         <transition-stub
@@ -615,79 +620,81 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
         class="t-upload__dragger-img-wrap"
       >
         
-        <div
-          class="t-image__wrapper t-image__wrapper--shape-square"
-          fallback=""
-          referrerpolicy="strict-origin-when-cross-origin"
-        >
-          <!---->
-          <!---->
-          <!---->
-          <img
-            alt=""
-            class="t-image t-image--fit-fill t-image--position-center"
-            referrerpolicy="strict-origin-when-cross-origin"
-            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
-          />
+        <div>
           <div
-            class="t-image__loading"
+            class="t-image__wrapper t-image__wrapper--shape-square"
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
           >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+            />
             <div
-              class="t-space t-space-align-center t-space-vertical"
-              style="gap: 8px;"
+              class="t-image__loading"
             >
-              
-              
               <div
-                class="t-space-item"
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
               >
-                <svg
-                  class="t-icon t-icon-image"
-                  fill="none"
-                  height="1em"
-                  style="fill: none; font-size: 24px;"
-                  viewBox="0 0 24 24"
-                  width="1em"
+                
+                
+                <div
+                  class="t-space-item"
                 >
-                  <g
-                    id="image"
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="fill: none; font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
                   >
-                    <path
-                      d="M3 21H20L9 10L3 16V21Z"
-                      fill="transparent"
-                      id="fill1"
-                    />
-                    <circle
-                      cx="15.75"
-                      cy="8.25"
-                      fill="transparent"
-                      id="fill2"
-                      r="2"
-                    />
-                    <path
-                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
-                      id="stroke1"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                    <circle
-                      cx="15.75"
-                      cy="8.25"
-                      id="stroke2"
-                      r="2"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                  </g>
-                </svg>
+                    <g
+                      id="image"
+                    >
+                      <path
+                        d="M3 21H20L9 10L3 16V21Z"
+                        fill="transparent"
+                        id="fill1"
+                      />
+                      <circle
+                        cx="15.75"
+                        cy="8.25"
+                        fill="transparent"
+                        id="fill2"
+                        r="2"
+                      />
+                      <path
+                        d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                        id="stroke1"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <circle
+                        cx="15.75"
+                        cy="8.25"
+                        id="stroke2"
+                        r="2"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <!---->
+                
+                
               </div>
-              <!---->
-              
-              
             </div>
+            <!---->
+            <!---->
           </div>
-          <!---->
-          <!---->
         </div>
         <!--teleport start-->
         <transition-stub
@@ -812,79 +819,81 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
         class="t-upload__dragger-img-wrap"
       >
         
-        <div
-          class="t-image__wrapper t-image__wrapper--shape-square"
-          fallback=""
-          referrerpolicy="strict-origin-when-cross-origin"
-        >
-          <!---->
-          <!---->
-          <!---->
-          <img
-            alt=""
-            class="t-image t-image--fit-fill t-image--position-center"
-            referrerpolicy="strict-origin-when-cross-origin"
-            src="https://image3.png"
-          />
+        <div>
           <div
-            class="t-image__loading"
+            class="t-image__wrapper t-image__wrapper--shape-square"
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
           >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://image3.png"
+            />
             <div
-              class="t-space t-space-align-center t-space-vertical"
-              style="gap: 8px;"
+              class="t-image__loading"
             >
-              
-              
               <div
-                class="t-space-item"
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
               >
-                <svg
-                  class="t-icon t-icon-image"
-                  fill="none"
-                  height="1em"
-                  style="fill: none; font-size: 24px;"
-                  viewBox="0 0 24 24"
-                  width="1em"
+                
+                
+                <div
+                  class="t-space-item"
                 >
-                  <g
-                    id="image"
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="fill: none; font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
                   >
-                    <path
-                      d="M3 21H20L9 10L3 16V21Z"
-                      fill="transparent"
-                      id="fill1"
-                    />
-                    <circle
-                      cx="15.75"
-                      cy="8.25"
-                      fill="transparent"
-                      id="fill2"
-                      r="2"
-                    />
-                    <path
-                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
-                      id="stroke1"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                    <circle
-                      cx="15.75"
-                      cy="8.25"
-                      id="stroke2"
-                      r="2"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                  </g>
-                </svg>
+                    <g
+                      id="image"
+                    >
+                      <path
+                        d="M3 21H20L9 10L3 16V21Z"
+                        fill="transparent"
+                        id="fill1"
+                      />
+                      <circle
+                        cx="15.75"
+                        cy="8.25"
+                        fill="transparent"
+                        id="fill2"
+                        r="2"
+                      />
+                      <path
+                        d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                        id="stroke1"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <circle
+                        cx="15.75"
+                        cy="8.25"
+                        id="stroke2"
+                        r="2"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <!---->
+                
+                
               </div>
-              <!---->
-              
-              
             </div>
+            <!---->
+            <!---->
           </div>
-          <!---->
-          <!---->
         </div>
         <!--teleport start-->
         <transition-stub
@@ -1221,7 +1230,6 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
                 <svg
                   class="t-loading__gradient t-icon-loading"
                   height="1em"
-                  size="medium"
                   version="1.1"
                   viewBox="0 0 12 12"
                   width="1em"
@@ -2101,7 +2109,6 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                 <svg
                   class="t-loading__gradient t-icon-loading"
                   height="1em"
-                  size="medium"
                   version="1.1"
                   viewBox="0 0 12 12"
                   width="1em"

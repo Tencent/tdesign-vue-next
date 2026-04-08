@@ -27,43 +27,41 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed } from 'vue';
+import type { InputNumberProps } from 'tdesign-vue-next';
 
 const value1 = ref('');
 const value2 = ref(100);
 const decimalValue = ref(3.41);
 const error = ref(undefined);
-
-const tips = computed(() => {
+const tips = computed<InputNumberProps['tips']>(() => {
   if (error.value === 'exceed-maximum') return 'number can not be exceed maximum';
   if (error.value === 'below-minimum') return 'number can not be below minimum';
   return undefined;
 });
-
-const onValidate = (p) => {
+const onValidate: InputNumberProps['onValidate'] = (p) => {
   error.value = p.error;
 };
-
-const handleChange = (v, ctx) => {
+const handleChange: InputNumberProps['onChange'] = (v, ctx) => {
   console.info('change', v, ctx);
 };
-const handleFocus = (v, ctx) => {
+const handleFocus: InputNumberProps['onFocus'] = (v, ctx) => {
   console.info('focus', v, ctx);
 };
-const handleBlur = (v, ctx) => {
+const handleBlur: InputNumberProps['onBlur'] = (v, ctx) => {
   console.info('blur', v, ctx);
 };
-const handleKeydownEnter = (v, ctx) => {
+const handleKeydownEnter: InputNumberProps['onKeydownEnter'] = (v, ctx) => {
   console.info('keydown-enter', v, ctx);
 };
-const handleKeydown = (v, ctx) => {
+const handleKeydown: InputNumberProps['onKeydown'] = (v, ctx) => {
   console.info('keydown', v, ctx);
 };
-const handleKeyup = (v, ctx) => {
+const handleKeyup: InputNumberProps['onKeyup'] = (v, ctx) => {
   console.info('keyup', v, ctx);
 };
-const handleKeypress = (v, ctx) => {
+const handleKeypress: InputNumberProps['onKeypress'] = (v, ctx) => {
   console.info('keypress', v, ctx);
 };
 </script>
