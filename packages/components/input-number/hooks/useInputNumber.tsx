@@ -215,9 +215,11 @@ export default function useInputNumber(props: TdInputNumberProps) {
         //  空值不处理，只在非法输入时修正
         if (isValidNumber(tValue.value) && tValue.value < min) {
           setTValue(min, { type: 'blur', e: ctx.e });
+          props.onBlur?.(min, ctx);
+        } else {
+          props.onBlur?.(tValue.value, ctx);
         }
 
-        props.onBlur?.(min, ctx);
         return;
       }
       // 当值不为 undefined 时，进行范围检查
@@ -226,8 +228,10 @@ export default function useInputNumber(props: TdInputNumberProps) {
         if (r === 'below-minimum') {
           if (isValidNumber(tValue.value) && tValue.value < min) {
             setTValue(min, { type: 'blur', e: ctx.e });
+            props.onBlur?.(min, ctx);
+          } else {
+            props.onBlur?.(tValue.value, ctx);
           }
-          props.onBlur?.(min, ctx);
           return;
         }
         if (r === 'exceed-maximum') {
