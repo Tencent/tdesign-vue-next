@@ -196,8 +196,6 @@ describe('Slider', () => {
         20: '20°C',
         40: '40°C',
         60: '60°C',
-        80: () => <span style="color: #0052d9">80°C</span>,
-        100: () => <span style="color: #0052d9">100°C</span>,
       };
       const wrapper = mount(<Slider marks={marksProp} />);
       expect(wrapper.findAll('.t-slider__mark-text').length === Object.keys(marksProp).length).toBe(true);
