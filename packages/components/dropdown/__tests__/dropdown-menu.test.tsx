@@ -234,6 +234,7 @@ describe('DropdownMenu', () => {
         },
       ];
 
+      // 子菜单统一通过 Popup 渲染，验证 Popup 的 placement 属性
       const wrapperRight = mount(DropdownMenu, {
         props: {
           options,
@@ -242,7 +243,9 @@ describe('DropdownMenu', () => {
         attachTo: document.body,
       });
 
-      expect(wrapperRight.find('.t-dropdown__submenu-wrapper--right').exists()).toBe(true);
+      const popupRight = wrapperRight.findComponent({ name: 'TPopup' });
+      expect(popupRight.exists()).toBe(true);
+      expect(popupRight.props('placement')).toBe('right-top');
 
       wrapperRight.unmount();
 
@@ -254,7 +257,9 @@ describe('DropdownMenu', () => {
         attachTo: document.body,
       });
 
-      expect(wrapperLeft.find('.t-dropdown__submenu-wrapper--left').exists()).toBe(true);
+      const popupLeft = wrapperLeft.findComponent({ name: 'TPopup' });
+      expect(popupLeft.exists()).toBe(true);
+      expect(popupLeft.props('placement')).toBe('left-top');
       wrapperLeft.unmount();
     });
 
