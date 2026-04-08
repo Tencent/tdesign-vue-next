@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { vi } from 'vitest';
+import { expect, vi } from 'vitest';
 import { FileCopyIcon } from 'tdesign-icons-vue-next';
 
 // Mock utils
@@ -27,60 +27,66 @@ describe('AnchorTarget', () => {
     copyText = utils.copyText;
   });
 
-  it('props: id', () => {
-    const wrapper = mount(AnchorTarget, {
-      props: {
-        id: 'test-id',
-      },
+  describe('props', () => {
+    it(':id[string]', () => {
+      const wrapper = mount(AnchorTarget, {
+        props: {
+          id: 'test-id',
+        },
+      });
+      expect(wrapper.attributes('id')).toBe('test-id');
     });
-    expect(wrapper.attributes('id')).toBe('test-id');
+
+    it(':tag[string]', () => {
+      const wrapper = mount(AnchorTarget, {
+        props: {
+          id: 'test-id',
+          tag: 'span',
+        },
+      });
+      expect(wrapper.element.tagName).toBe('SPAN');
+    });
+
+    it(':tag default', () => {
+      const wrapper = mount(AnchorTarget, {
+        props: {
+          id: 'test-id',
+        },
+      });
+      expect(wrapper.element.tagName).toBe('DIV');
+    });
   });
 
-  it('props: tag', () => {
-    const wrapper = mount(AnchorTarget, {
-      props: {
-        id: 'test-id',
-        tag: 'span',
-      },
+  describe('slots', () => {
+    it('default', () => {
+      const wrapper = mount(AnchorTarget, {
+        props: { id: 'test-id' },
+        slots: { default: '<div>Slot Content</div>' },
+      });
+      expect(wrapper.text()).toBe('Slot Content');
     });
-    expect(wrapper.element.tagName).toBe('SPAN');
   });
 
-  it('props: tag default', () => {
-    const wrapper = mount(AnchorTarget, {
-      props: {
-        id: 'test-id',
-      },
-    });
-    expect(wrapper.element.tagName).toBe('DIV');
-  });
-
-  it('slots: default', () => {
-    const wrapper = mount(AnchorTarget, {
-      props: { id: 'test-id' },
-      slots: { default: '<div>Slot Content</div>' },
-    });
-    expect(wrapper.text()).toBe('Slot Content');
-  });
-
-  it('copy text', async () => {
-    const wrapper = mount(AnchorTarget, {
-      props: {
-        id: 'test-id',
-      },
-      global: {
-        stubs: {
-          Popup: {
-            template: '<div><slot /></div>',
+  describe('events', () => {
+    it('copy text', async () => {
+      const wrapper = mount(AnchorTarget, {
+        props: {
+          id: 'test-id',
+        },
+        global: {
+          stubs: {
+            Popup: {
+              template: '<div><slot /></div>',
+            },
           },
         },
-      },
+      });
+
+      const icon = wrapper.findComponent(FileCopyIcon);
+      await icon.trigger('click');
+
+      expect(copyText).toHaveBeenCalledWith('http://localhost:3000/#test-id');
+      expect(Message.success).toHaveBeenCalled();
     });
-
-    const icon = wrapper.findComponent(FileCopyIcon);
-    await icon.trigger('click');
-
-    expect(copyText).toHaveBeenCalledWith('http://localhost:3000/#test-id');
-    expect(Message.success).toHaveBeenCalled();
   });
 });

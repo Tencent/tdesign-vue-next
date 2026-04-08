@@ -1,8 +1,8 @@
-/* eslint-disable vue/one-component-per-file */
 import { mount } from '@vue/test-utils';
 import { Anchor, AnchorItem, AnchorTarget } from '@tdesign/components/anchor';
 import { Affix } from '@tdesign/components/affix';
-import { nextTick, defineComponent, h } from 'vue';
+import anchorProps from '@tdesign/components/anchor/props';
+import { nextTick, h } from 'vue';
 import { vi } from 'vitest';
 
 // Mock shared-utils
@@ -16,48 +16,41 @@ vi.mock('@tdesign/shared-utils', async () => {
 });
 
 describe('Anchor', () => {
-  describe(':base', () => {
-    it('render', () => {
+  describe('props', () => {
+    it(':render', () => {
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor>
-                <AnchorItem href="#基础锚点" title="基础锚点"></AnchorItem>
-                <AnchorItem href="#多级锚点" title="多级锚点"></AnchorItem>
-                <AnchorItem href="#指定容器锚点" title="指定容器锚点"></AnchorItem>
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor>
+          <AnchorItem href="#基础锚点" title="基础锚点"></AnchorItem>
+          <AnchorItem href="#多级锚点" title="多级锚点"></AnchorItem>
+          <AnchorItem href="#指定容器锚点" title="指定容器锚点"></AnchorItem>
+        </Anchor>,
       );
       expect(wrapper.find('.t-anchor').exists()).toBeTruthy();
       const AnchorItemList = wrapper.findAllComponents(AnchorItem);
       expect(AnchorItemList.length).toBe(3);
     });
 
-    it('render AnchorTarget', () => {
+    it(':render AnchorTarget', () => {
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor>
-                <AnchorTarget id="anchor-target-1"></AnchorTarget>
-                <AnchorTarget id="anchor-target-2"></AnchorTarget>
-                <AnchorTarget id="anchor-target-3"></AnchorTarget>
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor>
+          <AnchorTarget id="anchor-target-1"></AnchorTarget>
+          <AnchorTarget id="anchor-target-2"></AnchorTarget>
+          <AnchorTarget id="anchor-target-3"></AnchorTarget>
+        </Anchor>,
       );
       expect(wrapper.find('.t-anchor').exists()).toBeTruthy();
       const AnchorTargetList = wrapper.findAllComponents(AnchorTarget);
       expect(AnchorTargetList.length).toBe(3);
     });
-  });
 
-  describe(':props', () => {
-    it('size', () => {
+    it(':size[string]', () => {
+      const validator = anchorProps.size.validator;
+      expect(validator('small')).toBe(true);
+      expect(validator('medium')).toBe(true);
+      expect(validator('large')).toBe(true);
+      // @ts-expect-error
+      expect(validator('other')).toBe(false);
+
       const wrapper = mount(Anchor, {
         props: { size: 'large' },
       });
@@ -69,7 +62,7 @@ describe('Anchor', () => {
       expect(wrapperSmall.find('.t-size-s').exists()).toBe(true);
     });
 
-    it('affixProps', () => {
+    it(':affixProps[object]', () => {
       const wrapper = mount(Anchor, {
         props: {
           affixProps: { offsetTop: 100 },
@@ -81,7 +74,7 @@ describe('Anchor', () => {
       expect(wrapper.findComponent(Affix).exists()).toBe(true);
     });
 
-    it('cursor', () => {
+    it(':cursor[function]', () => {
       const wrapper = mount(Anchor, {
         props: {
           cursor: () => h('div', { class: 'custom-cursor' }),
@@ -90,7 +83,7 @@ describe('Anchor', () => {
       expect(wrapper.find('.custom-cursor').exists()).toBe(true);
     });
 
-    it('cursor slot', () => {
+    it(':cursor[slot]', () => {
       const wrapper = mount(Anchor, {
         slots: {
           cursor: '<div class="slot-cursor"></div>',
@@ -99,7 +92,7 @@ describe('Anchor', () => {
       expect(wrapper.find('.slot-cursor').exists()).toBe(true);
     });
 
-    it('bounds and targetOffset', async () => {
+    it(':bounds[number] + :targetOffset[number]', async () => {
       const container = document.createElement('div');
       container.style.height = '500px';
       container.style.overflow = 'auto';
@@ -110,7 +103,6 @@ describe('Anchor', () => {
       target.style.height = '200px';
       container.appendChild(target);
 
-      // Mock getBoundingClientRect
       vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({
         top: 100,
         height: 200,
@@ -122,15 +114,9 @@ describe('Anchor', () => {
 
       // Case 1: bounds=5 (default), targetOffset=0. 100 < 5 is false. Not active.
       const wrapper1 = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container}>
-                <AnchorItem href="#item-1" title="Item 1" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container}>
+          <AnchorItem href="#item-1" title="Item 1" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -141,15 +127,9 @@ describe('Anchor', () => {
 
       // Case 2: bounds=150. 100 < 150 is true. Active.
       const wrapper2 = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container} bounds={150}>
-                <AnchorItem href="#item-1" title="Item 1" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container} bounds={150}>
+          <AnchorItem href="#item-1" title="Item 1" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -160,15 +140,9 @@ describe('Anchor', () => {
 
       // Case 3: targetOffset=150. 100 < 5 + 150 is true. Active.
       const wrapper3 = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container} targetOffset={150}>
-                <AnchorItem href="#item-1" title="Item 1" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container} targetOffset={150}>
+          <AnchorItem href="#item-1" title="Item 1" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -180,7 +154,7 @@ describe('Anchor', () => {
       document.body.removeChild(container);
     });
 
-    it('container as string', () => {
+    it(':container[string]', () => {
       const div = document.createElement('div');
       div.id = 'scroll-container';
       document.body.appendChild(div);
@@ -193,14 +167,14 @@ describe('Anchor', () => {
       document.body.removeChild(div);
     });
 
-    it('container as null', () => {
+    it(':container[null]', () => {
       const wrapper = mount(Anchor, {
         props: { container: null },
       });
       expect(wrapper.exists()).toBe(true);
     });
 
-    it('container as window', () => {
+    it(':container[function]', () => {
       const wrapper = mount(Anchor, {
         props: { container: () => window },
       });
@@ -208,19 +182,13 @@ describe('Anchor', () => {
     });
   });
 
-  describe(':events', () => {
-    it('onClick', async () => {
+  describe('events', () => {
+    it('click', async () => {
       const onClick = vi.fn();
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor onClick={onClick}>
-                <AnchorItem href="#item-1" title="Item 1" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor onClick={onClick}>
+          <AnchorItem href="#item-1" title="Item 1" />
+        </Anchor>,
       );
 
       const item = wrapper.findComponent(AnchorItem);
@@ -228,7 +196,7 @@ describe('Anchor', () => {
       expect(onClick).toHaveBeenCalled();
     });
 
-    it('onChange', async () => {
+    it('change', async () => {
       const container = document.createElement('div');
       container.style.height = '500px';
       container.style.overflow = 'auto';
@@ -260,16 +228,10 @@ describe('Anchor', () => {
 
       const onChange = vi.fn();
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container} onChange={onChange}>
-                <AnchorItem href="#item-1" title="Item 1" />
-                <AnchorItem href="#item-2" title="Item 2" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container} onChange={onChange}>
+          <AnchorItem href="#item-1" title="Item 1" />
+          <AnchorItem href="#item-2" title="Item 2" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -284,7 +246,7 @@ describe('Anchor', () => {
       wrapper.unmount();
     });
 
-    it('onChange not triggered for same value', async () => {
+    it('change not triggered for same value', async () => {
       const container = document.createElement('div');
       container.style.height = '500px';
       container.style.overflow = 'auto';
@@ -306,15 +268,9 @@ describe('Anchor', () => {
 
       const onChange = vi.fn();
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container} onChange={onChange}>
-                <AnchorItem href="#item-1" title="Item 1" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container} onChange={onChange}>
+          <AnchorItem href="#item-1" title="Item 1" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -333,7 +289,7 @@ describe('Anchor', () => {
     });
   });
 
-  describe(':internal methods', () => {
+  describe('internal', () => {
     it('handleScrollLock prevents scrolling', async () => {
       const container = document.createElement('div');
       container.style.height = '500px';
@@ -356,15 +312,9 @@ describe('Anchor', () => {
 
       const onChange = vi.fn();
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container} onChange={onChange}>
-                <AnchorItem href="#item-1" title="Item 1" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container} onChange={onChange}>
+          <AnchorItem href="#item-1" title="Item 1" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -395,16 +345,10 @@ describe('Anchor', () => {
       document.body.appendChild(container);
 
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container}>
-                <AnchorItem href="#non-existent" title="Non Existent" />
-                <AnchorItem href="invalid-link" title="Invalid Link" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container}>
+          <AnchorItem href="#non-existent" title="Non Existent" />
+          <AnchorItem href="invalid-link" title="Invalid Link" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -424,17 +368,11 @@ describe('Anchor', () => {
       document.body.appendChild(container);
 
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container}>
-                <AnchorItem href="#test1" title="Test 1" />
-                <AnchorItem href="#test2" title="Test 2" />
-                <AnchorItem href="invalid" title="Invalid" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container}>
+          <AnchorItem href="#test1" title="Test 1" />
+          <AnchorItem href="#test2" title="Test 2" />
+          <AnchorItem href="invalid" title="Invalid" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -497,15 +435,9 @@ describe('Anchor', () => {
 
       const onChange = vi.fn();
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container} onChange={onChange}>
-                <AnchorItem href="#test1" title="Test 1" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container} onChange={onChange}>
+          <AnchorItem href="#test1" title="Test 1" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -525,9 +457,8 @@ describe('Anchor', () => {
     });
   });
 
-  describe(':edge cases', () => {
+  describe('edge cases', () => {
     it('isServer case in getScrollContainer', async () => {
-      // Mock isServer to true
       const sharedUtils = await import('@tdesign/shared-utils');
       (sharedUtils as any).isServer = true;
 
@@ -537,25 +468,18 @@ describe('Anchor', () => {
 
       expect(wrapper.exists()).toBe(true);
 
-      // Restore isServer
       (sharedUtils as any).isServer = false;
     });
 
-    it('getAnchorTarget with non-matching link - use valid href', () => {
+    it('getAnchorTarget with non-matching link', () => {
       const container = document.createElement('div');
       document.body.appendChild(container);
 
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container}>
-                <AnchorItem href="#no-match-1" title="No Match 1" />
-                <AnchorItem href="#no-hash-valid" title="Valid but no target" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container}>
+          <AnchorItem href="#no-match-1" title="No Match 1" />
+          <AnchorItem href="#no-hash-valid" title="Valid but no target" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -570,15 +494,9 @@ describe('Anchor', () => {
       document.body.appendChild(container);
 
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container}>
-                <AnchorItem href="#no-target" title="No Target" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container}>
+          <AnchorItem href="#no-target" title="No Target" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -590,30 +508,22 @@ describe('Anchor', () => {
       wrapper.unmount();
     });
 
-    it('handleScrollTo with invalid link triggers getAnchorTarget early return', async () => {
+    it('handleScrollTo with invalid link', async () => {
       const container = document.createElement('div');
       document.body.appendChild(container);
 
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container}>
-                <AnchorItem href="#invalid-link" title="Invalid Link" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container}>
+          <AnchorItem href="#invalid-link" title="Invalid Link" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
       await nextTick();
 
-      // Trigger click on the invalid link
       const item = wrapper.findComponent(AnchorItem);
       await item.find('a').trigger('click');
 
-      // Should not throw error
       expect(true).toBe(true);
 
       document.body.removeChild(container);
@@ -625,25 +535,17 @@ describe('Anchor', () => {
       document.body.appendChild(container);
 
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container}>
-                <AnchorItem href="#not-exist" title="Not Exist" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container}>
+          <AnchorItem href="#not-exist" title="Not Exist" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
       await nextTick();
 
-      // Trigger scroll to call handleScroll -> getAnchorTarget
       container.dispatchEvent(new Event('scroll'));
       await nextTick();
 
-      // Trigger click to call handleScrollTo -> getAnchorTarget
       const item = wrapper.findComponent(AnchorItem);
       await item.find('a').trigger('click');
       await nextTick();
@@ -655,7 +557,7 @@ describe('Anchor', () => {
     });
   });
 
-  describe(':lifecycle', () => {
+  describe('lifecycle', () => {
     it('onMounted and onUnmounted work correctly', async () => {
       const container = document.createElement('div');
       container.id = 'test-container';
@@ -665,15 +567,9 @@ describe('Anchor', () => {
       const removeEventListenerSpy = vi.spyOn(container, 'removeEventListener');
 
       const wrapper = mount(
-        defineComponent({
-          render() {
-            return (
-              <Anchor container={() => container}>
-                <AnchorItem href="#item-1" title="Item 1" />
-              </Anchor>
-            );
-          },
-        }),
+        <Anchor container={() => container}>
+          <AnchorItem href="#item-1" title="Item 1" />
+        </Anchor>,
         { attachTo: document.body },
       );
 
@@ -696,29 +592,22 @@ describe('Anchor', () => {
 
       const addEventListenerSpy1 = vi.spyOn(container1, 'addEventListener');
 
-      const wrapper = mount(
-        defineComponent({
-          data() {
-            return {
-              currentContainer: container1,
-            };
-          },
-          render() {
-            return (
-              <Anchor container={() => (this as any).currentContainer}>
-                <AnchorItem href="#item-1" title="Item 1" />
-              </Anchor>
-            );
-          },
-        }),
-        { attachTo: document.body },
-      );
+      const containerRef = { value: container1 };
+      const wrapper = mount(Anchor, {
+        props: {
+          container: () => containerRef.value,
+        },
+        slots: {
+          default: () => <AnchorItem href="#item-1" title="Item 1" />,
+        },
+        attachTo: document.body,
+      });
 
       await nextTick();
 
       expect(addEventListenerSpy1).toHaveBeenCalledWith('scroll', expect.any(Function), undefined);
 
-      wrapper.setData({ currentContainer: null });
+      await wrapper.setProps({ container: null });
       await nextTick();
 
       wrapper.unmount();
