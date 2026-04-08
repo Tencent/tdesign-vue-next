@@ -286,7 +286,7 @@ describe('DropdownMenu', () => {
       });
 
       expect(wrapper.exists()).toBe(true);
-      expect(wrapper.find('.t-dropdown__submenu').exists()).toBe(true);
+      expect(wrapper.findComponent({ name: 'TPopup' }).exists()).toBe(true);
       wrapper.unmount();
     });
   });
@@ -507,7 +507,8 @@ describe('DropdownMenu', () => {
       wrapper.unmount();
     });
 
-    it('renders disabled nested menu', () => {
+    it('renders disabled nested menu', async () => {
+      const onClick = vi.fn();
       const options = [
         {
           content: 'Parent',
@@ -518,13 +519,20 @@ describe('DropdownMenu', () => {
       ];
 
       const wrapper = mount(DropdownMenu, {
-        props: {
-          options,
-        },
+        props: { options, onClick },
         attachTo: document.body,
       });
 
-      expect(wrapper.find('.t-dropdown__submenu--disabled').exists()).toBe(true);
+      // 点击 disabled 父项不应触发 onClick
+      const parentItem = wrapper.find('.t-dropdown__item--disabled');
+      expect(parentItem.exists()).toBe(true);
+      await parentItem.trigger('click');
+      expect(onClick).not.toHaveBeenCalled();
+
+      // Popup 的 disabled prop 应为 true，阻止子菜单弹出
+      const popup = wrapper.findComponent({ name: 'TPopup' });
+      expect(popup.props('disabled')).toBe(true);
+
       wrapper.unmount();
     });
   });

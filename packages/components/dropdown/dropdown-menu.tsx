@@ -54,12 +54,10 @@ export default defineComponent({
                 <Popup
                   trigger="hover"
                   placement={props.direction === 'left' ? 'left-top' : 'right-top'}
+                  disabled={optionItem.disabled}
                   destroyOnClose={false}
                   popperOptions={props.direction === 'left' ? submenuPopperOptionsLeft : undefined}
-                  overlayInnerClassName={[
-                    `${dropdownClass.value}__submenu`,
-                    { [`${dropdownClass.value}__submenu--disabled`]: optionItem.disabled },
-                  ]}
+                  overlayInnerClassName={`${dropdownClass.value}__submenu`}
                   overlayInnerStyle={{
                     position: 'relative',
                     display: 'flex',
