@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
+import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch, ComputedRef } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
@@ -11,6 +11,7 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useDefaultValue,
+  useEventForward,
 } from '@tdesign/shared-hooks';
 
 import { useTagScroll, useHover, useDragSorter, useTagList } from './hooks';
@@ -33,7 +34,7 @@ export default defineComponent({
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
 
-    const isDisabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
 
     const { inputValue, inputProps, borderless, size, tips, status, suffix, autoWidth, onPaste } = toRefs(props);
@@ -194,6 +195,22 @@ export default defineComponent({
       // const inputProps = inputProps as TdTagInputProps['inputProps'];
       const readonly = isReadonly.value || inputProps.value?.readonly;
 
+      const inputEvents = useEventForward(inputProps.value, {
+        onWheel: onWheel,
+        onChange: onInnerChange,
+        onPaste: onPaste.value,
+        onEnter: onInputEnter,
+        onKeyup: onInputBackspaceKeyUp,
+        onKeydown: onInputBackspaceKeyDown,
+        onMouseenter: onMouseEnter,
+        onMouseleave: onMouseLeave,
+        onFocus: onInnerFocus,
+        onBlur: onInnerBlur,
+        onClick: onClick,
+        onCompositionstart: onInputCompositionstart,
+        onCompositionend: onInputCompositionend,
+      });
+
       return (
         <TInput
           ref={tagInputRef}
@@ -216,20 +233,7 @@ export default defineComponent({
           suffixIcon={() => suffixIconNode}
           prefixIcon={() => prefixIconNode}
           keepWrapperWidth={!autoWidth.value}
-          onWheel={onWheel}
-          onChange={onInnerChange}
-          onPaste={onPaste.value}
-          onEnter={onInputEnter}
-          onKeyup={onInputBackspaceKeyUp}
-          onKeydown={onInputBackspaceKeyDown}
-          onMouseenter={onMouseEnter}
-          onMouseleave={onMouseLeave}
-          onFocus={onInnerFocus}
-          onBlur={onInnerBlur}
-          onClick={onClick}
-          onCompositionstart={onInputCompositionstart}
-          onCompositionend={onInputCompositionend}
-          {...inputProps.value}
+          {...inputEvents.value}
         />
       );
     };

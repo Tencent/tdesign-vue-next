@@ -13,15 +13,31 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { StepsProps } from 'tdesign-vue-next';
 
-const steps = [
-  { title: '已完成的步骤', value: 'first', content: '点击切换步骤' },
-  { title: '进行中的步骤', value: 'second', content: '点击切换步骤' },
-  { title: '进行中的步骤', value: 'third', content: () => '这是进行中的步骤' },
-  { title: '已完成的步骤', value: 'forth', content: '点击切换步骤' },
+const steps: StepsProps['options'] = [
+  {
+    title: '已完成的步骤',
+    value: 'first',
+    content: '点击切换步骤',
+  },
+  {
+    title: '进行中的步骤',
+    value: 'second',
+    content: '点击切换步骤',
+  },
+  {
+    title: '进行中的步骤',
+    value: 'third',
+    content: () => '这是进行中的步骤',
+  },
+  {
+    title: '已完成的步骤',
+    value: 'forth',
+    content: '点击切换步骤',
+  },
 ];
-
 const current = ref('third');
 </script>

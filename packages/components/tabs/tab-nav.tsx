@@ -171,6 +171,8 @@ export default defineComponent({
     const getMaxScrollLeft = () => {
       nextTick(() => {
         maxScrollLeft.value = calcMaxOffset(getRefs());
+        // fix https://github.com/Tencent/tdesign-vue-next/issues/6292
+        if (maxScrollLeft.value - scrollLeft.value <= 0) setOffset(maxScrollLeft.value);
       });
     };
 
@@ -214,7 +216,9 @@ export default defineComponent({
     const renderNavsContent = () => {
       return props.panels.map((panel, index) => {
         let label;
+        // @ts-ignore
         if (panel?.children?.label) {
+          // @ts-ignore
           label = panel.children.label();
         } else if (isFunction(panel.label)) {
           label = panel.label(h);
@@ -228,7 +232,6 @@ export default defineComponent({
         return (
           <TTabNavItem
             ref={setActiveTab}
-            draggable={draggable}
             key={panel.value}
             index={index}
             theme={props.theme}

@@ -517,7 +517,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   multipleSort?: boolean;
   /**
-   * 行选中功能，是否在分页时保留上一页选中结果不清空，本地数据分页场景下，会全选所有页数据。值为 `false` 则表示全部选中操作停留在当前页，不跨分页；本地数据分页场景下，全选仅选中当前页
+   * 行选中功能，是否在分页时保留上一页选中结果不清空。分页场景下，会全选所有页数据，保留跨分页数据。值为 `false` 则表示全部选中操作停留在当前页，不跨分页。
    * @default true
    */
   reserveSelectedRowOnPaginate?: boolean;
@@ -585,7 +585,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
   /**
    * 列配置弹窗显示或隐藏变化时触发
    */
-  onColumnControllerVisibleChange?: (visible: boolean, context: { trigger: 'cancel' | 'confirm' }) => void;
+  onColumnControllerVisibleChange?: (visible: boolean, context: { trigger: 'cancel' | 'confirm' | 'open' }) => void;
   /**
    * 本地数据排序导致 `data` 变化时触发，第一个参数指变化后的数据，第二个参数 `context.trigger` 表示触发本次变化的来源
    */

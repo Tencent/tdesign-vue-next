@@ -19,25 +19,26 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ChatIcon, AddIcon, QrcodeIcon } from 'tdesign-icons-vue-next';
+import type { StickyItemProps, StickyToolProps } from 'tdesign-vue-next';
 
-const renderChatIcon = () => {
+const renderChatIcon: StickyItemProps['icon'] = () => {
   return <ChatIcon />;
 };
-const renderAddIcon = () => {
+const renderAddIcon: StickyItemProps['icon'] = () => {
   return <AddIcon />;
 };
-const renderQrIcon = () => {
+const renderQrIcon: StickyItemProps['icon'] = () => {
   return <QrcodeIcon />;
 };
-const renderPopup = () => {
+const renderPopup: StickyItemProps['popup'] = () => {
   return <img alt="TDesign Logo" width="120" height="120" src="https://tdesign.gtimg.com/site/site.jpg" />;
 };
-const handleClick = (context) => {
+const handleClick: StickyToolProps['onClick'] = (context) => {
   console.log('click', context);
 };
-const handleHover = (context) => {
+const handleHover: StickyToolProps['onHover'] = (context) => {
   console.log('hover', context);
 };
 </script>

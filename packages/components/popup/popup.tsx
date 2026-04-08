@@ -107,10 +107,10 @@ export default defineComponent({
     let showTimeout: any;
     let hideTimeout: any;
 
-    const triggerEl = ref<HTMLElement>(null);
-    const overlayEl = ref<HTMLElement>(null);
-    const popperEl = ref<HTMLElement>(null);
-    const containerRef = ref<typeof Container>(null);
+    const triggerEl = ref<HTMLElement>();
+    const overlayEl = ref<HTMLElement>();
+    const popperEl = ref<HTMLElement>();
+    const containerRef = ref<typeof Container>();
     const isOverlayHover = ref(false);
 
     const arrowStyle = ref<CSSProperties>({});
@@ -489,8 +489,9 @@ export default defineComponent({
       // 防止多次触发添加截流
       const debounceOnScrollBottom = debounce((e) => props.onScrollToBottom?.({ e }), 100);
 
-      // windows 下 scrollTop 会出现小数，这里取整
-      if (clientHeight + Math.floor(scrollTop) === scrollHeight) {
+      // 页面缩放时，scrollTop/clientHeight/scrollHeight 可能出现小数，使用容差值进行比较
+      // When page is zoomed, scrollTop/clientHeight/scrollHeight may have decimal values, use tolerance for comparison
+      if (Math.abs(clientHeight + scrollTop - scrollHeight) < 1) {
         // touch bottom
         debounceOnScrollBottom(e);
       }
@@ -500,7 +501,6 @@ export default defineComponent({
     return () => {
       const content = renderTNodeJSX('content');
       const hidePopup = props.hideEmptyPopup && ['', undefined, null].includes(content);
-
       const overlay =
         visible.value || !props.destroyOnClose ? (
           <div

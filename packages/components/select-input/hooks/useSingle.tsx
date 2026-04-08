@@ -1,9 +1,16 @@
-import { SetupContext, ref, computed, toRefs, Ref } from 'vue';
+import { SetupContext, ref, computed, toRefs, Ref, ComputedRef } from 'vue';
 import { pick, isObject } from 'lodash-es';
 
 import Input, { StrInputProps } from '../../input';
 import Loading from '../../loading';
-import { useTNodeJSX, useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
+import {
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  usePrefixClass,
+  useDefaultValue,
+  useEventForward,
+} from '@tdesign/shared-hooks';
 
 import { PopupInstanceFunctions } from '../../popup';
 import { TdSelectInputProps } from '../type';
@@ -60,12 +67,12 @@ export function useSingle(
     'inputValue',
   );
   const renderTNode = useTNodeJSX();
-  const disable = useDisabled();
+  const isDisable = useDisabled() as ComputedRef<boolean>;
   const isReadonly = useReadonly();
 
   const commonInputProps = computed<SelectInputCommonProperties>(() => ({
     ...pick(props, COMMON_PROPERTIES),
-    disabled: disable.value,
+    disabled: isDisable.value,
     readonly: isReadonly.value,
   }));
 
@@ -93,9 +100,9 @@ export function useSingle(
       autoWidth: props.autoWidth,
       readonly: !props.allowInput || isReadonly.value,
       placeholder: renderPlaceholder(singleValueDisplay),
-      suffixIcon: !disable.value && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
+      suffixIcon: !isDisable.value && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
       showClearIconOnEmpty: Boolean(
-        props.clearable && (inputValue.value || displayedValue) && !disable.value && !isReadonly.value,
+        props.clearable && (inputValue.value || displayedValue) && !isDisable.value && !isReadonly.value,
       ),
       ...props.inputProps,
     };
@@ -125,19 +132,20 @@ export function useSingle(
       props.onBlur?.(value.value, { ...context, inputValue: val });
     };
 
+    const inputEvent = useEventForward(inputProps, {
+      onChange: onInnerInputChange,
+      onClear: onInnerClear,
+      onEnter,
+      onFocus,
+      onBlur,
+    });
+
     return (
       <Input
         ref={inputRef}
         style={context.attrs?.style}
         v-slots={slots}
-        {...{
-          onChange: onInnerInputChange,
-          onClear: onInnerClear,
-          onEnter,
-          onFocus,
-          onBlur,
-          ...inputProps,
-        }}
+        {...inputEvent.value}
         inputClass={inputClassProps}
       />
     );

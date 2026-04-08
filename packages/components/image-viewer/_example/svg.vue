@@ -14,7 +14,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 
 const img = { mainImage: 'https://tdesign.gtimg.com/demo/tdesign-logo.svg', isSvg: true };

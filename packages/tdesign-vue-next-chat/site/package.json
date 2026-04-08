@@ -18,8 +18,8 @@
     "@tdesign-vue-next/chat": "workspace:^",
     "semver": "catalog:docs",
     "@tdesign/site-components": "catalog:tdesign",
-    "tdesign-theme-generator": "catalog:tdesign",
-    "vue": "catalog:deps",
+    "@tdesign/theme-generator": "catalog:tdesign",
+    "vue": "~3.5.0",
     "vue-router": "catalog:deps",
     "workbox-precaching": "catalog:docs"
   },

@@ -5,12 +5,13 @@
     <t-slider v-model="value2" range @change-end="onChangeEnd" />
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { SliderProps } from 'tdesign-vue-next';
 
 const value1 = ref(12);
 const value2 = ref([30, 70]);
-const onChangeEnd = (value) => {
+const onChangeEnd: SliderProps['onChangeEnd'] = (value) => {
   console.log('change end value', value);
 };
 </script>

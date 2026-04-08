@@ -9,8 +9,9 @@
     <t-input type="password" default-value="520 TDesign" :prefix-icon="renderPrefixIcon" />
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { LockOnIcon } from 'tdesign-icons-vue-next';
+import type { InputProps } from 'tdesign-vue-next';
 
-const renderPrefixIcon = () => <LockOnIcon />;
+const renderPrefixIcon: InputProps['prefixIcon'] = () => <LockOnIcon />;
 </script>

@@ -128,6 +128,7 @@ export default defineComponent({
       if (href) {
         window.location.href = activeMenuItem.href;
       }
+      // @ts-ignore: TODO
       const router = activeMenuItem.router || proxy.$router;
       if (to && router) {
         replace ? router.replace(to) : router.push(to);
@@ -232,7 +233,6 @@ export default defineComponent({
         }
       });
     };
-    initVMenu(ctx.slots.default?.() || ctx.slots.content?.() || []);
 
     return () => {
       const logo = props.logo?.(h) || ctx.slots.logo?.();
@@ -241,6 +241,7 @@ export default defineComponent({
       // TODO: 判断逻辑不够完善 影响封装组件的子菜单样式渲染 暂时先不执行 待调整实现方案
       // const content = formatContent();
       const content = ctx.slots.default?.() || ctx.slots.content?.() || [];
+      initVMenu(content);
 
       return (
         <div class={menuClass.value}>

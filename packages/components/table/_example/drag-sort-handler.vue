@@ -20,31 +20,29 @@
   </div>
 </template>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon, MoveIcon } from 'tdesign-icons-vue-next';
-
-// 拖拽排序场景中：调整某个元素的顺序
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function swapDragArrayElement(data, currentIndex, targetIndex) {
-  const newData = [...data];
-  if (targetIndex - currentIndex > 0) {
-    newData.splice(targetIndex + 1, 0, newData[currentIndex]);
-    newData.splice(currentIndex, 1);
-  } else {
-    newData.splice(targetIndex, 0, newData[currentIndex]);
-    newData.splice(currentIndex + 1, 1);
-  }
-  return newData;
-}
+import type { TableProps, ButtonProps } from 'tdesign-vue-next';
 
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const initialData = [];
+const initialData: TableProps['data'] = [];
 for (let i = 0; i < 5; i++) {
   initialData.push({
     index: i + 1,
@@ -59,10 +57,10 @@ for (let i = 0; i < 5; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
-const columns = [
+const columns: TableProps['columns'] = [
   {
-    colKey: 'drag', // 列拖拽排序必要参数
+    colKey: 'drag',
+    // 列拖拽排序必要参数
     title: '排序',
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     cell: (h) => (
@@ -72,7 +70,11 @@ const columns = [
     ),
     width: 46,
   },
-  { colKey: 'applicant', title: '申请人', width: '100' },
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -86,21 +88,44 @@ const columns = [
       );
     },
   },
-  { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+    width: '120',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    ellipsis: true,
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ];
-
-const loading = ref(false);
-const data = ref([...initialData]);
-
-const resetData = () => {
+const loading = ref<TableProps['loading']>(false);
+const data = ref<TableProps['data']>([...initialData]);
+const resetData: ButtonProps['onClick'] = () => {
   data.value = [];
 };
 
 // { currentIndex, targetIndex, current, target, data, newData, e }
-const onDragSort = (params) => {
+const onDragSort: TableProps['onDragSort'] = (params) => {
   console.log('交换行', params);
   data.value = params.newData;
 };
+
+// 拖拽排序场景中：调整某个元素的顺序
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// function swapDragArrayElement(data, currentIndex, targetIndex) {
+//   const newData = [...data];
+//   if (targetIndex - currentIndex > 0) {
+//     newData.splice(targetIndex + 1, 0, newData[currentIndex]);
+//     newData.splice(currentIndex, 1);
+//   } else {
+//     newData.splice(targetIndex, 0, newData[currentIndex]);
+//     newData.splice(currentIndex + 1, 1);
+//   }
+//   return newData;
+// }
 </script>

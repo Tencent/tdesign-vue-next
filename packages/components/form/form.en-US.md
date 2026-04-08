@@ -86,7 +86,7 @@ telnumber | Boolean | - | \- | N
 trigger | String | change | Typescript: `ValidateTriggerType` | N
 type | String | error | options: error/warning | N
 url | Boolean / Object | - | Typescript: `boolean \| IsURLOptions` `import { IsURLOptions } from 'validator/es/lib/isURL'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/form/type.ts) | N
-validator | Function | - | Typescript: `CustomValidator` `type CustomValidator = (val: ValueType) => CustomValidateResolveType \| Promise<CustomValidateResolveType>` `type CustomValidateResolveType = boolean \| CustomValidateObj` `interface CustomValidateObj { result: boolean; message: string; type?: 'error' \| 'warning' \| 'success' }` `type ValueType = any`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/form/type.ts) | N
+validator | Function | - | Typescript: `CustomValidator` `type CustomValidator = (val: ValueType, context?: { formData: Data , name: string }) => CustomValidateResolveType \| Promise<CustomValidateResolveType>` `type CustomValidateResolveType = boolean \| CustomValidateObj` `interface CustomValidateObj { result: boolean; message: string; type?: 'error' \| 'warning' \| 'success' }` `type ValueType = any`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/form/type.ts) | N
 whitespace | Boolean | - | \- | N
 
 ### FormErrorMessage

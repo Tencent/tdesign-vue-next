@@ -1,3 +1,4 @@
+/* eslint-disable vue/one-component-per-file */
 import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
@@ -90,7 +91,7 @@ describe('Loading', () => {
     });
 
     it(':fullscreen[boolean]', async () => {
-      const wrapper = mount(<Loading fullscreen={true} loading={true} attachTo={document.body} />);
+      const wrapper = mount(<Loading fullscreen={true} loading={true} />);
       await nextTick();
       expect(wrapper.find('.t-loading__fullscreen').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
@@ -153,7 +154,7 @@ describe('Loading', () => {
 
     it(':preventScrollThrough[boolean]', async () => {
       const wrapper = mount(
-        <Loading fullscreen={true} preventScrollThrough={true} loading={false} attachTo={document.body} />,
+        <Loading fullscreen={true} preventScrollThrough={true} loading={false} attach={() => document.body} />,
       );
       await nextTick();
       expect(document.body.classList.contains('t-loading--lock')).toBe(false);

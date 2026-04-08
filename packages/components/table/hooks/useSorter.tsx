@@ -143,6 +143,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
       <SorterButton
         v-slots={{ sortIcon: slots.sortIcon }}
         {...sorterButtonsProps}
+        // @ts-expect-error
         onSortIconClick={(_: MouseEvent, p: { descending: boolean }) => handleSortHeaderClick(col, p)}
       />
     );

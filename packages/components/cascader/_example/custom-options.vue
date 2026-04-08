@@ -49,10 +49,11 @@
     </t-cascader>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
+import type { CascaderProps, TreeOptionData } from 'tdesign-vue-next';
 
-const options = [
+const options: CascaderProps['options'] = [
   {
     label: '选项一',
     value: '1',
@@ -86,13 +87,10 @@ const options = [
     ],
   },
 ];
-
 const value1 = ref('');
 const value2 = ref('');
 const value3 = ref('');
-const value4 = ref([]);
-
-const optionRender = (h, { item }) => (
+const optionRender: CascaderProps['option'] = (h, { item }) => (
   <div class="tdesign-demo__user-option">
     <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
     <div class="tdesign-demo__user-option-info">
@@ -101,20 +99,22 @@ const optionRender = (h, { item }) => (
     </div>
   </div>
 );
-
-const getDeepOptions = (options) => {
-  if (!options) return null;
+const getDeepOptions = (options: CascaderProps['options']): CascaderProps['options'] => {
+  if (!options) return [];
   return options.map((item, index) => ({
     ...item,
     children: typeof item.children !== 'boolean' ? getDeepOptions(item.children) : item.children,
     // content 自定义下拉选项关键代码
-    content: (h) => optionRender(h, { item, index }),
+    content: (h) =>
+      optionRender(h, {
+        item,
+        index,
+      }),
   }));
 };
+const optionsData = computed<CascaderProps['options']>(() => getDeepOptions(options));
 
-const optionsData = computed(() => getDeepOptions(options));
-
-const handleClick = (item, changeCallback) => {
+const handleClick = (item: TreeOptionData, changeCallback: () => void) => {
   if (Array.isArray(item.children) && !item.children?.length) changeCallback();
 };
 </script>

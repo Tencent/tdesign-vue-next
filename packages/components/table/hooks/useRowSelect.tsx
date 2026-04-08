@@ -16,7 +16,7 @@ import {
 import { isRowSelectedDisabled } from '@tdesign/common-js/table/utils';
 import { TableClassName } from './useClassName';
 import Checkbox from '../../checkbox';
-import Radio from '../../radio';
+import Radio, { RadioProps } from '../../radio';
 import log from '@tdesign/common-js/log/index';
 
 export default function useRowSelect(
@@ -93,9 +93,7 @@ export default function useRowSelect(
       const isIndeterminate =
         intersectionKeys.value.length > 0 && intersectionKeys.value.length < canSelectedRows.value.length;
       const isChecked =
-        intersectionKeys.value.length !== 0 &&
-        canSelectedRows.value.length !== 0 &&
-        intersectionKeys.value.length === canSelectedRows.value.length;
+        canSelectedRows.value.length !== 0 && intersectionKeys.value.length === canSelectedRows.value.length;
       return (
         <Checkbox
           checked={isChecked}
@@ -121,7 +119,7 @@ export default function useRowSelect(
     const { col: column, row = {} } = p;
     const checked = tSelectedRowKeys.value.includes(get(row, props.rowKey || 'id'));
     const { disabled, checkProps } = getRowSelectDisabledData(p);
-    const selectBoxProps: Object = {
+    const selectBoxProps: object = {
       checked,
       disabled,
       ...checkProps,
@@ -136,7 +134,7 @@ export default function useRowSelect(
       },
       onChange: () => handleSelectChange(row),
     };
-    if (column.type === 'single') return <Radio {...selectBoxProps} />;
+    if (column.type === 'single') return <Radio {...(selectBoxProps as RadioProps)} />;
     if (column.type === 'multiple') {
       const isIndeterminate = props.indeterminateSelectedRowKeys?.length
         ? props.indeterminateSelectedRowKeys.includes(get(row, props.rowKey))

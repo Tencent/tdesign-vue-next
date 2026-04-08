@@ -25,41 +25,65 @@
     </template>
   </t-select-input>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
+import type { SelectInputProps, SelectInputValue, SelectInputFocusContext } from 'tdesign-vue-next';
 
 const options = [
-  { label: 'tdesign-vue', value: 1 },
-  { label: 'tdesign-react', value: 2 },
-  { label: 'tdesign-miniprogram', value: 3 },
-  { label: 'tdesign-angular', value: 4 },
-  { label: 'tdesign-mobile-vue', value: 5 },
-  { label: 'tdesign-mobile-react', value: 6 },
+  {
+    label: 'tdesign-vue',
+    value: 1,
+  },
+  {
+    label: 'tdesign-react',
+    value: 2,
+  },
+  {
+    label: 'tdesign-miniprogram',
+    value: 3,
+  },
+  {
+    label: 'tdesign-angular',
+    value: 4,
+  },
+  {
+    label: 'tdesign-mobile-vue',
+    value: 5,
+  },
+  {
+    label: 'tdesign-mobile-react',
+    value: 6,
+  },
 ];
 
 // const selectValue = ref('tdesign-vue');
-const selectValue = ref({ label: 'tdesign-vue', value: 1 });
+const selectValue = ref<{
+  label: string;
+  value: number;
+}>({
+  label: 'tdesign-vue',
+  value: 1,
+});
 // const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
 const popupVisible = ref(false);
-const onOptionClick = (item) => {
+const onOptionClick = (item: { label: string; value: number }) => {
   selectValue.value = item;
   // 选中后立即关闭浮层
   popupVisible.value = false;
 };
-const onClear = () => {
+const onClear: SelectInputProps['onClear'] = () => {
   selectValue.value = undefined;
 };
-const onPopupVisibleChange = (val, context) => {
+const onPopupVisibleChange: SelectInputProps['onPopupVisibleChange'] = (val, context) => {
   console.log(context);
   popupVisible.value = val;
 };
-const onInputChange = (val, context) => {
+const onInputChange: SelectInputProps['onInputChange'] = (val, context) => {
   // 过滤功能
   console.log(val, context);
 };
-
-function onFocus(val, context) {
+function onFocus(val: SelectInputValue, context: SelectInputFocusContext) {
   console.log('focus:', val, context);
 }
 </script>

@@ -5,7 +5,13 @@ import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
 import usePagination from './hooks/usePagination';
-import { useConfig, useTNodeJSX, useVirtualScrollNew, useElementLazyRender } from '@tdesign/shared-hooks';
+import {
+  useConfig,
+  useTNodeJSX,
+  useVirtualScrollNew,
+  useElementLazyRender,
+  useEventForward,
+} from '@tdesign/shared-hooks';
 import useAffix from './hooks/useAffix';
 import Loading from '../loading';
 import TBody, { extendTableProps } from './components/tbody';
@@ -158,8 +164,8 @@ export default defineComponent({
     const dividerBottom = computed(() => {
       if (!props.bordered) return 0;
       const bottomRect = bottomContentRef.value?.getBoundingClientRect();
-      const paginationRect = paginationRef.value?.getBoundingClientRect();
-      return (bottomRect?.height || 0) + (paginationRect?.height || 0);
+      const paginationHeight = paginationRef.value?.clientHeight;
+      return (bottomRect?.height || 0) + (paginationHeight || 0);
     });
 
     // 行高亮
@@ -390,15 +396,15 @@ export default defineComponent({
 
       const renderAffixedHeader = () => {
         if (props.showHeader === false) return null;
+
+        const affixHeaderEvents = useEventForward(getAffixProps(props.headerAffixedTop), {
+          onFixedChange: onFixedChange,
+        });
+
         return (
           !!(virtualConfig.isVirtualScroll.value || props.headerAffixedTop) &&
           (props.headerAffixedTop ? (
-            <Affix
-              offsetTop={0}
-              {...getAffixProps(props.headerAffixedTop)}
-              onFixedChange={onFixedChange}
-              ref={headerTopAffixRef}
-            >
+            <Affix ref={headerTopAffixRef} offsetTop={0} {...affixHeaderEvents.value}>
               {affixHeaderWithWrap}
             </Affix>
           ) : (
@@ -412,7 +418,6 @@ export default defineComponent({
           offsetBottom={0}
           {...getAffixProps(props.horizontalScrollAffixedBottom)}
           style={{ marginTop: `-${scrollbarWidth.value * 2}px` }}
-          horizontalScrollAffixedBottom
           ref={horizontalScrollAffixRef}
         >
           <div
@@ -516,14 +521,16 @@ export default defineComponent({
       // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
       const showFooter = Boolean(virtualConfig.isVirtualScroll.value || props.footerAffixedBottom);
       const hasFooter = props.footData?.length || props.footerSummary || context.slots['footerSummary'];
+      const affixFooterEvents = useEventForward(getAffixProps(props.footerAffixedBottom), {
+        onFixedChange: onFixedChange,
+      });
       const affixedFooter = Boolean(showFooter && hasFooter && tableWidth.value) && (
         <Affix
-          class={tableBaseClass.affixedFooterWrap}
-          onFixedChange={onFixedChange}
-          offsetBottom={marginScrollbarWidth || 0}
-          {...getAffixProps(props.footerAffixedBottom)}
-          style={{ marginTop: `${-1 * ((tableFootHeight.value ?? 0) + marginScrollbarWidth)}px` }}
           ref={footerBottomAffixRef}
+          class={tableBaseClass.affixedFooterWrap}
+          offsetBottom={marginScrollbarWidth || 0}
+          style={{ marginTop: `${-1 * ((tableFootHeight.value ?? 0) + marginScrollbarWidth)}px` }}
+          {...affixFooterEvents.value}
         >
           <div
             ref={affixFooterRef}

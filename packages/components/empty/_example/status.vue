@@ -17,4 +17,3 @@
     </t-col>
   </t-row>
 </template>
-<script setup></script>

@@ -1,8 +1,10 @@
-import { TooltipProps } from '../../tooltip';
-import { ref, computed, ComputedRef, Ref } from 'vue';
-import { TdSliderProps } from '../type';
-import { formatLabel } from '../utils';
+import { computed, ComputedRef, ref, Ref } from 'vue';
+
+import { formatLabel } from '@tdesign/common-js/slider/utils';
 import { useTNodeJSX } from '@tdesign/shared-hooks';
+
+import type { TooltipProps } from '../../tooltip';
+import type { TdSliderProps } from '../type';
 
 const initialProps: TooltipProps & { overlayClassName: string } = {
   visible: false,

@@ -50,7 +50,7 @@ export default defineConfig({
 
 // 构建示例项目
 function buildExample(projectName, extraDeps = {}) {
-  execSync(`pnpm create vite ${projectName} --template vue-ts`, { stdio: 'inherit' });
+  execSync(`pnpm create vite@7 ${projectName} --template vue-ts`, { stdio: 'inherit' });
 
   const projectPath = join(process.cwd(), projectName);
   const paths = {

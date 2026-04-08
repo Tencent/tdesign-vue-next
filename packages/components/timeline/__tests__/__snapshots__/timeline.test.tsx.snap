@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TimelineItem Component > props.content works fine 1`] = `
+exports[`TimelineItem > props > :content[function] 1`] = `
 <li
   class="t-timeline-item t-timeline-item-top"
 >
@@ -31,7 +31,40 @@ exports[`TimelineItem Component > props.content works fine 1`] = `
 </li>
 `;
 
-exports[`TimelineItem Component > props.label works fine 1`] = `
+exports[`TimelineItem > props > :content[slot] 1`] = `
+<li
+  class="t-timeline-item t-timeline-item-top"
+>
+  <!---->
+  <div
+    class="t-timeline-item__wrapper"
+  >
+    <div
+      class="t-timeline-item__dot t-timeline-item__dot--primary"
+    >
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="t-timeline-item__tail t-timeline-item__tail--theme-default"
+    />
+  </div>
+  <div
+    class="t-timeline-item__content"
+  >
+    
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+    
+    <!---->
+  </div>
+</li>
+`;
+
+exports[`TimelineItem > props > :label[function] 1`] = `
 <li
   class="t-timeline-item t-timeline-item-top"
 >
@@ -66,40 +99,7 @@ exports[`TimelineItem Component > props.label works fine 1`] = `
 </li>
 `;
 
-exports[`TimelineItem Component > slots.content works fine 1`] = `
-<li
-  class="t-timeline-item t-timeline-item-top"
->
-  <!---->
-  <div
-    class="t-timeline-item__wrapper"
-  >
-    <div
-      class="t-timeline-item__dot t-timeline-item__dot--primary"
-    >
-      <!---->
-      <!---->
-    </div>
-    <div
-      class="t-timeline-item__tail t-timeline-item__tail--theme-default"
-    />
-  </div>
-  <div
-    class="t-timeline-item__content"
-  >
-    
-    <span
-      class="custom-node"
-    >
-      TNode
-    </span>
-    
-    <!---->
-  </div>
-</li>
-`;
-
-exports[`TimelineItem Component > slots.label works fine 1`] = `
+exports[`TimelineItem > props > :label[slot] 1`] = `
 <li
   class="t-timeline-item t-timeline-item-top"
 >

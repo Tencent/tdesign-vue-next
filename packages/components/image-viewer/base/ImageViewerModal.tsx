@@ -1,6 +1,6 @@
 import { computed, defineComponent, PropType } from 'vue';
 import TDialog from '../../dialog';
-import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 import props from '../props';
 import { ImageInfo, TdImageViewerProps } from '../type';
@@ -47,7 +47,6 @@ export default defineComponent({
   },
   setup(props) {
     const classPrefix = usePrefixClass();
-    const renderJSX = useTNodeJSX();
     const style = computed(() => ({
       minWidth: props.viewerScale.minWidth,
       minHeight: props.viewerScale.minHeight,
@@ -68,7 +67,7 @@ export default defineComponent({
         zIndex={props.zIndex}
         showOverlay={props.showOverlay}
         class={`${classPrefix.value}-image-viewer__dialog`}
-        header={renderJSX('title', '')}
+        header={props.title}
         footer={() => (
           <div class={`${classPrefix.value}-image-viewer-mini__footer`}>
             <TImageViewerUtils

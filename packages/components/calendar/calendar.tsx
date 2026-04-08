@@ -6,6 +6,7 @@ import { remove, isArray, isFunction } from 'lodash-es';
 import props from './props';
 import * as utils from './utils';
 import { useConfig, useContent } from '@tdesign/shared-hooks';
+import { handleRange } from '@tdesign/common-js/calendar/utils';
 
 import { useState, useCalendarClass, userController, useColHeaders } from './hooks';
 
@@ -16,7 +17,7 @@ import {
   FIRST_MONTH_OF_YEAR,
   LAST_MONTH_OF_YEAR,
   DEFAULT_YEAR_CELL_NUMINROW,
-} from './consts';
+} from './constants';
 
 // 子组件
 import { Select as TSelect } from '../select';
@@ -49,22 +50,7 @@ export default defineComponent({
     const controller = userController(props, state);
 
     // 年\月份下拉框
-    const rangeFromTo = computed<CalendarRange>(() => {
-      if (!props.range || props.range.length < 2) {
-        return null;
-      }
-      const [v1, v2] = props.range;
-      if (dayjs(v1).isBefore(dayjs(v2))) {
-        return {
-          from: v1,
-          to: v2,
-        };
-      }
-      return {
-        from: v2,
-        to: v1,
-      };
-    });
+    const rangeFromTo = computed<CalendarRange>(() => handleRange(props.range));
     function checkMonthAndYearSelectedDisabled(year: number, month: number): boolean {
       let disabled = false;
       if (rangeFromTo.value && rangeFromTo.value.from && rangeFromTo.value.to) {
@@ -275,7 +261,6 @@ export default defineComponent({
               <div class={cls.controlSectionCell.value}>
                 <TCheckTag
                   class={cls.controlTag.value}
-                  theme={state.isShowWeekend ? 'default' : 'primary'}
                   size="large"
                   {...weekendBtn.vBind.value}
                   disabled={weekendBtn.isDisabled.value}

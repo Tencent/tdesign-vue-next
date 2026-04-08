@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watch, onMounted, toRefs } from 'vue';
+import { defineComponent, ref, computed, watch, onMounted, toRefs, ComputedRef } from 'vue';
 import { isNil, isArray, isEmpty, isBoolean, isFunction } from 'lodash-es';
 
 import { findParentValues } from '@tdesign/common-js/tree-select/utils';
@@ -23,6 +23,7 @@ import {
   usePrefixClass,
   useTNodeDefault,
   useDefaultValue,
+  useEventForward,
 } from '@tdesign/shared-hooks';
 
 export default defineComponent({
@@ -33,7 +34,7 @@ export default defineComponent({
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
     const { globalConfig } = useConfig('treeSelect');
-    const formDisabled = useDisabled();
+    const formDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
 
     // ref
@@ -358,42 +359,44 @@ export default defineComponent({
       treeKey.value += 1;
     };
 
-    const renderTree = () => (
-      <Tree
-        ref={treeRef}
-        v-show={!props.loading}
-        key={treeKey.value}
-        value={[...checked.value]}
-        hover
-        keys={props.keys}
-        data={props.data}
-        activable={!props.multiple}
-        checkable={props.multiple}
-        disabled={tDisabled.value || multiLimitDisabled.value}
-        size={props.size}
-        filter={filterByText.value}
-        actived={actived.value}
-        expanded={expanded.value}
-        activeMultiple={props.multiple}
-        onChange={treeNodeChange}
-        onActive={treeNodeActive}
-        onExpand={treeNodeExpand}
-        onLoad={treeNodeLoad}
-        expandOnClickNode={false}
-        v-slots={{
-          empty: () =>
-            renderDefaultTNode('empty', {
-              defaultNode: <div class={`${classPrefix.value}-select__empty`}>{globalConfig.value.empty}</div>,
-            }),
-        }}
-        {...(props.treeProps as TdTreeSelectProps['treeProps'])}
-      />
-    );
+    const renderTree = () => {
+      const treeEvents = useEventForward(props.treeProps as TdTreeSelectProps['treeProps'], {
+        onChange: treeNodeChange,
+        onActive: treeNodeActive,
+        onExpand: treeNodeExpand,
+        onLoad: treeNodeLoad,
+      });
+      return (
+        <Tree
+          ref={treeRef}
+          v-show={!props.loading}
+          key={treeKey.value}
+          value={[...checked.value]}
+          hover
+          keys={props.keys}
+          data={props.data}
+          activable={!props.multiple}
+          checkable={props.multiple}
+          disabled={tDisabled.value || multiLimitDisabled.value}
+          filter={filterByText.value}
+          actived={actived.value}
+          expanded={expanded.value}
+          activeMultiple={props.multiple}
+          expandOnClickNode={false}
+          v-slots={{
+            empty: () =>
+              renderDefaultTNode('empty', {
+                defaultNode: <div class={`${classPrefix.value}-select__empty`}>{globalConfig.value.empty}</div>,
+              }),
+          }}
+          {...treeEvents.value}
+        />
+      );
+    };
 
     const renderSuffixIcon = () => (
       <FakeArrow
         isActive={innerVisible.value}
-        disabled={props.disabled}
         overlayClassName={{
           [`${classPrefix.value}-fake-arrow--highlight`]: innerVisible.value,
           [`${classPrefix.value}-fake-arrow--disable`]: props.disabled,
@@ -403,6 +406,19 @@ export default defineComponent({
 
     expose({
       treeRef,
+    });
+
+    const selectInputEvent = useEventForward(props.selectInputProps as TdTreeSelectProps['selectInputProps'], {
+      onInputChange: inputChange,
+      onTagChange: tagChange,
+      onPopupVisibleChange: handlePopupVisibleChange,
+      onClear: clear,
+      onBlur: (_: any, context) => {
+        props.onBlur?.({ value: treeSelectValue.value, e: context.e as FocusEvent });
+      },
+      onFocus: (_: any, context: { e: FocusEvent }) => {
+        props.onFocus?.({ value: treeSelectValue.value, e: context.e });
+      },
     });
 
     return () => (
@@ -437,7 +453,7 @@ export default defineComponent({
           maxWidth: 300,
           ...(props.tagProps as TdTreeSelectProps['tagProps']),
         }}
-        label={() => renderTNodeJSX('prefixIcon')}
+        label={() => renderTNodeJSX('label') || renderTNodeJSX('prefixIcon')}
         suffix={props.suffix}
         suffixIcon={() => {
           if (props.suffixIcon || slots.suffixIcon) {
@@ -445,13 +461,6 @@ export default defineComponent({
           }
 
           return renderSuffixIcon();
-        }}
-        onClear={clear}
-        onBlur={(_: any, context) => {
-          props.onBlur?.({ value: treeSelectValue.value, e: context.e as FocusEvent });
-        }}
-        onFocus={(_: any, context: { e: FocusEvent }) => {
-          props.onFocus?.({ value: treeSelectValue.value, e: context.e });
         }}
         valueDisplay={() =>
           renderTNodeJSX('valueDisplay', {
@@ -496,10 +505,7 @@ export default defineComponent({
           ),
           collapsedItems: slots.collapsedItems,
         }}
-        onInputChange={inputChange}
-        onTagChange={tagChange}
-        onPopupVisibleChange={handlePopupVisibleChange}
-        {...(props.selectInputProps as TdTreeSelectProps['selectInputProps'])}
+        {...selectInputEvent.value}
       />
     );
   },

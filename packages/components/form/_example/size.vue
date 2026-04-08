@@ -39,28 +39,35 @@
     </t-form>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import type { FormProps, CheckboxGroupProps } from 'tdesign-vue-next';
 
-const formData = reactive({
+const formData: FormProps['data'] = reactive({
   name: 'TDesign',
   tel: '12345678910',
   course: ['1'],
 });
 const size = ref('medium');
-
-const courseOptions = [
-  { label: '语文', value: '1' },
-  { label: '数学', value: '2' },
-  { label: '英语', value: '3' },
+const courseOptions: CheckboxGroupProps['options'] = [
+  {
+    label: '语文',
+    value: '1',
+  },
+  {
+    label: '数学',
+    value: '2',
+  },
+  {
+    label: '英语',
+    value: '3',
+  },
 ];
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {

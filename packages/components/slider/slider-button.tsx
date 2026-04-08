@@ -1,21 +1,13 @@
-import {
-  ComponentPublicInstance,
-  PropType,
-  computed,
-  defineComponent,
-  inject,
-  nextTick,
-  reactive,
-  ref,
-  watchEffect,
-} from 'vue';
-import TTooltip from '../tooltip/index';
-import { TdSliderProps } from './type';
-
+import { PropType, computed, defineComponent, inject, nextTick, reactive, ref, watchEffect } from 'vue';
 import { isFunction } from 'lodash-es';
+
+import { formatPrecision } from '@tdesign/common-js/slider/utils';
 import { usePrefixClass } from '@tdesign/shared-hooks';
+import TTooltip from '../tooltip/index';
+import { sliderPropsInjectKey } from './constants';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
-import { sliderPropsInjectKey } from './consts';
+
+import type { TdSliderProps } from './type';
 
 export default defineComponent({
   name: 'TSliderButton',
@@ -100,7 +92,7 @@ export default defineComponent({
       const steps = Math.round(newPos / perStepLen);
       let value = steps * perStepLen * rangeDiff.value * 0.01;
       value += parentProps.min;
-      value = Number(parseFloat(`${value}`).toFixed(parentProps.precision));
+      value = formatPrecision(value, parentProps.precision);
       ctx.emit('input', value);
       nextTick(() => {
         tooltipRef.value && tooltipRef.value.updatePopper?.();
@@ -108,7 +100,7 @@ export default defineComponent({
     };
 
     const handleMouseEnter = () => {
-      (buttonRef.value as ComponentPublicInstance).focus();
+      (buttonRef.value as HTMLDivElement).focus();
       toggleTooltip(true);
     };
     const handleMouseLeave = () => {

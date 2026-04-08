@@ -17,7 +17,7 @@ export const catalogs = {
     '@vitejs/plugin-vue': '^5.2.1',
     '@vitejs/plugin-vue-jsx': '^4.1.2',
     '@vue/babel-plugin-jsx': '^1.4.0',
-    '@vue/compiler-sfc': '^3.3.4',
+    '@vue/compiler-sfc': '^3.3.9',
     autoprefixer: '^10.4.14',
     'cross-env': '^7.0.3',
     esbuild: '^0.14.54',
@@ -59,8 +59,8 @@ export const catalogs = {
     raf: '^3.4.1',
     sortablejs: '^1.15.0',
     tinycolor2: '^1.6.0',
-    validator: '^13.9.0',
-    vue: '^3.3.9',
+    validator: '^13.15.23',
+    vue: '~3.3.9',
     'vue-router': '^4.2.4',
   },
   docs: {
@@ -89,10 +89,10 @@ export const catalogs = {
     prettier: '^2.8.1',
   },
   tdesign: {
-    '@tdesign/site-components': '^0.17.0',
-    'tdesign-icons-vue-next': '~0.4.1',
+    '@tdesign/site-components': '^0.18.2',
+    '@tdesign/theme-generator': '^1.2.3',
+    'tdesign-icons-vue-next': '~0.4.3',
     'tdesign-publish-cli': '^0.0.12',
-    'tdesign-theme-generator': '^1.1.8',
   },
   test: {
     '@testing-library/dom': '^9.3.1',
