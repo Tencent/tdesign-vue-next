@@ -63,11 +63,10 @@ export function useTagScroll(props: TdTagInputProps) {
     const delta = Math.abs(e.deltaX) >= Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
     if (delta > 0) {
       updateScrollDistance();
-      const distance = Math.min(scrollElement.value.scrollLeft + 120, scrollDistance.value);
-      scrollTo(distance);
+      // 滚轮是高频连续事件，直接设置 scrollLeft 即时响应，不用 smooth 避免动画互相打断导致不跟手
+      scrollElement.value.scrollLeft = Math.min(scrollElement.value.scrollLeft + 120, scrollDistance.value);
     } else if (delta < 0) {
-      const distance = Math.max(scrollElement.value.scrollLeft - 120, 0);
-      scrollTo(distance);
+      scrollElement.value.scrollLeft = Math.max(scrollElement.value.scrollLeft - 120, 0);
     }
   };
 
