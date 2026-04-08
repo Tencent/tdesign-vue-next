@@ -20,6 +20,7 @@ describe('Grid hooks', () => {
       vi.stubGlobal('innerWidth', width);
       const { useRowSize } = await import('@tdesign/components/grid/hooks');
 
+      // eslint-disable-next-line vue/one-component-per-file
       const TestComponent = defineComponent({
         setup(_, { expose }) {
           const size = useRowSize();
@@ -68,6 +69,7 @@ describe('Grid hooks', () => {
       vi.resetModules();
 
       const { useRowSize } = await import('@tdesign/components/grid/hooks');
+      // eslint-disable-next-line vue/one-component-per-file
       const TestComponent = defineComponent({
         setup() {
           const size = useRowSize();
