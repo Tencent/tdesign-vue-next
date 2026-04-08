@@ -1,4 +1,3 @@
-/* eslint-disable vue/one-component-per-file */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { defineComponent, h, nextTick } from 'vue';
@@ -17,177 +16,72 @@ describe('Grid hooks', () => {
       vi.restoreAllMocks();
     });
 
-    it('initial size', async () => {
+    const createTestComponent = async (width: number) => {
+      vi.stubGlobal('innerWidth', width);
       const { useRowSize } = await import('@tdesign/components/grid/hooks');
+
       const TestComponent = defineComponent({
-        setup() {
+        setup(_, { expose }) {
           const size = useRowSize();
-          return { size };
-        },
-        render() {
-          return h('div', { class: `size-${this.size}` });
+          expose({ size });
+          return () => h('div', { 'data-size': size.value });
         },
       });
 
-      const wrapper = mount(TestComponent);
-      expect(wrapper.find('div').exists()).toBe(true);
-    });
+      return mount(TestComponent);
+    };
 
-    it('md for width 1024', async () => {
-      vi.stubGlobal('innerWidth', 1024);
-      const { useRowSize } = await import('@tdesign/components/grid/hooks');
-      const TestComponent = defineComponent({
-        setup() {
-          const size = useRowSize();
-          return { size };
-        },
-        render() {
-          return h('div', { 'data-size': this.size });
-        },
-      });
+    it('breakpoint mapping', async () => {
+      const breakpoints: Array<[number, string]> = [
+        [500, 'xs'],
+        [800, 'sm'],
+        [1024, 'md'],
+        [1280, 'lg'],
+        [1600, 'xl'],
+        [1920, 'xxl'],
+      ];
 
-      const wrapper = mount(TestComponent);
-      expect(wrapper.find('div').attributes('data-size')).toBe('md');
-    });
-
-    it('xs for width 500', async () => {
-      vi.stubGlobal('innerWidth', 500);
-      const { useRowSize } = await import('@tdesign/components/grid/hooks');
-      const TestComponent = defineComponent({
-        setup() {
-          const size = useRowSize();
-          return { size };
-        },
-        render() {
-          return h('div', { 'data-size': this.size });
-        },
-      });
-
-      const wrapper = mount(TestComponent);
-      expect(wrapper.find('div').attributes('data-size')).toBe('xs');
-    });
-
-    it('lg for width 1280', async () => {
-      vi.stubGlobal('innerWidth', 1280);
-      const { useRowSize } = await import('@tdesign/components/grid/hooks');
-      const TestComponent = defineComponent({
-        setup() {
-          const size = useRowSize();
-          return { size };
-        },
-        render() {
-          return h('div', { 'data-size': this.size });
-        },
-      });
-
-      const wrapper = mount(TestComponent);
-      expect(wrapper.find('div').attributes('data-size')).toBe('lg');
-    });
-
-    it('xl for width 1600', async () => {
-      vi.stubGlobal('innerWidth', 1600);
-      const { useRowSize } = await import('@tdesign/components/grid/hooks');
-      const TestComponent = defineComponent({
-        setup() {
-          const size = useRowSize();
-          return { size };
-        },
-        render() {
-          return h('div', { 'data-size': this.size });
-        },
-      });
-
-      const wrapper = mount(TestComponent);
-      expect(wrapper.find('div').attributes('data-size')).toBe('xl');
-    });
-
-    it('xxl for width 1920', async () => {
-      vi.stubGlobal('innerWidth', 1920);
-      const { useRowSize } = await import('@tdesign/components/grid/hooks');
-      const TestComponent = defineComponent({
-        setup() {
-          const size = useRowSize();
-          return { size };
-        },
-        render() {
-          return h('div', { 'data-size': this.size });
-        },
-      });
-
-      const wrapper = mount(TestComponent);
-      expect(wrapper.find('div').attributes('data-size')).toBe('xxl');
-    });
-
-    it('sm for width 800', async () => {
-      vi.stubGlobal('innerWidth', 800);
-      const { useRowSize } = await import('@tdesign/components/grid/hooks');
-      const TestComponent = defineComponent({
-        setup() {
-          const size = useRowSize();
-          return { size };
-        },
-        render() {
-          return h('div', { 'data-size': this.size });
-        },
-      });
-
-      const wrapper = mount(TestComponent);
-      expect(wrapper.find('div').attributes('data-size')).toBe('sm');
+      for (const [width, expectedSize] of breakpoints) {
+        vi.resetModules();
+        const wrapper = await createTestComponent(width);
+        expect(wrapper.find('div').attributes('data-size')).toBe(expectedSize);
+        wrapper.unmount();
+      }
     });
 
     it('resize event', async () => {
-      vi.stubGlobal('innerWidth', 1024);
-      const { useRowSize } = await import('@tdesign/components/grid/hooks');
-      const TestComponent = defineComponent({
-        setup() {
-          const size = useRowSize();
-          return { size };
-        },
-        render() {
-          return h('div', { 'data-size': this.size });
-        },
-      });
-
-      const wrapper = mount(TestComponent);
+      const wrapper = await createTestComponent(1024);
       expect(wrapper.find('div').attributes('data-size')).toBe('md');
 
-      // Simulate resize
       vi.stubGlobal('innerWidth', 1600);
       window.dispatchEvent(new Event('resize'));
       await nextTick();
 
       expect(wrapper.find('div').attributes('data-size')).toBe('xl');
+      wrapper.unmount();
     });
 
     it('server-side rendering', async () => {
-      // Mock isServer to return true
       vi.doMock('@tdesign/shared-utils', () => ({
         isServer: true,
       }));
-
       vi.resetModules();
-      const { useRowSize } = await import('@tdesign/components/grid/hooks');
 
+      const { useRowSize } = await import('@tdesign/components/grid/hooks');
       const TestComponent = defineComponent({
         setup() {
           const size = useRowSize();
-          return { size };
-        },
-        render() {
-          return h('div', { 'data-size': this.size });
+          return () => h('div', { 'data-size': size.value });
         },
       });
 
       const wrapper = mount(TestComponent);
-      // When isServer is true, innerWidth should be treated as 0, resulting in 'xs'
       expect(wrapper.find('div').attributes('data-size')).toBe('xs');
 
-      // Trigger resize to cover updateSize function with isServer = true
       window.dispatchEvent(new Event('resize'));
       await nextTick();
-
-      // Should still be 'xs' because isServer is true
       expect(wrapper.find('div').attributes('data-size')).toBe('xs');
+      wrapper.unmount();
     });
   });
 });
