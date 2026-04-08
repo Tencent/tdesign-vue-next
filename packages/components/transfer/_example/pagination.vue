@@ -8,10 +8,11 @@
     :on-page-change="handlePageChange"
   />
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TransferProps } from 'tdesign-vue-next';
 
-const list = [];
+const list: TransferProps['data'] = [];
 for (let i = 0; i < 20; i++) {
   list.push({
     value: i.toString(),
@@ -20,7 +21,7 @@ for (let i = 0; i < 20; i++) {
 }
 const targetValue = ref([]);
 const checkedValue = ref([]);
-const pagination = ref([
+const pagination = ref<TransferProps['pagination']>([
   {
     pageSize: 10,
     defaultCurrent: 1,
@@ -30,8 +31,7 @@ const pagination = ref([
     defaultCurrent: 1,
   },
 ]);
-
-const handlePageChange = (...args) => {
+const handlePageChange: TransferProps['onPageChange'] = (...args) => {
   console.log('handlePageChange', args);
 };
 </script>

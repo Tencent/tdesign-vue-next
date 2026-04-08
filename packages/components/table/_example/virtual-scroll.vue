@@ -26,19 +26,39 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import type { TableProps, TableInstanceFunctions, ButtonProps } from 'tdesign-vue-next';
 
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const columns = [
-  { colKey: 'serial-number', width: 80, title: '序号' },
-  { colKey: 'applicant', title: '申请人', width: '100' },
+const columns: TableProps['columns'] = [
+  {
+    colKey: 'serial-number',
+    width: 80,
+    title: '序号',
+  },
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -53,12 +73,21 @@ const columns = [
       );
     },
   },
-  { colKey: 'matters', title: '申请事项', width: '140' },
-  { colKey: 'detail.email', title: '邮箱地址' },
-  { colKey: 'createTime', title: '申请时间' },
+  {
+    colKey: 'matters',
+    title: '申请事项',
+    width: '140',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ];
-
-const initialData = [];
+const initialData: TableProps['data'] = [];
 for (let i = 0; i < 10; i++) {
   initialData.push({
     id: i + 1,
@@ -72,18 +101,19 @@ for (let i = 0; i < 10; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
 const times = Array.from(new Array(1000), () => '');
-const testData = [];
-times.forEach((item, i) => {
+const testData: TableProps['data'] = [];
+times.forEach((_item, i) => {
   const k = i % 10;
-  testData[i] = { ...initialData[k], id: i + 1 };
+  testData[i] = {
+    ...initialData[k],
+    id: i + 1,
+  };
 });
-
-const data = ref([...testData]);
+const data = ref<TableProps['data']>([...testData]);
 const bordered = ref(true);
-const tableRef = ref(null);
-const scrollToElement = () => {
+const tableRef = ref<TableInstanceFunctions>(null);
+const scrollToElement: ButtonProps['onClick'] = () => {
   tableRef.value.scrollToElement({
     // 方式一：跳转元素下标（第 256 个元素位置）
     // index: 255,
@@ -95,8 +125,7 @@ const scrollToElement = () => {
     time: 60,
   });
 };
-
-const height = ref(300);
+const height = ref<TableProps['height']>(300);
 
 // const setLowerHeight = () => {
 //   height.value = 150;

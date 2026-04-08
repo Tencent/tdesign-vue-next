@@ -9,9 +9,11 @@
     <t-table :data="[]" :columns="columns" :row-key="rowKey" :size="size" :loading="renderLoading" />
   </div>
 </template>
-<script setup lang="jsx">
-const data = [];
-const columns = [
+<script lang="tsx" setup>
+import type { TableProps } from 'tdesign-vue-next';
+
+const data: TableProps['data'] = [];
+const columns: TableProps['columns'] = [
   {
     align: 'left',
     width: '100',
@@ -61,8 +63,9 @@ const columns = [
     title: '说明',
   },
 ];
-
-const renderLoading = () => <div class="t-table--loading-message">这里使用渲染函数定义加载状态</div>;
-const rowKey = 'property';
-const size = 'small';
+const renderLoading: TableProps['loading'] = () => (
+  <div class="t-table--loading-message">这里使用渲染函数定义加载状态</div>
+);
+const rowKey: TableProps['rowKey'] = 'property';
+const size: TableProps['size'] = 'small';
 </script>

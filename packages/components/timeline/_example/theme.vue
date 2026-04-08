@@ -5,7 +5,7 @@
     </t-timeline-item>
   </t-timeline>
 </template>
-<script setup>
+<script lang="ts" setup>
 const options = [
   {
     label: '2022-01-01',

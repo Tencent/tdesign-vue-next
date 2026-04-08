@@ -48,10 +48,11 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 
 const type = ref('show');
+
 const value0 = ref(3);
 const value1 = ref(3);
 const value2 = ref(3);

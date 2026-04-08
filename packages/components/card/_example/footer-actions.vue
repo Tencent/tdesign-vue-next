@@ -63,16 +63,15 @@
     </t-card>
   </t-space>
 </template>
-<script setup lang="jsx">
-import { ThumbUpIcon, ChatIcon, ShareIcon, HeartIcon, MoreIcon, UserIcon } from 'tdesign-icons-vue-next';
+<script lang="tsx" setup>
 import { MessagePlugin } from 'tdesign-vue-next';
+import { ThumbUpIcon, ChatIcon, ShareIcon, HeartIcon, MoreIcon, UserIcon } from 'tdesign-icons-vue-next';
+import type { CardProps, AvatarProps, DropdownProps } from 'tdesign-vue-next';
 
-const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
-
-const icon = () => <UserIcon />;
-const image = 'https://tdesign.gtimg.com/site/avatar-boy.jpg';
-
-const options = [
+const cover: CardProps['cover'] = 'https://tdesign.gtimg.com/site/source/card-demo.png';
+const icon: AvatarProps['icon'] = () => <UserIcon />;
+const image: AvatarProps['image'] = 'https://tdesign.gtimg.com/site/avatar-boy.jpg';
+const options: DropdownProps['options'] = [
   {
     content: '操作一',
     value: 1,
@@ -82,8 +81,7 @@ const options = [
     value: 2,
   },
 ];
-
-const clickHandler = (data) => {
+const clickHandler: DropdownProps['onClick'] = (data) => {
   MessagePlugin.success(`选中【${data.content}】`);
 };
 </script>

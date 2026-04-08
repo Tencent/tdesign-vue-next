@@ -8,10 +8,11 @@
     :tree-props="treeProps"
   />
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TreeSelectProps } from 'tdesign-vue-next';
 
-const options = [
+const options: TreeSelectProps['data'] = [
   {
     name: '广东省',
     pinyin: 'guangdong',
@@ -41,16 +42,13 @@ const options = [
     ],
   },
 ];
-
 const value = ref('shenzhen');
-
-const popupProps = {
+const popupProps: TreeSelectProps['popupProps'] = {
   overlayStyle: {
     width: '500px',
   },
 };
-
-const treeProps = {
+const treeProps: TreeSelectProps['treeProps'] = {
   keys: {
     label: 'name',
     value: 'pinyin',

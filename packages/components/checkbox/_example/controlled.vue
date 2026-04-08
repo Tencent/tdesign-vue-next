@@ -12,23 +12,34 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { CheckboxGroupProps, CheckboxProps } from 'tdesign-vue-next';
 
-const options = [
-  { label: '全选', checkAll: true },
-  { value: 1, label: '受控模式选项一' },
-  { value: 2, label: '受控模式选项二' },
-  { value: 3, label: '受控模式选项三' },
+const options: CheckboxGroupProps['options'] = [
+  {
+    label: '全选',
+    checkAll: true,
+  },
+  {
+    value: 1,
+    label: '受控模式选项一',
+  },
+  {
+    value: 2,
+    label: '受控模式选项二',
+  },
+  {
+    value: 3,
+    label: '受控模式选项三',
+  },
 ];
-
 const checked1 = ref(true);
-const checked2 = ref([1]);
-
-const onChange1 = (val) => {
+const checked2 = ref<CheckboxGroupProps['value']>([1]);
+const onChange1: CheckboxProps['onChange'] = (val) => {
   console.log('change:', checked1.value, val);
 };
-const onChange2 = (value, context) => {
+const onChange2: CheckboxGroupProps['onChange'] = (value, context) => {
   console.log('change: ', value, context);
 };
 </script>

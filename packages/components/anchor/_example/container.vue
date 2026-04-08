@@ -15,14 +15,14 @@
     </t-space>
   </div>
 </template>
-<script setup>
+<script lang="tsx" setup>
 import { computed, getCurrentInstance } from 'vue';
 import { get } from 'lodash-es';
+import type { AnchorProps } from 'tdesign-vue-next';
 
 const { appContext } = getCurrentInstance();
 const path = computed(() => get(appContext, '$route.path', ''));
-
-const handleClick = ({ e, href, title }) => {
+const handleClick: AnchorProps['onClick'] = ({ e, href, title }) => {
   e.preventDefault();
   console.log('click', href, title);
 };

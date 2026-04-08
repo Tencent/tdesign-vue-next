@@ -13,14 +13,14 @@
     </t-popup>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TimePickerPanelProps, InputProps } from 'tdesign-vue-next';
 
-const value = ref('11:11:11');
+const value = ref<TimePickerPanelProps['value']>('11:11:11');
 const usage = ref('single');
-const inputValue = ref('');
-
-const handleChange = (v) => {
+const inputValue = ref<InputProps['value']>('');
+const handleChange: TimePickerPanelProps['onChange'] = (v) => {
   value.value = v;
   inputValue.value = v;
 };

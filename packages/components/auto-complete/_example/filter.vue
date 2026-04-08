@@ -22,16 +22,15 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { AutoCompleteProps } from 'tdesign-vue-next';
 
 const LIST = ['第一个 AutoComplete 默认联想词', '第二个 AutoComplete 默认联想词', '第三个 AutoComplete 默认联想词'];
-
 const value1 = ref('');
 const value2 = ref('');
-const options = ref([...LIST]);
-
-function filterWords(keyword, option) {
+const options = ref<AutoCompleteProps<string>['options']>([...LIST]);
+function filterWords(keyword: string, option: { text: string }) {
   const regExp = new RegExp(keyword);
   return regExp.test(option.text);
 }

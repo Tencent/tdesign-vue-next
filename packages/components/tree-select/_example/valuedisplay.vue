@@ -12,12 +12,13 @@
     </t-tree-select>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TreeSelectProps } from 'tdesign-vue-next';
 
 const value = ref('shenzhen');
 const mulValue = ref(['shenzhen', 'guangzhou']);
-const options = [
+const options: TreeSelectProps['data'] = [
   {
     label: '广东省',
     value: 'guangdong',
