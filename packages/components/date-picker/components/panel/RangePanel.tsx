@@ -2,15 +2,17 @@ import { defineComponent, PropType, computed } from 'vue';
 import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
-import { TdDateRangePickerProps } from '../../type';
+import { TdDateRangePickerProps, PickerDateRange } from '../../type';
 import { getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { useTableData, useDisableDate } from '../../hooks';
 import { isArray, isFunction } from 'lodash-es';
+import log from '@tdesign/common-js/log/index';
 
 export default defineComponent({
   name: 'TRangePanel',
   props: {
     hoverValue: Array as PropType<Array<string>>,
+    range: [Array, Function] as PropType<TdDateRangePickerProps['range']>,
     activeIndex: Number,
     isFirstValueSelected: Boolean,
     disabled: {
@@ -50,8 +52,11 @@ export default defineComponent({
     onMonthChange: Function,
     onTimePickerChange: Function,
     needConfirm: Boolean,
+    cell: {
+      type: Function as PropType<TdDateRangePickerProps['cell']>,
+    },
   },
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker__panel');
     const { globalConfig } = useConfig('datePicker');
 
@@ -87,6 +92,31 @@ export default defineComponent({
       });
     });
 
+    // 处理 range 参数
+    // - 如果 range 是数组并且其元素为函数或数组（表示左右面板分别的范围），则拆分为 startRange / endRange；
+    // - 否则将整个 range 视为单一范围，左右面板共用。
+    const rangeValue = computed(() => {
+      let startRange = props.range as PickerDateRange;
+      let endRange = props.range as PickerDateRange;
+
+      if (isArray(props.range)) {
+        if (props.range.length !== 2) {
+          log.warn('DateRangePicker', '`range` length must be 2 when `range` is an array.');
+        }
+        const first = props.range[0];
+        const second = props.range[1];
+        if ((isArray(first) || isFunction(first)) && (isArray(second) || isFunction(second))) {
+          startRange = first;
+          endRange = second;
+        }
+      }
+
+      return {
+        start: startRange,
+        end: endRange,
+      };
+    });
+
     const startTableData = computed(() => {
       const disableDate = isFunction(props.disableDate)
         ? props.disableDate({ partial: 'start', value: props.value[0] })
@@ -107,6 +137,7 @@ export default defineComponent({
         month: props.month[0],
         mode: props.mode,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
+        range: rangeValue.value.start,
         ...disableDateOptions.value,
         disableDate,
         cancelRangeSelectLimit: props.cancelRangeSelectLimit,
@@ -134,6 +165,7 @@ export default defineComponent({
         month: props.month[1],
         mode: props.mode,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
+        range: rangeValue.value.end,
         ...disableDateOptions.value,
         disableDate,
         cancelRangeSelectLimit: props.cancelRangeSelectLimit,
@@ -157,6 +189,7 @@ export default defineComponent({
       onTimePickerChange: props.onTimePickerChange,
       disableTime: props.disableTime,
       defaultTime: props.defaultTime,
+      cell: props.cell,
     }));
 
     return () => (
@@ -178,6 +211,7 @@ export default defineComponent({
             onConfirmClick={props.onConfirmClick}
             presetsPlacement={props.presetsPlacement}
             needConfirm={props.needConfirm}
+            v-slots={{ presets: slots.presets }}
           />
         ) : null}
         <div class={`${COMPONENT_NAME.value}-content-wrapper`}>
@@ -191,7 +225,9 @@ export default defineComponent({
                 time={props.time[props.activeIndex]}
                 value={props.value}
                 tableData={startTableData.value}
+                range={rangeValue.value.start}
                 {...panelContentProps.value}
+                v-slots={slots}
               />,
               <TPanelContent
                 key="endPanel"
@@ -201,7 +237,9 @@ export default defineComponent({
                 time={props.time[props.activeIndex]}
                 value={props.value}
                 tableData={endTableData.value}
+                range={rangeValue.value.end}
                 {...panelContentProps.value}
+                v-slots={slots}
               />,
             ]
           ) : (
@@ -213,6 +251,7 @@ export default defineComponent({
               time={props.activeIndex ? props.time[1] : props.time[0]}
               value={props.value}
               tableData={props.activeIndex ? endTableData.value : startTableData.value}
+              range={props.activeIndex ? rangeValue.value.end : rangeValue.value.start}
               {...panelContentProps.value}
             />
           )}
@@ -226,6 +265,7 @@ export default defineComponent({
             onConfirmClick={props.onConfirmClick}
             presetsPlacement={props.presetsPlacement}
             needConfirm={props.needConfirm}
+            v-slots={{ presets: slots.presets }}
           />
         ) : null}
       </div>

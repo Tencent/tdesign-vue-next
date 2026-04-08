@@ -65,7 +65,7 @@ export default defineComponent({
       { [`${COMPONENT_NAME.value}--animation-${props.animation}`]: props.animation },
     ];
 
-    const renderCols = (_cols: Number | SkeletonRowColObj | Array<SkeletonRowColObj>) => {
+    const renderCols = (_cols: number | SkeletonRowColObj | Array<SkeletonRowColObj>) => {
       let cols: Array<SkeletonRowColObj> = [];
       if (isArray(_cols)) {
         cols = _cols;

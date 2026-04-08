@@ -25,6 +25,7 @@
 
 <script setup>
 import { ref } from 'vue';
+
 const color = ref('rgb(0, 82, 217)');
 </script>
 

@@ -47,18 +47,30 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
+import { isNumber } from 'lodash-es';
 import { ref, computed } from 'vue';
 import { DateRangePickerPanel } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { isNumber } from 'lodash-es';
+import type { BaseTableCol, TableProps, ButtonProps, FilterValue, InputProps } from 'tdesign-vue-next';
 
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
   applicant: ['贾明', '张三', '王芳'][i % 3],
@@ -71,109 +83,137 @@ const initData = new Array(5).fill(null).map((_, i) => ({
   time: [2, 3, 1, 4][i % 4],
   createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
 }));
-
-const align = ref('left');
-
-const onEmailChange = (val, ctx) => {
+const align = ref<BaseTableCol['align']>('left');
+const onEmailChange: InputProps['onChange'] = (val, ctx) => {
   console.log(val, ctx);
 };
-
-const columns = computed(() => [
-  { colKey: 'applicant', title: '申请人', width: 100, foot: '-' },
-  {
-    title: () => '申请状态',
-    colKey: 'status',
-    align: align.value,
-    // 单选过滤配置
-    filter: {
-      // 过滤行中的列标题别名
-      // label: '申请状态 A',
-      type: 'single',
-      list: [
-        { label: '审批通过', value: 0 },
-        { label: '已过期', value: 1 },
-        { label: '审批失败', value: 2 },
-      ],
-      // confirm to search and hide filter popup
-      confirmEvents: ['onChange'],
-      // 支持透传全部 Popup 组件属性
-      // popupProps: {
-      //   attach: () => document.body,
-      // },
+const columns = computed<TableProps['columns']>(() => {
+  const columns: TableProps['columns'] = [
+    {
+      colKey: 'applicant',
+      title: '申请人',
+      width: 100,
+      foot: '-',
     },
-    cell: (h, { row }) => {
-      return (
-        <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
-          {statusNameListMap[row.status].icon}
-          {statusNameListMap[row.status].label}
-        </t-tag>
-      );
-    },
-  },
-  {
-    title: '签署方式',
-    colKey: 'channel',
-    // 多选过滤配置
-    filter: {
-      type: 'multiple',
-      resetValue: [],
-      list: [
-        { label: 'All', checkAll: true },
-        { label: '电子签署', value: '电子签署' },
-        { label: '纸质签署', value: '纸质签署' },
-      ],
-      // 是否显示重置取消按钮，一般情况不需要显示
-      showConfirmAndReset: true,
-    },
-  },
-  {
-    title: '邮箱地址',
-    colKey: 'detail.email',
-    // 输入框过滤配置
-    filter: {
-      type: 'input',
-
-      // 文本域搜索
-      // component: Textarea,
-
-      resetValue: '',
-      // 按下 Enter 键时也触发确认搜索
-      confirmEvents: ['onEnter'],
-      props: {
-        placeholder: '输入关键词过滤',
-        onChange: onEmailChange,
+    {
+      title: () => '申请状态',
+      colKey: 'status',
+      align: align.value,
+      // 单选过滤配置
+      filter: {
+        // 过滤行中的列标题别名
+        // label: '申请状态 A',
+        type: 'single',
+        list: [
+          {
+            label: '审批通过',
+            value: 0,
+          },
+          {
+            label: '审批失败',
+            value: 1,
+          },
+          {
+            label: '审批过期',
+            value: 2,
+          },
+        ],
+        // confirm to search and hide filter popup
+        confirmEvents: ['onChange'],
+        // 支持透传全部 Popup 组件属性
+        // popupProps: {
+        //   attach: () => document.body,
+        // },
       },
-      // 是否显示重置取消按钮，一般情况不需要显示
-      showConfirmAndReset: true,
-    },
-  },
-  {
-    title: '申请时间',
-    colKey: 'createTime',
-    // 用于查看同时存在排序和过滤时的图标显示是否正常
-    sorter: true,
-    // 自定义过滤组件：日期过滤配置，请确保自定义组件包含 value 和 onChange 属性
-    filter: {
-      component: DateRangePickerPanel,
-      props: {
-        firstDayOfWeek: 7,
+      cell: (h, { row }) => {
+        const status = row.status as keyof typeof statusNameListMap;
+        const { theme, icon, label } = statusNameListMap[status];
+        return (
+          <t-tag shape="round" theme={theme} variant="light-outline">
+            {icon}
+            {label}
+          </t-tag>
+        );
       },
-      style: { fontSize: '14px' },
-      classNames: 'custom-class-name',
-      attrs: { 'data-type': 'date-range-picker' },
-      // 是否显示重置取消按钮，一般情况不需要显示
-      showConfirmAndReset: true,
-      // 日期范围是一个组件，重置时需赋值为 []
-      resetValue: [],
     },
-  },
-]);
+    {
+      title: '签署方式',
+      colKey: 'channel',
+      // 多选过滤配置
+      filter: {
+        type: 'multiple',
+        resetValue: [],
+        list: [
+          {
+            label: 'All',
+            checkAll: true,
+          },
+          {
+            label: '电子签署',
+            value: '电子签署',
+          },
+          {
+            label: '纸质签署',
+            value: '纸质签署',
+          },
+        ],
+        // 是否显示重置取消按钮，一般情况不需要显示
+        showConfirmAndReset: true,
+      },
+    },
+    {
+      title: '邮箱地址',
+      colKey: 'detail.email',
+      // 输入框过滤配置
+      filter: {
+        type: 'input',
+        // 文本域搜索
+        // component: Textarea,
 
-const filterValue = ref({ channel: [] });
-const data = ref([...initData]);
+        resetValue: '',
+        // 按下 Enter 键时也触发确认搜索
+        confirmEvents: ['onEnter'],
+        props: {
+          placeholder: '输入关键词过滤',
+          onChange: onEmailChange,
+        },
+        // 是否显示重置取消按钮，一般情况不需要显示
+        showConfirmAndReset: true,
+      },
+    },
+    {
+      title: '申请时间',
+      colKey: 'createTime',
+      // 用于查看同时存在排序和过滤时的图标显示是否正常
+      sorter: true,
+      // 自定义过滤组件：日期过滤配置，请确保自定义组件包含 value 和 onChange 属性
+      filter: {
+        component: DateRangePickerPanel,
+        props: {
+          firstDayOfWeek: 7,
+        },
+        style: {
+          fontSize: '14px',
+        },
+        classNames: 'custom-class-name',
+        attrs: {
+          'data-type': 'date-range-picker',
+        },
+        // 是否显示重置取消按钮，一般情况不需要显示
+        showConfirmAndReset: true,
+        // 日期范围是一个组件，重置时需赋值为 []
+        resetValue: [],
+      },
+    },
+  ];
+  return columns;
+});
+const filterValue = ref<TableProps['filterValue']>({
+  channel: [],
+});
+const data = ref<TableProps['data']>([...initData]);
 const bordered = ref(true);
-
-const request = (filters) => {
+const request = (filters: FilterValue) => {
   const timer = setTimeout(() => {
     clearTimeout(timer);
     const newData = initData.filter((item) => {
@@ -184,19 +224,18 @@ const request = (filters) => {
       if (result && filters.channel && filters.channel.length) {
         result = filters.channel.includes(item.channel);
       }
-      if (result && filters.email) {
-        result = item.email.indexOf(filters.email) !== -1;
+      if (result && filters['detail.email']) {
+        result = item.detail.email.indexOf(filters['detail.email']) !== -1;
       }
       if (result && filters.createTime && filters.createTime.length) {
-        result = item.createTime === filters.createTime;
+        result = item.createTime >= filters.createTime[0] && item.createTime <= filters.createTime[1];
       }
       return result;
     });
     data.value = newData;
   }, 100);
 };
-
-const onFilterChange = (filters, ctx) => {
+const onFilterChange: TableProps['onFilterChange'] = (filters, ctx) => {
   console.log('filter-change', filters, ctx);
   filterValue.value = {
     ...filters,
@@ -206,8 +245,7 @@ const onFilterChange = (filters, ctx) => {
   console.log(filters);
   request(filters);
 };
-
-const setFilters = () => {
+const setFilters: ButtonProps['onClick'] = () => {
   filterValue.value = {};
   data.value = [...initData];
 };

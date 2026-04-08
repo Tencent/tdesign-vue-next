@@ -6,6 +6,8 @@
     <t-transfer :data="list" empty="No Data" />
   </t-space>
 </template>
-<script setup>
-const list = [];
+<script lang="ts" setup>
+import type { TransferProps } from 'tdesign-vue-next';
+
+const list: TransferProps['data'] = [];
 </script>

@@ -30,7 +30,7 @@ export default defineComponent({
   },
   setup(props) {
     const baseClassName = useBaseClassName();
-    const refPanel = ref<HTMLElement>(null);
+    const refPanel = ref<HTMLElement>();
     const refThumb = ref<HTMLElement>(null);
     const dragInstance = ref<Draggable>(null);
     const panelRect = reactive({

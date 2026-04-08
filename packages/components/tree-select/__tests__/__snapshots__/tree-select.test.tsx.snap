@@ -174,7 +174,6 @@ exports[`TreeSelect > :props > :disabled 1`] = `
       >
         <svg
           class="t-fake-arrow t-fake-arrow--disable"
-          disabled="true"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -334,7 +333,6 @@ exports[`TreeSelect > :props > :loading 1`] = `
           <svg
             class="t-loading__gradient t-icon-loading"
             height="1em"
-            size="small"
             version="1.1"
             viewBox="0 0 12 12"
             width="1em"
@@ -1100,7 +1098,6 @@ exports[`TreeSelect > <slot> > <loadingText> 1`] = `
           <svg
             class="t-loading__gradient t-icon-loading"
             height="1em"
-            size="small"
             version="1.1"
             viewBox="0 0 12 12"
             width="1em"
@@ -1427,7 +1424,6 @@ exports[`TreeSelect > function > :loadingText 1`] = `
           <svg
             class="t-loading__gradient t-icon-loading"
             height="1em"
-            size="small"
             version="1.1"
             viewBox="0 0 12 12"
             width="1em"

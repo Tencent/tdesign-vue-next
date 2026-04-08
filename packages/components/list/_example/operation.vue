@@ -50,8 +50,9 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { EditIcon, DownloadIcon } from 'tdesign-icons-vue-next';
+import type { ListItemMetaProps } from 'tdesign-vue-next';
 
-const avatarUrl = 'https://tdesign.gtimg.com/site/avatar.jpg';
+const avatarUrl: ListItemMetaProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>

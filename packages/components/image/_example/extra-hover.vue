@@ -7,8 +7,10 @@
   />
 </template>
 
-<script setup lang="jsx">
-const renderMask = () => (
+<script lang="tsx" setup>
+import type { ImageProps } from 'tdesign-vue-next';
+
+const renderMask: ImageProps['overlayContent'] = () => (
   <div
     style={{
       background: 'rgba(0,0,0,.4)',

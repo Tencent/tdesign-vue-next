@@ -34,7 +34,7 @@ export interface TheadProps {
     onColumnMouseover: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
     onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>, index: number) => void;
   };
-  resizable?: Boolean;
+  resizable?: boolean;
   attach?: AttachNode;
   showColumnShadow?: { left: boolean; right: boolean };
 }
@@ -66,7 +66,7 @@ export default defineComponent({
     const theadClasses = computed(() => [
       tableHeaderClasses.header,
       {
-        [tableHeaderClasses.fixed]: Boolean(props.maxHeight || props.height),
+        [tableHeaderClasses.fixed]: props.isFixedHeader,
         [tableBaseClass.bordered]: props.bordered && props.isMultipleHeader,
         [tableHeaderClasses.multipleHeader]: props.isMultipleHeader,
       },
@@ -160,7 +160,7 @@ export default defineComponent({
             ];
             const withoutChildren = !col.children?.length;
             const width = withoutChildren && thWidthList?.[col.colKey] ? `${thWidthList?.[col.colKey]}px` : undefined;
-            const styles = { ...(thStyles.style || {}), width };
+            const styles = { ...thStyles.style, width };
             const innerTh = renderTitle(slots, col, index);
             const resizeColumnListener =
               props.resizable || !canDragSort

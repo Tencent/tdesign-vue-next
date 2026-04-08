@@ -25,7 +25,7 @@
 
 <style scoped>
 .space-border {
-  padding: 12;
+  padding: 12px;
   border: 1px dashed var(--td-component-stroke);
 }
 .space-block {

@@ -20,22 +20,21 @@
     </t-form-item>
   </t-form>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import type { FormInstanceFunctions, FormProps, CustomValidator } from 'tdesign-vue-next';
 
-const form = ref(null);
-const formData = reactive({
+const form = ref<FormInstanceFunctions>(null);
+const formData: FormProps['data'] = reactive({
   account: '',
   password: '',
   rePassword: '',
 });
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError, e }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError, e }) => {
   e.preventDefault();
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
@@ -44,16 +43,14 @@ const onSubmit = ({ validateResult, firstError, e }) => {
     MessagePlugin.warning(firstError);
   }
 };
-
-const onValidate = ({ validateResult, firstError }) => {
+const onValidate: FormProps['onValidate'] = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     console.log('Validate Success');
   } else {
     console.log('Validate Errors: ', firstError, validateResult);
   }
 };
-
-const rePassword = (val, context) => {
+const rePassword: CustomValidator = (val, context) => {
   console.log(context, 'context');
   return new Promise((resolve) => {
     const timer = setTimeout(() => {
@@ -62,20 +59,34 @@ const rePassword = (val, context) => {
     });
   });
 };
-
-const passwordValidator = (val) => {
+const passwordValidator: CustomValidator = (val) => {
   if (val.length > 0 && val.length <= 2) {
-    return { result: false, message: '太简单了！再开动一下你的小脑筋吧！', type: 'error' };
+    return {
+      result: false,
+      message: '太简单了！再开动一下你的小脑筋吧！',
+      type: 'error',
+    };
   }
   if (val.length > 2 && val.length < 4) {
-    return { result: false, message: '还差一点点，就是一个完美的密码了！', type: 'warning' };
+    return {
+      result: false,
+      message: '还差一点点，就是一个完美的密码了！',
+      type: 'warning',
+    };
   }
-  return { result: true, message: '太强了，你确定自己记得住吗！', type: 'success' };
+  return {
+    result: true,
+    message: '太强了，你确定自己记得住吗！',
+    type: 'success',
+  };
 };
-
-const rules = {
+const rules: FormProps['rules'] = {
   account: [
-    { required: true, message: '姓名必填', type: 'error' },
+    {
+      required: true,
+      message: '姓名必填',
+      type: 'error',
+    },
     {
       min: 2,
       message: '至少需要两个字',
@@ -83,11 +94,27 @@ const rules = {
       trigger: 'blur',
     },
   ],
-  password: [{ required: true, message: '密码必填', type: 'error' }, { validator: passwordValidator }],
+  password: [
+    {
+      required: true,
+      message: '密码必填',
+      type: 'error',
+    },
+    {
+      validator: passwordValidator,
+    },
+  ],
   rePassword: [
     // 自定义校验规则
-    { required: true, message: '密码必填', type: 'error' },
-    { validator: rePassword, message: '两次密码不一致' },
+    {
+      required: true,
+      message: '密码必填',
+      type: 'error',
+    },
+    {
+      validator: rePassword,
+      message: '两次密码不一致',
+    },
   ],
 };
 </script>

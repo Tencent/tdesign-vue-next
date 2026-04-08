@@ -13,9 +13,15 @@
   </t-row>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 const animations = [
-  { label: '渐变加载动画', value: 'gradient' },
-  { label: '闪烁加载动画', value: 'flashed' },
+  {
+    label: '渐变加载动画',
+    value: 'gradient',
+  },
+  {
+    label: '闪烁加载动画',
+    value: 'flashed',
+  },
 ];
 </script>

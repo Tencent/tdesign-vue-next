@@ -9,7 +9,13 @@ import {
 } from 'tdesign-icons-vue-next';
 
 import { getBackgroundColor } from '@tdesign/common-js/utils/helper';
-import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
+import {
+  PRO_THEME,
+  CIRCLE_SIZE,
+  CIRCLE_SIZE_PX,
+  STATUS_ICON,
+  CIRCLE_FONT_SIZE_RATIO,
+} from '@tdesign/common-js/progress/const';
 import props from './props';
 
 import { useTNodeJSX, useGlobalIcon, usePrefixClass, useResizeObserver } from '@tdesign/shared-hooks';
@@ -21,6 +27,7 @@ export default defineComponent({
   props,
   setup(props) {
     const renderTNodeJSX = useTNodeJSX();
+    const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('progress');
     const { CloseCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon, CheckIcon, ErrorIcon } =
       useGlobalIcon({
@@ -166,7 +173,7 @@ export default defineComponent({
 
     // 当文字小于进度条宽度时，文字在进度条外部，否则在内部
     const infoIsOut = ref(true);
-    const infoRef = ref<HTMLDivElement>(null);
+    const infoRef = ref<HTMLDivElement>();
 
     const separateClasses = computed(() => {
       return infoIsOut.value ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
@@ -192,7 +199,13 @@ export default defineComponent({
       return (
         <div class={COMPONENT_NAME.value}>
           {props.theme === PRO_THEME.LINE && (
-            <div class={`${COMPONENT_NAME.value}--thin ${COMPONENT_NAME.value}--status--${statusStyle.value}`}>
+            <div
+              class={[
+                `${COMPONENT_NAME.value}--thin`,
+                `${COMPONENT_NAME.value}--status--${statusStyle.value}`,
+                { [`${classPrefix.value}-size-s`]: props.size === 'small' },
+              ]}
+            >
               <div class={`${COMPONENT_NAME.value}__bar`} style={trackBgStyle.value}>
                 <div class={`${COMPONENT_NAME.value}__inner`} style={barStyle.value}></div>
               </div>
@@ -205,6 +218,7 @@ export default defineComponent({
               class={[
                 `${COMPONENT_NAME.value}__bar ${COMPONENT_NAME.value}--plump ${separateClasses.value}`,
                 { [`${COMPONENT_NAME.value}--status--${statusStyle.value}`]: statusStyle.value },
+                { [`${classPrefix.value}-size-s`]: props.size === 'small' },
               ]}
               style={trackBgStyle.value}
             >

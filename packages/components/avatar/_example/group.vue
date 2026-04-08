@@ -13,9 +13,10 @@
     </t-avatar-group>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { UserIcon } from 'tdesign-icons-vue-next';
+import type { AvatarProps } from 'tdesign-vue-next';
 
-const icon = () => <UserIcon />;
-const image = 'https://tdesign.gtimg.com/site/avatar.jpg';
+const icon: AvatarProps['icon'] = () => <UserIcon />;
+const image: AvatarProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>

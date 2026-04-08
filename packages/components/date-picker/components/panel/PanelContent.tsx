@@ -1,7 +1,7 @@
 import { defineComponent, PropType } from 'vue';
 import { isFunction, isArray } from 'lodash-es';
 import { usePrefixClass } from '@tdesign/shared-hooks';
-import type { TdDatePickerProps, TdDateRangePickerProps, DateRangePickerPartial } from '../../type';
+import type { TdDatePickerProps, TdDateRangePickerProps } from '../../type';
 
 import TDateHeader from '../base/Header';
 import TDateTable from '../base/Table';
@@ -22,6 +22,7 @@ export default defineComponent({
     },
     year: Number,
     month: Number,
+    range: [Array, Function] as PropType<TdDatePickerProps['range']>,
     tableData: Array,
     time: String,
     multiple: Boolean,
@@ -37,10 +38,13 @@ export default defineComponent({
     onTimePickerChange: Function,
     value: [String, Number, Array, Date],
     internalYear: Array as PropType<Array<number>>,
-    disableTime: Function as PropType<TdDateRangePickerProps['disableTime']>,
+    disableTime: Function,
     defaultTime: [String, Array] as PropType<TdDatePickerProps['defaultTime'] | TdDateRangePickerProps['defaultTime']>,
+    cell: {
+      type: Function as PropType<TdDatePickerProps['cell'] | TdDateRangePickerProps['cell']>,
+    },
   },
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
 
     const { timeFormat } = getDefaultFormat({
@@ -57,12 +61,20 @@ export default defineComponent({
       const startValue = isArray(props.value) ? props.value[0] : props.value;
       const endValue = isArray(props.value) ? props.value[1] : props.value;
 
+      const isRangePicker = props.partial;
+
+      if (!isRangePicker) {
+        return props.disableTime(
+          parseToDateTime(startValue as DateValue, props.format),
+        ) as TdDatePickerProps['disableTime'];
+      }
+
       return props.disableTime(
         [parseToDateTime(startValue as DateValue, props.format), parseToDateTime(endValue as DateValue, props.format)],
         {
-          partial: props.partial as DateRangePickerPartial,
+          partial: props.partial,
         },
-      );
+      ) as TdDateRangePickerProps['disableTime'];
     };
 
     const defaultTimeValue = '00:00:00';
@@ -74,6 +86,7 @@ export default defineComponent({
             mode={props.mode}
             year={props.year}
             month={props.month}
+            range={props.range}
             internalYear={props.internalYear}
             partial={props.partial}
             onMonthChange={(val: number) => props.onMonthChange?.(val, { partial: props.partial })}
@@ -96,6 +109,8 @@ export default defineComponent({
             }
             onCellMouseEnter={(date: Date) => props.onCellMouseEnter?.(date, { partial: props.partial })}
             onCellMouseLeave={props.onCellMouseLeave}
+            cell={props.cell}
+            v-slots={slots}
           />
         </div>
 

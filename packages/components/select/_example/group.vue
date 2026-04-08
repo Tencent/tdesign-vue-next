@@ -18,36 +18,70 @@
     </t-select>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 
-const options = [
+interface CustomOptionInfo {
+  group?:
+    | string
+    | {
+        label: string;
+      };
+  divider?: boolean;
+  label?: string;
+  value?: number;
+  children?: CustomOptionInfo[];
+}
+const options: CustomOptionInfo[] = [
   {
     group: '分组一',
     children: [
-      { label: '选项一', value: 1 },
-      { label: '选项二', value: 2 },
+      {
+        label: '选项一',
+        value: 1,
+      },
+      {
+        label: '选项二',
+        value: 2,
+      },
     ],
   },
   {
     group: '分组二',
     children: [
-      { label: '选项三', value: 4 },
-      { label: '选项四', value: 5 },
-      { label: '选项五', value: 6 },
+      {
+        label: '选项三',
+        value: 4,
+      },
+      {
+        label: '选项四',
+        value: 5,
+      },
+      {
+        label: '选项五',
+        value: 6,
+      },
     ],
   },
   {
     group: '分组三',
     divider: true,
     children: [
-      { label: '选项六', value: 7 },
-      { label: '选项七', value: 8 },
-      { label: '选项八', value: 9 },
+      {
+        label: '选项六',
+        value: 7,
+      },
+      {
+        label: '选项七',
+        value: 8,
+      },
+      {
+        label: '选项八',
+        value: 9,
+      },
     ],
   },
 ];
-
 const value1 = ref('');
 const value2 = ref('');
 </script>

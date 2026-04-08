@@ -400,7 +400,6 @@ export default defineComponent({
               vertical={vertical.value}
               value={firstValue.value}
               ref={firstButtonRef}
-              disabled={isDisabled.value}
               range={props.range}
               position="start"
               tooltip-props={props.tooltipProps}
@@ -418,7 +417,6 @@ export default defineComponent({
                 vertical={vertical.value}
                 value={secondValue.value}
                 ref={secondButtonRef}
-                disabled={isDisabled.value}
                 label={props.label}
                 range={props.range}
                 position="end"

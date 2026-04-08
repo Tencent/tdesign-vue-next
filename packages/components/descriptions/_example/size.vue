@@ -10,9 +10,10 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { RadioGroupProps, DescriptionsProps } from 'tdesign-vue-next';
 
-const sizeOptions = ['large', 'medium', 'small'];
-const size = ref('medium');
+const sizeOptions: RadioGroupProps['options'] = ['large', 'medium', 'small'];
+const size = ref<DescriptionsProps['size']>('medium');
 </script>

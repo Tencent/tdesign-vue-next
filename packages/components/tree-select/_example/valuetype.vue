@@ -4,10 +4,11 @@
     <t-tree-select v-model="mulValue" :data="options" clearable multiple value-type="object" placeholder="请选择" />
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TreeSelectProps } from 'tdesign-vue-next';
 
-const options = [
+const options: TreeSelectProps['data'] = [
   {
     label: '广东省',
     value: 'guangdong',
@@ -37,10 +38,18 @@ const options = [
     ],
   },
 ];
-
-const value = ref({ label: '深圳市', value: 'shenzhen' });
+const value = ref({
+  label: '深圳市',
+  value: 'shenzhen',
+});
 const mulValue = ref([
-  { label: '广州市', value: 'guangzhou' },
-  { label: '深圳市', value: 'shenzhen' },
+  {
+    label: '广州市',
+    value: 'guangzhou',
+  },
+  {
+    label: '深圳市',
+    value: 'shenzhen',
+  },
 ]);
 </script>

@@ -1,6 +1,5 @@
 <template>
   <t-space direction="vertical" class="tdesign-demo__select-input-collapsed-items">
-    <h3>default:</h3>
     <t-select-input
       :value="value"
       :min-collapsed-num="1"
@@ -21,31 +20,16 @@
       </template>
     </t-select-input>
 
-    <h3>use collapsedItems:</h3>
-    <t-space>
-      <div>size control:</div>
-      <t-radio-group :value="size" :options="['small', 'medium', 'large']" @change="(value) => (size = value)" />
-    </t-space>
-    <t-space>
-      <span>disabled control:</span>
-      <t-checkbox :checked="disabled" @change="(value) => (disabled = value)" />
-    </t-space>
-    <t-space>
-      <span>readonly control:</span>
-      <t-checkbox :checked="readonly" @change="(value) => (readonly = value)" />
-    </t-space>
     <!-- 第一种方式：使用渲染函数 collapsed-items 自定义折叠项 -->
     <t-select-input
       :value="value"
-      multiple
+      :min-collapsed-num="2"
+      :collapsed-items="renderCollapsedItems"
       :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
       placeholder="请选择"
       allow-input
-      :min-collapsed-num="minCollapsedNum"
-      :collapsed-items="collapsedItems"
-      :tag-input-props="{ size }"
-      :disabled="disabled"
-      :readonly="readonly"
+      clearable
+      multiple
       @tag-change="onTagChange"
     >
       <template #panel>
@@ -61,26 +45,23 @@
     <!-- 第二种方式：使用插槽 collapsedItems 自定义折叠项 -->
     <t-select-input
       :value="value"
+      :min-collapsed-num="3"
       :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
       placeholder="请选择"
       allow-input
+      clearable
       multiple
-      :min-collapsed-num="minCollapsedNum"
-      :tag-input-props="{ size }"
-      :disabled="disabled"
-      :readonly="readonly"
       @tag-change="onTagChange"
     >
-      <template #collapsedItems="{ value: v, onClose }">
-        <CollapsedItemsRender
-          :style="{ marginRight: '4px' }"
-          :value="v"
-          :min-collapsed-num="minCollapsedNum"
-          :size="size"
-          :disabled="disabled"
-          :closable="!readonly && !disabled"
-          @close="onClose"
-        />
+      <template #collapsedItems="{ collapsedTags }">
+        <t-popup>
+          <t-tag>More({{ collapsedTags.length }})</t-tag>
+          <template #content>
+            <t-tag v-for="item in collapsedTags" :key="item" style="margin: 4px 4px 4px 0">
+              {{ item }}
+            </t-tag>
+          </template>
+        </t-popup>
       </template>
       <template #panel>
         <t-checkbox-group
@@ -93,28 +74,50 @@
     </t-select-input>
   </t-space>
 </template>
-<script setup lang="jsx">
-import { defineComponent, computed, ref } from 'vue';
+<script lang="tsx" setup>
+import { computed, ref } from 'vue';
+import { Tag } from 'tdesign-vue-next';
+import type { CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
 
-const OPTIONS = [
+interface CustomOptionInfo {
+  label: string;
+  value?: number;
+  checkAll?: boolean;
+}
+const OPTIONS: CustomOptionInfo[] = [
   // 全选
-  { label: 'Check All', checkAll: true },
-  { label: 'tdesign-vue', value: 1 },
-  { label: 'tdesign-react', value: 2 },
-  { label: 'tdesign-miniprogram', value: 3 },
-  { label: 'tdesign-angular', value: 4 },
-  { label: 'tdesign-mobile-vue', value: 5 },
-  { label: 'tdesign-mobile-react', value: 6 },
+  {
+    label: 'Check All',
+    checkAll: true,
+  },
+  {
+    label: 'tdesign-vue',
+    value: 1,
+  },
+  {
+    label: 'tdesign-react',
+    value: 2,
+  },
+  {
+    label: 'tdesign-miniprogram',
+    value: 3,
+  },
+  {
+    label: 'tdesign-angular',
+    value: 4,
+  },
+  {
+    label: 'tdesign-mobile-vue',
+    value: 5,
+  },
+  {
+    label: 'tdesign-mobile-react',
+    value: 6,
+  },
 ];
-
-const options = ref([...OPTIONS]);
+const options = ref<CustomOptionInfo[]>([...OPTIONS]);
 const value = ref(OPTIONS.slice(1));
-const size = ref('medium');
-const disabled = ref(false);
-const readonly = ref(false);
-const minCollapsedNum = ref(1);
-
-const checkboxValue = computed(() => {
+const checkboxValue = computed<CheckboxGroupProps['value']>(() => {
   const arr = [];
   const list = value.value;
   // 此处不使用 forEach，减少函数迭代
@@ -125,7 +128,7 @@ const checkboxValue = computed(() => {
 });
 
 // 直接 checkboxgroup 组件渲染输出下拉选项
-const onCheckedChange = (val, { current, type }) => {
+const onCheckedChange: CheckboxGroupProps['onChange'] = (val, { current, type }) => {
   // current 不存在，则表示操作全选
   if (!current) {
     value.value = type === 'check' ? options.value.slice(1) : [];
@@ -141,7 +144,7 @@ const onCheckedChange = (val, { current, type }) => {
 };
 
 // 可以根据触发来源，自由定制标签变化时的筛选器行为
-const onTagChange = (currentTags, context) => {
+const onTagChange: SelectInputProps['onTagChange'] = (currentTags, context) => {
   console.log(currentTags, context);
   const { trigger, index, item } = context;
   if (trigger === 'clear') {
@@ -151,88 +154,17 @@ const onTagChange = (currentTags, context) => {
     value.value.splice(index, 1);
   }
   if (trigger === 'enter') {
-    const current = { label: item, value: item };
+    const current = {
+      label: item.toString(),
+      value: Number(item) || index,
+    };
     value.value.push(current);
     options.value = options.value.concat(current);
   }
 };
-
-// Function
-const collapsedItems = (h, { value, onClose }) => {
-  if (!(value instanceof Array)) return null;
-  const count = value.length - minCollapsedNum.value;
-  const collapsedTags = value.slice(minCollapsedNum.value, value.length);
-  if (count <= 0) return null;
-  return (
-    <t-popup
-      v-slots={{
-        content: () => (
-          <>
-            {collapsedTags.map((item, index) => (
-              <t-tag
-                key={item}
-                style={{ marginRight: '4px' }}
-                size={size.value}
-                disabled={disabled.value}
-                closable={!readonly.value && !disabled.value}
-                onClose={(context) => onClose({ e: context.e, index: minCollapsedNum.value + index })}
-              >
-                {item}
-              </t-tag>
-            ))}
-          </>
-        ),
-      }}
-    >
-      <t-tag size={size.value} disabled={disabled.value}>
-        Function - More({count})
-      </t-tag>
-    </t-popup>
-  );
+const renderCollapsedItems: SelectInputProps['collapsedItems'] = (_, { collapsedTags }) => {
+  return <Tag>更多({Array.isArray(collapsedTags) ? collapsedTags.length : collapsedTags})</Tag>;
 };
-
-// Slot Component
-const CollapsedItemsRender = defineComponent({
-  name: 'CollapsedItemsRender',
-  // eslint-disable-next-line vue/require-prop-types
-  props: ['value', 'minCollapsedNum'],
-  emits: ['close'],
-  setup(props, { attrs, emit }) {
-    const count = computed(() => {
-      return props.value.length - props.minCollapsedNum;
-    });
-    const collapsedTags = computed(() => {
-      return props.value.slice(props.minCollapsedNum, props.value.length);
-    });
-
-    return () => {
-      if (count.value <= 0) return null;
-      return (
-        <t-popup
-          v-slots={{
-            content: () => (
-              <>
-                {collapsedTags.value.map((item, index) => (
-                  <t-tag
-                    {...attrs}
-                    key={item}
-                    onClose={(context) => emit('close', { e: context.e, index: props.minCollapsedNum.value + index })}
-                  >
-                    {item}
-                  </t-tag>
-                ))}
-              </>
-            ),
-          }}
-        >
-          <t-tag {...attrs} closable={false}>
-            Slot - More({count.value})
-          </t-tag>
-        </t-popup>
-      );
-    };
-  },
-});
 </script>
 <style>
 .tdesign-demo__panel-options-collapsed-items {

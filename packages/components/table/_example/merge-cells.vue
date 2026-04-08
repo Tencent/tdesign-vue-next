@@ -12,16 +12,28 @@
     />
   </div>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import type { TableProps } from 'tdesign-vue-next';
 
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const data = new Array(6).fill(null).map((_, i) => ({
+const data: TableProps['data'] = new Array(6).fill(null).map((_, i) => ({
   i,
   status: i % 3,
   applicant: ['贾明', '张三', '王芳'][i % 3],
@@ -40,9 +52,12 @@ const data = new Array(6).fill(null).map((_, i) => ({
   description: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
   createTime: '2021-11-01',
 }));
-
-const columns = [
-  { colKey: 'applicant', title: '申请人', width: '100' },
+const columns: TableProps['columns'] = [
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -83,8 +98,7 @@ const columns = [
     title: '创建时间',
   },
 ];
-
-const rowspanAndColspan = ({ col, rowIndex, colIndex }) => {
+const rowspanAndColspan: TableProps['rowspanAndColspan'] = ({ col, rowIndex, colIndex }) => {
   if (colIndex === 0 && rowIndex % 2 === 0) {
     return {
       rowspan: 2,

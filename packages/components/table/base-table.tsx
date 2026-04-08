@@ -164,8 +164,8 @@ export default defineComponent({
     const dividerBottom = computed(() => {
       if (!props.bordered) return 0;
       const bottomRect = bottomContentRef.value?.getBoundingClientRect();
-      const paginationRect = paginationRef.value?.getBoundingClientRect();
-      return (bottomRect?.height || 0) + (paginationRect?.height || 0);
+      const paginationHeight = paginationRef.value?.clientHeight;
+      return (bottomRect?.height || 0) + (paginationHeight || 0);
     });
 
     // 行高亮
@@ -418,7 +418,6 @@ export default defineComponent({
           offsetBottom={0}
           {...getAffixProps(props.horizontalScrollAffixedBottom)}
           style={{ marginTop: `-${scrollbarWidth.value * 2}px` }}
-          horizontalScrollAffixedBottom
           ref={horizontalScrollAffixRef}
         >
           <div
