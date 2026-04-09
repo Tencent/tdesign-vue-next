@@ -35,7 +35,9 @@
     </t-space>
     <t-space class="tag-block editable">
       <t-tag v-if="!inputVisible" @click="handleClickAdd">
-        <add-icon />
+        <template #icon>
+          <add-icon />
+        </template>
         添加标签
       </t-tag>
       <t-input v-else ref="input" size="small" style="width: 94px" @blur="handleInputEnter" @enter="handleInputEnter" />
