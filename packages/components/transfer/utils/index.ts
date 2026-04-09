@@ -1,5 +1,5 @@
 import { ComponentPublicInstance } from 'vue';
-import { isArray, cloneDeep, isUndefined } from 'lodash-es';
+import { isArray, cloneDeep, isUndefined, isEqual } from 'lodash-es';
 
 import { TransferListOptionBase, TransferItemOption, TdTransferProps, TransferValue, DataOption } from '../types';
 
@@ -10,6 +10,12 @@ export const TRANSFER_NAME = 'TTransfer';
 
 export const SOURCE = 'source';
 export const TARGET = 'target';
+
+// Check if a value exists in an array using deep equality,
+// so that object-type values work correctly with the Transfer component.
+function valueInArray(val: TransferValue, arr: Array<TransferValue>): boolean {
+  return arr.some((item) => isEqual(item, val));
+}
 
 interface TreeNode {
   children?: Array<TreeNode>;
@@ -54,7 +60,7 @@ function getDataValues(
     if (data) {
       for (let i = 0; i < data.length; i++) {
         const item = data[i];
-        const isInclude = filterValues.includes(item.value) && !item.disabled;
+        const isInclude = valueInArray(item.value, filterValues) && !item.disabled;
         if (!include && isInclude) {
           continue; // 排除模式下子元素一律排除
         }
@@ -76,9 +82,9 @@ function getDataValues(
   return data
     .filter((item) => {
       if (!item) return false;
-      const isInclude = filterValues.includes(item.value);
+      const isInclude = valueInArray(item.value, filterValues);
       return (
-        ((include && isInclude) || (!include && !isInclude)) && (!item.disabled || remainValue.includes(item.value))
+        ((include && isInclude) || (!include && !isInclude)) && (!item.disabled || valueInArray(item.value, remainValue))
       );
     })
     .map((item) => item.value);
@@ -115,7 +121,7 @@ function getTransferData(
 }
 
 function isAllNodeValid(data: TransferItemOption, filterValues: Array<TransferValue>, needMatch: boolean): boolean {
-  if (filterValues.includes(data.value)) {
+  if (valueInArray(data.value, filterValues)) {
     return needMatch;
   }
   return false;
@@ -124,7 +130,7 @@ function isAllNodeValid(data: TransferItemOption, filterValues: Array<TransferVa
 function isTreeNodeValid(data: TransferItemOption, filterValues: Array<TransferValue>, needMatch: boolean): boolean {
   if (!data) return !needMatch;
 
-  if (filterValues.includes(data.value)) {
+  if (valueInArray(data.value, filterValues)) {
     return needMatch;
   }
 
@@ -175,11 +181,11 @@ function filterTransferData(
   if (!isTreeMode) {
     if (needMatch) {
       // 正向过滤。要保持filterValues顺序
-      return filterValues?.map((value) => data.find((item) => item.value === value)).filter((item) => !!item);
+      return filterValues?.map((value) => data.find((item) => isEqual(item.value, value))).filter((item) => !!item);
     }
     // 反向过滤
     return data.filter((item) => {
-      const isMatch = filterValues.includes(item.value);
+      const isMatch = valueInArray(item.value, filterValues);
       return !isMatch;
     });
   }
