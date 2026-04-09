@@ -251,6 +251,7 @@ export default defineComponent({
       Number.parseInt(String(getComputedCss(el, cssProperty)), 10);
 
     const calcMenuWidth = () => {
+      if (!innerRef.value || !menuRef.value) return 0;
       const menuPaddingLeft = getComputedCssValue(menuRef.value, 'paddingLeft');
       const menuPaddingRight = getComputedCssValue(menuRef.value, 'paddingRight');
       let totalWidth = innerRef.value.clientWidth;
@@ -319,7 +320,7 @@ export default defineComponent({
         <div class={menuClass.value}>
           <div class={`${classPrefix.value}-head-menu__inner`} ref={innerRef}>
             {logo && (
-              <div class={`${classPrefix.value}-menu__logo`} ref={logoRef}>
+              <div class={`${classPrefix.value}-menu__logo`} ref={logoRef} style={{ flexShrink: 0 }}>
                 {logo}
               </div>
             )}
@@ -327,7 +328,7 @@ export default defineComponent({
               {content}
             </ul>
             {operations && (
-              <div class={`${classPrefix.value}-menu__operations`} ref={operationRef}>
+              <div class={`${classPrefix.value}-menu__operations`} ref={operationRef} style={{ flexShrink: 0 }}>
                 {operations}
               </div>
             )}
