@@ -12,7 +12,6 @@ import {
   VNode,
   Component,
   getCurrentInstance,
-  nextTick,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isArray, isFunction } from 'lodash-es';
@@ -155,126 +154,81 @@ export default defineComponent({
     const innerRef = ref<HTMLDivElement>();
     const logoRef = ref<HTMLDivElement>();
     const operationRef = ref<HTMLDivElement>();
-    const moreSubMenuRef = ref<HTMLElement>();
 
-    // 记录每个 DOM 子元素的完整宽度（包含 margin），key 为 DOM 元素
-    const nodeWidthMap = new WeakMap<HTMLElement, number>();
-    // 记录从第几个 DOM 子元素开始折叠（-1 表示不折叠）
-    const foldStartIndex = ref(-1);
+    const subMoreNodes = ref<VNode[]>([]);
 
-    /**
-     * 获取 menuRef 下所有直接子级 HTMLElement（即实际渲染出的菜单项 DOM），
-     * 无论用户怎么封装组件、slot 结构如何变化，这里拿到的始终是真实 DOM。
-     * 过滤掉"更多"按钮自身。
-     */
-    const getMenuItemElements = (): HTMLElement[] => {
-      if (!menuRef.value) return [];
-      return Array.from(menuRef.value.children).filter(
-        (el): el is HTMLElement =>
-          el instanceof HTMLElement && !el.classList.contains(`${classPrefix.value}-head-menu__submenu--more`),
-      );
-    };
+    const nodeWidthRecord = new Map<number, number>();
 
-    const getElementWidth = (el: HTMLElement): number => {
-      const style = window.getComputedStyle(el);
-      const rect = el.getBoundingClientRect();
-      return rect.width + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
-    };
-
-    /**
-     * 核心：基于 DOM 的溢出计算。
-     * 不再依赖 ctx.slots.default() 做 VNode 切片，而是直接操作已渲染的 DOM 元素。
-     * 这样在封装组件场景下（如 Fragment、wrapper 组件等），
-     * 只要最终渲染出的是 <li> 菜单项，就能正确计算。
-     */
     const handleResize = () => {
       if (props.expandType !== 'popup') return;
 
-      const itemNodes = getMenuItemElements();
-      if (itemNodes.length === 0) return;
+      const nodes = Array.from(menuRef.value?.childNodes || []).filter(
+        (item) => item instanceof HTMLElement,
+      ) as HTMLElement[];
+      if (nodes.length === 0) return;
 
       const menuWidth = calcMenuWidth();
       const subMoreWidth = 64 + 8;
+      const originalSlot = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
-      // 先让所有项都可见来测量真实宽度（使用 visibility:hidden 避免闪烁）
-      // 如果当前已经处于折叠状态，被隐藏的项宽度为 0，需要临时恢复
-      const hiddenItems: { el: HTMLElement; display: string }[] = [];
-      itemNodes.forEach((el) => {
-        if (el.style.display === 'none') {
-          hiddenItems.push({ el, display: el.style.display });
-          el.style.display = '';
-          el.style.visibility = 'hidden';
-          el.style.position = 'absolute';
-        }
-      });
+      // 提取当前渲染的节点（过滤掉“更多”）
+      const itemNodes = nodes.filter((n) => !n.classList.contains(`${classPrefix.value}-head-menu__submenu--more`));
 
-      // 测量所有项宽度
-      itemNodes.forEach((el) => {
-        nodeWidthMap.set(el, getElementWidth(el));
-      });
+      // 计算当前已显示的菜单项总宽度，记录宽度
+      const totalItemsWidth = itemNodes.reduce((sum, el, index) => {
+        const style = window.getComputedStyle(el);
+        const rect = el.getBoundingClientRect();
+        const w = rect.width + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
+        nodeWidthRecord.set(index, w);
+        return sum + w;
+      }, 0);
 
-      // 恢复临时显示的元素
-      hiddenItems.forEach(({ el, display }) => {
-        el.style.display = display;
-        el.style.visibility = '';
-        el.style.position = '';
-      });
+      const isFolded = subMoreNodes.value.length > 0;
 
-      // 计算所有项总宽度
-      let totalItemsWidth = 0;
-      itemNodes.forEach((el) => {
-        totalItemsWidth += nodeWidthMap.get(el) || 0;
-      });
-
-      if (totalItemsWidth <= menuWidth) {
-        // 全部放得下，无需折叠
-        foldStartIndex.value = -1;
-      } else {
-        // 从前往后累加，找到截断点
-        let currentWidth = 0;
-        let cutIndex = itemNodes.length; // 默认全部溢出
-        for (let i = 0; i < itemNodes.length; i++) {
-          const w = nodeWidthMap.get(itemNodes[i]) || 0;
-          if (currentWidth + w + subMoreWidth > menuWidth) {
-            cutIndex = i;
-            break;
+      if (!isFolded) {
+        // 未折叠状态：如果总宽溢出，计算截断点
+        if (totalItemsWidth > menuWidth) {
+          let currentWidth = 0;
+          for (let i = 0; i < itemNodes.length; i++) {
+            const w = nodeWidthRecord.get(i);
+            if (currentWidth + w + subMoreWidth > menuWidth) {
+              subMoreNodes.value = originalSlot.slice(i);
+              break;
+            }
+            currentWidth += w;
           }
-          currentWidth += w;
         }
-        foldStartIndex.value = cutIndex;
-      }
+      } else {
+        // 计算当前主菜单区域的剩余可用空间
+        const remainSpace = menuWidth - totalItemsWidth - subMoreWidth;
 
-      // 应用折叠状态到 DOM
-      applyFoldState(itemNodes);
-    };
-
-    /**
-     * 根据 foldStartIndex 控制 DOM 元素的显示/隐藏，
-     * 并将溢出的 DOM 元素克隆到"更多"子菜单中。
-     */
-    const applyFoldState = (itemNodes: HTMLElement[]) => {
-      const isFolded = foldStartIndex.value >= 0;
-
-      itemNodes.forEach((el, index) => {
-        if (isFolded && index >= foldStartIndex.value) {
-          el.style.display = 'none';
+        if (remainSpace < 0) {
+          // 空间收缩
+          let adjustedTotalWidth = totalItemsWidth;
+          let newVisibleCount = itemNodes.length;
+          while (newVisibleCount > 0 && menuWidth - adjustedTotalWidth - subMoreWidth < -0.5) {
+            const w = nodeWidthRecord.get(newVisibleCount - 1);
+            adjustedTotalWidth -= w;
+            newVisibleCount -= 1;
+          }
+          if (newVisibleCount < itemNodes.length) {
+            subMoreNodes.value = originalSlot.slice(newVisibleCount);
+          }
         } else {
-          el.style.display = '';
-        }
-      });
+          // 空间扩张
+          const nextItemIndex = itemNodes.length;
+          const nextItemWidth = nodeWidthRecord.get(nextItemIndex) || 0;
 
-      // 更新"更多"子菜单的可见性
-      if (moreSubMenuRef.value) {
-        moreSubMenuRef.value.style.display = isFolded ? '' : 'none';
+          // 如果记录过下一项宽度，且剩余空间足以容纳，则恢复
+          if (remainSpace >= nextItemWidth) {
+            const currentVisibleCount = originalSlot.length - subMoreNodes.value.length;
+            subMoreNodes.value = originalSlot.slice(currentVisibleCount + 1);
+          }
+        }
       }
     };
 
     useResizeObserver(innerRef, handleResize);
-
-    // 监听 slot 内容变化后重新计算
-    const scheduleResize = () => {
-      nextTick(() => handleResize());
-    };
 
     // 监听 logo 内部图片的加载
     // Q: why?
@@ -316,35 +270,25 @@ export default defineComponent({
       return totalWidth - menuPaddingLeft - menuPaddingRight;
     };
 
-    /**
-     * 从 DOM 中收集溢出的菜单项，用于渲染到"更多"弹出子菜单中。
-     * 通过 Teleport 的思路：溢出项在原位 display:none，在"更多"子菜单中渲染对应的 slot VNode。
-     *
-     * 这里的关键改进：通过递归扁平化 slot VNode 树来获取所有叶子菜单项节点，
-     * 这样无论用户怎么封装组件（Fragment、wrapper 等），都能正确按索引截取。
-     */
-    const flattenSlotNodes = (nodes: VNode[]): VNode[] => {
-      const result: VNode[] = [];
-      for (const node of nodes) {
-        // Fragment 节点：Vue 将 template 中多个根节点包装为 Fragment
-        if (node.type === Symbol.for('v-fgm') || node.type === Symbol.for('')) {
-          if (isArray(node.children)) {
-            result.push(...flattenSlotNodes(node.children as VNode[]));
-          }
-        } else if ((node.type as Component)?.name === 'TSubmenu' || (node.type as Component)?.name === 'TMenuItem') {
-          result.push(node);
-        } else if (isArray(node.children)) {
-          // 其他包装节点，尝试递归
-          result.push(...flattenSlotNodes(node.children as VNode[]));
-        } else if (isFunction((node.children as any)?.default)) {
-          // 组件的 default slot
-          result.push(...flattenSlotNodes((node.children as any).default()));
-        } else {
-          // 未知节点，直接保留
-          result.push(node);
-        }
+    const formatContent = () => {
+      const originalContent = ctx.slots.default?.() || ctx.slots.content?.() || [];
+
+      let content = originalContent;
+      if (props.expandType === 'popup' && subMoreNodes.value.length > 0) {
+        const sliceIndex = originalContent.length - subMoreNodes.value.length;
+        content = [
+          ...originalContent.slice(0, sliceIndex),
+          <Submenu
+            class={`${classPrefix.value}-head-menu__submenu--more`}
+            expandType="popup"
+            title={() => <EllipsisIcon />}
+          >
+            {subMoreNodes.value}
+          </Submenu>,
+        ];
       }
-      return result;
+
+      return content;
     };
 
     const initVMenu = (slots: VNode[], parentValue?: string) => {
@@ -366,25 +310,11 @@ export default defineComponent({
     return () => {
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
-      const originalContent = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
-      // 扁平化 slot VNode，获取所有菜单项（解决封装组件场景）
-      const flatItems = flattenSlotNodes(originalContent);
-
-      // 根据折叠索引分割 VNode
-      const isFolded = foldStartIndex.value >= 0 && foldStartIndex.value < flatItems.length;
-      const overflowItems = isFolded ? flatItems.slice(foldStartIndex.value) : [];
-
-      // 内容始终完整渲染（通过 DOM display:none 控制可见性），
-      // 保证 DOM 子元素数量稳定，handleResize 的索引对应关系始终正确
-      const content = originalContent;
-
+      const content = formatContent();
       vMenu.data.children = [];
       vMenu.cache.clear();
-      initVMenu(flatItems);
-
-      // 每次 render 后重新计算折叠
-      nextTick(scheduleResize);
+      initVMenu(content);
 
       return (
         <div class={menuClass.value}>
@@ -396,17 +326,6 @@ export default defineComponent({
             )}
             <ul class={`${classPrefix.value}-menu`} ref={menuRef}>
               {content}
-              {props.expandType === 'popup' && (
-                <Submenu
-                  ref={moreSubMenuRef}
-                  class={`${classPrefix.value}-head-menu__submenu--more`}
-                  expandType="popup"
-                  title={() => <EllipsisIcon />}
-                  style={{ display: isFolded ? '' : 'none' }}
-                >
-                  {overflowItems}
-                </Submenu>
-              )}
             </ul>
             {operations && (
               <div class={`${classPrefix.value}-menu__operations`} ref={operationRef}>
