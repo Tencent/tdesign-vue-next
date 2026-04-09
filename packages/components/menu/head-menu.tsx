@@ -320,7 +320,7 @@ export default defineComponent({
         <div class={menuClass.value}>
           <div class={`${classPrefix.value}-head-menu__inner`} ref={innerRef}>
             {logo && (
-              <div class={`${classPrefix.value}-menu__logo`} ref={logoRef} style={{ flexShrink: 0 }}>
+              <div class={`${classPrefix.value}-menu__logo`} ref={logoRef}>
                 {logo}
               </div>
             )}
@@ -328,7 +328,7 @@ export default defineComponent({
               {content}
             </ul>
             {operations && (
-              <div class={`${classPrefix.value}-menu__operations`} ref={operationRef} style={{ flexShrink: 0 }}>
+              <div class={`${classPrefix.value}-menu__operations`} ref={operationRef}>
                 {operations}
               </div>
             )}
