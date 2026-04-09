@@ -57,7 +57,6 @@ export default defineComponent({
     const isFocused = ref(false);
     const suffixWidthRef = ref<number>(0);
     const suffixIconWidthRef = ref<number>(0);
-    const isBreakLine = computed(() => excessTagsDisplayType.value === 'break-line');
 
     // 这里不需要响应式，因此直接传递参数
     const { getDragProps } = useDragSorter({
@@ -79,6 +78,8 @@ export default defineComponent({
           getDragProps,
         }),
       );
+
+    const isBreakLine = computed(() => excessTagsDisplayType.value === 'break-line');
 
     const classes = computed(() => {
       const isEmpty = !(isArray(tagValue.value) && tagValue.value.length);
