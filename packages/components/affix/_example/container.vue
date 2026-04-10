@@ -17,15 +17,14 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { AffixProps } from 'tdesign-vue-next';
 
 const affixed = ref(false);
 const affixContainerRef = ref(null);
-
-const getContainer = () => affixContainerRef.value;
-
-const handleFixedChange = (_affixed, { top }) => {
+const getContainer: AffixProps['container'] = () => affixContainerRef.value;
+const handleFixedChange: AffixProps['onFixedChange'] = (_affixed, { top }) => {
   console.log('top', top);
   affixed.value = _affixed;
 };

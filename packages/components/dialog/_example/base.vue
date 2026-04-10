@@ -23,33 +23,34 @@
     </t-dialog>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { DialogProps, ButtonProps } from 'tdesign-vue-next';
 
 const visible = ref(false);
 const current = ref(1);
 const pageSize = ref(10);
-const onClick = (context) => {
+const onClick: ButtonProps['onClick'] = (context) => {
   console.log('点击了确认按钮，弹出弹窗', context);
   visible.value = true;
 };
-const onConfirmAnother = (context) => {
+const onConfirmAnother: DialogProps['onConfirm'] = (context) => {
   console.log('点击了确认按钮', context);
   visible.value = false;
 };
-const close = (context) => {
+const close: DialogProps['onClose'] = (context) => {
   console.log('关闭弹窗，点击关闭按钮、按下ESC、点击蒙层等触发', context);
 };
-const onCancel = (context) => {
+const onCancel: DialogProps['onCancel'] = (context) => {
   console.log('点击了取消按钮', context);
 };
-const onEscKeydown = (context) => {
+const onEscKeydown: DialogProps['onEscKeydown'] = (context) => {
   console.log('按下了ESC', context);
 };
-const onCloseBtnClick = (context) => {
+const onCloseBtnClick: DialogProps['onCloseBtnClick'] = (context) => {
   console.log('点击了关闭按钮', context);
 };
-const onOverlayClick = (context) => {
+const onOverlayClick: DialogProps['onOverlayClick'] = (context) => {
   console.log('点击了蒙层', context);
 };
 </script>

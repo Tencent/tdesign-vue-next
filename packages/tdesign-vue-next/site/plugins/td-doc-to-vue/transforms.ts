@@ -36,7 +36,6 @@ export default {
     // 替换成对应 demo 文件
     source = source.replace(/\{\{\s+(.+)\s+\}\}/g, (demoStr: any, demoFileName: any) => {
       const defaultDemoPath = path.resolve(resourceDir, `./_example/${demoFileName}.vue`);
-      const tsDemoPath = path.resolve(resourceDir, `./_example-ts/${demoFileName}.vue`);
 
       if (!fs.existsSync(defaultDemoPath)) {
         // eslint-disable-next-line
@@ -44,15 +43,10 @@ export default {
         return '\n<h3>DEMO (🚧建设中）...</h3>';
       }
 
-      if (!fs.existsSync(tsDemoPath)) {
-        // eslint-disable-next-line
-        console.log('\x1B[36m%s\x1B[0m', `${componentName} 组件需要实现 _example-ts/${demoFileName}.vue 示例!`);
-      }
-
       return `\n::: demo _example/${demoFileName} ${componentName}\n:::\n`;
     });
     source.replace(/:::\s*demo\s+([\\/.\w-]+)/g, (demoStr: any, relativeDemoPath: any) => {
-      const tsDemoPath = `_example-ts/${relativeDemoPath.split('/')?.[1]}`;
+      const jsDemoPath = `_example-js/${relativeDemoPath.split('/')?.[1]}`;
       const demoPathOnlyLetters = relativeDemoPath.replace(/[^a-zA-Z\d]/g, '');
       const demoDefName = `Demo${demoPathOnlyLetters}`;
 
@@ -60,9 +54,12 @@ export default {
       const demoTsCodeDefName = `Demo${demoPathOnlyLetters}TsCode`;
 
       demoImports[demoDefName] = `import ${demoDefName} from './${relativeDemoPath}.vue'`;
-      demoCodesImports[demoCodeDefName] = `import ${demoCodeDefName} from './${relativeDemoPath}.vue?raw'`;
-      if (fs.existsSync(path.resolve(resourceDir, `${tsDemoPath}.vue`)))
-        demoCodesImports[demoTsCodeDefName] = `import ${demoTsCodeDefName} from './${tsDemoPath}.vue?raw'`;
+      // TypeScript tab: 原始 _example 中的 TS 源码
+      demoCodesImports[demoTsCodeDefName] = `import ${demoTsCodeDefName} from './${relativeDemoPath}.vue?raw'`;
+      // JavaScript tab: 编译后的 _example-js 中的 JS 版本
+      if (fs.existsSync(path.resolve(resourceDir, `${jsDemoPath}.vue`)))
+        demoCodesImports[demoCodeDefName] = `import ${demoCodeDefName} from './${jsDemoPath}.vue?raw'`;
+      else demoCodesImports[demoCodeDefName] = `import ${demoCodeDefName} from './${relativeDemoPath}.vue?raw'`;
     });
 
     return source;

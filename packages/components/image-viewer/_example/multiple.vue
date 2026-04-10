@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 

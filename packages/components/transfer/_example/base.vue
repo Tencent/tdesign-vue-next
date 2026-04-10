@@ -7,10 +7,11 @@
     @checked-change="handleCheckedChange"
   />
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TransferProps } from 'tdesign-vue-next';
 
-const list = [];
+const list: TransferProps['data'] = [];
 for (let i = 0; i < 20; i++) {
   list.push({
     value: i.toString(),
@@ -18,11 +19,14 @@ for (let i = 0; i < 20; i++) {
     disabled: i % 4 < 1,
   });
 }
-
 const targetValue = ref([]);
-const checked = ref(['2']);
-
-const handleCheckedChange = ({ checked: checkedVal, sourceChecked, targetChecked, type }) => {
+const checked = ref<TransferProps['checked']>(['2']);
+const handleCheckedChange: TransferProps['onCheckedChange'] = ({
+  checked: checkedVal,
+  sourceChecked,
+  targetChecked,
+  type,
+}) => {
   console.log('handleCheckedChange', {
     checkedVal,
     sourceChecked,
@@ -31,8 +35,7 @@ const handleCheckedChange = ({ checked: checkedVal, sourceChecked, targetChecked
   });
   checked.value = checkedVal;
 };
-
-const onChange = (newTargetValue) => {
+const onChange: TransferProps['onChange'] = (newTargetValue) => {
   console.log('newTargetValue', newTargetValue);
 };
 </script>

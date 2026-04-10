@@ -32,24 +32,24 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+import type { DialogProps } from 'tdesign-vue-next';
 
 const visible = ref(false);
 const visibleCenter = ref(false);
 const visibleTop = ref(false);
 const visibleOverflow = ref(false);
-const placement = 'top';
-const top = '50px';
-
-const close1 = () => {
+const placement: DialogProps['placement'] = 'top';
+const top: DialogProps['top'] = '50px';
+const close1: DialogProps['onClose'] = () => {
   visible.value = false;
 };
-const close2 = () => {
+const close2: DialogProps['onClose'] = () => {
   visibleCenter.value = false;
 };
-const close3 = () => {
+const close3: DialogProps['onClose'] = () => {
   visibleTop.value = false;
 };
-const close4 = () => {
+const close4: DialogProps['onClose'] = () => {
   visibleOverflow.value = false;
 };
 </script>

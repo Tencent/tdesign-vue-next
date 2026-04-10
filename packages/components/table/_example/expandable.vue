@@ -66,9 +66,8 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, watch, computed } from 'vue';
-
 import {
   ChevronRightCircleIcon,
   ChevronRightIcon,
@@ -76,33 +75,66 @@ import {
   ErrorCircleFilledIcon,
   CloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
+import type { TableProps, TableRowData } from 'tdesign-vue-next';
 
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
-};
-
-const getColumns = (isFixedColumn) => [
-  { colKey: 'applicant', title: '申请人', width: '80', fixed: isFixedColumn ? 'left' : undefined },
-  {
-    colKey: 'status',
-    title: '申请状态',
-    cell: (h, { row }) => {
-      return (
-        <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
-          {statusNameListMap[row.status].icon}
-          {statusNameListMap[row.status].label}
-        </t-tag>
-      );
-    },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
   },
-  { colKey: 'channel', title: '签署方式' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
-  { colKey: 'operation', title: '操作', fixed: isFixedColumn ? 'right' : undefined },
-];
-
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
+};
+const getColumns = (isFixedColumn: boolean) => {
+  const columns: TableProps['columns'] = [
+    {
+      colKey: 'applicant',
+      title: '申请人',
+      width: '80',
+      fixed: isFixedColumn ? 'left' : undefined,
+    },
+    {
+      colKey: 'status',
+      title: '申请状态',
+      cell: (h, { row }) => {
+        return (
+          <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
+            {statusNameListMap[row.status].icon}
+            {statusNameListMap[row.status].label}
+          </t-tag>
+        );
+      },
+    },
+    {
+      colKey: 'channel',
+      title: '签署方式',
+    },
+    {
+      colKey: 'detail.email',
+      title: '邮箱地址',
+      ellipsis: true,
+    },
+    {
+      colKey: 'createTime',
+      title: '申请时间',
+    },
+    {
+      colKey: 'operation',
+      title: '操作',
+      fixed: isFixedColumn ? 'right' : undefined,
+    },
+  ];
+  return columns;
+};
 const data = new Array(5).fill(null).map((item, i) => ({
   index: i + 1,
   applicant: ['贾明', '张三', '王芳'][i % 3],
@@ -115,17 +147,14 @@ const data = new Array(5).fill(null).map((item, i) => ({
   time: [2, 3, 1, 4][i % 4],
   createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
 }));
-
 const expandControl = ref('true');
-const expandIcon = ref(true);
+const expandIcon = ref<TableProps['expandIcon']>(true);
 const expandOnRowClick = ref(true);
-const expandedRowKeys = ref(['2']);
+const expandedRowKeys = ref<TableProps['expandedRowKeys']>(['2']);
 const fixedColumns = ref(false);
 const emptyData = ref(false);
-
-const columns = computed(() => getColumns(fixedColumns.value));
-
-const expandedRow = (h, { row }) => (
+const columns = computed<TableProps['columns']>(() => getColumns(fixedColumns.value));
+const expandedRow: TableProps['expandedRow'] = (h, { row }) => (
   <div class="more-detail">
     <p class="title">
       <b>申请人:</b>
@@ -143,16 +172,13 @@ const expandedRow = (h, { row }) => (
     <p class="content">{row.channel}</p>
   </div>
 );
-
-const rehandleExpandChange = (value, params) => {
+const rehandleExpandChange: TableProps['onExpandChange'] = (value, params) => {
   expandedRowKeys.value = value;
   console.log('rehandleExpandChange', value, params);
 };
-
-const rehandleClickOp = ({ text, row }) => {
+const rehandleClickOp = ({ text, row }: TableRowData) => {
   console.log(text, row);
 };
-
 watch(
   () => expandControl.value,
   (val) => {
@@ -181,16 +207,20 @@ watch(
 :deep([class*='t-table-expandable-icon-cell']) .t-icon {
   background-color: transparent;
 }
+
 .link {
   cursor: pointer;
   margin-right: 15px;
 }
+
 .more-detail {
   line-height: 22px;
+
   > p {
     display: inline-block;
     margin: 4px 0;
   }
+
   > p.title {
     width: 120px;
   }

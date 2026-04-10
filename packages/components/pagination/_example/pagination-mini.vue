@@ -19,10 +19,15 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { PaginationMiniProps } from 'tdesign-vue-next';
 
-const layout = ref('vertical');
-const size = ref('medium');
-const tips = ref({ prev: '前尘忆梦', current: '回到现在', next: '展望未来' });
+const layout = ref<PaginationMiniProps['layout']>('vertical');
+const size = ref<PaginationMiniProps['size']>('medium');
+const tips = ref<PaginationMiniProps['tips']>({
+  prev: '前尘忆梦',
+  current: '回到现在',
+  next: '展望未来',
+});
 </script>
