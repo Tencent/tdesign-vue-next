@@ -9,8 +9,8 @@ docClass: timeline
 
 ### 🚀 Features
 
-- `HeadMenu`: 支持横向菜单过多时自动折叠隐藏并展示更多按钮的效果，存在顶部菜单过多场景的业务请注意此变更 ⚠️ @Wesley-0808 @uyarn ([#6530](https://github.com/Tencent/tdesign-vue-next/pull/6530))
-- `RadioGroup`: 新增`direction` API，支持添加垂直排列特性，请注意目前只在 `theme` 为`radio` 完整展示 @JefferyHcool ([#6568](https://github.com/Tencent/tdesign-vue-next/pull/6568))
+- `HeadMenu`: 支持横向菜单过多时自动折叠隐藏并展示更多按钮的效果。⚠️存在顶部菜单过多场景的业务请注意此变更 @Wesley-0808 @uyarn ([#6530](https://github.com/Tencent/tdesign-vue-next/pull/6530))
+- `RadioGroup`: 新增 `direction` API，支持添加垂直排列特性。⚠️请注意，目前该属性仅在 `theme` 为 `radio` 时完整生效 @JefferyHcool ([#6568](https://github.com/Tencent/tdesign-vue-next/pull/6568))
 
 ### 🐞 Bug Fixes
 
