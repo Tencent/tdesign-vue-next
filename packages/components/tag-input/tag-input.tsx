@@ -166,17 +166,6 @@ export default defineComponent({
       setTInputValue(val, { ...context, trigger: 'input' });
     };
 
-    watch(
-      () => isScrollable.value,
-      (v) => {
-        if (props.excessTagsDisplayType !== 'scroll') return;
-        const scrollElementClass = `${classPrefix.value}-input__prefix`;
-        const scrollElement = tagInputRef.value.$el.querySelector(`.${scrollElementClass}`);
-        if (v) scrollElement.classList.add(`${scrollElementClass}--scrollable`);
-        else scrollElement.classList.remove(`${scrollElementClass}--scrollable`);
-      },
-    );
-
     const updateSuffixWidth = (selector: string, cssVar: string, widthRef: typeof suffixWidthRef) => {
       const wrapperEl = tagInputRef.value?.$el as HTMLElement;
       if (!wrapperEl) return;

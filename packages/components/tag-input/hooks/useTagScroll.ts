@@ -1,119 +1,89 @@
 /**
- * 当标签数量过多时，输入框显示不下，则需要滚动查看，以下为滚动逻辑
- * 如果标签过多时的处理方式，是标签省略，则不需要此功能
+ * TagInput scroll 模式下的滚动逻辑 Hook
+ * 如果标签过多时的处理方式是标签省略，则不需要此功能
  */
 
-import { isFunction } from 'lodash-es';
-import { onMounted, onUnmounted, ref, toRefs } from 'vue';
+import { onUnmounted, ref, toRefs } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
+import {
+  getScrollContainer,
+  handleWheelScroll,
+  scrollToRight as scrollToRightBase,
+  scrollToLeft as scrollToLeftBase,
+} from '@tdesign/common-js/utils/tagInputScroll';
 import { TdTagInputProps } from '../type';
 
 export function useTagScroll(props: TdTagInputProps) {
   const tagInputRef = ref();
   const classPrefix = usePrefixClass();
   const { excessTagsDisplayType, readonly, disabled } = toRefs(props);
-  // 允许向右滚动的最大距离
-  const scrollDistance = ref(0);
-  const scrollElement = ref<HTMLElement>();
-  const mouseEnterTimer = ref();
-  const isScrollable = ref(false); // 设置可滚动
 
-  const updateScrollElement = (element: HTMLElement) => {
-    // 获取 .t-input__prefix 元素，这是真正需要滚动的容器
-    const prefixElement = element.querySelector(`.${classPrefix.value}-input__prefix`) as HTMLElement;
-    scrollElement.value = prefixElement;
+  /** 滚动容器元素缓存（.input__prefix） */
+  const scrollElementRef = ref<HTMLElement>();
+  /** 进入防抖定时器 */
+  const mouseEnterTimerRef = ref<ReturnType<typeof setTimeout> | null>(null);
+
+  /** 是否为可交互的 scroll 模式 */
+  const isScrollMode = (type: string | undefined) => type === 'scroll' && !readonly.value && !disabled.value;
+
+  /** 获取滚动容器（带缓存） */
+  const getScrollElement = () => {
+    const root = tagInputRef.value?.$el;
+    if (!root) return scrollElementRef.value;
+    if (scrollElementRef.value?.parentElement !== root) {
+      const found = getScrollContainer(root, classPrefix.value);
+      if (found) scrollElementRef.value = found;
+    }
+    return scrollElementRef.value;
   };
 
-  const updateScrollDistance = () => {
-    scrollDistance.value = scrollElement.value.scrollWidth - scrollElement.value.clientWidth;
-  };
-
-  const scrollTo = (distance: number) => {
-    if (!isFunction(scrollElement.value?.scroll)) return;
-    scrollElement.value.scroll({ left: distance, behavior: 'smooth' });
-  };
-
+  /** 滚动到最右侧并开启 scrollable，用于：悬浮进入、tag 变化后定位末尾 */
   const scrollToRight = () => {
-    // 重新获取滚动元素，确保元素引用是最新的
-    const element = tagInputRef.value?.$el;
-    if (element) {
-      updateScrollElement(element);
-    }
-    if (!scrollElement.value) return;
-
-    // 使用 setTimeout 确保 DOM 布局完成后再计算滚动距离
-    setTimeout(() => {
-      updateScrollDistance();
-      scrollTo(scrollDistance.value);
-      setTimeout(() => {
-        isScrollable.value = true;
-      }, 200);
-    }, 0);
+    const el = getScrollElement();
+    if (el) scrollToRightBase(el, classPrefix.value);
   };
 
-  const scrollToLeft = () => {
-    scrollTo(0);
-  };
-
-  // MAC 电脑横向滚动使用 deltaX，Windows 纵向滚动使用 deltaY
+  /** 处理滚轮事件，绑定到 TInput 的 onWheel */
   const onWheel = ({ e }: { e: WheelEvent }) => {
-    if (readonly.value || disabled.value) return;
-    if (!scrollElement.value) return;
-    // 使用 deltaX 或 deltaY 来判断滚动方向，优先使用绝对值更大的
-    const delta = Math.abs(e.deltaX) >= Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    if (delta > 0) {
-      updateScrollDistance();
-      const distance = Math.min(scrollElement.value.scrollLeft + 120, scrollDistance.value);
-      scrollTo(distance);
-    } else if (delta < 0) {
-      const distance = Math.max(scrollElement.value.scrollLeft - 120, 0);
-      scrollTo(distance);
+    if (!isScrollMode(excessTagsDisplayType.value)) return;
+    const el = getScrollElement();
+    if (el) handleWheelScroll(el, e);
+  };
+
+  /** 清除防抖定时器 */
+  const clearEnterTimer = () => {
+    if (mouseEnterTimerRef.value) {
+      clearTimeout(mouseEnterTimerRef.value);
+      mouseEnterTimerRef.value = null;
     }
   };
 
-  // 鼠标 hover，自动滑动到最右侧，以便输入新标签
+  /** 鼠标悬浮进入：延迟 100ms 后滚动到最右侧 */
   const scrollToRightOnEnter = () => {
-    if (excessTagsDisplayType.value !== 'scroll') return;
-    // 一闪而过的 mousenter 不需要执行
-    mouseEnterTimer.value = setTimeout(() => {
+    if (!isScrollMode(excessTagsDisplayType.value)) return;
+    clearEnterTimer();
+    mouseEnterTimerRef.value = setTimeout(() => {
       scrollToRight();
-      clearTimeout(mouseEnterTimer.value);
+      mouseEnterTimerRef.value = null;
     }, 100);
   };
 
+  /** 鼠标离开：滚回最左并关闭 scrollable */
   const scrollToLeftOnLeave = () => {
-    if (excessTagsDisplayType.value !== 'scroll') return;
-    isScrollable.value = false; // 离开焦点不可滚动
-    scrollTo(0);
-    clearTimeout(mouseEnterTimer.value);
+    if (!isScrollMode(excessTagsDisplayType.value)) return;
+    clearEnterTimer();
+    const el = getScrollElement();
+    if (el) scrollToLeftBase(el, classPrefix.value);
   };
 
-  const init = () => {
-    const element = tagInputRef.value?.$el;
-    if (!element) return;
-    updateScrollElement(element);
-  };
-
-  const clear = () => {
-    clearTimeout(mouseEnterTimer.value);
-  };
-
-  onMounted(init);
-
-  onUnmounted(clear);
+  onUnmounted(clearEnterTimer);
 
   return {
     tagInputRef,
-    scrollElement,
-    scrollDistance,
-    scrollTo,
+    isScrollable: ref(false), // 向后兼容
     scrollToRight,
-    scrollToLeft,
-    updateScrollElement,
-    updateScrollDistance,
     onWheel,
     scrollToRightOnEnter,
     scrollToLeftOnLeave,
-    isScrollable,
   };
 }
