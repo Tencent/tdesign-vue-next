@@ -84,7 +84,8 @@ function getDataValues(
       if (!item) return false;
       const isInclude = valueInArray(item.value, filterValues);
       return (
-        ((include && isInclude) || (!include && !isInclude)) && (!item.disabled || valueInArray(item.value, remainValue))
+        ((include && isInclude) || (!include && !isInclude)) &&
+        (!item.disabled || valueInArray(item.value, remainValue))
       );
     })
     .map((item) => item.value);
