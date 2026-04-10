@@ -105,13 +105,23 @@ export default defineComponent({
       ),
     );
 
+    watch(
+      () => tagValue.value,
+      () => {
+        if (excessTagsDisplayType.value === 'scroll') {
+          nextTick(() => scrollToRight());
+        }
+      },
+    );
+
     const onInputEnter = (value: string, context: { e: KeyboardEvent }) => {
       // 阻止 Enter 默认行为，避免在 Form 中触发 submit 事件
       context.e?.preventDefault?.();
       setTInputValue('', { e: context.e, trigger: 'enter' });
-      !isComposition.value && onInnerEnter(value, context);
+      if (!isComposition.value) {
+        onInnerEnter(value, context);
+      }
       nextTick(() => {
-        scrollToRight();
         isComposition.value = false;
       });
     };

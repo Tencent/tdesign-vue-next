@@ -3,7 +3,7 @@
  * 如果标签过多时的处理方式是标签省略，则不需要此功能
  */
 
-import { onUnmounted, ref, toRefs } from 'vue';
+import { onUnmounted, ref, toRefs, type Ref } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import {
   getScrollContainer,
@@ -13,7 +13,23 @@ import {
 } from '@tdesign/common-js/utils/tagInputScroll';
 import { TdTagInputProps } from '../type';
 
-export function useTagScroll(props: TdTagInputProps) {
+/** useTagScroll 返回值类型 */
+export interface UseTagScrollReturn {
+  /** 标签输入框组件 ref */
+  tagInputRef: Ref<any>;
+  /** 是否可滚动（向后兼容） */
+  isScrollable: Ref<boolean>;
+  /** 滚动到最右侧 */
+  scrollToRight: () => void;
+  /** 滚轮事件处理 */
+  onWheel: (params: { e: WheelEvent }) => void;
+  /** 鼠标进入时滚动到右侧 */
+  scrollToRightOnEnter: () => void;
+  /** 鼠标离开时滚动回左侧 */
+  scrollToLeftOnLeave: () => void;
+}
+
+export function useTagScroll(props: TdTagInputProps): UseTagScrollReturn {
   const tagInputRef = ref();
   const classPrefix = usePrefixClass();
   const { excessTagsDisplayType, readonly, disabled } = toRefs(props);
@@ -80,7 +96,7 @@ export function useTagScroll(props: TdTagInputProps) {
 
   return {
     tagInputRef,
-    isScrollable: ref(false), // 向后兼容
+    isScrollable: ref(false),
     scrollToRight,
     onWheel,
     scrollToRightOnEnter,
