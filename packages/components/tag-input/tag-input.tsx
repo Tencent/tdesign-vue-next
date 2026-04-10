@@ -67,8 +67,7 @@ export default defineComponent({
         targetClassNameRegExp: new RegExp(`^${classPrefix.value}-tag`),
       },
     });
-    const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef, isScrollable } =
-      useTagScroll(props);
+    const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
     // handle tag add and remove
     // 需要响应式，为了尽量的和 react 版本做法相同，这里进行响应式处理
     const { tagValue, onInnerEnter, onInputBackspaceKeyUp, onInputBackspaceKeyDown, clearAll, renderLabel, onClose } =
