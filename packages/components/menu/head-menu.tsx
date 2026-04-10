@@ -30,6 +30,9 @@ import { VMenu } from './utils';
 
 import { useVModel, usePrefixClass, useDefaultValue, useResizeObserver } from '@tdesign/shared-hooks';
 
+// 用于"更多"Submenu 的特殊 value，不会与任何实际菜单项冲突
+const MORE_SUBMENU_VALUE = '__t_head_menu_more__';
+
 export default defineComponent({
   name: 'THeadMenu',
   props,
@@ -109,7 +112,28 @@ export default defineComponent({
     });
     const updateActiveValues = (value: MenuValue) => {
       activeValues.value = vMenu.select(value);
+      syncMoreActiveState();
     };
+
+    const syncMoreActiveState = () => {
+      const vals = activeValues.value;
+      const hasMoreFlag = vals.includes(MORE_SUBMENU_VALUE);
+      const isFolded = foldStartIndex.value >= 0;
+
+      let needActive = false;
+      if (isFolded && vals.length > 0) {
+        const topLevelValues = vMenu.data?.children?.map((child) => child.value) || [];
+        const foldedTopValues = new Set(topLevelValues.slice(foldStartIndex.value));
+        needActive = vals.some((v) => v != null && v !== MORE_SUBMENU_VALUE && foldedTopValues.has(v));
+      }
+
+      if (needActive && !hasMoreFlag) {
+        activeValues.value = [...vals, MORE_SUBMENU_VALUE];
+      } else if (!needActive && hasMoreFlag) {
+        activeValues.value = vals.filter((v) => v !== MORE_SUBMENU_VALUE);
+      }
+    };
+
     watch(activeValue, updateActiveValues);
     watch(
       () => props.expandType,
@@ -165,16 +189,7 @@ export default defineComponent({
     const cachedItemWidths: number[] = [];
 
     /**
-     * 获取 menuRef 下所有菜单项 DOM 元素（<li> 级别）。
-     *
-     * 关键：用户可能通过封装组件（如 MenuContent）来渲染菜单项，
-     * 此时 DOM 结构为 <ul> → <div>(封装组件根元素) → <li>...</li>
-     * 所以不能只取 menuRef 的直接子元素，需要收集所有 <li> 菜单项。
-     *
-     * 策略：遍历 menuRef 的直接子元素：
-     * - 如果是菜单项（有 t-menu__item 或 t-submenu 类名），直接收集
-     * - 如果是封装容器（如 <div>），递归收集其内部的菜单项子元素
-     * - 过滤掉"更多"按钮自身
+     * 获取 menuRef 下所有菜单项 DOM 元素（<li> 级别）, 兼容通过封装组件实现的子菜单
      */
     const getMenuItemElements = (): HTMLElement[] => {
       if (!menuRef.value) return [];
@@ -234,12 +249,6 @@ export default defineComponent({
       return rect.width + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
     };
 
-    /**
-     * 获取 menuRef 直接子元素中 "非菜单项" 的容器元素（封装组件的根 DOM）。
-     * 例如 MenuContent 组件渲染出的 <div>，这些容器包裹着实际的菜单项 <li>。
-     * 需要给这些容器设置 display:contents，使其不产生自身盒子，
-     * 让内部的菜单项 <li> 直接参与父级 <ul> 的 flex 布局。
-     */
     const getWrapperElements = (): HTMLElement[] => {
       if (!menuRef.value) return [];
       const moreClass = `${classPrefix.value}-head-menu__submenu--more`;
@@ -257,12 +266,6 @@ export default defineComponent({
       return wrappers;
     };
 
-    /**
-     * 核心：基于 DOM 的溢出计算。
-     *
-     * 只做计算，不直接修改 DOM style（避免和 Vue re-render 冲突）。
-     * 计算结果更新 foldStartIndex ref，由 applyFoldState 统一应用。
-     */
     const handleResize = () => {
       if (props.expandType !== 'popup') return;
       if (!menuRef.value) return;
@@ -286,7 +289,7 @@ export default defineComponent({
         return;
       }
 
-      // ========== Phase 1: 恢复所有项可见，测量真实自然宽度 ==========
+      // 恢复所有项可见，测量真实自然宽度
       const moreEl = menuRef.value.querySelector(`.${classPrefix.value}-head-menu__submenu--more`) as HTMLElement;
       if (moreEl) moreEl.style.display = 'none';
 
@@ -316,7 +319,7 @@ export default defineComponent({
         el.style.display = 'contents';
       });
 
-      // ========== Phase 2: 计算截断点 ==========
+      // 计算截断点
       const menuWidth = calcMenuWidth();
       const totalItemsWidth = cachedItemWidths.reduce((sum, w) => sum + w, 0);
 
@@ -337,7 +340,7 @@ export default defineComponent({
         }
       }
 
-      // ========== Phase 3: 更新 ref，触发 applyFoldState ==========
+      // 更新 ref，触发 applyFoldState
       foldStartIndex.value = newFoldIndex;
       // 立即应用（因为 handleResize 在 DOM 更新后调用，不需要等 nextTick）
       applyFoldState();
@@ -367,6 +370,9 @@ export default defineComponent({
       if (moreEl) {
         moreEl.style.display = isFolded ? '' : 'none';
       }
+
+      // 折叠状态变化后，更新"更多"按钮的高亮状态
+      syncMoreActiveState();
     };
 
     useResizeObserver(innerRef, handleResize);
@@ -414,11 +420,7 @@ export default defineComponent({
     };
 
     /**
-     * 从 DOM 中收集溢出的菜单项，用于渲染到"更多"弹出子菜单中。
-     * 通过 Teleport 的思路：溢出项在原位 display:none，在"更多"子菜单中渲染对应的 slot VNode。
-     *
-     * 这里的关键改进：通过递归扁平化 slot VNode 树来获取所有叶子菜单项节点，
-     * 这样无论用户怎么封装组件（Fragment、wrapper 等），都能正确按索引截取。
+     * 通过递归扁平化 slot VNode 树来获取所有叶子菜单项节点，这样无论用户怎么封装组件（Fragment、wrapper 等），都能正确按索引截取。
      */
     const flattenSlotNodes = (nodes: VNode[]): VNode[] => {
       const result: VNode[] = [];
@@ -437,9 +439,7 @@ export default defineComponent({
           // 组件有 default slot（如 <Wrapper><t-menu-item/></Wrapper>）
           result.push(...flattenSlotNodes((node.children as any).default()));
         } else {
-          // 未知节点（包括封装组件如 MenuContent），直接保留
-          // 注意：不穿透 subTree，因为从 subTree 取出的 VNode 引用不稳定，
-          // 会在 re-render 时导致弹窗内容消失
+          // 未知节点（包括封装组件），直接保留
           result.push(node);
         }
       }
@@ -563,6 +563,7 @@ export default defineComponent({
               {props.expandType === 'popup' && (
                 <Submenu
                   class={`${classPrefix.value}-head-menu__submenu--more`}
+                  value={MORE_SUBMENU_VALUE}
                   expandType="popup"
                   title={() => <EllipsisIcon />}
                   style={{ display: isFolded ? '' : 'none' }}
