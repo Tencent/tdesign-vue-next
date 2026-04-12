@@ -32,23 +32,22 @@
     <t-input v-model="input4" :maxlength="5" :suffix="suffix" placeholder="自定义字数限制文本" />
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, computed } from 'vue';
+import type { InputProps } from 'tdesign-vue-next';
 
 const input1 = ref('');
 const input2 = ref('');
 const input3 = ref('');
 const input4 = ref('');
-const errorTips = ref('');
-
-const suffix = computed(() => {
+const errorTips = ref<InputProps['tips']>('');
+const suffix = computed<InputProps['suffix']>(() => {
   return `${input4.value.length}/5`;
 });
-
-const onValidate = ({ error }) => {
+const onValidate: InputProps['onValidate'] = ({ error }) => {
   errorTips.value = error ? '输入内容长度不允许超过 5 个字' : '';
 };
-const onCompositionend = () => {
+const onCompositionend: InputProps['onCompositionend'] = () => {
   console.log('onCompositionend');
 };
 </script>

@@ -23,6 +23,7 @@ const useComponentClassName = () => {
     NAME_CLASS: usePrefixClass('tag-input'),
     CLEAR_CLASS: usePrefixClass('tag-input__suffix-clear'),
     BREAK_LINE_CLASS: usePrefixClass('tag-input--break-line'),
+    WITH_SUFFIX_ICON_CLASS: usePrefixClass('tag-input__with-suffix-icon'),
   };
 };
 
@@ -31,7 +32,7 @@ export default defineComponent({
   props,
   setup(props: TdTagInputProps, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
-    const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
+    const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS, WITH_SUFFIX_ICON_CLASS } = useComponentClassName();
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
 
     const isDisabled = useDisabled() as ComputedRef<boolean>;
@@ -54,6 +55,8 @@ export default defineComponent({
     const isComposition = ref(false);
     const { classPrefix } = useConfig();
     const isFocused = ref(false);
+    const suffixWidthRef = ref<number>(0);
+    const suffixIconWidthRef = ref<number>(0);
 
     // 这里不需要响应式，因此直接传递参数
     const { getDragProps } = useDragSorter({
@@ -76,12 +79,14 @@ export default defineComponent({
         }),
       );
 
+    const isBreakLine = computed(() => excessTagsDisplayType.value === 'break-line');
+
     const classes = computed(() => {
       const isEmpty = !(isArray(tagValue.value) && tagValue.value.length);
       return [
         NAME_CLASS.value,
         {
-          [BREAK_LINE_CLASS.value]: excessTagsDisplayType.value === 'break-line',
+          [BREAK_LINE_CLASS.value]: isBreakLine.value,
           [`${classPrefix.value}-is-empty`]: isEmpty,
           [`${classPrefix.value}-tag-input--with-tag`]: !isEmpty,
           [`${classPrefix.value}-tag-input--drag-sort`]: props.dragSort && !isReadonly.value && !isDisabled.value,
@@ -172,6 +177,52 @@ export default defineComponent({
       },
     );
 
+    const updateSuffixWidth = (selector: string, cssVar: string, widthRef: typeof suffixWidthRef) => {
+      const wrapperEl = tagInputRef.value?.$el as HTMLElement;
+      if (!wrapperEl) return;
+
+      const inputEl = wrapperEl.querySelector(`.${classPrefix.value}-input`) as HTMLElement;
+      if (!inputEl) return;
+
+      const targetEl = wrapperEl.querySelector(selector);
+      const width = targetEl ? targetEl.getBoundingClientRect().width : 0;
+      if (width !== widthRef.value) {
+        widthRef.value = width;
+        if (width) {
+          inputEl.style.setProperty(cssVar, `${Math.ceil(width + 8)}px`);
+        } else {
+          inputEl.style.removeProperty(cssVar);
+        }
+      }
+    };
+
+    const handleSuffixWidthUpdate = () => {
+      nextTick(() => {
+        if (!isBreakLine.value) return;
+
+        if (suffix.value) {
+          updateSuffixWidth(
+            `.${classPrefix.value}-input__suffix:not(.${classPrefix.value}-input__suffix-icon)`,
+            `--${classPrefix.value}-tag-input-suffix-width`,
+            suffixWidthRef,
+          );
+        }
+
+        updateSuffixWidth(
+          `.${classPrefix.value}-input__suffix-icon`,
+          `--${classPrefix.value}-tag-input-suffix-icon-width`,
+          suffixIconWidthRef,
+        );
+      });
+    };
+
+    watch(
+      () => [excessTagsDisplayType.value, suffix.value, showClearIcon.value, classPrefix.value, isBreakLine.value],
+      () => {
+        handleSuffixWidthUpdate();
+      },
+    );
+
     return () => {
       const suffixIconNode = showClearIcon.value ? (
         <CloseCircleFilledIcon class={CLEAR_CLASS.value} onClick={onClearClick} />
@@ -179,10 +230,11 @@ export default defineComponent({
         renderTNodeJSX('suffixIcon')
       );
       const prefixIconNode = renderTNodeJSX('prefixIcon');
-      const suffixClass = `${classPrefix.value}-tag-input__with-suffix-icon`;
+      const suffixClass = WITH_SUFFIX_ICON_CLASS.value;
       if (suffixIconNode && !classes.value.includes(suffixClass)) {
         classes.value.push(suffixClass);
       }
+
       // 自定义 Tag 节点
       const displayNode = renderTNodeJSX('valueDisplay', {
         params: {

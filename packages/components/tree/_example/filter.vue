@@ -33,8 +33,10 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TreeProps, InputProps } from 'tdesign-vue-next';
+
 const exampleItems = [
   {
     value: '1',
@@ -126,16 +128,16 @@ const exampleItems = [
   },
 ];
 const demo1Text = ref('');
-const demo1Filter = ref(null);
+const demo1Filter = ref<TreeProps['filter']>(null);
 const demo2Text = ref('');
-const demo2Filter = ref(null);
-const items = ref(exampleItems);
-const demo1Input = (state) => {
+const demo2Filter = ref<TreeProps['filter']>(null);
+const items = ref<TreeProps['data']>(exampleItems);
+const demo1Input: InputProps['onChange'] = (state) => {
   console.info('demo1 input:', state);
   if (demo1Text.value) {
     // 存在过滤文案，才启用过滤
     demo1Filter.value = (node) => {
-      const rs = node.data.label.indexOf(demo1Text.value) >= 0;
+      const rs = (node.data.label as string).indexOf(demo1Text.value) >= 0;
       // 命中的节点会强制展示
       // 命中节点的路径节点会锁定展示
       // 未命中的节点会隐藏
@@ -146,7 +148,7 @@ const demo1Input = (state) => {
     demo1Filter.value = null;
   }
 };
-const demo2Input = () => {
-  demo2Filter.value = demo2Text.value ? (node) => node.data.label.indexOf(demo2Text.value) >= 0 : null;
+const demo2Input: InputProps['onChange'] = () => {
+  demo2Filter.value = demo2Text.value ? (node) => (node.data.label as string).indexOf(demo2Text.value) >= 0 : null;
 };
 </script>

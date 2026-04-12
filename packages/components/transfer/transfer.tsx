@@ -1,5 +1,5 @@
 import { defineComponent, computed, toRefs } from 'vue';
-import { pick, isFunction } from 'lodash-es';
+import { pick, isFunction, isEqual } from 'lodash-es';
 
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
@@ -113,11 +113,11 @@ export default defineComponent({
       const selfCheckedValue = toDirection === TARGET ? checkedValue.value[SOURCE] : checkedValue.value[TARGET];
       // target->source
       if (toDirection === SOURCE) {
-        newTargetValue = oldTargetValue.filter((v) => !selfCheckedValue.includes(v));
+        newTargetValue = oldTargetValue.filter((v) => !selfCheckedValue.some((cv) => isEqual(cv, v)));
       } else if (props.targetSort === 'original') {
         // 按照原始顺序
         const remainValue = transferData.value.reduce((acc, data) => {
-          if (oldTargetValue.includes(data.value) && data.disabled) {
+          if (oldTargetValue.some((v) => isEqual(v, data.value)) && data.disabled) {
             return acc.concat(data.value);
           }
           return acc;

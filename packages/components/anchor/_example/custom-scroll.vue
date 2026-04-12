@@ -10,7 +10,7 @@
     </t-anchor>
   </div>
 </template>
-<script setup>
+<script lang="tsx" setup>
 import { computed, getCurrentInstance } from 'vue';
 import { get } from 'lodash-es';
 

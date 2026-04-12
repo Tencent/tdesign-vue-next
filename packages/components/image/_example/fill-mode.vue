@@ -7,20 +7,19 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { onBeforeMount, ref } from 'vue';
+import type { ImageProps } from 'tdesign-vue-next';
 
 const mode = ['fill', 'contain', 'cover', 'none', 'scale-down'];
-const asyncImageUrl = ref('');
-
+const asyncImageUrl = ref<ImageProps['src']>('');
 onBeforeMount(() => {
   const timer = setTimeout(() => {
     asyncImageUrl.value = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
     clearTimeout(timer);
   }, 90);
 });
-
-const onError = () => {
+const onError: ImageProps['onError'] = () => {
   console.log('onError');
 };
 </script>

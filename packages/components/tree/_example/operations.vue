@@ -66,9 +66,20 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-const tree = ref();
+import type {
+  TreeInstanceFunctions,
+  TreeProps,
+  ButtonProps,
+  InputProps,
+  TreeNodeModel,
+  TreeOptionData,
+  TreeNodeValue,
+  TypeTreeNodeModel,
+} from 'tdesign-vue-next';
+
+const tree = ref<TreeInstanceFunctions>();
 const index = ref(2);
 const activeId = ref('');
 const activeIds = ref([]);
@@ -77,8 +88,8 @@ const checkedIds = ref([]);
 const useActived = ref(false);
 const expandParent = ref(true);
 const filterText = ref('');
-const filterByText = ref(null);
-const items = ref([
+const filterByText = ref<TreeProps['filter']>(null);
+const items = ref<TreeProps['data']>([
   {
     value: 'node1',
   },
@@ -86,30 +97,29 @@ const items = ref([
     value: 'node2',
   },
 ]);
-
-const getLabelContent = (node) => {
+const getLabelContent = (node: TreeNodeModel<TreeOptionData>) => {
   const pathNodes = node.getPath();
   let label = pathNodes.map((itemNode) => itemNode.getIndex() + 1).join('.');
   label = `${label} | value: ${node.value}`;
   return label;
 };
-const getLabel = (h, node) => {
+const getLabel: TreeProps['label'] = (h, node) => {
   const label = getLabelContent(node);
   const { data } = node;
   data.label = label;
   return label;
 };
-const setLabel = (value) => {
+const setLabel = (value: TreeNodeValue) => {
   const node = tree.value.getItem(value);
   const label = getLabelContent(node);
   const { data } = node;
   data.label = label;
 };
-const getItem = () => {
+const getItem: ButtonProps['onClick'] = () => {
   const node = tree.value.getItem('node1');
   console.info('getItem:', node.value);
 };
-const getAllItems = () => {
+const getAllItems: ButtonProps['onClick'] = () => {
   const nodes = tree.value.getItems();
   console.info(
     'getAllItems:',
@@ -120,10 +130,11 @@ const getActivedNode = () => {
   const activeNode = tree.value.getItem(activeId.value);
   return activeNode;
 };
-const getActiveChildren = () => {
+type Nodes = TreeNodeModel<TreeOptionData>[];
+const getActiveChildren: ButtonProps['onClick'] = () => {
   const node = getActivedNode();
   if (!node) return;
-  let nodes = [];
+  let nodes: Nodes = [];
   if (node) {
     const nodeChildrens = node.getChildren(true);
     nodes = typeof nodeChildrens === 'boolean' ? [] : nodeChildrens;
@@ -133,10 +144,10 @@ const getActiveChildren = () => {
     nodes.map((node) => node.value),
   );
 };
-const getAllActived = () => {
+const getAllActived: ButtonProps['onClick'] = () => {
   console.info('getActived value:', activeIds.value.slice(0));
 };
-const getActiveChecked = () => {
+const getActiveChecked: ButtonProps['onClick'] = () => {
   const node = getActivedNode();
   if (!node) return;
   const nodes = tree.value.getItems(node.value);
@@ -158,7 +169,7 @@ const getInsertItem = () => {
   }
   return item;
 };
-const append = (node) => {
+const append = (node?: TypeTreeNodeModel) => {
   const item = getInsertItem();
   if (item) {
     if (!node) {
@@ -172,27 +183,27 @@ const append = (node) => {
     activeId.value = '';
   }
 };
-const insertBefore = (node) => {
+const insertBefore = (node: TypeTreeNodeModel) => {
   const item = getInsertItem();
   if (item) {
     tree.value.insertBefore(node.value, item);
     setLabel(item.value);
   }
 };
-const insertAfter = (node) => {
+const insertAfter = (node: TypeTreeNodeModel) => {
   const item = getInsertItem();
   if (item) {
     tree.value.insertAfter(node.value, item);
     setLabel(item.value);
   }
 };
-const getActiveParent = () => {
+const getActiveParent: ButtonProps['onClick'] = () => {
   const node = getActivedNode();
   if (!node) return;
   const parent = tree.value.getParent(node.value);
   console.info('getParent', parent?.value);
 };
-const getActiveParents = () => {
+const getActiveParents: ButtonProps['onClick'] = () => {
   const node = getActivedNode();
   if (!node) return;
   const parents = tree.value.getParents(node.value);
@@ -201,34 +212,34 @@ const getActiveParents = () => {
     parents.map((node) => node.value),
   );
 };
-const setActiveChecked = () => {
+const setActiveChecked: ButtonProps['onClick'] = () => {
   const node = getActivedNode();
   if (!node) return;
   tree.value.setItem(node?.value, {
     checked: true,
   });
 };
-const setActiveUnChecked = () => {
+const setActiveUnChecked: ButtonProps['onClick'] = () => {
   const node = getActivedNode();
   if (!node) return;
   tree.value.setItem(node?.value, {
     checked: false,
   });
 };
-const setActiveExpanded = () => {
+const setActiveExpanded: ButtonProps['onClick'] = () => {
   const node = getActivedNode();
   if (!node) return;
   tree.value.setItem(node?.value, {
     expanded: true,
   });
 };
-const getActiveIndex = () => {
+const getActiveIndex: ButtonProps['onClick'] = () => {
   const node = getActivedNode();
   if (!node) return;
   const index = tree.value.getIndex(node.value);
   console.info('getIndex', index);
 };
-const getActivePlainData = () => {
+const getActivePlainData: ButtonProps['onClick'] = () => {
   const node = getActivedNode();
   let treeNodes = [];
   if (!node) {
@@ -238,34 +249,33 @@ const getActivePlainData = () => {
   }
   console.info('树结构数据:', treeNodes);
 };
-const toggleDisable = (node) => {
+const toggleDisable = (node: TypeTreeNodeModel) => {
   tree.value.setItem(node.value, {
     disabled: !node.disabled,
   });
 };
-const remove = (node) => {
+const remove = (node: TypeTreeNodeModel) => {
   tree.value.remove(node.value);
 };
-
-const onChange = (vals, state) => {
+const onChange: TreeProps['onChange'] = (vals, state) => {
   console.info('on change:', vals, state);
   checkedIds.value = vals;
 };
-const onExpand = (vals, state) => {
+const onExpand: TreeProps['onExpand'] = (vals, state) => {
   console.info('on expand:', vals, state);
   expandIds.value = vals;
 };
-const onActive = (vals, state) => {
+const onActive: TreeProps['onActive'] = (vals, state) => {
   console.info('on active:', vals, state);
   activeIds.value = vals;
-  activeId.value = vals[0] || '';
+  activeId.value = String(vals[0]) || '';
 };
-const onInputChange = (state) => {
+const onInputChange: InputProps['onChange'] = (state) => {
   console.info('on input:', state);
   if (filterText.value) {
     filterByText.value = (node) => {
       const label = node?.data?.label || '';
-      const rs = label.indexOf(filterText.value) >= 0;
+      const rs = (label as string).indexOf(filterText.value) >= 0;
       return rs;
     };
   } else {

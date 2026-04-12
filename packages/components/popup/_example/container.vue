@@ -11,7 +11,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 function getAttach() {
   return document.querySelector('#second-popup');
 }

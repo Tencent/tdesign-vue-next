@@ -20,15 +20,15 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { DrawerProps, ButtonProps } from 'tdesign-vue-next';
 
 const visible = ref(false);
-
-const handleClick = () => {
+const handleClick: ButtonProps['onClick'] = () => {
   visible.value = true;
 };
-const handleClose = () => {
+const handleClose: DrawerProps['onClose'] = () => {
   visible.value = false;
 };
 </script>

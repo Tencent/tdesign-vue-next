@@ -39,14 +39,14 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { DrawerProps } from 'tdesign-vue-next';
 
 const visible = ref(false);
 const visible2 = ref(false);
 const visible3 = ref(false);
-
-const renderFooter = () => {
+const renderFooter: DrawerProps['footer'] = () => {
   return (
     <div>
       <t-button>confirm</t-button>
