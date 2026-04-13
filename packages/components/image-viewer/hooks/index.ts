@@ -99,14 +99,10 @@ export function useScale(imageScale: Partial<ImageScale> | undefined) {
   const { max, min, step, defaultScale: rawDefault } = { ...DEFAULT_IMAGE_SCALE, ...imageScale };
   const defaultScale = clampScale(rawDefault, min, max);
   const scale = ref(defaultScale);
-
-  // 存储上一次缩放的结果，供同步调用时返回
   const lastZoomResult = ref<ZoomResult>({});
-
-  // 双指缩放时记录两指间距
   let pinchDistance = 0;
 
-  // 节流内部实现（50ms 间隔），确保快速调用时不会过度触发缩放
+  // --- 节流（50ms，leading-only）：防止高频滚轮/触摸过度触发 ---
   const doZoomIn = throttle(
     (options: ZoomOptions | undefined) => {
       const { newScale, zoomResult } = zoomIn(scale.value, step, min, max, options);
@@ -128,12 +124,18 @@ export function useScale(imageScale: Partial<ImageScale> | undefined) {
   );
 
   const onZoomIn = (options?: ZoomOptions): ZoomResult => {
+    const prevScale = scale.value;
     doZoomIn(options);
+    // 被节流丢弃或已达边界 → 返回空结果，避免调用方使用过期的位移数据
+    if (scale.value === prevScale) return {};
     return lastZoomResult.value;
   };
 
   const onZoomOut = (options?: ZoomOptions): ZoomResult => {
+    const prevScale = scale.value;
     doZoomOut(options);
+    // 被节流丢弃或已达边界 → 返回空结果，避免调用方使用过期的位移数据
+    if (scale.value === prevScale) return {};
     return lastZoomResult.value;
   };
 

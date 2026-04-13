@@ -28,13 +28,20 @@ export default defineComponent({
     const svgElRef = ref<HTMLDivElement>();
     const modalBoxRef = ref<HTMLDivElement>();
 
-    // --- CSS transition 动画驱动（用于向中心缩放时平滑过渡） ---
+    // --- 向中心缩放的 CSS transition 动画 ---
     const transitioningClass = `${classPrefix.value}-image-viewer__modal-box--transitioning`;
     let transitionEndHandler: ((e: TransitionEvent) => void) | null = null;
+    /** 兜底定时器：浏览器可能不触发 transitionend（DOM 移除、动画合并、起止值相同等） */
+    let fallbackTimer: ReturnType<typeof setTimeout> | null = null;
 
+    /** 移除 transition 类名并清理所有监听 */
     const cleanupTransition = () => {
       const modalBox = modalBoxRef.value;
       if (!modalBox) return;
+      if (fallbackTimer) {
+        clearTimeout(fallbackTimer);
+        fallbackTimer = null;
+      }
       modalBox.classList.remove(transitioningClass);
       if (transitionEndHandler) {
         modalBox.removeEventListener('transitionend', transitionEndHandler);
@@ -43,17 +50,19 @@ export default defineComponent({
     };
 
     /**
-     * 启用向中心缩放的 CSS transition 动画
-     * 先移除旧类名 → 强制重绘 → 添加新类名 → 监听动画结束后移除
+     * 启用 modal-box 的 transition 动画
+     * 流程：清理旧状态 → 强制 reflow → 添加类名 → 设置兜底超时 + transitionend 监听
      */
     const enableTransition = () => {
       const modalBox = modalBoxRef.value;
       if (!modalBox) return;
 
       cleanupTransition();
-      // 强制浏览器 reflow，确保类名移除生效后再添加能触发新的 transition 动画
-      modalBox.getBoundingClientRect();
+      modalBox.getBoundingClientRect(); // 强制 reflow，保证移除→添加类名能触发新动画
       modalBox.classList.add(transitioningClass);
+
+      // 兜底：350ms 后强制清理（transition-duration 一般 ≤ 300ms）
+      fallbackTimer = setTimeout(cleanupTransition, 350);
 
       const handleTransitionEnd = (e: TransitionEvent) => {
         if (e.propertyName !== 'transform') return;
