@@ -23,7 +23,17 @@ export default defineComponent({
     });
 
     // 提升为常量，避免每次 render 重新创建对象，防止 Popup 内部 watch 触发不必要的 destroyPopper+updatePopper
-    const submenuPopperOptionsLeft = { modifiers: [{ name: 'flip', enabled: false }] };
+    // offset: [0, -14] 还原旧代码 calc(100% - 6px) 的重叠效果
+    // Popup 默认 margin = 8px，需要抵消 8px 并再向内重叠 6px，即 -(8 + 6) = -14
+    const submenuPopperOptionsRight = {
+      modifiers: [{ name: 'offset', options: { offset: [0, -14] } }],
+    };
+    const submenuPopperOptionsLeft = {
+      modifiers: [
+        { name: 'flip', enabled: false },
+        { name: 'offset', options: { offset: [0, -14] } },
+      ],
+    };
 
     const handleItemClick = (options: { data: DropdownOption; context: { e: MouseEvent } }) => {
       const { data, context } = options;
@@ -56,7 +66,7 @@ export default defineComponent({
                   placement={props.direction === 'left' ? 'left-top' : 'right-top'}
                   disabled={optionItem.disabled}
                   destroyOnClose={false}
-                  popperOptions={props.direction === 'left' ? submenuPopperOptionsLeft : undefined}
+                  popperOptions={props.direction === 'left' ? submenuPopperOptionsLeft : submenuPopperOptionsRight}
                   overlayInnerClassName={`${dropdownClass.value}__submenu`}
                   overlayInnerStyle={{
                     position: 'relative',

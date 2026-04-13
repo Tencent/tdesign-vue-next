@@ -72,18 +72,15 @@ export default defineComponent({
           expandAnimation
           {...popupParams}
           v-slots={{
-            content: () => (
-              <>
-                {options.value?.length ? (
-                  <DropdownMenu
-                    {...omit(props, 'onClick')}
-                    options={options.value}
-                    onClick={handleMenuClick}
-                    v-slots={slots}
-                  />
-                ) : null}
-              </>
-            ),
+            content: () =>
+              options.value?.length ? (
+                <DropdownMenu
+                  {...omit(props, 'onClick')}
+                  options={options.value}
+                  onClick={handleMenuClick}
+                  v-slots={slots}
+                />
+              ) : null,
           }}
         >
           {trigger}
