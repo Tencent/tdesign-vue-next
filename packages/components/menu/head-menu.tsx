@@ -7,6 +7,7 @@ import {
   watch,
   onMounted,
   onBeforeUnmount,
+  onUpdated,
   watchEffect,
   toRefs,
   h,
@@ -110,27 +111,30 @@ export default defineComponent({
         handleSubmenuExpand(value[0]);
       }
     });
+    let cachedFlatItemValues: MenuValue[] = [];
+
     const updateActiveValues = (value: MenuValue) => {
-      activeValues.value = vMenu.select(value);
+      const pureVals = vMenu.select(value).filter((v) => v !== MORE_SUBMENU_VALUE);
+      activeValues.value = pureVals;
       syncMoreActiveState();
     };
 
     const syncMoreActiveState = () => {
-      const vals = activeValues.value;
-      const hasMoreFlag = vals.includes(MORE_SUBMENU_VALUE);
+      const vals = activeValues.value.filter((v) => v !== MORE_SUBMENU_VALUE);
       const isFolded = foldStartIndex.value >= 0;
 
       let needActive = false;
-      if (isFolded && vals.length > 0) {
-        const topLevelValues = vMenu.data?.children?.map((child) => child.value) || [];
-        const foldedTopValues = new Set(topLevelValues.slice(foldStartIndex.value));
-        needActive = vals.some((v) => v != null && v !== MORE_SUBMENU_VALUE && foldedTopValues.has(v));
+      if (isFolded && vals.length > 0 && cachedFlatItemValues.length > 0) {
+        const foldedTopValues = new Set(cachedFlatItemValues.slice(foldStartIndex.value));
+
+        const topLevelAncestor = vals.find((v) => v != null);
+        needActive = topLevelAncestor != null && foldedTopValues.has(topLevelAncestor);
       }
 
-      if (needActive && !hasMoreFlag) {
+      if (needActive) {
         activeValues.value = [...vals, MORE_SUBMENU_VALUE];
-      } else if (!needActive && hasMoreFlag) {
-        activeValues.value = vals.filter((v) => v !== MORE_SUBMENU_VALUE);
+      } else {
+        activeValues.value = vals;
       }
     };
 
@@ -270,7 +274,7 @@ export default defineComponent({
       if (props.expandType !== 'popup') return;
       if (!menuRef.value) return;
 
-      // 先处理封装容器：临时设 display:contents 使其不产生盒子，测量完后恢复
+      // 先处理封装容器：临时设 display:contents 使其不产生盒子
       const wrappers = getWrapperElements();
       const savedWrapperDisplays: string[] = [];
       wrappers.forEach((el) => {
@@ -283,7 +287,6 @@ export default defineComponent({
         wrappers.forEach((el, i) => {
           el.style.display = savedWrapperDisplays[i];
         });
-        // 没有菜单项时，不需要折叠，确保"更多"按钮被隐藏
         foldStartIndex.value = -1;
         applyFoldState();
         return;
@@ -307,14 +310,14 @@ export default defineComponent({
         cachedItemWidths.push(getElementWidth(el));
       });
 
-      // 恢复测量前的状态（不改变实际样式，后续由 applyFoldState 统一设置）
+      // 恢复测量前的状态
       itemNodes.forEach((el, index) => {
         el.style.flexShrink = savedFlexShrinks[index];
         el.style.display = savedDisplays[index];
       });
       if (moreEl) moreEl.style.display = savedDisplays.length > 0 ? '' : 'none';
 
-      // 恢复封装容器的 display 为 contents（保持透明）
+      // 恢复封装容器
       wrappers.forEach((el) => {
         el.style.display = 'contents';
       });
@@ -340,16 +343,10 @@ export default defineComponent({
         }
       }
 
-      // 更新 ref，触发 applyFoldState
       foldStartIndex.value = newFoldIndex;
-      // 立即应用（因为 handleResize 在 DOM 更新后调用，不需要等 nextTick）
       applyFoldState();
     };
 
-    /**
-     * 根据 foldStartIndex 将折叠状态应用到 DOM 上。
-     * 和 Vue render 分离——render 负责 VNode 结构，这里负责动态 display 控制。
-     */
     const applyFoldState = () => {
       if (!menuRef.value) return;
 
@@ -375,11 +372,10 @@ export default defineComponent({
       syncMoreActiveState();
     };
 
+    // 使用 ResizeObserver 监听容器尺寸变化（安全，不会因 DOM 样式修改而循环触发）
     useResizeObserver(innerRef, handleResize);
 
     // 监听 logo 内部图片的加载
-    // Q: why?
-    // A: logo 中图片加载完成后可能会导致 menu 的宽度发生变化（初始化时图片未加载完成，初始化获取的宽度不准确），从而影响菜单项的展示，因此需要监听图片的加载事件来重新计算菜单的布局。
     watch(logoRef, (el) => {
       if (el) {
         const imgs = el.querySelectorAll('img');
@@ -420,7 +416,7 @@ export default defineComponent({
     };
 
     /**
-     * 通过递归扁平化 slot VNode 树来获取所有叶子菜单项节点，这样无论用户怎么封装组件（Fragment、wrapper 等），都能正确按索引截取。
+     * 通过递归扁平化 slot VNode 树来获取所有叶子菜单项节点
      */
     const flattenSlotNodes = (nodes: VNode[]): VNode[] => {
       const result: VNode[] = [];
@@ -433,13 +429,10 @@ export default defineComponent({
         } else if ((node.type as Component)?.name === 'TSubmenu' || (node.type as Component)?.name === 'TMenuItem') {
           result.push(node);
         } else if (isArray(node.children)) {
-          // 其他包装节点（如原生 HTML 元素 <div>），children 是 VNode 数组
           result.push(...flattenSlotNodes(node.children as VNode[]));
         } else if (isFunction((node.children as any)?.default)) {
-          // 组件有 default slot（如 <Wrapper><t-menu-item/></Wrapper>）
           result.push(...flattenSlotNodes((node.children as any).default()));
         } else {
-          // 未知节点（包括封装组件），直接保留
           result.push(node);
         }
       }
@@ -462,51 +455,29 @@ export default defineComponent({
       });
     };
 
-    // 使用 MutationObserver 监听 menuRef 子节点变化后重新计算
-    // 需要防循环：handleResize 修改 foldStartIndex → re-render → DOM 变化 → MutationObserver → handleResize
-    let mutationObserver: MutationObserver | null = null;
-    let isResizing = false;
-    let resizeRAF: number | null = null;
+    let pendingResizeRAF: number | null = null;
+    let prevSlotKey = '';
 
-    const safeHandleResize = () => {
-      if (isResizing) return;
-      // 先同步恢复 fold DOM 状态，防止 Vue re-render 覆盖导致闪烁
+    onUpdated(() => {
       applyFoldState();
-      // 再异步重新计算是否需要调整 foldIndex
-      if (resizeRAF) cancelAnimationFrame(resizeRAF);
-      resizeRAF = requestAnimationFrame(() => {
-        isResizing = true;
+    });
+
+    const scheduleResize = () => {
+      if (pendingResizeRAF != null) return;
+      pendingResizeRAF = requestAnimationFrame(() => {
+        pendingResizeRAF = null;
         handleResize();
-        // 延迟重置标记，确保本轮 DOM 更新引起的 mutation 不会再触发
-        requestAnimationFrame(() => {
-          isResizing = false;
-        });
       });
     };
 
-    watch(menuRef, (el, _oldEl) => {
-      if (mutationObserver) {
-        mutationObserver.disconnect();
-        mutationObserver = null;
-      }
-      if (el) {
-        mutationObserver = new MutationObserver(() => {
-          safeHandleResize();
-        });
-        mutationObserver.observe(el, { childList: true, subtree: true });
-        // 初始计算一次
-        nextTick(() => handleResize());
-      }
+    onMounted(() => {
+      nextTick(() => handleResize());
     });
 
     onBeforeUnmount(() => {
-      if (mutationObserver) {
-        mutationObserver.disconnect();
-        mutationObserver = null;
-      }
-      if (resizeRAF) {
-        cancelAnimationFrame(resizeRAF);
-        resizeRAF = null;
+      if (pendingResizeRAF != null) {
+        cancelAnimationFrame(pendingResizeRAF);
+        pendingResizeRAF = null;
       }
     });
 
@@ -531,9 +502,15 @@ export default defineComponent({
       // 保证 DOM 子元素数量稳定，handleResize 的索引对应关系始终正确
       const content = originalContent;
 
-      vMenu.data.children = [];
-      vMenu.cache.clear();
-      initVMenu(flatItems);
+      const slotKey = flatItems.map((n) => n.props?.value).join(',');
+      if (slotKey !== prevSlotKey) {
+        prevSlotKey = slotKey;
+        cachedFlatItemValues = flatItems.map((n) => n.props?.value);
+        vMenu.data.children = [];
+        vMenu.cache.clear();
+        initVMenu(flatItems);
+        scheduleResize();
+      }
 
       // 构建"更多"弹窗的 slot 内容
       const buildPopupSlot = () => {
