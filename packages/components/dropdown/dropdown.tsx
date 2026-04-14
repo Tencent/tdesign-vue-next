@@ -12,7 +12,7 @@ import useDropdownOptions from './hooks/useDropdownOptions';
 export default defineComponent({
   name: 'TDropdown',
   props,
-  setup(props: TdDropdownProps, { attrs }) {
+  setup(props: TdDropdownProps, { attrs, slots }) {
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('dropdown');
     const popupElem = ref(null);
@@ -72,15 +72,15 @@ export default defineComponent({
           expandAnimation
           {...popupParams}
           v-slots={{
-            content: () => (
-              <>
-                {renderTNodeJSX('panelTopContent')}
-                {options.value?.length ? (
-                  <DropdownMenu {...omit(props, 'onClick')} options={options.value} onClick={handleMenuClick} />
-                ) : null}
-                {renderTNodeJSX('panelBottomContent')}
-              </>
-            ),
+            content: () =>
+              options.value?.length ? (
+                <DropdownMenu
+                  {...omit(props, 'onClick')}
+                  options={options.value}
+                  onClick={handleMenuClick}
+                  v-slots={slots}
+                />
+              ) : null,
           }}
         >
           {trigger}
