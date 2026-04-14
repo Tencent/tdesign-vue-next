@@ -65,8 +65,9 @@ export default defineComponent({
       let renderContent;
       data.forEach?.((menu, idx) => {
         const optionItem = { ...(menu as DropdownOption) };
-        const onViewIdx = idx - Math.ceil(scrollTopMap[deep] / itemHeight.value);
-        const renderIdx = onViewIdx >= 0 ? onViewIdx : idx;
+        // 子菜单 top = 菜单项偏移(itemHeight * idx) + panelTopContent高度补偿(仅第一级) - 容器滚动距离(currentScrollTop)
+        const currentScrollTop = scrollTopMap[deep] || 0;
+        const submenuTop = idx * itemHeight.value + (deep === 0 ? topContentHeight.value : 0) - currentScrollTop;
 
         if (optionItem.children) {
           optionItem.children = renderOptions(optionItem.children, deep + 1);
@@ -97,7 +98,7 @@ export default defineComponent({
                   ]}
                   style={{
                     position: 'absolute',
-                    top: `${renderIdx * itemHeight.value + topContentHeight.value}px`,
+                    top: `${submenuTop}px`,
                   }}
                 >
                   <div
