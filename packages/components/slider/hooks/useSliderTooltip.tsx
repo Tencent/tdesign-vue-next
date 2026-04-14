@@ -62,6 +62,9 @@ export const useSliderTooltip = (tooltipConfig: Ref<TooltipConfig>) => {
       if (typeof label === 'string') {
         return formatLabel(label, value);
       }
+      if (typeof label === 'function') {
+        return label;
+      }
       return renderTNodeJSX('label', {
         params: range
           ? {
