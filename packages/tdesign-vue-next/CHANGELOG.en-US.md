@@ -5,6 +5,16 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.19.1 `2026-04-14`
+
+### 🐞 Bug Fixes
+
+- `Dropdown` @RSS1102 ([#6600](https://github.com/Tencent/tdesign-vue-next/pull/6600))
+   -  Fixed an issue where panelTopContentand panelBottomContentdo not scroll with panel content by default.
+   - Fixed incorrect rendering position of multi-level dropdown menus when panelTopContentis configured.
+- `Menu`: Fixed an issue where rendering of certain menu elements was incorrect after the `1.19.0` update @uyarn ([#6602](https://github.com/Tencent/tdesign-vue-next/pull/6602))
+- `Slider`: Fixed a console warning that occurred when the label value was of function type @liweijie0812 ([#6601](https://github.com/Tencent/tdesign-vue-next/pull/6601))
+
 ## 🌈 1.19.0 `2026-04-10`
 
 ### 🚀 Features
