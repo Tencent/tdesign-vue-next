@@ -5,6 +5,16 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.19.1 `2026-04-14`
+
+### 🐞 Bug Fixes
+
+- `Dropdown` @RSS1102 ([#6600](https://github.com/Tencent/tdesign-vue-next/pull/6600))
+    - 修复 `panelTopContent` 和`panelBottomContent` 默认不跟随面板内容滚动的问题
+    - 修复多层下拉菜单配置 panelTopContent 后渲染位置错误的问题
+- `Menu`: 修复 `1.19.0` 版本更新导致部分菜单使用场景渲染异常的问题 @uyarn ([#6602](https://github.com/Tencent/tdesign-vue-next/pull/6602))
+- `Slider`: 修复 label 值为 function 类型时控制台警告 @liweijie0812 ([#6601](https://github.com/Tencent/tdesign-vue-next/pull/6601))
+
 ## 🌈 1.19.0 `2026-04-10`
 
 ### 🚀 Features
