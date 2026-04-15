@@ -5,6 +5,34 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.19.1 `2026-04-14`
+
+### 🐞 Bug Fixes
+
+- `Dropdown` @RSS1102 ([#6600](https://github.com/Tencent/tdesign-vue-next/pull/6600))
+   -  Fixed an issue where panelTopContentand panelBottomContentdo not scroll with panel content by default.
+   - Fixed incorrect rendering position of multi-level dropdown menus when panelTopContentis configured.
+- `Menu`: Fixed an issue where rendering of certain menu elements was incorrect after the `1.19.0` update @uyarn ([#6602](https://github.com/Tencent/tdesign-vue-next/pull/6602))
+- `Slider`: Fixed a console warning that occurred when the label value was of function type @liweijie0812 ([#6601](https://github.com/Tencent/tdesign-vue-next/pull/6601))
+
+## 🌈 1.19.0 `2026-04-10`
+
+### 🚀 Features
+
+- `HeadMenu`: Supports automatic folding and hiding when there are too many horizontal menu items, allowing more buttons to be displayed. @Wesley-0808 @uyarn ([#6530](https://github.com/Tencent/tdesign-vue-next/pull/6530))
+- `RadioGroup`: Added the direction API to support vertical layout configuration. Please note that this feature currently works in conjunction with the radio theme only. @JefferyHcool ([#6568](https://github.com/Tencent/tdesign-vue-next/pull/6568))
+
+### 🐞 Bug Fixes
+
+- `DateRangePicker`: Fixed an issue where the `onChange` callback was triggered unnecessarily when the value didn’t change. @JefferyHcool ([#6551](https://github.com/Tencent/tdesign-vue-next/pull/6551))
+- `EnhancedTable`: Fixed a problem where column configurations in tree-based tables weren’t responsive when used with `computed/ref`. @JefferyHcool ([#6578](https://github.com/Tencent/tdesign-vue-next/pull/6578))
+- `InputNumber`: Fixed an issue where the field became empty after losing focus, but was incorrectly reset to its minimum value. @JefferyHcool ([#6582](https://github.com/Tencent/tdesign-vue-next/pull/6582))
+- `Select`: Fixed an issue where updating the same option in `onSearch` didn’t update the UI properly. @LavenderDuskGlow ([#6535](https://github.com/Tencent/tdesign-vue-next/pull/6535))
+- `Table`: Fixed an issue where the scroll bars in pagination tables within pop-ups were misaligned. @LavenderDuskGlow ([#6536](https://github.com/Tencent/tdesign-vue-next/pull/6536))
+- `Tag`: Fixed the icon size to match the design specifications: 16px for large icons and 14px for small icons. @liweijie0812 ([#6589](https://github.com/Tencent/tdesign-vue-next/pull/6589))
+- `TagInput`: Fixed an issue where the `suffix` wasn’t displayed on the right side when `excessTagsDisplayType="break-line"` was set. @RylanBot ([#6585](https://github.com/Tencent/tdesign-vue-next/pull/6585))
+- `Transfer`: Fixed an issue related to selection behavior when the option value was an object. @hobostay ([#6587](https://github.com/Tencent/tdesign-vue-next/pull/6587))
+
 ## 🌈 1.18.6 `2026-03-23`
 
 ### 🚀 New Features
