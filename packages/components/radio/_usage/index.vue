@@ -3,7 +3,7 @@
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #radio="{ configProps }"><t-radio v-bind="configProps">单选框</t-radio></template>
     <template #radioGroup="{ configProps }">
-      <t-radio-group v-bind="configProps" :options="radioOptions" />
+      <t-radio-group v-bind="configProps" :options="radioOptions" default-value="选项一" />
     </template>
   </base-usage>
 </template>
