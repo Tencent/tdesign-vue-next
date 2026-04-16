@@ -150,7 +150,7 @@ export default defineComponent({
     });
     /** calculate bar style end */
 
-    const { name, disabled, readonly } = toRefs(props);
+    const { name, disabled, readonly, allowUncheck } = toRefs(props);
     provide(
       RadioGroupInjectionKey,
       reactive({
@@ -158,7 +158,7 @@ export default defineComponent({
         disabled,
         readonly,
         value: innerValue,
-        allowUncheck: props.allowUncheck,
+        allowUncheck,
         setValue: updateInnerValue,
       }),
     );
