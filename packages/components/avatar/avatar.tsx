@@ -117,6 +117,7 @@ export default defineComponent({
             style={{ ...customImageSize.value }}
             src={image}
             alt={alt}
+            error=""
             onError={handleImgLoadError}
             {...props.imageProps}
           ></Image>
