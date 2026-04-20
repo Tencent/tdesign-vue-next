@@ -118,6 +118,7 @@ export default defineComponent({
             src={image}
             alt={alt}
             error=""
+            loading=""
             onError={handleImgLoadError}
             {...props.imageProps}
           ></Image>
