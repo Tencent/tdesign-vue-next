@@ -254,8 +254,8 @@ catalogs:
       version: 2.8.1
   tdesign:
     '@tdesign/site-components':
-      specifier: ^0.19.0
-      version: 0.19.0
+      specifier: ^0.19.1
+      version: 0.19.1
     '@tdesign/theme-generator':
       specifier: ^1.2.3
       version: 1.2.3
@@ -915,7 +915,7 @@ importers:
         version: link:../../pro-components/chat
       '@tdesign/site-components':
         specifier: catalog:tdesign
-        version: 0.19.0
+        version: 0.19.1
       '@tdesign/theme-generator':
         specifier: catalog:tdesign
         version: 1.2.3
@@ -970,7 +970,7 @@ importers:
     dependencies:
       '@tdesign/site-components':
         specifier: catalog:tdesign
-        version: 0.19.0
+        version: 0.19.1
       '@tdesign/theme-generator':
         specifier: catalog:tdesign
         version: 1.2.3
@@ -2493,8 +2493,8 @@ packages:
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
 
-  '@tdesign/site-components@0.19.0':
-    resolution: {integrity: sha512-yENsNDfmWoNvm8nvSpc1C4iSnzKF31ULwDrmnT75ojNP3Nn04CDtcB8h6EPH0bcIVox+OlTPPaAUFa56a+ob5A==}
+  '@tdesign/site-components@0.19.1':
+    resolution: {integrity: sha512-MMkicxnF31DptWXop5GfNibdzZTMT/Yc/DecjbRD0za1PDwm/DfqApfRSfrdsaH94piN+d/qW3darPcHWD724w==}
 
   '@tdesign/theme-generator@1.2.3':
     resolution: {integrity: sha512-HYe61SEKbtsufaqmUdOsXCstR8rNY1iyEO/Hfdd4ZFtDTKOuKOaZL8Xc48FtZ9eZCcFZWGl5RjlNVJD/Nn2N8Q==}
@@ -9700,7 +9700,7 @@ snapshots:
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.12
 
-  '@tdesign/site-components@0.19.0':
+  '@tdesign/site-components@0.19.1':
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
