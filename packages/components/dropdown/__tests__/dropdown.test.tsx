@@ -712,6 +712,7 @@ describe('Dropdown', () => {
         const popupProps = { 'on-visible-change': onVisibleChange };
 
         const wrapper = mount(
+          // @ts-ignore
           <Dropdown options={options} popupProps={popupProps} trigger="click">
             <Button>Click me</Button>
           </Dropdown>,

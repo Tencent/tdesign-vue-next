@@ -6,5 +6,5 @@ import type { TdChatMarkdownContentProps } from 'tdesign-web-components/lib/chat
 // Markdown内容
 export const ChatMarkdown = omiVueify('t-chat-md-content', {
   methodNames: [],
-}) as DefineComponent<TdChatMarkdownContentProps>;
+}) as unknown as DefineComponent<TdChatMarkdownContentProps>;
 export default ChatMarkdown;

@@ -56,7 +56,7 @@ const VALIDATE_MAP = {
   ): ReturnType<CustomValidator> => validate(val, context),
 };
 
-export type ValidateFuncType = typeof VALIDATE_MAP[keyof typeof VALIDATE_MAP];
+export type ValidateFuncType = (typeof VALIDATE_MAP)[keyof typeof VALIDATE_MAP];
 
 /**
  * 校验某一条数据的某一条规则，一种校验规则不满足则不再进行校验。

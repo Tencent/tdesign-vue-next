@@ -63,7 +63,13 @@ export default function useTableHeader(props: TdBaseTableProps) {
               placement="bottom"
               attach={props.attach || (attach ? () => attach : undefined)}
               tooltipContent={content && (() => content)}
-              tooltipProps={typeof ellipsisTitle === 'object' ? ellipsisTitle : undefined}
+              tooltipProps={
+                typeof ellipsisTitle === 'object'
+                  ? 'props' in ellipsisTitle
+                    ? ellipsisTitle.props
+                    : ellipsisTitle
+                  : undefined
+              }
               classPrefix={extra?.classPrefix}
               overlayClassName={extra?.ellipsisOverlayClassName}
             >

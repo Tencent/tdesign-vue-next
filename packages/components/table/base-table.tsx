@@ -627,7 +627,7 @@ export default defineComponent({
                 {...{ ...headProps, thWidthList: columnResizable ? thWidthList.value : {} }}
               />
             )}
-            <TBody v-slots={context.slots} ref={tableBodyRef} {...tableBodyProps} />
+            <TBody v-slots={context.slots} ref={tableBodyRef} {...(tableBodyProps as any)} />
             <TFoot
               v-slots={context.slots}
               rowKey={props.rowKey}

@@ -33,7 +33,7 @@ export default defineComponent({
   },
   setup(
     props: TdSubmenuProps & {
-      expandType: string;
+      expandType?: string;
     },
     { slots },
   ) {

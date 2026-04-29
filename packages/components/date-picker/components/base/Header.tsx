@@ -216,7 +216,7 @@ export default defineComponent({
                 props.onMonthChange?.(val);
               }}
               popupProps={{
-                attach: (triggerElement: HTMLElement) => triggerElement.parentNode,
+                attach: (triggerElement: HTMLElement) => triggerElement.parentElement || document.body,
                 overlayClassName: `${COMPONENT_NAME.value}-controller-month-popup`,
               }}
             />
@@ -230,7 +230,7 @@ export default defineComponent({
             }}
             popupProps={{
               onScroll: handleScroll,
-              attach: (triggerElement: HTMLElement) => triggerElement.parentNode,
+              attach: (triggerElement: HTMLElement) => triggerElement.parentElement || document.body,
               overlayClassName: `${COMPONENT_NAME.value}-controller-year-popup`,
             }}
             panelTopContent={() =>

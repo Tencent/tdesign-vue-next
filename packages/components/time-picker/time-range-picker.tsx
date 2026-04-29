@@ -173,6 +173,7 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <RangeInputPopup
+          class={inputClasses.value}
           disabled={isDisabled.value}
           popupVisible={isShowPanel.value}
           popupProps={{
@@ -187,7 +188,6 @@ export default defineComponent({
           rangeInputProps={{
             size: props.size,
             clearable: props.clearable,
-            class: inputClasses.value,
             value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
             placeholder: props.placeholder || [globalConfig.value.placeholder, globalConfig.value.placeholder],
             borderless: props.borderless,

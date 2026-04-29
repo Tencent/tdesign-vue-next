@@ -9,7 +9,7 @@ import { useTNodeJSX } from '@tdesign/shared-hooks';
 
 const BaseChatMessage = omiVueify('t-chat-item', {
   methodNames: [],
-}) as DefineComponent<TdChatMessageProps>;
+}) as unknown as DefineComponent<TdChatMessageProps>;
 export default defineComponent({
   name: 'ChatMessage',
   props,

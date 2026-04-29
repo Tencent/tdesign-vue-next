@@ -1,5 +1,5 @@
 import { defineComponent, ref, PropType } from 'vue';
-import { TdDropdownProps } from '../dropdown/type';
+import { TdDropdownProps, DropdownOption } from '../dropdown/type';
 
 import dropdownItemProps from './dropdown-item-props';
 import { useRipple, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
@@ -31,7 +31,7 @@ export default defineComponent({
     const dropdownItemClass = usePrefixClass('dropdown__item');
     const handleItemClick = (e: MouseEvent) => {
       if (props.disabled) return;
-      props.onClick?.(props.value, {
+      props.onClick?.(props.value as unknown as DropdownOption, {
         e,
       });
     };

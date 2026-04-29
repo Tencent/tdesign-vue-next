@@ -1,6 +1,7 @@
 import {
   computed,
   defineComponent,
+  h,
   inject,
   nextTick,
   onBeforeUnmount,
@@ -130,11 +131,7 @@ export default defineComponent({
 
     /** Suffix Icon */
     const getDefaultIcon = (): VNode => {
-      const resultIcon = (Icon: GlobalIconType) => (
-        <span class={CLASS_NAMES.value.status}>
-          <Icon />
-        </span>
-      );
+      const resultIcon = (Icon: GlobalIconType) => <span class={CLASS_NAMES.value.status}>{h(Icon)}</span>;
       const list = errorList.value;
       if (verifyStatus.value === ValidateStatus.SUCCESS) {
         return resultIcon(CheckCircleFilledIcon);
@@ -145,7 +142,7 @@ export default defineComponent({
           error: CloseCircleFilledIcon,
           warning: ErrorCircleFilledIcon,
           success: CheckCircleFilledIcon,
-        }[type];
+        }[type] as GlobalIconType;
         return resultIcon(icon);
       }
       return null;
@@ -260,14 +257,12 @@ export default defineComponent({
         .filter((item) => item.result !== true)
         .map((item: ErrorListType) => {
           Object.keys(item).forEach((key) => {
-            // @ts-ignore
-            if (!item.message && errorMessages.value[key]) {
+            const emKey = key as keyof FormErrorMessage;
+            if (!item.message && errorMessages.value[emKey]) {
               const name = isString(props.label) ? props.label : props.name;
-              // @ts-ignore
-              item.message = template(errorMessages.value[key], {
+              item.message = template(errorMessages.value[emKey], {
                 name,
-                // @ts-ignore
-                validate: item[key],
+                validate: String((item as Record<string, unknown>)[key]),
               });
             }
           });

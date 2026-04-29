@@ -38,7 +38,7 @@ export default defineComponent({
       type: Object as PropType<SelectInputValueDisplayOptions>,
     },
   },
-  setup(props: TdSelectProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, { slots }) {
+  setup(props: TdSelectProps & { valueDisplayOptions?: SelectInputValueDisplayOptions }, { slots }) {
     const classPrefix = usePrefixClass();
     const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
@@ -592,8 +592,7 @@ export default defineComponent({
               size: props.size,
               autofocus: props.autofocus,
               ...props.inputProps,
-              // fix me, onkeydown should be onKeydown
-              onkeydown: handleKeyDown,
+              onKeydown: (_value, context) => handleKeyDown(context.e),
             }}
             tagInputProps={{
               size: props.size,

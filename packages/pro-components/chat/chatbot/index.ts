@@ -23,17 +23,17 @@ export const Chatbot = omiVueify('t-chatbot', {
     'abortChat',
     'scrollList',
   ],
-}) as DefineComponent<TdChatProps>;
+}) as unknown as DefineComponent<TdChatProps>;
 
 export const ChatSearchContentComponent = omiVueify('t-chat-search-content', {
   methodNames: [],
-}) as DefineComponent<TdChatSearchContentProps>;
+}) as unknown as DefineComponent<TdChatSearchContentProps>;
 
 export const ChatSuggestionContentComponent = omiVueify('t-chat-suggestion-content', {
   methodNames: [],
-}) as DefineComponent<TdChatSuggestionContentProps>;
+}) as unknown as DefineComponent<TdChatSuggestionContentProps>;
 
 export const ChatListComponent = omiVueify('t-chat-list', {
   methodNames: ['scrollToBottom'],
-}) as DefineComponent<TdChatListProps>;
+}) as unknown as DefineComponent<TdChatListProps>;
 export default Chatbot;

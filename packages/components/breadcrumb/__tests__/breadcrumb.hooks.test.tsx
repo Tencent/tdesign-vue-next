@@ -105,21 +105,23 @@ describe('Breadcrumb hooks', () => {
       // maxItems <= 0
       const wrapper1 = mountEllipsis({ maxItems: 0, itemsBeforeCollapse: 1, itemsAfterCollapse: 1 }, makeItems(5));
       await nextTick();
-      expect(wrapper1.vm.displayItems.length).toBe(5);
-      expect(wrapper1.vm.ellipsisItems.length).toBe(0);
+      const vm1 = wrapper1.vm as any;
+      expect(vm1.displayItems.length).toBe(5);
+      expect(vm1.ellipsisItems.length).toBe(0);
       wrapper1.unmount();
 
       // totalItems <= maxItems
       const wrapper2 = mountEllipsis({ maxItems: 10, itemsBeforeCollapse: 2, itemsAfterCollapse: 1 }, makeItems(3));
       await nextTick();
-      expect(wrapper2.vm.displayItems.length).toBe(3);
-      expect(wrapper2.vm.ellipsisItems.length).toBe(0);
+      const vm2 = wrapper2.vm as any;
+      expect(vm2.displayItems.length).toBe(3);
+      expect(vm2.ellipsisItems.length).toBe(0);
       wrapper2.unmount();
 
       // collapse sum >= totalItems
       const wrapper3 = mountEllipsis({ maxItems: 2, itemsBeforeCollapse: 3, itemsAfterCollapse: 3 }, makeItems(4));
       await nextTick();
-      expect(wrapper3.vm.displayItems.length).toBe(4);
+      expect((wrapper3.vm as any).displayItems.length).toBe(4);
       wrapper3.unmount();
     });
 
@@ -128,7 +130,7 @@ describe('Breadcrumb hooks', () => {
       await nextTick();
 
       // displayItems: P1 + ellipsis + P5
-      const display = wrapper.vm.displayItems;
+      const display = (wrapper.vm as any).displayItems;
       expect(display.length).toBe(3);
       expect((display[0] as any).content).toBe('P1');
       expect((display[1] as any).content).toBe('...');
@@ -137,7 +139,7 @@ describe('Breadcrumb hooks', () => {
       expect((display[2] as any).content).toBe('P5');
 
       // ellipsisItems: P2/P3/P4, 最后一项 isLast=true
-      const collapsed = wrapper.vm.ellipsisItems;
+      const collapsed = (wrapper.vm as any).ellipsisItems;
       expect(collapsed.length).toBe(3);
       expect(collapsed[0].content).toBe('P2');
       expect(collapsed[0].isLast).toBe(false);
@@ -151,7 +153,7 @@ describe('Breadcrumb hooks', () => {
       const spy1 = vi.spyOn(console, 'error').mockImplementation(() => {});
       const wrapper1 = mountEllipsis({ maxItems: 3, itemsBeforeCollapse: 0, itemsAfterCollapse: 1 }, makeItems(5));
       await nextTick();
-      expect(wrapper1.vm.displayItems.length).toBe(5);
+      expect((wrapper1.vm as any).displayItems.length).toBe(5);
       spy1.mockRestore();
       wrapper1.unmount();
 
@@ -162,7 +164,7 @@ describe('Breadcrumb hooks', () => {
         makeItems(5),
       );
       await nextTick();
-      expect(wrapper2.vm.displayItems.length).toBe(5);
+      expect((wrapper2.vm as any).displayItems.length).toBe(5);
       spy2.mockRestore();
       wrapper2.unmount();
     });
@@ -187,13 +189,15 @@ describe('Breadcrumb hooks', () => {
         { props: { count: 5 } },
       );
       await nextTick();
-      expect(wrapper.vm.displayItems.length).toBe(3);
-      expect(wrapper.vm.ellipsisItems.length).toBe(3);
+      let vm = wrapper.vm as any;
+      expect(vm.displayItems.length).toBe(3);
+      expect(vm.ellipsisItems.length).toBe(3);
 
       await wrapper.setProps({ count: 2 });
       await nextTick();
-      expect(wrapper.vm.displayItems.length).toBe(2);
-      expect(wrapper.vm.ellipsisItems.length).toBe(0);
+      vm = wrapper.vm as any;
+      expect(vm.displayItems.length).toBe(2);
+      expect(vm.ellipsisItems.length).toBe(0);
       wrapper.unmount();
     });
   });

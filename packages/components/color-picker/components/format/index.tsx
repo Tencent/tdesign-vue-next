@@ -5,7 +5,6 @@ import props from '../../props';
 import { Select as TSelect, Option as TOption } from '../../../select';
 import FormatInputs from './inputs';
 import { useBaseClassName } from '../../hooks';
-import type { TdSelectInputProps } from '../../../select-input/type';
 
 export default defineComponent({
   name: 'FormatPanel',
@@ -44,9 +43,7 @@ export default defineComponent({
         ...props,
         format: formatModel.value,
       };
-      const selectInputProps = {
-        ...((props.selectInputProps as Object) || {}),
-      };
+      const selectInputProps = props.selectInputProps || {};
       return (
         <div class={`${baseClassName.value}__format`}>
           <div class={`${baseClassName.value}__format--item`}>
@@ -56,7 +53,7 @@ export default defineComponent({
               selectInputProps={{ ...selectInputProps }}
               popupProps={{
                 overlayClassName: `${baseClassName.value}__select-options`,
-                ...(selectInputProps as TdSelectInputProps).popupProps,
+                ...(selectInputProps.popupProps || {}),
               }}
               v-model={formatModel.value}
               onChange={handleModeChange}

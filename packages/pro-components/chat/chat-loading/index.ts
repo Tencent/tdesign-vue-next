@@ -7,5 +7,5 @@ import { omiVueify } from 'omi-vueify';
 // 附件
 export const ChatLoading = omiVueify('t-chat-loading', {
   methodNames: [],
-}) as DefineComponent<TdChatLoadingProps>;
+}) as unknown as DefineComponent<TdChatLoadingProps>;
 export default ChatLoading;

@@ -204,7 +204,13 @@ export default defineComponent({
                       placement="bottom"
                       attach={props.attach || (theadRef.value ? () => getTableNode(theadRef.value) : undefined)}
                       tooltipContent={content && (() => content)}
-                      tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
+                      tooltipProps={
+                        typeof col.ellipsisTitle === 'object'
+                          ? 'props' in col.ellipsisTitle
+                            ? col.ellipsisTitle.props
+                            : col.ellipsisTitle
+                          : undefined
+                      }
                       overlayClassName={props.ellipsisOverlayClassName}
                       classPrefix={props.classPrefix}
                     >

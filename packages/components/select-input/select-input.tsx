@@ -31,7 +31,7 @@ export default defineComponent({
     },
   },
 
-  setup(props: TdSelectInputProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, context: SetupContext) {
+  setup(props: TdSelectInputProps & { valueDisplayOptions?: SelectInputValueDisplayOptions }, context: SetupContext) {
     const { NAME_CLASS, BASE_CLASS_BORDERLESS, BASE_CLASS_MULTIPLE, BASE_CLASS_POPUP_VISIBLE, BASE_CLASS_EMPTY } =
       useComponentClassName();
     const classPrefix = usePrefixClass();

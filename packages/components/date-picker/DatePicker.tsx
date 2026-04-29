@@ -456,7 +456,7 @@ export default defineComponent({
           clearable={props.clearable}
           readonly={isReadOnly.value}
           multiple={props.multiple}
-          popupProps={popupProps.value}
+          popupProps={popupProps.value as TdDatePickerProps['popupProps']}
           inputProps={inputProps.value}
           placeholder={
             props.placeholder || (globalConfig.value.placeholder as { [key in typeof props.mode]: string })[props.mode]

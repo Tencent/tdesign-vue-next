@@ -9,7 +9,7 @@ import { useTNodeJSX } from '@tdesign/shared-hooks';
 
 const BaseChatThinking = omiVueify('t-chat-thinking-content', {
   methodNames: [],
-}) as DefineComponent<TdChatThinkContentProps>;
+}) as unknown as DefineComponent<TdChatThinkContentProps>;
 
 // 思考过程
 export default defineComponent({

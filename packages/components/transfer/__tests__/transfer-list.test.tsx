@@ -7,7 +7,7 @@ import { transferListMockData } from './mount';
 describe('TransferList', () => {
   describe('props', () => {
     it(':checkboxProps[object]', () => {
-      const checkboxProps = { size: 'large' };
+      const checkboxProps = { disabled: true };
       const wrapper = mount(
         <TransferList dataSource={transferListMockData} listType="source" checkboxProps={checkboxProps} />,
       );
@@ -60,8 +60,10 @@ describe('TransferList', () => {
     });
 
     it(':search[object]', () => {
-      const searchConfig = { placeholder: '搜索项目' } as any;
-      const wrapper = mount(<TransferList dataSource={transferListMockData} listType="source" search={searchConfig} />);
+      const searchConfig = { placeholder: '搜索项目' };
+      const wrapper = mount(
+        <TransferList dataSource={transferListMockData} listType="source" search={searchConfig as any} />,
+      );
       expect(wrapper.find('.t-transfer__search-wrapper').exists()).toBeTruthy();
     });
 

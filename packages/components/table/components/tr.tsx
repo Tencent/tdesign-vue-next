@@ -17,7 +17,7 @@ import { formatClassNames, formatRowAttributes, formatRowClassNames } from '../u
 import { getRowFixedStyles, getColumnFixedStyles } from '../hooks/useFixed';
 import useClassName from '../hooks/useClassName';
 import TEllipsis from './ellipsis';
-import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, TdBaseTableProps } from '../type';
+import { BaseTableCellParams, TableRowData, RowspanColspan, TdBaseTableProps } from '../type';
 import baseTableProps from '../base-table-props';
 import useLazyLoad from '../hooks/useLazyLoad';
 import { RowAndColFixedPosition } from '../types';
@@ -39,7 +39,7 @@ export interface RenderEllipsisCellParams {
   cellNode: any;
 }
 
-export type TrCommonProps = Pick<TdPrimaryTableProps, TrPropsKeys>;
+export type TrCommonProps = Pick<TdBaseTableProps, TrPropsKeys>;
 
 export const TABLE_PROPS = [
   'rowKey',
@@ -63,7 +63,7 @@ export const TABLE_PROPS = [
   'onRowMouseup',
 ] as const;
 
-export type TrPropsKeys = typeof TABLE_PROPS[number];
+export type TrPropsKeys = (typeof TABLE_PROPS)[number];
 
 export interface TrProps extends TrCommonProps {
   rowKey: string;
@@ -82,6 +82,7 @@ export interface TrProps extends TrCommonProps {
   attach?: AttachNode;
   active?: boolean;
   isHover?: boolean;
+  onRowMounted?: (rowData: any) => void;
 }
 
 export const ROW_LISTENERS = [
@@ -215,7 +216,7 @@ export default defineComponent({
       ROW_LISTENERS.forEach((eventName) => {
         trListeners[`on${upperFirst(eventName)}`] = (e: MouseEvent) => {
           const p = { e, row, index: rowIndex };
-          props[`onRow${upperFirst(eventName)}` as `onRow${Capitalize<typeof ROW_LISTENERS[number]>}`]?.(p);
+          props[`onRow${upperFirst(eventName)}` as `onRow${Capitalize<(typeof ROW_LISTENERS)[number]>}`]?.(p);
         };
       });
       return trListeners;
