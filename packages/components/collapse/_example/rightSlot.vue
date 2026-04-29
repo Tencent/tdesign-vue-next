@@ -42,7 +42,7 @@
   </t-collapse>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 
 const disable0 = ref(false);

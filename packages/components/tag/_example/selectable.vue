@@ -36,19 +36,18 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { CheckTagProps } from 'tdesign-vue-next';
 
 const checked1 = ref(false);
 const checked2 = ref(false);
 const checked3 = ref(false);
-
-const STYLE_B_UNCHECKED_PROPS = {
+const STYLE_B_UNCHECKED_PROPS: CheckTagProps['uncheckedProps'] = {
   theme: 'default',
   variant: 'outline',
 };
-
-const STYLE_C_CHECKED_PROPS = {
+const STYLE_C_CHECKED_PROPS: CheckTagProps['checkedProps'] = {
   theme: 'primary',
   variant: 'outline',
 };

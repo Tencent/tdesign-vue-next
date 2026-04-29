@@ -16,11 +16,23 @@
     <template #suffix>foobar suffix</template> -->
   </t-tree-select>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
+import type { PopupTriggerEvent, PopupTriggerSource, TreeNodeModel, TreeSelectProps } from 'tdesign-vue-next';
 
-const options = [
+interface TreeSelectPopupVisibleContext<T> {
+  e?: PopupTriggerEvent | Event;
+  node?: TreeNodeModel<T>;
+  trigger?: PopupTriggerSource | 'clear';
+}
+interface Option {
+  label: string;
+  value: string;
+  disabled?: boolean;
+  children?: Option[];
+}
+const options: TreeSelectProps['data'] = [
   {
     label: '广东省',
     value: 'guangdong',
@@ -51,11 +63,9 @@ const options = [
     ],
   },
 ];
-
 const value = ref('');
 const popupVisible = ref(false);
-
-const onVisibleChange = (visible, context) => {
+const onVisibleChange = (visible: boolean, context: TreeSelectPopupVisibleContext<Option>) => {
   console.log(visible, context);
   if (context.trigger || context.node?.label !== '广州市') {
     popupVisible.value = visible;
@@ -63,8 +73,8 @@ const onVisibleChange = (visible, context) => {
 };
 
 // props传递prefixIcon、suffix，请注意属性名拼写不同，区分箭头图标的suffixIcon
-const getPrefixIcon = () => <Icon name="center-focus-strong" />;
-const getSuffix = () => (
+const getPrefixIcon: TreeSelectProps['prefixIcon'] = () => <Icon name="center-focus-strong" />;
+const getSuffix: TreeSelectProps['suffix'] = () => (
   <div style="color: var(--td-text-color-secondary)">
     <span>后缀内容</span>
     <Icon name="happy" />

@@ -231,7 +231,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
           context.emit('update:columnControllerVisible', false);
         }
       },
-      ...(columnController.value?.dialogProps || {}),
+      ...columnController.value?.dialogProps,
     });
   };
 

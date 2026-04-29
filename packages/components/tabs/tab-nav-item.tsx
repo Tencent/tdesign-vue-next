@@ -23,6 +23,7 @@ export default defineComponent({
     disabled: tabPanelProps.disabled,
     removable: tabPanelProps.removable,
     value: tabPanelProps.value,
+    draggable: tabPanelProps.draggable,
     onClick: Function as PropType<Function>,
     onTabRemove: Function as PropType<TdTabsProps['onRemove']>,
     onTabPanelRemove: Function as PropType<TdTabPanelProps['onRemove']>,
@@ -69,7 +70,7 @@ export default defineComponent({
 
     const renderCardItem = () => {
       return (
-        <div class={navItemClass.value} onClick={onClickNav} ref={itemRef}>
+        <div class={navItemClass.value} onClick={onClickNav} ref={itemRef} draggable={props.draggable}>
           <span class={`${COMPONENT_NAME.value}-text-wrapper`}>{props.label}</span>
           {removeBtn()}
         </div>
@@ -77,7 +78,7 @@ export default defineComponent({
     };
     const renderNormalItem = () => {
       return (
-        <div class={navItemClass.value} onClick={onClickNav}>
+        <div class={navItemClass.value} onClick={onClickNav} draggable={props.draggable}>
           <div
             class={[
               `${COMPONENT_NAME.value}-wrapper`,

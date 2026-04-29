@@ -5,6 +5,34 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.19.1 `2026-04-14`
+
+### 🐞 Bug Fixes
+
+- `Dropdown` @RSS1102 ([#6600](https://github.com/Tencent/tdesign-vue-next/pull/6600))
+    - 修复 `panelTopContent` 和`panelBottomContent` 默认不跟随面板内容滚动的问题
+    - 修复多层下拉菜单配置 panelTopContent 后渲染位置错误的问题
+- `Menu`: 修复 `1.19.0` 版本更新导致部分菜单使用场景渲染异常的问题 @uyarn ([#6602](https://github.com/Tencent/tdesign-vue-next/pull/6602))
+- `Slider`: 修复 label 值为 function 类型时控制台警告 @liweijie0812 ([#6601](https://github.com/Tencent/tdesign-vue-next/pull/6601))
+
+## 🌈 1.19.0 `2026-04-10`
+
+### 🚀 Features
+
+- `HeadMenu`: 支持横向菜单过多时自动折叠隐藏并展示更多按钮的效果。⚠️存在顶部菜单过多场景的业务请注意此变更 @Wesley-0808 @uyarn ([#6530](https://github.com/Tencent/tdesign-vue-next/pull/6530))
+- `RadioGroup`: 新增 `direction` API，支持添加垂直排列特性。⚠️请注意，目前该属性仅在 `theme` 为 `radio` 时完整生效 @JefferyHcool ([#6568](https://github.com/Tencent/tdesign-vue-next/pull/6568))
+
+### 🐞 Bug Fixes
+
+- `DateRangePicker`: 修复在值未变化时错误触发 `onChange` 回调的问题 @JefferyHcool ([#6551](https://github.com/Tencent/tdesign-vue-next/pull/6551))
+- `EnhancedTable`: 修复树状表格的列配置在 `computed/ref` 场景下无响应式的问题 @JefferyHcool ([#6578](https://github.com/Tencent/tdesign-vue-next/pull/6578))
+- `InputNumber`: 修复失焦时，空值被错误回填为最小值的问题 @JefferyHcool ([#6582](https://github.com/Tencent/tdesign-vue-next/pull/6582))
+- `Select`: 修复在 `onSearch` 中更新相同的选项，没有正常更新 UI 展示内容的问题 @LavenderDuskGlow ([#6535](https://github.com/Tencent/tdesign-vue-next/pull/6535))
+- `Table`: 修复在弹窗内的分页表格滚动条错位的问题 @LavenderDuskGlow ([#6536](https://github.com/Tencent/tdesign-vue-next/pull/6536))
+- `Tag`: 修复 icon 的尺寸大小,对齐设计稿，大尺寸是16px, 中小尺寸是14px @liweijie0812 ([#6589](https://github.com/Tencent/tdesign-vue-next/pull/6589))
+- `TagInput`: 修复 `excessTagsDisplayType="break-line"` 时，`suffix` 没有固定在右侧的问题 @RylanBot ([#6585](https://github.com/Tencent/tdesign-vue-next/pull/6585))
+- `Transfer`: 修复选项内容为对象时选中异常的问题 @hobostay ([#6587](https://github.com/Tencent/tdesign-vue-next/pull/6587))
+
 ## 🌈 1.18.6 `2026-03-23`
 
 ### 🚀 Features

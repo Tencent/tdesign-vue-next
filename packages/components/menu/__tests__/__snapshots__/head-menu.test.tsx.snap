@@ -13,6 +13,7 @@ exports[`HeadMenu > props > :active 1`] = `
     >
       
       
+      <!---->
     </ul>
     <!---->
   </div>
@@ -33,6 +34,7 @@ exports[`HeadMenu > props > :theme 1`] = `
     >
       
       
+      <!---->
     </ul>
     <!---->
   </div>
@@ -59,6 +61,7 @@ exports[`HeadMenu > slot > <logo> 1`] = `
     >
       
       
+      <!---->
     </ul>
     <!---->
   </div>
@@ -79,6 +82,7 @@ exports[`HeadMenu > slot > <operations> 1`] = `
     >
       
       
+      <!---->
     </ul>
     <div
       class="t-menu__operations"

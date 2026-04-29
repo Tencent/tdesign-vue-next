@@ -254,14 +254,14 @@ catalogs:
       version: 2.8.8
   tdesign:
     '@tdesign/site-components':
-      specifier: ^0.18.2
-      version: 0.18.2
+      specifier: ^0.19.1
+      version: 0.19.1
     '@tdesign/theme-generator':
       specifier: ^1.2.3
       version: 1.2.3
     tdesign-icons-vue-next:
-      specifier: ~0.4.2
-      version: 0.4.2
+      specifier: ~0.4.4
+      version: 0.4.4
     tdesign-publish-cli:
       specifier: ^0.0.12
       version: 0.0.12
@@ -594,7 +594,7 @@ importers:
     devDependencies:
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.2(vue@3.5.30(typescript@5.9.3))
+        version: 0.4.4(vue@3.5.30(typescript@5.9.3))
       tsdown:
         specifier: catalog:bundle
         version: 0.12.9(typescript@5.9.3)(vue-tsc@2.2.12(typescript@5.9.3))
@@ -733,7 +733,7 @@ importers:
         version: 1.15.7
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.2(vue@3.5.30(typescript@5.9.3))
+        version: 0.4.4(vue@3.5.30(typescript@5.9.3))
       tinycolor2:
         specifier: catalog:deps
         version: 1.6.0
@@ -761,7 +761,7 @@ importers:
         version: 4.17.23
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.2(vue@3.5.30(typescript@5.9.3))
+        version: 0.4.4(vue@3.5.30(typescript@5.9.3))
       vue:
         specifier: '>=3.1.0'
         version: 3.5.30(typescript@5.9.3)
@@ -842,7 +842,7 @@ importers:
         version: 1.15.7
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.2(vue@3.5.30(typescript@5.9.3))
+        version: 0.4.4(vue@3.5.30(typescript@5.9.3))
       tinycolor2:
         specifier: catalog:deps
         version: 1.6.0
@@ -881,7 +881,7 @@ importers:
         version: 0.0.12(omi@7.7.13)(vue@3.5.30(typescript@5.9.3))
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.2(vue@3.5.30(typescript@5.9.3))
+        version: 0.4.4(vue@3.5.30(typescript@5.9.3))
       tdesign-vue-next:
         specifier: workspace:^
         version: link:../tdesign-vue-next
@@ -915,7 +915,7 @@ importers:
         version: link:../../pro-components/chat
       '@tdesign/site-components':
         specifier: catalog:tdesign
-        version: 0.18.2
+        version: 0.19.1
       '@tdesign/theme-generator':
         specifier: catalog:tdesign
         version: 1.2.3
@@ -970,7 +970,7 @@ importers:
     dependencies:
       '@tdesign/site-components':
         specifier: catalog:tdesign
-        version: 0.18.2
+        version: 0.19.1
       '@tdesign/theme-generator':
         specifier: catalog:tdesign
         version: 1.2.3
@@ -2346,36 +2346,42 @@ packages:
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rolldown/binding-linux-arm64-musl@1.0.0-rc.11':
     resolution: {integrity: sha512-jfndI9tsfm4APzjNt6QdBkYwre5lRPUgHeDHoI7ydKUuJvz3lZeCfMsI56BZj+7BYqiKsJm7cfd/6KYV7ubrBg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rolldown/binding-linux-ppc64-gnu@1.0.0-rc.11':
     resolution: {integrity: sha512-ZlFgw46NOAGMgcdvdYwAGu2Q+SLFA9LzbJLW+iyMOJyhj5wk6P3KEE9Gct4xWwSzFoPI7JCdYmYMzVtlgQ+zfw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   '@rolldown/binding-linux-s390x-gnu@1.0.0-rc.11':
     resolution: {integrity: sha512-hIOYmuT6ofM4K04XAZd3OzMySEO4K0/nc9+jmNcxNAxRi6c5UWpqfw3KMFV4MVFWL+jQsSh+bGw2VqmaPMTLyw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   '@rolldown/binding-linux-x64-gnu@1.0.0-rc.11':
     resolution: {integrity: sha512-qXBQQO9OvkjjQPLdUVr7Nr2t3QTZI7s4KZtfw7HzBgjbmAPSFwSv4rmET9lLSgq3rH/ndA3ngv3Qb8l2njoPNA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rolldown/binding-linux-x64-musl@1.0.0-rc.11':
     resolution: {integrity: sha512-/tpFfoSTzUkH9LPY+cYbqZBDyyX62w5fICq9qzsHLL8uTI6BHip3Q9Uzft0wylk/i8OOwKik8OxW+QAhDmzwmg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rolldown/binding-openharmony-arm64@1.0.0-rc.11':
     resolution: {integrity: sha512-mcp3Rio2w72IvdZG0oQ4bM2c2oumtwHfUfKncUM6zGgz0KgPz4YmDPQfnXEiY5t3+KD/i8HG2rOB/LxdmieK2g==}
@@ -2564,66 +2570,79 @@ packages:
     resolution: {integrity: sha512-RzeBwv0B3qtVBWtcuABtSuCzToo2IEAIQrcyB/b2zMvBWVbjo8bZDjACUpnaafaxhTw2W+imQbP2BD1usasK4g==}
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm-musleabihf@4.60.0':
     resolution: {integrity: sha512-Sf7zusNI2CIU1HLzuu9Tc5YGAHEZs5Lu7N1ssJG4Tkw6e0MEsN7NdjUDDfGNHy2IU+ENyWT+L2obgWiguWibWQ==}
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-arm64-gnu@4.60.0':
     resolution: {integrity: sha512-DX2x7CMcrJzsE91q7/O02IJQ5/aLkVtYFryqCjduJhUfGKG6yJV8hxaw8pZa93lLEpPTP/ohdN4wFz7yp/ry9A==}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-arm64-musl@4.60.0':
     resolution: {integrity: sha512-09EL+yFVbJZlhcQfShpswwRZ0Rg+z/CsSELFCnPt3iK+iqwGsI4zht3secj5vLEs957QvFFXnzAT0FFPIxSrkQ==}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-loong64-gnu@4.60.0':
     resolution: {integrity: sha512-i9IcCMPr3EXm8EQg5jnja0Zyc1iFxJjZWlb4wr7U2Wx/GrddOuEafxRdMPRYVaXjgbhvqalp6np07hN1w9kAKw==}
     cpu: [loong64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-loong64-musl@4.60.0':
     resolution: {integrity: sha512-DGzdJK9kyJ+B78MCkWeGnpXJ91tK/iKA6HwHxF4TAlPIY7GXEvMe8hBFRgdrR9Ly4qebR/7gfUs9y2IoaVEyog==}
     cpu: [loong64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-ppc64-gnu@4.60.0':
     resolution: {integrity: sha512-RwpnLsqC8qbS8z1H1AxBA1H6qknR4YpPR9w2XX0vo2Sz10miu57PkNcnHVaZkbqyw/kUWfKMI73jhmfi9BRMUQ==}
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-ppc64-musl@4.60.0':
     resolution: {integrity: sha512-Z8pPf54Ly3aqtdWC3G4rFigZgNvd+qJlOE52fmko3KST9SoGfAdSRCwyoyG05q1HrrAblLbk1/PSIV+80/pxLg==}
     cpu: [ppc64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-riscv64-gnu@4.60.0':
     resolution: {integrity: sha512-3a3qQustp3COCGvnP4SvrMHnPQ9d1vzCakQVRTliaz8cIp/wULGjiGpbcqrkv0WrHTEp8bQD/B3HBjzujVWLOA==}
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-riscv64-musl@4.60.0':
     resolution: {integrity: sha512-pjZDsVH/1VsghMJ2/kAaxt6dL0psT6ZexQVrijczOf+PeP2BUqTHYejk3l6TlPRydggINOeNRhvpLa0AYpCWSQ==}
     cpu: [riscv64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-linux-s390x-gnu@4.60.0':
     resolution: {integrity: sha512-3ObQs0BhvPgiUVZrN7gqCSvmFuMWvWvsjG5ayJ3Lraqv+2KhOsp+pUbigqbeWqueGIsnn+09HBw27rJ+gYK4VQ==}
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-gnu@4.60.0':
     resolution: {integrity: sha512-EtylprDtQPdS5rXvAayrNDYoJhIz1/vzN2fEubo3yLE7tfAw+948dO0g4M0vkTVFhKojnF+n6C8bDNe+gDRdTg==}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@rollup/rollup-linux-x64-musl@4.60.0':
     resolution: {integrity: sha512-k09oiRCi/bHU9UVFqD17r3eJR9bn03TyKraCrlz5ULFJGdJGi7VOmm9jl44vOJvRJ6P7WuBi/s2A97LxxHGIdw==}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@rollup/rollup-openbsd-x64@4.60.0':
     resolution: {integrity: sha512-1o/0/pIhozoSaDJoDcec+IVLbnRtQmHwPV730+AOD29lHEEo4F5BEUB24H0OBdhbBBDwIOSuf7vgg0Ywxdfiiw==}
@@ -2665,8 +2684,8 @@ packages:
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
 
-  '@tdesign/site-components@0.18.2':
-    resolution: {integrity: sha512-YXgKktYQldiqjAbZNdp/Vhum2lD9vPegLsaW2e8ue7AgomfgK440hpDZ7KSyczJsqImQAggJ3hrBrmrEeY5n5A==}
+  '@tdesign/site-components@0.19.1':
+    resolution: {integrity: sha512-MMkicxnF31DptWXop5GfNibdzZTMT/Yc/DecjbRD0za1PDwm/DfqApfRSfrdsaH94piN+d/qW3darPcHWD724w==}
 
   '@tdesign/theme-generator@1.2.3':
     resolution: {integrity: sha512-HYe61SEKbtsufaqmUdOsXCstR8rNY1iyEO/Hfdd4ZFtDTKOuKOaZL8Xc48FtZ9eZCcFZWGl5RjlNVJD/Nn2N8Q==}
@@ -7408,8 +7427,8 @@ packages:
   tdesign-icons-svg@0.0.1:
     resolution: {integrity: sha512-4l05CgPXwI33Y6hU8ytKYIIXVznR22x6blhhtB6MntSHj2xrA+Unx4U/qy+Do/lCMtYao9q1wVkaZvxNjuX7jw==}
 
-  tdesign-icons-vue-next@0.4.2:
-    resolution: {integrity: sha512-mTPk1ApcCA9oxDiSs9ttMdd09H8ICBooZIr2bwDEELnYr60sYSUbvWojQ2tp84MUAMuw21HgyVyGkT49db0GFg==}
+  tdesign-icons-vue-next@0.4.4:
+    resolution: {integrity: sha512-UPKyR5pea840aeI5p/k8VLVgfyVzndSyE4t1yRBD8uYWiuV0p29jZbDn8hMnes9Tz5JPgywCGzbk4QJzt684NA==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -9926,7 +9945,7 @@ snapshots:
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.12
 
-  '@tdesign/site-components@0.18.2':
+  '@tdesign/site-components@0.19.1':
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
@@ -15397,7 +15416,7 @@ snapshots:
 
   tdesign-icons-svg@0.0.1: {}
 
-  tdesign-icons-vue-next@0.4.2(vue@3.5.30(typescript@5.9.3)):
+  tdesign-icons-vue-next@0.4.4(vue@3.5.30(typescript@5.9.3)):
     dependencies:
       '@babel/runtime': 7.29.2
       vue: 3.5.30(typescript@5.9.3)

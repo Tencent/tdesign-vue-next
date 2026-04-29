@@ -204,22 +204,34 @@ export default function useInputNumber(props: TdInputNumberProps) {
       setTValue(newNumber, { type: 'input', e });
     }
   };
-
+  const isValidNumber = (val: any) => {
+    return typeof val === 'number' && !Number.isNaN(val);
+  };
   const handleBlur = (value: string, ctx: { e: FocusEvent }) => {
     const { largeNumber, max, min, decimalPlaces } = props;
     if (!props.allowInputOverLimit) {
       // 当值为 undefined 或 null 且最小值不为默认值 -Infinity 时，设置为最小值
       if ([undefined, null].includes(tValue.value) && min !== -Infinity) {
-        setTValue(min, { type: 'blur', e: ctx.e });
-        props.onBlur?.(min, ctx);
+        //  空值不处理，只在非法输入时修正
+        if (isValidNumber(tValue.value) && tValue.value < min) {
+          setTValue(min, { type: 'blur', e: ctx.e });
+          props.onBlur?.(min, ctx);
+        } else {
+          props.onBlur?.(tValue.value, ctx);
+        }
+
         return;
       }
       // 当值不为 undefined 时，进行范围检查
       if (tValue.value !== undefined) {
         const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
         if (r === 'below-minimum') {
-          setTValue(min, { type: 'blur', e: ctx.e });
-          props.onBlur?.(min, ctx);
+          if (isValidNumber(tValue.value) && tValue.value < min) {
+            setTValue(min, { type: 'blur', e: ctx.e });
+            props.onBlur?.(min, ctx);
+          } else {
+            props.onBlur?.(tValue.value, ctx);
+          }
           return;
         }
         if (r === 'exceed-maximum') {

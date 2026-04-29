@@ -1,6 +1,11 @@
 packages:
   - packages/**
   - internal/**
+allowBuilds:
+  canvas: true
+  core-js: true
+  esbuild: true
+  msw: true
 catalogs:
   bundle:
     '@babel/cli': ^7.22.9
@@ -88,9 +93,9 @@ catalogs:
     lint-staged: ^13.2.3
     prettier: ^2.8.1
   tdesign:
-    '@tdesign/site-components': ^0.18.2
+    '@tdesign/site-components': ^0.19.1
     '@tdesign/theme-generator': ^1.2.3
-    tdesign-icons-vue-next: ~0.4.2
+    tdesign-icons-vue-next: ~0.4.4
     tdesign-publish-cli: ^0.0.12
   test:
     '@testing-library/dom': ^9.3.1
@@ -111,3 +116,6 @@ catalogs:
     '@types/validator': ^13.7.17
     typescript: ^5.7.3
     vue-tsc: ^2.2.4
+
+# 提升依赖项到根目录，以避免重复安装相同的包
+shamefullyHoist: true

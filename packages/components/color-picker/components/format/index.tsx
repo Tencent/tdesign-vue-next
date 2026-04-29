@@ -43,7 +43,7 @@ export default defineComponent({
         ...props,
         format: formatModel.value,
       };
-      const selectInputProps = props.selectInputProps || {};
+      const selectInputProps = (props.selectInputProps || {}) as Record<string, any>;
       return (
         <div class={`${baseClassName.value}__format`}>
           <div class={`${baseClassName.value}__format--item`}>

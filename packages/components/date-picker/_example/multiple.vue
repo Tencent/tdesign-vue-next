@@ -6,7 +6,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';

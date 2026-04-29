@@ -85,7 +85,7 @@ export default defineComponent({
               const cellSpans: RowspanColspan = {};
               let spanState = null;
               if (skipSpansMap.value.size) {
-                const cellKey = getCellKey(row, rowKey.value, col.colKey, colIndex);
+                const cellKey = getCellKey(row, rowKey.value, col.colKey, colIndex, rowIndex);
                 spanState = skipSpansMap.value.get(cellKey) || {};
                 spanState?.rowspan > 1 && (cellSpans.rowspan = spanState.rowspan);
                 spanState?.colspan > 1 && (cellSpans.colspan = spanState.colspan);

@@ -31,15 +31,28 @@
     </t-table>
   </div>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import type { TableRowData, TableProps } from 'tdesign-vue-next';
 
-const data = [];
+const data: TableProps['data'] = [];
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
 for (let i = 0; i < 20; i++) {
   data.push({
@@ -55,12 +68,15 @@ for (let i = 0; i < 20; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
-const tableLayout = ref('fixed');
+const tableLayout = ref<TableProps['tableLayout']>('fixed');
 const fixedTopAndBottomRows = ref(false);
-
-const columns = ref([
-  { colKey: 'applicant', title: '申请人', width: 100, foot: '-' },
+const columns = ref<TableProps['columns']>([
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: 100,
+    foot: '-',
+  },
   {
     colKey: 'status',
     title: '审批状态',
@@ -75,13 +91,34 @@ const columns = ref([
       );
     },
   },
-  { colKey: 'matters', title: '申请事项', width: 150, foot: '-' },
-  { colKey: 'detail.email', title: '邮箱地址', width: 160, foot: '-', ellipsis: true },
-  { colKey: 'createTime', title: '申请日期', width: 120, foot: '-' },
-  { colKey: 'operation', title: '操作', width: 120, foot: '-' },
+  {
+    colKey: 'matters',
+    title: '申请事项',
+    width: 150,
+    foot: '-',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    width: 160,
+    foot: '-',
+    ellipsis: true,
+  },
+  {
+    colKey: 'createTime',
+    title: '申请日期',
+    width: 120,
+    foot: '-',
+  },
+  {
+    colKey: 'operation',
+    title: '操作',
+    width: 120,
+    foot: '-',
+  },
 ]);
 
-const rehandleClickOp = (context) => {
+const rehandleClickOp = (context: TableRowData) => {
   console.log(context);
 };
 </script>

@@ -28,8 +28,8 @@ export default defineComponent({
       left: 0,
       width: GRADIENT_SLIDER_DEFAULT_WIDTH,
     });
-    const isDragging = ref<Boolean>(false);
-    const isMoved = ref<Boolean>(false);
+    const isDragging = ref<boolean>(false);
+    const isMoved = ref<boolean>(false);
     const degree = ref(props.color.gradientDegree);
     const selectedId = ref(props.color.gradientSelectedId);
     const colors = ref<GradientColorPoint[]>(cloneDeep(props.color.gradientColors));

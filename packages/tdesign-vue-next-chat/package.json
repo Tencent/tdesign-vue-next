@@ -1,6 +1,6 @@
 {
   "name": "@tdesign-vue-next/chat",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "title": "@tdesign-vue-next/chat",
   "description": "AI Chat Component for Vue 3",
   "repository": {
@@ -18,24 +18,6 @@
   "module": "es/index.mjs",
   "typings": "es/index.d.ts",
   "types": "es/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./es/index.mjs",
-      "types": "./es/index.d.ts"
-    },
-    "./global": {
-      "types": "./global.d.ts"
-    },
-    "./es": {
-      "types": "./es/index.d.ts",
-      "import": "./es/index.mjs"
-    },
-    "./esm": {
-      "types": "./esm/index.d.ts",
-      "import": "./esm/index.js"
-    },
-    "./package.json": "./package.json"
-  },
   "files": [
     "es",
     "esm",

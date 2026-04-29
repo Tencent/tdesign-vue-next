@@ -303,7 +303,7 @@ export default defineComponent({
       // 合并 popperOptions，保留原有的 modifiers
       const existingModifiers = (props.popupProps?.popperOptions as any)?.modifiers || [];
       const popperOptions = {
-        ...(props.popupProps?.popperOptions ?? {}),
+        ...props.popupProps?.popperOptions,
         modifiers: [
           {
             name: 'onPlacementChange',
