@@ -1,6 +1,10 @@
 packages:
   - packages/**
   - internal/**
+  - packages/tdesign-ai-core/packages/*
+overrides:
+  '@tdesign/ai-chat-engine': workspace:*
+  '@tdesign/ai-shared': workspace:*
 allowBuilds:
   canvas: true
   core-js: true

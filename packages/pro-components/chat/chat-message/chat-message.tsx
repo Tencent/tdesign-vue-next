@@ -1,8 +1,8 @@
 import { defineComponent } from 'vue';
 import type { DefineComponent } from 'vue';
-import type { TdChatMessageProps } from 'tdesign-web-components';
+import type { TdChatMessageProps } from '@tdesign/web-components-chat';
 // 封装tdesign-web-components 的 chat-message
-import 'tdesign-web-components/lib/chat-message';
+import '@tdesign/web-components-chat/lib/chat-message';
 import { omiVueify } from 'omi-vueify';
 import props from './chat-message-props';
 import { useTNodeJSX } from '@tdesign/shared-hooks';

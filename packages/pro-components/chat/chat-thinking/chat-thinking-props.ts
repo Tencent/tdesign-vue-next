@@ -1,4 +1,4 @@
-import type { TdChatThinkContentProps } from 'tdesign-web-components/lib/chat-message/content/thinking-content';
+import type { TdChatThinkContentProps } from '@tdesign/web-components-chat/lib/chat-message/content/thinking-content';
 import { PropType } from 'vue';
 import type { TNode } from 'tdesign-vue-next';
 

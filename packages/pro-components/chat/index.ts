@@ -32,10 +32,9 @@ import {
 } from './type';
 
 import './style';
-import 'tdesign-web-components/lib/style/index.css';
-import 'tdesign-web-components/lib/chat-message/content/search-content';
-import 'tdesign-web-components/lib/chat-message/content/suggestion-content';
-import { TdMarkdownEngine } from 'tdesign-web-components/lib/chat-message';
+import '@tdesign/web-components-chat/lib/chat-message/content/search-content';
+import '@tdesign/web-components-chat/lib/chat-message/content/suggestion-content';
+import { TdMarkdownEngine } from '@tdesign/web-components-chat/lib/chat-message';
 
 export * from './type';
 
@@ -99,12 +98,7 @@ export default {
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };
 
-export {
-  AGUIAdapter,
-  getMessageContentForCopy,
-  isAIMessage,
-  isToolCallContent,
-} from 'tdesign-web-components/lib/chat-engine';
+export { AGUIAdapter, getMessageContentForCopy, isAIMessage, isToolCallContent } from '@tdesign/ai-chat-engine';
 
 export type {
   SSEChunkData,
@@ -112,4 +106,4 @@ export type {
   ChatRequestParams,
   ChatMessagesData,
   ChatServiceConfig,
-} from 'tdesign-web-components/lib/chat-engine';
+} from '@tdesign/ai-chat-engine';

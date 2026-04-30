@@ -1,5 +1,5 @@
 import { computed, defineComponent, h } from 'vue';
-import type { ActivityData } from 'tdesign-web-components';
+import type { ActivityData } from '@tdesign/web-components-chat';
 import type { ActivityComponentProps } from './types';
 import { activityRegistry, ACTIVITY_REGISTERED_EVENT, ACTIVITY_EVENT_DETAIL_KEY } from './registry';
 import { ComponentErrorBoundary, useRegistrationListener } from '../shared';

@@ -8,7 +8,7 @@ import { AvatarProps } from 'tdesign-vue-next';
 import { TextareaProps } from 'tdesign-vue-next';
 import { CollapsePanelProps } from 'tdesign-vue-next';
 import { TNode } from 'tdesign-vue-next';
-import { AIMessageContent, ChatMessageRole, ChatMessageStatus, UserMessageContent } from 'tdesign-web-components';
+import { AIMessageContent, ChatMessageRole, ChatMessageStatus, UserMessageContent } from '@tdesign/web-components-chat';
 
 export interface TdChatProps {
   /**
@@ -487,8 +487,8 @@ export interface UploadActionConfig {
   action: (params: { files: File[]; name: UploadActionType; e?: Event }) => void;
 }
 
-export type * from 'tdesign-web-components/lib/chat-sender/type';
-export type * from 'tdesign-web-components/lib/filecard/type';
-export type * from 'tdesign-web-components/lib/chat-message/index';
-export type * from 'tdesign-web-components/lib/chatbot/type';
-export type * from 'tdesign-web-components/lib/chat-action/type';
+export type * from '@tdesign/web-components-chat/lib/chat-sender/type';
+export type * from '@tdesign/web-components-chat/lib/filecard/type';
+export type * from '@tdesign/web-components-chat/lib/chat-message/index';
+export type * from '@tdesign/web-components-chat/lib/chatbot/type';
+export type * from '@tdesign/web-components-chat/lib/chat-action/type';

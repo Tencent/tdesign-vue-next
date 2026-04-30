@@ -1,5 +1,5 @@
-import 'tdesign-web-components/lib/attachments';
-import type { TdAttachmentsProps } from 'tdesign-web-components';
+import '@tdesign/web-components-chat/lib/attachments';
+import type { TdAttachmentsProps } from '@tdesign/web-components-chat';
 import type { DefineComponent } from 'vue';
 import { omiVueify } from 'omi-vueify';
 // 附件

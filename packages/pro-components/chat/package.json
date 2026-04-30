@@ -7,7 +7,11 @@
   "dependencies": {
     "clipboard": "catalog:deps",
     "lodash-es": "catalog:deps",
-    "tdesign-icons-vue-next": "catalog:tdesign"
+    "tdesign-icons-vue-next": "catalog:tdesign",
+    "@tdesign/ai-chat-engine": "workspace:*",
+    "@tdesign/web-components-chat": "https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@5aa4352",
+    "@tdesign/web-components-ui": "https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-ui@5aa4352",
+    "omi-vueify": "^0.0.12"
   },
   "devDependencies": {
     "@types/lodash-es": "catalog:types"
