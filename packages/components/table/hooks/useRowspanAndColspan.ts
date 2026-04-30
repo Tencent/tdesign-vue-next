@@ -9,10 +9,14 @@ export interface SkipSpansValue {
   skipped?: boolean;
 }
 
-export function getCellKey(row: TableRowData, rowKey: string, colKey: string, colIndex: number) {
+export function getCellKey(row: TableRowData, rowKey: string, colKey: string, colIndex: number, rowIndex?: number) {
   const rowValue = get(row, rowKey);
   if (rowValue === undefined) {
-    log.error('Table', 'rowKey is wrong, can not get unique identifier of row.');
+    // 无 rowKey 时（如 footData 场景）回退使用 rowIndex，保证每行每列 cellKey 唯一，避免不同行同列共享 key
+    if (rowIndex === undefined) {
+      log.error('Table', 'rowKey is wrong, can not get unique identifier of row.');
+    }
+    return [`__row_${rowIndex}__`, colKey || colIndex].join('_');
   }
   return [rowValue, colKey || colIndex].join('_');
 }
@@ -40,7 +44,7 @@ export default function useRowspanAndColspan(
       for (let j = colIndex; j < maxColIndex; j++) {
         if (i !== rowIndex || j !== colIndex) {
           if (!data.value[i] || !columns.value[j]) return;
-          const cellKey = getCellKey(data.value[i], rowKey.value, columns.value[j].colKey, j);
+          const cellKey = getCellKey(data.value[i], rowKey.value, columns.value[j].colKey, j, i);
           const state = skipSpansMap.value.get(cellKey) || {};
           state.skipped = true;
           skipSpansMap.value.set(cellKey, state);
@@ -67,7 +71,7 @@ export default function useRowspanAndColspan(
           rowIndex: i,
           colIndex: j,
         };
-        const cellKey = getCellKey(row, rowKey.value, col.colKey, j);
+        const cellKey = getCellKey(row, rowKey.value, col.colKey, j, i);
         const state = skipSpansMap.value.get(cellKey) || {};
         const o = rowspanAndColspan(params) || {};
         if (o.rowspan || o.colspan || state.rowspan || state.colspan) {

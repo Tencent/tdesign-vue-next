@@ -232,6 +232,7 @@ export default defineComponent({
         return (
           <TTabNavItem
             ref={setActiveTab}
+            draggable={draggable}
             key={panel.value}
             index={index}
             theme={props.theme}

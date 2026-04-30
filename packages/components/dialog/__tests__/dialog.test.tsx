@@ -183,7 +183,7 @@ describe('Dialog', () => {
       expect(getComputedStyle(ctx.element, null).zIndex).toBe('2022');
     });
 
-    it(':draggable', async () => {
+    it(':draggable mode:modeless', async () => {
       const visible = ref(true);
       const wrapper = mount(() => (
         <Dialog v-model:visible={visible.value} draggable mode="modeless" body="this is content"></Dialog>
@@ -193,10 +193,10 @@ describe('Dialog', () => {
       expect(dialog.classes()).toContain('t-dialog--draggable');
     });
 
-    it(':draggable', async () => {
+    it(':draggable mode:modal', async () => {
       const visible = ref(true);
       const wrapper = mount(() => (
-        <Dialog v-model:visible={visible.value} draggable mode="modeless" body="this is content"></Dialog>
+        <Dialog v-model:visible={visible.value} draggable mode="modal" body="this is content"></Dialog>
       ));
       const dialog = wrapper.find('.t-dialog');
       await nextTick();
@@ -261,6 +261,34 @@ describe('Dialog', () => {
       const visible = ref(true);
       const wrapper = mount(() => (
         <Dialog v-model:visible={visible.value} draggable mode="modeless" body="this is content"></Dialog>
+      ));
+      await nextTick();
+      const dialog = wrapper.find('.t-dialog');
+      const dialogElement = dialog.element;
+      dialogElement.style.position = 'absolute';
+      dialogElement.style.left = '100px';
+      dialogElement.style.top = '100px';
+      dialogElement.style.width = '500px';
+      dialogElement.style.height = '300px';
+      const initialLeft = parseInt(getComputedStyle(dialogElement).left, 10);
+      const initialTop = parseInt(getComputedStyle(dialogElement).top, 10);
+      const mousedownEvent = new MouseEvent('mousedown', { clientX: 100, clientY: 100 });
+      const mousemoveEvent = new MouseEvent('mousemove', { clientX: 150, clientY: 150 });
+      const mouseupEvent = new MouseEvent('mouseup');
+      dialogElement.dispatchEvent(mousedownEvent);
+      document.dispatchEvent(mousemoveEvent);
+      document.dispatchEvent(mouseupEvent);
+      await nextTick();
+      const finalLeft = parseInt(getComputedStyle(dialogElement).left, 10);
+      const finalTop = parseInt(getComputedStyle(dialogElement).top, 10);
+      expect(finalLeft).not.toBe(initialLeft);
+      expect(finalTop).not.toBe(initialTop);
+    });
+
+    it('drag modal dialog', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} draggable mode="modal" body="this is content"></Dialog>
       ));
       await nextTick();
       const dialog = wrapper.find('.t-dialog');
