@@ -5,6 +5,21 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.19.2 `2026-04-30`
+
+### 🚀 Features
+
+- `Dialog`: Modal dialog boxes now support dragging functionality. @nagisa77 ([#6615](https://github.com/Tencent/tdesign-vue-next/pull/6615))
+- `RadioGroup`: Improved the styling of radio button groups when the `theme` is set to `button`, especially in vertical layouts. @uyarn @liweijie0812 ([#6606](https://github.com/Tencent/tdesign-vue-next/pull/6606))
+- `Upload`: Added support for `.heic` image format. @uyarn ([common#2502](https://github.com/Tencent/tdesign-common/pull/2502))
+
+### 🐞 Bug Fixes
+
+- `Image`: Fixed an issue where the error message font size was incorrect. @liweijie0812 ([#6609](https://github.com/Tencent/tdesign-vue-next/pull/6609))
+- `Table`: Fixed a problem where the table footer couldn’t be configured with multiple merging options. @uyarn ([#6616](https://github.com/Tencent/tdesign-vue-next/pull/6616))
+- `Tabs`: Fixed an issue where the `draggable` API wasn’t functioning as intended. @uyarn ([#6610](https://github.com/Tencent/tdesign-vue-next/pull/6610))
+- `Timeline`: Fixed an issue where icons weren’t aligned in certain scenarios. @nagisa77 ([#6613](https://github.com/Tencent/tdesign-vue-next/pull/6613))
+
 ## 🌈 1.19.1 `2026-04-14`
 
 ### 🐞 Bug Fixes
