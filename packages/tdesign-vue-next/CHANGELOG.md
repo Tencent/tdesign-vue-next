@@ -5,6 +5,21 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.19.2 `2026-04-30`
+
+### 🚀 Features
+
+- `Dialog`: 模态对话框支持拖拽功能 @nagisa77 ([#6615](https://github.com/Tencent/tdesign-vue-next/pull/6615))
+- `RadioGroup`: 优化垂直排列场景下， `theme` 为 `button` 的选框组样式 @uyarn @liweijie0812 ([#6606](https://github.com/Tencent/tdesign-vue-next/pull/6606))
+- `Upload`: 补充 `.heic` 图片类型的支持 @uyarn ([common#2502](https://github.com/Tencent/tdesign-common/pull/2502))
+
+### 🐞 Bug Fixes
+
+- `Image`: 修复错误提示字体大小错误的问题 @liweijie0812 ([#6609](https://github.com/Tencent/tdesign-vue-next/pull/6609))
+- `Table`: 修复表格 Footer 无法配置多种合并方式的缺陷 @uyarn ([#6616](https://github.com/Tencent/tdesign-vue-next/pull/6616))
+- `Tabs`: 修复 `draggable` API 不生效的问题 @uyarn ([#6610](https://github.com/Tencent/tdesign-vue-next/pull/6610))
+- `Timeline`: 修复部分场景下icon未对齐的问题 @nagisa77 ([#6613](https://github.com/Tencent/tdesign-vue-next/pull/6613))
+
 ## 🌈 1.19.1 `2026-04-14`
 
 ### 🐞 Bug Fixes
