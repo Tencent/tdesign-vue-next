@@ -202,7 +202,7 @@ export default defineComponent({
             <div class={`${classPrefix.value}-image__loading`}>
               {renderTNodeJSX('loading') || (
                 <Space direction="vertical" size={8} align="center">
-                  <ImageIcon size="24px" />
+                  <ImageIcon />
                   {isString(props.loading) ? props.loading : globalConfig.value.loadingText}
                 </Space>
               )}
@@ -214,7 +214,7 @@ export default defineComponent({
               {renderTNodDefault('error', {
                 defaultNode: (
                   <Space direction="vertical" size={8} align="center">
-                    <ImageErrorIcon size="24px" />
+                    <ImageErrorIcon />
                     {isString(props.error) ? props.error : globalConfig.value.errorText}
                   </Space>
                 ),
