@@ -119,7 +119,7 @@ ChatEngine 实例方法与 Chatbot 组件实例方法完全一致，详见 [Chat
 
 | 属性名    | 类型                                        | 说明                                           | 必传 |
 | --------- | ------------------------------------------- | ---------------------------------------------- | ---- |
-| toolCall  | ToolCall [对象结构](https://github.com/TDesignOteam/tdesign-web-components/blob/develop/src/chat-engine/type.ts#L97)                                    | 工具调用对象，包含 toolCallName、args、result 等信息 | Y    |
+| toolCall  | ToolCall（来自 `@tdesign/web-components-chat`）                                    | 工具调用对象，包含 toolCallName、args、result 等信息 | Y    |
 | onRespond | (toolCall: ToolCall, response: any) => void | 交互式工具的响应回调，用于将用户输入返回给后端 | N    |
 
 
