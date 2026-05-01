@@ -3,7 +3,15 @@ import { pick, isFunction, isEqual } from 'lodash-es';
 
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
-import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './types';
+import {
+  TransferListType,
+  CheckedOptions,
+  TransferValue,
+  EmptyType,
+  TargetParams,
+  SearchEvent,
+  SearchOption,
+} from './types';
 
 import {
   getTransferListOption,
@@ -77,7 +85,7 @@ export default defineComponent({
       return getTransferListOption<EmptyType>(props.empty);
     });
     const searchOption = computed(() => {
-      return getTransferListOption<boolean>(props.search);
+      return getTransferListOption<SearchOption>(props.search);
     });
     const checkAllOption = computed(() => {
       return getTransferListOption<boolean>(props.showCheckAll);
