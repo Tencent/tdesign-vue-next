@@ -763,6 +763,9 @@ importers:
       '@tdesign/web-components-chat':
         specifier: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@5aa4352
         version: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@5aa4352(@tdesign/web-components-ui@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-ui@5aa4352(omi@7.7.13))(omi@7.7.13)
+      '@tdesign/web-components-ui':
+        specifier: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-ui@5aa4352
+        version: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-ui@5aa4352(omi@7.7.13)
       clipboard:
         specifier: catalog:deps
         version: 2.0.11
@@ -870,6 +873,9 @@ importers:
 
   packages/tdesign-ai-core/packages/shared:
     devDependencies:
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.4.2)(postcss@8.5.6)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0)
       typescript:
         specifier: ^5.5.0
         version: 5.8.3
@@ -927,6 +933,9 @@ importers:
       '@tdesign/web-components-chat':
         specifier: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@5aa4352
         version: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@5aa4352(@tdesign/web-components-ui@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-ui@5aa4352(omi@7.7.13))(omi@7.7.13)
+      '@tdesign/web-components-ui':
+        specifier: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-ui@5aa4352
+        version: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-ui@5aa4352(omi@7.7.13)
       '@types/lodash-es':
         specifier: catalog:types
         version: 4.17.12
