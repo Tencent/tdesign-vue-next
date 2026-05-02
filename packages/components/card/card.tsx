@@ -75,14 +75,16 @@ export default defineComponent({
     const isFooterRender = computed(() => showFooter.value || (showActions.value && isPoster2.value));
 
     // 提取为独立函数，避免每次渲染重复创建 VNode
-    const renderContent = () => (
+    const renderContent = (isLoading = false) => (
       <div class={baseCls.value}>
         {isHeaderRender.value ? renderHeader() : null}
         {showCover.value ? renderCover() : null}
-        {showContent.value && (
-          <div class={[bodyCls.value, props.bodyClassName]} style={props.bodyStyle}>
-            {renderTNodeJSX('default') || renderTNodeJSX('content')}
-          </div>
+        {(showContent.value || isLoading) && (
+          <TLoading loading={isLoading} {...(props.loadingProps as TdCardProps['loadingProps'])}>
+            <div class={[bodyCls.value, props.bodyClassName]} style={props.bodyStyle}>
+              {renderTNodeJSX('default') || renderTNodeJSX('content')}
+            </div>
+          </TLoading>
         )}
         {isFooterRender.value && (
           <div class={[footerCls.value, props.footerClassName]} style={props.footerStyle}>
@@ -125,19 +127,14 @@ export default defineComponent({
     return () => {
       const loadingContent = renderTNodeJSX('loading');
 
-      // 自定义 loading 内容需要完全替换卡片，无法避免 VNode 树变化
+      // 自定义 loading 内容完全替换卡片
       if (loadingContent) {
         return showLoading.value ? loadingContent : renderContent();
       }
 
-      // 避免 loading 切换时整棵树重新渲染
+      // 布尔 loading：TLoading 在 body 内部控制，避免 content 重建
       const isLoading = !!showLoading.value;
-
-      return (
-        <TLoading loading={isLoading} {...(props.loadingProps as TdCardProps['loadingProps'])}>
-          {renderContent()}
-        </TLoading>
-      );
+      return renderContent(isLoading);
     };
   },
 });
