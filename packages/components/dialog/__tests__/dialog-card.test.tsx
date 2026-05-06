@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+﻿import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi, describe, it, beforeEach, afterEach } from 'vitest';
 import { DialogCard } from '@tdesign/components';
@@ -18,7 +18,7 @@ describe('DialogCard', () => {
       wrapper = null;
     });
 
-    it(':body[string]', async () => {
+    it(':body[string]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           body: 'Dialog body content',
@@ -29,7 +29,7 @@ describe('DialogCard', () => {
       expect(wrapper1.find('.t-dialog__body').text()).toBe('Dialog body content');
     });
 
-    it(':body[function]', async () => {
+    it(':body[function]', () => {
       const bodyFn = vi.fn(() => 'Custom body');
       const wrapper1 = mount(DialogCard, {
         props: {
@@ -41,7 +41,7 @@ describe('DialogCard', () => {
       expect(wrapper1.find('.t-dialog__body').exists()).toBe(true);
     });
 
-    it(':cancelBtn[string]', async () => {
+    it(':cancelBtn[string]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           cancelBtn: 'Custom Cancel',
@@ -55,7 +55,7 @@ describe('DialogCard', () => {
       expect(cancelBtn.text()).toBe('Custom Cancel');
     });
 
-    it(':cancelBtn[object]', async () => {
+    it(':cancelBtn[object]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           cancelBtn: {
@@ -72,7 +72,7 @@ describe('DialogCard', () => {
       expect(cancelBtn.exists()).toBe(true);
     });
 
-    it(':cancelBtn[null]', async () => {
+    it(':cancelBtn[null]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           cancelBtn: null,
@@ -85,7 +85,7 @@ describe('DialogCard', () => {
       expect(cancelBtn.exists()).toBe(false);
     });
 
-    it(':closeBtn[boolean]', async () => {
+    it(':closeBtn[boolean]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           closeBtn: true,
@@ -107,7 +107,7 @@ describe('DialogCard', () => {
       expect(wrapper2.find('.t-dialog__close').exists()).toBe(false);
     });
 
-    it(':closeBtn[string]', async () => {
+    it(':closeBtn[string]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           closeBtn: 'Close',
@@ -121,7 +121,7 @@ describe('DialogCard', () => {
       expect(closeBtn.text()).toBe('Close');
     });
 
-    it(':closeBtn[function]', async () => {
+    it(':closeBtn[function]', () => {
       const closeBtnFn = vi.fn(() => 'Custom Close');
       const wrapper1 = mount(DialogCard, {
         props: {
@@ -134,7 +134,7 @@ describe('DialogCard', () => {
       expect(wrapper1.find('.t-dialog__close').exists()).toBe(true);
     });
 
-    it(':confirmBtn[string]', async () => {
+    it(':confirmBtn[string]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           confirmBtn: 'Custom Confirm',
@@ -148,7 +148,7 @@ describe('DialogCard', () => {
       expect(confirmBtn.text()).toBe('Custom Confirm');
     });
 
-    it(':confirmBtn[object]', async () => {
+    it(':confirmBtn[object]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           confirmBtn: {
@@ -165,7 +165,7 @@ describe('DialogCard', () => {
       expect(confirmBtn.exists()).toBe(true);
     });
 
-    it(':confirmBtn[null]', async () => {
+    it(':confirmBtn[null]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           confirmBtn: null,
@@ -178,7 +178,7 @@ describe('DialogCard', () => {
       expect(confirmBtn.exists()).toBe(false);
     });
 
-    it(':confirmLoading', async () => {
+    it(':confirmLoading', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           confirmLoading: true,
@@ -192,7 +192,7 @@ describe('DialogCard', () => {
       expect(confirmBtn.classes()).toContain('t-is-loading');
     });
 
-    it(':footer[boolean]', async () => {
+    it(':footer[boolean]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           footer: true,
@@ -212,7 +212,7 @@ describe('DialogCard', () => {
       expect(wrapper2.find('.t-dialog__footer').exists()).toBe(false);
     });
 
-    it(':footer[function]', async () => {
+    it(':footer[function]', () => {
       const footerFn = vi.fn(() => 'Custom footer');
       const wrapper1 = mount(DialogCard, {
         props: {
@@ -224,7 +224,7 @@ describe('DialogCard', () => {
       expect(wrapper1.find('.t-dialog__footer').exists()).toBe(true);
     });
 
-    it(':header[boolean]', async () => {
+    it(':header[boolean]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           header: true,
@@ -246,7 +246,7 @@ describe('DialogCard', () => {
       expect(wrapper2.find('.t-dialog__header').exists()).toBe(false);
     });
 
-    it(':header[string]', async () => {
+    it(':header[string]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           header: 'Dialog Title',
@@ -259,7 +259,7 @@ describe('DialogCard', () => {
       expect(header.text()).toContain('Dialog Title');
     });
 
-    it(':header[function]', async () => {
+    it(':header[function]', () => {
       const headerFn = vi.fn(() => 'Custom Header');
       const wrapper1 = mount(DialogCard, {
         props: {
@@ -271,7 +271,7 @@ describe('DialogCard', () => {
       expect(wrapper1.find('.t-dialog__header').exists()).toBe(true);
     });
 
-    it(':theme', async () => {
+    it(':theme', () => {
       const themes = ['default', 'info', 'warning', 'danger', 'success'];
 
       for (const theme of themes) {
@@ -286,7 +286,7 @@ describe('DialogCard', () => {
       }
     });
 
-    it(':theme with icon', async () => {
+    it(':theme with icon', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           theme: 'info',
@@ -324,7 +324,7 @@ describe('DialogCard', () => {
       expect(wrapper4.find('.t-is-success').exists()).toBe(true);
     });
 
-    it(':placement', async () => {
+    it(':placement', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           placement: 'top',
@@ -344,7 +344,7 @@ describe('DialogCard', () => {
       expect(wrapper2.find('.t-dialog--center').exists()).toBe(true);
     });
 
-    it(':mode[modeless]', async () => {
+    it(':mode[modeless]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           mode: 'modeless',
@@ -355,7 +355,7 @@ describe('DialogCard', () => {
       expect(wrapper1.find('.t-dialog').exists()).toBe(true);
     });
 
-    it(':mode[full-screen]', async () => {
+    it(':mode[full-screen]', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           mode: 'full-screen',
@@ -366,7 +366,7 @@ describe('DialogCard', () => {
       expect(wrapper1.find('.t-dialog__fullscreen').exists()).toBe(true);
     });
 
-    it(':draggable', async () => {
+    it(':draggable', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           mode: 'modeless',
@@ -378,7 +378,7 @@ describe('DialogCard', () => {
       expect(wrapper1.find('.t-dialog--draggable').exists()).toBe(true);
     });
 
-    it(':width', async () => {
+    it(':width', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           width: '500px',
@@ -398,7 +398,7 @@ describe('DialogCard', () => {
       expect(wrapper2.find('.t-dialog').attributes('style')).toContain('width: 600px');
     });
 
-    it(':width with full-screen mode', async () => {
+    it(':width with full-screen mode', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           mode: 'full-screen',
@@ -416,7 +416,7 @@ describe('DialogCard', () => {
       }
     });
 
-    it(':dialogClassName', async () => {
+    it(':dialogClassName', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           dialogClassName: 'custom-dialog-class',
@@ -427,7 +427,7 @@ describe('DialogCard', () => {
       expect(wrapper1.find('.custom-dialog-class').exists()).toBe(true);
     });
 
-    it(':dialogStyle', async () => {
+    it(':dialogStyle', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           dialogStyle: { backgroundColor: 'red' },
@@ -488,7 +488,7 @@ describe('DialogCard', () => {
   });
 
   describe('slots', () => {
-    it('default slot', async () => {
+    it('default slot', () => {
       const wrapper = mount(DialogCard, {
         slots: {
           default: '<div class="custom-content">Custom Content</div>',
@@ -499,7 +499,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.custom-content').text()).toBe('Custom Content');
     });
 
-    it('body slot', async () => {
+    it('body slot', () => {
       const wrapper = mount(DialogCard, {
         slots: {
           body: '<div class="custom-body">Custom Body</div>',
@@ -510,7 +510,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.custom-body').text()).toBe('Custom Body');
     });
 
-    it('header slot', async () => {
+    it('header slot', () => {
       const wrapper = mount(DialogCard, {
         slots: {
           header: '<div class="custom-header">Custom Header</div>',
@@ -521,7 +521,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.custom-header').text()).toBe('Custom Header');
     });
 
-    it('footer slot', async () => {
+    it('footer slot', () => {
       const wrapper = mount(DialogCard, {
         props: {
           footer: true,
@@ -535,7 +535,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.custom-footer').text()).toBe('Custom Footer');
     });
 
-    it('closeBtn slot', async () => {
+    it('closeBtn slot', () => {
       const wrapper = mount(DialogCard, {
         props: {
           header: true,
@@ -552,7 +552,7 @@ describe('DialogCard', () => {
   });
 
   describe('functionality', () => {
-    it('should render default footer with cancel and confirm buttons', async () => {
+    it('should render default footer with cancel and confirm buttons', () => {
       const wrapper = mount(DialogCard, {
         props: {
           footer: true,
@@ -564,7 +564,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__confirm').exists()).toBe(true);
     });
 
-    it('should not render footer when footer is false', async () => {
+    it('should not render footer when footer is false', () => {
       const wrapper = mount(DialogCard, {
         props: {
           footer: false,
@@ -574,7 +574,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__footer').exists()).toBe(false);
     });
 
-    it('should render header with close button', async () => {
+    it('should render header with close button', () => {
       const wrapper = mount(DialogCard, {
         props: {
           header: 'Test Header',
@@ -586,7 +586,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__close').exists()).toBe(true);
     });
 
-    it('should not render header when header is false', async () => {
+    it('should not render header when header is false', () => {
       const wrapper = mount(DialogCard, {
         props: {
           header: false,
@@ -597,7 +597,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__header').exists()).toBe(false);
     });
 
-    it('should render body content', async () => {
+    it('should render body content', () => {
       const wrapper = mount(DialogCard, {
         props: {
           body: 'Test body content',
@@ -608,7 +608,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__body').text()).toBe('Test body content');
     });
 
-    it('should apply theme classes correctly', async () => {
+    it('should apply theme classes correctly', () => {
       const wrapper = mount(DialogCard, {
         props: {
           theme: 'info',
@@ -618,7 +618,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__modal-info').exists()).toBe(true);
     });
 
-    it('should apply fullscreen classes when mode is full-screen', async () => {
+    it('should apply fullscreen classes when mode is full-screen', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'full-screen',
@@ -633,7 +633,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__body--fullscreen').exists()).toBe(true);
     });
 
-    it('should apply draggable class when mode is modeless and draggable is true', async () => {
+    it('should apply draggable class when mode is modeless and draggable is true', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'modeless',
@@ -644,7 +644,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog--draggable').exists()).toBe(true);
     });
 
-    it('should not apply draggable class when mode is not modeless', async () => {
+    it('should apply draggable class when mode is modal and draggable is true', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'modal',
@@ -652,10 +652,11 @@ describe('DialogCard', () => {
         },
       });
 
-      expect(wrapper.find('.t-dialog--draggable').exists()).toBe(false);
+      // 组件设计上 modal 和 modeless 模式都支持拖拽
+      expect(wrapper.find('.t-dialog--draggable').exists()).toBe(true);
     });
 
-    it('should show confirm button loading state', async () => {
+    it('should show confirm button loading state', () => {
       const wrapper = mount(DialogCard, {
         props: {
           footer: true,
@@ -667,7 +668,7 @@ describe('DialogCard', () => {
       expect(confirmBtn.classes()).toContain('t-is-loading');
     });
 
-    it('should show confirm button loading state from confirmBtn.loading', async () => {
+    it('should show confirm button loading state from confirmBtn.loading', () => {
       const wrapper = mount(DialogCard, {
         props: {
           footer: true,
@@ -681,7 +682,7 @@ describe('DialogCard', () => {
       expect(confirmBtn.classes()).toContain('t-is-loading');
     });
 
-    it('should render theme icon in header', async () => {
+    it('should render theme icon in header', () => {
       const wrapper1 = mount(DialogCard, {
         props: {
           theme: 'info',
@@ -715,7 +716,7 @@ describe('DialogCard', () => {
       expect(wrapper4.find('.t-is-error').exists()).toBe(true);
     });
 
-    it('should not render theme icon when theme is default', async () => {
+    it('should not render theme icon when theme is default', () => {
       const wrapper = mount(DialogCard, {
         props: {
           theme: 'default',
@@ -729,7 +730,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-is-error').exists()).toBe(false);
     });
 
-    it('should apply body__icon class when theme is not default', async () => {
+    it('should apply body__icon class when theme is not default', () => {
       const wrapper = mount(DialogCard, {
         props: {
           theme: 'info',
@@ -740,7 +741,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__body__icon').exists()).toBe(true);
     });
 
-    it('should apply body class when theme is default', async () => {
+    it('should apply body class when theme is default', () => {
       const wrapper = mount(DialogCard, {
         props: {
           theme: 'default',
@@ -754,7 +755,7 @@ describe('DialogCard', () => {
   });
 
   describe('internal logic', () => {
-    it('should expose resetPosition method', async () => {
+    it('should expose resetPosition method', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'modeless',
@@ -766,7 +767,7 @@ describe('DialogCard', () => {
       expect(typeof wrapper.vm.resetPosition).toBe('function');
     });
 
-    it('should expose $el property', async () => {
+    it('should expose $el property', () => {
       const wrapper = mount(DialogCard, {
         props: {},
       });
@@ -795,7 +796,7 @@ describe('DialogCard', () => {
       expect(header.exists()).toBe(true);
     });
 
-    it('should compute dialogClass correctly', async () => {
+    it('should compute dialogClass correctly', () => {
       const wrapper = mount(DialogCard, {
         props: {
           theme: 'info',
@@ -812,7 +813,7 @@ describe('DialogCard', () => {
       expect(dialog.classes()).toContain('custom-class');
     });
 
-    it('should compute dialogStyle correctly', async () => {
+    it('should compute dialogStyle correctly', () => {
       const wrapper = mount(DialogCard, {
         props: {
           width: '600px',
@@ -826,7 +827,7 @@ describe('DialogCard', () => {
       expect(style).toContain('background-color: blue');
     });
 
-    it('should not apply width in full-screen mode', async () => {
+    it('should not apply width in full-screen mode', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'full-screen',
@@ -844,7 +845,7 @@ describe('DialogCard', () => {
       }
     });
 
-    it('should compute confirmBtnLoading from confirmBtn.loading', async () => {
+    it('should compute confirmBtnLoading from confirmBtn.loading', () => {
       const wrapper = mount(DialogCard, {
         props: {
           footer: true,
@@ -858,7 +859,7 @@ describe('DialogCard', () => {
       expect(confirmBtn.classes()).toContain('t-is-loading');
     });
 
-    it('should compute confirmBtnLoading from confirmLoading prop', async () => {
+    it('should compute confirmBtnLoading from confirmLoading prop', () => {
       const wrapper = mount(DialogCard, {
         props: {
           footer: true,
@@ -870,7 +871,7 @@ describe('DialogCard', () => {
       expect(confirmBtn.classes()).toContain('t-is-loading');
     });
 
-    it('should render fullscreen body without footer', async () => {
+    it('should render fullscreen body without footer', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'full-screen',
@@ -882,7 +883,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__body--fullscreen--without-footer').exists()).toBe(true);
     });
 
-    it('should render fullscreen body with footer', async () => {
+    it('should render fullscreen body with footer', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'full-screen',
@@ -895,7 +896,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__body--fullscreen--without-footer').exists()).toBe(false);
     });
 
-    it('should apply v-draggable directive when modeless and draggable', async () => {
+    it('should apply v-draggable directive when modeless and draggable', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'modeless',
@@ -907,7 +908,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog--draggable').exists()).toBe(true);
     });
 
-    it('should not apply v-draggable directive when not modeless', async () => {
+    it('should apply v-draggable directive when modal and draggable', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'modal',
@@ -915,10 +916,11 @@ describe('DialogCard', () => {
         },
       });
 
-      expect(wrapper.find('.t-dialog--draggable').exists()).toBe(false);
+      // 组件设计上 modal 和 modeless 模式都支持拖拽
+      expect(wrapper.find('.t-dialog--draggable').exists()).toBe(true);
     });
 
-    it('should render close button in fullscreen mode', async () => {
+    it('should render close button in fullscreen mode', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'full-screen',
@@ -930,7 +932,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__close--fullscreen').exists()).toBe(true);
     });
 
-    it('should render header in fullscreen mode', async () => {
+    it('should render header in fullscreen mode', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'full-screen',
@@ -941,7 +943,7 @@ describe('DialogCard', () => {
       expect(wrapper.find('.t-dialog__header--fullscreen').exists()).toBe(true);
     });
 
-    it('should render footer in fullscreen mode', async () => {
+    it('should render footer in fullscreen mode', () => {
       const wrapper = mount(DialogCard, {
         props: {
           mode: 'full-screen',

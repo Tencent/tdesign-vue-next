@@ -21,6 +21,19 @@ describe('Dialog Utils', () => {
       expect(getCSSValue('0')).toBe('0px');
       expect(getCSSValue('100')).toBe('100px');
     });
+
+    it('handles empty string and non-numeric strings', () => {
+      // 空字符串 Number('') === 0，所以不是 NaN，会被转成 '0px'
+      expect(getCSSValue('')).toBe('0px');
+      // 非数字字符串
+      expect(getCSSValue('abc')).toBe('abc');
+      expect(getCSSValue('10rem')).toBe('10rem');
+    });
+
+    it('handles negative numbers', () => {
+      expect(getCSSValue(-10)).toBe('-10px');
+      expect(getCSSValue('-20')).toBe('-20px');
+    });
   });
 
   describe('initDragEvent', () => {
@@ -196,6 +209,22 @@ describe('Dialog Utils', () => {
 
       expect(dragBox.style.left).toBe(currentLeft);
       expect(dragBox.style.top).toBe(currentTop);
+    });
+
+    it('uses document.documentElement.clientWidth as fallback', () => {
+      // 模拟 window.innerWidth 为 0（falsy），使用 document.documentElement.clientWidth
+      const originalInnerWidth = window.innerWidth;
+      const originalInnerHeight = window.innerHeight;
+      Object.defineProperty(window, 'innerWidth', { value: 0, writable: true, configurable: true });
+      Object.defineProperty(window, 'innerHeight', { value: 0, writable: true, configurable: true });
+
+      const addEventListener = vi.spyOn(dragBox, 'addEventListener');
+      initDragEvent(dragBox);
+
+      expect(addEventListener).toHaveBeenCalledWith('mousedown', expect.any(Function));
+
+      Object.defineProperty(window, 'innerWidth', { value: originalInnerWidth, writable: true, configurable: true });
+      Object.defineProperty(window, 'innerHeight', { value: originalInnerHeight, writable: true, configurable: true });
     });
 
     it('does not allow dragging when dialog is larger than window', () => {

@@ -1,4 +1,3 @@
-/* eslint-disable vue/one-component-per-file */
 import { createApp, nextTick } from 'vue';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { DialogPlugin } from '../plugin';

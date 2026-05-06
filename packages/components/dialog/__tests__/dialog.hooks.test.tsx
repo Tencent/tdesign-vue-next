@@ -1,7 +1,6 @@
-/* eslint-disable vue/one-component-per-file */
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { defineComponent, h } from 'vue';
+import { h } from 'vue';
 import { useAction } from '../hooks/useAction';
 import { useSameTarget } from '../hooks/useSameTarget';
 
@@ -24,7 +23,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getConfirmBtn } = useAction({
             confirmBtnAction,
@@ -41,7 +40,6 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-confirm').exists()).toBe(true);
     });
 
@@ -49,7 +47,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getConfirmBtn } = useAction({
             confirmBtnAction,
@@ -66,7 +64,6 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-confirm').exists()).toBe(true);
       expect(wrapper.find('.test-confirm').text()).toBe('Custom Confirm');
     });
@@ -75,7 +72,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getConfirmBtn } = useAction({
             confirmBtnAction,
@@ -92,7 +89,6 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-confirm').exists()).toBe(true);
     });
 
@@ -100,7 +96,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getConfirmBtn } = useAction({
             confirmBtnAction,
@@ -117,7 +113,6 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-confirm').exists()).toBe(false);
     });
 
@@ -125,7 +120,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getConfirmBtn } = useAction({
             confirmBtnAction,
@@ -143,7 +138,6 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-confirm').exists()).toBe(true);
     });
 
@@ -151,7 +145,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getCancelBtn } = useAction({
             confirmBtnAction,
@@ -168,7 +162,6 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-cancel').exists()).toBe(true);
     });
 
@@ -176,7 +169,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getCancelBtn } = useAction({
             confirmBtnAction,
@@ -193,7 +186,6 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-cancel').exists()).toBe(true);
       expect(wrapper.find('.test-cancel').text()).toBe('Custom Cancel');
     });
@@ -202,7 +194,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getCancelBtn } = useAction({
             confirmBtnAction,
@@ -219,7 +211,6 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-cancel').exists()).toBe(true);
     });
 
@@ -227,7 +218,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getCancelBtn } = useAction({
             confirmBtnAction,
@@ -244,7 +235,6 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-cancel').exists()).toBe(false);
     });
 
@@ -252,7 +242,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getConfirmBtn } = useAction({
             confirmBtnAction,
@@ -269,11 +259,8 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       const button = wrapper.find('.test-confirm');
-
       await button.trigger('click');
-
       expect(confirmBtnAction).toHaveBeenCalled();
     });
 
@@ -281,7 +268,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getCancelBtn } = useAction({
             confirmBtnAction,
@@ -298,11 +285,8 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       const button = wrapper.find('.test-cancel');
-
       await button.trigger('click');
-
       expect(cancelBtnAction).toHaveBeenCalled();
     });
 
@@ -310,7 +294,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getConfirmBtn } = useAction({
             confirmBtnAction,
@@ -335,7 +319,6 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-confirm').exists()).toBe(true);
     });
 
@@ -343,7 +326,7 @@ describe('Dialog Hooks', () => {
       const confirmBtnAction = vi.fn();
       const cancelBtnAction = vi.fn();
 
-      const TestComponent = defineComponent({
+      const wrapper = mount({
         setup() {
           const { getConfirmBtn, getCancelBtn } = useAction({
             confirmBtnAction,
@@ -368,9 +351,129 @@ describe('Dialog Hooks', () => {
         },
       });
 
-      const wrapper = mount(TestComponent);
       expect(wrapper.find('.test-confirm').exists()).toBe(true);
       expect(wrapper.find('.test-cancel').exists()).toBe(true);
+    });
+
+    it('getCancelBtn handles object globalCancel', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const wrapper = mount({
+        setup() {
+          const { getCancelBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const cancelBtn = getCancelBtn({
+            cancelBtn: undefined,
+            globalCancel: { content: 'Global Cancel', theme: 'default' },
+            className: 'test-cancel',
+          });
+
+          return () => h('div', [cancelBtn]);
+        },
+      });
+
+      expect(wrapper.find('.test-cancel').exists()).toBe(true);
+    });
+
+    it('getConfirmBtn without confirmLoading does not set loading', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const wrapper = mount({
+        setup() {
+          const { getConfirmBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: 'Confirm',
+            globalConfirm: '确认',
+            className: 'test-confirm',
+          });
+
+          return () => h('div', [confirmBtn]);
+        },
+      });
+
+      expect(wrapper.find('.test-confirm').exists()).toBe(true);
+      expect(wrapper.find('.t-is-loading').exists()).toBe(false);
+    });
+
+    it('getConfirmBtn handles object globalConfirm', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const wrapper = mount({
+        setup() {
+          const { getConfirmBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: undefined,
+            globalConfirm: { content: 'Global OK', theme: 'primary' },
+            className: 'test-confirm',
+          });
+
+          return () => h('div', [confirmBtn]);
+        },
+      });
+
+      expect(wrapper.find('.test-confirm').exists()).toBe(true);
+    });
+
+    it('getConfirmBtn renders slot when confirmBtn is function-like', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const wrapper = mount({
+        setup() {
+          const { getConfirmBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const confirmBtn = getConfirmBtn({
+            confirmBtn: true as any,
+            globalConfirm: '确认',
+            className: 'test-confirm',
+          });
+
+          return () => h('div', [confirmBtn]);
+        },
+      });
+
+      expect(wrapper.find('div').exists()).toBe(true);
+    });
+
+    it('getCancelBtn renders slot when cancelBtn is function-like', () => {
+      const confirmBtnAction = vi.fn();
+      const cancelBtnAction = vi.fn();
+
+      const wrapper = mount({
+        setup() {
+          const { getCancelBtn } = useAction({
+            confirmBtnAction,
+            cancelBtnAction,
+          });
+
+          const cancelBtn = getCancelBtn({
+            cancelBtn: true as any,
+            globalCancel: '取消',
+            className: 'test-cancel',
+          });
+
+          return () => h('div', [cancelBtn]);
+        },
+      });
+
+      expect(wrapper.find('div').exists()).toBe(true);
     });
   });
 
