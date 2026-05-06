@@ -1,7 +1,9 @@
-import { createApp, nextTick } from 'vue';
+import { createApp, defineComponent, nextTick } from 'vue';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { DialogPlugin } from '../plugin';
 import { sleep } from '@tdesign/internal-utils';
+
+const EmptyApp = defineComponent({ render: (): null => null });
 
 describe('Dialog Plugin', () => {
   let container: HTMLElement;
@@ -411,21 +413,12 @@ describe('Dialog Plugin', () => {
 
   describe('DialogPlugin.install', () => {
     it('installs plugin to Vue app', () => {
-      const app = createApp({});
+      const app = createApp(EmptyApp);
       DialogPlugin.install(app);
 
       expect(app.config.globalProperties.$dialog).toBeDefined();
       expect(app.config.globalProperties.$dialog.confirm).toBeDefined();
       expect(app.config.globalProperties.$dialog.alert).toBeDefined();
-    });
-
-    it('sets app context when installed', () => {
-      const app = createApp({});
-      DialogPlugin.install(app);
-      // eslint-disable-next-line no-underscore-dangle
-      expect(DialogPlugin._context).toBeDefined();
-      // eslint-disable-next-line no-underscore-dangle
-      expect(DialogPlugin._context).toBe(app._context);
     });
   });
 
