@@ -253,7 +253,7 @@ export default defineComponent({
 
     const renderDefaultTrigger = () => {
       const firstImage = images.value[0] || '';
-      const imageSrc = typeof firstImage === 'string' ? firstImage : firstImage.mainImage || firstImage.thumbnail;
+      const imageSrc = typeof firstImage === 'string' ? firstImage : firstImage.thumbnail || firstImage.mainImage;
       return (
         <div class={`${COMPONENT_NAME.value}__trigger`}>
           <Image src={imageSrc} alt="preview" fit="contain" class={`${COMPONENT_NAME.value}__trigger-img`} />
