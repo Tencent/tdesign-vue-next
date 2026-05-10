@@ -30,7 +30,10 @@ import {
 } from '@tdesign/internal-utils';
 
 const name = '@tdesign-vue-next/chat';
-const esExternalDeps = Object.keys(pkg.dependencies || {}).concat('tdesign-vue-next/es/config-provider/hooks');
+const internalWorkspaceDeps = ['@tdesign/ai-chat-engine', '@tdesign/ai-shared'];
+const esExternalDeps = Object.keys(pkg.dependencies || {})
+  .filter((dep) => !internalWorkspaceDeps.includes(dep))
+  .concat('tdesign-vue-next/es/config-provider/hooks');
 const externalDeps = [...esExternalDeps, /@babel\/runtime/];
 const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
 const DEFAULT_EXTENSIONS = ['.js', '.jsx', '.es6', '.es', '.mjs', '.cjs'];

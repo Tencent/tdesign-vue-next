@@ -1,5 +1,5 @@
 import { ref, onMounted, onUnmounted, computed, provide, inject, watch, type Ref, type InjectionKey } from 'vue';
-import { stateManager } from 'tdesign-web-components/lib/chat-engine';
+import { stateManager } from '@tdesign/ai-chat-engine';
 
 /**
  * 状态订阅相关类型定义

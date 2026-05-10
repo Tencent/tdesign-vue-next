@@ -99,12 +99,7 @@ export default {
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };
 
-export {
-  AGUIAdapter,
-  getMessageContentForCopy,
-  isAIMessage,
-  isToolCallContent,
-} from 'tdesign-web-components/lib/chat-engine';
+export { AGUIAdapter, getMessageContentForCopy, isAIMessage, isToolCallContent } from '@tdesign/ai-chat-engine';
 
 export type {
   SSEChunkData,
@@ -112,4 +107,4 @@ export type {
   ChatRequestParams,
   ChatMessagesData,
   ChatServiceConfig,
-} from 'tdesign-web-components/lib/chat-engine';
+} from '@tdesign/ai-chat-engine';

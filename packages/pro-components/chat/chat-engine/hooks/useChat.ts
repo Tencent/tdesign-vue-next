@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted, watch, type Ref } from 'vue';
-import type { ChatMessagesData, ChatStatus, ChatServiceConfig } from 'tdesign-web-components/lib/chat-engine';
+import type { ChatMessagesData, ChatStatus, ChatServiceConfig } from '@tdesign/ai-chat-engine';
 import { TdChatProps } from 'tdesign-web-components';
-import ChatEngine from 'tdesign-web-components/lib/chat-engine';
+import ChatEngine from '@tdesign/ai-chat-engine';
 
 export const useChat = (options: {
   defaultMessages: TdChatProps['defaultMessages'];
@@ -28,8 +28,8 @@ export const useChat = (options: {
 
   const initChat = () => {
     chatEngineRef.value = new ChatEngine();
-    chatEngineRef.value.init(options.chatServiceConfig, options.defaultMessages);
-    syncState(options.defaultMessages || []);
+    chatEngineRef.value.init(options.chatServiceConfig, options.defaultMessages as unknown as ChatMessagesData[]);
+    syncState((options.defaultMessages || []) as unknown as ChatMessagesData[]);
     subscribeToChat();
   };
 
@@ -52,14 +52,14 @@ export const useChat = (options: {
 
       if (hasChanged && newMessages && newMessages.length > 0) {
         // 更新引用
-        prevInitialMessages.value = newMessages;
+        prevInitialMessages.value = newMessages as unknown as ChatMessagesData[];
 
         // 重新初始化聊天引擎或更新消息
         if (chatEngineRef.value) {
-          chatEngineRef.value.setMessages(newMessages, 'replace');
+          chatEngineRef.value.setMessages(newMessages as unknown as ChatMessagesData[], 'replace');
 
           // 同步状态
-          syncState(newMessages);
+          syncState(newMessages as unknown as ChatMessagesData[]);
         }
       }
     },

@@ -44,7 +44,10 @@
       "tdesign-vue-next/es/config-provider/hooks": [ "packages/components/config-provider/hooks" ],
       "@tdesign-vue-next/chat":["packages/pro-components/chat"],
       "@common/*": ["packages/common/*"],
-      "@test/utils": ["test/utils"]
+      "@test/utils": ["test/utils"],
+      "@tdesign/ai-shared": ["packages/ai-core/packages/shared"],
+      "@tdesign/ai-shared/*": ["packages/ai-core/packages/shared/*"],
+      "@tdesign/ai-chat-engine": ["packages/ai-core/packages/chat-engine"],
     }
   },
   "include": [

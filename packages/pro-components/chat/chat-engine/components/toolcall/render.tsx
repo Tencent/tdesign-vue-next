@@ -1,5 +1,5 @@
 import { defineComponent, ref, computed, watch, h, type Ref } from 'vue';
-import { AGUIEventType, type ToolCall } from 'tdesign-web-components/lib/chat-engine';
+import { AGUIEventType, type ToolCall } from '@tdesign/ai-chat-engine';
 import { isNonInteractiveConfig, type ToolcallComponentProps } from './types';
 import { agentToolcallRegistry, TOOLCALL_REGISTERED_EVENT, TOOLCALL_EVENT_DETAIL_KEY } from './registry';
 import { ComponentErrorBoundary, useRegistrationListener } from '../shared';

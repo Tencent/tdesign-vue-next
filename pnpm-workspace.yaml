@@ -1,6 +1,16 @@
 packages:
-  - packages/**
-  - internal/**
+  - packages/*
+  - packages/pro-components/*
+  - packages/shared/*
+  - packages/*/test
+  - packages/*/site
+  - packages/ai-core/packages/*
+  - packages/common/js
+  - packages/common/docs
+  - packages/common/style
+  - internal/*
+  - '!packages/common'
+  - '!packages/ai-core'
 allowBuilds:
   canvas: true
   core-js: true
