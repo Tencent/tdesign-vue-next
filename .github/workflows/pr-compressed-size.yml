@@ -19,6 +19,7 @@ jobs:
 
       - uses: preactjs/compressed-size-action@v2
         with:
+          install-script: 'pnpm install --no-frozen-lockfile'
           build-script: 'build:vue'
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           pattern: './packages/tdesign-vue-next/dist/**/*.{js,css}'
@@ -39,6 +40,7 @@ jobs:
 
       - uses: preactjs/compressed-size-action@v2
         with:
+          install-script: 'pnpm install --no-frozen-lockfile'
           build-script: 'build:chat'
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           pattern: './packages/tdesign-vue-next-chat/es/**/*.{mjs,css}'
@@ -59,6 +61,7 @@ jobs:
 
       - uses: preactjs/compressed-size-action@v2
         with:
+          install-script: 'pnpm install --no-frozen-lockfile'
           build-script: 'build:auto-import-resolver'
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           pattern: './packages/auto-import-resolver/dist/*.{js,cjs,mjs}'
