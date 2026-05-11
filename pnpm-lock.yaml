@@ -587,7 +587,7 @@ importers:
     dependencies:
       '@json-render/core':
         specifier: ^0.17.0
-        version: 0.17.0(zod@3.25.76)
+        version: 0.17.0(zod@4.4.3)
       '@tdesign/ai-shared':
         specifier: workspace:*
         version: link:../shared
@@ -595,8 +595,8 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2
       zod:
-        specifier: '3'
-        version: 3.25.76
+        specifier: ^4.3.6
+        version: 4.4.3
     devDependencies:
       immer:
         specifier: ^10.0.0
@@ -7625,6 +7625,9 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
+  zod@4.4.3:
+    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
+
 snapshots:
 
   '@ampproject/remapping@2.3.0':
@@ -8804,9 +8807,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@json-render/core@0.17.0(zod@3.25.76)':
+  '@json-render/core@0.17.0(zod@4.4.3)':
     dependencies:
-      zod: 3.25.76
+      zod: 4.4.3
 
   '@material/material-color-utilities@0.1.2': {}
 
@@ -15082,3 +15085,5 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zod@3.25.76: {}
+
+  zod@4.4.3: {}
