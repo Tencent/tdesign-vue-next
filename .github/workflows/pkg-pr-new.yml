@@ -41,4 +41,4 @@ jobs:
           pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign@main vue-chat-rspack --template vue-chat-rspack
           pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign@main vue-chat-rspack-on-demand --template vue-chat-rspack-on-demand
 
-      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' './packages/tdesign-vue-next-chat' './packages/auto-import-resolver' --pnpm --template ./templates
+      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' './packages/tdesign-vue-next-chat' './packages/auto-import-resolver' --pnpm --template './templates/*'
