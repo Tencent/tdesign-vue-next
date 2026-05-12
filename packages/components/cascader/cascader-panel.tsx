@@ -15,6 +15,7 @@ export default defineComponent({
         trigger={props.trigger}
         cascaderContext={cascaderContext.value}
         empty={props.empty}
+        scroll={props.scroll}
         v-slots={{ empty: slots.empty, option: slots.option, loadingText: slots.loadingText }}
       />
     );
