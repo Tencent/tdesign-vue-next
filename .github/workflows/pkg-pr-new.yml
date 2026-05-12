@@ -25,10 +25,20 @@ jobs:
 
       - run: pnpm run '/build:*/'
 
-      - run: node ./script/workflows/pkg-pr-new-generate-template.mjs
+      - run: |
+        mkdir templates
+        cd templates
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-vite --template vue-vite
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-vite-on-demand --template vue-vite-on-demand
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-tsx-vite --template vue-tsx-vite
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-tsx-rspack --template vue-tsx-rspack
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-rspack --template vue-rspack
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-rspack-on-demand --template vue-rspack-on-demand
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-chat-vite --template vue-chat-vite
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-chat-vite-on-demand --template vue-chat-vite-on-demand
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-chat-tsx-vite --template vue-chat-tsx-vite
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-chat-tsx-rspack --template vue-chat-tsx-rspack
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-chat-rspack --template vue-chat-rspack
+        pnpm dlx https://pkg.pr.new/liweijie0812/create-tdesign vue-chat-rspack-on-demand --template vue-chat-rspack-on-demand
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
-      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' './packages/tdesign-vue-next-chat' './packages/auto-import-resolver' --pnpm --template ./tdesign-vue-next-demo
+      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' './packages/tdesign-vue-next-chat' './packages/auto-import-resolver' --pnpm --template ./templates
