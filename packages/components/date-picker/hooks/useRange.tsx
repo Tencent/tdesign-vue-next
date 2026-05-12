@@ -77,6 +77,13 @@ export function useRange(props: TdDateRangePickerProps) {
     onChange: (newVal: string[], { e, position }: { e: MouseEvent; position: 'first' | 'second' }) => {
       inputValue.value = newVal;
 
+      // 输入框空值时清空 value
+      if (newVal.every((v) => v === '')) {
+        cacheValue.value = [];
+        onChange?.([], { dayjsValue: [], trigger: 'clear' });
+        return;
+      }
+
       // 跳过不符合格式化的输入框内容
       if (!isValidDate(newVal, formatRef.value.format)) return;
       cacheValue.value = newVal;
