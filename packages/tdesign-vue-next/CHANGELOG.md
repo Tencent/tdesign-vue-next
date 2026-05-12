@@ -5,6 +5,69 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.19.2 `2026-04-30`
+
+### 🚀 Features
+
+- `Dialog`: 模态对话框支持拖拽功能 @nagisa77 ([#6615](https://github.com/Tencent/tdesign-vue-next/pull/6615))
+- `RadioGroup`: 优化垂直排列场景下， `theme` 为 `button` 的选框组样式 @uyarn @liweijie0812 ([#6606](https://github.com/Tencent/tdesign-vue-next/pull/6606))
+- `Upload`: 补充 `.heic` 图片类型的支持 @uyarn ([common#2502](https://github.com/Tencent/tdesign-common/pull/2502))
+
+### 🐞 Bug Fixes
+
+- `Image`: 修复错误提示字体大小错误的问题 @liweijie0812 ([#6609](https://github.com/Tencent/tdesign-vue-next/pull/6609))
+- `Table`: 修复表格 Footer 无法配置多种合并方式的缺陷 @uyarn ([#6616](https://github.com/Tencent/tdesign-vue-next/pull/6616))
+- `Tabs`: 修复 `draggable` API 不生效的问题 @uyarn ([#6610](https://github.com/Tencent/tdesign-vue-next/pull/6610))
+- `Timeline`: 修复部分场景下icon未对齐的问题 @nagisa77 ([#6613](https://github.com/Tencent/tdesign-vue-next/pull/6613))
+
+## 🌈 1.19.1 `2026-04-14`
+
+### 🐞 Bug Fixes
+
+- `Dropdown` @RSS1102 ([#6600](https://github.com/Tencent/tdesign-vue-next/pull/6600))
+    - 修复 `panelTopContent` 和`panelBottomContent` 默认不跟随面板内容滚动的问题
+    - 修复多层下拉菜单配置 panelTopContent 后渲染位置错误的问题
+- `Menu`: 修复 `1.19.0` 版本更新导致部分菜单使用场景渲染异常的问题 @uyarn ([#6602](https://github.com/Tencent/tdesign-vue-next/pull/6602))
+- `Slider`: 修复 label 值为 function 类型时控制台警告 @liweijie0812 ([#6601](https://github.com/Tencent/tdesign-vue-next/pull/6601))
+
+## 🌈 1.19.0 `2026-04-10`
+
+### 🚀 Features
+
+- `HeadMenu`: 支持横向菜单过多时自动折叠隐藏并展示更多按钮的效果。⚠️存在顶部菜单过多场景的业务请注意此变更 @Wesley-0808 @uyarn ([#6530](https://github.com/Tencent/tdesign-vue-next/pull/6530))
+- `RadioGroup`: 新增 `direction` API，支持添加垂直排列特性。⚠️请注意，目前该属性仅在 `theme` 为 `radio` 时完整生效 @JefferyHcool ([#6568](https://github.com/Tencent/tdesign-vue-next/pull/6568))
+
+### 🐞 Bug Fixes
+
+- `DateRangePicker`: 修复在值未变化时错误触发 `onChange` 回调的问题 @JefferyHcool ([#6551](https://github.com/Tencent/tdesign-vue-next/pull/6551))
+- `EnhancedTable`: 修复树状表格的列配置在 `computed/ref` 场景下无响应式的问题 @JefferyHcool ([#6578](https://github.com/Tencent/tdesign-vue-next/pull/6578))
+- `InputNumber`: 修复失焦时，空值被错误回填为最小值的问题 @JefferyHcool ([#6582](https://github.com/Tencent/tdesign-vue-next/pull/6582))
+- `Select`: 修复在 `onSearch` 中更新相同的选项，没有正常更新 UI 展示内容的问题 @LavenderDuskGlow ([#6535](https://github.com/Tencent/tdesign-vue-next/pull/6535))
+- `Table`: 修复在弹窗内的分页表格滚动条错位的问题 @LavenderDuskGlow ([#6536](https://github.com/Tencent/tdesign-vue-next/pull/6536))
+- `Tag`: 修复 icon 的尺寸大小,对齐设计稿，大尺寸是16px, 中小尺寸是14px @liweijie0812 ([#6589](https://github.com/Tencent/tdesign-vue-next/pull/6589))
+- `TagInput`: 修复 `excessTagsDisplayType="break-line"` 时，`suffix` 没有固定在右侧的问题 @RylanBot ([#6585](https://github.com/Tencent/tdesign-vue-next/pull/6585))
+- `Transfer`: 修复选项内容为对象时选中异常的问题 @hobostay ([#6587](https://github.com/Tencent/tdesign-vue-next/pull/6587))
+
+## 🌈 1.18.6 `2026-03-23`
+
+### 🚀 Features
+
+- `DatePicker`: 新增 `cell` API，支持如自定义日期单元格、农历等内容，具体使用请查看示例。 @Wesley-0808 ([#6495](https://github.com/Tencent/tdesign-vue-next/pull/6495))
+- `DateRangePicker`: 新增 `cell` API，支持如自定义日期单元格、农历等内容，具体使用请查看示例。 @Wesley-0808 ([#6495](https://github.com/Tencent/tdesign-vue-next/pull/6495))
+- `TimePicker`: 新增 `prefixIcon` 和 `suffixIcon` API，用于自定义前置和后置图标 @Wesley-0808 ([#6497](https://github.com/Tencent/tdesign-vue-next/pull/6497))
+- `TimeRangePicker`: 新增 `prefixIcon` 和 `suffixIcon` API，用于自定义前置和后置图标 @Wesley-0808 ([#6497](https://github.com/Tencent/tdesign-vue-next/pull/6497))
+
+### 🐞 Bug Fixes
+
+- `DatePicker`: 
+  - 修复 `presets` 插槽用法无效和 `onPresetClick`事件未正确触发的问题 @ZTH520 ([#6490](https://github.com/Tencent/tdesign-vue-next/pull/6490))
+  - 修复因格式不兼容导致的毫秒值丢失的问题 @Wesley-0808 ([common#2446](https://github.com/Tencent/tdesign-common/pull/2446))
+- `Select`: 修复在 `Dialog` 中使用时，`ESC` 快捷键与 `Dialog` 快捷键冲突的问题 @Wesley-0808 ([#6496](https://github.com/Tencent/tdesign-vue-next/pull/6496))
+- `Table`: 
+  - 修复开启 `ellipsis` 时，可编辑状态意外关闭的问题 @RSS1102 ([#6480](https://github.com/Tencent/tdesign-vue-next/pull/6480))
+  - 修复设置高度后表头在任何场景下都存在背景色的问题 @Jie-echo ([#6504](https://github.com/Tencent/tdesign-vue-next/pull/6504))
+- `Text`: 修复同时开启`copyable`和 `ellipsis` 时复制按钮渲染位置异常的问题 @uyarn ([#6522](https://github.com/Tencent/tdesign-vue-next/pull/6522))
+
 ## 🌈 1.18.5 `2026-03-12`
 
 ### 🐞 Bug Fixes

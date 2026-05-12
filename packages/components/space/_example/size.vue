@@ -11,8 +11,9 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { SpaceProps } from 'tdesign-vue-next';
 
-const size = ref(8);
+const size = ref<SpaceProps['size']>(8);
 </script>

@@ -1,4 +1,4 @@
-import { defineComponent, inject } from 'vue';
+import { defineComponent, inject, isVNode } from 'vue';
 import { omit } from 'lodash-es';
 import props from './timeline-item-props';
 import { useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
@@ -56,8 +56,9 @@ export default defineComponent({
       const dotElement = renderTNodeJSX('dot');
 
       const dotContentClass = `${COMPONENT_NAME.value}__dot-content`;
-      if (dotElement?.props) {
-        const classes = dotElement?.props?.class;
+      if (isVNode(dotElement)) {
+        dotElement.props = dotElement.props || {};
+        const classes = dotElement.props.class;
         dotElement.props.class = classes ? [dotContentClass, classes].join(' ') : dotContentClass;
       }
 

@@ -20,17 +20,22 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { CalendarProps, CalendarCell } from 'tdesign-vue-next';
 
 const themeOptions = [
-  { value: 'full', label: '全屏风格' },
-  { value: 'card', label: '卡片风格' },
+  {
+    value: 'full',
+    label: '全屏风格',
+  },
+  {
+    value: 'card',
+    label: '卡片风格',
+  },
 ];
-
-const theme = ref('card');
-
-const getDateStr = (cellData) => {
+const theme = ref<CalendarProps['theme']>('card');
+const getDateStr = (cellData: CalendarCell) => {
   const y = cellData.date.getFullYear();
   const m = cellData.date.getMonth() + 1;
   const d = cellData.date.getDate();
@@ -42,13 +47,11 @@ const getDateStr = (cellData) => {
   }
   return `${y}-${m}`;
 };
-
-const getCellAppendCls = (cellData) => ({
+const getCellAppendCls = (cellData: CalendarCell) => ({
   belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
   activated: cellData.isCurrent,
 });
-
-const handleClick = () => {
+const handleClick: CalendarProps['onCellRightClick'] = () => {
   console.log('handleClick');
 };
 </script>

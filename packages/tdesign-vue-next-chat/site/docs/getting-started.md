@@ -35,8 +35,9 @@ pnpm add @tdesign-vue-next/chat
 ```js
 import { createApp } from 'vue';
 import App from './app.vue';
-import TDesignChat from '@tdesign-vue-next/chat'; // 引入chat组件
-import 'tdesign-vue-next/es/style/index.css'; // 引入少量全局样式变量
+import TDesignChat from '@tdesign-vue-next/chat'; // 引入 Chat 组件
+
+import '@tdesign-vue-next/chat/es/style/index.css';
 
 const app = createApp(App);
 app.use(TDesignChat);
@@ -48,7 +49,10 @@ app.use(TDesignChat);
 import { createApp } from 'vue';
 import App from './app.vue';
 import TDesign from 'tdesign-vue-next';
-import TDesignChat from '@tdesign-vue-next/chat'; // 引入chat组件
+import TDesignChat from '@tdesign-vue-next/chat'; // 引入 Chat 组件
+
+import 'tdesign-vue-next/es/style/index.css'; // 引入少量全局样式变量
+import '@tdesign-vue-next/chat/es/style/index.css';
 
 const app = createApp(App);
 app.use(TDesign).use(TDesignChat);

@@ -27,8 +27,10 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TreeProps, InputProps } from 'tdesign-vue-next';
+
 const exampleItems = [
   {
     value: '1',
@@ -121,15 +123,16 @@ const exampleItems = [
 ];
 const isCheckable = ref(false);
 const filterText = ref('');
-const filterByText = ref(null);
-const expanded = ref(['1.1.1']);
+const filterByText = ref<TreeProps['filter']>(null);
+const expanded = ref<TreeProps['defaultExpanded']>(['1.1.1']);
 const allowFoldNodeOnFilter = ref(false);
-const items = ref(exampleItems);
-const onInput = (state) => {
+const items = ref<TreeProps['data']>(exampleItems);
+const onInput: InputProps['onChange'] = (state) => {
   console.info('onInput:', state);
   if (filterText.value) {
     // 存在过滤文案，才启用过滤
     filterByText.value = (node) => {
+      // @ts-ignore
       const rs = node.data.label.indexOf(filterText.value) >= 0;
       // 命中的节点会强制展示
       // 命中节点的路径节点会锁定展示

@@ -33,8 +33,10 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TreeInstanceFunctions, TreeProps, ButtonProps } from 'tdesign-vue-next';
+
 const treeItems = [
   {
     value: '1',
@@ -125,8 +127,8 @@ const treeItems = [
     ],
   },
 ];
-const tree = ref();
-const valueMode = ref('onlyLeaf');
+const tree = ref<TreeInstanceFunctions>();
+const valueMode = ref<TreeProps['valueMode']>('onlyLeaf');
 const checkable = ref(true);
 const checkStrictly = ref(false);
 const allChecked = ref([]);
@@ -144,21 +146,21 @@ const valueOptions = ref([
     label: 'all',
   },
 ]);
-const items = ref(treeItems);
-const onClick = (context) => {
+const items = ref<TreeProps['data']>(treeItems);
+const onClick: TreeProps['onClick'] = (context) => {
   console.info('onClick context:', context);
   const { node } = context;
   console.info(node.value, 'onClick context.node.checked:', node.checked);
 };
-const onChange = (checked, context) => {
+const onChange: TreeProps['onChange'] = (checked, context) => {
   console.info('onChange checked:', checked, 'context:', context);
   const { node } = context;
   console.info(node.value, 'onChange context.node.checked:', node.checked);
 };
-const selectInvert = () => {
+const selectInvert: ButtonProps['onClick'] = () => {
   // 取得所有节点
-  const items = tree.value.getItems();
-  const revertSelection = [];
+  const items: TreeProps['data'] = tree.value.getItems();
+  const revertSelection: TreeProps['value'] = [];
   items.forEach((item) => {
     if (!item.checked && !item.indeterminate) {
       // checked 为 true, 为直接选中状态

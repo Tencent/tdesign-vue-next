@@ -68,6 +68,13 @@ export function useSingle(props: TdDatePickerProps) {
             // 输入事件
             inputValue.value = val;
 
+            // 输入框空值时清空 value
+            if (val === '') {
+              cacheValue.value = '';
+              onChange('', { dayjsValue: dayjs(), trigger: 'clear' });
+              return;
+            }
+
             // 跳过不符合格式化的输入框内容
             if (!isValidDate(val, formatRef.value.format)) return;
             cacheValue.value = val;

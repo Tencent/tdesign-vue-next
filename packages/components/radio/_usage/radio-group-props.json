@@ -1,0 +1,79 @@
+[
+  {
+    "name": "allowUncheck",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "direction",
+    "type": "enum",
+    "defaultValue": "horizontal",
+    "options": [
+      {
+        "label": "horizontal",
+        "value": "horizontal"
+      },
+      {
+        "label": "vertical",
+        "value": "vertical"
+      }
+    ]
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "readonly",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      { "label": "small", "value": "small" },
+      { "label": "medium", "value": "medium" },
+      { "label": "large", "value": "large" }
+    ]
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "radio",
+    "options": [
+      {
+        "label": "radio",
+        "value": "radio"
+      },
+      {
+        "label": "button",
+        "value": "button"
+      }
+    ]
+  },
+  {
+    "name": "variant",
+    "type": "enum",
+    "defaultValue": "outline",
+    "options": [
+      {
+        "label": "outline",
+        "value": "outline"
+      },
+      {
+        "label": "primary-filled",
+        "value": "primary-filled"
+      },
+      {
+        "label": "default-filled",
+        "value": "default-filled"
+      }
+    ]
+  }
+]

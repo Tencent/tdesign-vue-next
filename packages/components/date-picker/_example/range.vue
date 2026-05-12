@@ -15,21 +15,17 @@
     <t-date-picker :range="['2026-01-01', null]" placeholder="2026开始，不限制结束" />
     <t-date-range-picker :range="['2026-01-01', null]" placeholder="2026开始，不限制结束" />
 
-    <!-- 2026开始，不限制结束 -->
-    <t-date-picker :range="['2026-01-01', null]" placeholder="2026开始，不限制结束" />
-    <t-date-range-picker :range="['2026-01-01', null]" placeholder="2026开始，不限制结束" />
-
     <!-- 未来 90 天 -->
     <t-date-picker :range="rangeFn" placeholder="未来 90 天" />
     <t-date-range-picker :range="rangeFn" placeholder="未来 90 天" />
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import dayjs from 'dayjs';
 
 // 仅允许今天到未来 90 天（返回 true 表示可选）
-const rangeFn = (d) => {
+const rangeFn = (d: Date) => {
   const now = dayjs().startOf('day');
   const target = dayjs(d).startOf('day');
   const diff = target.diff(now, 'day');

@@ -19,25 +19,23 @@
     </div>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import type { UploadProps } from 'tdesign-vue-next';
 
-const files = ref([]);
-
-const handleFail = ({ file }) => {
+const files = ref<UploadProps['value']>([]);
+const handleFail: UploadProps['onFail'] = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);
 };
-
-const beforeUpload = (file) => {
+const beforeUpload: UploadProps['beforeUpload'] = (file) => {
   if (file.size > 5 * 1024 * 1024) {
     MessagePlugin.warning('上传的图片不能大于5M');
     return false;
   }
-
   return true;
 };
-const tips = ref('上传文件大小在 5M 以内');
+const tips = ref<UploadProps['tips']>('上传文件大小在 5M 以内');
 </script>
 <style scoped>
 .tdesign-demo-upload .list-custom {

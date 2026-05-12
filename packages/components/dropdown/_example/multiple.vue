@@ -8,11 +8,12 @@
     </t-dropdown>
   </t-space>
 </template>
-<script setup>
-import { ChevronDownIcon } from 'tdesign-icons-vue-next';
+<script lang="ts" setup>
 import { MessagePlugin } from 'tdesign-vue-next';
+import { ChevronDownIcon } from 'tdesign-icons-vue-next';
+import type { DropdownProps } from 'tdesign-vue-next';
 
-const options = [
+const options: DropdownProps['options'] = [
   {
     content: '选项一',
     value: 1,
@@ -118,8 +119,7 @@ const options = [
     ],
   },
 ];
-
-const clickHandler = (data) => {
+const clickHandler: DropdownProps['onClick'] = (data) => {
   MessagePlugin.success(`选中【${data.content}】`);
 };
 </script>

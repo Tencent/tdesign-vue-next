@@ -58,6 +58,41 @@ describe('ImageViewer', () => {
       expect(document.querySelector('.t-image-viewer-preview-image')).toBeTruthy();
     });
 
+    it(':trigger default thumbnail', () => {
+      const wrapper = mount(ImageViewer, {
+        props: {
+          images: [
+            {
+              mainImage: 'https://example.com/main.svg',
+              thumbnail: 'https://example.com/thumb.png',
+            },
+          ],
+        },
+      });
+
+      const img = wrapper.find('.t-image-viewer__trigger img');
+
+      expect(img.exists()).toBeTruthy();
+      expect(img.attributes('src')).toBe('https://example.com/thumb.png');
+    });
+
+    it(':trigger default fallback', () => {
+      const wrapper = mount(ImageViewer, {
+        props: {
+          images: [
+            {
+              mainImage: 'https://example.com/main.svg',
+            },
+          ],
+        },
+      });
+
+      const img = wrapper.find('.t-image-viewer__trigger img');
+
+      expect(img.exists()).toBeTruthy();
+      expect(img.attributes('src')).toBe('https://example.com/main.svg');
+    });
+
     it(':images[string[]]', () => {
       mount(ImageViewer, { props: { visible: true, images } });
       expect(document.querySelector('.t-image-viewer-preview-image')).toMatchSnapshot();

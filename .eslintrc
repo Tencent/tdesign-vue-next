@@ -97,7 +97,7 @@
       }
     },
     {
-      "files": ["**/_example/*", "**/_example-ts/*", "script/**/*", "script/*", "*.js", "site/**/*", "site/*"],
+      "files": ["**/_example/*", "**/_example-js/*", "**/_example-ts/*", "script/**/*", "script/*", "*.js", "site/**/*", "site/*"],
       "rules": {
         "no-var-requires": 0,
         "no-console": 0,

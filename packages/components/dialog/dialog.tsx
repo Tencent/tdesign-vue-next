@@ -152,7 +152,7 @@ export default defineComponent({
     // 回车触发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
       const eventSrc = e.target as HTMLElement;
-      if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
+      if (eventSrc?.tagName?.toLowerCase() === 'input') return; // 若是input触发 则不执行
       const { code } = e;
       if ((code === 'Enter' || code === 'NumpadEnter') && isTopInteractivePopup()) {
         props.onConfirm?.({ e });
@@ -226,7 +226,7 @@ export default defineComponent({
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
       return (
-        /** 非模态形态下draggable为true才允许拖拽 */
+        /** modal/modeless 形态下 draggable 为 true 才允许拖拽 */
         <div class={wrapClass.value}>
           <div
             class={positionClass.value}
@@ -260,6 +260,10 @@ export default defineComponent({
           width: calc(100% - ${scrollWidth}px);
         }
       `;
+
+      if (props.visible) {
+        addKeyboardEvent(props.visible);
+      }
     });
 
     onBeforeUnmount(() => {

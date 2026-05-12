@@ -6,7 +6,7 @@ import TButton from '../../../button';
 import type { TdDatePickerProps } from '../../type';
 
 export default defineComponent({
-  name: 'TDatePickerTable',
+  name: 'TDatePickerFooter',
   props: {
     enableTimePicker: Boolean,
     presetsPlacement: String,
@@ -25,7 +25,6 @@ export default defineComponent({
     const footerClass = computed(() => [COMPONENT_NAME.value, `${COMPONENT_NAME.value}--${props.presetsPlacement}`]);
 
     const renderPresets = () => {
-      if (!props.presets) return null;
       if (isPlainObject(props.presets))
         return Object.keys(props.presets).map((key: string) => (
           <TButton
@@ -39,22 +38,27 @@ export default defineComponent({
             {key}
           </TButton>
         ));
-      return renderTNodeJSX('presets');
+      const presetsNode = renderTNodeJSX('presets');
+      return presetsNode ?? null;
     };
-    return () => (
-      <div class={footerClass.value}>
-        {<div class={presetsClass.value}>{renderPresets()}</div>}
-        {props.enableTimePicker && props.needConfirm && (
-          <TButton
-            disabled={!props.selectedValue}
-            size="small"
-            theme="primary"
-            onClick={(e: MouseEvent) => props.onConfirmClick?.({ e })}
-          >
-            {t(globalConfig.value.confirm)}
-          </TButton>
-        )}
-      </div>
-    );
+    return () => {
+      const presetsContent = renderPresets();
+      const hasPresetsContent = Array.isArray(presetsContent) ? presetsContent.length > 0 : !!presetsContent;
+      return (
+        <div class={footerClass.value}>
+          {hasPresetsContent ? <div class={presetsClass.value}>{presetsContent}</div> : null}
+          {props.enableTimePicker && props.needConfirm && (
+            <TButton
+              disabled={!props.selectedValue}
+              size="small"
+              theme="primary"
+              onClick={(e: MouseEvent) => props.onConfirmClick?.({ e })}
+            >
+              {t(globalConfig.value.confirm)}
+            </TButton>
+          )}
+        </div>
+      );
+    };
   },
 });

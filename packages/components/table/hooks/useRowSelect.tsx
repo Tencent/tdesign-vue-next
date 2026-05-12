@@ -119,7 +119,7 @@ export default function useRowSelect(
     const { col: column, row = {} } = p;
     const checked = tSelectedRowKeys.value.includes(get(row, props.rowKey || 'id'));
     const { disabled, checkProps } = getRowSelectDisabledData(p);
-    const selectBoxProps: Object = {
+    const selectBoxProps: object = {
       checked,
       disabled,
       ...checkProps,

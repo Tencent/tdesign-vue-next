@@ -13,7 +13,7 @@ const ANIMATION_OPTION = {
   easing: 'linear',
 };
 
-const getFadeInKeyframes = (placement: string, offsetWidth: Number, offsetHeight: Number): Array<Keyframe> | null => {
+const getFadeInKeyframes = (placement: string, offsetWidth: number, offsetHeight: number): Array<Keyframe> | null => {
   if (!PLACEMENT_LIST.includes(placement)) return null;
   if (placement === 'top-right') {
     return [
@@ -41,7 +41,7 @@ const getFadeInKeyframes = (placement: string, offsetWidth: Number, offsetHeight
   }
 };
 
-const getFadeOutKeyframes = (placement: string, offsetWidth: Number, offsetHeight: Number): Array<Keyframe> | null => {
+const getFadeOutKeyframes = (placement: string, offsetWidth: number, offsetHeight: number): Array<Keyframe> | null => {
   if (!PLACEMENT_LIST.includes(placement)) return null;
   if (placement === 'top-right') {
     return [

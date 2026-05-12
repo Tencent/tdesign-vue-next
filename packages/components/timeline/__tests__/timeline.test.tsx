@@ -494,5 +494,12 @@ describe('TimelineItem', () => {
       expect(customNode.classes()).toContain('t-timeline-item__dot-content');
       expect(customNode.classes()).toContain('my-custom-class');
     });
+
+    it(':dot element adds dot-content class when dot has no props', () => {
+      const wrapper = mount(<TimelineItem dot={() => <span>Custom Dot</span>}></TimelineItem>);
+      const customNode = wrapper.find('.t-timeline-item__dot-content');
+      expect(customNode.exists()).toBeTruthy();
+      expect(customNode.text()).toBe('Custom Dot');
+    });
   });
 });

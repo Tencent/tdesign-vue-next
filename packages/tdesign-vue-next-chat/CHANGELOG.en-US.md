@@ -5,6 +5,20 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.5.2 `2026-03-27`
+
+### 🚀 Features
+
+- `ChatSender`: Added `sendBtnDisabled` to control whether the send button is disabled @zydemail ([#6494](https://github.com/Tencent/tdesign-vue-next/pull/6494))
+
+### 🐞 Bug Fixes
+
+- Fixed an issue where component types were lost when using global imports @liweijie0812 ([#6470](https://github.com/Tencent/tdesign-vue-next/pull/6470))
+- `ChatSender`:
+  - The `suffix` parameter now supports configuration in the format `[{ name: 'uploadImage', uploadProps: {...} }]` @RSS1102 ([#6519](https://github.com/Tencent/tdesign-vue-next/pull/6519))
+  - Using `suffix` with `attachment` will be deprecated soon; it’s recommended to use `uploadAttachment` instead @RSS1102 ([#6519](https://github.com/Tencent/tdesign-vue-next/pull/6519))
+- `Chatbot`: The `input-prefix` setting in `senderProps` no longer takes effect @RSS1102 ([#6519](https://github.com/Tencent/tdesign-vue-next/pull/6519))
+
 ## 🌈 0.5.1 `2026-03-09`
 
 ### 🐞 Bug Fixes

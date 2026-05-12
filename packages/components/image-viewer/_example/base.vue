@@ -3,7 +3,7 @@
     <t-image-viewer :images="[img]" :z-index="10000"></t-image-viewer>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 const img = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
 </script>
 <style scoped>

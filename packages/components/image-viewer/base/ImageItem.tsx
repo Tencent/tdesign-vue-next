@@ -131,7 +131,7 @@ export default defineComponent({
         const svgViewBox = svgElement.getAttribute('viewBox');
         if (svgViewBox) {
           const viewBoxValues = svgViewBox
-            .split(/[\s\,]/)
+            .split(/[\s,]/)
             .filter(function (v) {
               return v;
             })

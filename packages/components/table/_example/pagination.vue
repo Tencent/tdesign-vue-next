@@ -20,17 +20,29 @@
     />
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, reactive } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import type { TableProps } from 'tdesign-vue-next';
 
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const data = [];
+const data: TableProps['data'] = [];
 const TOTAL = 59;
 for (let i = 0; i < TOTAL; i++) {
   data.push({
@@ -46,13 +58,19 @@ for (let i = 0; i < TOTAL; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
 const reserveSelectedRowOnPaginate = ref(true);
-const selectedRowKeys = ref([]);
-
-const columns = [
-  { colKey: 'serial-number', width: 80, title: '序号' },
-  { colKey: 'applicant', title: '申请人', width: '100' },
+const selectedRowKeys = ref<TableProps['selectedRowKeys']>([]);
+const columns: TableProps['columns'] = [
+  {
+    colKey: 'serial-number',
+    width: 80,
+    title: '序号',
+  },
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -66,10 +84,21 @@ const columns = [
       );
     },
   },
-  { colKey: 'channel', title: '签署方式', width: '120' },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+    width: '120',
+  },
   // { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
-  { colKey: 'row-select', type: 'multiple', width: 46 },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
+  {
+    colKey: 'row-select',
+    type: 'multiple',
+    width: 46,
+  },
 ];
 
 /**
@@ -78,7 +107,7 @@ const columns = [
  * 2. 本地分页方式二（受控用法）：使用 current 和 pageSize 设置分页信息，任何时候有效，
  *    此时，注意需要在 onPageChange 中对 pagination.current 和 pagination.pageSize 进行赋值
  * */
-const pagination = reactive({
+const pagination: TableProps['pagination'] = reactive({
   current: 2,
   pageSize: 5,
   // defaultCurrent: 2,
@@ -86,19 +115,16 @@ const pagination = reactive({
   total: TOTAL,
   showJumper: true,
 });
-
-const onChange = (params, context) => {
+const onChange: TableProps['onChange'] = (params, context) => {
   console.log('change', params, context);
 };
-
-const onPageChange = (pageInfo, context) => {
+const onPageChange: TableProps['onPageChange'] = (pageInfo, context) => {
   console.log('page-change', pageInfo, context);
   // 受控用法需要下面两行代码
   pagination.current = pageInfo.current;
   pagination.pageSize = pageInfo.pageSize;
 };
-
-const onSelectChange = (selectedRowKeys, context) => {
+const onSelectChange: TableProps['onSelectChange'] = (selectedRowKeys, context) => {
   console.log(selectedRowKeys, context);
 };
 </script>

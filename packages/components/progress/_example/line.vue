@@ -1,3 +1,20 @@
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const percent = ref(10);
+let timer: number | undefined;
+
+onMounted(() => {
+  timer = window.setInterval(() => {
+    percent.value = (percent.value % 100) + 10;
+  }, 1000);
+});
+
+onUnmounted(() => {
+  if (timer) clearInterval(timer);
+});
+</script>
+
 <template>
   <t-space direction="vertical" size="0">
     <h3>动态更新示例</h3>
@@ -44,22 +61,7 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
 
-const percent = ref(10);
-let timer;
-
-onMounted(() => {
-  timer = setInterval(() => {
-    percent.value = (percent.value % 100) + 10;
-  }, 1000);
-});
-
-onUnmounted(() => {
-  if (timer) clearInterval(timer);
-});
-</script>
 <style scoped>
 .t-progress-demo-width {
   width: 100%;
