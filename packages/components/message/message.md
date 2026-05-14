@@ -62,7 +62,7 @@ className | String | - | 类名 | N
 offset | Array | - | 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10em', '8rem']。TS 类型：`Array<string \| number>` | N
 placement | String | top | 弹出消息位置。可选项：center/top/left/right/bottom/top-left/top-right/bottom-left/bottom-right。TS 类型：`MessagePlacementList` `type MessagePlacementList = 'center' \| 'top' \| 'left' \| 'right' \| 'bottom' \| 'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/message/type.ts) | N
 style | Object | - | 内敛样式。TS 类型：`CSSProperties` | N
-zIndex | Number | 5000 | 消息层级 | N
+zIndex | Number | 6000 | 消息层级 | N
 `MessageProps` | \- | - | 继承 `MessageProps` 中的全部属性 | N
 
 ### MessagePlugin

@@ -26,7 +26,8 @@
 import { App, AppContext, createVNode, isVNode, nextTick, Plugin, render, VNode } from 'vue';
 import { isObject, isString } from 'lodash-es';
 import { getAttach } from '@tdesign/shared-utils';
-import MessageList, { DEFAULT_Z_INDEX } from './message-list';
+import { DEFAULT_Z_INDEX, DEFAULT_DURATION } from '@tdesign/common-js/message/index';
+import MessageList from './message-list';
 
 import type { AttachNodeReturnValue } from '../common';
 import type {
@@ -48,7 +49,7 @@ const instanceMap: Map<AttachNodeReturnValue, Record<string, VNode>> = new Map()
 
 function handleParams(params: MessageOptions): MessageOptions {
   const options: MessageOptions = {
-    duration: 3000,
+    duration: DEFAULT_DURATION,
     attach: 'body',
     zIndex: DEFAULT_Z_INDEX,
     placement: 'top',
