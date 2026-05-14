@@ -30,14 +30,22 @@ jobs:
           pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-vite --template vue-vite
           pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-vite-on-demand --template vue-vite-on-demand
           pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-tsx-vite --template vue-tsx-vite
-          pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-tsx-rspack --template vue-tsx-rspack
+
           pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-rspack --template vue-rspack
           pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-rspack-on-demand --template vue-rspack-on-demand
+          pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-tsx-rspack --template vue-tsx-rspack
+
           pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-chat-vite --template vue-chat-vite
           pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-chat-vite-on-demand --template vue-chat-vite-on-demand
           pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-chat-tsx-vite --template vue-chat-tsx-vite
-          pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-chat-tsx-rspack --template vue-chat-tsx-rspack
+
+
           pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-chat-rspack --template vue-chat-rspack
           pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-chat-rspack-on-demand --template vue-chat-rspack-on-demand
+          pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-chat-tsx-rspack --template vue-chat-tsx-rspack
+
+          pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-vike --template vue-vike
+          pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-vike-on-demand --template vue-vike-on-demand
+          pnpm dlx https://pkg.pr.new/TDesignOteam/create-tdesign@main vue-tsx-vike --template vue-tsx-vike
 
       - run: pnpm dlx pkg-pr-new publish './packages/*' --pnpm --template './templates/*'
