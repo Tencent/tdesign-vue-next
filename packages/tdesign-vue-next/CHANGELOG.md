@@ -18,7 +18,7 @@ docClass: timeline
 
 ### 🐞 Bug Fixes
 
-- `DatePicker`: 清空输入框时同时清空选中日期 @RSS1102 ([#6534](https://github.com/Tencent/tdesign-vue-next/pull/6534))
+- `DatePicker`: 修复手动清空输入框内容时，没有正确清空 value 的问题 @RSS1102 ([#6534](https://github.com/Tencent/tdesign-vue-next/pull/6534))
 - `Dialog`: 
   - 修复 modal 场景下允许拖动头部以外的区域移动的问题 @ruguoba ([#6648](https://github.com/Tencent/tdesign-vue-next/pull/6648))
   - 修复非模态场景下层级错位的问题 @Wesley-0808 @uyarn ([#6650](https://github.com/Tencent/tdesign-vue-next/pull/6650))
