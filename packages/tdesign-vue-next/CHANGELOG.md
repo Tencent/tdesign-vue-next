@@ -5,6 +5,31 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.0 `2026-05-14`
+
+### 🚨 Breaking Changes
+
+- `Message`: 统一组件的 `z-index` 为 更合理的 `6000`，之前依赖该属性的业务注意此变更 ⚠️ @RylanBot @liweijie0812 ([#6651](https://github.com/Tencent/tdesign-vue-next/pull/6651))
+
+### 🚀 Features
+
+- `Cascader`: 新增 `columnHeader` 和 `columnFooter` 插槽，用于自定义每级面板的头部和底部的渲染内容，具体使用方式请参考使用示例 @RSS1102 ([#6297](https://github.com/Tencent/tdesign-vue-next/pull/6297))
+- `ImageViewer`: 优化 ImageViewer 的行为，支持视口之外的图片向中心缩放 @RSS1102 ([#6406](https://github.com/Tencent/tdesign-vue-next/pull/6406))
+
+### 🐞 Bug Fixes
+
+- `DatePicker`: 清空输入框时同时清空选中日期 @RSS1102 ([#6534](https://github.com/Tencent/tdesign-vue-next/pull/6534))
+- `Dialog`: 
+  - 修复 modal 场景下允许拖动头部以外的区域移动的问题 @ruguoba ([#6648](https://github.com/Tencent/tdesign-vue-next/pull/6648))
+  - 修复非模态场景下层级错位的问题 @Wesley-0808 @uyarn ([#6650](https://github.com/Tencent/tdesign-vue-next/pull/6650))
+- `ImageViewer`: 修复默认 trigger 使用图片与文档描述不符的问题 @hmingv ([#6634](https://github.com/Tencent/tdesign-vue-next/pull/6634))
+- `Table`: 修复排序后本地数据变化，重新调整排序方式仍然显示旧数据的问题 @LavenderDuskGlow ([#6537](https://github.com/Tencent/tdesign-vue-next/pull/6537))
+- `Transfer`: 修复 `search` 类型定义和默认值类型 @RSS1102 ([#6629](https://github.com/Tencent/tdesign-vue-next/pull/6629))
+
+### 📈 Performance
+
+- `Card`: 优化渲染逻辑避免切换 loading 状态导致内容重复渲染，但是如果切换自定义 loading 的时候内容依然会重新渲染。 @RSS1102 ([#6631](https://github.com/Tencent/tdesign-vue-next/pull/6631))
+
 ## 🌈 1.19.2 `2026-04-30`
 
 ### 🚀 Features
