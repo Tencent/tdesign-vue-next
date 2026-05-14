@@ -1,12 +1,20 @@
-import { defineComponent, PropType, computed, h } from 'vue';
+import { defineComponent, PropType, computed, h, shallowRef, onUnmounted, watch } from 'vue';
 
 import Item from './Item';
-import { TreeNode, CascaderContextType } from '../types';
+import { TreeNode, CascaderContextType, FilterState, FilterValue } from '../types';
 import CascaderProps from '../props';
-import { useConfig, usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
+import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@tdesign/shared-hooks';
 
 import { getDefaultNode } from '@tdesign/shared-utils';
-import { getPanels, expandClickEffect, valueChangeEffect } from '../utils';
+import {
+  getPanels,
+  expandClickEffect,
+  valueChangeEffect,
+  isFilterActive,
+  isFilterLevelActive,
+  filterOptions,
+  FILTER_INACTIVE_LEVEL,
+} from '../utils';
 
 export default defineComponent({
   name: 'TCascaderSubPanel',
@@ -22,18 +30,134 @@ export default defineComponent({
       type: Object as PropType<CascaderContextType>,
     },
   },
-
   setup(props) {
     const renderTNodeJSXDefault = useTNodeDefault();
+    const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('cascader');
     const { globalConfig } = useConfig('cascader');
 
     const panels = computed(() => getPanels(props.cascaderContext.treeNodes));
 
-    const handleExpand = (node: TreeNode, trigger: 'hover' | 'click') => {
-      const { trigger: propsTrigger, cascaderContext } = props;
-      expandClickEffect(propsTrigger, trigger, node, cascaderContext);
+    // shallowRef：状态更新通过整体替换触发响应式
+    const filterState = shallowRef<FilterState | null>(null);
+
+    const hasActiveFilter = computed(() => {
+      const state = filterState.value;
+      return state && hasAnyActiveFilter(state.filters);
+    });
+
+    const getFilteredNodes = (nodes: TreeNode[], index: number): TreeNode[] => {
+      const state = filterState.value;
+      if (!state) return nodes;
+      const filter = state.filters[index];
+      if (!filter) return nodes;
+      return filterOptions(nodes, filter, index);
     };
+
+    const hasAnyActiveFilter = (filters: Record<number, FilterValue>): boolean => {
+      return Object.values(filters).some((f) => isFilterActive(f));
+    };
+
+    const clearExpiredFilters = (
+      filters: Record<number, FilterValue>,
+      maxLevel: number,
+    ): Record<number, FilterValue> => {
+      return Object.fromEntries(Object.entries(filters).filter(([panelIndex]) => Number(panelIndex) <= maxLevel));
+    };
+
+    const calculateCascadeMaxLevel = (
+      panelIndex: number,
+      filteredNodes: TreeNode[],
+      currentMaxLevel: number,
+    ): number => {
+      if (filteredNodes.length === 0) {
+        return panelIndex;
+      }
+      return Math.max(panelIndex, currentMaxLevel);
+    };
+
+    const handleFilter = (index: number, filter: FilterValue) => {
+      const prev = filterState.value;
+
+      let filters: Record<number, FilterValue> = { ...prev?.filters };
+      if (isFilterActive(filter)) {
+        filters[index] = filter;
+      } else {
+        delete filters[index];
+      }
+
+      let maxLevel = prev?.maxLevel ?? FILTER_INACTIVE_LEVEL;
+
+      if (isFilterActive(filter)) {
+        const currentNodes = panels.value[index] || [];
+        const filteredNodes = filterOptions(currentNodes, filter, index);
+        maxLevel = calculateCascadeMaxLevel(index, filteredNodes, maxLevel);
+      } else if (!hasAnyActiveFilter(filters)) {
+        maxLevel = FILTER_INACTIVE_LEVEL;
+      }
+
+      if (maxLevel < (prev?.maxLevel ?? FILTER_INACTIVE_LEVEL)) {
+        filters = clearExpiredFilters(filters, maxLevel);
+      }
+
+      filterState.value = { filters, maxLevel };
+    };
+
+    const shouldShowPanel = (index: number): boolean => {
+      const state = filterState.value;
+      if (!hasActiveFilter.value || !state || !isFilterLevelActive(state.maxLevel)) {
+        return true;
+      }
+      return index <= state.maxLevel;
+    };
+
+    const handleExpand = (node: TreeNode, trigger: 'hover' | 'click', level: number) => {
+      const state = filterState.value;
+
+      const { children } = node;
+      if (
+        state &&
+        isFilterLevelActive(state.maxLevel) &&
+        props.trigger === trigger &&
+        Array.isArray(children) &&
+        children.length
+      ) {
+        const childLevel = level + 1;
+        if (childLevel > state.maxLevel) {
+          const cleanedFilters = clearExpiredFilters(state.filters, childLevel);
+          filterState.value = { filters: cleanedFilters, maxLevel: childLevel };
+        }
+      }
+
+      expandClickEffect(props.trigger, trigger, node, props.cascaderContext);
+    };
+
+    const onFilterCallbacks = new Map<number, (filter: FilterValue) => void>();
+    const getOnFilterCallback = (index: number) => {
+      let callback = onFilterCallbacks.get(index);
+      if (!callback) {
+        callback = (filter: FilterValue) => handleFilter(index, filter);
+        onFilterCallbacks.set(index, callback);
+      }
+      return callback;
+    };
+
+    watch(
+      panels,
+      (newPanels) => {
+        const maxIndex = newPanels.length - 1;
+        for (const [index] of onFilterCallbacks) {
+          if (index > maxIndex) {
+            onFilterCallbacks.delete(index);
+          }
+        }
+      },
+      { flush: 'post' },
+    );
+
+    onUnmounted(() => {
+      onFilterCallbacks.clear();
+    });
 
     const renderItem = (node: TreeNode, index: number) => {
       const optionChild = node.data.content
@@ -42,7 +166,7 @@ export default defineComponent({
             params: {
               item: node.data,
               index,
-              onExpand: () => handleExpand(node, 'click'),
+              onExpand: () => handleExpand(node, 'click', index),
               onChange: () => valueChangeEffect(node, props.cascaderContext),
             },
           });
@@ -52,42 +176,74 @@ export default defineComponent({
           node={node}
           optionChild={optionChild}
           cascaderContext={props.cascaderContext}
-          onClick={() => {
-            handleExpand(node, 'click');
-          }}
-          onMouseenter={() => {
-            handleExpand(node, 'hover');
-          }}
-          onChange={() => {
-            valueChangeEffect(node, props.cascaderContext);
-          }}
+          onClick={() => handleExpand(node, 'click', index)}
+          onMouseenter={() => handleExpand(node, 'hover', index)}
+          onChange={() => valueChangeEffect(node, props.cascaderContext)}
         />
       );
     };
 
-    const renderList = (treeNodes: TreeNode[], isFilter = false, segment = true, index = 1) => (
-      <ul
-        class={[
-          `${COMPONENT_NAME.value}__menu`,
-          'narrow-scrollbar',
-          {
-            [`${COMPONENT_NAME.value}__menu--segment`]: segment,
-            [`${COMPONENT_NAME.value}__menu--filter`]: isFilter,
-          },
-        ]}
-        key={`${COMPONENT_NAME}__menu${index}`}
-      >
-        {treeNodes.map((node: TreeNode) => renderItem(node, index))}
-      </ul>
-    );
+    const renderList = (treeNodes: TreeNode[], segment = true, index = 0) => {
+      const displayNodes = hasActiveFilter.value ? getFilteredNodes(treeNodes, index) : treeNodes;
+
+      const columnParams = {
+        panelIndex: index,
+        options: treeNodes.map((node) => node.data),
+        filteredOptions: displayNodes.map((node) => node.data),
+      };
+
+      return (
+        <ul
+          class={[
+            `${COMPONENT_NAME.value}__menu`,
+            'narrow-scrollbar',
+            {
+              [`${COMPONENT_NAME.value}__menu--segment`]: segment,
+            },
+          ]}
+          key={`${COMPONENT_NAME}__menu${index}`}
+        >
+          {renderTNodeJSX('columnHeader', { params: { ...columnParams, onFilter: getOnFilterCallback(index) } })}
+          {displayNodes.map((node: TreeNode) => renderItem(node, index))}
+          {renderTNodeJSX('columnFooter', { params: { ...columnParams, onFilter: getOnFilterCallback(index) } })}
+        </ul>
+      );
+    };
+
+    const noop: (filter: FilterValue) => void = () => {};
+
+    const renderFilteredList = (treeNodes: TreeNode[]) => {
+      const columnParams = {
+        panelIndex: 0,
+        options: treeNodes.map((node) => node.data),
+        filteredOptions: treeNodes.map((node) => node.data),
+        onFilter: noop,
+      };
+
+      return (
+        <ul
+          class={[`${COMPONENT_NAME.value}__menu`, 'narrow-scrollbar', `${COMPONENT_NAME.value}__menu--filter`]}
+          key={`${COMPONENT_NAME}__menu--filtered`}
+        >
+          {renderTNodeJSX('columnHeader', { params: columnParams })}
+          {treeNodes.map((node: TreeNode) => renderItem(node, 0))}
+          {renderTNodeJSX('columnFooter', { params: columnParams })}
+        </ul>
+      );
+    };
 
     const renderPanels = () => {
       const { inputVal, treeNodes } = props.cascaderContext;
-      return inputVal
-        ? renderList(treeNodes, true)
-        : panels.value.map((treeNodes, index: number) =>
-            renderList(treeNodes, false, index !== panels.value.length - 1, index),
-          );
+      if (inputVal) return renderFilteredList(treeNodes);
+
+      const result = [];
+      const len = panels.value.length;
+      for (let i = 0; i < len; i++) {
+        if (shouldShowPanel(i)) {
+          result.push(renderList(panels.value[i], i !== len - 1, i));
+        }
+      }
+      return result;
     };
 
     return () => {

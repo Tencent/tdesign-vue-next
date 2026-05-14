@@ -48,7 +48,7 @@ const props = {
   },
   search: {
     type: [Boolean, Object] as PropType<SearchOption>,
-    default: false,
+    default: false as TdTransferProps['search'],
   },
   transferItem: Function as PropType<TdTransferProps['transferItem']>,
   empty: {

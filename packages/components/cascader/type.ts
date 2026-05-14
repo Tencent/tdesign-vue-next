@@ -48,6 +48,24 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
     onClose: (context: { index: number; e?: MouseEvent }) => void;
   }>;
   /**
+   * 每一列的底部自定义内容。`panelIndex` 表示当前列索引，`options` 表示当前列原始选项，`filteredOptions` 表示当前列过滤后的选项（未过滤时与 options 相同），`onFilter` 用于过滤当前列选项（传入字符串时内置大小写不敏感匹配；如需自定义匹配逻辑请传入过滤函数）。当内置搜索（filterable）有输入时，面板切换为扁平模式，`onFilter` 为空操作
+   */
+  columnFooter?: TNode<{
+    panelIndex: number;
+    options: TreeOptionData[];
+    filteredOptions: TreeOptionData[];
+    onFilter: (filter: string | ((node: TreeOptionData, panelIndex: number) => boolean)) => void;
+  }>;
+  /**
+   * 每一列的顶部自定义内容。`panelIndex` 表示当前列索引，`options` 表示当前列原始选项，`filteredOptions` 表示当前列过滤后的选项（未过滤时与 options 相同），`onFilter` 用于过滤当前列选项（传入字符串时内置大小写不敏感匹配；如需自定义匹配逻辑请传入过滤函数）。当内置搜索（filterable）有输入时，面板切换为扁平模式，`onFilter` 为空操作。
+   */
+  columnHeader?: TNode<{
+    panelIndex: number;
+    options: TreeOptionData[];
+    filteredOptions: TreeOptionData[];
+    onFilter: (filter: string | ((node: TreeOptionData, panelIndex: number) => boolean)) => void;
+  }>;
+  /**
    * 是否禁用组件
    */
   disabled?: boolean;

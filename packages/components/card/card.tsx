@@ -74,7 +74,27 @@ export default defineComponent({
     // 是否展示底部区域
     const isFooterRender = computed(() => showFooter.value || (showActions.value && isPoster2.value));
 
-    // 头部区域渲染逻辑
+    // 提取为独立函数，避免每次渲染重复创建 VNode
+    const renderContent = (isLoading = false) => (
+      <div class={baseCls.value}>
+        {isHeaderRender.value ? renderHeader() : null}
+        {showCover.value ? renderCover() : null}
+        {(showContent.value || isLoading) && (
+          <TLoading loading={isLoading} {...(props.loadingProps as TdCardProps['loadingProps'])}>
+            <div class={[bodyCls.value, props.bodyClassName]} style={props.bodyStyle}>
+              {renderTNodeJSX('default') || renderTNodeJSX('content')}
+            </div>
+          </TLoading>
+        )}
+        {isFooterRender.value && (
+          <div class={[footerCls.value, props.footerClassName]} style={props.footerStyle}>
+            <div class={footerWrapperCls.value}>{renderTNodeJSX('footer')}</div>
+            {showActions.value && isPoster2.value && <div class={actionsCls.value}>{renderTNodeJSX('actions')}</div>}
+          </div>
+        )}
+      </div>
+    );
+
     const renderHeader = () => {
       if (showHeader.value)
         return (
@@ -105,32 +125,16 @@ export default defineComponent({
     };
 
     return () => {
-      const content = (
-        <div class={baseCls.value}>
-          {isHeaderRender.value ? renderHeader() : null}
-          {showCover.value ? renderCover() : null}
-          {showContent.value && (
-            <div class={[bodyCls.value, props.bodyClassName]} style={props.bodyStyle}>
-              {renderTNodeJSX('default') || renderTNodeJSX('content')}
-            </div>
-          )}
-          {isFooterRender.value && (
-            <div class={[footerCls.value, props.footerClassName]} style={props.footerStyle}>
-              <div class={footerWrapperCls.value}>{renderTNodeJSX('footer')}</div>
-              {showActions.value && isPoster2.value && <div class={actionsCls.value}>{renderTNodeJSX('actions')}</div>}
-            </div>
-          )}
-        </div>
-      );
+      const loadingContent = renderTNodeJSX('loading');
 
-      if (showLoading.value) {
-        return (
-          renderTNodeJSX('loading') || (
-            <TLoading {...(props.loadingProps as TdCardProps['loadingProps'])}>{content}</TLoading>
-          )
-        );
+      // 自定义 loading 内容完全替换卡片
+      if (loadingContent) {
+        return showLoading.value ? loadingContent : renderContent();
       }
-      return content;
+
+      // 布尔 loading：TLoading 在 body 内部控制，避免 content 重建
+      const isLoading = !!showLoading.value;
+      return renderContent(isLoading);
     };
   },
 });

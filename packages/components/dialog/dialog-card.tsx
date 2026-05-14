@@ -53,8 +53,10 @@ export default defineComponent({
     // 是否全屏对话框
     const isFullScreen = computed(() => props.mode === 'full-screen');
     const closeBtnAction = (e: MouseEvent) => props?.onCloseBtnClick?.({ e });
+    // modal/modeless 模式开启 draggable 后，仅 header 作为拖拽手柄
+    // body / footer 区域阻止 mousedown 冒泡，避免误触发拖拽
     const onStopDown = (e: MouseEvent) => {
-      if (isModeLess.value && props?.draggable) e.stopPropagation();
+      if (isDraggableMode.value && props?.draggable) e.stopPropagation();
     };
 
     const resetPosition = () => {
@@ -135,14 +137,14 @@ export default defineComponent({
         };
         return (
           (header || props?.closeBtn) && (
-            <div class={headerClassName} onMousedown={onStopDown}>
+            <div class={headerClassName}>
               <div class={`${COMPONENT_NAME.value}__header-content`}>
                 {getIcon()}
                 {header}
               </div>
 
               {props?.closeBtn ? (
-                <span class={closeClassName} onClick={closeBtnAction}>
+                <span class={closeClassName} onClick={closeBtnAction} onMousedown={onStopDown}>
                   {renderTNodeJSX('closeBtn', <CloseIcon />)}
                 </span>
               ) : null}

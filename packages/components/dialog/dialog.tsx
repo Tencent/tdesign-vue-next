@@ -152,7 +152,7 @@ export default defineComponent({
     // 回车触发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
       const eventSrc = e.target as HTMLElement;
-      if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
+      if (eventSrc?.tagName?.toLowerCase() === 'input') return; // 若是input触发 则不执行
       const { code } = e;
       if ((code === 'Enter' || code === 'NumpadEnter') && isTopInteractivePopup()) {
         props.onConfirm?.({ e });
@@ -260,6 +260,10 @@ export default defineComponent({
           width: calc(100% - ${scrollWidth}px);
         }
       `;
+
+      if (props.visible) {
+        addKeyboardEvent(props.visible);
+      }
     });
 
     onBeforeUnmount(() => {
@@ -287,7 +291,7 @@ export default defineComponent({
       const ctxClass = [
         `${COMPONENT_NAME.value}__ctx`,
         {
-          [`${COMPONENT_NAME.value}__ctx--fixed`]: isModal.value || isFullScreen.value,
+          [`${COMPONENT_NAME.value}__ctx--fixed`]: isModal.value || isFullScreen.value || isModeLess.value,
           [`${COMPONENT_NAME.value}__ctx--absolute`]: isModal.value && props.showInAttachedElement,
           [`${COMPONENT_NAME.value}__ctx--modeless`]: isModeLess.value,
         },
