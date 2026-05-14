@@ -34,7 +34,7 @@ export default defineComponent({
 
     const imageNode = computed(() => {
       const { calculatedImageSettings, margin } = qrCodeData.value;
-      if (!props.imageSettings || !calculatedImageSettings.value) return null;
+      if (!props.imageSettings.src || !calculatedImageSettings.value) return null;
 
       return (
         <image
@@ -59,7 +59,6 @@ export default defineComponent({
           role="img"
           style={props.style}
         >
-          {!!props.title && <title>{props.title}</title>}
           <path fill={props.bgColor} d={`M0,0 h${numCells.value}v${numCells.value}H0z`} shape-rendering="crispEdges" />
           <path fill={props.fgColor} d={fgPath} shape-rendering="crispEdges" />
           {imageNode.value}
