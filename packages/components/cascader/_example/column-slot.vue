@@ -1,44 +1,25 @@
 <template>
-  <t-space direction="vertical" style="width: 100%">
-    <!-- 示例1: 列搜索 -->
-    <div class="demo-item">
-      <div class="demo-title">列搜索</div>
-      <div class="demo-desc">通过 columnHeader 插槽在每列顶部放置搜索框，使用 onFilter 过滤当前列选项</div>
-      <t-cascader v-model="value1" :options="options1">
-        <template #columnHeader="{ panelIndex, onFilter }">
-          <t-input
-            v-model="searchValues1[panelIndex]"
-            :placeholder="`搜索第${panelIndex + 1}级`"
-            @change="(val) => onFilter(val)"
-          />
-        </template>
-      </t-cascader>
-    </div>
-
-    <!-- 示例2: columnHeader + columnFooter -->
-    <div class="demo-item">
-      <div class="demo-title">顶部 + 底部插槽</div>
-      <div class="demo-desc">同时使用 columnHeader 和 columnFooter，顶部放搜索框，底部显示统计</div>
-      <t-cascader v-model="value2" :options="options2">
-        <template #columnHeader="{ panelIndex, onFilter }">
-          <t-input
-            v-model="searchValues2[panelIndex]"
-            :placeholder="'搜索第' + (panelIndex + 1) + '级'"
-            @change="(val) => onFilter(val)"
-          />
-        </template>
-        <template #columnFooter="{ filteredOptions, options }">
-          <div class="demo-panel-footer">{{ filteredOptions.length }} / {{ options.length }} 项</div>
-        </template>
-      </t-cascader>
-    </div>
-  </t-space>
+  <t-cascader v-model="value" :options="options">
+    <template #columnHeader="{ panelIndex, onFilter }">
+      <t-input
+        v-model="searchValues[panelIndex]"
+        :placeholder="'搜索第' + (panelIndex + 1) + '级'"
+        @change="(val) => onFilter(val)"
+      />
+    </template>
+    <template #columnFooter="{ filteredOptions, options: columnOptions }">
+      <div class="demo-panel-footer">{{ filteredOptions.length }} / {{ columnOptions.length }} 项</div>
+    </template>
+  </t-cascader>
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
 
-const createOptions = () => [
+const value = ref('');
+const searchValues = reactive<Record<number, string>>({});
+
+const options = [
   {
     label: '北京市',
     value: '1',
@@ -223,35 +204,9 @@ const createOptions = () => [
     ],
   },
 ];
-
-const value1 = ref('');
-const value2 = ref('');
-
-const options1 = createOptions();
-const options2 = createOptions();
-
-const searchValues1 = reactive<Record<number, string>>({});
-const searchValues2 = reactive<Record<number, string>>({});
 </script>
 
 <style scoped>
-.demo-item {
-  margin-bottom: 16px;
-}
-
-.demo-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--td-text-color-primary);
-  margin-bottom: 4px;
-}
-
-.demo-desc {
-  font-size: 12px;
-  color: var(--td-text-color-placeholder);
-  margin-bottom: 8px;
-}
-
 .demo-panel-footer {
   padding: 4px 8px;
   font-size: 12px;
