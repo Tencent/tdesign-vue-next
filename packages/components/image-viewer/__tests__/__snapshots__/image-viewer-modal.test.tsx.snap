@@ -2,7 +2,7 @@
 
 exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
 <div
-  class="t-dialog__ctx t-dialog__ctx--modeless t-image-viewer__dialog"
+  class="t-dialog__ctx t-dialog__ctx--fixed t-dialog__ctx--modeless t-image-viewer__dialog"
   style="z-index: 3000;"
 >
   
