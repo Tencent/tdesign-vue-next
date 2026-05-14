@@ -48,6 +48,24 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
     onClose: (context: { index: number; e?: MouseEvent }) => void;
   }>;
   /**
+   * 每一列的底部自定义内容。`panelIndex` 表示当前列索引，`options` 表示当前列原始选项，`filteredOptions` 表示当前列过滤后的选项（未过滤时与 options 相同），`onFilter` 用于过滤当前列选项（传入字符串时内置大小写不敏感匹配；如需自定义匹配逻辑请传入过滤函数）。当内置搜索（filterable）有输入时，面板切换为扁平模式，`onFilter` 为空操作
+   */
+  columnFooter?: TNode<{
+    panelIndex: number;
+    options: TreeOptionData[];
+    filteredOptions: TreeOptionData[];
+    onFilter: (filter: string | ((node: TreeOptionData, panelIndex: number) => boolean)) => void;
+  }>;
+  /**
+   * 每一列的顶部自定义内容。`panelIndex` 表示当前列索引，`options` 表示当前列原始选项，`filteredOptions` 表示当前列过滤后的选项（未过滤时与 options 相同），`onFilter` 用于过滤当前列选项（传入字符串时内置大小写不敏感匹配；如需自定义匹配逻辑请传入过滤函数）。当内置搜索（filterable）有输入时，面板切换为扁平模式，`onFilter` 为空操作。
+   */
+  columnHeader?: TNode<{
+    panelIndex: number;
+    options: TreeOptionData[];
+    filteredOptions: TreeOptionData[];
+    onFilter: (filter: string | ((node: TreeOptionData, panelIndex: number) => boolean)) => void;
+  }>;
+  /**
    * 是否禁用组件
    */
   disabled?: boolean;
@@ -126,40 +144,6 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 面板内的顶部内容
    */
   panelTopContent?: string | TNode;
-  /**
-   * 每一列的顶部自定义内容。
-   * 当内置搜索（filterable）有输入时，面板切换为扁平模式，onFilter 为空操作。
-   */
-  columnHeader?: TNode<{
-    /** 当前列索引（从 0 开始） */
-    panelIndex: number;
-    /** 当前列的原始选项列表 */
-    options: CascaderOption[];
-    /** 当前列过滤后的选项列表（未过滤时与 options 相同） */
-    filteredOptions: CascaderOption[];
-    /**
-     * 过滤当前列选项的回调。传入字符串时使用内置大小写不敏感匹配；
-     * 如需自定义匹配逻辑，请传入过滤函数。
-     */
-    onFilter: (filter: string | ((node: CascaderOption, panelIndex: number) => boolean)) => void;
-  }>;
-  /**
-   * 每一列的底部自定义内容。
-   * 当内置搜索（filterable）有输入时，面板切换为扁平模式，onFilter 为空操作。
-   */
-  columnFooter?: TNode<{
-    /** 当前列索引（从 0 开始） */
-    panelIndex: number;
-    /** 当前列的原始选项列表 */
-    options: CascaderOption[];
-    /** 当前列过滤后的选项列表（未过滤时与 options 相同） */
-    filteredOptions: CascaderOption[];
-    /**
-     * 过滤当前列选项的回调。传入字符串时使用内置大小写不敏感匹配；
-     * 如需自定义匹配逻辑，请传入过滤函数。
-     */
-    onFilter: (filter: string | ((node: CascaderOption, panelIndex: number) => boolean)) => void;
-  }>;
   /**
    * 占位符
    */
