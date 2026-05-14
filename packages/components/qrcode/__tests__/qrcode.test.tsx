@@ -56,7 +56,26 @@ describe('QRCode', () => {
       expect(wrapper.find('.t-qrcode').find('image').attributes('href')).eq(iconSrc);
     });
 
-    it(':iconSize[number|object]-svg', async () => {});
+    it(':iconSize[number|object]-svg', async () => {
+      const iconSrc = 'https://tdesign.gtimg.com/site/tdesign-logo.png';
+      const size = 160;
+      const iconSize1 = 40;
+      await wrapper.setProps({ icon: iconSrc, type: 'svg', iconSize: iconSize1, size });
+
+      const width = parseFloat(wrapper.find('image').attributes('width'));
+      const height = parseFloat(wrapper.find('image').attributes('height'));
+
+      // iconSize为number时，宽高应相等，且等于iconSize的值
+      expect(width / height).closeTo(1, 0.01);
+      // 宽度应为 (40/160) * numCells
+      expect(width).toBeGreaterThan(0);
+
+      const iconSize2 = { width: 60, height: 80 };
+      await wrapper.setProps({ icon: iconSrc, type: 'svg', iconSize: iconSize2, size });
+      const w2 = parseFloat(wrapper.find('image').attributes('width'));
+      const h2 = parseFloat(wrapper.find('image').attributes('height'));
+      expect(w2 / h2).closeTo(60 / 80, 0.01);
+    });
 
     const level: TdQRCodeProps['level'][] = ['L', 'M', 'Q', 'H'];
     level.forEach((item) => {
@@ -126,6 +145,20 @@ describe('QRCode', () => {
 
       // 验证前景路径已改变（不同的 value 应该生成不同的二维码图案）
       expect(updatedFgPath).not.eq(initialFgPath);
+    });
+  });
+  describe('events', () => {
+    let wrapper: VueWrapper<InstanceType<typeof QRCode>> | null = null;
+    beforeEach(() => {
+      // @ts-ignore
+      wrapper = mount(<QRCode value="https://tdesign.tencent.com/"></QRCode>);
+    });
+
+    it('refresh', async () => {
+      const onRefresh = vi.fn();
+      await wrapper.setProps({ status: 'expired', onRefresh });
+      await wrapper.find('.t-expired__button').trigger('click');
+      expect(onRefresh).toBeCalled();
     });
   });
 });
