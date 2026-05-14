@@ -46,3 +46,10 @@ export type { TdSelectInputProps } from '../select-input/type';
 export type CascaderOption = TreeOptionData | TypeTreeNodeData;
 
 export const EVENT_NAME_WITH_KEBAB = ['remove', 'blur', 'focus'];
+
+export interface FilterState {
+  filters: Record<number, string | ((node: CascaderOption, panelIndex: number) => boolean)>;
+  maxLevel: number;
+}
+
+export type FilterValue = string | ((node: CascaderOption, panelIndex: number) => boolean);

@@ -1,45 +1,20 @@
 import { defineComponent, PropType, computed, h, shallowRef, onUnmounted, watch } from 'vue';
 
 import Item from './Item';
-import { TreeNode, CascaderContextType, CascaderOption } from '../types';
+import { TreeNode, CascaderContextType, FilterState, FilterValue } from '../types';
 import CascaderProps from '../props';
 import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@tdesign/shared-hooks';
 
 import { getDefaultNode } from '@tdesign/shared-utils';
-import { getPanels, expandClickEffect, valueChangeEffect } from '../utils';
-
-const FILTER_INACTIVE_LEVEL = -1;
-
-interface FilterState {
-  filters: Record<number, string | ((node: CascaderOption, panelIndex: number) => boolean)>;
-  maxLevel: number;
-}
-
-function isFilterLevelActive(level: number): boolean {
-  return level !== FILTER_INACTIVE_LEVEL;
-}
-
-type FilterValue = string | ((node: CascaderOption, panelIndex: number) => boolean);
-
-function checkOptionMatchKeyword(option: TreeNode, keyword: string): boolean {
-  if (!option.label || !keyword) return false;
-  return option.label.toLowerCase().includes(keyword);
-}
-
-function isFilterActive(filter: FilterValue | undefined): boolean {
-  if (filter === undefined) return false;
-  if (typeof filter === 'string') return Boolean(filter.trim());
-  return true;
-}
-
-function filterOptions(nodes: TreeNode[], filter: FilterValue, panelIndex: number): TreeNode[] {
-  if (typeof filter === 'string') {
-    const keyword = filter.trim().toLowerCase();
-    if (!keyword) return nodes;
-    return nodes.filter((node) => checkOptionMatchKeyword(node, keyword));
-  }
-  return nodes.filter((node) => filter(node.data, panelIndex));
-}
+import {
+  getPanels,
+  expandClickEffect,
+  valueChangeEffect,
+  isFilterActive,
+  isFilterLevelActive,
+  filterOptions,
+  FILTER_INACTIVE_LEVEL,
+} from '../utils';
 
 export default defineComponent({
   name: 'TCascaderSubPanel',
