@@ -127,6 +127,44 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   panelTopContent?: string | TNode;
   /**
+   * 面板内容顶部（每一列的顶部内容）。
+   * 注意：内置搜索（filterable）激活时不渲染此插槽。
+   */
+  panelContentTop?: TNode<{
+    /** 当前面板索引（从 0 开始） */
+    panelIndex: number;
+    /** 原始选项列表 */
+    options: CascaderOption[];
+    /** 过滤后的选项列表 */
+    filteredOptions: CascaderOption[];
+    /**
+     * 过滤回调。字符串时大小写不敏感匹配，如需其他逻辑请传入自定义函数。
+     */
+    onFilter: (
+      filter: string | ((node: CascaderOption, panelIndex: number) => boolean),
+      options?: CascaderFilterOptions,
+    ) => void;
+  }>;
+  /**
+   * 面板内容底部（每一列的底部内容）。
+   * 注意：内置搜索（filterable）激活时不渲染此插槽。
+   */
+  panelContentBottom?: TNode<{
+    /** 当前面板索引（从 0 开始） */
+    panelIndex: number;
+    /** 原始选项列表 */
+    options: CascaderOption[];
+    /** 过滤后的选项列表 */
+    filteredOptions: CascaderOption[];
+    /**
+     * 过滤回调。字符串时大小写不敏感匹配，如需其他逻辑请传入自定义函数。
+     */
+    onFilter: (
+      filter: string | ((node: CascaderOption, panelIndex: number) => boolean),
+      options?: CascaderFilterOptions,
+    ) => void;
+  }>;
+  /**
    * 占位符
    */
   placeholder?: string;
@@ -261,6 +299,16 @@ export interface CascaderChangeContext<CascaderOption> {
 }
 
 export type CascaderChangeSource = 'invalid-value' | 'check' | 'clear' | 'uncheck';
+
+/** onFilter 回调的配置选项 */
+export interface CascaderFilterOptions {
+  /**
+   * 是否启用级联过滤模式。
+   * 启用后，过滤某级会影响后续面板：无匹配时隐藏子面板，有匹配时只显示匹配项的子节点。
+   * @default false
+   */
+  cascade?: boolean;
+}
 
 export interface RemoveContext<T> {
   value: CascaderValue<T>;
