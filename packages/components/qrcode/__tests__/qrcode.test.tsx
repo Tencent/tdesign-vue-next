@@ -15,6 +15,26 @@ describe('QRCode', () => {
     beforeEach(() => {
       // @ts-ignore
       wrapper = mount(<QRCode value="https://tdesign.tencent.com/"></QRCode>);
+      HTMLCanvasElement.prototype.getContext = vi.fn(() => ({
+        scale: vi.fn(),
+        fillRect: vi.fn(),
+        fill: vi.fn(),
+        beginPath: vi.fn(),
+        rect: vi.fn(),
+        clip: vi.fn(),
+        restore: vi.fn(),
+        save: vi.fn(),
+        drawImage: vi.fn(),
+      }));
+      Object.defineProperty(HTMLImageElement.prototype, 'complete', {
+        get: () => true,
+      });
+      Object.defineProperty(HTMLImageElement.prototype, 'naturalWidth', {
+        get: () => 100,
+      });
+      Object.defineProperty(HTMLImageElement.prototype, 'naturalHeight', {
+        get: () => 100,
+      });
     });
 
     it(':bgColor[string]', async () => {
@@ -124,12 +144,13 @@ describe('QRCode', () => {
     });
 
     it(':value[string] changes - svg mode', async () => {
-      await wrapper.setProps({ type: 'svg' });
+      await wrapper.setProps({ type: 'svg', icon: '' });
 
       const initialValue = 'https://tdesign.tencent.com/';
       const newValue = 'https://github.com/Tencent/tdesign-vue-next';
 
       expect(wrapper.vm.value).eq(initialValue);
+      expect(wrapper.find('image').exists()).toBe(false);
 
       const initialSvg = wrapper.find('.t-qrcode').find('svg');
       expect(initialSvg.exists()).eq(true);
