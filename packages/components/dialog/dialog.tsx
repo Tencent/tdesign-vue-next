@@ -291,7 +291,7 @@ export default defineComponent({
       const ctxClass = [
         `${COMPONENT_NAME.value}__ctx`,
         {
-          [`${COMPONENT_NAME.value}__ctx--fixed`]: isModal.value || isFullScreen.value,
+          [`${COMPONENT_NAME.value}__ctx--fixed`]: isModal.value || isFullScreen.value || isModeLess.value,
           [`${COMPONENT_NAME.value}__ctx--absolute`]: isModal.value && props.showInAttachedElement,
           [`${COMPONENT_NAME.value}__ctx--modeless`]: isModeLess.value,
         },
