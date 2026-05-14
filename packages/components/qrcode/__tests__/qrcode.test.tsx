@@ -15,6 +15,7 @@ describe('QRCode', () => {
     beforeEach(() => {
       // @ts-ignore
       wrapper = mount(<QRCode value="https://tdesign.tencent.com/"></QRCode>);
+      // @ts-ignore
       HTMLCanvasElement.prototype.getContext = vi.fn(() => ({
         scale: vi.fn(),
         fillRect: vi.fn(),
