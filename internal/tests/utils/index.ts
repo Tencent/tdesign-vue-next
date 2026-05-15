@@ -1,3 +1,4 @@
+// mark: 后续将 utils 移动到 src 中
 import { fireEvent, createEvent } from '@testing-library/dom';
 
 export function simulateInputChange(dom: HTMLInputElement, text: string) {

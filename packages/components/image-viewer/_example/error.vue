@@ -10,7 +10,14 @@
           <div>图片无法显示</div>
         </div>
       </div>
-      <t-image-viewer v-else :visible="visible[index]" :images="images" :default-index="index" @close="onClose(index)">
+      <t-image-viewer
+        v-else
+        :visible="visible[index]"
+        :images="images"
+        :default-index="index"
+        :z-index="10000"
+        @close="onClose(index)"
+      >
         <template #trigger>
           <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
             <img alt="test" :src="image" class="tdesign-demo-image-viewer__ui-image--img" @error="onError(index)" />
@@ -24,25 +31,23 @@
   </div>
 </template>
 
-<script setup lang="js">
+<script lang="ts" setup>
 import { reactive } from 'vue';
 import { BrowseIcon, ImageErrorIcon } from 'tdesign-icons-vue-next';
 
 const visible = reactive([false, false, false, false]);
 const isError = reactive([false, false, false, false]);
-const onOpen = (index) => {
+const onOpen = (index: number) => {
   visible[index] = true;
 };
-const onClose = (index) => {
+const onClose = (index: number) => {
   visible[index] = false;
 };
-const onError = (index) => {
+const onError = (index: number) => {
   isError[index] = true;
 };
-
 const img = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
-
-const images = [
+const images: string[] = [
   img,
   'https://tdesign.gtimg.com/demo/demo-image-error1.png',
   'https://tdesign.gtimg.com/demo/demo-image-error2.png',

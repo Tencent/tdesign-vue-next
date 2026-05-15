@@ -13,6 +13,7 @@ import type {
 
 import datePickerPanelProps from './date-picker-panel-props';
 import datePickerProps from './props';
+import { triggerMap } from './utils';
 
 import TSinglePanel from './components/panel/SinglePanel';
 
@@ -57,8 +58,8 @@ export default defineComponent({
       if (props.enableTimePicker) {
         cacheValue.value = formatDate(date, { format: formatRef.value.format });
       } else {
-        onChange?.(formatDate(date, { format: formatRef.value.format }) as DateValue, {
-          dayjsValue: parseToDayjs(date, formatRef.value.format),
+        onChange?.(formatDate(date, { format: formatRef.value.format, defaultTime: props.defaultTime }) as DateValue, {
+          dayjsValue: parseToDayjs(date, formatRef.value.format, undefined, undefined, props.defaultTime),
           trigger: 'pick',
         });
       }
@@ -66,10 +67,6 @@ export default defineComponent({
 
     // 头部快速切换
     function onJumperClick({ trigger }: { trigger: 'prev' | 'next' | 'current' }) {
-      const triggerMap = {
-        prev: 'arrow-previous',
-        next: 'arrow-next',
-      };
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
 
@@ -134,9 +131,16 @@ export default defineComponent({
       onChange?.(
         formatDate(cacheValue.value, {
           format: formatRef.value.format,
+          defaultTime: props.defaultTime,
         }) as DateValue,
         {
-          dayjsValue: parseToDayjs(cacheValue.value as string, formatRef.value.format),
+          dayjsValue: parseToDayjs(
+            cacheValue.value as string,
+            formatRef.value.format,
+            undefined,
+            undefined,
+            props.defaultTime,
+          ),
           trigger: 'confirm',
         },
       );
@@ -146,10 +150,13 @@ export default defineComponent({
     // 预设
     function onPresetClick(preset: any, context: any) {
       const presetVal = isFunction(preset) ? preset() : preset;
-      onChange?.(formatDate(presetVal, { format: formatRef.value.format }) as DateValue, {
-        dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
-        trigger: 'preset',
-      });
+      onChange?.(
+        formatDate(presetVal, { format: formatRef.value.format, defaultTime: props.defaultTime }) as DateValue,
+        {
+          dayjsValue: parseToDayjs(presetVal, formatRef.value.format, undefined, undefined, props.defaultTime),
+          trigger: 'preset',
+        },
+      );
       props.onPresetClick?.(context);
     }
 

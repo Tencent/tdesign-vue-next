@@ -6,7 +6,7 @@
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
 import { IsURLOptions } from 'validator/es/lib/isURL';
-import { TNode, FormResetEvent, FormSubmitEvent } from '../common';
+import { FormResetEvent, FormSubmitEvent, TNode } from '../common';
 
 export interface TdFormProps<FormData extends Data = Data> {
   /**
@@ -237,7 +237,7 @@ export interface FormRule {
   /**
    * 内置校验方法，校验值是否符合正则表达式匹配结果，示例：`{ pattern: /@qq.com/, message: '请输入 QQ 邮箱' }`
    */
-  pattern?: RegExp;
+  pattern?: RegExp | string;
   /**
    * 内置校验方法，校验值是否已经填写。该值为 true，默认显示必填标记，可通过设置 `requiredMark: false` 隐藏必填标记
    */
@@ -261,7 +261,7 @@ export interface FormRule {
    */
   url?: boolean | IsURLOptions;
   /**
-   * 自定义校验规则，示例：`{ validator: (val) => val.length > 0, message: '请输入内容'}`
+   * 自定义校验规则，context 中 formData 为当前完整表单值，name为该字段的标识，示例：`{ validator: (val) => val.length > 0, message: '请输入内容'}`
    */
   validator?: CustomValidator;
   /**
@@ -378,7 +378,7 @@ export interface FormResetParams<FormData> {
 export type FormValidateMessage<FormData> = { [field in keyof FormData]: FormItemValidateMessage[] };
 
 export interface FormItemValidateMessage {
-  type: 'warning' | 'error';
+  type: 'warning' | 'error' | 'success';
   message: string;
 }
 
@@ -398,7 +398,10 @@ export interface IsDateOptions {
   delimiters: string[];
 }
 
-export type CustomValidator = (val: ValueType) => CustomValidateResolveType | Promise<CustomValidateResolveType>;
+export type CustomValidator = (
+  val: ValueType,
+  context?: { formData: Data; name: string },
+) => CustomValidateResolveType | Promise<CustomValidateResolveType>;
 
 export type CustomValidateResolveType = boolean | CustomValidateObj;
 

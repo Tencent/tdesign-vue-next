@@ -10,6 +10,7 @@ import { largeNumberToFixed } from '@tdesign/common-js/input-number/large-number
 export default defineComponent({
   name: 'TImageViewerUtils',
   props: {
+    zIndex: Number,
     scale: Number,
     onRotate: Function as PropType<() => void>,
     onZoomIn: Function as PropType<() => void>,
@@ -41,6 +42,7 @@ export default defineComponent({
             placement="top"
             showArrow
             theme="default"
+            zIndex={props.zIndex}
           >
             <TImageViewerIcon onClick={props.onMirror} icon={() => <MirrorIcon size="medium" />} />
           </TToolTip>
@@ -51,13 +53,13 @@ export default defineComponent({
             placement="top"
             showArrow
             theme="default"
+            zIndex={props.zIndex}
           >
             <TImageViewerIcon onClick={props.onRotate} icon={() => <RotationIcon size="medium" />} />
           </TToolTip>
           <TImageViewerIcon icon={() => <ZoomOutIcon size="medium" />} onClick={props.onZoomOut} />
           <TImageViewerIcon
             class={`${classPrefix.value}-image-viewer__utils-scale`}
-            size="medium"
             label={`${largeNumberToFixed(String(props.scale * 100))}%`}
           />
 
@@ -69,6 +71,7 @@ export default defineComponent({
             placement="top"
             showArrow
             theme="default"
+            zIndex={props.zIndex}
           >
             <div class={`${classPrefix.value}-image-viewer__modal-icon`}>
               <TImageViewerIcon icon={() => <ImageIcon size="medium" />} onClick={props.onReset} />

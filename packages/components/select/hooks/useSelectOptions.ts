@@ -1,5 +1,5 @@
 import { computed, Slots, Ref, ref } from 'vue';
-import { get, omit, isArray, isFunction, uniqBy } from 'lodash-es';
+import { get, isArray, isFunction, uniqBy } from 'lodash-es';
 
 import { useChildComponentSlots } from '@tdesign/shared-hooks';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectValue, SelectOption } from '../type';
@@ -26,9 +26,8 @@ export const useSelectOptions = (
       props.options?.map((option) => {
         const getFormatOption = (option: TdOptionProps) => {
           const { value, label, disabled } = keys.value;
-          const restOption = omit(option, [value, label, disabled]) as Partial<TdOptionProps>;
           const res = {
-            ...restOption,
+            ...option,
             index: dynamicIndex,
             label: get(option, label),
             value: get(option, value),
@@ -131,7 +130,7 @@ export const useSelectOptions = (
    */
   const searchDisplayOptions = computed(() => {
     const currentSelectedOptions = getSelectedOptions(optionsList.value, innerValue.value);
-    searchOptions.value = uniqBy([...searchOptions.value, ...currentSelectedOptions], 'value');
+    searchOptions.value = uniqBy([...currentSelectedOptions, ...searchOptions.value], 'value');
     const searchSelectedOptions = getSelectedOptions(searchOptions.value, innerValue.value);
 
     return uniqBy([...searchSelectedOptions, ...optionsList.value], 'value');

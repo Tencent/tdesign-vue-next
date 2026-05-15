@@ -1,6 +1,6 @@
 <template>
   <div :style="{ width: '240px', height: '240px' }" class="tdesign-demo-image-viewer__base">
-    <t-image-viewer v-model:visible="visible" :images="images" :title="title">
+    <t-image-viewer v-model:visible="visible" :images="images" :title="title" :z-index="10000">
       <template #trigger>
         <div class="tdesign-demo-image-viewer__ui-image">
           <img alt="test" :src="img1" class="tdesign-demo-image-viewer__ui-image--img" />
@@ -16,17 +16,17 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
+import type { ImageViewerProps } from 'tdesign-vue-next';
 
 const img3 = 'https://tdesign.gtimg.com/demo/demo-image-3.png';
 const img2 = 'https://tdesign.gtimg.com/demo/demo-image-2.png';
 const img1 = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
-
-const images = [img1, img2, img3];
+const images: ImageViewerProps['images'] = [img1, img2, img3];
 const visible = ref(false);
-const title = '相册封面标题';
+const title: ImageViewerProps['title'] = '相册封面标题';
 const onOpen = () => {
   visible.value = true;
 };

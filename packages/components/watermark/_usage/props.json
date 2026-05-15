@@ -16,5 +16,20 @@
     "type": "Boolean",
     "defaultValue": true,
     "options": []
+  },
+  {
+    "name": "layout",
+    "type": "enum",
+    "defaultValue": "rectangular",
+    "options": [
+      {
+        "label": "rectangular",
+        "value": "rectangular"
+      },
+      {
+        "label": "hexagonal",
+        "value": "hexagonal"
+      }
+    ]
   }
 ]

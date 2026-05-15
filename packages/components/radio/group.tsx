@@ -18,7 +18,7 @@ import props from './radio-group-props';
 import type { RadioOptionObj, RadioOption, TdRadioGroupProps } from './type';
 import TRadio from './radio';
 import TRadioButton from './radio-button';
-import { RadioGroupInjectionKey } from './consts';
+import { RadioGroupInjectionKey } from './constants';
 import {
   useVModel,
   usePrefixClass,
@@ -150,7 +150,7 @@ export default defineComponent({
     });
     /** calculate bar style end */
 
-    const { name, disabled, readonly } = toRefs(props);
+    const { name, disabled, readonly, allowUncheck } = toRefs(props);
     provide(
       RadioGroupInjectionKey,
       reactive({
@@ -158,7 +158,7 @@ export default defineComponent({
         disabled,
         readonly,
         value: innerValue,
-        allowUncheck: props.allowUncheck,
+        allowUncheck,
         setValue: updateInnerValue,
       }),
     );
@@ -197,6 +197,7 @@ export default defineComponent({
         [`${radioGroupName.value}__outline`]: props.variant === 'outline',
         [`${radioGroupName.value}--filled`]: props.variant.includes('filled'),
         [`${radioGroupName.value}--primary-filled`]: props.variant === 'primary-filled',
+        [`${radioGroupName.value}--vertical`]: props.direction === 'vertical',
       },
     ]);
 

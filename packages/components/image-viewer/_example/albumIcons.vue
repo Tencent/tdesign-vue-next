@@ -5,6 +5,7 @@
       :title="title"
       :images="images"
       :index="index"
+      :z-index="10000"
       @index-change="onIndexChange"
     >
       <template #trigger>
@@ -46,24 +47,25 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { BrowseIcon, EllipsisIcon } from 'tdesign-icons-vue-next';
+import type { ImageViewerProps } from 'tdesign-vue-next';
 
 const img3 = 'https://tdesign.gtimg.com/demo/demo-image-3.png';
 const img2 = 'https://tdesign.gtimg.com/demo/demo-image-2.png';
 const img1 = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
-const images = [img1, img2, img3];
+const images: ImageViewerProps['images'] = [img1, img2, img3];
 const visible = ref(false);
-const onOpen = (i) => {
+const onOpen = (i: any) => {
   typeof i === 'number' && onIndexChange(i);
   visible.value = true;
 };
 const index = ref(0);
-const onIndexChange = (i) => {
+const onIndexChange = (i: number) => {
   index.value = i;
 };
-const title = '相册封面标题';
+const title: ImageViewerProps['title'] = '相册封面标题';
 </script>
 
 <style scoped>

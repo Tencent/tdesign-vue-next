@@ -2,7 +2,7 @@ import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch }
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
 import { usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
-import { AnchorInjectionKey } from './consts';
+import { AnchorInjectionKey } from './constants';
 import { isString, isFunction } from 'lodash-es';
 
 const localProps = {
@@ -29,10 +29,10 @@ export default defineComponent({
     const register = () => {
       anchor.registerLink(props.href as string);
     };
-    const unregister = () => {
-      const { href } = props;
-      if (!href) return;
-      anchor.unregisterLink(href);
+    const unregister = (hrefVal?: string) => {
+      const val = hrefVal || props.href;
+      if (!val) return;
+      anchor.unregisterLink(val);
     };
     const handleClick = (e: MouseEvent) => {
       const { href, title } = props;
@@ -54,8 +54,8 @@ export default defineComponent({
     };
     watch(
       () => props.href,
-      () => {
-        unregister();
+      (newVal, oldVal) => {
+        unregister(oldVal);
         register();
       },
       { immediate: true },

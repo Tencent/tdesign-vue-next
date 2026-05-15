@@ -13,6 +13,13 @@ declare module 'vue' {
     TChatReasoning: typeof import('@tdesign-vue-next/chat')['ChatReasoning'];
     TChatAction: typeof import('@tdesign-vue-next/chat')['ChatAction'];
     TChatLoading: typeof import('@tdesign-vue-next/chat')['ChatLoading'];
+    TAttachments: typeof import('@tdesign-vue-next/chat')['Attachments'];
+    TChatActionbar: typeof import('@tdesign-vue-next/chat')['ChatActionbar'];
+    TChatList: typeof import('@tdesign-vue-next/chat')['ChatList'];
+    TChatMarkdown: typeof import('@tdesign-vue-next/chat')['ChatMarkdown'];
+    TChatThinking: typeof import('@tdesign-vue-next/chat')['ChatThinking'];
+    TChatbot: typeof import('@tdesign-vue-next/chat')['Chatbot'];
+    TChatMessage: typeof import('@tdesign-vue-next/chat')['ChatMessage'];
   }
 }
 

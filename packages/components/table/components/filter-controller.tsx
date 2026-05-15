@@ -36,6 +36,7 @@ export interface TableFilterControllerProps {
   popupProps: PopupProps;
   attach?: AttachNode;
   onVisibleChange: (val: boolean) => void;
+  onInnerFilterChange: (val: any, column: PrimaryTableCol) => void;
   filterIcon?: TdPrimaryTableProps['filterIcon'];
 }
 
@@ -54,6 +55,7 @@ export default defineComponent({
     popupProps: Object as PropType<TableFilterControllerProps['popupProps']>,
     attach: [String, Function] as PropType<TableFilterControllerProps['attach']>,
     onVisibleChange: Function as PropType<TableFilterControllerProps['onVisibleChange']>,
+    onInnerFilterChange: Function as PropType<TableFilterControllerProps['onInnerFilterChange']>,
     filterIcon: [Function] as PropType<TableFilterControllerProps['filterIcon']>,
   },
   emits: ['inner-filter-change', 'reset', 'confirm'],
@@ -107,7 +109,7 @@ export default defineComponent({
       if (!component && !column.filter.component) return;
       const filterComponentProps: { [key: string]: any } = {
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter?.list : undefined,
-        ...(column.filter?.props || {}),
+        ...column.filter?.props,
         onChange: (val: any, ctx: any) => {
           context.emit('inner-filter-change', val, column);
           if (column.filter.props?.onChange) {

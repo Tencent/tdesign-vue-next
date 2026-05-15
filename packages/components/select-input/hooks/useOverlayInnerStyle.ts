@@ -1,5 +1,5 @@
 import { ref, toRefs, computed, CSSProperties } from 'vue';
-import { isObject, isFunction } from 'lodash-es';
+import { isObject, isFunction, isArray, isBoolean } from 'lodash-es';
 
 import { TdSelectInputProps } from '../type';
 import { TdPopupProps, PopupVisibleChangeContext } from '../../popup';
@@ -7,8 +7,10 @@ import { useDisabled, useReadonly } from '@tdesign/shared-hooks';
 
 export type overlayInnerStyleProps = Pick<
   TdSelectInputProps,
-  'popupProps' | 'autoWidth' | 'readonly' | 'onPopupVisibleChange' | 'disabled' | 'allowInput' | 'popupVisible'
->;
+  'popupProps' | 'autoWidth' | 'readonly' | 'onPopupVisibleChange' | 'allowInput' | 'popupVisible'
+> & {
+  disabled?: boolean | Array<boolean>;
+};
 
 // 单位：px
 const MAX_POPUP_WIDTH = 1000;
@@ -42,12 +44,15 @@ export function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   };
 
   const onInnerPopupVisibleChange = (visible: boolean, ctx: PopupVisibleChangeContext) => {
-    if (disable.value || isReadonly.value) return;
+    if ((isArray(disable.value) && disable.value.every(Boolean)) || (isBoolean(disable.value) && disable.value)) return;
+    if (isReadonly.value) return;
+
     // 如果点击触发元素（输入框）且为可输入状态，则继续显示下拉框
     const newVisible = ctx.trigger === 'trigger-element-click' && props.allowInput ? true : visible;
     // 重复点击触发元素时，下拉框展示状态不变，不重复触发事件
     if (props.popupVisible !== newVisible) {
       innerPopupVisible.value = newVisible;
+
       props.onPopupVisibleChange?.(newVisible, ctx);
     }
   };

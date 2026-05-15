@@ -9,13 +9,13 @@
   </t-comment>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { NotifyPlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
 
 const replyData = ref('');
-
-const submitReply = () => {
+const submitReply: ButtonProps['onClick'] = () => {
   NotifyPlugin.info({
     title: '回复内容',
     content: replyData.value,

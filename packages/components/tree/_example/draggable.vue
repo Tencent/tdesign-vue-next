@@ -7,6 +7,7 @@
       transition
       expand-all
       draggable
+      check-strictly
       :allow-drop="handleAllowDrop"
       @drag-start="handleDragStart"
       @drag-end="handleDragEnd"
@@ -17,9 +18,11 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
-const items = ref([
+import type { TreeProps } from 'tdesign-vue-next';
+
+const items = ref<TreeProps['data']>([
   {
     value: '1',
     label: '1',
@@ -49,6 +52,7 @@ const items = ref([
               {
                 value: '1.1.2.1',
                 label: '1.1.2.1',
+                disabled: true,
               },
               {
                 value: '1.1.2.2',
@@ -70,27 +74,27 @@ const items = ref([
       },
       {
         value: '2.2',
-        label: '2.2 不允许拖放为 2.2 的子节点',
+        label: '2.2 （不允许其它节点拖放为其子节点）',
       },
     ],
   },
 ]);
-const handleDragStart = (ctx) => {
+const handleDragStart: TreeProps['onDragStart'] = (ctx) => {
   console.log('handleDragStart', ctx);
 };
-const handleDragEnd = (ctx) => {
+const handleDragEnd: TreeProps['onDragEnd'] = (ctx) => {
   console.log('handleDragEnd', ctx);
 };
-const handleDragOver = (ctx) => {
+const handleDragOver: TreeProps['onDragOver'] = (ctx) => {
   console.log('handleDragOver', ctx);
 };
-const handleDragLeave = (ctx) => {
+const handleDragLeave: TreeProps['onDragLeave'] = (ctx) => {
   console.log('handleDragLeave', ctx);
 };
-const handleDrop = (ctx) => {
+const handleDrop: TreeProps['onDrop'] = (ctx) => {
   console.log('handleDrop', ctx);
 };
-const handleAllowDrop = (ctx) => {
+const handleAllowDrop: TreeProps['allowDrop'] = (ctx) => {
   const { dropNode, dropPosition } = ctx;
   if (dropNode.value === '2.2' && dropPosition === 0) {
     return false;

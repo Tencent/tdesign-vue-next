@@ -13,8 +13,12 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('rate');
 
-    const activeColor = isArray(props.color) ? props.color[0] : props.color;
-    const defaultColor = isArray(props.color) ? props.color[1] : 'var(--td-bg-color-component)';
+    const activeColor = computed(() => {
+      return isArray(props.color) ? props.color[0] : props.color;
+    });
+    const defaultColor = computed(() => {
+      return isArray(props.color) ? props.color[1] : 'var(--td-bg-color-component)';
+    });
 
     const { value: inputValue, modelValue } = toRefs(props);
     const [starValue, setStarValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
@@ -97,19 +101,19 @@ export default defineComponent({
                 {props.showText ? (
                   <Tooltip key={index} content={displayText.value}>
                     <div class={`${classPrefix.value}-rate__star-top`}>
-                      <RateIcon size={props.size} color={activeColor} />
+                      <RateIcon size={props.size} color={activeColor.value} />
                     </div>
                     <div class={`${classPrefix.value}-rate__star-bottom`}>
-                      <RateIcon size={props.size} color={defaultColor} />
+                      <RateIcon size={props.size} color={defaultColor.value} />
                     </div>
                   </Tooltip>
                 ) : (
                   <>
                     <div class={`${classPrefix.value}-rate__star-top`}>
-                      <RateIcon size={props.size} color={activeColor} />
+                      <RateIcon size={props.size} color={activeColor.value} />
                     </div>
                     <div class={`${classPrefix.value}-rate__star-bottom`}>
-                      <RateIcon size={props.size} color={defaultColor} />
+                      <RateIcon size={props.size} color={defaultColor.value} />
                     </div>
                   </>
                 )}

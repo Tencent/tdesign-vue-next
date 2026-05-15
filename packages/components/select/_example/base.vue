@@ -17,15 +17,34 @@
     </t-select>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { SelectProps } from 'tdesign-vue-next';
 
-const options1 = [
-  { label: '架构云', value: '1', title: '架构云选项' },
-  { label: '大数据', value: '2', title: '' },
-  { label: '区块链', value: '3' },
-  { label: '物联网', value: '4', disabled: true },
-  { label: '人工智能', value: '5' },
+const options1: SelectProps['options'] = [
+  {
+    label: '架构云',
+    value: '1',
+    title: '架构云选项',
+  },
+  {
+    label: '大数据',
+    value: '2',
+    title: '',
+  },
+  {
+    label: '区块链',
+    value: '3',
+  },
+  {
+    label: '物联网',
+    value: '4',
+    disabled: true,
+  },
+  {
+    label: '人工智能',
+    value: '5',
+  },
   // 可以使用渲染函数自定义下拉选项内容和样式
   {
     label: '计算场景（高性能计算）',
@@ -34,22 +53,37 @@ const options1 = [
   },
 ];
 const options2 = [
-  { label: '云服务器', value: '1' },
-  { label: '云数据库', value: '2' },
-  { label: '域名注册', value: '3' },
-  { label: '网站备案', value: '4' },
-  { label: '对象存储', value: '5' },
-  { label: '低代码平台', value: '6' },
+  {
+    label: '云服务器',
+    value: '1',
+  },
+  {
+    label: '云数据库',
+    value: '2',
+  },
+  {
+    label: '域名注册',
+    value: '3',
+  },
+  {
+    label: '网站备案',
+    value: '4',
+  },
+  {
+    label: '对象存储',
+    value: '5',
+  },
+  {
+    label: '低代码平台',
+    value: '6',
+  },
 ];
-
 const value1 = ref('');
 const value2 = ref('');
-
-const onFocus = (ctx) => {
+const onFocus: SelectProps['onFocus'] = (ctx) => {
   console.log('focus:', ctx);
 };
-
-const onBlur = (ctx) => {
+const onBlur: SelectProps['onBlur'] = (ctx) => {
   console.log('blur:', ctx);
 };
 </script>

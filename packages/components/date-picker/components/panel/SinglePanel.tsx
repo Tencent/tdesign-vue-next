@@ -30,10 +30,9 @@ export default defineComponent({
     time: String,
     popupVisible: Boolean,
     multiple: Boolean,
-    needConfirm: {
-      type: Boolean,
-      default: true,
-    },
+    needConfirm: Boolean,
+    defaultTime: [String, Array] as PropType<TdDatePickerProps['defaultTime']>,
+    range: [Array, Function] as PropType<TdDatePickerProps['range']>,
     onPanelClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -44,8 +43,10 @@ export default defineComponent({
     onYearChange: Function,
     onMonthChange: Function,
     onTimePickerChange: Function,
+    disableTime: Function,
+    cell: Function as PropType<TdDatePickerProps['cell']>,
   },
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
     const { globalConfig } = useConfig('datePicker');
 
@@ -70,6 +71,7 @@ export default defineComponent({
         year: props.year,
         month: props.month,
         mode: props.mode,
+        range: props.range,
         start: props.value
           ? parseToDayjs(
               props.multiple ? (props.value as DateMultipleValue)[0] : (props.value as DateValue),
@@ -89,6 +91,7 @@ export default defineComponent({
       mode: props.mode,
       year: props.year,
       month: props.month,
+      range: props.range,
       firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
       tableData: tableData.value,
       popupVisible: props.popupVisible,
@@ -103,6 +106,9 @@ export default defineComponent({
       onCellMouseEnter: props.onCellMouseEnter,
       onCellMouseLeave: props.onCellMouseLeave,
       onTimePickerChange: props.onTimePickerChange,
+      defaultTime: props.defaultTime,
+      disableTime: props.disableTime,
+      cell: props.cell,
     }));
 
     const extraProps = computed(() => ({
@@ -125,9 +131,13 @@ export default defineComponent({
         ]}
         onClick={(e) => props.onPanelClick?.({ e })}
       >
-        {['top', 'left'].includes(props.presetsPlacement) ? <TExtraContent {...extraProps.value} /> : null}
-        <TPanelContent {...panelContentProps.value} />
-        {['bottom', 'right'].includes(props.presetsPlacement) ? <TExtraContent {...extraProps.value} /> : null}
+        {['top', 'left'].includes(props.presetsPlacement) ? (
+          <TExtraContent {...extraProps.value} v-slots={slots.presets ? { presets: slots.presets } : {}} />
+        ) : null}
+        <TPanelContent {...panelContentProps.value} v-slots={slots} />
+        {['bottom', 'right'].includes(props.presetsPlacement) ? (
+          <TExtraContent {...extraProps.value} v-slots={slots.presets ? { presets: slots.presets } : {}} />
+        ) : null}
       </div>
     );
   },

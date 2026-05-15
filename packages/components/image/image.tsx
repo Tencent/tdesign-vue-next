@@ -10,10 +10,13 @@ import Space from '../space';
 
 export default defineComponent({
   name: 'TImage',
-  props,
+  props: {
+    ...props,
+    onClick: Function,
+  },
   setup(props) {
-    const divRef = ref<HTMLElement>(null);
-    const imgRef = ref<HTMLImageElement>(null);
+    const divRef = ref<HTMLElement>();
+    const imgRef = ref<HTMLImageElement>();
     let io: IntersectionObserver = null;
 
     const { src } = toRefs(props);
@@ -170,6 +173,7 @@ export default defineComponent({
           ]}
           onMouseenter={handleToggleOverlay}
           onMouseleave={handleToggleOverlay}
+          onClick={(e) => props.onClick?.({ e })}
           {...omit(props, [
             'src',
             'alt',
@@ -185,6 +189,7 @@ export default defineComponent({
             'gallery',
             'onLoad',
             'onError',
+            'onClick',
           ])}
         >
           {renderPlaceholder()}
@@ -197,7 +202,7 @@ export default defineComponent({
             <div class={`${classPrefix.value}-image__loading`}>
               {renderTNodeJSX('loading') || (
                 <Space direction="vertical" size={8} align="center">
-                  <ImageIcon size="24px" />
+                  <ImageIcon />
                   {isString(props.loading) ? props.loading : globalConfig.value.loadingText}
                 </Space>
               )}
@@ -209,7 +214,7 @@ export default defineComponent({
               {renderTNodDefault('error', {
                 defaultNode: (
                   <Space direction="vertical" size={8} align="center">
-                    <ImageErrorIcon size="24px" />
+                    <ImageErrorIcon />
                     {isString(props.error) ? props.error : globalConfig.value.errorText}
                   </Space>
                 ),

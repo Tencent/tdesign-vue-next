@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="tdesign-demo-image-viewer__base">
-      <t-image-viewer :images="[img]">
+      <t-image-viewer :images="[img]" :z-index="10000">
         <template #trigger="{ open }">
           <div class="tdesign-demo-image-viewer__ui-image">
             <img alt="test" :src="img.mainImage" class="tdesign-demo-image-viewer__ui-image--img" />
@@ -14,7 +14,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 
 const img = { mainImage: 'https://tdesign.gtimg.com/demo/tdesign-logo.svg', isSvg: true };

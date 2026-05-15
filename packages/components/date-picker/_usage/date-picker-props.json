@@ -31,6 +31,12 @@
     "options": []
   },
   {
+    "name": "needConfirm",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
     "name": "readonly",
     "type": "Boolean",
     "defaultValue": false,

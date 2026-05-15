@@ -24,39 +24,32 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TagInputProps, TagInputDragSortContext } from 'tdesign-vue-next';
 
 const tags1 = ref(['Vue', 'React', 'Angular']);
 const tags2 = ref(['Vue', 'React', 'Angular', 'Miniprogram']);
-
-const onTagInputEnter = (val, context) => {
+const onTagInputEnter: TagInputProps['onEnter'] = (val, context) => {
   console.log(val, context);
 };
-
-const onChange = (val, context) => {
+const onChange: TagInputProps['onChange'] = (val, context) => {
   console.log(val, context);
 };
-
-const onChange2 = (val, context) => {
+const onChange2: TagInputProps['onChange'] = (val, context) => {
   console.log(val, context);
 };
-
-const onPaste = (context) => {
+const onPaste: TagInputProps['onPaste'] = (context) => {
   console.log(context);
 };
-
-function onDragSort({ currentIndex, targetIndex }) {
+function onDragSort({ currentIndex, targetIndex }: TagInputDragSortContext) {
   const temp = tags1.value[currentIndex];
   tags1.value[currentIndex] = tags1.value[targetIndex];
   tags1.value[targetIndex] = temp;
 }
-
-function onDragSort2({ currentIndex, targetIndex }) {
+function onDragSort2({ currentIndex, targetIndex }: TagInputDragSortContext) {
   const temp = tags2.value[currentIndex];
   tags2.value[currentIndex] = tags2.value[targetIndex];
   tags2.value[targetIndex] = temp;
 }
 </script>
-
-<style></style>

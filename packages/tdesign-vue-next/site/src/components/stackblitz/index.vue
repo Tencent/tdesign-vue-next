@@ -55,6 +55,14 @@ export default defineComponent({
       viteConfigContent,
       packageJSONContent,
     };
+    const match = window.location.hostname.match(/preview-pr-(\d+)-tdesign-vue-next.surge.sh/);
+    if (match) {
+      const packageJSON = JSON.parse(packageJSONContent);
+      packageJSON.dependencies[
+        'tdesign-vue-next'
+      ] = `https://pkg.pr.new/Tencent/tdesign-vue-next/tdesign-vue-next@${match[1]}`;
+      data.packageJSONContent = JSON.stringify(packageJSON, null, 2);
+    }
     const code = ref('');
 
     const formRef = ref(null);

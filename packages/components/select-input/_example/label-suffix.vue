@@ -50,41 +50,60 @@
     </template>
   </t-select-input>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
+import type { SelectInputProps } from 'tdesign-vue-next';
 
 const options = [
-  { label: 'tdesign-vue', value: 1 },
-  { label: 'tdesign-react', value: 2 },
-  { label: 'tdesign-miniprogram', value: 3 },
-  { label: 'tdesign-angular', value: 4 },
-  { label: 'tdesign-mobile-vue', value: 5 },
-  { label: 'tdesign-mobile-react', value: 6 },
+  {
+    label: 'tdesign-vue',
+    value: 1,
+  },
+  {
+    label: 'tdesign-react',
+    value: 2,
+  },
+  {
+    label: 'tdesign-miniprogram',
+    value: 3,
+  },
+  {
+    label: 'tdesign-angular',
+    value: 4,
+  },
+  {
+    label: 'tdesign-mobile-vue',
+    value: 5,
+  },
+  {
+    label: 'tdesign-mobile-react',
+    value: 6,
+  },
 ];
-
-const selectValue = ref({ label: 'tdesign-vue', value: 1 });
-
+const selectValue = ref<{
+  label: string;
+  value: number;
+}>({
+  label: 'tdesign-vue',
+  value: 1,
+});
 const popupVisible = ref(false);
 const popupVisible2 = ref(false);
-
-const onOptionClick = (item) => {
+const onOptionClick = (item: { label: string; value: number }) => {
   selectValue.value = item;
   // 选中后立即关闭浮层
   popupVisible.value = false;
   popupVisible2.value = false;
 };
-
-const onClear = () => {
+const onClear: SelectInputProps['onClear'] = () => {
   selectValue.value = undefined;
 };
-
-const onPopupVisibleChange = (val, context) => {
+const onPopupVisibleChange: SelectInputProps['onPopupVisibleChange'] = (val, context) => {
   console.log(context);
   popupVisible.value = val;
 };
-
-const onPopupVisibleChange2 = (val, context) => {
+const onPopupVisibleChange2: SelectInputProps['onPopupVisibleChange'] = (val, context) => {
   console.log(context);
   popupVisible2.value = val;
 };

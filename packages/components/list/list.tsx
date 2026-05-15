@@ -5,7 +5,7 @@ import { useConfig, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tde
 import TLoading from '../loading';
 import TListItem from './list-item';
 import props from './props';
-import { LOAD_MORE, LOADING } from './consts';
+import { LOAD_MORE, LOADING } from './constants';
 
 import { useListItems, useListVirtualScroll } from './hooks';
 

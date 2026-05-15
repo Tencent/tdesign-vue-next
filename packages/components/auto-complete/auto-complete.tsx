@@ -1,4 +1,4 @@
-import { computed, ref, defineComponent, toRefs, nextTick } from 'vue';
+import { computed, ref, defineComponent, toRefs, nextTick, ComputedRef } from 'vue';
 import props from './props';
 import { TdAutoCompleteProps } from './type';
 import TInput, { InputProps, StrInputProps } from '../input';
@@ -10,6 +10,7 @@ import {
   useDisabled,
   useReadonly,
   useCommonClassName,
+  useEventForward,
 } from '@tdesign/shared-hooks';
 import AutoCompleteOptionList from './components/option-list';
 
@@ -26,7 +27,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const { classPrefix, SIZE } = useCommonClassName();
     const { globalConfig: global } = useConfig('input');
-    const isDisabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
     const popupVisible = ref();
     const optionListRef = ref();
@@ -58,6 +59,7 @@ export default defineComponent({
     });
 
     const onInputChange: StrInputProps['onChange'] = (value, context) => {
+      popupVisible.value = true;
       setTValue(value, context);
     };
 
@@ -110,6 +112,16 @@ export default defineComponent({
     };
 
     return () => {
+      const inputEvents = useEventForward(innerInputProps.value, {
+        onChange: onInputChange,
+        onFocus: onInnerFocus,
+        onBlur: onInnerBlur,
+        onClear: props.onClear,
+        onCompositionend: onInnerCompositionend,
+        onCompositionstart: onInnerCompositionstart,
+        onEnter: onInnerEnter,
+      });
+
       // 触发元素
       const triggerNode = renderContent('default', 'triggerElement') || (
         <TInput
@@ -121,14 +133,7 @@ export default defineComponent({
           disabled={isDisabled.value}
           autofocus={props.autofocus}
           clearable={props.clearable}
-          onChange={onInputChange}
-          onFocus={onInnerFocus}
-          onBlur={onInnerBlur}
-          onClear={props.onClear}
-          onCompositionend={onInnerCompositionend}
-          onCompositionstart={onInnerCompositionstart}
-          onEnter={onInnerEnter}
-          {...innerInputProps.value}
+          {...inputEvents.value}
           v-slots={slots}
         />
       );
@@ -166,6 +171,9 @@ export default defineComponent({
         overlayInnerClassName: popupInnerClasses.value,
         overlayClassName: popupClasses.value,
       };
+      const popupEvents = useEventForward(popupProps, {
+        onVisibleChange: onPopupVisibleChange,
+      });
       return (
         <div class={classes.value}>
           <Popup
@@ -175,7 +183,7 @@ export default defineComponent({
             placement="bottom-left"
             hideEmptyPopup={true}
             content={panelContent ? () => panelContent : null}
-            {...popupProps}
+            {...popupEvents.value}
           >
             {triggerNode}
           </Popup>

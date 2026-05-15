@@ -15,6 +15,8 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   const sorterFuncMap = computed(() => getSorterFuncMap(props.columns));
   const innerSort = ref<SortInfo | SortInfo[]>();
 
+  let isSortingChange = false;
+
   const sortArray = computed<Array<SortInfo>>(() => {
     const sort = tSortInfo.value;
     if (!sort) return [];
@@ -54,6 +56,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
     const isEmptyArraySort = !sort || (sort instanceof Array && !sort.length);
     const isEmptyObjectSort = !(sort instanceof Array) && !sort?.sortBy;
     if (isEmptyArraySort || isEmptyObjectSort) {
+      isSortingChange = true;
       setTData(originalData.value, { trigger: 'sort' });
       return originalData.value;
     }
@@ -75,6 +78,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
     });
     // Data 变化返回的是数据引用，为避免死循环，特此检测排序数据前后是否相同，如果相同则不再触发事件
     if (JSON.stringify(newData) === JSON.stringify(tData.value)) return;
+    isSortingChange = true;
     setTData(newData, { trigger: 'sort' });
     return newData;
   }
@@ -143,6 +147,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
       <SorterButton
         v-slots={{ sortIcon: slots.sortIcon }}
         {...sorterButtonsProps}
+        // @ts-expect-error
         onSortIconClick={(_: MouseEvent, p: { descending: boolean }) => handleSortHeaderClick(col, p)}
       />
     );
@@ -175,6 +180,20 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
       }
     },
     { immediate: true },
+  );
+
+  /**
+   * 外部 data 发生变化时，需要同步更新 originalData，避免取消排序时还原成已经过时的旧数据。
+   */
+  watch(
+    () => props.data,
+    (val) => {
+      if (isSortingChange) {
+        isSortingChange = false;
+        return;
+      }
+      originalData.value = val;
+    },
   );
 
   return {

@@ -18,10 +18,12 @@ const getRippleColor = (el: HTMLElement, fixedRippleColor?: string) => {
     const rippleColor = el.dataset.ripple;
     return rippleColor;
   }
-  // use css variable
-  const cssVariable = getComputedStyle(el).getPropertyValue('--ripple-color');
-  if (cssVariable) {
-    return cssVariable;
+  // use css variable, check if element is valid before calling getComputedStyle
+  if (el instanceof Element) {
+    const cssVariable = getComputedStyle(el).getPropertyValue('--ripple-color');
+    if (cssVariable) {
+      return cssVariable;
+    }
   }
   return defaultRippleColor;
 };
@@ -44,6 +46,9 @@ export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) 
   // 为节点添加斜八角动画 add ripple to the DOM and set up the animation
   const handleAddRipple = (e: MouseEvent) => {
     const dom = el.value;
+    // Early return if element is not valid or not attached to DOM
+    if (!dom || !(dom instanceof Element)) return;
+
     const rippleColor = getRippleColor(dom, fixedRippleColor?.value);
     if (e.button !== 0 || !el || !keepRipple) return;
 
@@ -55,6 +60,8 @@ export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) 
     )
       return;
 
+    // Check again if element is still valid before calling getComputedStyle
+    if (!(dom instanceof Element)) return;
     const elStyle = getComputedStyle(dom);
 
     const elBorder = parseInt(elStyle.borderWidth, 10);
@@ -104,7 +111,10 @@ export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) 
     }
 
     // fix position
-    const initPosition = dom.style.position ? dom.style.position : getComputedStyle(dom).position;
+    let initPosition = dom.style.position;
+    if (!initPosition && dom instanceof Element) {
+      initPosition = getComputedStyle(dom).position;
+    }
     if (initPosition === '' || initPosition === 'static') {
       // eslint-disable-next-line no-param-reassign
       dom.style.position = 'relative';

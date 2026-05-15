@@ -18,7 +18,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: .node-version
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
@@ -27,5 +27,5 @@ jobs:
 
       - run: node ./script/workflows/pkg-pr-new-generate-template.mjs
 
-      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' './packages/tdesign-vue-next-chat' './packages/tdesign-vue-next-nuxt' --template ./tdesign-vue-next-demo
+      - run: pnpm dlx pkg-pr-new publish './packages/*' --template ./tdesign-vue-next-demo
  

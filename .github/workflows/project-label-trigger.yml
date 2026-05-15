@@ -1,0 +1,18 @@
+# https://github.com/TDesignOteam/tdesign-projects-action
+
+name: projects-label-trigger
+
+on:
+  issues:
+    types: [labeled, unlabeled]
+
+jobs:
+  projects-label-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: label to project
+        uses: TDesignOteam/tdesign-projects-action@main
+        env:
+          GH_TOKEN: ${{ secrets.TDESIGN_BOT_TOKEN }}
+          PROJECT_TYPE: LABEL2TRIGGER
+          PROJECT_ID: 1

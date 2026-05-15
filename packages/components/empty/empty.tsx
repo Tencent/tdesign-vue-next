@@ -1,11 +1,11 @@
-import { computed, defineComponent, h, toRefs } from 'vue';
+import { computed, ComputedRef, defineComponent, h, toRefs } from 'vue';
 import { isString, isPlainObject } from 'lodash-es';
 
 import { useConfig, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import props from './props';
 import type { TdEmptyProps } from './type';
-import Image from '../image';
+import Image, { ImageProps } from '../image';
 import MaintenanceSvg from './components/MaintenanceSvg';
 import NetworkErrorSvg from './components/NetworkErrorSvg';
 import EmptySvg from './components/EmptySvg';
@@ -24,30 +24,32 @@ export default defineComponent({
     const { SIZE } = useCommonClassName();
     const renderTNodeJSX = useTNodeJSX();
 
-    const defaultMaps: {
+    const defaultMaps: ComputedRef<{
       [key in TdEmptyProps['type']]?: Pick<TdEmptyProps, 'image' | 'title'>;
-    } = {
-      maintenance: {
-        image: globalConfig.value.image.maintenance || MaintenanceSvg,
-        title: globalConfig.value.titleText.maintenance,
-      },
-      success: {
-        image: globalConfig.value.image.success || SuccessSvg,
-        title: globalConfig.value.titleText.success,
-      },
-      fail: {
-        image: globalConfig.value.image.fail || FailSvg,
-        title: globalConfig.value.titleText.fail,
-      },
-      'network-error': {
-        image: globalConfig.value.image.networkError || NetworkErrorSvg,
-        title: globalConfig.value.titleText.networkError,
-      },
-      empty: {
-        image: globalConfig.value.image.empty || EmptySvg,
-        title: globalConfig.value.titleText.empty,
-      },
-    };
+    }> = computed(() => {
+      return {
+        maintenance: {
+          image: globalConfig.value.image.maintenance || MaintenanceSvg,
+          title: globalConfig.value.titleText.maintenance,
+        },
+        success: {
+          image: globalConfig.value.image.success || SuccessSvg,
+          title: globalConfig.value.titleText.success,
+        },
+        fail: {
+          image: globalConfig.value.image.fail || FailSvg,
+          title: globalConfig.value.titleText.fail,
+        },
+        'network-error': {
+          image: globalConfig.value.image.networkError || NetworkErrorSvg,
+          title: globalConfig.value.titleText.networkError,
+        },
+        empty: {
+          image: globalConfig.value.image.empty || EmptySvg,
+          title: globalConfig.value.titleText.empty,
+        },
+      };
+    });
 
     const emptyClasses = computed(() => [classPrefix.value, SIZE.value[size.value]]);
     const titleClasses = [`${classPrefix.value}__title`];
@@ -55,7 +57,7 @@ export default defineComponent({
     const descriptionClasses = [`${classPrefix.value}__description`];
     const actionClass = [`${classPrefix.value}__action`];
 
-    const typeImageProps = computed(() => defaultMaps[type.value] ?? null);
+    const typeImageProps = computed(() => defaultMaps.value[type.value] ?? null);
     const showImage = computed(() => propsImage.value || slots?.image?.() || typeImageProps.value?.image);
     const showTitle = computed(() => propsTitle.value || slots?.title?.() || typeImageProps.value?.title);
     const showDescription = computed(() => propsDescription.value || slots?.description?.());
@@ -80,10 +82,10 @@ export default defineComponent({
       } else if (data && Reflect.has(data, 'setup')) {
         result = h(data as unknown);
       } else if (isPlainObject(data)) {
-        result = <Image {...data} />;
+        result = <Image {...(data as ImageProps)} />;
       }
 
-      return data ? result : null;
+      return result;
     };
 
     return () => {

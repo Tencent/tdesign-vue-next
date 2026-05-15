@@ -1,60 +1,64 @@
 import { defineComponent, computed, PropType } from 'vue';
-import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
+import { isPlainObject } from 'lodash-es';
+import { useConfig, usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 import TButton from '../../../button';
 
 import type { TdDatePickerProps } from '../../type';
 
 export default defineComponent({
-  name: 'TDatePickerTable',
+  name: 'TDatePickerFooter',
   props: {
     enableTimePicker: Boolean,
     presetsPlacement: String,
     presets: Object,
-    needConfirm: {
-      type: Boolean,
-      default: true,
-    },
+    needConfirm: Boolean,
     selectedValue: [String, Number, Array, Date] as PropType<TdDatePickerProps['value']>,
     onPresetClick: Function,
     onConfirmClick: Function,
   },
   setup(props) {
+    const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('date-picker__footer');
     const presetsClass = usePrefixClass('date-picker__presets');
     const { t, globalConfig } = useConfig('datePicker');
 
     const footerClass = computed(() => [COMPONENT_NAME.value, `${COMPONENT_NAME.value}--${props.presetsPlacement}`]);
 
-    return () => (
-      <div class={footerClass.value}>
-        {
-          <div class={presetsClass.value}>
-            {props.presets &&
-              Object.keys(props.presets).map((key: string) => (
-                <TButton
-                  key={key}
-                  size="small"
-                  variant="text"
-                  onClick={(e: MouseEvent) =>
-                    props.onPresetClick?.(props.presets[key], { e, preset: { [key]: props.presets[key] } })
-                  }
-                >
-                  {key}
-                </TButton>
-              ))}
-          </div>
-        }
-        {props.enableTimePicker && props.needConfirm && (
+    const renderPresets = () => {
+      if (isPlainObject(props.presets))
+        return Object.keys(props.presets).map((key: string) => (
           <TButton
-            disabled={!props.selectedValue}
+            key={key}
             size="small"
-            theme="primary"
-            onClick={(e: MouseEvent) => props.onConfirmClick?.({ e })}
+            variant="text"
+            onClick={(e: MouseEvent) =>
+              props.onPresetClick?.(props.presets[key], { e, preset: { [key]: props.presets[key] } })
+            }
           >
-            {t(globalConfig.value.confirm)}
+            {key}
           </TButton>
-        )}
-      </div>
-    );
+        ));
+      const presetsNode = renderTNodeJSX('presets');
+      return presetsNode ?? null;
+    };
+    return () => {
+      const presetsContent = renderPresets();
+      const hasPresetsContent = Array.isArray(presetsContent) ? presetsContent.length > 0 : !!presetsContent;
+      return (
+        <div class={footerClass.value}>
+          {hasPresetsContent ? <div class={presetsClass.value}>{presetsContent}</div> : null}
+          {props.enableTimePicker && props.needConfirm && (
+            <TButton
+              disabled={!props.selectedValue}
+              size="small"
+              theme="primary"
+              onClick={(e: MouseEvent) => props.onConfirmClick?.({ e })}
+            >
+              {t(globalConfig.value.confirm)}
+            </TButton>
+          )}
+        </div>
+      );
+    };
   },
 });

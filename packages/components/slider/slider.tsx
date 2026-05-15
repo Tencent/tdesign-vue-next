@@ -1,27 +1,28 @@
 import {
-  defineComponent,
-  VNode,
-  ref,
-  reactive,
-  provide,
   computed,
+  defineComponent,
   onBeforeUnmount,
   onMounted,
-  watch,
+  provide,
+  reactive,
+  ref,
   toRefs,
+  VNode,
+  watch,
+  ComputedRef,
 } from 'vue';
 import { isArray, isNumber } from 'lodash-es';
 
+import { formatPrecision, formatSliderValue, getStopStyle } from '@tdesign/common-js/slider/utils';
+import { useCommonClassName, useDisabled, usePrefixClass, useVModel } from '@tdesign/shared-hooks';
+
+import { sliderPropsInjectKey } from './constants';
+import { useSliderInput } from './hooks/useSliderInput';
+import { useSliderMark } from './hooks/useSliderMark';
 import props from './props';
 import TSliderButton from './slider-button';
-import { SliderValue } from './type';
 
-// hooks
-import { useVModel, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
-import { useSliderMark } from './hooks/useSliderMark';
-import { useSliderInput } from './hooks/useSliderInput';
-import { formatSliderValue, getStopStyle } from './utils';
-import { sliderPropsInjectKey } from './consts';
+import type { SliderValue } from './type';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};
@@ -34,7 +35,7 @@ export default defineComponent({
   },
   props,
   setup(props) {
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const COMPONENT_NAME = usePrefixClass('slider');
     const { STATUS } = useCommonClassName();
     const { value, modelValue } = toRefs(props) as any;
@@ -63,13 +64,13 @@ export default defineComponent({
           'is-vertical': vertical.value,
           [`${COMPONENT_NAME.value}--with-input`]: props.inputNumberProps,
           [`${COMPONENT_NAME.value}--vertical`]: vertical.value,
-          [STATUS.value.disabled]: disabled.value,
+          [STATUS.value.disabled]: isDisabled.value,
         },
       ];
     });
     const sliderRailClass = computed(() => [
       `${COMPONENT_NAME.value}__rail`,
-      { 'show-input': props.inputNumberProps, disabled: disabled.value },
+      { 'show-input': props.inputNumberProps, disabled: isDisabled.value },
     ]);
     const runwayStyle = computed(() => {
       return vertical.value ? { height: '100%' } : {};
@@ -190,18 +191,19 @@ export default defineComponent({
       let valuetext: string | number;
       if (props.range) {
         if (isArray(sliderValue.value)) {
-          firstValue.value = Math.max(props.min || 0, sliderValue.value[0]);
-          secondValue.value = Math.min(props.max || 100, sliderValue.value[1]);
+          firstValue.value = formatPrecision(Math.max(props.min || 0, sliderValue.value[0]), precision.value);
+          secondValue.value = formatPrecision(Math.min(props.max || 100, sliderValue.value[1]), precision.value);
         } else {
-          firstValue.value = props.min || 0;
-          secondValue.value = props.max || 100;
+          firstValue.value = formatPrecision(props.min || 0, precision.value);
+          secondValue.value = formatPrecision(props.max || 100, precision.value);
         }
         valuetext = `${firstValue.value}-${secondValue.value}`;
       } else {
         if (!isNumber(sliderValue.value)) {
           firstValue.value = props.min;
         } else {
-          firstValue.value = Math.min(props.max, Math.max(props.min, sliderValue.value as number));
+          const value = Math.min(props.max, Math.max(props.min, sliderValue.value as number));
+          firstValue.value = formatPrecision(value, precision.value);
         }
         valuetext = String(firstValue.value);
       }
@@ -240,7 +242,7 @@ export default defineComponent({
 
     // 全局点击
     const onSliderClick = (event: MouseEvent): void => {
-      if (disabled.value || dragging.value) {
+      if (isDisabled.value || dragging.value) {
         return;
       }
       if (!sliderRef.value) return;
@@ -261,7 +263,7 @@ export default defineComponent({
 
     // mark 点击触发修改事件
     const changeValue = (point: number) => {
-      if (disabled.value || dragging.value) {
+      if (isDisabled.value || dragging.value) {
         return;
       }
       resetSize();
@@ -283,6 +285,7 @@ export default defineComponent({
           firstValue.value = newVal as number;
         }
       },
+      { deep: true },
     );
 
     watch([firstValue, secondValue, dragging], (newStates, prevStates) => {
@@ -329,7 +332,7 @@ export default defineComponent({
       step: props.step,
       prefixName: COMPONENT_NAME.value,
       vertical: vertical.value,
-      disabled: disabled.value,
+      disabled: isDisabled.value,
     }));
     const renderInputNumber = useSliderInput(inputConfig);
 
@@ -374,7 +377,7 @@ export default defineComponent({
         dragging,
         toggleDragging,
         precision,
-        disabled,
+        disabled: isDisabled,
         resetSize,
         sliderSize,
       }),
@@ -388,7 +391,7 @@ export default defineComponent({
           aria-valuemin={props.min}
           aria-valuemax={props.max}
           aria-orientation={props.layout}
-          aria-disabled={disabled.value}
+          aria-disabled={isDisabled.value}
           tooltip-props={props.tooltipProps}
         >
           <div class={sliderRailClass.value} style={runwayStyle.value} onClick={onSliderClick} ref={sliderRef}>
@@ -397,7 +400,6 @@ export default defineComponent({
               vertical={vertical.value}
               value={firstValue.value}
               ref={firstButtonRef}
-              disabled={disabled.value}
               range={props.range}
               position="start"
               tooltip-props={props.tooltipProps}
@@ -415,7 +417,6 @@ export default defineComponent({
                 vertical={vertical.value}
                 value={secondValue.value}
                 ref={secondButtonRef}
-                disabled={disabled.value}
                 label={props.label}
                 range={props.range}
                 position="end"

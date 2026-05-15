@@ -1,5 +1,6 @@
-import { ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
-import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
+import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { Teleport, Transition, computed, defineComponent, nextTick, onBeforeUnmount, ref, toRefs, watch } from 'vue';
+import { isNumber } from 'lodash-es';
 
 import {
   useVModel,
@@ -8,18 +9,21 @@ import {
   usePrefixClass,
   useDefaultValue,
   usePopupManager,
+  useConfig,
 } from '@tdesign/shared-hooks';
-
+import { isPropsUsed } from '@tdesign/shared-utils';
+import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';
+import { isImageExceedsViewport } from '@tdesign/common-js/image-viewer/transform';
 import Image from '../image';
 import TImageItem from './base/ImageItem';
 import TImageViewerIcon from './base/ImageModalIcon';
 import TImageViewerModal from './base/ImageViewerModal';
 import TImageViewerUtils from './base/ImageViewerUtils';
-import { EVENT_CODE } from './consts';
+import { EVENT_CODE } from './constants';
 import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
 import { TdImageViewerProps } from './type';
-import { downloadFile, formatImages, getOverlay } from './utils';
+import { getOverlay } from './utils';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -28,6 +32,8 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('image-viewer');
     const renderTNodeJSX = useTNodeJSX();
+    const { globalConfig } = useConfig('imageViewer');
+
     const isExpand = ref(true);
     const showOverlayValue = computed(() => getOverlay(props));
 
@@ -52,18 +58,28 @@ export default defineComponent({
         [`${classPrefix.value}-is-show`]: isExpand.value,
       },
     ]);
-    const zIndexValue = computed(() => props.zIndex ?? 2600);
+    const zIndexValue = computed(() => props.zIndex ?? 3000);
     const toggleExpand = () => {
       isExpand.value = !isExpand.value;
     };
 
     const { mirror, onMirror, resetMirror } = useMirror();
-    const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale);
+    const { scale, onZoomIn, onZoomOut, resetScale, onTouchStart, onTouchMove, onTouchEnd } = useScale(
+      props.imageScale,
+    );
     const { rotate, onRotate, resetRotate } = useRotate();
+
+    // imageScale 动态变化时重置缩放
+    watch(
+      () => props.imageScale,
+      () => resetScale(),
+    );
+
     const onRest = () => {
       resetMirror();
       resetScale();
       resetRotate();
+      imageItemRef.value?.resetTransform?.();
     };
 
     const images = computed(() => formatImages(props.images));
@@ -90,10 +106,14 @@ export default defineComponent({
     };
 
     const onDownloadClick = (url: string) => {
-      props.onDownload ? props.onDownload(url) : downloadFile(url);
+      props.onDownload ? props.onDownload(url) : downloadImage(url);
     };
 
-    const openHandler = () => {
+    const openHandler = (index?: number) => {
+      if (isNumber(index)) {
+        onImgClick(index);
+      }
+
       setVisibleValue(true);
     };
     const onClose: TdImageViewerProps['onClose'] = (ctx) => {
@@ -108,7 +128,6 @@ export default defineComponent({
         onClose({ e, trigger: 'overlay' });
       }
     };
-
     const keydownHandler = (e: KeyboardEvent) => {
       e.stopPropagation();
 
@@ -136,6 +155,13 @@ export default defineComponent({
     };
 
     const divRef = ref<HTMLDivElement>();
+    const imageItemRef = ref<{
+      modalBoxRef?: HTMLDivElement;
+      transform?: { translateX: number; translateY: number };
+      resetTransform?: () => void;
+      enableTransition?: () => void;
+    }>();
+
     watch(
       () => visibleValue.value,
       (val) => {
@@ -155,11 +181,85 @@ export default defineComponent({
       },
     );
 
+    // Clean up timer when component is unmounted to prevent memory leaks and errors
+    onBeforeUnmount(() => {
+      clearTimeout(animationTimer.value);
+    });
+
+    // 滚轮缩放
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const { deltaY } = e;
-      deltaY > 0 ? onZoomOut() : onZoomIn();
+
+      const isZoomOut = e.deltaY > 0;
+      const container = divRef.value;
+      const modalBox = imageItemRef.value?.modalBoxRef;
+
+      // 无视口信息时，直接缩放
+      if (!container || !modalBox) {
+        isZoomOut ? onZoomOut() : onZoomIn();
+        return;
+      }
+
+      // 缩小且图片超出视口：以视口中心为基准，向视口中心收敛
+      if (isZoomOut && isImageExceedsViewport(container, modalBox)) {
+        const currentTranslate = imageItemRef.value?.transform ?? { translateX: 0, translateY: 0 };
+
+        const result = onZoomOut({
+          mouseOffsetX: 0,
+          mouseOffsetY: 0,
+          currentTranslate,
+        });
+        if (result?.newTranslate) {
+          // 启用向中心缩放的 transition 动画（CSS 类名驱动）
+          imageItemRef.value?.enableTransition?.();
+          imageItemRef.value.transform = result.newTranslate;
+        }
+      } else {
+        // 正常缩放
+        isZoomOut ? onZoomOut() : onZoomIn();
+      }
     };
+
+    // 容器级 wheel + 触摸缩放事件绑定（原生事件版）
+    // ⚠️ 不能用 Vue JSX 的 onWheel —— 某些浏览器（Chrome 73+）将 wheel 注册为 passive: true，
+    //    导致 e.preventDefault() 无效，无法阻止页面滚动。
+    //    必须用原生 addEventListener + { passive: false } 绕过。
+    const bindContainerEvents = () => {
+      const container = divRef.value;
+      if (!container) return;
+      container.addEventListener('wheel', onWheel, { passive: false });
+      document.addEventListener('touchstart', onTouchStart, { passive: false });
+      document.addEventListener('touchmove', onTouchMove, { passive: false });
+      document.addEventListener('touchend', onTouchEnd);
+    };
+
+    const unbindContainerEvents = () => {
+      const container = divRef.value;
+      if (container) {
+        container.removeEventListener('wheel', onWheel);
+      }
+      document.removeEventListener('touchstart', onTouchStart);
+      document.removeEventListener('touchmove', onTouchMove);
+      document.removeEventListener('touchend', onTouchEnd);
+    };
+
+    // visible 变化时绑定/解绑事件
+    watch(
+      () => visibleValue.value,
+      (val) => {
+        if (val) {
+          // nextTick 确保 DOM 已渲染
+          nextTick().then(() => bindContainerEvents());
+        } else {
+          unbindContainerEvents();
+        }
+      },
+    );
+
+    // 组件卸载时确保清理
+    onBeforeUnmount(() => {
+      unbindContainerEvents();
+    });
 
     const transStyle = computed(() => ({
       transform: `translateX(calc(-${indexValue.value} * (40px / 9 * 16 + 4px)))`,
@@ -196,6 +296,17 @@ export default defineComponent({
         </div>
       </div>
     );
+
+    const renderTitle = () => {
+      const titleContent = renderTNodeJSX('title');
+
+      return (
+        <div class={`${COMPONENT_NAME.value}__modal-index`}>
+          {titleContent ? titleContent : `${indexValue.value + 1}/${images.value.length}`}
+        </div>
+      );
+    };
+
     const renderNavigationArrow = (type: 'prev' | 'next') => {
       const rotateDeg = type === 'prev' ? 0 : 180;
       const icon = renderTNodeJSX(
@@ -226,11 +337,29 @@ export default defineComponent({
       );
     };
 
+    const renderDefaultTrigger = () => {
+      const firstImage = images.value[0] || '';
+      const imageSrc = typeof firstImage === 'string' ? firstImage : firstImage.thumbnail || firstImage.mainImage;
+      return (
+        <div class={`${COMPONENT_NAME.value}__trigger`}>
+          <Image src={imageSrc} alt="preview" fit="contain" class={`${COMPONENT_NAME.value}__trigger-img`} />
+          <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={() => openHandler()}>
+            <span>
+              <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger-icon`} />
+              {globalConfig.value.previewText}
+            </span>
+          </div>
+        </div>
+      );
+    };
+
     return () => {
       if (props.mode === 'modeless') {
         return (
           <>
-            {renderTNodeJSX('trigger', { params: { open: openHandler } })}
+            {isPropsUsed('trigger')
+              ? renderTNodeJSX('trigger', { params: { open: openHandler } })
+              : renderDefaultTrigger()}
             <TImageViewerModal
               zIndex={zIndexValue.value}
               visible={visibleValue.value}
@@ -249,7 +378,7 @@ export default defineComponent({
               onDownload={onDownloadClick}
               draggable={props.draggable}
               showOverlay={showOverlayValue.value}
-              title={props.title}
+              title={renderTitle}
               imageReferrerpolicy={imageReferrerpolicy.value}
             />
           </>
@@ -258,7 +387,9 @@ export default defineComponent({
 
       return (
         <>
-          {renderTNodeJSX('trigger', { params: { open: openHandler } })}
+          {isPropsUsed('trigger')
+            ? renderTNodeJSX('trigger', { params: { open: openHandler } })
+            : renderDefaultTrigger()}
           <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
@@ -267,7 +398,6 @@ export default defineComponent({
                   v-show={visibleValue.value}
                   class={wrapClass.value}
                   style={{ zIndex: zIndexValue.value }}
-                  onWheel={onWheel}
                   tabindex={-1}
                   onKeydown={keydownHandler}
                 >
@@ -277,16 +407,14 @@ export default defineComponent({
                   {images.value.length > 1 && (
                     <>
                       {renderHeader()}
-                      <div class={`${COMPONENT_NAME.value}__modal-index`}>
-                        {props.title && renderTNodeJSX('title')}
-                        {`${indexValue.value + 1}/${images.value.length}`}
-                      </div>
+                      {renderTitle()}
                       {renderNavigationArrow('prev')}
                       {renderNavigationArrow('next')}
                     </>
                   )}
                   {renderCloseBtn()}
                   <TImageViewerUtils
+                    zIndex={zIndexValue.value + 1}
                     onZoomIn={onZoomIn}
                     onZoomOut={onZoomOut}
                     onMirror={onMirror}
@@ -297,6 +425,7 @@ export default defineComponent({
                     currentImage={currentImage.value}
                   />
                   <TImageItem
+                    ref={imageItemRef}
                     scale={scale.value}
                     rotate={rotate.value}
                     mirror={mirror.value}

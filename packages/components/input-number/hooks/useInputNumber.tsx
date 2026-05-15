@@ -1,4 +1,4 @@
-import { computed, ref, toRefs, watch } from 'vue';
+import { computed, ComputedRef, ref, toRefs, watch } from 'vue';
 import { useVModel, useReadonly, useDisabled, useCommonClassName } from '@tdesign/shared-hooks';
 
 import { InputNumberValue, TdInputNumberProps } from '../type';
@@ -29,7 +29,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const inputRef = ref();
   const userInput = ref('');
 
-  const tDisabled = useDisabled();
+  const tDisabled = useDisabled() as ComputedRef<boolean>;
 
   const isReadonly = useReadonly();
 
@@ -204,20 +204,41 @@ export default function useInputNumber(props: TdInputNumberProps) {
       setTValue(newNumber, { type: 'input', e });
     }
   };
-
+  const isValidNumber = (val: any) => {
+    return typeof val === 'number' && !Number.isNaN(val);
+  };
   const handleBlur = (value: string, ctx: { e: FocusEvent }) => {
     const { largeNumber, max, min, decimalPlaces } = props;
-    if (!props.allowInputOverLimit && tValue.value !== undefined) {
-      const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
-      if (r === 'below-minimum') {
-        setTValue(min, { type: 'blur', e: ctx.e });
-        props.onBlur?.(min, ctx);
+    if (!props.allowInputOverLimit) {
+      // 当值为 undefined 或 null 且最小值不为默认值 -Infinity 时，设置为最小值
+      if ([undefined, null].includes(tValue.value) && min !== -Infinity) {
+        //  空值不处理，只在非法输入时修正
+        if (isValidNumber(tValue.value) && tValue.value < min) {
+          setTValue(min, { type: 'blur', e: ctx.e });
+          props.onBlur?.(min, ctx);
+        } else {
+          props.onBlur?.(tValue.value, ctx);
+        }
+
         return;
       }
-      if (r === 'exceed-maximum') {
-        setTValue(max, { type: 'blur', e: ctx.e });
-        props.onBlur?.(max, ctx);
-        return;
+      // 当值不为 undefined 时，进行范围检查
+      if (tValue.value !== undefined) {
+        const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
+        if (r === 'below-minimum') {
+          if (isValidNumber(tValue.value) && tValue.value < min) {
+            setTValue(min, { type: 'blur', e: ctx.e });
+            props.onBlur?.(min, ctx);
+          } else {
+            props.onBlur?.(tValue.value, ctx);
+          }
+          return;
+        }
+        if (r === 'exceed-maximum') {
+          setTValue(max, { type: 'blur', e: ctx.e });
+          props.onBlur?.(max, ctx);
+          return;
+        }
       }
     }
     const newValue = formatUnCompleteNumber(value, {

@@ -1,5 +1,6 @@
 import { defineComponent, PropType, computed, CSSProperties } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
+import { isSafari } from '@tdesign/common-js/utils/helper';
 
 // 统一使用的翻转箭头组件
 export default defineComponent({
@@ -13,7 +14,7 @@ export default defineComponent({
       type: [String, Object, Array],
     },
     overlayStyle: {
-      type: Object || (String as PropType<string | CSSProperties>),
+      type: [Object, String] as PropType<string | CSSProperties>,
     },
   },
 
@@ -22,6 +23,7 @@ export default defineComponent({
     const classes = computed(() => [
       COMPONENT_NAME.value,
       {
+        [`${COMPONENT_NAME.value}--transform`]: isSafari(),
         [`${COMPONENT_NAME.value}--active`]: props.isActive,
       },
       props.overlayClassName,

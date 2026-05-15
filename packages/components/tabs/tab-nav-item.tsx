@@ -2,6 +2,7 @@ import { computed, defineComponent, ref, PropType } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import tabProps from './props';
 import tabPanelProps from './tab-panel-props';
+import { TdTabsProps, TdTabPanelProps } from './type';
 
 // hooks
 import { useRipple, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
@@ -22,8 +23,10 @@ export default defineComponent({
     disabled: tabPanelProps.disabled,
     removable: tabPanelProps.removable,
     value: tabPanelProps.value,
+    draggable: tabPanelProps.draggable,
     onClick: Function as PropType<Function>,
-    onRemove: Function as PropType<Function>,
+    onTabRemove: Function as PropType<TdTabsProps['onRemove']>,
+    onTabPanelRemove: Function as PropType<TdTabPanelProps['onRemove']>,
   },
 
   setup(props) {
@@ -37,7 +40,8 @@ export default defineComponent({
 
     const removeBtnClick = ({ e }: { e: MouseEvent }) => {
       if (e) e.stopPropagation();
-      props.onRemove({ e, value: props.value, index: props.index });
+      props.onTabRemove({ e, value: props.value, index: props.index });
+      props.onTabPanelRemove?.({ e, value: props.value });
     };
     const onClickNav = (e: MouseEvent) => {
       if (props.disabled) return;
@@ -57,17 +61,24 @@ export default defineComponent({
       };
     });
 
+    const removeBtn = () =>
+      props.removable && !props.disabled ? (
+        <span onClick={(e) => removeBtnClick({ e })} class="remove-btn">
+          <CloseIcon />
+        </span>
+      ) : null;
+
     const renderCardItem = () => {
       return (
-        <div class={navItemClass.value} onClick={onClickNav} ref={itemRef}>
+        <div class={navItemClass.value} onClick={onClickNav} ref={itemRef} draggable={props.draggable}>
           <span class={`${COMPONENT_NAME.value}-text-wrapper`}>{props.label}</span>
-          {props.removable && !props.disabled ? <CloseIcon class="remove-btn" onClick={removeBtnClick} /> : null}
+          {removeBtn()}
         </div>
       );
     };
     const renderNormalItem = () => {
       return (
-        <div class={navItemClass.value} onClick={onClickNav}>
+        <div class={navItemClass.value} onClick={onClickNav} draggable={props.draggable}>
           <div
             class={[
               `${COMPONENT_NAME.value}-wrapper`,
@@ -80,7 +91,7 @@ export default defineComponent({
           >
             <span class={`${COMPONENT_NAME.value}-text-wrapper`}>{props.label}</span>
           </div>
-          {props.removable && !props.disabled ? <CloseIcon class="remove-btn" onClick={removeBtnClick} /> : null}
+          {removeBtn()}
         </div>
       );
     };

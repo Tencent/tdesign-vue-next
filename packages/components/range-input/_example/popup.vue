@@ -2,6 +2,8 @@
   <t-range-input-popup :panel="panel" />
 </template>
 
-<script setup lang="jsx">
-const panel = () => <div>hello world</div>;
+<script lang="tsx" setup>
+import type { RangeInputPopupProps } from 'tdesign-vue-next';
+
+const panel: RangeInputPopupProps['panel'] = () => <div>hello world</div>;
 </script>

@@ -18,7 +18,7 @@ export default {
   clearable: Boolean,
   /** 是否禁用范围输入框 */
   disabled: {
-    type: Boolean,
+    type: [Boolean, Array] as PropType<TdRangeInputProps['disabled']>,
     default: undefined,
   },
   /** 指定输入框展示值的格式 */

@@ -1,11 +1,17 @@
-import { defineComponent, computed, ref, watch } from 'vue';
+import { defineComponent, computed, ref, watch, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
 import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { isArray, isFunction } from 'lodash-es';
 
 import props from './date-range-picker-props';
-import { DateValue, DateRangePickerPartial } from './type';
+import {
+  DateValue,
+  DateRangePickerPartial,
+  DatePickerYearChangeTrigger,
+  DatePickerMonthChangeTrigger,
+  PickerDateRange,
+} from './type';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
 import TRangePanel from './components/panel/RangePanel';
@@ -18,8 +24,8 @@ import {
   getDefaultFormat,
   initYearMonthTime,
 } from '@tdesign/common-js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
-import { dateCorrection } from './utils';
+import { subtractMonth, addMonth, extractTimeObj, getRangeBounds } from '@tdesign/common-js/date-picker/utils';
+import { dateCorrection, triggerMap } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePicker',
@@ -43,7 +49,7 @@ export default defineComponent({
       onChange,
     } = useRange(props);
 
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean | Array<boolean>>;
     const isReadOnly = useReadonly();
 
     const formatRef = computed(() =>
@@ -61,6 +67,8 @@ export default defineComponent({
     watch(popupVisible, (visible) => {
       // 面板展开重置数据
       if (visible) {
+        if (isArray(props.disabled)) activeIndex.value = props.disabled[0] ? 1 : 0;
+
         isSelected.value = false;
         cacheValue.value = formatDate(value.value || [], {
           format: formatRef.value.valueType,
@@ -75,14 +83,68 @@ export default defineComponent({
 
         // 空数据重置为当前年月
         if (!value.value.length) {
-          const { year: defaultYear, month: defaultMonth } = initYearMonthTime({
-            value: value.value,
-            mode: props.mode,
-            format: formatRef.value.format,
-            enableTimePicker: props.enableTimePicker,
-          });
-          year.value = defaultYear;
-          month.value = defaultMonth;
+          if ((props.range && isArray(props.range)) || props.panelActiveDate) {
+            let startRange = props.range as PickerDateRange;
+            let endRange = props.range as PickerDateRange;
+            if (isArray(props.range)) {
+              const [first, second] = props.range;
+              if (isArray(first) || isFunction(first) || isArray(second) || isFunction(second)) {
+                startRange = first as PickerDateRange;
+                endRange = second as PickerDateRange;
+              }
+            }
+
+            const startRangeBounds = getRangeBounds(startRange);
+            const endRangeBounds = getRangeBounds(endRange);
+
+            const startYearFromRange = startRangeBounds.min?.getFullYear() ?? startRangeBounds.max?.getFullYear();
+            const startMonthFromRange = startRangeBounds.min?.getMonth() ?? startRangeBounds.max?.getMonth();
+
+            const endYearFromRange = endRangeBounds.min?.getFullYear() ?? endRangeBounds.max?.getFullYear();
+            const endMonthFromRange = endRangeBounds.min?.getMonth() ?? endRangeBounds.max?.getMonth();
+
+            let startPanelActiveDate = props.panelActiveDate as any;
+            let endPanelActiveDate = props.panelActiveDate as any;
+            if (isArray(props.panelActiveDate)) {
+              [startPanelActiveDate, endPanelActiveDate] = props.panelActiveDate;
+            }
+
+            const leftYear = (startPanelActiveDate?.year ?? startYearFromRange) as number;
+            const leftMonth = startPanelActiveDate?.month
+              ? Number(startPanelActiveDate?.month) - 1
+              : startMonthFromRange;
+            const rightYear = (endPanelActiveDate?.year ?? endYearFromRange) as number;
+            const rightMonth = endPanelActiveDate?.month ? Number(endPanelActiveDate?.month) - 1 : endMonthFromRange;
+
+            // 获取默认值作为兜底
+            const { year: defaultYear, month: defaultMonth } = initYearMonthTime({
+              value: value.value,
+              mode: props.mode,
+              format: formatRef.value.format,
+              enableTimePicker: props.enableTimePicker,
+            });
+
+            year.value = [leftYear ?? defaultYear[0], rightYear ?? defaultYear[1]];
+            month.value = [leftMonth ?? defaultMonth[0], rightMonth ?? defaultMonth[1]];
+
+            // 修正：如果左右面板年月完全一致且未显式指定不同范围，则偏移面板
+            if (year.value[0] === year.value[1] && month.value[0] === month.value[1] && !props.enableTimePicker) {
+              if (startRange === endRange) {
+                if (props.mode === 'year') year.value[1] += 10;
+                else if (props.mode === 'month' || props.mode === 'quarter') year.value[1] += 1;
+                else month.value[1] += 1;
+              }
+            }
+          } else {
+            const { year: defaultYear, month: defaultMonth } = initYearMonthTime({
+              value: value.value,
+              mode: props.mode,
+              format: formatRef.value.format,
+              enableTimePicker: props.enableTimePicker,
+            });
+            year.value = defaultYear;
+            month.value = defaultMonth;
+          }
         } else if (value.value.length === 2 && !props.enableTimePicker) {
           // 确保右侧面板月份比左侧大 避免两侧面板月份一致
           const nextMonth = value.value.map((v: string) => parseToDayjs(v, formatRef.value.format).month());
@@ -106,10 +168,14 @@ export default defineComponent({
         activeIndex.value = 0;
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
-        inputValue.value = formatDate(value.value, {
-          format: formatRef.value.valueType,
-          targetFormat: formatRef.value.format,
-        });
+        if (props.needConfirm) {
+          inputValue.value = formatDate(value.value, {
+            format: formatRef.value.valueType,
+            targetFormat: formatRef.value.format,
+          });
+        } else {
+          confirmValueChange();
+        }
       }
     });
 
@@ -165,28 +231,39 @@ export default defineComponent({
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
               autoSwap: true,
+              defaultTime: props.defaultTime,
             }) as DateValue[],
             {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              dayjsValue: nextValue.map((v, i) =>
+                parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+              ),
               trigger: 'pick',
             },
           );
         }
       }
 
+      if (Array.isArray(props.disabled)) return;
+
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value || !activeIndex.value) {
+      if (!isFirstValueSelected.value) {
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex as 0 | 1;
-        isFirstValueSelected.value = !!nextValue[0];
+        isFirstValueSelected.value = nextValue.some((v) => !!v);
       } else {
         popupVisible.value = false;
       }
     }
 
     // 头部快速切换
-    function onJumperClick({ trigger, partial }: { trigger: string; partial: DateRangePickerPartial }) {
+    function onJumperClick({
+      trigger,
+      partial,
+    }: {
+      trigger: 'prev' | 'next' | 'current';
+      partial: DateRangePickerPartial;
+    }) {
       const partialIndex = partial === 'start' ? 0 : 1;
 
       const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
@@ -213,8 +290,31 @@ export default defineComponent({
       nextYear = correctedDate.nextYear;
       nextMonth = correctedDate.nextMonth;
 
+      const yearChanged = year.value[partialIndex] !== nextYear[partialIndex];
+      const monthChanged = month.value[partialIndex] !== nextMonth[partialIndex];
+
       year.value = nextYear;
       month.value = nextMonth;
+
+      // 触发年份变化事件
+      if (yearChanged) {
+        props.onYearChange?.({
+          partial,
+          year: nextYear[partialIndex],
+          date: value.value.map((v) => dayjs(v).toDate()),
+          trigger: trigger === 'current' ? 'today' : (`year-${triggerMap[trigger]}` as DatePickerYearChangeTrigger),
+        });
+      }
+
+      // 触发月份变化事件
+      if (monthChanged) {
+        props.onMonthChange?.({
+          partial,
+          month: nextMonth[partialIndex],
+          date: value.value.map((v) => dayjs(v).toDate()),
+          trigger: trigger === 'current' ? 'today' : (`month-${triggerMap[trigger]}` as DatePickerMonthChangeTrigger),
+        });
+      }
     }
 
     // time-picker 点击
@@ -246,9 +346,7 @@ export default defineComponent({
         format: formatRef.value.format,
       });
     }
-
-    // 确定
-    function onConfirmClick({ e }: { e: MouseEvent }) {
+    const confirmValueChange = (e?: MouseEvent) => {
       const nextValue = [...(inputValue.value as string[])];
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
@@ -264,31 +362,54 @@ export default defineComponent({
           cacheValue.value = nextValue;
           inputValue.value = nextValue;
         } else {
+          const formattedValue = formatDate(nextValue, {
+            format: formatRef.value.format,
+            targetFormat: formatRef.value.valueType,
+            autoSwap: true,
+            defaultTime: props.defaultTime,
+          }) as DateValue[];
+          const isSame =
+            Array.isArray(formattedValue) &&
+            formattedValue.length === 2 &&
+            formattedValue[0] != null &&
+            formattedValue[1] != null &&
+            value.value[0] != null &&
+            value.value[1] != null &&
+            dayjs(formattedValue[0] as any).valueOf() === dayjs(value.value[0] as any).valueOf() &&
+            dayjs(formattedValue[1] as any).valueOf() === dayjs(value.value[1] as any).valueOf();
+          //判断传入的值和当前值是否相同，不同再触发 onChange，避免不必要的事件触发
           props?.onConfirm?.({
             date: nextValue.map((v) => dayjs(v).toDate()),
-            e,
+            e: e || null,
             partial: activeIndex.value ? 'end' : 'start',
           });
-          onChange?.(
-            formatDate(nextValue, {
-              format: formatRef.value.format,
-              targetFormat: formatRef.value.valueType,
-              autoSwap: true,
-            }) as DateValue[],
-            {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+          if (!isSame) {
+            onChange?.(formattedValue, {
+              dayjsValue: nextValue.map((v, i) =>
+                parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+              ),
               trigger: 'confirm',
-            },
-          );
+            });
+          }
         }
       }
+    };
+    // 确定
+    function onConfirmClick({ e }: { e: MouseEvent }) {
+      confirmValueChange(e);
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value || !activeIndex.value) {
+      const nextValue = [...(inputValue.value as string[])];
+
+      const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
+
+      if (Array.isArray(props.disabled)) {
+        popupVisible.value = false;
+      } else if (!isFirstValueSelected.value) {
+        // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex as 0 | 1;
-        isFirstValueSelected.value = !!nextValue[0];
+        isFirstValueSelected.value = nextValue.some((v) => !!v);
       } else if (nextValue.length === 2) {
         popupVisible.value = false;
       }
@@ -308,12 +429,19 @@ export default defineComponent({
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
             autoSwap: true,
+            defaultTime: props.defaultTime,
           }) as DateValue[],
           {
-            dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),
+            dayjsValue: presetValue.map((p, i) =>
+              parseToDayjs(p, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
+            ),
             trigger: 'preset',
           },
         );
+        // 更新到 input，避免 needConfirm 导致值被覆盖
+        inputValue.value = formatDate(presetValue, {
+          format: formatRef.value.format,
+        });
         popupVisible.value = false;
         props.onPresetClick?.(context);
       }
@@ -336,6 +464,13 @@ export default defineComponent({
 
       year.value = nextYear;
       if (!onlyYearSelect) month.value = nextMonth;
+
+      props.onYearChange?.({
+        partial,
+        year: nextYear[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
+        trigger: 'year-select',
+      });
     }
 
     function onMonthChange(nextVal: number, { partial }: { partial: DateRangePickerPartial }) {
@@ -372,6 +507,13 @@ export default defineComponent({
       }
 
       month.value = nextMonth;
+
+      props.onMonthChange?.({
+        partial,
+        month: nextMonth[partialIndex],
+        date: value.value.map((v) => dayjs(v).toDate()),
+        trigger: 'month-select',
+      });
     }
 
     const panelProps = computed(() => ({
@@ -386,13 +528,17 @@ export default defineComponent({
       presets: props.presets,
       time: time.value,
       disableDate: props.disableDate,
+      disabled: isDisabled.value,
+      disableTime: props.disableTime,
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
       popupVisible: popupVisible.value,
+      range: props.range,
       panelPreselection: props.panelPreselection,
       cancelRangeSelectLimit: props.cancelRangeSelectLimit,
+      needConfirm: props.needConfirm,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
@@ -402,13 +548,14 @@ export default defineComponent({
       onYearChange,
       onMonthChange,
       onTimePickerChange,
+      cell: props.cell,
     }));
 
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TRangeInputPopup
           readonly={isReadOnly.value}
-          disabled={disabled.value}
+          disabled={isDisabled.value}
           label={props.label}
           status={props.status}
           tips={props.tips || slots.tips}
@@ -416,7 +563,7 @@ export default defineComponent({
           popupProps={popupProps.value}
           rangeInputProps={rangeInputProps.value}
           popupVisible={popupVisible.value}
-          panel={() => <TRangePanel {...panelProps.value} />}
+          panel={() => <TRangePanel {...panelProps.value} v-slots={slots} />}
         />
       </div>
     );

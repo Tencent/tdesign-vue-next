@@ -5,8 +5,8 @@ import { GuideCrossProps } from './types';
 import { TdGuideProps, GuideStep } from './type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
-import { addClass, removeClass, isFixed, getWindowScroll } from '@tdesign/shared-utils';
-import { useVModel, useConfig, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
+import { addClass, removeClass, isFixed, getWindowScroll, isServer } from '@tdesign/shared-utils';
+import { useVModel, useConfig, useTNodeJSX, usePrefixClass, useResize } from '@tdesign/shared-hooks';
 
 import Button from '../button';
 import Popup, { PopupProps } from '../popup';
@@ -42,7 +42,7 @@ export default defineComponent({
     // dialog ref
     const dialogTooltipRef = ref<HTMLElement>();
     // ! popup ref 不确定这里的类型是否完全正确
-    const popupTooltipRef = ref<InstanceType<typeof Popup>>();
+    const popupTooltipRef = ref();
     // 是否开始展示
     const actived = ref<boolean>(false);
     // 步骤总数
@@ -181,6 +181,11 @@ export default defineComponent({
       }
       popupVisible.value = true;
     };
+
+    useResize(() => {
+      if (!popupVisible.value) return;
+      showGuide();
+    }, !isServer && document.body);
 
     const destroyGuide = () => {
       destroyTooltipElm();

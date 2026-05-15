@@ -16,6 +16,7 @@ export default defineComponent({
   props: {
     ...props,
     placement: String, // just for animation
+    className: String,
   },
   setup(props, { slots, expose }) {
     const COMPONENT_NAME = usePrefixClass('notification');
@@ -30,10 +31,17 @@ export default defineComponent({
     const timer = ref(null);
     const notificationRef = ref(null);
 
-    const close = (e?: MouseEvent) => {
+    const handleCloseBtnClick = (e?: MouseEvent) => {
       const dom = notificationRef.value as HTMLElement;
       fadeOut(dom, props.placement, () => {
         props.onCloseBtnClick?.({ e });
+      });
+    };
+
+    const close = () => {
+      const dom = notificationRef.value as HTMLElement;
+      fadeOut(dom, props.placement, () => {
+        props.onClose?.();
       });
     };
 
@@ -59,7 +67,7 @@ export default defineComponent({
     const renderClose = () => {
       const defaultClose = <CloseIcon />;
       return (
-        <span class={`${classPrefix.value}-message__close`} onClick={close}>
+        <span class={`${classPrefix.value}-message__close`} onClick={handleCloseBtnClick}>
           {renderTNode('closeBtn', defaultClose)}
         </span>
       );
@@ -99,7 +107,12 @@ export default defineComponent({
 
     expose({ close });
     return () => (
-      <div ref={notificationRef} class={`${COMPONENT_NAME.value}`} onMouseenter={clearTimer} onMouseleave={setTimer}>
+      <div
+        ref={notificationRef}
+        class={[COMPONENT_NAME.value, props.className]}
+        onMouseenter={clearTimer}
+        onMouseleave={setTimer}
+      >
         {renderIcon()}
         <div class={`${COMPONENT_NAME.value}__main`}>
           <div class={`${COMPONENT_NAME.value}__title__wrap`}>

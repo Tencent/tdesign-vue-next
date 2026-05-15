@@ -8,7 +8,7 @@
 import { onMounted, ref } from 'vue';
 import cnConfig from '@tdesign/components/locale/zh_CN';
 import enConfig from '@tdesign/components/locale/en_US';
-import { getLang } from 'tdesign-site-components';
+import { getLang } from '@tdesign/site-components';
 
 const globalConfig = ref(cnConfig);
 

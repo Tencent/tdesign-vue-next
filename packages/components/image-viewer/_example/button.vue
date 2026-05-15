@@ -4,15 +4,23 @@
       v-model:visible="visible"
       :trigger="trigger"
       :images="['https://tdesign.gtimg.com/demo/demo-image-1.png']"
+      :z-index="10000"
     >
     </t-image-viewer>
   </div>
 </template>
 
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { ImageViewerProps } from 'tdesign-vue-next';
 
 const visible = ref(false);
-
-const trigger = (h, { open }) => <t-button onClick={open}>预览单张图片</t-button>;
+const trigger: ImageViewerProps['trigger'] = (
+  h,
+  {
+    open,
+  }: {
+    open: () => void;
+  },
+) => <t-button onClick={open}>预览单张图片</t-button>;
 </script>

@@ -9,6 +9,8 @@ lib/
 dist/
 .nuxt
 .output
+_example-js/
+
 _site
 _static_site
 package
@@ -30,3 +32,6 @@ Dockerfile
 robotMsg.json
 .gitlogmap
 .eslintcache
+.codebuddy
+.tico
+.claude

@@ -2,7 +2,7 @@ import { TdCascaderProps, CascaderValue, CascaderChangeSource } from './type';
 import { TdSelectInputProps } from '../select-input/type';
 import TreeStore from '@tdesign/common-js/tree/tree-store';
 import TreeNode from '@tdesign/common-js/tree/tree-node';
-import { TreeNodeModel, TreeNodeValue } from '@tdesign/common-js/tree/types';
+import { TreeNodeModel, TreeNodeValue, TypeTreeNodeData } from '@tdesign/common-js/tree/types';
 
 export * from './type';
 export interface CascaderContextType
@@ -22,6 +22,8 @@ export interface CascaderContextType
     | 'value'
     | 'minCollapsedNum'
     | 'valueType'
+    | 'valueMode'
+    | 'reserveKeyword'
   > {
   treeStore: TreeStore;
   setValue: (val: CascaderValue, source: CascaderChangeSource, node?: TreeNodeModel) => void;
@@ -31,7 +33,8 @@ export interface CascaderContextType
   setTreeNodes: (val: CascaderValue) => void;
   inputVal: TdSelectInputProps['inputValue'];
   setInputVal: (val: TdSelectInputProps['inputValue']) => void;
-  setExpend: (val: TreeNodeValue[]) => void;
+  setExpand: (val: TreeNodeValue[]) => void;
+  isParentFilterable: boolean;
 }
 
 export { TreeNode } from '@tdesign/common-js/tree/tree-node';
@@ -40,4 +43,13 @@ export type { TreeOptionData } from '@tdesign/common-js/common';
 export type { TreeNodeModel } from '../tree';
 export type { TdSelectInputProps } from '../select-input/type';
 
+export type CascaderOption = TreeOptionData | TypeTreeNodeData;
+
 export const EVENT_NAME_WITH_KEBAB = ['remove', 'blur', 'focus'];
+
+export interface FilterState {
+  filters: Record<number, string | ((node: CascaderOption, panelIndex: number) => boolean)>;
+  maxLevel: number;
+}
+
+export type FilterValue = string | ((node: CascaderOption, panelIndex: number) => boolean);

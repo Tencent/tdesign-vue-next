@@ -6,7 +6,7 @@ import Ellipsis from './components/ellipsis';
 export default defineComponent({
   name: 'TTypographyTitle',
   props,
-  setup(props) {
+  setup(props, { attrs }) {
     const COMPONENT_NAME = usePrefixClass('typography');
     const renderContent = useContent();
 
@@ -18,7 +18,7 @@ export default defineComponent({
           {h(Tag, ...content)}
         </Ellipsis>
       ) : (
-        <>{h(Tag, { class: COMPONENT_NAME.value }, ...content)}</>
+        <>{h(Tag, { ...attrs, class: [COMPONENT_NAME.value, attrs.class] }, ...content)}</>
       );
     };
   },

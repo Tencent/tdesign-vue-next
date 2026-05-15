@@ -6,12 +6,16 @@ import {
   reactive,
   watch,
   onMounted,
+  onBeforeUnmount,
+  onUpdated,
   watchEffect,
   toRefs,
   h,
   VNode,
   Component,
   getCurrentInstance,
+  nextTick,
+  cloneVNode,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isArray, isFunction } from 'lodash-es';
@@ -22,9 +26,13 @@ import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './types';
 import { Tabs, TabPanel } from '../tabs';
 import Submenu from './submenu';
+import PopupOverflowContent from './components/popup-overflow-content';
 import { VMenu } from './utils';
 
-import { useVModel, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
+import { useVModel, usePrefixClass, useDefaultValue, useResizeObserver } from '@tdesign/shared-hooks';
+
+// 用于"更多"Submenu 的特殊 value，不会与任何实际菜单项冲突
+const MORE_SUBMENU_VALUE = '__t_head_menu_more__';
 
 export default defineComponent({
   name: 'THeadMenu',
@@ -103,9 +111,33 @@ export default defineComponent({
         handleSubmenuExpand(value[0]);
       }
     });
+    let cachedFlatItemValues: MenuValue[] = [];
+
     const updateActiveValues = (value: MenuValue) => {
-      activeValues.value = vMenu.select(value);
+      const pureVals = vMenu.select(value).filter((v) => v !== MORE_SUBMENU_VALUE);
+      activeValues.value = pureVals;
+      syncMoreActiveState();
     };
+
+    const syncMoreActiveState = () => {
+      const vals = activeValues.value.filter((v) => v !== MORE_SUBMENU_VALUE);
+      const isFolded = foldStartIndex.value >= 0;
+
+      let needActive = false;
+      if (isFolded && vals.length > 0 && cachedFlatItemValues.length > 0) {
+        const foldedTopValues = new Set(cachedFlatItemValues.slice(foldStartIndex.value));
+
+        const topLevelAncestor = vals.find((v) => v != null);
+        needActive = topLevelAncestor != null && foldedTopValues.has(topLevelAncestor);
+      }
+
+      if (needActive) {
+        activeValues.value = [...vals, MORE_SUBMENU_VALUE];
+      } else {
+        activeValues.value = vals;
+      }
+    };
+
     watch(activeValue, updateActiveValues);
     watch(
       () => props.expandType,
@@ -128,6 +160,7 @@ export default defineComponent({
       if (href) {
         window.location.href = activeMenuItem.href;
       }
+      // @ts-ignore: TODO
       const router = activeMenuItem.router || proxy.$router;
       if (to && router) {
         replace ? router.replace(to) : router.push(to);
@@ -154,6 +187,206 @@ export default defineComponent({
     const logoRef = ref<HTMLDivElement>();
     const operationRef = ref<HTMLDivElement>();
 
+    // 记录从第几个 DOM 子元素开始折叠（-1 表示不折叠）
+    const foldStartIndex = ref(-1);
+    // 缓存每个菜单项的完整宽度（包含 margin），即使被 display:none 也能使用缓存值
+    const cachedItemWidths: number[] = [];
+
+    /**
+     * 获取 menuRef 下所有菜单项 DOM 元素（<li> 级别）, 兼容通过封装组件实现的子菜单
+     */
+    const getMenuItemElements = (): HTMLElement[] => {
+      if (!menuRef.value) return [];
+      const moreClass = `${classPrefix.value}-head-menu__submenu--more`;
+      const menuItemClass = `${classPrefix.value}-menu__item`;
+      const submenuClass = `${classPrefix.value}-submenu`;
+
+      const result: HTMLElement[] = [];
+
+      const collectItems = (parent: HTMLElement, depth: number) => {
+        // 限制递归深度，避免无限递归
+        if (depth > 3) return;
+        Array.from(parent.children).forEach((el) => {
+          if (!(el instanceof HTMLElement)) return;
+          // 跳过"更多"按钮
+          if (el.classList.contains(moreClass)) return;
+          // 如果是菜单项或子菜单，收集它
+          if (el.classList.contains(menuItemClass) || el.classList.contains(submenuClass)) {
+            result.push(el);
+          } else {
+            // 否则认为是封装容器，继续向下查找
+            collectItems(el, depth + 1);
+          }
+        });
+      };
+
+      collectItems(menuRef.value, 0);
+      return result;
+    };
+
+    /**
+     * 获取"更多"按钮的实际 DOM 宽度（而非硬编码）
+     */
+    const getMoreButtonWidth = (): number => {
+      if (!menuRef.value) return 0;
+      const moreEl = menuRef.value.querySelector(`.${classPrefix.value}-head-menu__submenu--more`) as HTMLElement;
+      if (!moreEl) return 0;
+      // 如果"更多"按钮被隐藏，临时显示来测量
+      const wasHidden = moreEl.style.display === 'none';
+      if (wasHidden) {
+        moreEl.style.visibility = 'hidden';
+        moreEl.style.display = '';
+      }
+      const style = window.getComputedStyle(moreEl);
+      const rect = moreEl.getBoundingClientRect();
+      const w = rect.width + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
+      if (wasHidden) {
+        moreEl.style.display = 'none';
+        moreEl.style.visibility = '';
+      }
+      return w;
+    };
+
+    const getElementWidth = (el: HTMLElement): number => {
+      const style = window.getComputedStyle(el);
+      const rect = el.getBoundingClientRect();
+      return rect.width + Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
+    };
+
+    const getWrapperElements = (): HTMLElement[] => {
+      if (!menuRef.value) return [];
+      const moreClass = `${classPrefix.value}-head-menu__submenu--more`;
+      const menuItemClass = `${classPrefix.value}-menu__item`;
+      const submenuClass = `${classPrefix.value}-submenu`;
+      const wrappers: HTMLElement[] = [];
+
+      Array.from(menuRef.value.children).forEach((el) => {
+        if (!(el instanceof HTMLElement)) return;
+        if (el.classList.contains(moreClass)) return;
+        if (el.classList.contains(menuItemClass) || el.classList.contains(submenuClass)) return;
+        // 既不是菜单项也不是"更多"按钮，就是封装容器
+        wrappers.push(el);
+      });
+      return wrappers;
+    };
+
+    const handleResize = () => {
+      if (props.expandType !== 'popup') return;
+      if (!menuRef.value) return;
+
+      // 先处理封装容器：临时设 display:contents 使其不产生盒子
+      const wrappers = getWrapperElements();
+      const savedWrapperDisplays: string[] = [];
+      wrappers.forEach((el) => {
+        savedWrapperDisplays.push(el.style.display);
+        el.style.display = 'contents';
+      });
+
+      const itemNodes = getMenuItemElements();
+      if (itemNodes.length === 0) {
+        wrappers.forEach((el, i) => {
+          el.style.display = savedWrapperDisplays[i];
+        });
+        foldStartIndex.value = -1;
+        applyFoldState();
+        return;
+      }
+
+      // 恢复所有项可见，测量真实自然宽度
+      const moreEl = menuRef.value.querySelector(`.${classPrefix.value}-head-menu__submenu--more`) as HTMLElement;
+      if (moreEl) moreEl.style.display = 'none';
+
+      const savedFlexShrinks: string[] = [];
+      const savedDisplays: string[] = [];
+      itemNodes.forEach((el) => {
+        savedDisplays.push(el.style.display);
+        el.style.display = '';
+        savedFlexShrinks.push(el.style.flexShrink);
+        el.style.flexShrink = '0';
+      });
+
+      cachedItemWidths.length = 0;
+      itemNodes.forEach((el) => {
+        cachedItemWidths.push(getElementWidth(el));
+      });
+
+      // 恢复测量前的状态
+      itemNodes.forEach((el, index) => {
+        el.style.flexShrink = savedFlexShrinks[index];
+        el.style.display = savedDisplays[index];
+      });
+      if (moreEl) moreEl.style.display = savedDisplays.length > 0 ? '' : 'none';
+
+      // 恢复封装容器
+      wrappers.forEach((el) => {
+        el.style.display = 'contents';
+      });
+
+      // 计算截断点
+      const menuWidth = calcMenuWidth();
+      const totalItemsWidth = cachedItemWidths.reduce((sum, w) => sum + w, 0);
+
+      let newFoldIndex = -1;
+
+      if (totalItemsWidth > menuWidth) {
+        const subMoreWidth = getMoreButtonWidth();
+        let currentWidth = 0;
+        for (let i = 0; i < itemNodes.length; i++) {
+          if (currentWidth + cachedItemWidths[i] + subMoreWidth > menuWidth) {
+            newFoldIndex = i;
+            break;
+          }
+          currentWidth += cachedItemWidths[i];
+        }
+        if (newFoldIndex === -1 && currentWidth + subMoreWidth > menuWidth) {
+          newFoldIndex = itemNodes.length - 1;
+        }
+      }
+
+      foldStartIndex.value = newFoldIndex;
+      applyFoldState();
+    };
+
+    const applyFoldState = () => {
+      if (!menuRef.value) return;
+
+      // 确保封装容器始终 display:contents
+      const wrappers = getWrapperElements();
+      wrappers.forEach((el) => {
+        el.style.display = 'contents';
+      });
+
+      const itemNodes = getMenuItemElements();
+      const moreEl = menuRef.value.querySelector(`.${classPrefix.value}-head-menu__submenu--more`) as HTMLElement;
+      const isFolded = foldStartIndex.value >= 0;
+
+      itemNodes.forEach((el, index) => {
+        el.style.display = isFolded && index >= foldStartIndex.value ? 'none' : '';
+      });
+
+      if (moreEl) {
+        moreEl.style.display = isFolded ? '' : 'none';
+      }
+
+      // 折叠状态变化后，更新"更多"按钮的高亮状态
+      syncMoreActiveState();
+    };
+
+    // 使用 ResizeObserver 监听容器尺寸变化（安全，不会因 DOM 样式修改而循环触发）
+    useResizeObserver(innerRef, handleResize);
+
+    // 监听 logo 内部图片的加载
+    watch(logoRef, (el) => {
+      if (el) {
+        const imgs = el.querySelectorAll('img');
+        imgs.forEach((img) => {
+          if (!img.complete) {
+            img.onload = () => handleResize();
+          }
+        });
+      }
+    });
+
     const getComputedCss = (el: Element, cssProperty: keyof CSSStyleDeclaration) =>
       getComputedStyle(el)[cssProperty] ?? '';
 
@@ -161,8 +394,11 @@ export default defineComponent({
       Number.parseInt(String(getComputedCss(el, cssProperty)), 10);
 
     const calcMenuWidth = () => {
+      if (!innerRef.value || !menuRef.value) return 0;
       const menuPaddingLeft = getComputedCssValue(menuRef.value, 'paddingLeft');
       const menuPaddingRight = getComputedCssValue(menuRef.value, 'paddingRight');
+      const menuMarginLeft = getComputedCssValue(menuRef.value, 'marginLeft');
+      const menuMarginRight = getComputedCssValue(menuRef.value, 'marginRight');
       let totalWidth = innerRef.value.clientWidth;
       if (logoRef.value) {
         const logoMarginLeft = getComputedCssValue(logoRef.value, 'marginLeft');
@@ -176,45 +412,31 @@ export default defineComponent({
         totalWidth = totalWidth - operationRef.value.offsetWidth - operationMarginLeft - operationMarginRight;
       }
 
-      return totalWidth - menuPaddingLeft - menuPaddingRight;
+      return totalWidth - menuPaddingLeft - menuPaddingRight - menuMarginLeft - menuMarginRight;
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const formatContent = () => {
-      let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
-
-      if (menuRef.value && innerRef.value) {
-        const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
-          (item) => item.nodeName !== '#text' || item.nodeValue,
-        ) as HTMLElement[];
-
-        const menuWidth = calcMenuWidth();
-        const menuItemMinWidth = 104;
-
-        let remainWidth = menuWidth;
-        let sliceIndex = validNodes.length;
-
-        for (let index = 0; index < validNodes.length; index++) {
-          const element = validNodes[index];
-          remainWidth -= element.offsetWidth || 0;
-          if (remainWidth < menuItemMinWidth) {
-            sliceIndex = index;
-            break;
+    /**
+     * 通过递归扁平化 slot VNode 树来获取所有叶子菜单项节点
+     */
+    const flattenSlotNodes = (nodes: VNode[]): VNode[] => {
+      const result: VNode[] = [];
+      for (const node of nodes) {
+        // Fragment 节点：Vue 将 template 中多个根节点包装为 Fragment
+        if (node.type === Symbol.for('v-fgm') || node.type === Symbol.for('')) {
+          if (isArray(node.children)) {
+            result.push(...flattenSlotNodes(node.children as VNode[]));
           }
-        }
-
-        const defaultSlot = slot.slice(0, sliceIndex);
-        const subMore = slot.slice(sliceIndex);
-
-        if (subMore.length) {
-          slot = defaultSlot.concat(
-            <Submenu expandType="popup" title={() => <EllipsisIcon />}>
-              {subMore}
-            </Submenu>,
-          );
+        } else if ((node.type as Component)?.name === 'TSubmenu' || (node.type as Component)?.name === 'TMenuItem') {
+          result.push(node);
+        } else if (isArray(node.children)) {
+          result.push(...flattenSlotNodes(node.children as VNode[]));
+        } else if (isFunction((node.children as any)?.default)) {
+          result.push(...flattenSlotNodes((node.children as any).default()));
+        } else {
+          result.push(node);
         }
       }
-      return slot;
+      return result;
     };
 
     const initVMenu = (slots: VNode[], parentValue?: string) => {
@@ -232,15 +454,78 @@ export default defineComponent({
         }
       });
     };
-    initVMenu(ctx.slots.default?.() || ctx.slots.content?.() || []);
+
+    let pendingResizeRAF: number | null = null;
+    let prevSlotKey = '';
+
+    onUpdated(() => {
+      applyFoldState();
+    });
+
+    const scheduleResize = () => {
+      if (pendingResizeRAF != null) return;
+      pendingResizeRAF = requestAnimationFrame(() => {
+        pendingResizeRAF = null;
+        handleResize();
+      });
+    };
+
+    onMounted(() => {
+      nextTick(() => handleResize());
+    });
+
+    onBeforeUnmount(() => {
+      if (pendingResizeRAF != null) {
+        cancelAnimationFrame(pendingResizeRAF);
+        pendingResizeRAF = null;
+      }
+    });
 
     return () => {
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
+      const originalContent = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
-      // TODO: 判断逻辑不够完善 影响封装组件的子菜单样式渲染 暂时先不执行 待调整实现方案
-      // const content = formatContent();
-      const content = ctx.slots.default?.() || ctx.slots.content?.() || [];
+      // 扁平化 slot VNode，获取所有菜单项（解决封装组件场景）
+      const flatItems = flattenSlotNodes(originalContent);
+
+      // 判断是否需要折叠（只看 DOM 层面的折叠索引）
+      const isFolded = foldStartIndex.value >= 0;
+
+      // 判断是否可以在 VNode 层面按索引截取
+      // 如果 flatItems 中都是实际的 TMenuItem/TSubmenu VNode，可以直接 slice
+      // 如果是封装组件（如 MenuContent），flatItems.length 可能小于 foldStartIndex，
+      // 此时需要渲染完整内容并在 DOM 层面隐藏前 N 项
+      const canSliceVNodes = isFolded && foldStartIndex.value < flatItems.length;
+
+      // 内容始终完整渲染（通过 DOM display:none 控制可见性），
+      // 保证 DOM 子元素数量稳定，handleResize 的索引对应关系始终正确
+      const content = originalContent;
+
+      const slotKey = flatItems.map((n) => n.props?.value).join(',');
+      if (slotKey !== prevSlotKey) {
+        prevSlotKey = slotKey;
+        cachedFlatItemValues = flatItems.map((n) => n.props?.value);
+        vMenu.data.children = [];
+        vMenu.cache.clear();
+        initVMenu(flatItems);
+        scheduleResize();
+      }
+
+      // 构建"更多"弹窗的 slot 内容
+      const buildPopupSlot = () => {
+        if (!isFolded) return [];
+        if (canSliceVNodes) {
+          // 直接菜单项场景：按索引截取并克隆
+          return flatItems.slice(foldStartIndex.value).map((vnode) => cloneVNode(vnode));
+        }
+        // 封装组件场景：渲染完整内容的克隆，通过 PopupOverflowContent 在 DOM 层面隐藏前 N 项
+        return (
+          <PopupOverflowContent foldIndex={foldStartIndex.value}>
+            {originalContent.map((vnode) => cloneVNode(vnode))}
+          </PopupOverflowContent>
+        );
+      };
 
       return (
         <div class={menuClass.value}>
@@ -252,6 +537,18 @@ export default defineComponent({
             )}
             <ul class={`${classPrefix.value}-menu`} ref={menuRef}>
               {content}
+              {props.expandType === 'popup' && (
+                <Submenu
+                  class={`${classPrefix.value}-head-menu__submenu--more`}
+                  value={MORE_SUBMENU_VALUE}
+                  expandType="popup"
+                  title={() => <EllipsisIcon />}
+                  style={{ display: isFolded ? '' : 'none' }}
+                  v-slots={{
+                    default: buildPopupSlot,
+                  }}
+                />
+              )}
             </ul>
             {operations && (
               <div class={`${classPrefix.value}-menu__operations`} ref={operationRef}>

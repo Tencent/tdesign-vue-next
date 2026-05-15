@@ -182,7 +182,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   tips?: string | TNode;
   /**
-   * 触发上传的元素，`files` 指本次显示的全部文件
+   * 触发上传的元素，`files` 指本次显示的全部文件; `triggerUpload` 用于触发上传文件的选择，在图片上传风格中有效
    */
   trigger?: TNode<TriggerContext>;
   /**
@@ -389,6 +389,7 @@ export type SizeUnit = SizeUnitArray[number];
 export interface TriggerContext {
   dragActive?: boolean;
   files: UploadFile[];
+  triggerUpload?: (e: MouseEvent) => void;
 }
 
 export interface UploadChangeContext {

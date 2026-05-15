@@ -28,7 +28,7 @@ export interface TdRangeInputProps {
   /**
    * 是否禁用范围输入框
    */
-  disabled?: boolean;
+  disabled?: boolean | Array<boolean>;
   /**
    * 指定输入框展示值的格式
    */
@@ -166,7 +166,7 @@ export interface TdRangeInputPopupProps {
   /**
    * 是否禁用范围输入框，值为数组表示可分别控制某一个输入框是否禁用
    */
-  disabled?: boolean;
+  disabled?: boolean | Array<boolean>;
   /**
    * 输入框的值
    */

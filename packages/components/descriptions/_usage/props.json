@@ -59,5 +59,20 @@
         "value": "vertical"
       }
     ]
+  },
+   {
+    "name": "tableLayout",
+    "type": "enum",
+    "defaultValue": "fixed",
+    "options": [
+      {
+        "label": "fixed",
+        "value": "fixed"
+      },
+      {
+        "label": "auto",
+        "value": "auto"
+      }
+    ]
   }
 ]

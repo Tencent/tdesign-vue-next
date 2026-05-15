@@ -2,7 +2,7 @@ import { defineComponent, inject, computed } from 'vue';
 import { useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 import props from './option-group-props';
 
-import { selectInjectKey } from './consts';
+import { selectInjectKey } from './constants';
 
 export default defineComponent({
   name: 'TOptionGroup',

@@ -3,13 +3,15 @@
     <t-cascader v-model="value" :options="options" filterable clearable />
     <t-cascader v-model="value2" :options="options" filterable clearable multiple :min-collapsed-num="2" />
     <t-cascader v-model="value3" :filter="filterMethod" :options="options" clearable :min-collapsed-num="2" />
+    <t-cascader v-model="value4" filterable :options="options" clearable multiple check-strictly />
   </t-space>
 </template>
 
-<script setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
+import type { CascaderProps } from 'tdesign-vue-next';
 
-const options = [
+const options: CascaderProps['options'] = [
   {
     label: '当选项一数据展示文本过长时',
     value: '1',
@@ -43,12 +45,12 @@ const options = [
     ],
   },
 ];
-
 const value = ref('');
 const value2 = ref(['1.1']);
 const value3 = ref('');
+const value4 = ref([]);
 
-const filterMethod = (search, node) => {
+const filterMethod: CascaderProps['filter'] = (search, node) => {
   console.log('filter:', search, node.label);
   return node.label.indexOf(search) !== -1;
 };

@@ -4,15 +4,22 @@
     <t-button id="t-demo-msg-close-all" variant="outline" @click="closeAll">点击关闭所有通知</t-button>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { NotifyPlugin } from 'tdesign-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
 
-const openSomeNotification = () => {
-  NotifyPlugin.info({ title: '这是第一条通知' });
-  NotifyPlugin.warning({ title: '这是第二条通知' });
-  NotifyPlugin.error({ title: '这是第三条通知' });
+const openSomeNotification: ButtonProps['onClick'] = () => {
+  NotifyPlugin.info({
+    title: '这是第一条通知',
+  });
+  NotifyPlugin.warning({
+    title: '这是第二条通知',
+  });
+  NotifyPlugin.error({
+    title: '这是第三条通知',
+  });
 };
-const closeAll = () => {
+const closeAll: ButtonProps['onClick'] = () => {
   NotifyPlugin.closeAll();
 };
 </script>

@@ -17,22 +17,73 @@ export default defineComponent({
     imageReferrerpolicy: String as PropType<TdImageViewerProps['imageReferrerpolicy']>,
   },
 
-  setup(props) {
+  setup(props, { expose }) {
     const { src, placementSrc, isSvg } = toRefs(props);
     const classPrefix = usePrefixClass();
     const error = ref(false);
     const loaded = ref(false);
-    const { transform, mouseDownHandler } = useDrag({ translateX: 0, translateY: 0 });
+    const { transform, mouseDownHandler, resetTransform } = useDrag({ translateX: 0, translateY: 0 });
     const { globalConfig } = useConfig('imageViewer');
     const errorText = globalConfig.value.errorText;
     const svgElRef = ref<HTMLDivElement>();
+    const modalBoxRef = ref<HTMLDivElement>();
 
+    // --- 向中心缩放的 CSS transition 动画 ---
+    const transitioningClass = `${classPrefix.value}-image-viewer__modal-box--transitioning`;
+    let transitionEndHandler: ((e: TransitionEvent) => void) | null = null;
+    /** 兜底定时器：浏览器可能不触发 transitionend（DOM 移除、动画合并、起止值相同等） */
+    let fallbackTimer: ReturnType<typeof setTimeout> | null = null;
+
+    /** 移除 transition 类名并清理所有监听 */
+    const cleanupTransition = () => {
+      const modalBox = modalBoxRef.value;
+      if (!modalBox) return;
+      if (fallbackTimer) {
+        clearTimeout(fallbackTimer);
+        fallbackTimer = null;
+      }
+      modalBox.classList.remove(transitioningClass);
+      if (transitionEndHandler) {
+        modalBox.removeEventListener('transitionend', transitionEndHandler);
+        transitionEndHandler = null;
+      }
+    };
+
+    /**
+     * 启用 modal-box 的 transition 动画
+     * 流程：清理旧状态 → 强制 reflow → 添加类名 → 设置兜底超时 + transitionend 监听
+     */
+    const enableTransition = () => {
+      const modalBox = modalBoxRef.value;
+      if (!modalBox) return;
+
+      cleanupTransition();
+      modalBox.getBoundingClientRect(); // 强制 reflow，保证移除→添加类名能触发新动画
+      modalBox.classList.add(transitioningClass);
+
+      // 兜底：350ms 后强制清理（transition-duration 一般 ≤ 300ms）
+      fallbackTimer = setTimeout(cleanupTransition, 350);
+
+      const handleTransitionEnd = (e: TransitionEvent) => {
+        if (e.propertyName !== 'transform') return;
+        cleanupTransition();
+      };
+      transitionEndHandler = handleTransitionEnd;
+      modalBox.addEventListener('transitionend', handleTransitionEnd);
+    };
+
+    // 暴露内部状态，供父组件在缩放时读写 transform / 启用过渡动画
+    expose({ modalBoxRef, transform, resetTransform, enableTransition });
+
+    // 双层 transform 架构：
+    // - modal-image（内层）：rotateZ + scale → CSS 自带 transition: all 自动驱动平滑动画
+    // - modal-box（外层）：translate(拖拽位移) + scale(mirror, 1) → 位移和镜像，无 transition 保证拖拽跟手
     const imgStyle = computed(() => ({
-      transform: `rotate(${props.rotate}deg) scale(${props.scale})`,
+      transform: `rotateZ(${props.rotate}deg) scale(${props.scale})`,
       display: !props.placementSrc || loaded.value ? 'block' : 'none',
     }));
     const placementImgStyle = computed(() => ({
-      transform: `rotate(${props.rotate}deg) scale(${props.scale})`,
+      transform: `rotateZ(${props.rotate}deg) scale(${props.scale})`,
       display: !loaded.value ? 'block' : 'none',
     }));
     const boxStyle = computed(() => {
@@ -80,7 +131,7 @@ export default defineComponent({
         const svgViewBox = svgElement.getAttribute('viewBox');
         if (svgViewBox) {
           const viewBoxValues = svgViewBox
-            .split(/[\s\,]/)
+            .split(/[\s,]/)
             .filter(function (v) {
               return v;
             })
@@ -121,7 +172,7 @@ export default defineComponent({
 
     return () => (
       <div class={`${classPrefix.value}-image-viewer__modal-pic`}>
-        <div class={`${classPrefix.value}-image-viewer__modal-box`} style={boxStyle.value}>
+        <div ref={modalBoxRef} class={`${classPrefix.value}-image-viewer__modal-box`} style={boxStyle.value}>
           {error.value && (
             <div class={`${classPrefix.value}-image-viewer__img-error`}>
               {/* 脱离文档流 */}
@@ -136,6 +187,10 @@ export default defineComponent({
             <img
               class={`${classPrefix.value}-image-viewer__modal-image`}
               onMousedown={(event: MouseEvent) => {
+                event.stopPropagation();
+                mouseDownHandler(event);
+              }}
+              onTouchstart={(event: TouchEvent) => {
                 event.stopPropagation();
                 mouseDownHandler(event);
               }}
@@ -154,6 +209,10 @@ export default defineComponent({
                 event.stopPropagation();
                 mouseDownHandler(event);
               }}
+              onTouchstart={(event: TouchEvent) => {
+                event.stopPropagation();
+                mouseDownHandler(event);
+              }}
               src={mainImagePreviewUrl.value}
               onLoad={() => (loaded.value = true)}
               onError={() => (error.value = true)}
@@ -169,6 +228,10 @@ export default defineComponent({
               ref={svgElRef}
               class={`${classPrefix.value}-image-viewer__modal-image`}
               onMousedown={(event: MouseEvent) => {
+                event.stopPropagation();
+                mouseDownHandler(event);
+              }}
+              onTouchstart={(event: TouchEvent) => {
                 event.stopPropagation();
                 mouseDownHandler(event);
               }}

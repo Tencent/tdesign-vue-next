@@ -44,7 +44,12 @@ PR 在维护者审核通过后会合并，谢谢！
 #### @tdesign-vue-next/chat
 <!--
 - feat(组件名称): 处理问题或特性描述
---> 
+-->
+
+#### @tdesign-vue-next/auto-import-resolver
+<!--
+- feat(组件名称): 处理问题或特性描述
+-->
 
 ### ☑️ 请求合并前的自查清单
 

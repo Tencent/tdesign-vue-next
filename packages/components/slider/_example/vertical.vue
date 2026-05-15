@@ -5,21 +5,12 @@
     <t-slider v-model="value2" :layout="layout" range :show-tooltip="true" />
   </t-space>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value1 = ref(12);
-    const value2 = ref([30, 70]);
-
-    return {
-      value1,
-      value2,
-      layout: 'vertical',
-    };
-  },
-});
+const value1 = ref(12);
+const value2 = ref([30, 70]);
+const layout = 'vertical';
 </script>
 <style>
 .slider-demo-container {

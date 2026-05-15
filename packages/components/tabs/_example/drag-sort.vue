@@ -22,13 +22,12 @@
     </t-tabs>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TabsProps } from 'tdesign-vue-next';
 
-const theme = ref('normal');
-
-const value = ref('first');
-
+const theme = ref<TabsProps['theme']>('normal');
+const value = ref<TabsProps['value']>('first');
 const panelData = ref([
   {
     value: 'first',
@@ -47,13 +46,11 @@ const panelData = ref([
     content: '选项卡2内容',
   },
 ]);
-
-const onDragend = ({ currentIndex, targetIndex }) => {
+const onDragend: TabsProps['onDragSort'] = ({ currentIndex, targetIndex }) => {
   [panelData.value[currentIndex], panelData.value[targetIndex]] = [
     panelData.value[targetIndex],
     panelData.value[currentIndex],
   ];
 };
-
-const onTabChange = (newValue) => (value.value = newValue);
+const onTabChange: TabsProps['onChange'] = (newValue) => (value.value = newValue);
 </script>

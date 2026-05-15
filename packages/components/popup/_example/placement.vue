@@ -41,7 +41,7 @@
       content="这是popup内容"
       placement="right-top"
       show-arrow
-      destroy-on-hide
+      destroy-on-close
     >
       <t-button variant="outline"> right-top </t-button>
     </t-popup>
@@ -50,7 +50,7 @@
       content="这是popup内容"
       placement="right-bottom"
       show-arrow
-      destroy-on-hide
+      destroy-on-close
     >
       <t-button variant="outline"> right-bottom </t-button>
     </t-popup>

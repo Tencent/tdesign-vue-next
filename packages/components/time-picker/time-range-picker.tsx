@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs, watch, computed } from 'vue';
+import { defineComponent, ref, toRefs, watch, computed, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
 import { isArray } from 'lodash-es';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
@@ -23,6 +23,8 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useCommonClassName,
+  useEventForward,
+  useTNodeJSX,
 } from '@tdesign/shared-hooks';
 
 dayjs.extend(customParseFormat);
@@ -32,11 +34,12 @@ export default defineComponent({
   props: { ...props, rangeInputProps: Object, popupProps: Object },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('time-range-picker');
+    const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('timePicker');
     const { STATUS } = useCommonClassName();
     const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
 
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const currentPanelIdx = ref(undefined);
     const currentValue = ref<Array<string>>(TIME_PICKER_EMPTY);
     const isShowPanel = ref(false);
@@ -156,18 +159,28 @@ export default defineComponent({
       },
     );
 
+    const rangeInputEvents = useEventForward(props.rangeInputProps, {
+      onClear: handleClear,
+      onClick: handleClick,
+      onFocus: handleFocus,
+      onBlur: handleInputBlur,
+    });
+
+    const popupEvents = useEventForward(props.popupProps, {
+      onVisibleChange: handleShowPopup,
+    });
+
     return () => (
       <div class={COMPONENT_NAME.value}>
         <RangeInputPopup
-          disabled={disabled.value}
+          disabled={isDisabled.value}
           popupVisible={isShowPanel.value}
           popupProps={{
             overlayInnerStyle: {
               width: 'auto',
               padding: 0,
             },
-            onVisibleChange: handleShowPopup,
-            ...props.popupProps,
+            ...popupEvents.value,
           }}
           onInputChange={handleInputChange}
           inputValue={isShowPanel.value ? currentValue.value : innerValue.value ?? TIME_PICKER_EMPTY}
@@ -178,14 +191,11 @@ export default defineComponent({
             value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
             placeholder: props.placeholder || [globalConfig.value.placeholder, globalConfig.value.placeholder],
             borderless: props.borderless,
-            suffixIcon: () => <TimeIcon />,
-            onClear: handleClear,
-            onClick: handleClick,
-            onFocus: handleFocus,
-            onBlur: handleInputBlur,
+            prefixIcon: () => renderTNodeJSX('prefixIcon'),
+            suffixIcon: () => renderTNodeJSX('suffixIcon') || <TimeIcon />,
             readonly: isReadOnly.value || !allowInput.value,
             activeIndex: currentPanelIdx.value,
-            ...props.rangeInputProps,
+            ...rangeInputEvents.value,
           }}
           label={props.label}
           status={props.status}
@@ -200,7 +210,6 @@ export default defineComponent({
               isFooterDisplay={true}
               value={currentValue.value[currentPanelIdx.value || 0]}
               onChange={handleTimeChange}
-              onPick={handleOnPick}
               handleConfirmClick={handleClickConfirm}
               position={currentPanelIdx.value === 0 ? 'start' : 'end'}
               activeIndex={currentPanelIdx.value}

@@ -48,21 +48,6 @@
     "options": []
   },
   {
-    "name": "theme",
-    "type": "enum",
-    "defaultValue": "light",
-    "options": [
-      {
-        "label": "light",
-        "value": "light"
-      },
-      {
-        "label": "dark",
-        "value": "dark"
-      }
-    ]
-  },
-  {
     "name": "trigger",
     "type": "enum",
     "defaultValue": "hover",

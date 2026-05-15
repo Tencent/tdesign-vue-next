@@ -99,7 +99,7 @@ export default defineComponent({
           disabled={node.isDisabled() || ((value as TreeNodeValue[]).length >= max && max !== 0)}
           // node.value maybe string or number
           name={String(node.value)}
-          stopLabelTrigger={!!node.children}
+          stopLabelTrigger={!!node.children && !props.cascaderContext.isParentFilterable}
           title={inputVal ? getFullPathLabel(node) : renderTitle(node)}
           onChange={() => {
             props.onChange();
@@ -113,19 +113,14 @@ export default defineComponent({
 
     return () => {
       const { cascaderContext, node, optionChild } = props;
-      const isOptionChildAndMultiple = optionChild && cascaderContext.multiple;
       return (
-        <li
-          ref={liRef}
-          class={itemClass.value}
-          onClick={() => (isOptionChildAndMultiple ? props.onChange() : props.onClick())}
-          onMouseenter={props.onMouseenter}
-        >
+        <li ref={liRef} class={itemClass.value} onClick={props.onClick} onMouseenter={props.onMouseenter}>
           {optionChild ||
             (cascaderContext.multiple
               ? RenderCheckBox(node, cascaderContext)
               : RenderLabelContent(node, cascaderContext))}
           {node.children &&
+            !props.cascaderContext.isParentFilterable &&
             (node.loading ? (
               <TLoading class={iconClass.value} size="small" />
             ) : (

@@ -1,7 +1,8 @@
 import fs from 'fs';
 import { camelCase } from 'lodash-es';
 import { parseFromString } from 'dom-parser';
-import { joinTdesignVueNextRoot } from '@tdesign/internal-utils';
+import { joinTdesignVueNextRoot, getWorkspaceRoot } from '@tdesign/internal-utils';
+import { execSync } from 'child_process';
 
 fs.readFile(joinTdesignVueNextRoot('test/coverage/index.html'), 'utf8', (err, html) => {
   if (err) {
@@ -42,7 +43,9 @@ fs.readFile(joinTdesignVueNextRoot('test/coverage/index.html'), 'utf8', (err, ht
 
     const finalRes = `export default ${JSON.stringify(resultCoverage, null, 2)};\n`;
     fs.writeFileSync(joinTdesignVueNextRoot('site/configs/test-coverage.ts'), finalRes);
-
+    const prettierConfig = getWorkspaceRoot() + '/.prettierrc.js';
+    const formatFile = joinTdesignVueNextRoot('site/configs/test-coverage.ts');
+    execSync(`pnpm exec prettier --config ${prettierConfig} --write ${formatFile}`);
     // eslint-disable-next-line
     console.log('successful re-generate coverage');
   }

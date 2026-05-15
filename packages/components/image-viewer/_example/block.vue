@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="tdesign-demo-image-viewer__ui-image tdesign-demo-image-viewer__base">
-      <t-image-viewer v-model:visible="visible1" :images="images">
+      <t-image-viewer v-model:visible="visible1" :images="images" :z-index="10000">
         <template #trigger>
           <div class="tdesign-demo-image-viewer__ui-image">
             <img alt="test" :src="img" class="tdesign-demo-image-viewer__ui-image--img" />
@@ -27,17 +27,17 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import { ImageInfo } from 'tdesign-vue-next';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 
 const visible1 = ref(false);
 const visible2 = ref(false);
 const onOpen1 = () => (visible1.value = true);
 const onOpen2 = () => (visible2.value = true);
-
 const img = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
-const images = [
+const images: ImageInfo[] = [
   {
     mainImage: 'https://tdesign.gtimg.com/demo/demo-image-2.png',
     thumbnail: 'https://tdesign.gtimg.com/demo/demo-image-1.png',

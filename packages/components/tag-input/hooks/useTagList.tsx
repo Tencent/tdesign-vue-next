@@ -1,9 +1,16 @@
-import { computed, ref, toRefs } from 'vue';
+import { computed, ComputedRef, ref, toRefs } from 'vue';
 import { TagInputValue, TagInputChangeContext } from '../type';
 import { TagInputProps } from '../types';
 import { InputValue } from '../../input';
 import Tag from '../../tag';
-import { useVModel, useTNodeJSX, useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
+import {
+  useVModel,
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  usePrefixClass,
+  useEventForward,
+} from '@tdesign/shared-hooks';
 
 export type ChangeParams = [TagInputChangeContext];
 
@@ -17,7 +24,7 @@ export function useTagList(props: TagInputProps) {
   const tagValue = computed(() => _tagValue.value || []);
   const oldInputValue = ref<InputValue>();
 
-  const isDisabled = useDisabled();
+  const isDisabled = useDisabled() as ComputedRef<boolean>;
   const isReadonly = useReadonly();
 
   // 点击标签关闭按钮，删除标签
@@ -77,15 +84,17 @@ export function useTagList(props: TagInputProps) {
       ? [displayNode]
       : newList.map((item, index) => {
           const tagContent = renderTNode('tag', { params: { value: item } });
+          const tagEvents = useEventForward(tagProps.value, {
+            onClose: (context: { e: MouseEvent }) => onClose({ e: context.e, index }),
+          });
           return (
             <Tag
-              key={`${item}${index}`}
+              key={index}
               size={size.value}
               disabled={isDisabled.value}
-              onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, index })}
               closable={!isReadonly.value && !isDisabled.value}
               {...getDragProps.value?.(index, item)}
-              {...tagProps.value}
+              {...tagEvents.value}
             >
               {tagContent ?? item}
             </Tag>

@@ -62,7 +62,7 @@ export default defineComponent({
     });
 
     const popupProps = computed(() => ({
-      ...(vm?.vnode.props || {}),
+      ...vm?.vnode.props,
       placement: props.placement === 'mouse' ? 'bottom-left' : props.placement,
       showArrow: props.placement === 'mouse' ? false : props.showArrow,
       overlayClassName: tooltipOverlayClassName.value,
@@ -110,18 +110,14 @@ export default defineComponent({
     });
     return () => {
       const content = renderTNodeJSX('content');
-      if (!content && !props.content) {
-        return renderContent('default', 'triggerElement');
-      }
       return (
         <Popup
           {...omit(popupProps.value, ['content', 'default'])}
           ref={popupRef}
+          hideEmptyPopup={true}
           overlayInnerStyle={overlayInnerStyle.value}
           visible={innerVisible.value}
-          v-slots={{
-            content: () => content,
-          }}
+          v-slots={!content && !props.content ? {} : { content: () => content }}
         >
           {renderContent('default', 'triggerElement')}
         </Popup>

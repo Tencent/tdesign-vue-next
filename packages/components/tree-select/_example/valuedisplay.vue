@@ -1,6 +1,6 @@
 <template>
   <t-space>
-    <t-tree-select v-model="value" :data="options" clearable placeholder="请选择">
+    <t-tree-select v-model="value" :data="options" clearable placeholder="请选择" filterable>
       <template #valueDisplay="{ value: valueDisplay }"> {{ valueDisplay.label }}({{ valueDisplay.value }}) </template>
     </t-tree-select>
     <t-tree-select v-model="mulValue" :data="options" multiple clearable filterable placeholder="请选择">
@@ -12,12 +12,13 @@
     </t-tree-select>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { TreeSelectProps } from 'tdesign-vue-next';
 
 const value = ref('shenzhen');
 const mulValue = ref(['shenzhen', 'guangzhou']);
-const options = [
+const options: TreeSelectProps['data'] = [
   {
     label: '广东省',
     value: 'guangdong',

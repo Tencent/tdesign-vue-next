@@ -3,13 +3,23 @@
 ### 安装独立 Icon 包
 
 图标相对其他基础组件较为独立，所以作为一个独立的 `npm` 包做发布管理。如果项目中直接使用，请安装 `tdesign-icons-vue-next`。 同时 `tdesign-vue-next` 也内置了 `icon`, 支持直接通过 `t-icon` 来使用。
-图标库中共包含超过 **25** 类，**2100+** 个图标，推荐您按需引用图标，减少产物的体积。
+图标库中共包含超过 **25** 类，**2100+** 个图标。
+
+推荐按需引用图标，减少产物的体积。同时，按需引入的图标还支持`任意的粗细调整`和`最多四种颜色填充`功能，具有更好的使用体验。
+
+<div style="background: #ecf2fe; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
+  打开 <a style="margin: 0 4px" href='/icons'> TDesign 图标独立站点 </a>  查看全部支持的图标。
+</div>
 
 ### 按需引入使用图标
 
 图标可以按需引入单个 SVG 图标。组件开发内部使用到 Icon 时，均按需引入 SVG 图标。
 
+可以在下面的示例中体验到按需引入的图标的全部特性。
+
+
 {{ single }}
+
 ### 全量引入使用图标
 
 图标尺寸单位支持多种， 'small', 'medium', 'large', '35px', '3em' 等。
@@ -65,19 +75,18 @@ TDesign 支持通过使用 Iconfont 图标，使用时需要单独引入 Iconfon
 
 所以如果你的项目是**无网络场景**，请使用**按需加载**的图标，如`<t-icon name="add" />`请改为`<AddIcon />`。
 
-### 全部图标
-
-<div style="background: #ecf2fe; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
-  <svg fill="none" viewBox="0 0 16 16" width="16px" height="16px" style="margin-right: 5px">
-    <path fill="#0052d9" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillOpacity="0.9"></path>
-  </svg>
- <p style="flex: 1">大部分图标在 0.3.0 版本后的图标库新增，如果发现图标引入后无法正常展示，请检查安装的图标库`tdesign-icons-vue-next`的版本。支持中文英文搜索，如果觉得可以再增加其他关键词提示，欢迎到 <a href="https://github.com/Tencent/tdesign-icons/blob/develop/packages/view/src/manifest.js" target="_blank" > 图标仓库</a> 提交PR，帮我们一起补充。
- </p>
-</div>
-
-<td-icons-view />
-
 ## API
+
+### Icon Props
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+size | String | undefined | 图标尺寸，支持 'small', 'medium', 'large'，'35px', '3em' 等 | N
+onClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击时触发 | N
+strokeWidth | Number | 图标的粗细，默认为 2
+strokeColor | String / Array | 描边图标的描边颜色，默认为`currentColor`，最多支持两种描边颜色
+fillColor | String / Array | 描边图标的填充颜色和填充图标的填充色，描边图标默认为`transparent`，填充图标默认为`currentColor`,最多支持两种颜色的填充
+
 ### IconSVG Props
 
 名称 | 类型 | 默认值 | 说明 | 必传

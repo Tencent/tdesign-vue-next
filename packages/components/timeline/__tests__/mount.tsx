@@ -2,7 +2,7 @@
 import { mount } from '@vue/test-utils';
 import { Timeline, TimelineItem } from '@tdesign/components';
 
-export function getTimelineDefaultMount(props, events) {
+export function getTimelineDefaultMount(props = {}, events = {}) {
   return mount(
     <Timeline {...props} {...events}>
       <TimelineItem label="2022-01-01">Event1</TimelineItem>
