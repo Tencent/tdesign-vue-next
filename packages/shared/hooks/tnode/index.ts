@@ -1,5 +1,5 @@
 import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
-import { camelCase, kebabCase, isFunction } from 'lodash-es';
+import { camelCase, kebabCase, isFunction, isString } from 'lodash-es';
 
 import {
   getDefaultNode,
@@ -180,3 +180,19 @@ export const useContent = () => {
 export const filterCommentNode = (nodes: VNode[]): VNode[] => {
   return nodes.filter((node) => !isCommentVNode(node));
 };
+
+export function getTextFromVNode(VNodes?: VNode[] | VNode): string {
+  if (!VNodes) return '';
+
+  if (isString(VNodes)) return VNodes;
+
+  if (Array.isArray(VNodes)) {
+    return VNodes.map(getTextFromVNode).join(' ');
+  }
+
+  if (typeof VNodes.children === 'string') {
+    return VNodes.children;
+  }
+
+  return '';
+}
