@@ -63,16 +63,16 @@
     </t-dialog>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+import type { DialogProps } from 'tdesign-vue-next';
 
 const visible1 = ref(false);
 const visible2 = ref(false);
 const visible3 = ref(false);
 const visible4 = ref(false);
 const visible5 = ref(false);
-
-const onClickConfirm = (context) => {
+const onClickConfirm: DialogProps['onConfirm'] = (context) => {
   const { e } = context;
   visible1.value = false;
   visible2.value = false;
@@ -81,20 +81,19 @@ const onClickConfirm = (context) => {
   visible5.value = false;
   e.stopPropagation();
 };
-
-const close1 = () => {
+const close1: DialogProps['onClose'] = () => {
   visible1.value = false;
 };
-const close2 = () => {
+const close2: DialogProps['onClose'] = () => {
   visible2.value = false;
 };
-const close3 = () => {
+const close3: DialogProps['onClose'] = () => {
   visible3.value = false;
 };
-const close4 = () => {
+const close4: DialogProps['onClose'] = () => {
   visible4.value = false;
 };
-const close5 = () => {
+const close5: DialogProps['onClose'] = () => {
   visible5.value = false;
 };
 </script>

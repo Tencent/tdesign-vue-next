@@ -14,7 +14,7 @@ export default defineComponent({
     },
     search: {
       type: [Boolean, Object] as PropType<SearchOption>,
-      default: false,
+      default: false as TdTransferProps['search'],
     },
     placeholder: {
       type: String,

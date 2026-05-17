@@ -64,12 +64,19 @@
     </t-form-item>
   </t-form>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, reactive, computed } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import type {
+  FormInstanceFunctions,
+  FormProps,
+  CheckboxGroupProps,
+  AutoCompleteProps,
+  ButtonProps,
+} from 'tdesign-vue-next';
 
-const form = ref(null);
-const formData = reactive({
+const form = ref<FormInstanceFunctions>(null);
+const formData: FormProps['data'] = reactive({
   account: '',
   password: '',
   email: '',
@@ -82,33 +89,103 @@ const formData = reactive({
     url: '',
   },
 });
-
-const rules = {
+const rules: FormProps['rules'] = {
   account: [
-    { required: true, message: '姓名必填', type: 'error', trigger: 'blur' },
-    { required: true, message: '姓名必填', type: 'error', trigger: 'change' },
-    { whitespace: true, message: '姓名不能为空' },
-    { min: 3, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
-    { max: 6, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
+    {
+      required: true,
+      message: '姓名必填',
+      type: 'error',
+      trigger: 'blur',
+    },
+    {
+      required: true,
+      message: '姓名必填',
+      type: 'error',
+      trigger: 'change',
+    },
+    {
+      whitespace: true,
+      message: '姓名不能为空',
+    },
+    {
+      min: 3,
+      message: '输入字数应在3到6之间',
+      type: 'error',
+      trigger: 'blur',
+    },
+    {
+      max: 6,
+      message: '输入字数应在3到6之间',
+      type: 'error',
+      trigger: 'blur',
+    },
   ],
-  password: [{ required: true, message: '密码必填', type: 'error' }],
+  password: [
+    {
+      required: true,
+      message: '密码必填',
+      type: 'error',
+    },
+  ],
   email: [
-    { required: true, message: '邮箱必填', type: 'error' },
-    { email: { ignore_max_length: true }, message: '格式必须为邮箱', type: 'error' },
+    {
+      required: true,
+      message: '邮箱必填',
+      type: 'error',
+    },
+    {
+      email: { ignore_max_length: true },
+      message: '格式必须为邮箱',
+      type: 'error',
+    },
   ],
   age: [
-    { required: true, message: '年龄必填', type: 'error' },
-    { number: true, message: '请输入数字', type: 'warning' },
+    {
+      required: true,
+      message: '年龄必填',
+      type: 'error',
+    },
+    {
+      number: true,
+      message: '请输入数字',
+      type: 'warning',
+    },
   ],
-  gender: [{ required: true, message: '性别必填', type: 'warning' }],
-  course: [{ required: true, message: '课程必填', type: 'warning' }],
+  gender: [
+    {
+      required: true,
+      message: '性别必填',
+      type: 'warning',
+    },
+  ],
+  course: [
+    {
+      required: true,
+      message: '课程必填',
+      type: 'warning',
+    },
+  ],
   college: [
     // 注意：trigger: blur 仅在输入框或选择框失去焦点时触发，需要注意配合 trigger: change 使用
-    { required: true, message: '学院必选', type: 'warning', trigger: 'blur' },
-    { required: true, message: '学院必选', type: 'warning', trigger: 'change' },
+    {
+      required: true,
+      message: '学院必选',
+      type: 'warning',
+      trigger: 'blur',
+    },
+    {
+      required: true,
+      message: '学院必选',
+      type: 'warning',
+      trigger: 'change',
+    },
   ],
   'content.url': [
-    { required: true, message: '个人网站必填', type: 'warning' },
+    {
+      required: true,
+      message: '个人网站必填',
+      type: 'warning',
+    },
     {
       url: {
         protocols: ['http', 'https', 'ftp'],
@@ -118,31 +195,48 @@ const rules = {
     },
   ],
 };
-
-const courseOptions = [
-  { label: '语文', value: '1' },
-  { label: '数学', value: '2' },
-  { label: '英语', value: '3' },
-  { label: '体育', value: '4' },
+const courseOptions: CheckboxGroupProps['options'] = [
+  {
+    label: '语文',
+    value: '1',
+  },
+  {
+    label: '数学',
+    value: '2',
+  },
+  {
+    label: '英语',
+    value: '3',
+  },
+  {
+    label: '体育',
+    value: '4',
+  },
 ];
 const emailSuffix = ['@qq.com', '@163.com', '@gmail.com'];
-const emailOptions = computed(() => {
+const emailOptions = computed<AutoCompleteProps['options']>(() => {
   const emailPrefix = formData.email.split('@')[0];
   if (!emailPrefix) return [];
-
   return emailSuffix.map((suffix) => emailPrefix + suffix);
 });
 const options = [
-  { label: '计算机学院', value: '1' },
-  { label: '软件学院', value: '2' },
-  { label: '物联网学院', value: '3' },
+  {
+    label: '计算机学院',
+    value: '1',
+  },
+  {
+    label: '软件学院',
+    value: '2',
+  },
+  {
+    label: '物联网学院',
+    value: '3',
+  },
 ];
-
-const onReset = () => {
+const onReset: FormProps['onReset'] = () => {
   MessagePlugin.success('重置成功');
 };
-
-const onSubmit = ({ validateResult, firstError, e }) => {
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError, e }) => {
   e.preventDefault();
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
@@ -151,8 +245,7 @@ const onSubmit = ({ validateResult, firstError, e }) => {
     MessagePlugin.warning(firstError);
   }
 };
-
-const handleClear = () => {
+const handleClear: ButtonProps['onClick'] = () => {
   form.value.clearValidate();
 };
 </script>

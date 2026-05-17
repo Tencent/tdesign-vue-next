@@ -28,16 +28,15 @@
   </t-space>
 </template>
 
-<!-- lang="jsx" 重要  -->
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
 import { HighlightOption as THighlightOption } from 'tdesign-vue-next';
+import type { AutoCompleteProps } from 'tdesign-vue-next';
 
 const TEXTS = ['第一个默认联想词', '第二个默认联想词', '第三个默认联想词'];
-
 const value1 = ref('');
 const value2 = ref('');
-const options2 = ref([
+const options2 = ref<AutoCompleteProps['options']>([
   {
     label: '第一个默认联想词',
     description: '这是关于联想词的描述。使用插槽渲染',
@@ -54,8 +53,7 @@ const options2 = ref([
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
   },
 ]);
-
-const options1 = computed(() =>
+const options1 = computed<AutoCompleteProps['options']>(() =>
   TEXTS.map((text) => ({
     text,
     label: () => (

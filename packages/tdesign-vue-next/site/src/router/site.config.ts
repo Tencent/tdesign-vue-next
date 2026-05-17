@@ -41,10 +41,9 @@ export const docs = [
         title: 'MCP',
         titleEn: 'MCP',
         name: 'MCP',
-        path: '/mcp',
-        redirect: () => {
-          window.open('https://cloud.tencent.com/developer/mcp/server/11721', '_blank');
-        },
+        path: '/vue-next/mcp',
+        component: () => import('@tdesign/common/docs/mcp.md'),
+        componentEn: () => import('@tdesign/common/docs/mcp.en-US.md'),
       },
     ],
   },

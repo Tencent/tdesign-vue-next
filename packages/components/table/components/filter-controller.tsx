@@ -109,7 +109,7 @@ export default defineComponent({
       if (!component && !column.filter.component) return;
       const filterComponentProps: { [key: string]: any } = {
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter?.list : undefined,
-        ...(column.filter?.props || {}),
+        ...column.filter?.props,
         onChange: (val: any, ctx: any) => {
           context.emit('inner-filter-change', val, column);
           if (column.filter.props?.onChange) {

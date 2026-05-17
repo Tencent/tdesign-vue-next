@@ -15,14 +15,18 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { RefreshIcon } from 'tdesign-icons-vue-next';
+import type { ButtonProps } from 'tdesign-vue-next';
 
 const loadingCount = ref(0);
-const list = ref(Array.from({ length: 24 }).map((_, index) => index));
-
-const renderRefreshIcon = () => {
+const list = ref(
+  Array.from({
+    length: 24,
+  }).map((_, index) => index),
+);
+const renderRefreshIcon: ButtonProps['icon'] = () => {
   return <RefreshIcon />;
 };
 </script>

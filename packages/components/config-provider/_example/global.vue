@@ -8,15 +8,18 @@
   </t-config-provider>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 
 // 全局特性配置，引入英文语言配置包 enConfig
-const globalConfig = merge(enConfig, {
+import type { GlobalConfigProvider } from 'tdesign-vue-next';
+const empty: GlobalConfigProvider = {};
+const customConfig: GlobalConfigProvider = {
   // 可以在此处定义更多自定义配置，具体可配置内容参看 API 文档
   calendar: {},
   table: {},
   pagination: {},
-});
+};
+const globalConfig: GlobalConfigProvider = merge(empty, enConfig, customConfig);
 </script>

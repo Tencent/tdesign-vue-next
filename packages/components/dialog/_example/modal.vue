@@ -4,7 +4,7 @@
       <t-button theme="primary" @click="visibleNormalDrag = true">普通对话框</t-button>
       <t-button theme="primary" @click="visibleModelessDrag = true">非模态对话框</t-button>
       <t-button theme="primary" @click="visibleModeless = true">非模态对话框-不可拖拽</t-button>
-      <t-button theme="primary" @click="visibleModal = true">模态对话框-不可拖拽</t-button>
+      <t-button theme="primary" @click="visibleModal = true">模态对话框-可拖拽</t-button>
     </t-space>
 
     <t-dialog
@@ -59,7 +59,7 @@
     </t-dialog>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 
 const visibleNormalDrag = ref(false);

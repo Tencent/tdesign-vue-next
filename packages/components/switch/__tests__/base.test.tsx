@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
+import { nextTick } from 'vue';
 import Switch from '@tdesign/components/switch';
 
 describe('switch', () => {
@@ -152,6 +153,7 @@ describe('switch', () => {
         });
         wrapper.trigger('click');
         await new Promise((resolve) => setTimeout(resolve, 100));
+        await nextTick();
         const ele = wrapper.find('.t-switch');
         const eleCls = ele.classes();
         expect(eleCls.includes('t-is-checked')).toBeFalsy();

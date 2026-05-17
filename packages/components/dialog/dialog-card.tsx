@@ -48,11 +48,15 @@ export default defineComponent({
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     // 是否非模态对话框
     const isModeLess = computed(() => props.mode === 'modeless');
+    // 仅模态和非模态场景支持拖拽
+    const isDraggableMode = computed(() => ['modal', 'modeless'].includes(props.mode));
     // 是否全屏对话框
     const isFullScreen = computed(() => props.mode === 'full-screen');
     const closeBtnAction = (e: MouseEvent) => props?.onCloseBtnClick?.({ e });
+    // modal/modeless 模式开启 draggable 后，仅 header 作为拖拽手柄
+    // body / footer 区域阻止 mousedown 冒泡，避免误触发拖拽
     const onStopDown = (e: MouseEvent) => {
-      if (isModeLess.value && props?.draggable) e.stopPropagation();
+      if (isDraggableMode.value && props?.draggable) e.stopPropagation();
     };
 
     const resetPosition = () => {
@@ -72,14 +76,14 @@ export default defineComponent({
       const dialogClass = [
         `${COMPONENT_NAME.value}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
-        isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
+        isDraggableMode.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
         props.dialogClassName,
       ];
 
       if (isFullScreen.value) {
         dialogClass.push(`${COMPONENT_NAME.value}__fullscreen`);
       } else {
-        dialogClass.push(...[`${COMPONENT_NAME.value}--default`, `${COMPONENT_NAME.value}--${props.placement}`]);
+        dialogClass.push(`${COMPONENT_NAME.value}--default`, `${COMPONENT_NAME.value}--${props.placement}`);
       }
       return dialogClass;
     });
@@ -133,14 +137,14 @@ export default defineComponent({
         };
         return (
           (header || props?.closeBtn) && (
-            <div class={headerClassName} onMousedown={onStopDown}>
+            <div class={headerClassName}>
               <div class={`${COMPONENT_NAME.value}__header-content`}>
                 {getIcon()}
                 {header}
               </div>
 
               {props?.closeBtn ? (
-                <span class={closeClassName} onClick={closeBtnAction}>
+                <span class={closeClassName} onClick={closeBtnAction} onMousedown={onStopDown}>
                   {renderTNodeJSX('closeBtn', <CloseIcon />)}
                 </span>
               ) : null}
@@ -194,7 +198,7 @@ export default defineComponent({
         ref={rootRef}
         class={dialogClass.value}
         style={dialogStyle.value}
-        v-draggable={isModeLess.value && props.draggable}
+        v-draggable={isDraggableMode.value && props.draggable}
       >
         {renderCard()}
       </div>

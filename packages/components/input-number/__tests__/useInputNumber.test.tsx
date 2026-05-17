@@ -394,6 +394,78 @@ describe('useInputNumber', () => {
     });
   });
 
+  describe('blur with min value and empty input', () => {
+    it('should not auto-fill min value when input is cleared', async () => {
+      const onBlur = vi.fn();
+      const onChange = vi.fn();
+      const TestComponent = createTestComponent({ defaultValue: 5, min: 1, max: 100, onBlur, onChange });
+      const wrapper = mount(TestComponent);
+      const hook = wrapper.vm.hook;
+
+      // 清空输入
+      hook.onInnerInputChange('', { e: new Event('input') as InputEvent });
+      await nextTick();
+
+      expect(hook.tValue.value).toBeUndefined();
+
+      // blur 时不应自动填充为 min
+      hook.listeners.onBlur('', { e: new FocusEvent('blur') });
+      await nextTick();
+
+      expect(hook.tValue.value).toBeUndefined();
+      expect(onBlur).toHaveBeenCalledWith(undefined, { e: expect.any(FocusEvent) });
+    });
+
+    it('should correct value to min when input is below minimum', async () => {
+      const onBlur = vi.fn();
+      const TestComponent = createTestComponent({ defaultValue: 5, min: 10, max: 100, onBlur });
+      const wrapper = mount(TestComponent);
+      const hook = wrapper.vm.hook;
+
+      // 输入一个低于 min 的值
+      hook.onInnerInputChange('3', { e: new Event('input') as InputEvent });
+      await nextTick();
+
+      // blur 时应矫正为 min
+      hook.listeners.onBlur('3', { e: new FocusEvent('blur') });
+      await nextTick();
+
+      expect(hook.tValue.value).toBe(10);
+      expect(onBlur).toHaveBeenCalledWith(10, { e: expect.any(FocusEvent) });
+    });
+
+    it('should correct value to max when input exceeds maximum', async () => {
+      const onBlur = vi.fn();
+      const TestComponent = createTestComponent({ defaultValue: 5, min: 0, max: 10, onBlur });
+      const wrapper = mount(TestComponent);
+      const hook = wrapper.vm.hook;
+
+      // 输入一个超过 max 的值
+      hook.onInnerInputChange('50', { e: new Event('input') as InputEvent });
+      await nextTick();
+
+      // blur 时应矫正为 max
+      hook.listeners.onBlur('50', { e: new FocusEvent('blur') });
+      await nextTick();
+
+      expect(hook.tValue.value).toBe(10);
+      expect(onBlur).toHaveBeenCalledWith(10, { e: expect.any(FocusEvent) });
+    });
+
+    it('should keep valid value unchanged on blur', async () => {
+      const onBlur = vi.fn();
+      const TestComponent = createTestComponent({ defaultValue: 5, min: 0, max: 100, onBlur });
+      const wrapper = mount(TestComponent);
+      const hook = wrapper.vm.hook;
+
+      hook.listeners.onBlur('5', { e: new FocusEvent('blur') });
+      await nextTick();
+
+      expect(hook.tValue.value).toBe(5);
+      expect(onBlur).toHaveBeenCalledWith(5, { e: expect.any(FocusEvent) });
+    });
+  });
+
   describe('readonly state', () => {
     it('should respect readonly state', () => {
       const TestComponent = createTestComponent();

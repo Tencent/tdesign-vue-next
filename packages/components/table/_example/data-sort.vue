@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
 import { watch, ref } from 'vue';
 import {
   CheckCircleFilledIcon,
@@ -33,14 +33,26 @@ import {
   ErrorCircleFilledIcon,
   CloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
+import type { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
 
 const statusNameListMap = {
-  0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
-  1: { label: '审批失败', theme: 'danger', icon: <CloseCircleFilledIcon /> },
-  2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
+  0: {
+    label: '审批通过',
+    theme: 'success',
+    icon: <CheckCircleFilledIcon />,
+  },
+  1: {
+    label: '审批失败',
+    theme: 'danger',
+    icon: <CloseCircleFilledIcon />,
+  },
+  2: {
+    label: '审批过期',
+    theme: 'warning',
+    icon: <ErrorCircleFilledIcon />,
+  },
 };
-
-const initialData = [];
+const initialData: TableProps['data'] = [];
 for (let i = 0; i < 5; i++) {
   initialData.push({
     index: i + 1,
@@ -55,9 +67,12 @@ for (let i = 0; i < 5; i++) {
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
   });
 }
-
-const columns = ref([
-  { colKey: 'applicant', title: '申请人', width: '100' },
+const columns = ref<TableProps['columns']>([
+  {
+    colKey: 'applicant',
+    title: '申请人',
+    width: '100',
+  },
   {
     colKey: 'status',
     title: '申请状态',
@@ -81,48 +96,55 @@ const columns = ref([
     sortType: 'all',
     sorter: (a, b) => a.time - b.time,
   },
-  { colKey: 'channel', title: '签署方式', width: '120' },
-  { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
-  { colKey: 'createTime', title: '申请时间' },
+  {
+    colKey: 'channel',
+    title: '签署方式',
+    width: '120',
+  },
+  {
+    colKey: 'detail.email',
+    title: '邮箱地址',
+    ellipsis: true,
+  },
+  {
+    colKey: 'createTime',
+    title: '申请时间',
+  },
 ]);
-
-const data = ref([...initialData]);
-const sort = ref();
+const data = ref<TableProps['data']>([...initialData]);
+const sort = ref<TableProps['sort']>();
 const singleSort = ref({
   sortBy: 'status',
   descending: true,
 });
-
 const multipleSorts = ref([
   {
     sortBy: 'status',
     descending: true,
   },
 ]);
-
 const allowMultipleSort = ref(false);
-const globalLocale = ref({
+const globalLocale = ref<GlobalConfigProvider>({
   table: {
     sortIcon: (h) => h && <CaretDownSmallIcon size="16px" />,
   },
 });
-
 watch(
   () => allowMultipleSort.value,
   (val) => {
     sort.value = val ? multipleSorts.value : singleSort.value;
   },
-  { immediate: true },
+  {
+    immediate: true,
+  },
 );
-
-const sortChange = (sortVal, options) => {
+const sortChange: TableProps['onSortChange'] = (sortVal, options) => {
   console.log('sort-change', sortVal, options);
   // sort.value 和 data.value 的赋值都是必须
   sort.value = sortVal;
   data.value = options.currentDataSource;
 };
-
-const dataChange = (newData) => {
+const dataChange: TableProps['onDataChange'] = (newData) => {
   data.value = newData;
 };
 </script>

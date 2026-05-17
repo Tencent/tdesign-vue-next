@@ -34,13 +34,14 @@ import type {
   DateValue,
   DatePickerYearChangeTrigger,
   DatePickerMonthChangeTrigger,
+  PresetDate,
 } from './type';
 import type { TagInputRemoveContext } from '../tag-input';
 
 export default defineComponent({
   name: 'TDatePicker',
   props,
-  setup(props) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-picker');
 
     const {
@@ -368,7 +369,7 @@ export default defineComponent({
     }
 
     // 预设
-    function onPresetClick(presetValue: DateValue | (() => DateValue)) {
+    function onPresetClick(presetValue: DateValue | (() => DateValue), context: { preset: PresetDate; e: MouseEvent }) {
       const presetVal = isFunction(presetValue) ? presetValue() : presetValue;
       onChange?.(
         formatDate(presetVal, {
@@ -385,6 +386,7 @@ export default defineComponent({
         format: formatRef.value.format,
       });
       popupVisible.value = false;
+      props.onPresetClick?.(context);
     }
 
     function onYearChange(nextYear: number) {
@@ -425,6 +427,7 @@ export default defineComponent({
       needConfirm: props.needConfirm,
       disableTime: props.disableTime,
       range: props.range,
+      cell: props.cell,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
@@ -461,7 +464,7 @@ export default defineComponent({
           popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
           {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
-          panel={() => <TSinglePanel {...panelProps.value} />}
+          panel={() => <TSinglePanel {...panelProps.value} v-slots={slots} />}
           tagInputProps={{
             onRemove: onTagRemoveClick,
           }}

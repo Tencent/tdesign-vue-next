@@ -5,7 +5,7 @@ import DropdownItem from './dropdown-item';
 import { DropdownOption } from './type';
 import props from './props';
 import TDivider from '../divider';
-import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+import { useGlobalIcon, usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 
 import { TNode } from '../common';
 import { isFunction } from 'lodash-es';
@@ -14,11 +14,14 @@ export default defineComponent({
   name: 'TDropdownMenu',
   props,
   setup(props) {
+    const renderTNodeJSX = useTNodeJSX();
     const dropdownClass = usePrefixClass('dropdown');
     const dropdownMenuClass = usePrefixClass('dropdown__menu');
     const scrollTopMap = reactive<Record<string, number>>({});
     const itemHeight = ref(null);
     const menuRef = ref<HTMLElement>();
+    const panelTopContentRef = ref<HTMLElement>();
+    const topContentHeight = ref(0);
     const isOverMaxHeight = ref(false);
     const { ChevronRightIcon } = useGlobalIcon({
       ChevronRightIcon: TdChevronRightIcon,
@@ -44,6 +47,9 @@ export default defineComponent({
       if (dropdownItem) {
         itemHeight.value = dropdownItem.scrollHeight + 2;
       }
+      if (panelTopContentRef.value) {
+        topContentHeight.value = panelTopContentRef.value.offsetHeight;
+      }
     });
 
     const getContent = (content: string | TNode) => {
@@ -59,8 +65,9 @@ export default defineComponent({
       let renderContent;
       data.forEach?.((menu, idx) => {
         const optionItem = { ...(menu as DropdownOption) };
-        const onViewIdx = idx - Math.ceil(scrollTopMap[deep] / itemHeight.value);
-        const renderIdx = onViewIdx >= 0 ? onViewIdx : idx;
+        // 子菜单 top = 菜单项偏移(itemHeight * idx) + panelTopContent高度补偿(仅第一级) - 容器滚动距离(currentScrollTop)
+        const currentScrollTop = scrollTopMap[deep] || 0;
+        const submenuTop = idx * itemHeight.value + (deep === 0 ? topContentHeight.value : 0) - currentScrollTop;
 
         if (optionItem.children) {
           optionItem.children = renderOptions(optionItem.children, deep + 1);
@@ -91,7 +98,7 @@ export default defineComponent({
                   ]}
                   style={{
                     position: 'absolute',
-                    top: `${renderIdx * itemHeight.value}px`,
+                    top: `${submenuTop}px`,
                   }}
                 >
                   <div
@@ -146,6 +153,9 @@ export default defineComponent({
     };
 
     return () => {
+      const panelTopContent = renderTNodeJSX('panelTopContent');
+      const panelBottomContent = renderTNodeJSX('panelBottomContent');
+
       return (
         <div
           class={[
@@ -161,7 +171,13 @@ export default defineComponent({
           ref={menuRef}
           onScroll={(e: MouseEvent) => handleScroll(e, 0)}
         >
+          {panelTopContent ? (
+            <div class={`${dropdownClass.value}__top-content`} ref={panelTopContentRef}>
+              {panelTopContent}
+            </div>
+          ) : null}
           {renderOptions(props.options, 0)}
+          {panelBottomContent ? <div class={`${dropdownClass.value}__bottom-content`}>{panelBottomContent}</div> : null}
         </div>
       );
     };

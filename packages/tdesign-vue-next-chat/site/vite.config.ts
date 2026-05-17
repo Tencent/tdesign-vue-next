@@ -1,7 +1,9 @@
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import tDocPlugin from './plugin-doc';
+import tDocPlugin from './plugins/tdoc-plugin';
+import changelog2Json from './plugins/changelog-to-json';
+
 import {
   joinPosix,
   joinComponentsRoot,
@@ -36,7 +38,7 @@ export default defineConfig(({ mode }) => {
         allow: [searchForWorkspaceRoot(process.cwd())],
       },
     },
-    plugins: [vue(), vueJsx(), tDocPlugin()],
+    plugins: [vue(), vueJsx(), tDocPlugin(), changelog2Json()],
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
       exclude: [

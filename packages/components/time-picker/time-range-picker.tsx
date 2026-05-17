@@ -24,6 +24,7 @@ import {
   usePrefixClass,
   useCommonClassName,
   useEventForward,
+  useTNodeJSX,
 } from '@tdesign/shared-hooks';
 
 dayjs.extend(customParseFormat);
@@ -33,6 +34,7 @@ export default defineComponent({
   props: { ...props, rangeInputProps: Object, popupProps: Object },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('time-range-picker');
+    const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('timePicker');
     const { STATUS } = useCommonClassName();
     const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
@@ -189,7 +191,8 @@ export default defineComponent({
             value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
             placeholder: props.placeholder || [globalConfig.value.placeholder, globalConfig.value.placeholder],
             borderless: props.borderless,
-            suffixIcon: () => <TimeIcon />,
+            prefixIcon: () => renderTNodeJSX('prefixIcon'),
+            suffixIcon: () => renderTNodeJSX('suffixIcon') || <TimeIcon />,
             readonly: isReadOnly.value || !allowInput.value,
             activeIndex: currentPanelIdx.value,
             ...rangeInputEvents.value,

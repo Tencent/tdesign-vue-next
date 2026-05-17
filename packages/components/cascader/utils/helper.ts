@@ -1,6 +1,14 @@
 import { isArray, isEmpty, isNumber, isObject } from 'lodash-es';
 
-import { TreeNode, CascaderContextType, TdCascaderProps, CascaderValue, TreeNodeValue, TreeOptionData } from '../types';
+import {
+  TreeNode,
+  CascaderContextType,
+  TdCascaderProps,
+  CascaderValue,
+  TreeNodeValue,
+  TreeOptionData,
+  FilterValue,
+} from '../types';
 
 /**
  * 单选状态下内容
@@ -136,4 +144,59 @@ export function isEmptyValues(value: unknown): boolean {
 export function isValueInvalid(value: CascaderValue, cascaderContext: CascaderContextType) {
   const { multiple, showAllLevels, valueType } = cascaderContext;
   return (multiple && !isArray(value)) || (!multiple && isArray(value) && valueType === 'single' && !showAllLevels);
+}
+
+/**
+ * 面板过滤未激活时的标识值
+ * 用于 FilterState.maxLevel 的初始/重置态，表示当前没有任何面板处于过滤生效状态
+ */
+export const FILTER_INACTIVE_LEVEL = -1;
+
+/**
+ * 判断节点 label 是否匹配关键词
+ * 用于 columnHeader/columnFooter 通过字符串关键词过滤当前面板的选项时
+ * @param option 待匹配的树节点
+ * @param keyword 已 trim 并转小写的关键词
+ * @returns 是否命中关键词
+ */
+export function checkOptionMatchKeyword(option: TreeNode, keyword: string): boolean {
+  if (!option.label || !keyword) return false;
+  return option.label.toLowerCase().includes(keyword);
+}
+
+/**
+ * 判断给定的面板层级是否处于过滤激活状态
+ * 与 FILTER_INACTIVE_LEVEL 对比，level 为 -1 时视为未激活
+ * @param level 面板层级（FilterState.maxLevel）
+ * @returns 当前层级是否处于激活的过滤状态
+ */
+export function isFilterLevelActive(level: number): boolean {
+  return level !== FILTER_INACTIVE_LEVEL;
+}
+
+/**
+ * 判断单个 filter 值是否生效
+ * @param filter 单个面板的过滤值（关键词或自定义判定函数）
+ * @returns filter 是否生效
+ */
+export function isFilterActive(filter: FilterValue | undefined): boolean {
+  if (filter === undefined) return false;
+  if (typeof filter === 'string') return Boolean(filter.trim());
+  return true;
+}
+
+/**
+ * 根据 filter 对指定面板的节点进行过滤
+ * @param nodes 当前面板的全部节点
+ * @param filter 当前面板生效的过滤值（关键词或自定义判定函数）
+ * @param panelIndex 当前面板在多级面板中的索引（从 0 开始）
+ * @returns 过滤后剩余的节点列表
+ */
+export function filterOptions(nodes: TreeNode[], filter: FilterValue, panelIndex: number): TreeNode[] {
+  if (typeof filter === 'string') {
+    const keyword = filter.trim().toLowerCase();
+    if (!keyword) return nodes;
+    return nodes.filter((node) => checkOptionMatchKeyword(node, keyword));
+  }
+  return nodes.filter((node) => filter(node.data, panelIndex));
 }

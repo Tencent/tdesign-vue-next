@@ -5,10 +5,11 @@
     </t-dropdown>
   </t-space>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { MessagePlugin } from 'tdesign-vue-next';
+import type { DropdownProps } from 'tdesign-vue-next';
 
-const options = [
+const options: DropdownProps['options'] = [
   {
     content: '选项一',
     value: 1,

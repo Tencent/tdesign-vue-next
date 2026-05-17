@@ -83,7 +83,7 @@ exports[`ImageViewer > props > :mode[modal/modeless] 1`] = `
                     class="t-icon t-icon-image"
                     fill="none"
                     height="1em"
-                    style="fill: none; font-size: 24px;"
+                    style="fill: none;"
                     viewBox="0 0 24 24"
                     width="1em"
                   >
@@ -169,7 +169,7 @@ exports[`ImageViewer > props > :mode[modal/modeless] 1`] = `
                     class="t-icon t-icon-image"
                     fill="none"
                     height="1em"
-                    style="fill: none; font-size: 24px;"
+                    style="fill: none;"
                     viewBox="0 0 24 24"
                     width="1em"
                   >
@@ -255,7 +255,7 @@ exports[`ImageViewer > props > :mode[modal/modeless] 1`] = `
                     class="t-icon t-icon-image"
                     fill="none"
                     height="1em"
-                    style="fill: none; font-size: 24px;"
+                    style="fill: none;"
                     viewBox="0 0 24 24"
                     width="1em"
                   >
@@ -664,14 +664,14 @@ exports[`ImageViewer > props > :mode[modal/modeless] 1`] = `
         class="t-image-viewer__modal-image"
         draggable="false"
         src="https://tdesign.gtimg.com/demo/demo-image-1.png"
-        style="transform: rotate(0deg); display: block;"
+        style="transform: rotateZ(0deg) scale(1); display: block;"
       />
       <img
         alt="image"
         class="t-image-viewer__modal-image"
         draggable="false"
         src="https://tdesign.gtimg.com/demo/demo-image-1.png"
-        style="transform: rotate(0deg); display: none;"
+        style="transform: rotateZ(0deg) scale(1); display: none;"
       />
       <!---->
     </div>

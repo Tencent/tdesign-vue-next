@@ -20,11 +20,27 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="tsx" setup>
+import dayjs from 'dayjs';
 import { ref, computed } from 'vue';
 import { Input, Select, DatePicker, MessagePlugin } from 'tdesign-vue-next';
-import dayjs from 'dayjs';
+import type {
+  TableProps,
+  TableInstanceFunctions,
+  ButtonProps,
+  PrimaryTableOnEditedContext,
+  BaseTableCol,
+  TableEditableCellPropsParams,
+} from 'tdesign-vue-next';
 
+interface TableData {
+  key: string;
+  firstName: string;
+  status: number;
+  email: string;
+  letters: string[];
+  createTime: string;
+}
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
   firstName: ['贾明', '张三', '王芳'][i % 3],
@@ -41,33 +57,38 @@ const initData = new Array(5).fill(null).map((_, i) => ({
   ],
   createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
 }));
-
 const STATUS_OPTIONS = [
-  { label: '审批通过', value: 0 },
-  { label: '审批过期', value: 1 },
-  { label: '审批失败', value: 2 },
+  {
+    label: '审批通过',
+    value: 0,
+  },
+  {
+    label: '审批过期',
+    value: 1,
+  },
+  {
+    label: '审批失败',
+    value: 2,
+  },
 ];
-
-const align = ref('left');
-const data = ref([...initData]);
+const align = ref<BaseTableCol['align']>('left');
+const data = ref<TableProps['data']>([...initData]);
 
 // 用于控制哪些行或哪些单元格不允许出现编辑态，参数有 { row, col, rowIndex, colIndex }
-const editableCellState = (cellParams) => {
+const editableCellState: TableProps['editableCellState'] = (cellParams) => {
   // 第一行不允许编辑
   const { row } = cellParams;
   return row.status !== 2;
 };
-
-const tableRef = ref();
+const tableRef = ref<TableInstanceFunctions>();
 // 用于提交前校验数据（示例代码有效，勿删）
-const validateTableData = () => {
+const validateTableData: ButtonProps['onClick'] = () => {
   // 仅校验处于编辑态的单元格
   tableRef.value.validateTableData().then((result) => {
     console.log('validate result: ', result);
   });
 };
-
-const columns = computed(() => [
+const columns = computed<TableProps['columns']>(() => [
   {
     title: '申请人',
     colKey: 'firstName',
@@ -89,7 +110,11 @@ const columns = computed(() => [
         onBlur: () => {
           console.log('失去焦点', editContext);
         },
-        onEnter: (ctx) => {
+        onEnter: (ctx: {
+          e: {
+            preventDefault: () => void;
+          };
+        }) => {
           ctx?.e?.preventDefault();
           console.log('onEnter', ctx);
         },
@@ -107,8 +132,15 @@ const columns = computed(() => [
       },
       // 校验规则，此处同 Form 表单。https://tdesign.tencent.com/vue-next/components/form
       rules: [
-        { required: true, message: '不能为空' },
-        { max: 10, message: '字符数量不能超过 10', type: 'warning' },
+        {
+          required: true,
+          message: '不能为空',
+        },
+        {
+          max: 10,
+          message: '字符数量不能超过 10',
+          type: 'warning',
+        },
       ],
       // 默认是否为编辑状态
       defaultEditable: true,
@@ -125,15 +157,15 @@ const columns = computed(() => [
         clearable: true,
         options: STATUS_OPTIONS,
       },
-      on: (editContext) => ({
-        onChange: (params) => {
+      on: (editContext: TableEditableCellPropsParams<TableData>) => ({
+        onChange: (params: any) => {
           console.log('status changed', editContext, params);
         },
       }),
       // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
       // abortEditOnEvent: ['onChange'],
       // 编辑完成，退出编辑态后触发
-      onEdited: (context) => {
+      onEdited: (context: PrimaryTableOnEditedContext<TableData>) => {
         data.value.splice(context.rowIndex, 1, context.newRowData);
         console.log('Edit Framework:', context);
         MessagePlugin.success('Success');
@@ -151,16 +183,30 @@ const columns = computed(() => [
       // props, 透传全部属性到 Select 组件
       // props 为函数时，参数有：col, row, rowIndex, colIndex, editedRow。一般用于实现编辑组件之间的联动
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      props: ({ col, row, rowIndex, colIndex, editedRow }) => {
+      props: ({ editedRow }) => {
         return {
           multiple: true,
           minCollapsedNum: 1,
           options: [
-            { label: '宣传物料制作费用', value: '宣传物料制作费用' },
-            { label: 'algolia 服务报销', value: 'algolia 服务报销' },
-            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 H
-            { label: '相关周边制作费', value: '相关周边制作费', show: () => editedRow.status !== 0 },
-            { label: '激励奖品快递费', value: '激励奖品快递费', show: () => editedRow.status !== 0 },
+            {
+              label: '宣传物料制作费用',
+              value: '宣传物料制作费用',
+            },
+            {
+              label: 'algolia 服务报销',
+              value: 'algolia 服务报销',
+            },
+            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 h
+            {
+              label: '相关周边制作费',
+              value: '相关周边制作费',
+              show: () => editedRow.status !== 0,
+            },
+            {
+              label: '激励奖品快递费',
+              value: '激励奖品快递费',
+              show: () => editedRow.status !== 0,
+            },
           ].filter((t) => (t.show === undefined ? true : t.show())),
         };
       },
@@ -170,7 +216,12 @@ const columns = computed(() => [
         console.log('Edit Letters:', context);
         MessagePlugin.success('Success');
       },
-      rules: [{ validator: (val) => val.length > 0, message: '至少选择一种' }],
+      rules: [
+        {
+          validator: (val) => val.length > 0,
+          message: '至少选择一种',
+        },
+      ],
     },
   },
   {
