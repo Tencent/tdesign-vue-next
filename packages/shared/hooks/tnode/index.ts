@@ -1,4 +1,4 @@
-import { h, getCurrentInstance, ComponentInternalInstance, VNode, isVNode } from 'vue';
+import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
 import { camelCase, kebabCase, isFunction, isString, isObject } from 'lodash-es';
 
 import {
@@ -202,7 +202,7 @@ export function getTextFromVNode(VNodes?: VNode[] | VNode | string): string {
   }
 
   // 注释节点返回空字符串
-  if (isVNode(VNodes) && VNodes.type === Comment) return '';
+  if (isCommentVNode(VNodes)) return '';
 
   // 子节点是字符串，直接返回
   if (isString(VNodes.children)) {

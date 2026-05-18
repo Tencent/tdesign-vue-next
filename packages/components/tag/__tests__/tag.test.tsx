@@ -189,10 +189,23 @@ describe('Tag', () => {
       const domWrapper = wrapper.find('.t-tag > span');
       expect(domWrapper.attributes('title')).toBe('Default Title Content');
 
+      const wrapper2 = mount(<Tag>Default Title Content</Tag>);
+      const domWrapper2 = wrapper2.find('.t-tag > span');
+      expect(domWrapper2.attributes('title')).toBe('Default Title Content');
+
+      const wrapper3 = mount(
+        <Tag>
+          <span>Content</span>
+          <span>Text</span>
+        </Tag>,
+      );
+      const span = wrapper3.find('.t-tag > span');
+      expect(span.attributes('title')).toBe('Content Text');
+
       const title = 'This is a title';
-      const wrapper2 = mount(<Tag title={title} content={'This is a content'}></Tag>);
-      const span = wrapper2.find('.t-tag > span');
-      expect(span.attributes('title')).toBe(title);
+      const wrapper4 = mount(<Tag title={title} content={'This is a content'}></Tag>);
+      const span2 = wrapper4.find('.t-tag > span');
+      expect(span2.attributes('title')).toBe(title);
     });
 
     it(':variant[dark/light/outline/light-outline]', () => {
@@ -345,7 +358,7 @@ describe('CheckTag', () => {
         attachTo: document.body,
       });
       const tag = wrapper.findComponent(CheckTag);
-      tag.vm.$.parent.exposed.focus();
+      tag.vm.$.exposed.focus();
       await nextTick();
 
       expect(document.activeElement).toBe(tag.element);
@@ -363,7 +376,7 @@ describe('CheckTag', () => {
         attachTo: document.body,
       });
       const tag = wrapper.findComponent(CheckTag);
-      tag.vm.$.parent.exposed.focus();
+      tag.vm.$.exposed.focus();
       await nextTick();
 
       const keyboardEvent = new KeyboardEvent('keydown', { code: 'Space', key: ' ' });

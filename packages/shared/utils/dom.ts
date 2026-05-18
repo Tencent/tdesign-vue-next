@@ -381,6 +381,6 @@ export function getWindowSize(): { width: number; height: number } {
  * @param node - 任意节点
  * @returns 是否为注释类型的 VNode
  */
-export const isCommentVNode = (node: unknown): node is VNode => {
+export const isCommentVNode = (node: VNode): boolean => {
   return isVNode(node) && node.type === Comment;
 };
