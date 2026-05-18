@@ -68,7 +68,7 @@ export default defineComponent({
 
     expose({
       focus: () => {
-        tagRef.value?.$el?.focus();
+        tagRef.value?.focus();
       },
     });
 

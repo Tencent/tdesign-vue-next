@@ -117,7 +117,9 @@ export default defineComponent({
     };
 
     expose({
-      tagRef,
+      focus: () => {
+        tagRef.value?.focus();
+      },
     });
 
     return () => {
