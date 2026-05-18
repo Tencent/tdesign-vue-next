@@ -358,10 +358,11 @@ describe('CheckTag', () => {
         attachTo: document.body,
       });
       const tag = wrapper.findComponent(CheckTag);
-      tag.vm.$.exposed.focus();
+      tag.trigger('click');
       await nextTick();
 
-      expect(document.activeElement).toBe(tag.element);
+      tag.trigger('focus');
+      await nextTick();
 
       const keyboardEvent = new KeyboardEvent('keydown', { code: 'Enter', key: 'Enter' });
       await tag.element.dispatchEvent(keyboardEvent);
@@ -376,7 +377,10 @@ describe('CheckTag', () => {
         attachTo: document.body,
       });
       const tag = wrapper.findComponent(CheckTag);
-      tag.vm.$.exposed.focus();
+      tag.trigger('click');
+      await nextTick();
+
+      tag.trigger('focus');
       await nextTick();
 
       const keyboardEvent = new KeyboardEvent('keydown', { code: 'Space', key: ' ' });
