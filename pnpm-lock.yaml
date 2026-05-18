@@ -1003,11 +1003,17 @@ importers:
         specifier: catalog:tdesign
         version: 0.4.4(vue@3.5.34(typescript@5.8.3))
       tdesign-vue-next:
-        specifier: ^1.19.2
+        specifier: ^1.20.0
         version: 1.20.0(vue@3.5.34(typescript@5.8.3))
       vitest:
         specifier: catalog:test
         version: 3.2.4(@types/debug@4.1.12)(@types/node@22.15.32)(@vitest/ui@3.2.4)(jiti@2.7.0)(jsdom@19.0.0(canvas@3.1.2))(less@4.3.0)(terser@5.43.1)(tsx@4.20.3)(yaml@2.9.0)
+
+  packages/tdesign-vue-next-nuxt/site:
+    dependencies:
+      nuxt:
+        specifier: ^4.1.6
+        version: 4.4.6(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.0))(@babel/plugin-syntax-typescript@7.28.6(@babel/core@7.29.0))(@parcel/watcher@2.5.6)(@rollup/plugin-babel@6.0.4(@babel/core@7.29.0)(rollup@4.60.4))(@types/node@22.15.32)(@vitejs/devtools@0.1.24(@pnpm/logger@1001.0.1)(crossws@0.4.5(srvx@0.11.15))(db0@0.3.4)(ioredis@5.10.1)(typescript@5.8.3)(vite@7.3.3(@types/node@22.15.32)(jiti@2.7.0)(less@4.3.0)(terser@5.43.1)(tsx@4.20.3)(yaml@2.9.0)))(@vue/compiler-sfc@3.5.34)(cac@6.7.14)(db0@0.3.4)(eslint@10.4.0(jiti@2.7.0))(ioredis@5.10.1)(less@4.3.0)(magicast@0.5.3)(optionator@0.9.4)(rolldown@1.0.0-beta.28)(rollup-plugin-visualizer@7.0.1(rolldown@1.0.0-beta.28)(rollup@4.60.4))(rollup@4.60.4)(srvx@0.11.15)(terser@5.43.1)(tsx@4.20.3)(typescript@5.8.3)(vite@7.3.3(@types/node@22.15.32)(jiti@2.7.0)(less@4.3.0)(terser@5.43.1)(tsx@4.20.3)(yaml@2.9.0))(vue-tsc@2.2.10(typescript@5.8.3))(yaml@2.9.0)
 
   packages/tdesign-vue-next/site:
     dependencies:

@@ -20,9 +20,9 @@
   "scripts": {
     "prepack": "nuxt-module-build prepare && nuxt-module-build build",
     "build": "pnpm run prepack",
-    "dev": "nuxi dev playground",
-    "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "dev": "nuxi dev site",
+    "dev:build": "nuxi build site",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare site",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
@@ -44,7 +44,7 @@
     "less": "catalog:bundle",
     "nuxt": "^4.1.6",
     "tdesign-icons-vue-next": "catalog:tdesign",
-    "tdesign-vue-next": "^1.19.2",
+    "tdesign-vue-next": "^1.20.0",
     "vitest": "catalog:test"
   }
 }
