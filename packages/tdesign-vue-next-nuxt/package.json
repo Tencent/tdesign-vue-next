@@ -44,7 +44,7 @@
     "less": "catalog:bundle",
     "nuxt": "^4.1.6",
     "tdesign-icons-vue-next": "catalog:tdesign",
-    "tdesign-vue-next": "^1.20.0",
+    "tdesign-vue-next": "workspace:^",
     "vitest": "catalog:test"
   }
 }

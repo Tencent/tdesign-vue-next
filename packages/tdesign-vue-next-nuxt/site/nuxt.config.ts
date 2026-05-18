@@ -2,8 +2,8 @@ export default defineNuxtConfig({
   modules: ['../src/module'],
 
   devtools: { enabled: true },
-  devServer: { port: 17001 },
-  compatibilityDate: '2024-11-18',
+  devServer: { port: 17002 },
+  compatibilityDate: 'latest',
 
   tdesign: {
     resolveIcons: true,
