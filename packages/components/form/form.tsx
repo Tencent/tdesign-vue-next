@@ -1,4 +1,4 @@
-import { computed, defineComponent, provide, reactive, ref, toRefs } from 'vue';
+import { computed, defineComponent, nextTick, provide, reactive, ref, toRefs } from 'vue';
 import { isEmpty, isArray, isBoolean, isFunction } from 'lodash-es';
 
 import { requestSubmit } from '@tdesign/shared-utils';
@@ -168,12 +168,13 @@ export default defineComponent({
       formRef.value.reset();
     };
 
-    const clearValidate = (fields?: Array<string>) => {
+    const clearValidate = async (fields?: Array<string>) => {
       children.value.forEach((child) => {
         if (isFunction(child.resetHandler) && needValidate(String(child.name), fields)) {
           child.resetHandler();
         }
       });
+      await nextTick();
     };
     const setValidateMessage = (validateMessage: FormValidateMessage<FormData>) => {
       const keys = Object.keys(validateMessage);
