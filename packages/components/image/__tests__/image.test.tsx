@@ -1,140 +1,131 @@
-// @ts-nocheck
 import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
-import { describe, it, expect, vi } from 'vitest';
+import { vi } from 'vitest';
 import Image from '@tdesign/components/image';
-import ConfigProvider from '@tdesign/components/config-provider';
 import imageProps from '@tdesign/components/image/props';
-import { getOverlayImageMount } from './mount';
 import { simulateImageEvent } from '@tdesign/internal-tests/utils';
 import { sleep } from '@tdesign/internal-utils';
+import { DEFAULT_SRC, mountImage, mountImageWithoutSrc, mountOverlayImage, mountImageWithConfig } from './mount';
 
-const src = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
-const errorSrc = 'https://tdesign.gtimg.com/demo/demo-image-123123123.png';
+const ERROR_SRC = 'https://tdesign.gtimg.com/demo/demo-image-error-404.png';
 
 describe('Image', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it(':alt[string]', () => {
-      // legacy: existing coverage
-      const wrapper1 = mount(<Image alt={'text image load failed'} src={'https://www.error.img.com'}></Image>).find(
-        'img',
-      );
-      expect(wrapper1.attributes('alt')).toBe('text image load failed');
+      // 默认 alt 为空
+      const wrapper1 = mountImage();
+      expect(wrapper1.find('img').attributes('alt')).toBe('');
+      wrapper1.unmount();
 
-      // modern format
-      const wrapper2 = mount(() => <Image src={src} alt="图片描述" />);
-      const img = wrapper2.find('.t-image__wrapper img');
-      expect(img.element.getAttribute('alt')).toBe('图片描述');
+      // 自定义 alt 文本
+      const wrapper2 = mountImage({ alt: '图片描述' });
+      expect(wrapper2.find('img').attributes('alt')).toBe('图片描述');
+      wrapper2.unmount();
     });
 
     it(':error[function] renders custom error node on load failure', async () => {
-      const wrapper = mount(
-        <Image error={() => <span class="custom-node">TNode</span>} src={'https://this.is.an.error.img.com'}></Image>,
-      );
-      const imgDom = wrapper.find('img').element;
-      simulateImageEvent(imgDom, 'error');
-      await wrapper.vm.$nextTick();
-      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
+      const wrapper = mountImage({ error: () => <span class="custom-error">加载失败</span>, src: ERROR_SRC });
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'error');
+      await nextTick();
+      expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
+      expect(wrapper.find('.custom-error').exists()).toBeTruthy();
+      expect(wrapper.find('.custom-error').text()).toBe('加载失败');
+      wrapper.unmount();
     });
 
     it(':error[string] renders string text on load failure', async () => {
-      const wrapper = mount(() => <Image src={errorSrc} error="加载失败" />);
-      const imgDom = wrapper.find('img').element;
-      simulateImageEvent(imgDom, 'error');
+      const wrapper = mountImage({ error: '加载失败了', src: ERROR_SRC });
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'error');
       await nextTick();
       expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
-      expect(wrapper.find('.t-image__error').text()).toContain('加载失败');
+      expect(wrapper.find('.t-image__error').text()).toContain('加载失败了');
+      wrapper.unmount();
     });
 
-    it(':error[default] with no src change keeps ui clean', async () => {
-      const wrapper = mount(() => <Image src={errorSrc} error="error" />);
-      wrapper.setProps({ src });
-      const img = wrapper.find('.t-image__wrapper img');
+    it(':error[default] renders default error icon when no error prop', async () => {
+      const wrapper = mountImage({ src: ERROR_SRC });
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'error');
       await nextTick();
-      await nextTick();
-      expect(wrapper.emitted('error')).toBeUndefined();
-      expect(img.exists()).toBeTruthy();
-      expect(wrapper.find('.t-image__error').exists()).toBeFalsy();
+      expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
+      // 默认渲染 ImageErrorIcon
+      expect(wrapper.find('.t-icon-image-error').exists()).toBeTruthy();
+      wrapper.unmount();
     });
 
     it(':fallback[string] switches src to fallback on error', async () => {
       const fallbackUrl = 'https://tdesign.gtimg.com/demo/demo-image-fallback.png';
-      const wrapper = mount(() => <Image src={errorSrc} fallback={fallbackUrl} />);
+      const wrapper = mountImage({ src: ERROR_SRC, fallback: fallbackUrl });
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'error');
       await nextTick();
-      const img = wrapper.find('img');
-      simulateImageEvent(img.element, 'error');
-      await nextTick();
-      // fallback 命中后 hasError 会被重置为 false，不展示 error 区块
+      // fallback 命中后 hasError 重置，不展示 error 区块
       expect(wrapper.find('.t-image__error').exists()).toBeFalsy();
       // src 切换到 fallback
       expect(wrapper.find('img').attributes('src')).toBe(fallbackUrl);
+      wrapper.unmount();
     });
 
     it(':fallback[empty] keeps error ui when fallback not provided', async () => {
-      const wrapper = mount(() => <Image src={errorSrc} />);
-      await nextTick();
-      const img = wrapper.find('img');
-      simulateImageEvent(img.element, 'error');
+      const wrapper = mountImage({ src: ERROR_SRC });
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'error');
       await nextTick();
       expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
+      wrapper.unmount();
     });
 
     it(':fit[string] applies class for each enum value', () => {
-      const fitList = ['contain', 'cover', 'fill', 'none', 'scale-down'];
+      const fitList: Array<TdImageProps['fit']> = ['contain', 'cover', 'fill', 'none', 'scale-down'];
       fitList.forEach((fit) => {
-        const wrapper = mount(() => <Image src={src} fit={fit} />);
-        const img = wrapper.find('.t-image__wrapper img');
-        expect(img.classes()).toContain(`t-image--fit-${fit}`);
-      });
-    });
-
-    it(':fit[string] snapshot per enum value', () => {
-      ['contain', 'cover', 'fill', 'none', 'scale-down'].forEach((item) => {
-        const wrapper = mount(<Image fit={item}></Image>).find('.t-image');
-        expect(wrapper.classes(`t-image--fit-${item}`)).toBeTruthy();
-        expect(wrapper.element).toMatchSnapshot();
+        const wrapper = mountImage({ fit });
+        expect(wrapper.find('img').classes()).toContain(`t-image--fit-${fit}`);
+        wrapper.unmount();
       });
     });
 
     it(':fit validator covers undefined/valid/invalid', () => {
       const v = imageProps.fit.validator;
       expect(v(undefined)).toBe(true);
+      expect(v(null)).toBe(true);
+      expect(v('contain')).toBe(true);
       expect(v('cover')).toBe(true);
-      // @ts-expect-error
+      expect(v('fill')).toBe(true);
+      expect(v('none')).toBe(true);
+      expect(v('scale-down')).toBe(true);
+      // @ts-expect-error 测试无效值
       expect(v('invalid')).toBe(false);
     });
 
     it(':gallery[boolean] toggles gallery wrapper class', () => {
-      // default (false)
-      const wrapper1 = mount(<Image></Image>);
-      expect(wrapper1.classes('t-image__wrapper--gallery')).toBeFalsy();
-      // true
-      const wrapper2 = mount(<Image gallery={true}></Image>);
-      expect(wrapper2.classes('t-image__wrapper--gallery')).toBeTruthy();
-      // false
-      const wrapper3 = mount(<Image gallery={false}></Image>);
-      expect(wrapper3.classes('t-image__wrapper--gallery')).toBeFalsy();
-      // modern format
-      const wrapper4 = mount(() => <Image src={src} gallery />);
-      expect(wrapper4.classes()).toContain('t-image__wrapper--gallery');
-    });
+      // 默认无 gallery
+      const wrapper1 = mountImage();
+      expect(wrapper1.classes()).not.toContain('t-image__wrapper--gallery');
+      expect(wrapper1.find('.t-image__gallery-shadow').exists()).toBeFalsy();
+      wrapper1.unmount();
 
-    it(':gallery[boolean] renders gallery shadow node', () => {
-      const wrapper = mount(<Image gallery={true}></Image>);
-      expect(wrapper.find('.t-image__gallery-shadow').exists()).toBeTruthy();
+      // gallery=true 渲染 gallery class 与 shadow 元素
+      const wrapper2 = mountImage({ gallery: true });
+      expect(wrapper2.classes()).toContain('t-image__wrapper--gallery');
+      expect(wrapper2.find('.t-image__gallery-shadow').exists()).toBeTruthy();
+      wrapper2.unmount();
+
+      // gallery=false 不渲染
+      const wrapper3 = mountImage({ gallery: false });
+      expect(wrapper3.classes()).not.toContain('t-image__wrapper--gallery');
+      expect(wrapper3.find('.t-image__gallery-shadow').exists()).toBeFalsy();
+      wrapper3.unmount();
     });
 
     it(':lazy[false] renders img immediately', async () => {
-      const wrapper = mount(() => <Image src={src} lazy={false} />);
+      const wrapper = mountImage({ lazy: false });
       await nextTick();
       expect(wrapper.find('img').exists()).toBeTruthy();
+      wrapper.unmount();
     });
 
     it(':lazy[true] observes intersection and renders after entering viewport', async () => {
-      // mock IntersectionObserver before mount
       const observeSpy = vi.fn();
       const unobserveSpy = vi.fn();
-      const intersectCallbacks: Array<(entries: any[]) => void> = [];
+      const intersectCallbacks: Array<(entries: Array<{ isIntersecting: boolean }>) => void> = [];
+
       class MockIO {
         public observe = observeSpy;
         public unobserve = unobserveSpy;
@@ -143,149 +134,149 @@ describe('Image', () => {
         public root = null;
         public rootMargin = '';
         public thresholds: number[] = [];
-        constructor(cb: (entries: any[]) => void) {
+        constructor(cb: (entries: Array<{ isIntersecting: boolean }>) => void) {
           intersectCallbacks.push(cb);
         }
       }
+
       const originalIO = window.IntersectionObserver;
-      // @ts-ignore
-      window.IntersectionObserver = MockIO as any;
+      window.IntersectionObserver = MockIO as unknown as typeof IntersectionObserver;
 
       try {
-        const wrapper = mount(() => <Image src={src} lazy />);
+        const wrapper = mountImage({ lazy: true });
         await nextTick();
         // 初始未进入视口：img 不渲染
         expect(wrapper.find('img').exists()).toBeFalsy();
         expect(observeSpy).toHaveBeenCalled();
 
-        // 触发进入视口：shouldLoad 变 true
+        // 触发进入视口
         intersectCallbacks.forEach((cb) => cb([{ isIntersecting: true }]));
         await nextTick();
         expect(wrapper.find('img').exists()).toBeTruthy();
-
         wrapper.unmount();
-        // unmount 时 io.unobserve 被触发
-        // 注：observe 工具内部会在 isIntersecting 时也 unobserve 一次
         expect(unobserveSpy).toHaveBeenCalled();
       } finally {
-        // @ts-ignore
         window.IntersectionObserver = originalIO;
       }
     });
 
     it(':lazy[true] falls back to immediate load when IO unavailable', async () => {
-      // jsdom 默认无 IntersectionObserver → observe 会直接调用 callback
       const originalIO = window.IntersectionObserver;
-      // @ts-ignore
+      // @ts-expect-error 模拟无 IntersectionObserver
       delete window.IntersectionObserver;
       try {
-        const wrapper = mount(() => <Image src={src} lazy />);
+        const wrapper = mountImage({ lazy: true });
         await nextTick();
+        // 无 IO 时直接 callback → shouldLoad=true → img 渲染
         expect(wrapper.find('img').exists()).toBeTruthy();
+        wrapper.unmount();
       } finally {
-        // @ts-ignore
         window.IntersectionObserver = originalIO;
       }
     });
 
     it(':loading[function] renders custom loading node', () => {
-      const wrapper = mount(<Image loading={() => <span class="custom-node">TNode</span>}></Image>);
-      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
+      const wrapper = mountImage({ loading: () => <span class="custom-loading">自定义加载</span> });
+      expect(wrapper.find('.t-image__loading').exists()).toBeTruthy();
+      expect(wrapper.find('.custom-loading').exists()).toBeTruthy();
+      expect(wrapper.find('.custom-loading').text()).toBe('自定义加载');
+      wrapper.unmount();
     });
 
     it(':loading[string] renders string text in loading area', () => {
-      const wrapper = mount(() => <Image src={src} loading="加载中..." />);
+      const wrapper = mountImage({ loading: '加载中...' });
       expect(wrapper.find('.t-image__loading').exists()).toBeTruthy();
       expect(wrapper.find('.t-image__loading').text()).toContain('加载中...');
+      wrapper.unmount();
     });
 
-    it(':overlayContent[function]', () => {
-      const wrapper = mount(<Image overlayContent={() => <span class="custom-node">TNode</span>}></Image>);
-      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
+    it(':loading hidden after load event', async () => {
+      const wrapper = mountImage();
+      await nextTick();
+      expect(wrapper.find('.t-image__loading').exists()).toBeTruthy();
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'load');
+      await nextTick();
+      expect(wrapper.find('.t-image__loading').exists()).toBeFalsy();
+      wrapper.unmount();
+    });
+
+    it(':overlayContent[function] renders overlay content', () => {
+      const wrapper = mountImage({ overlayContent: () => <span class="overlay-node">浮层</span> });
       expect(wrapper.find('.t-image__overlay-content').exists()).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.overlay-node').exists()).toBeTruthy();
+      expect(wrapper.find('.overlay-node').text()).toBe('浮层');
+      wrapper.unmount();
     });
 
-    it(':overlayContent[string]', () => {
-      const wrapper = mount(() => <Image src={src} overlayContent="悬浮内容" />);
+    it(':overlayContent[string] renders string overlay', () => {
+      const wrapper = mountImage({ overlayContent: '悬浮内容' });
       expect(wrapper.find('.t-image__overlay-content').exists()).toBeTruthy();
       expect(wrapper.find('.t-image__overlay-content').text()).toBe('悬浮内容');
+      wrapper.unmount();
     });
 
     it(':overlayTrigger[always] shows overlay by default', () => {
-      const wrapper = mount(() => <Image src={src} overlayContent="悬浮内容" />);
+      const wrapper = mountOverlayImage({ overlayTrigger: 'always' });
       expect(wrapper.find('.t-image__overlay-content').exists()).toBeTruthy();
       expect(wrapper.find('.t-image__overlay-content--hidden').exists()).toBeFalsy();
+      wrapper.unmount();
     });
 
     it(':overlayTrigger[hover] toggles overlay on mouse events', async () => {
-      const wrapper = getOverlayImageMount({ overlayTrigger: 'hover', src });
-      wrapper.find('.t-image__wrapper').trigger('mouseenter');
-      await wrapper.vm.$nextTick();
-      expect(wrapper.find('.t-image__overlay-content').exists()).toBeTruthy();
-      expect(wrapper.find('.t-image__overlay-content--hidden').exists()).toBeFalsy();
-      wrapper.find('.t-image__wrapper').trigger('mouseleave');
-      await wrapper.vm.$nextTick();
-      expect(wrapper.find('.t-image__overlay-content--hidden').exists()).toBeTruthy();
-    });
-
-    it(':overlayTrigger[hover] applies need-hover wrapper class', async () => {
-      const wrapper = mount(() => <Image src={src} overlayContent="悬浮内容" overlayTrigger="hover" />);
+      const wrapper = mountOverlayImage({ overlayTrigger: 'hover' });
+      // 需要 need-hover class
       expect(wrapper.classes()).toContain('t-image__wrapper--need-hover');
+
+      // 初始隐藏
+      expect(wrapper.find('.t-image__overlay-content--hidden').exists()).toBeTruthy();
+
+      // mouseenter 显示
       await wrapper.trigger('mouseenter');
       expect(wrapper.find('.t-image__overlay-content').exists()).toBeTruthy();
-      expect(wrapper.find('.t-image__overlay-content').text()).toBe('悬浮内容');
+      expect(wrapper.find('.t-image__overlay-content--hidden').exists()).toBeFalsy();
+
+      // mouseleave 隐藏
       await wrapper.trigger('mouseleave');
-      expect(wrapper.find('.t-image__overlay-content').classes()).toContain('t-image__overlay-content--hidden');
+      expect(wrapper.find('.t-image__overlay-content--hidden').exists()).toBeTruthy();
+      wrapper.unmount();
     });
 
     it(':overlayTrigger validator covers undefined/valid/invalid', () => {
       const v = imageProps.overlayTrigger.validator;
       expect(v(undefined)).toBe(true);
+      expect(v(null)).toBe(true);
       expect(v('always')).toBe(true);
       expect(v('hover')).toBe(true);
-      // @ts-expect-error
+      // @ts-expect-error 测试无效值
       expect(v('invalid')).toBe(false);
     });
 
-    it(':placeholder[function]', () => {
-      const wrapper = mount(<Image placeholder={() => <span class="custom-node">TNode</span>}></Image>);
-      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
+    it(':placeholder[function] renders custom placeholder node', () => {
+      const wrapper = mountImage({ placeholder: () => <span class="custom-placeholder">占位</span> });
+      expect(wrapper.find('.t-image__placeholder').exists()).toBeTruthy();
+      expect(wrapper.find('.custom-placeholder').exists()).toBeTruthy();
+      expect(wrapper.find('.custom-placeholder').text()).toBe('占位');
+      wrapper.unmount();
     });
 
-    it(':placeholder[string]', () => {
-      const wrapper = mount(() => <Image src={src} placeholder="加载中..." />);
+    it(':placeholder[string] renders string placeholder', () => {
+      const wrapper = mountImage({ placeholder: '加载中...' });
       expect(wrapper.find('.t-image__placeholder').exists()).toBeTruthy();
       expect(wrapper.find('.t-image__placeholder').text()).toBe('加载中...');
+      wrapper.unmount();
     });
 
-    it(':position[string] applies class for each enum value', () => {
+    it(':position[string] applies position class for each value', () => {
       const positionList = ['top', 'right', 'bottom', 'left', 'center'];
       positionList.forEach((position) => {
-        const wrapper = mount(() => <Image src={src} position={position} />);
-        const img = wrapper.find('.t-image__wrapper img');
-        expect(img.classes()).toContain(`t-image--position-${position}`);
-      });
-    });
-
-    it(':position[string] class mapping matches expected', () => {
-      const positionClassNameMap = {
-        top: 't-image--position-top',
-        bottom: 't-image--position-bottom',
-        left: 't-image--position-left',
-        right: 't-image--position-right',
-        center: 't-image--position-center',
-      };
-      Object.entries(positionClassNameMap).forEach(([enumValue, expectedClassName]) => {
-        const wrapper = mount(<Image position={enumValue}></Image>).find('.t-image');
-        expect(wrapper.classes(expectedClassName)).toBeTruthy();
+        const wrapper = mountImage({ position });
+        expect(wrapper.find('img').classes()).toContain(`t-image--position-${position}`);
+        wrapper.unmount();
       });
     });
 
     it(':referrerpolicy[string] applies attribute for each enum value', () => {
-      const policies = [
+      const policies: Array<TdImageProps['referrerpolicy']> = [
         'no-referrer',
         'no-referrer-when-downgrade',
         'origin',
@@ -296,48 +287,48 @@ describe('Image', () => {
         'unsafe-url',
       ];
       policies.forEach((policy) => {
-        const wrapper = mount(() => <Image src={src} referrerpolicy={policy} />);
+        const wrapper = mountImage({ referrerpolicy: policy });
         expect(wrapper.find('img').attributes('referrerpolicy')).toBe(policy);
+        wrapper.unmount();
       });
     });
 
     it(':referrerpolicy validator covers undefined/valid/invalid', () => {
       const v = imageProps.referrerpolicy.validator;
       expect(v(undefined)).toBe(true);
+      expect(v(null)).toBe(true);
       expect(v('no-referrer')).toBe(true);
-      // @ts-expect-error
+      expect(v('strict-origin-when-cross-origin')).toBe(true);
+      // @ts-expect-error 测试无效值
       expect(v('invalid')).toBe(false);
     });
 
     it(':shape[string] applies wrapper class for each enum value', () => {
-      ['circle', 'round', 'square'].forEach((item) => {
-        const wrapper = mount(<Image shape={item}></Image>).find('.t-image__wrapper');
-        expect(wrapper.classes(`t-image__wrapper--shape-${item}`)).toBeTruthy();
-      });
-      const shapeList = ['circle', 'round', 'square'];
+      const shapeList: Array<TdImageProps['shape']> = ['circle', 'round', 'square'];
       shapeList.forEach((shape) => {
-        const wrapper = mount(() => <Image src={src} shape={shape} />);
+        const wrapper = mountImage({ shape });
         expect(wrapper.classes()).toContain(`t-image__wrapper--shape-${shape}`);
+        wrapper.unmount();
       });
     });
 
     it(':shape validator covers undefined/valid/invalid', () => {
       const v = imageProps.shape.validator;
       expect(v(undefined)).toBe(true);
+      expect(v(null)).toBe(true);
       expect(v('circle')).toBe(true);
-      // @ts-expect-error
+      expect(v('round')).toBe(true);
+      expect(v('square')).toBe(true);
+      // @ts-expect-error 测试无效值
       expect(v('invalid')).toBe(false);
     });
 
     it(':src[string] renders as img src attribute', () => {
-      const wrapper = mount({
-        render() {
-          return <Image src={src} />;
-        },
-      });
+      const wrapper = mountImage({ src: DEFAULT_SRC });
       expect(wrapper.find('.t-image__wrapper').exists()).toBeTruthy();
-      expect(wrapper.find('.t-image__wrapper img').exists()).toBeTruthy();
-      expect(wrapper.find('.t-image__wrapper img').element.getAttribute('src')).toBe(src);
+      expect(wrapper.find('img').exists()).toBeTruthy();
+      expect(wrapper.find('img').attributes('src')).toBe(DEFAULT_SRC);
+      wrapper.unmount();
     });
 
     it(':src[File] renders blob preview url via useImagePreviewUrl', async () => {
@@ -346,216 +337,220 @@ describe('Image', () => {
       try {
         const file = new File(['mock'], 'test.png', { type: 'image/png' });
         const wrapper = mount(() => <Image src={file} />);
-        // 等待 useImagePreviewUrl 内部 Promise 解析
         await sleep(20);
         await nextTick();
         expect(wrapper.find('img').exists()).toBeTruthy();
+        wrapper.unmount();
       } finally {
         global.URL.createObjectURL = originalCreateObjectURL;
       }
     });
 
     it(':src change resets hasError and isLoaded states', async () => {
-      // 挂载 error src → 触发 error → hasError=true
-      const wrapper = mount(Image, { props: { src: errorSrc } });
-      simulateImageEvent(wrapper.find('img').element, 'error');
+      const wrapper = mount(Image, { props: { src: ERROR_SRC } });
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'error');
       await nextTick();
       expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
-      // 切换到正常 src → previewUrl 变化 → watch 触发重置
-      await wrapper.setProps({ src });
+
+      // 切换到正常 src → watch 触发重置
+      await wrapper.setProps({ src: DEFAULT_SRC });
       await sleep(30);
       await nextTick();
       expect(wrapper.find('.t-image__error').exists()).toBeFalsy();
+      wrapper.unmount();
     });
 
     it(':srcset[object] renders picture with source tags', () => {
-      const wrapper = mount(
-        <Image
-          srcset={{
-            'image/avif': 'https://tdesign.gtimg.com/img/tdesign-image.avif',
-            'image/webp': 'https://tdesign.gtimg.com/img/tdesign-image.webp',
-          }}
-        ></Image>,
-      );
-      const domWrapper = wrapper.find('picture > source');
-      expect(domWrapper.attributes('srcset')).toBe('https://tdesign.gtimg.com/img/tdesign-image.avif');
-      const domWrapper1 = wrapper.find('picture > source:nth-child(2)');
-      expect(domWrapper1.attributes('srcset')).toBe('https://tdesign.gtimg.com/img/tdesign-image.webp');
+      const wrapper = mountImage({
+        srcset: {
+          'image/avif': 'https://tdesign.gtimg.com/img/tdesign-image.avif',
+          'image/webp': 'https://tdesign.gtimg.com/img/tdesign-image.webp',
+        },
+      });
+      expect(wrapper.find('picture').exists()).toBeTruthy();
+      const sources = wrapper.findAll('picture > source');
+      expect(sources.length).toBe(2);
+      expect(sources[0].attributes('srcset')).toBe('https://tdesign.gtimg.com/img/tdesign-image.avif');
+      expect(sources[0].attributes('type')).toBe('image/avif');
+      expect(sources[1].attributes('srcset')).toBe('https://tdesign.gtimg.com/img/tdesign-image.webp');
+      expect(sources[1].attributes('type')).toBe('image/webp');
+      // picture 内仍然包含 img 作为 fallback
+      expect(wrapper.find('picture img').exists()).toBeTruthy();
+      wrapper.unmount();
     });
 
     it(':srcset[empty object] falls back to plain img render', () => {
-      const wrapper = mount(() => <Image src={src} srcset={{}} />);
+      const wrapper = mountImage({ srcset: {} as TdImageProps['srcset'] });
       expect(wrapper.find('picture').exists()).toBeFalsy();
       expect(wrapper.find('img').exists()).toBeTruthy();
-      expect(wrapper.find('img').attributes('src')).toBe(src);
+      expect(wrapper.find('img').attributes('src')).toBe(DEFAULT_SRC);
+      wrapper.unmount();
     });
   });
 
-  describe('@events', () => {
-    it(':onError callback invoked with event context', async () => {
-      const onErrorFn = vi.fn();
-      const wrapper = mount(<Image src={'https://load-failed-img.png'} onError={onErrorFn}></Image>);
-      const imgDom = wrapper.find('img').element;
-      simulateImageEvent(imgDom, 'error');
-      await wrapper.vm.$nextTick();
-      expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
-      expect(wrapper.find('.t-icon-image-error').exists()).toBeTruthy();
-      expect(onErrorFn).toHaveBeenCalled();
-      expect(onErrorFn.mock.calls[0][0].e.type).toBe('error');
-    });
-
-    it(':onError triggered via DOM event dispatch', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Image src={errorSrc} onError={fn} />);
-      const img = wrapper.find('.t-image__wrapper img');
-      await nextTick();
-      await img.trigger('error');
-      await nextTick();
-      expect(fn).toBeCalled();
-    });
-
-    it(':onLoad callback invoked with event context', async () => {
+  describe('events', () => {
+    it('onLoad', async () => {
       const onLoadFn = vi.fn();
-      const wrapper = mount(<Image src={src} onLoad={onLoadFn}></Image>);
-      await wrapper.vm.$nextTick();
-      const imgDom = wrapper.find('img').element;
-      simulateImageEvent(imgDom, 'load');
-      await wrapper.vm.$nextTick();
+      const wrapper = mountImage({ onLoad: onLoadFn });
+      await nextTick();
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'load');
+      await nextTick();
       expect(onLoadFn).toHaveBeenCalled();
       expect(onLoadFn.mock.calls[0][0].e.type).toBe('load');
+      wrapper.unmount();
     });
 
-    it(':onLoad triggered via DOM event dispatch', async () => {
+    it('onLoad via DOM trigger', async () => {
       const fn = vi.fn();
-      const wrapper = mount(() => <Image src={src} onLoad={fn} />);
-      const img = wrapper.find('.t-image__wrapper img');
+      const wrapper = mountImage({ onLoad: fn });
       await nextTick();
-      await img.trigger('load');
+      await wrapper.find('img').trigger('load');
       await nextTick();
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
+      wrapper.unmount();
     });
 
-    it(':onClick triggers on wrapper click with event context', async () => {
+    it('onError', async () => {
+      const onErrorFn = vi.fn();
+      const wrapper = mountImage({ src: ERROR_SRC, onError: onErrorFn });
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'error');
+      await nextTick();
+      expect(onErrorFn).toHaveBeenCalled();
+      expect(onErrorFn.mock.calls[0][0].e.type).toBe('error');
+      expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
+      expect(wrapper.find('.t-icon-image-error').exists()).toBeTruthy();
+      wrapper.unmount();
+    });
+
+    it('onError via DOM trigger', async () => {
       const fn = vi.fn();
-      const wrapper = mount(() => <Image src={src} onClick={fn} />);
+      const wrapper = mountImage({ src: ERROR_SRC, onError: fn });
+      await nextTick();
+      await wrapper.find('img').trigger('error');
+      await nextTick();
+      expect(fn).toHaveBeenCalled();
+      wrapper.unmount();
+    });
+
+    it('onClick', async () => {
+      const fn = vi.fn();
+      const wrapper = mountImage({ onClick: fn });
       await wrapper.find('.t-image__wrapper').trigger('click');
       expect(fn).toHaveBeenCalled();
       expect(fn.mock.calls[0][0].e.type).toBe('click');
+      wrapper.unmount();
     });
 
-    it(':onClick not required (safe when undefined)', async () => {
-      const wrapper = mount(() => <Image src={src} />);
+    it('onClick not required (safe when undefined)', async () => {
+      const wrapper = mountImage();
       // 不应抛错
       await expect(wrapper.find('.t-image__wrapper').trigger('click')).resolves.not.toThrow();
+      wrapper.unmount();
     });
   });
 
-  describe('#slots', () => {
+  describe('slots', () => {
     it('#error slot renders custom error node', async () => {
-      const wrapper = mount(
-        <Image
-          v-slots={{ error: () => <span class="custom-node">TNode</span> }}
-          src={'https://this.is.an.error.img.com'}
-        ></Image>,
-      );
-      const imgDom = wrapper.find('img').element;
-      simulateImageEvent(imgDom, 'error');
-      await wrapper.vm.$nextTick();
-      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
+      const wrapper = mountImage({ src: ERROR_SRC }, { error: () => <span class="slot-error">自定义错误</span> });
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'error');
+      await nextTick();
+      expect(wrapper.find('.slot-error').exists()).toBeTruthy();
+      expect(wrapper.find('.slot-error').text()).toBe('自定义错误');
+      wrapper.unmount();
     });
 
     it('#loading slot renders custom loading node', () => {
-      const wrapper = mount(<Image v-slots={{ loading: () => <span class="custom-node">TNode</span> }}></Image>);
-      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
+      const wrapper = mountImage({}, { loading: () => <span class="slot-loading">加载中</span> });
+      expect(wrapper.find('.t-image__loading').exists()).toBeTruthy();
+      expect(wrapper.find('.slot-loading').exists()).toBeTruthy();
+      expect(wrapper.find('.slot-loading').text()).toBe('加载中');
+      wrapper.unmount();
     });
 
     it('#overlayContent slot (camelCase)', () => {
-      const wrapper = mount(<Image v-slots={{ overlayContent: () => <span class="custom-node">TNode</span> }}></Image>);
-      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
+      const wrapper = mountImageWithoutSrc({}, { overlayContent: () => <span class="slot-overlay">浮层内容</span> });
       expect(wrapper.find('.t-image__overlay-content').exists()).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.slot-overlay').exists()).toBeTruthy();
+      wrapper.unmount();
     });
 
     it('#overlay-content slot (kebab-case)', () => {
-      const wrapper = mount(
-        <Image v-slots={{ 'overlay-content': () => <span class="custom-node">TNode</span> }}></Image>,
+      const wrapper = mountImageWithoutSrc(
+        {},
+        { 'overlay-content': () => <span class="slot-overlay-kebab">浮层</span> },
       );
-      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
       expect(wrapper.find('.t-image__overlay-content').exists()).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.find('.slot-overlay-kebab').exists()).toBeTruthy();
+      wrapper.unmount();
     });
 
     it('#placeholder slot renders custom placeholder node', () => {
-      const wrapper = mount(<Image v-slots={{ placeholder: () => <span class="custom-node">TNode</span> }}></Image>);
-      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-      expect(wrapper.element).toMatchSnapshot();
+      const wrapper = mountImage({}, { placeholder: () => <span class="slot-placeholder">占位中</span> });
+      expect(wrapper.find('.t-image__placeholder').exists()).toBeTruthy();
+      expect(wrapper.find('.slot-placeholder').exists()).toBeTruthy();
+      expect(wrapper.find('.slot-placeholder').text()).toBe('占位中');
+      wrapper.unmount();
     });
   });
 
   describe('interaction', () => {
-    it('wrapper renders shape wrapper and image classes', () => {
-      const wrapper = mount(() => <Image src={src} />);
+    it('wrapper renders default shape and image classes', () => {
+      const wrapper = mountImage();
       expect(wrapper.find('.t-image__wrapper').exists()).toBeTruthy();
-      expect(wrapper.find('.t-image__wrapper--shape-square').exists()).toBeTruthy();
+      expect(wrapper.classes()).toContain('t-image__wrapper--shape-square');
       expect(wrapper.find('.t-image').exists()).toBeTruthy();
+      wrapper.unmount();
     });
 
-    it('hasError renders empty image placeholder block (no picture/img)', async () => {
-      const wrapper = mount(() => <Image src={errorSrc} />);
-      simulateImageEvent(wrapper.find('img').element, 'error');
+    it('hasError hides img and renders error block', async () => {
+      const wrapper = mountImage({ src: ERROR_SRC });
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'error');
       await nextTick();
-      // 出错后：img 不再渲染，只保留 .t-image 占位 + .t-image__error
-      expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
+      // 出错后：img 不再渲染
       expect(wrapper.find('img').exists()).toBeFalsy();
+      // 只保留 .t-image 占位 + .t-image__error
+      expect(wrapper.find('.t-image').exists()).toBeTruthy();
+      expect(wrapper.find('.t-image__error').exists()).toBeTruthy();
+      wrapper.unmount();
     });
 
     it('loading block hidden after load event', async () => {
-      const wrapper = mount(() => <Image src={src} />);
+      const wrapper = mountImage();
       await nextTick();
       expect(wrapper.find('.t-image__loading').exists()).toBeTruthy();
-      await wrapper.find('img').trigger('load');
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'load');
       await nextTick();
       expect(wrapper.find('.t-image__loading').exists()).toBeFalsy();
+      wrapper.unmount();
     });
 
-    it('globalConfig.replaceImageSrc transforms src via ConfigProvider', async () => {
+    it('globalConfig.replaceImageSrc transforms src', async () => {
       const replaced = 'https://tdesign.gtimg.com/demo/replaced-image.png';
-      const wrapper = mount(() => (
-        <ConfigProvider globalConfig={{ image: { replaceImageSrc: () => replaced } }}>
-          <Image src={src} />
-        </ConfigProvider>
-      ));
+      const wrapper = mountImageWithConfig({ replaceImageSrc: () => replaced });
       await nextTick();
       expect(wrapper.find('img').attributes('src')).toBe(replaced);
+      wrapper.unmount();
     });
 
     it('globalConfig.replaceImageSrc not a function falls back to original src', async () => {
-      const wrapper = mount(() => (
-        <ConfigProvider globalConfig={{ image: { replaceImageSrc: 'not-a-function' as any } }}>
-          <Image src={src} />
-        </ConfigProvider>
-      ));
+      const wrapper = mountImageWithConfig({ replaceImageSrc: 'not-a-function' });
       await nextTick();
-      expect(wrapper.find('img').attributes('src')).toBe(src);
+      expect(wrapper.find('img').attributes('src')).toBe(DEFAULT_SRC);
+      wrapper.unmount();
     });
 
     it('globalConfig.loadingText / errorText fallback when loading/error prop not provided', async () => {
-      const wrapper = mount(() => (
-        <ConfigProvider globalConfig={{ image: { loadingText: '全局加载中', errorText: '全局失败' } as any }}>
-          <Image src={errorSrc} />
-        </ConfigProvider>
-      ));
+      const wrapper = mountImageWithConfig({ loadingText: '全局加载中', errorText: '全局失败' }, { src: ERROR_SRC });
       // loading 区 — 使用 globalConfig.loadingText
       expect(wrapper.find('.t-image__loading').text()).toContain('全局加载中');
-      simulateImageEvent(wrapper.find('img').element, 'error');
+      simulateImageEvent(wrapper.find('img').element as HTMLImageElement, 'error');
       await nextTick();
       // error 区 — 使用 globalConfig.errorText
       expect(wrapper.find('.t-image__error').text()).toContain('全局失败');
+      wrapper.unmount();
     });
 
-    it('img.complete=true on mount triggers auto load (covers nuxt3 workaround)', async () => {
-      // 预先 stub imgRef.complete 为 true
+    it('img.complete=true on mount triggers auto load (nuxt3 workaround)', async () => {
       const originalComplete = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'complete');
       Object.defineProperty(HTMLImageElement.prototype, 'complete', {
         configurable: true,
@@ -565,37 +560,72 @@ describe('Image', () => {
       });
       try {
         const onLoad = vi.fn();
-        const wrapper = mount(() => <Image src={src} onLoad={onLoad} />);
+        const wrapper = mountImage({ onLoad });
         await nextTick();
         expect(onLoad).toHaveBeenCalled();
         expect(onLoad.mock.calls[0][0].e.type).toBe('load');
         // 自动 load 后 loading 区块消失
         expect(wrapper.find('.t-image__loading').exists()).toBeFalsy();
+        wrapper.unmount();
       } finally {
         if (originalComplete) {
           Object.defineProperty(HTMLImageElement.prototype, 'complete', originalComplete);
-        } else {
-          // @ts-ignore
-          delete (HTMLImageElement.prototype as any).complete;
         }
       }
     });
 
-    it('lazy + divRef missing short-circuits without observer setup', async () => {
-      // 即 lazy=true 但 divRef 返回 null 时的分支：实际 mount 下 divRef 不会为 null,
-      // 用 window.IntersectionObserver = undefined 触发 observe 工具回调 fallback
+    it('lazy + IO undefined short-circuits with immediate load', async () => {
       const originalIO = window.IntersectionObserver;
-      // @ts-ignore
+      // @ts-expect-error 模拟 IO 为 undefined
       window.IntersectionObserver = undefined;
       try {
-        const wrapper = mount(() => <Image src={src} lazy />);
+        const wrapper = mountImage({ lazy: true });
         await nextTick();
         // observe 工具在无 IO 时直接 callback → shouldLoad=true → img 渲染
         expect(wrapper.find('img').exists()).toBeTruthy();
+        wrapper.unmount();
       } finally {
-        // @ts-ignore
         window.IntersectionObserver = originalIO;
       }
     });
+
+    it('overlayTrigger=always does not add need-hover class', () => {
+      const wrapper = mountOverlayImage({ overlayTrigger: 'always' });
+      expect(wrapper.classes()).not.toContain('t-image__wrapper--need-hover');
+      wrapper.unmount();
+    });
+
+    it('no overlayContent renders no overlay node', () => {
+      const wrapper = mountImage();
+      expect(wrapper.find('.t-image__overlay-content').exists()).toBeFalsy();
+      wrapper.unmount();
+    });
+
+    it('no placeholder renders no placeholder node', () => {
+      const wrapper = mountImage();
+      expect(wrapper.find('.t-image__placeholder').exists()).toBeFalsy();
+      wrapper.unmount();
+    });
+
+    it('fit default applies fill class', () => {
+      const wrapper = mountImage();
+      expect(wrapper.find('img').classes()).toContain('t-image--fit-fill');
+      wrapper.unmount();
+    });
+
+    it('position default applies center class', () => {
+      const wrapper = mountImage();
+      expect(wrapper.find('img').classes()).toContain('t-image--position-center');
+      wrapper.unmount();
+    });
+
+    it('referrerpolicy default applies strict-origin-when-cross-origin', () => {
+      const wrapper = mountImage();
+      expect(wrapper.find('img').attributes('referrerpolicy')).toBe('strict-origin-when-cross-origin');
+      wrapper.unmount();
+    });
   });
 });
+
+// 引入 TdImageProps 类型用于泛型标注
+import type { TdImageProps } from '@tdesign/components/image';
