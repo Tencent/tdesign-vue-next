@@ -1,6 +1,5 @@
 import { computed, defineComponent, getCurrentInstance, h, VNode } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
-import { isString } from 'lodash-es';
 import tinycolor from 'tinycolor2';
 
 import props from './props';
@@ -11,6 +10,7 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useCommonClassName,
+  getTextFromVNode,
 } from '@tdesign/shared-hooks';
 
 import { Styles } from '../common';
@@ -123,7 +123,7 @@ export default defineComponent({
       // 图标
       const icon = renderTNodeJSX('icon');
 
-      const title = renderTitle(isString(tagContent) ? tagContent : '');
+      const title = renderTitle(getTextFromVNode(tagContent));
 
       return (
         <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
