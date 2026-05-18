@@ -345,7 +345,7 @@ describe('CheckTag', () => {
         attachTo: document.body,
       });
       const tag = wrapper.findComponent(CheckTag);
-      tag.vm.$.exposed.focus();
+      tag.vm.$.parent.exposed.focus();
       await nextTick();
 
       expect(document.activeElement).toBe(tag.element);
@@ -363,7 +363,7 @@ describe('CheckTag', () => {
         attachTo: document.body,
       });
       const tag = wrapper.findComponent(CheckTag);
-      tag.vm.$.exposed.focus();
+      tag.vm.$.parent.exposed.focus();
       await nextTick();
 
       const keyboardEvent = new KeyboardEvent('keydown', { code: 'Space', key: ' ' });

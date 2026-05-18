@@ -1,4 +1,4 @@
-import { computed, defineComponent, getCurrentInstance, h, ref, VNode } from 'vue';
+import { computed, defineComponent, getCurrentInstance, h, VNode, ref } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import tinycolor from 'tinycolor2';
 
@@ -117,9 +117,7 @@ export default defineComponent({
     };
 
     expose({
-      focus: () => {
-        tagRef.value?.focus();
-      },
+      tagRef,
     });
 
     return () => {

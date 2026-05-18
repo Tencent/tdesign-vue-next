@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs } from 'vue';
+import { defineComponent, computed, toRefs, ref } from 'vue';
 import props from './check-tag-props';
 import { useVModel, useContent, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
@@ -9,10 +9,11 @@ import { ENTER_REG, SPACE_REG } from '@tdesign/common-js/common';
 export default defineComponent({
   name: 'TCheckTag',
   props,
-  setup(props: TdCheckTagProps) {
+  setup(props: TdCheckTagProps, { expose }) {
     const componentName = usePrefixClass('tag');
     const { SIZE } = useCommonClassName();
     const renderContent = useContent();
+    const tagRef = ref<HTMLDivElement>(null);
 
     const { checked, modelValue } = toRefs(props);
     const [innerChecked, setInnerChecked] = useVModel(
@@ -65,10 +66,17 @@ export default defineComponent({
       e.currentTarget.removeEventListener('keydown', keyboardEventListener);
     };
 
+    expose({
+      focus: () => {
+        tagRef.value?.$el?.focus();
+      },
+    });
+
     return () => {
       const tagContent = renderContent('default', 'content');
       return (
         <Tag
+          ref={tagRef}
           class={tagClass.value}
           disabled={props.disabled}
           // @ts-expect-error
