@@ -1,0 +1,53 @@
+{
+  "name": "@tdesign-vue-next/nuxt",
+  "version": "0.2.1",
+  "description": "Nuxt Module for TDesign",
+  "repository": "tdesignOteam/tdesign-nuxt",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^4.4.6",
+    "lodash-es": "catalog:deps"
+  },
+  "peerDependencies": {
+    "tdesign-icons-vue-next": ">=0.4.4",
+    "tdesign-vue-next": ">=1"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^4.4.6",
+    "@nuxt/test-utils": "^4.0.3",
+    "@types/lodash-es": "catalog:types",
+    "@types/node": "catalog:types",
+    "less": "catalog:bundle",
+    "nuxt": "^4.1.6",
+    "tdesign-icons-vue-next": "catalog:tdesign",
+    "tdesign-vue-next": "^1.19.2",
+    "vitest": "catalog:test"
+  }
+}
