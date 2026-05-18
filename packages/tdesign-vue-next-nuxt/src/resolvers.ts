@@ -2,8 +2,9 @@ import { join } from 'node:path';
 import { addComponent, addImportsSources, tryResolveModule, useNuxt } from '@nuxt/kit';
 
 import { map, kebabCase } from 'lodash-es';
-import { componentMap, pluginList, iconList, pluginMap } from './config';
+import { pluginList, iconList, pluginMap } from './config';
 import { isMatch } from './utils';
+import { WEB_COMPONENT_MAP } from '@tdesign/common-js/components';
 
 import type { ModuleOptions } from './interface';
 
@@ -26,7 +27,7 @@ export const resolveTDesignComponents = (options: ModuleOptions) => {
   const moduleMode = options.esm ? 'esm' : 'es';
   const prefix = options.prefix ?? 't';
 
-  map(componentMap, (subComponents: string[], keys: string) => {
+  map(WEB_COMPONENT_MAP, (subComponents: string[], keys: string) => {
     let includeComponents = subComponents;
 
     // 对存在特殊导出/标签映射的组件（如 typography、qrcode），合并补齐组件列表，
@@ -35,6 +36,11 @@ export const resolveTDesignComponents = (options: ModuleOptions) => {
     if (specialCases) {
       includeComponents = Array.from(new Set([...subComponents, ...Object.keys(specialCases)]));
     }
+
+    // 过滤掉插件
+    includeComponents = includeComponents.filter(
+      (component) => !pluginList.includes(component as typeof pluginList[number]),
+    );
 
     if (options.include)
       includeComponents = includeComponents.filter((component) => isMatch(component, options.include));

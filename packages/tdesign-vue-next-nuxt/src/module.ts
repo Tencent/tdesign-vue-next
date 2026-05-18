@@ -67,6 +67,7 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.options.build.transpile.push('@tdesign/components');
       nuxt.options.build.transpile.push('@tdesign/shared-hooks');
       nuxt.options.build.transpile.push('@tdesign/shared-utils');
+      nuxt.options.build.transpile.push('@tdesign/common-js/components');
     }
 
     if (options.esm) {
