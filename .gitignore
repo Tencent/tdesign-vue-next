@@ -10,7 +10,6 @@ dist/
 _example-js/
 
 _site
-_static_site
 package
 tmp*
 temp*
