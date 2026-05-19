@@ -24,6 +24,14 @@ export default {
   collapsedItems: {
     type: Function as PropType<TdCascaderProps['collapsedItems']>,
   },
+  /** 每一列的底部自定义内容。`panelIndex` 表示当前列索引，`options` 表示当前列原始选项，`filteredOptions` 表示当前列过滤后的选项（未过滤时与 options 相同），`onFilter` 用于过滤当前列选项（传入字符串时内置大小写不敏感匹配；如需自定义匹配逻辑请传入过滤函数）。当内置搜索（filterable）有输入时，面板切换为扁平模式，`onFilter` 为空操作 */
+  columnFooter: {
+    type: [String, Function] as PropType<TdCascaderProps['columnFooter']>,
+  },
+  /** 每一列的顶部自定义内容。`panelIndex` 表示当前列索引，`options` 表示当前列原始选项，`filteredOptions` 表示当前列过滤后的选项（未过滤时与 options 相同），`onFilter` 用于过滤当前列选项（传入字符串时内置大小写不敏感匹配；如需自定义匹配逻辑请传入过滤函数）。当内置搜索（filterable）有输入时，面板切换为扁平模式，`onFilter` 为空操作。 */
+  columnHeader: {
+    type: [String, Function] as PropType<TdCascaderProps['columnHeader']>,
+  },
   /** 是否禁用组件 */
   disabled: {
     type: Boolean,

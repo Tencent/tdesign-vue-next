@@ -1,11 +1,9 @@
 import { computed, defineComponent, ref } from 'vue';
 import type { CSSProperties } from 'vue';
-import { PLACEMENT_OFFSET } from '@tdesign/common-js/message/index';
+import { DEFAULT_Z_INDEX, PLACEMENT_OFFSET } from '@tdesign/common-js/message/index';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import TMessage from './message';
 import type { MessageOptions } from './type';
-
-export const DEFAULT_Z_INDEX = 6000;
 
 const getUniqueId = (() => {
   let id = 0;
