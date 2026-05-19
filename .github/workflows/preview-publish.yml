@@ -137,7 +137,7 @@ jobs:
       - name: comment
         uses: TDesignOteam/workflows/actions/maintain-one-comment@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TDESIGN_BOT_TOKEN }}
           number: ${{needs.preview-context.outputs.pr_id}}
           body: ${{ steps.report.outputs.comment }}
           body-include: '<!-- AUTO_PREVIEW_HOOK -->'
