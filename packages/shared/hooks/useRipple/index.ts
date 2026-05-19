@@ -70,7 +70,6 @@ export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) 
     const elBorder = parseInt(elStyle.borderWidth, 10);
     const border = elBorder > 0 ? elBorder : 0;
     const width = dom.offsetWidth;
-    const height = dom.offsetHeight;
 
     if (rippleContainer.value.parentNode === null) {
       setStyle(rippleContainer.value, {
