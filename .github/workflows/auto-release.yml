@@ -25,7 +25,7 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm run '/build:*/'
+      - run: pnpm run '/build:/'
 
       - uses: actions/setup-node@v4
         with:
