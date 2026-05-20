@@ -23,7 +23,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm run '/build:*/'
+      - run: pnpm run '/build:/'
 
       - run: node ./script/workflows/pkg-pr-new-generate-template.mjs
 
