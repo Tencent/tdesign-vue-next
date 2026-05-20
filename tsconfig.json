@@ -60,7 +60,6 @@
     "cjs",
     "esm",
     "es",
-    "global.d.ts",
-    "packages/tdesign-vue-next-nuxt",
+    "global.d.ts"
   ]
 }
