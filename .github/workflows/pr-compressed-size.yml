@@ -63,3 +63,23 @@ jobs:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           pattern: './packages/auto-import-resolver/dist/*.{js,cjs,mjs}'
           comment-key: auto-import-resolver
+  
+  tdesign-vue-next-chat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          build-script: 'build:nuxt'
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          pattern: './packages/tdesign-vue-next-nuxt/dist/*.{d.ts,d.mts,mjs}'
+          comment-key: tdesign-vue-next-nuxt
