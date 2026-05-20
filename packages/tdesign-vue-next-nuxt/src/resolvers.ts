@@ -105,10 +105,11 @@ export const resolveTDesignVariables = async (options: ModuleOptions) => {
   const nuxt = useNuxt();
   const stylePath = options.esm ? '../esm/style/index.js' : '../es/style/index.css';
 
-  const tdesignGlobalStyle = await tryResolveModule('tdesign-vue-next/package.json').then((tdLocation) =>
-    tdLocation
-      ? join(tdLocation, stylePath)
-      : Promise.reject('Unable to resolve tdesign-vue-next Global Style. Is it installed?'),
+  const tdesignGlobalStyle = await tryResolveModule('tdesign-vue-next/package.json', import.meta.url).then(
+    (tdLocation) =>
+      tdLocation
+        ? join(tdLocation, stylePath)
+        : Promise.reject('Unable to resolve tdesign-vue-next Global Style. Is it installed?'),
   );
   nuxt.options.css.push(tdesignGlobalStyle);
 };
