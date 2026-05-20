@@ -64,7 +64,7 @@ jobs:
           pattern: './packages/auto-import-resolver/dist/*.{js,cjs,mjs}'
           comment-key: auto-import-resolver
   
-  tdesign-vue-next-chat:
+  tdesign-vue-next-nuxt:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
