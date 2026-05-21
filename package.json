@@ -27,6 +27,8 @@
     "dev:chat": "pnpm -C packages/tdesign-vue-next-chat/site dev",
     "build:chat": "pnpm -C internal/builds build:chat",
     "build:auto-import-resolver": "pnpm -C packages/auto-import-resolver build",
+    "dev:nuxt": "pnpm -C packages/tdesign-vue-next-nuxt dev",
+    "build:nuxt": "pnpm -C packages/tdesign-vue-next-nuxt build",
     "robot": "publish-cli robot-msg"
   },
   "author": "tdesign",

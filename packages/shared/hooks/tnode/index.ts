@@ -1,5 +1,5 @@
 import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
-import { camelCase, kebabCase, isFunction } from 'lodash-es';
+import { camelCase, kebabCase, isFunction, isString, isObject } from 'lodash-es';
 
 import {
   getDefaultNode,
@@ -180,3 +180,53 @@ export const useContent = () => {
 export const filterCommentNode = (nodes: VNode[]): VNode[] => {
   return nodes.filter((node) => !isCommentVNode(node));
 };
+
+/**
+ * 从 VNode 中提取文本内容。
+ *
+ * @param VNodes - VNode 或字符串
+ * @returns 提取的文本内容，多个会以空格分隔。
+ */
+export function getTextFromVNode(VNodes?: VNode[] | VNode | string): string {
+  if (!VNodes) return '';
+
+  // 如果是字符串，直接返回
+  if (isString(VNodes)) return VNodes;
+
+  // 如果是数组，递归获取文本内容并连接成字符串
+  if (Array.isArray(VNodes)) {
+    return filterCommentNode(VNodes)
+      .map((node) => getTextFromVNode(node))
+      .filter(Boolean)
+      .join(' ');
+  }
+
+  // 注释节点返回空字符串
+  if (isCommentVNode(VNodes)) return '';
+
+  // 子节点是字符串，直接返回
+  if (isString(VNodes.children)) {
+    return VNodes.children;
+  }
+
+  // 递归获取子节点的文本内容并连接成字符串
+  if (Array.isArray(VNodes.children)) {
+    return filterCommentNode(VNodes.children as VNode[])
+      .map((node) => getTextFromVNode(node))
+      .filter(Boolean)
+      .join(' ');
+  }
+
+  // 子节点是对象，获取对象的值并连接成字符串
+  if (VNodes.children && isObject(VNodes.children)) {
+    return Object.values(VNodes.children as Record<string, unknown>)
+      .map((child) => {
+        if (!child || isFunction(child)) return '';
+        return getTextFromVNode(child as VNode[] | VNode | string);
+      })
+      .filter(Boolean)
+      .join(' ');
+  }
+
+  return '';
+}
