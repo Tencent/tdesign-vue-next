@@ -1,0 +1,50 @@
+{
+  "name": "@tdesign-vue-next/nuxt",
+  "version": "0.2.1",
+  "description": "Nuxt Module for TDesign",
+  "repository": "tdesignOteam/tdesign-nuxt",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "main": "./dist/module.mjs",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build prepare && nuxt-module-build build",
+    "build": "pnpm run prepack",
+    "dev": "nuxi dev site",
+    "dev:build": "nuxi build site",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare site",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^4.4.6",
+    "lodash-es": "catalog:deps"
+  },
+  "peerDependencies": {
+    "tdesign-icons-vue-next": ">=0.4.4",
+    "tdesign-vue-next": ">=1"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^4.4.6",
+    "@nuxt/test-utils": "^4.0.3",
+    "@types/lodash-es": "catalog:types",
+    "@types/node": "catalog:types",
+    "less": "catalog:bundle",
+    "nuxt": "^4.1.6",
+    "tdesign-icons-vue-next": "catalog:tdesign",
+    "tdesign-vue-next": "workspace:^",
+    "vitest": "catalog:test"
+  }
+}

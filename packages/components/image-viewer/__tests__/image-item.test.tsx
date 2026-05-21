@@ -81,21 +81,25 @@ describe('ImageItem', () => {
     });
 
     it(':scale[number]', async () => {
-      // default scale
+      // default scale — box 只有 mirror，image 有 scale
       const wrapper1 = mount(ImageItem, {
         props: { src: testImages[0], scale: 1, rotate: 0, mirror: 1 },
       });
       await nextTick();
       const box1 = (wrapper1.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
       expect(box1).toContain('scale(1, 1)');
+      const img1 = (wrapper1.find('.t-image-viewer__modal-image').element as HTMLElement).style.transform;
+      expect(img1).toContain('scale(1)');
 
-      // scale with mirror
+      // scale with mirror — box: scale(-1, 1), image: scale(1.5)
       const wrapper2 = mount(ImageItem, {
         props: { src: testImages[0], scale: 1.5, rotate: 0, mirror: -1 },
       });
       await nextTick();
       const box2 = (wrapper2.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
-      expect(box2).toContain('scale(-1.5, 1.5)');
+      expect(box2).toContain('scale(-1, 1)');
+      const imgScale2 = (wrapper2.find('.t-image-viewer__modal-image').element as HTMLElement).style.transform;
+      expect(imgScale2).toContain('scale(1.5)');
 
       // scale = 0
       const wrapper3 = mount(ImageItem, {
@@ -103,7 +107,9 @@ describe('ImageItem', () => {
       });
       await nextTick();
       const box3 = (wrapper3.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
-      expect(box3).toContain('scale(0, 0)');
+      expect(box3).toContain('scale(1, 1)');
+      const imgScale3 = (wrapper3.find('.t-image-viewer__modal-image').element as HTMLElement).style.transform;
+      expect(imgScale3).toContain('scale(0)');
 
       // large scale
       const wrapper4 = mount(ImageItem, {
@@ -111,7 +117,9 @@ describe('ImageItem', () => {
       });
       await nextTick();
       const box4 = (wrapper4.find('.t-image-viewer__modal-box').element as HTMLElement).style.transform;
-      expect(box4).toContain('scale(5, 5)');
+      expect(box4).toContain('scale(1, 1)');
+      const imgScale4 = (wrapper4.find('.t-image-viewer__modal-image').element as HTMLElement).style.transform;
+      expect(imgScale4).toContain('scale(5)');
     });
 
     it(':rotate[number]', async () => {
@@ -121,7 +129,7 @@ describe('ImageItem', () => {
       });
       await nextTick();
       const img1 = (wrapper1.find('.t-image-viewer__modal-image').element as HTMLElement).style.transform;
-      expect(img1).toContain('rotate(180deg)');
+      expect(img1).toContain('rotateZ(180deg)');
 
       // negative
       const wrapper2 = mount(ImageItem, {
@@ -129,7 +137,7 @@ describe('ImageItem', () => {
       });
       await nextTick();
       const img2 = (wrapper2.find('.t-image-viewer__modal-image').element as HTMLElement).style.transform;
-      expect(img2).toContain('rotate(-90deg)');
+      expect(img2).toContain('rotateZ(-90deg)');
     });
 
     it(':mirror[number]', async () => {

@@ -5,6 +5,31 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.0 `2026-05-14`
+
+### 🚨 Breaking Changes
+
+- `Message`: The `z-index` of the unified component has been changed to a more reasonable value of `6000`. Applications that rely on this property should be aware of this change. ⚠️ @RylanBot @liweijie0812 ([#6651](https://github.com/Tencent/tdesign-vue-next/pull/6651))
+
+### 🚀 New Features
+
+- `Cascader`: New `columnHeader` and `columnFooter` slots have been added, allowing customization of the header and footer content for each level of the panel. For details, see the usage examples. @RSS1102 ([#6297](https://github.com/Tencent/tdesign-vue-next/pull/6297))
+- `ImageViewer`: Improvements have been made to the behavior of `ImageViewer`, now allowing images outside the viewport to be zoomed in centered. @RSS1102 ([#6406](https://github.com/Tencent/tdesign-vue-next/pull/6406))
+
+### 🐞 Bug Fixes
+
+- `DatePicker`: When the input field is cleared, the selected date is also cleared. @RSS1102 ([#6534](https://github.com/Tencent/tdesign-vue-next/pull/6534))
+- `Dialog`:
+  - Fixed an issue where dragging outside the modal’s header was allowed in modal scenarios. @ruguoba ([#6648](https://github.com/Tencent/tdesign-vue-next/pull/6648))
+  - Fixed an issue with misaligned layers in non-modal scenarios. @Wesley-0808 @uyarn ([#6650](https://github.com/Tencent/tdesign-vue-next/pull/6650))
+- `ImageViewer`: Fixed an issue where the default trigger image did not match the document description. @hmingv ([#6634](https://github.com/Tencent/tdesign-vue-next/pull/6634))
+- `Table`: Fixed an issue where sorting local data caused old data to still be displayed after re-sorting. @LavenderDuskGlow ([#6537](https://github.com/Tencent/tdesign-vue-next/pull/6537))
+- `Transfer`: Fixed issues related to the definition and default value of the `search` type. @RSS1102 ([#6629](https://github.com/Tencent/tdesign-vue-next/pull/6629))
+
+### 📈 Performance Improvements
+
+- `Card`: Rendering logic has been optimized to prevent duplicate rendering when the loading state changes. However, custom loading states will still cause re-rendering. @RSS1102 ([#6631](https://github.com/Tencent/tdesign-vue-next/pull/6631))
+
 ## 🌈 1.19.2 `2026-04-30`
 
 ### 🚀 Features

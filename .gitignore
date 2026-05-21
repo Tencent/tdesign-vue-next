@@ -8,6 +8,8 @@ cjs/
 lib/
 dist/
 _example-js/
+.nuxt
+.output
 
 _site
 _static_site

@@ -15,7 +15,7 @@ exports[`ImageItem > props > :src[string] 1`] = `
       class="t-image-viewer__modal-image"
       draggable="false"
       src="https://tdesign.gtimg.com/demo/demo-image-1.png"
-      style="transform: rotate(0deg); display: block;"
+      style="transform: rotateZ(0deg) scale(1); display: block;"
     />
     <!---->
   </div>
