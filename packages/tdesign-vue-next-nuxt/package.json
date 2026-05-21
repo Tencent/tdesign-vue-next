@@ -2,7 +2,6 @@
   "name": "@tdesign-vue-next/nuxt",
   "version": "0.2.1",
   "description": "Nuxt Module for TDesign",
-  "repository": "tdesignOteam/tdesign-nuxt",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -17,6 +16,15 @@
     "LICENSE",
     "README"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git",
+    "directory": "packages/tdesign-vue-next-nuxt"
+  },
   "scripts": {
     "prepack": "nuxt-module-build prepare && nuxt-module-build build",
     "build": "pnpm run prepack",
