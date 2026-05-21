@@ -282,6 +282,33 @@ describe('Pagination', () => {
       wrapper.unmount();
     });
 
+    it('onChange triggers once when jumper enter is followed by blur', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(<Pagination total={100} defaultCurrent={2} showJumper onChange={onChangeFn} />);
+      const input = wrapper.find('.t-pagination__jump input');
+
+      await input.setValue('3');
+      await input.trigger('keydown', { code: 'Enter', key: 'Enter' });
+      await input.trigger('blur');
+
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
+      expect(onChangeFn.mock.calls[0][0]).toEqual(expect.objectContaining({ current: 3, previous: 2, pageSize: 10 }));
+      wrapper.unmount();
+    });
+
+    it('onChange triggers when jumper only blurs', async () => {
+      const onChangeFn = vi.fn();
+      const wrapper = mount(<Pagination total={100} defaultCurrent={2} showJumper onChange={onChangeFn} />);
+      const input = wrapper.find('.t-pagination__jump input');
+
+      await input.setValue('4');
+      await input.trigger('blur');
+
+      expect(onChangeFn).toHaveBeenCalledTimes(1);
+      expect(onChangeFn.mock.calls[0][0]).toEqual(expect.objectContaining({ current: 4, previous: 2, pageSize: 10 }));
+      wrapper.unmount();
+    });
+
     it('onCurrentChange', async () => {
       const onCurrentChangeFn = vi.fn();
       const wrapper = mount(<Pagination total={100} onCurrentChange={onCurrentChangeFn} />);
