@@ -12,4 +12,5 @@ export const Dialog = withInstall(_Dialog);
 export const DialogCard = withInstall(_DialogCard);
 
 export { default as DialogPlugin } from './plugin';
+export type { DialogPluginType } from './plugin';
 export default Dialog;
