@@ -550,6 +550,20 @@ describe('InputNumber', () => {
       expect(value.value).toBe(2);
     });
 
+    it(':onChange from empty string to zero', async () => {
+      const data = ref<InputNumberValue>('');
+      const onChange = vi.fn();
+      const wrapper = mount(() => <InputNumber v-model={data.value} onChange={onChange} />);
+      const el = wrapper.find('.t-input input').element as HTMLInputElement;
+
+      el.value = '0';
+      el.dispatchEvent(new Event('input'));
+      await nextTick();
+
+      expect(data.value).toBe(0);
+      expect(onChange).toHaveBeenCalledWith(0, expect.objectContaining({ type: 'input' }));
+    });
+
     it(':onEnter', async () => {
       const value = ref(100);
       const fn = vi.fn();

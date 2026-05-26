@@ -200,7 +200,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
 
     // 当处理后的值与当前值不同时，才更新
     const newNumber = processedVal === '' ? undefined : Number(processedVal);
-    if (canSetValue(processedVal, Number(tValue.value))) {
+    if (canSetValue(processedVal, tValue.value)) {
       setTValue(newNumber, { type: 'input', e });
     }
   };
