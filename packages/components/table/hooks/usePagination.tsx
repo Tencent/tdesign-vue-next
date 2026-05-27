@@ -2,6 +2,7 @@ import { Ref, ref, SetupContext, toRefs, watch } from 'vue';
 import { useConfig } from '@tdesign/shared-hooks';
 import Pagination, { PageInfo, PaginationProps } from '../../pagination';
 import { TdBaseTableProps, TableRowData } from '../type';
+import { getLocalPaginationPageData } from '../utils';
 
 // 分页功能包含：远程数据排序受控、远程数据排序非受控、本地数据排序受控、本地数据排序非受控 等 4 类功能
 export default function usePagination(
@@ -21,18 +22,12 @@ export default function usePagination(
     // data 数据数量超出分页大小时，则自动启动本地数据分页
     const t = Boolean(!disableDataPage.value && data.length > pageSize);
     isPaginateData.value = t;
-    if (t) {
-      const start = (current - 1) * pageSize;
-      const end = current * pageSize;
-      dataSource.value = data.slice(start, end);
-    } else {
-      dataSource.value = data;
-    }
+    dataSource.value = getLocalPaginationPageData(data, { current, pageSize }, disableDataPage.value);
   };
 
-  // 受控情况，只有 pagination.current 或者 pagination.pageSize 变化，才对数据进行排序
+  // 受控情况：current / pageSize / data 引用或条数变化时，同步本地分页展示数据
   watch(
-    () => [pagination.value?.current, pagination.value?.pageSize, data.value.length, disableDataPage],
+    [data, () => data.value.length, () => pagination.value?.current, () => pagination.value?.pageSize, disableDataPage],
     () => {
       if (!pagination.value || !pagination.value.current) return;
       const { current, pageSize } = pagination.value;

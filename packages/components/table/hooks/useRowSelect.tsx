@@ -14,6 +14,7 @@ import {
   TdPrimaryTableProps,
 } from '../type';
 import { isRowSelectedDisabled } from '@tdesign/common-js/table/utils';
+import { getLocalPaginationPageData } from '../utils';
 import { TableClassName } from './useClassName';
 import Checkbox from '../../checkbox';
 import Radio, { RadioProps } from '../../radio';
@@ -23,14 +24,13 @@ export default function useRowSelect(
   props: TdPrimaryTableProps,
   tableSelectedClasses: TableClassName['tableSelectedClasses'],
 ) {
-  const { selectedRowKeys, columns, rowKey, data, reserveSelectedRowOnPaginate, pagination } = toRefs(props);
+  const { selectedRowKeys, columns, rowKey, data, reserveSelectedRowOnPaginate, pagination, disableDataPage } =
+    toRefs(props);
+  const updateCurrentPaginateData = () => {
+    currentPaginateData.value = getLocalPaginationPageData(data.value, pagination.value, disableDataPage.value);
+  };
   const currentPaginateData = ref<TableRowData[]>(
-    pagination.value
-      ? data.value.slice(
-          (pagination.value.current - 1) * pagination.value.pageSize,
-          pagination.value.current * pagination.value.pageSize,
-        )
-      : data.value,
+    getLocalPaginationPageData(data.value, pagination.value, disableDataPage.value),
   );
   const selectedRowClassNames = ref();
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
@@ -79,9 +79,9 @@ export default function useRowSelect(
     { immediate: true },
   );
 
-  // 在远程分页场景下，当前页全选功能的状态判定需基于当前页数据是否存在进行动态重新计算
-  watch(data, () => {
-    currentPaginateData.value = data.value;
+  // data / 分页变化时同步当前页数据：本地分页需 slice，远程分页 data 本身即为当前页
+  watch([data, () => pagination.value?.current, () => pagination.value?.pageSize, disableDataPage], () => {
+    updateCurrentPaginateData();
   });
 
   function isDisabled(row: Record<string, any>, rowIndex: number): boolean {

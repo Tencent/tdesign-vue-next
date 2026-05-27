@@ -2,6 +2,7 @@ import { isFunction, get, isObject } from 'lodash-es';
 import { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from '../type';
 import { ClassName, HTMLElementAttributes } from '../../common';
 import { AffixProps } from '../../affix';
+import { PaginationProps } from '../../pagination';
 
 export function toString(obj: any): string {
   return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
@@ -99,6 +100,27 @@ export function getCurrentRowByKey<T extends { colKey?: string; children?: any[]
       return getCurrentRowByKey(columns[i]?.children, key);
     }
   }
+}
+
+/**
+ * 获取本地分页场景下的当前页数据；远程分页或数据不足一页时返回完整 data
+ */
+export function getLocalPaginationPageData(
+  data: TableRowData[],
+  pagination?: PaginationProps,
+  disableDataPage?: boolean,
+): TableRowData[] {
+  if (!pagination) return data;
+
+  const current = pagination.current ?? pagination.defaultCurrent ?? 1;
+  const pageSize = pagination.pageSize ?? pagination.defaultPageSize ?? 10;
+  const shouldPaginate = !disableDataPage && data.length > pageSize;
+
+  if (!shouldPaginate) return data;
+
+  const start = (current - 1) * pageSize;
+  const end = current * pageSize;
+  return data.slice(start, end);
 }
 
 /** 透传 Affix 组件全部特性 */
