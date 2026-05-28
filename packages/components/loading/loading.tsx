@@ -2,7 +2,14 @@ import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties
 import GradientIcon from './icon/gradient';
 import { addClass, removeClass } from '@tdesign/shared-utils';
 import { getPropertyValFromObj } from '@tdesign/common-js/utils/general';
-import { useContent, useTNodeJSX, useTeleport, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
+import {
+  useContent,
+  useTNodeJSX,
+  useTeleport,
+  usePrefixClass,
+  useCommonClassName,
+  useConfig,
+} from '@tdesign/shared-hooks';
 
 import props from './props';
 
@@ -28,7 +35,7 @@ export default defineComponent({
 
     const { name, centerClass, fullscreenClass, lockClass, overlayClass, relativeClass, fullClass, inheritColorClass } =
       useComponentClassName();
-
+    const { globalConfig } = useConfig('loading');
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
@@ -49,8 +56,8 @@ export default defineComponent({
     // loading style
     const styles = computed(() => {
       const styles: CSSProperties = {};
-      if (props.zIndex !== undefined) {
-        styles.zIndex = props.zIndex;
+      if (props.zIndex !== undefined || globalConfig.value.loadingZIndex !== undefined) {
+        styles.zIndex = props.zIndex || globalConfig.value.loadingZIndex;
       }
       if (!['small', 'medium', 'large'].includes(props.size)) {
         styles['font-size'] = props.size;
