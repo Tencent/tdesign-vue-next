@@ -93,9 +93,9 @@ export default defineComponent({
             if (!safeHref) {
               return escape(text || '');
             }
-            const titleAttr = title ? ` title="${escape(title)}"` : '';
-            const altAttr = ` alt="${escape(text || '')}"`;
-            return `<img src="${escape(safeHref)}"${altAttr}${titleAttr}>`;
+            const titleAttr = title ? ` title="${escape(title, true)}"` : '';
+            const altAttr = ` alt="${escape(text || '', true)}"`;
+            return `<img src="${escape(safeHref, true)}"${altAttr}${titleAttr}>`;
           },
           // 原始 HTML（块级 / 内联）：去除 script/iframe/style 等危险标签与事件属性
           html(html) {
