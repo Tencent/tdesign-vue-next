@@ -85,9 +85,8 @@ export default defineComponent({
               // 协议被拦截时，仅渲染纯文本，避免可点击的恶意链接
               return text;
             }
-            const titleAttr = title ? ` title="${escape(title)}"` : '';
-            return `<a href="${escape(safeHref)}"${titleAttr}>${text}</a>`;
-          },
+            const titleAttr = title ? ` title="${escape(title, true)}"` : '';
+            return `<a href="${escape(safeHref, true)}"${titleAttr}>${text}</a>`;
           // 图片同样拦截危险协议
           image(href, title, text) {
             const safeHref = sanitizeImageUrl(href);
