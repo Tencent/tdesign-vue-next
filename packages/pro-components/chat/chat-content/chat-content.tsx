@@ -87,6 +87,7 @@ export default defineComponent({
             }
             const titleAttr = title ? ` title="${escape(title, true)}"` : '';
             return `<a href="${escape(safeHref, true)}"${titleAttr}>${text}</a>`;
+          },
           // 图片同样拦截危险协议
           image(href, title, text) {
             const safeHref = sanitizeImageUrl(href);
