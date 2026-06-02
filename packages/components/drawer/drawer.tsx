@@ -203,7 +203,12 @@ export default defineComponent({
           if (destroyOnCloseVisible.value) {
             destroyOnCloseVisible.value = false;
           }
-          setTimeout(() => (destroyOnCloseVisible.value = true), 300);
+          // 首次加载（初始化）且为关闭状态时，无需等待动画，立即设置 destroyOnCloseVisible，避免初始 DOM 存在
+          if (!isMounted.value) {
+            destroyOnCloseVisible.value = true;
+          } else {
+            setTimeout(() => (destroyOnCloseVisible.value = true), 300);
+          }
         }
         return;
       }
@@ -280,6 +285,10 @@ export default defineComponent({
 
     const shouldRender = computed(() => {
       if (!isMounted.value) {
+        // 如果开启了 destroyOnClose 且当前处于 destroyOnCloseVisible 状态，初始化时不应渲染内容
+        if (props.destroyOnClose && destroyOnCloseVisible.value) {
+          return false;
+        }
         return !props.lazy;
       } else {
         return isVisible.value || !destroyOnCloseVisible.value;
