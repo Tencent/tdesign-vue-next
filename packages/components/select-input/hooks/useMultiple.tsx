@@ -103,6 +103,7 @@ export function useMultiple(props: TdSelectInputProps, context: SetupContext, po
         inputClass: {
           [`${classPrefix.value}-input--focused`]: p.popupVisible,
         },
+        autocomplete: 'off',
         ...props.inputProps,
       },
       suffixIcon: !disable.value && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
