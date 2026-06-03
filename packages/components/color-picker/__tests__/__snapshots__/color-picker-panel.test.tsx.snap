@@ -146,6 +146,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 1`]
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -1052,6 +1053,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 2`]
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -1490,6 +1492,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`]
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
@@ -2388,6 +2391,7 @@ exports[`ColorPickerPanel > :ui > :mount 1`] = `
                 <!---->
                 <!---->
                 <input
+                  autocomplete="off"
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""

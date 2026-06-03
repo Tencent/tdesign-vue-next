@@ -14,6 +14,7 @@ exports[`TreeSelect > :props > :clearable 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -102,6 +103,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
         
       </div>
       <input
+        autocomplete="off"
         class="t-input__inner t-input--soft-hidden"
         placeholder=""
         readonly=""
@@ -158,6 +160,7 @@ exports[`TreeSelect > :props > :disabled 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         disabled=""
         placeholder="请选择"
@@ -211,6 +214,7 @@ exports[`TreeSelect > :props > :empty string 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -263,6 +267,7 @@ exports[`TreeSelect > :props > :filterable 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         spellcheck="false"
@@ -314,6 +319,7 @@ exports[`TreeSelect > :props > :loading 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -375,6 +381,7 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -427,6 +434,7 @@ exports[`TreeSelect > :props > :max 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -479,6 +487,7 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -567,6 +576,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
         
       </div>
       <input
+        autocomplete="off"
         class="t-input__inner t-input--soft-hidden"
         placeholder=""
         readonly=""
@@ -623,6 +633,7 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="please select address"
         readonly=""
@@ -675,6 +686,7 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -727,6 +739,7 @@ exports[`TreeSelect > :props > :size 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -779,6 +792,7 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -831,6 +845,7 @@ exports[`TreeSelect > :props > :value 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -883,6 +898,7 @@ exports[`TreeSelect > :props > :valueType 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -971,6 +987,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
         
       </div>
       <input
+        autocomplete="off"
         class="t-input__inner t-input--soft-hidden"
         placeholder=""
         readonly=""
@@ -1027,6 +1044,7 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -1079,6 +1097,7 @@ exports[`TreeSelect > <slot> > <loadingText> 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -1151,6 +1170,7 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
         
       </div>
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -1209,6 +1229,7 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
         
       </div>
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -1297,6 +1318,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
         
       </div>
       <input
+        autocomplete="off"
         class="t-input__inner t-input--soft-hidden"
         placeholder=""
         readonly=""
@@ -1353,6 +1375,7 @@ exports[`TreeSelect > function > :empty 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -1405,6 +1428,7 @@ exports[`TreeSelect > function > :loadingText 1`] = `
       <!---->
       <!---->
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -1477,6 +1501,7 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
         
       </div>
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
@@ -1535,6 +1560,7 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
         
       </div>
       <input
+        autocomplete="off"
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
