@@ -7,7 +7,7 @@ import hljs from 'highlight.js';
 import Clipboard from 'clipboard';
 import props from './chat-content-props';
 import ChatMarkdown from '../chat-markdown';
-import { sanitizeUrl, sanitizeImageUrl, sanitizeHtml } from './sanitize';
+import { sanitizeUrl, sanitizeImageUrl, sanitizeHtml } from '@tdesign/shared-utils';
 
 const escapeTest = /[&<>"']/;
 const escapeReplace = new RegExp(escapeTest.source, 'g');
