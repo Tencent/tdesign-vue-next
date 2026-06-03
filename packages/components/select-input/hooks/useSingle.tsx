@@ -104,6 +104,7 @@ export function useSingle(
       showClearIconOnEmpty: Boolean(
         props.clearable && (inputValue.value || displayedValue) && !isDisable.value && !isReadonly.value,
       ),
+      autocomplete: 'off',
       ...props.inputProps,
     };
 

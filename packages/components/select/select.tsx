@@ -591,7 +591,6 @@ export default defineComponent({
             inputProps={{
               size: props.size,
               autofocus: props.autofocus,
-              autocomplete: 'off',
               ...props.inputProps,
               // fix me, onkeydown should be onKeydown
               onkeydown: handleKeyDown,
