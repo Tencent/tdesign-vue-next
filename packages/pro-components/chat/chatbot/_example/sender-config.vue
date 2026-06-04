@@ -24,16 +24,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import {
-  type SSEChunkData,
-  type AIMessageContent,
-  type ChatServiceConfig,
-  type TdChatbotApi,
-  type TdAttachmentItem,
-  type TdChatSenderActionName,
-} from '@tdesign-vue-next/chat';
+import { computed, ref } from 'vue';
+import { type SSEChunkData, type AIMessageContent, type ChatServiceConfig } from '@tdesign-vue-next/chat';
 import { MessagePlugin } from 'tdesign-vue-next';
+import { type TdChatbotApi } from 'tdesign-web-components/lib/chatbot/type';
+import { type TdChatSenderActionName } from 'tdesign-web-components/lib/chat-sender/type';
+import { type TdAttachmentItem } from 'tdesign-web-components/lib/filecard/type';
 
 /**
  * 输入配置示例
@@ -72,7 +68,7 @@ const chatServiceConfig: ChatServiceConfig = {
 };
 
 // 输入框配置
-const senderProps = {
+const senderProps = computed(() => ({
   // 基础配置
   placeholder: '请输入您的问题...（支持 Shift+Enter 换行）',
   // 输入框配置，透传Textarea组件的属性
@@ -110,19 +106,20 @@ const senderProps = {
       description: '上传中',
     };
 
-    files.value.unshift(newFile);
+    files.value = [newFile, ...files.value];
 
     // 模拟上传完成
     setTimeout(() => {
-      const index = files.value.findIndex((file) => file.name === newFile.name);
-      if (index !== -1) {
-        files.value[index] = {
-          ...files.value[index],
-          url: 'https://tdesign.gtimg.com/site/avatar.jpg',
-          status: 'success',
-          description: `${Math.floor((newFile?.size || 0) / 1024)}KB`,
-        };
-      }
+      files.value = files.value.map((file: TdAttachmentItem) =>
+        file.name === newFile.name
+          ? {
+              ...file,
+              url: 'https://tdesign.gtimg.com/site/avatar.jpg',
+              status: 'success',
+              description: `${Math.floor((newFile?.size || 0) / 1024)}KB`,
+            }
+          : file,
+      );
       MessagePlugin.success(`文件 ${newFile.name} 上传成功`);
     }, 1000);
   },
@@ -131,7 +128,7 @@ const senderProps = {
     files.value = e.detail;
     MessagePlugin.info('文件已移除');
   },
-};
+}));
 
 // 快捷指令列表
 const quickPrompts = ['介绍一下 TDesign', '如何使用 Chatbot 组件？', '有哪些内容类型？', '如何自定义样式？'];
