@@ -7,6 +7,7 @@ import hljs from 'highlight.js';
 import Clipboard from 'clipboard';
 import props from './chat-content-props';
 import ChatMarkdown from '../chat-markdown';
+import { sanitizeUrl, sanitizeImageUrl, sanitizeHtml } from '@tdesign/shared-utils';
 
 const escapeTest = /[&<>"']/;
 const escapeReplace = new RegExp(escapeTest.source, 'g');
@@ -76,6 +77,37 @@ export default defineComponent({
         <span class="t-chat__language-txt">${escape(lang) || ''}</span>
         <div class="t-chat__copy-btn" data-clipboard-action="copy">${globalConfig.value.copyCodeBtnText}</div>
         </div><code class="hljs language-${escape(lang)}" >${escaped ? code : escape(code)}</code></pre>`;
+          },
+          // 拦截链接的危险协议（如 javascript:），防止点击型 XSS
+          link(href, title, text) {
+            const safeHref = sanitizeUrl(href);
+            if (!safeHref) {
+              // 协议被拦截时，仅渲染纯文本，避免可点击的恶意链接
+              return text;
+            }
+            const titleAttr = title ? ` title="${escape(title, true)}"` : '';
+            return `<a href="${escape(safeHref, true)}"${titleAttr}>${text}</a>`;
+          },
+          // 图片同样拦截危险协议
+          image(href, title, text) {
+            const safeHref = sanitizeImageUrl(href);
+            if (!safeHref) {
+              return escape(text || '');
+            }
+            const titleAttr = title ? ` title="${escape(title, true)}"` : '';
+            const altAttr = ` alt="${escape(text || '', true)}"`;
+            return `<img src="${escape(safeHref, true)}"${altAttr}${titleAttr}>`;
+          },
+          // 原始 HTML（块级 / 内联）：去除 script/iframe/style 等危险标签与事件属性
+          html(html) {
+            return sanitizeHtml(html);
+          },
+        },
+      },
+      {
+        hooks: {
+          postprocess(html: string) {
+            return sanitizeHtml(html);
           },
         },
       },

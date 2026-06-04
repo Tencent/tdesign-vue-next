@@ -1,6 +1,7 @@
 import { ImageErrorIcon } from 'tdesign-icons-vue-next';
 import { PropType, computed, defineComponent, onMounted, ref, toRefs, watch } from 'vue';
 import { useConfig, usePrefixClass, useImagePreviewUrl } from '@tdesign/shared-hooks';
+import { sanitizeSvg } from '@tdesign/shared-utils';
 
 import { useDrag } from '../hooks';
 import { TdImageViewerProps } from '../type';
@@ -109,6 +110,12 @@ export default defineComponent({
       }
       const svgText = await response.text();
 
+      const safeSvgText = sanitizeSvg(svgText);
+      if (!safeSvgText) {
+        error.value = true;
+        return;
+      }
+
       const element = svgElRef.value;
       element.innerHTML = '';
       element.classList?.add(`${classPrefix.value}-image-viewer__modal-image-svg`);
@@ -123,7 +130,7 @@ export default defineComponent({
       container.style.maxWidth = '100%';
       container.style.boxSizing = 'border-box';
       container.style.height = 'auto';
-      container.innerHTML = svgText;
+      container.innerHTML = safeSvgText;
       shadowRoot.appendChild(container);
 
       const svgElement = container.querySelector('svg');
