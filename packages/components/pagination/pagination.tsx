@@ -81,6 +81,7 @@ export default defineComponent({
     );
 
     const jumpIndex = ref(innerCurrent.value);
+    const lastEnterJumpTarget = ref<number>();
 
     const isFolded = computed(() => pageCount.value > props.maxPageBtn);
 
@@ -211,11 +212,32 @@ export default defineComponent({
       });
     };
 
-    const onJumperChange = (val: number) => {
+    const getJumperTarget = (val: string | number) => {
       const currentIndex = Math.trunc(+val);
-      if (isNaN(currentIndex)) return;
+      if (isNaN(currentIndex)) return undefined;
+      return Math.min(Math.max(currentIndex, min), pageCount.value);
+    };
+
+    const onJumperChange = (val: string | number) => {
+      const currentIndex = getJumperTarget(val);
+      if (currentIndex === undefined) return;
       jumpIndex.value = currentIndex;
       toPage(currentIndex);
+    };
+
+    const onJumperEnter = (val: string | number) => {
+      lastEnterJumpTarget.value = getJumperTarget(val);
+      onJumperChange(val);
+    };
+
+    const onJumperBlur = (val: string | number) => {
+      const currentIndex = getJumperTarget(val);
+      if (currentIndex === lastEnterJumpTarget.value) {
+        lastEnterJumpTarget.value = undefined;
+        return;
+      }
+      lastEnterJumpTarget.value = undefined;
+      onJumperChange(val);
     };
 
     return () => {
@@ -229,8 +251,8 @@ export default defineComponent({
             <TInputNumber
               class={CLASS_MAP.jumperInputClass.value}
               v-model={jumpIndex.value}
-              onBlur={onJumperChange}
-              onEnter={onJumperChange}
+              onBlur={onJumperBlur}
+              onEnter={onJumperEnter}
               max={pageCount.value}
               min={min}
               size={size}
