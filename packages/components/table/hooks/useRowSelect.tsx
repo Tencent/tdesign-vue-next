@@ -26,9 +26,7 @@ export default function useRowSelect(
 ) {
   const { selectedRowKeys, columns, rowKey, data, reserveSelectedRowOnPaginate, pagination, disableDataPage } =
     toRefs(props);
-  const updateCurrentPaginateData = () => {
-    currentPaginateData.value = getLocalPaginationPageData(data.value, pagination.value, disableDataPage.value);
-  };
+
   const currentPaginateData = ref<TableRowData[]>(
     getLocalPaginationPageData(data.value, pagination.value, disableDataPage.value),
   );
@@ -78,6 +76,10 @@ export default function useRowSelect(
     },
     { immediate: true },
   );
+
+  const updateCurrentPaginateData = () => {
+    currentPaginateData.value = getLocalPaginationPageData(data.value, pagination.value, disableDataPage.value);
+  };
 
   // data / 分页变化时同步当前页数据：本地分页需 slice，远程分页 data 本身即为当前页
   watch([data, () => pagination.value?.current, () => pagination.value?.pageSize, disableDataPage], () => {
