@@ -49,7 +49,7 @@ describe('ConfigProvider Works with Plugins', () => {
 
     MessagePlugin.success({ content: 'Message Content', duration: 10 });
 
-    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
 
     // Check that the attach element has the custom prefix class
     expect(document.getElementsByClassName(`${customPrefix}-loading`).length).toBe(1);
