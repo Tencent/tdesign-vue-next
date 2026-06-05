@@ -5,6 +5,24 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.1 `2026-06-05`
+
+### 🐞 Bug Fixes
+
+- `Anchor`: Fixed an issue where the anchor list became active unexpectedly when scrolling to the bottom inside a container. @Wesley-0808 ([#6668](https://github.com/Tencent/tdesign-vue-next/pull/6668))
+- `Dialog`: fixed an issue that `DialogPluginType` type has not been exported. @guozi9999 ([#6677](https://github.com/Tencent/tdesign-vue-next/pull/6677))
+- `Drawer`:
+  - fixed an issue that `DrawerPluginType` type has not been exported. @guozi9999 ([#6677](https://github.com/Tencent/tdesign-vue-next/pull/6677))
+  - Fixed an issue where content wasn’t destroyed in the initial state when `destroyOnClose` was enabled. @Wesley-0808 ([#6702](https://github.com/Tencent/tdesign-vue-next/pull/6702))
+- `ImageViewer`: Fixed an XSS vulnerability in the component. @uyarn ([#6698](https://github.com/Tencent/tdesign-vue-next/pull/6698))
+- `InputNumber`: Fixed an issue where entering “0” didn’t trigger the `change` event when the initial value was an empty string. @guozi9999 ([#6679](https://github.com/Tencent/tdesign-vue-next/pull/6679))
+- `Menu`: Fixed an issue with the spacing between menu icons and text. @liweijie0812 ([common#2512](https://github.com/Tencent/tdesign-common/pull/2512))
+- `Pagination`: Fixed an issue where page changes were triggered repeatedly after using the “showJumper” feature and pressing Enter. @ruguoba ([#6671](https://github.com/Tencent/tdesign-vue-next/pull/6671))
+- `Select`: Fixed an issue where the system’s auto-complete suggestions appeared while searching for filter options. @liweijie0812 ([#6699](https://github.com/Tencent/tdesign-vue-next/pull/6699))
+- `Table`: Fixed an issue where `reserve-selected-row-on-paginate=false` didn’t take effect after data changes due to filtering. @RSS1102 ([#6687](https://github.com/Tencent/tdesign-vue-next/pull/6687))
+- `Tag`: Fixed an issue where the default `title` content didn’t match the document description. @Wesley-0808 ([#6656](https://github.com/Tencent/tdesign-vue-next/pull/6656))
+- `Watermark`: Fixed an issue where the watermark color was incorrect in certain situations. @Wesley-0808 ([#6669](https://github.com/Tencent/tdesign-vue-next/pull/6669))
+
 ## 🌈 1.20.0 `2026-05-14`
 
 ### 🚨 Breaking Changes

@@ -5,6 +5,24 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.1 `2026-06-05`
+
+### 🐞 Bug Fixes
+
+- `Anchor`: 修复在容器内因滚动条触底导致的锚点列表激活状态异常问题 @Wesley-0808 ([#6668](https://github.com/Tencent/tdesign-vue-next/pull/6668))
+- `Dialog`: 修复 `DialogPluginType` 类型未导出的问题 @guozi9999 ([#6677](https://github.com/Tencent/tdesign-vue-next/pull/6677))
+- `Drawer`: 
+  - 修复`DrawerPluginType` 类型未导出的问题 @guozi9999 ([#6677](https://github.com/Tencent/tdesign-vue-next/pull/6677))
+  - 修复开启 `destroyOnClose` 时，初始状态下内容未销毁的问题。 @Wesley-0808 ([#6702](https://github.com/Tencent/tdesign-vue-next/pull/6702))
+- `ImageViewer`: 修复组件 XSS 漏洞的问题 @uyarn ([#6698](https://github.com/Tencent/tdesign-vue-next/pull/6698))
+- `InputNumber`: 修复初始值为空字符串时输入 0 不触发 change 的问题 @guozi9999 ([#6679](https://github.com/Tencent/tdesign-vue-next/pull/6679))
+- `Menu`: 修复子菜单图标与文字间隔的问题 @liweijie0812 ([common#2512](https://github.com/Tencent/tdesign-common/pull/2512))
+- `Pagination`: 修复 showJumper 回车跳页后失焦重复触发分页变化的问题 @ruguoba ([#6671](https://github.com/Tencent/tdesign-vue-next/pull/6671))
+- `Select`: 修复在输入搜索过滤选项时，出现系统的自动输入选项的问题 @liweijie0812 ([#6699](https://github.com/Tencent/tdesign-vue-next/pull/6699))
+- `Table`: 修复筛选导致数据变更后 `reserve-selected-row-on-paginate=false` 失效的问题 @RSS1102 ([#6687](https://github.com/Tencent/tdesign-vue-next/pull/6687))
+- `Tag`: 修复默认 `title` 内容与文档描述不符的问题 @Wesley-0808 ([#6656](https://github.com/Tencent/tdesign-vue-next/pull/6656))
+- `Watermark`: 修复部分情况下水印颜色异常的问题 @Wesley-0808 ([#6669](https://github.com/Tencent/tdesign-vue-next/pull/6669))
+
 ## 🌈 1.20.0 `2026-05-14`
 
 ### 🚨 Breaking Changes
