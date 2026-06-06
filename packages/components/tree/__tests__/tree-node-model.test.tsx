@@ -30,6 +30,44 @@ describe('Tree:treeNodeModel', () => {
     });
   });
 
+  describe('#level', () => {
+    it('直接使用 node.level', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+            },
+          ],
+        },
+      ];
+
+      const wrapper = mount({
+        render() {
+          return (
+            <Tree
+              transition={false}
+              ref="tree"
+              data={data}
+              expandAll={true}
+              v-slots={{
+                operations: ({ node }) => <span class="node-level">{node.level}</span>,
+              }}
+            ></Tree>
+          );
+        },
+      });
+
+      const { tree } = wrapper.vm.$refs;
+
+      expect(tree.getItem('t1').level).toBe(0);
+      expect(tree.getItem('t1.1').level).toBe(1);
+      expect(wrapper.find('[data-value="t1"] .node-level').text()).toBe('0');
+      expect(wrapper.find('[data-value="t1.1"] .node-level').text()).toBe('1');
+    });
+  });
+
   describe('#getIndex', () => {
     it('获取子节点序号', async () => {
       const data = [
