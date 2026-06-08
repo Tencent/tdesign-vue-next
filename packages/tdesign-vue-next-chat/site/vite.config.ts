@@ -13,7 +13,7 @@ import {
 
 const publicPathMap: Record<string, string> = {
   preview: '/',
-  production: 'https://static.tdesign.tencent.com/chat/',
+  production: 'https://static.tdesign.tencent.com/vue-next-chat/',
 };
 
 export default defineConfig(({ mode }) => {

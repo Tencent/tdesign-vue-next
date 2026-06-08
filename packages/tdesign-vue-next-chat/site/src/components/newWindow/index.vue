@@ -21,7 +21,8 @@ export default defineComponent({
   },
   setup(props) {
     const onNewWindow = () => {
-      const url = window.location.origin + '/chat/demos/chat/' + props.demoName;
+      const url =
+        window.location.origin + window.location.pathname.replace('components', 'demos') + '/' + props.demoName;
       window.open(url, '_blank');
     };
     return {

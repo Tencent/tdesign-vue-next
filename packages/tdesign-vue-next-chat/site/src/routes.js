@@ -32,27 +32,27 @@ function getDocsRoutes(docs, type) {
 
 const routes = [
   {
-    path: '/chat/',
-    redirect: '/chat/getting-started',
+    path: '/vue-next-chat/',
+    redirect: '/vue-next-chat/getting-started',
     component: TdesignComponents,
     children: [...getDocsRoutes(docs)],
   },
   {
     path: '/',
-    redirect: '/chat/getting-started',
+    redirect: '/vue-next-chat/getting-started',
   },
   {
     path: '/:w+',
-    redirect: '/chat/getting-started',
+    redirect: '/vue-next-chat/getting-started',
   },
   {
     name: 'demosComponent',
-    path: '/chat/demos/:componentName/',
+    path: '/vue-next-chat/demos/:componentName/',
     component: () => import('./components/demo-page.vue'),
   },
   {
     name: 'demos',
-    path: '/chat/demos/:componentName/:demoName',
+    path: '/vue-next-chat/demos/:componentName/:demoName',
     component: () => import('./components/demo-page.vue'),
   },
 ];
