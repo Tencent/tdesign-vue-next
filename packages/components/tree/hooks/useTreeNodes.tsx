@@ -86,9 +86,7 @@ export default function useTreeNodes(state: TypeTreeState) {
 
   const renderTreeNodes = (h: TypeCreateElement) => {
     const stateId = `render-${new Date().getTime()}`;
-    const hasLayerAnyChild = nodes.value.some(
-      (item) => Array.isArray(item.data.children) && item.data.children.length > 0,
-    );
+    const hasLayerAnyChild = nodes.value.some((item) => !!item.children);
     const treeNodeViews: TypeVNode[] = nodes.value.map((node: TypeTreeNode, index) =>
       renderItem(h, node, index, stateId, hasLayerAnyChild),
     );

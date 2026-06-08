@@ -18,7 +18,6 @@ export default function useTreeItem(state: TypeTreeItemState) {
   const { renderIcon } = useRenderIcon(state);
   const { renderLabel } = useRenderLabel(state);
   const { renderLine } = useRenderLine(state);
-  const { hasLayerAnyChild } = state.props;
   const { renderOperations } = useRenderOperations(state);
   const { dragStates, handleDragStart, handleDragEnd, handleDragOver, handleDragLeave, handleDrop } =
     useDraggable(state);
@@ -109,7 +108,7 @@ export default function useTreeItem(state: TypeTreeItemState) {
     if (lineNode) {
       itemNodes.push(lineNode);
     }
-    if (hasLayerAnyChild) {
+    if (iconNode) {
       itemNodes.push(iconNode);
     }
     const labelNode = renderLabel(h);
