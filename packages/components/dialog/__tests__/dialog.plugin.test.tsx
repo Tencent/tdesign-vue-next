@@ -492,6 +492,26 @@ describe('Dialog Plugin', () => {
       dialog.destroy();
     });
 
+    it('calls function once when dialog is shown', async () => {
+      const func = vi.fn().mockReturnValue('Content');
+
+      const dialog = DialogPlugin({
+        header: 'Test',
+        body: func,
+        visible: false,
+      });
+
+      await nextTick();
+
+      dialog.show();
+      await nextTick();
+      await sleep(100);
+
+      expect(func).toHaveBeenCalledOnce();
+
+      dialog.destroy();
+    });
+
     it('hide method makes dialog invisible', async () => {
       const dialog = DialogPlugin({
         header: 'Test',
