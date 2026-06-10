@@ -1,3 +1,10 @@
+## 🌈 0.1.7 `2026-06-09`
+
+### 🚀 Features
+
+- 图标自动解析导入新增 `Divider1` 、`Keyboard1` 和 `VoiceWave` 三个图标
+- mobile-vue 自动解析导入 `Segmented ` 和 `Typography` 组件
+
 ## 🌈 0.1.6 `2026-01-31`
 
 ### 🐞 Bug Fixes
