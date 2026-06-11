@@ -23,7 +23,8 @@ export default function useUpload(props: TdUploadProps): any {
   // TODO: Form 表单控制上传组件是否禁用
   const { disabled, autoUpload, isBatchUpload, multiple, files, modelValue, defaultFiles } = toRefs(props);
   const { globalConfig, t, classPrefix } = useConfig('upload');
-  const [uploadValue, setUploadValue] = useVModel(files, modelValue, defaultFiles.value, props.onChange, 'files');
+  const [_uploadValue, setUploadValue] = useVModel(files, modelValue, defaultFiles.value, props.onChange, 'files');
+  const uploadValue = computed(() => _uploadValue.value || []);
   const xhrReq = ref<{ files: UploadFile[]; xhrReq: XMLHttpRequest }[]>([]);
   const toUploadFiles = ref<UploadFile[]>([]);
   const sizeOverLimitMessage = ref('');
@@ -60,7 +61,7 @@ export default function useUpload(props: TdUploadProps): any {
 
   const uploadFilePercent = (params: { file: UploadFile; percent: number }) => {
     const { file, percent } = params;
-    const operationUploadFiles = autoUpload.value ? toUploadFiles : uploadValue;
+    const operationUploadFiles = autoUpload.value ? toUploadFiles : _uploadValue;
     const index = operationUploadFiles.value.findIndex((item) => file.raw === item.raw);
     operationUploadFiles.value[index] = { ...operationUploadFiles.value[index], percent };
   };
@@ -308,14 +309,14 @@ export default function useUpload(props: TdUploadProps): any {
       props.onWaitingUploadFilesChange?.({ files: [], trigger: 'remove' });
       setUploadValue([], changePrams);
     } else if (!props.autoUpload) {
-      uploadValue.value.splice(p.index, 1);
-      setUploadValue([...uploadValue.value], changePrams);
+      _uploadValue.value.splice(p.index, 1);
+      setUploadValue([..._uploadValue.value], changePrams);
     } else {
       // autoUpload 场景下， p.index < uploadValue.length 表示移除已经上传成功的文件；反之表示移除待上传列表文件
       // eslint-disable-next-line
       if (p.index < uploadValue.value.length) {
-        uploadValue.value.splice(p.index, 1);
-        setUploadValue([...uploadValue.value], changePrams);
+        _uploadValue.value.splice(p.index, 1);
+        setUploadValue([..._uploadValue.value], changePrams);
       } else {
         toUploadFiles.value.splice(p.index - uploadValue.value.length, 1);
         toUploadFiles.value = [...toUploadFiles.value];

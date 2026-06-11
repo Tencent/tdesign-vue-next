@@ -1,6 +1,5 @@
 import { ref, toRefs, computed, watch } from 'vue';
 import { useVModel } from '@tdesign/shared-hooks';
-import { isArray } from 'lodash-es';
 
 import { TdDateRangePickerProps } from '../type';
 import {
@@ -15,7 +14,8 @@ import {
 export function useRangeValue(props: TdDateRangePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);
 
-  const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
+  const [_value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
+  const value = computed(() => _value.value || []);
 
   const formatRef = computed(() =>
     getDefaultFormat({
@@ -29,15 +29,6 @@ export function useRangeValue(props: TdDateRangePickerProps) {
   if (props.enableTimePicker) {
     if (!extractTimeFormat(formatRef.value.format))
       console.error(`format: ${formatRef.value.format} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
-  }
-
-  // warning invalid value
-  if (!isArray(value.value)) {
-    console.error(`typeof value: ${value.value} must be Array!`);
-  } else if (!isValidDate(value.value, formatRef.value.format)) {
-    console.error(
-      `value: ${value.value} is invalid dateTime! Check whether the value is consistent with format: ${formatRef.value.format}`,
-    );
   }
 
   const isFirstValueSelected = ref(false); // 记录面板点击次数，两次后才自动关闭
@@ -77,7 +68,7 @@ export function useRangeValue(props: TdDateRangePickerProps) {
   watch(
     value,
     (newValue) => {
-      if (!newValue) {
+      if (!_value.value) {
         cacheValue.value = [];
         return;
       }

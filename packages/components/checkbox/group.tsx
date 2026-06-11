@@ -15,14 +15,13 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('checkbox-group');
     const renderTNodeJSX = useTNodeJSX();
 
-    const { isArray } = Array;
     const { value, modelValue } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [_innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const innerValue = computed(() => _innerValue.value || []);
 
     const optionList = ref<Array<CheckboxOptionObj>>([]);
 
     const intersectionLen = computed<number>(() => {
-      if (!isArray(innerValue.value)) return 0;
       const values = optionList.value.map((item) => item.value);
       const n = intersection(innerValue.value, values);
       return n.length;
@@ -107,10 +106,6 @@ export default defineComponent({
 
     const handleCheckboxChange = (data: { checked: boolean; e: Event; option: TdCheckboxProps }) => {
       const currentValue = data.option.value;
-      if (!isArray(innerValue.value)) {
-        console.warn(`TDesign CheckboxGroup Warn: \`value\` must be an array, instead of ${typeof innerValue.value}`);
-        return;
-      }
       const val = [...innerValue.value];
       if (data.checked) {
         val.push(currentValue);
@@ -157,7 +152,7 @@ export default defineComponent({
       computed(() => ({
         name: props.name,
         isCheckAll: isCheckAll.value,
-        checkedValues: innerValue.value || [],
+        checkedValues: innerValue.value,
         maxExceeded: maxExceeded.value,
         disabled: props.disabled,
         readonly: props.readonly,
@@ -176,7 +171,7 @@ export default defineComponent({
             lazyLoad={props.lazyLoad}
             {...option}
             index={index}
-            checked={innerValue.value?.includes(option.value)}
+            checked={innerValue.value.includes(option.value)}
             data={option}
           ></Checkbox>
         ));
