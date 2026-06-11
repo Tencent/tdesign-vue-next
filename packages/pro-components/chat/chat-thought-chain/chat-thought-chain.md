@@ -1,4 +1,30 @@
-:: BASE_DOC ::
+---
+title: ChatThoughtChain 思维链
+description: 以时间线形式结构化展示 AI 的思考过程与执行计划，适用于深度思考、Agent 任务规划等场景。
+isComponent: true
+usage: { title: '', description: '' }
+spline: ai
+---
+
+## 组件类型
+
+### 基础思维链
+
+通过 `items` 配置思考节点，每个节点支持标题、内容与状态（`pending`/`processing`/`success`/`error`），内容可折叠展开。
+
+{{ thought-chain }}
+
+### 流式执行场景
+
+配合 Agent 流式执行，逐步追加节点并更新状态，`processing` 状态自带加载动画。
+
+{{ thought-chain-stream }}
+
+### 自定义节点
+
+通过 `icon`、`title`、`content` 插槽（携带 `{ item, index }` 参数）自定义任意节点的渲染。
+
+{{ thought-chain-custom }}
 
 ## API
 
