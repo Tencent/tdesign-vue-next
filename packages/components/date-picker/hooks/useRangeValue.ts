@@ -31,6 +31,13 @@ export function useRangeValue(props: TdDateRangePickerProps) {
       console.error(`format: ${formatRef.value.format} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
   }
 
+  // warning invalid value
+  if (_value.value && !isValidDate(_value.value, formatRef.value.format)) {
+    console.error(
+      `value: ${_value.value} is invalid dateTime! Check whether the value is consistent with format: ${formatRef.value.format}`,
+    );
+  }
+
   const isFirstValueSelected = ref(false); // 记录面板点击次数，两次后才自动关闭
   const time = ref(
     initYearMonthTime({
