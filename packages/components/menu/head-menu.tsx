@@ -12,10 +12,10 @@ import {
   toRefs,
   h,
   VNode,
+  Fragment,
   Component,
   getCurrentInstance,
   nextTick,
-  cloneVNode,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isArray, isFunction } from 'lodash-es';
@@ -421,8 +421,8 @@ export default defineComponent({
     const flattenSlotNodes = (nodes: VNode[]): VNode[] => {
       const result: VNode[] = [];
       for (const node of nodes) {
-        // Fragment 节点：Vue 将 template 中多个根节点包装为 Fragment
-        if (node.type === Symbol.for('v-fgm') || node.type === Symbol.for('')) {
+        // Fragment 节点：Vue 将 v-for 列表、多根节点等包装为 Fragment
+        if (node.type === Fragment) {
           if (isArray(node.children)) {
             result.push(...flattenSlotNodes(node.children as VNode[]));
           }
@@ -441,6 +441,13 @@ export default defineComponent({
 
     const initVMenu = (slots: VNode[], parentValue?: string) => {
       slots.forEach((node) => {
+        // Fragment 节点（v-for 等）：展开后递归处理
+        if (node.type === Fragment) {
+          if (isArray(node.children)) {
+            initVMenu(node.children as VNode[], parentValue);
+          }
+          return;
+        }
         const nodeValue = node.props?.value;
         if ((node.type as Component)?.name === 'TSubmenu' || (node.type as Component)?.name === 'TMenuItem') {
           vMenu.add({ value: nodeValue, parent: parentValue, vnode: (node.children as any).default, ...node.props });
@@ -515,16 +522,16 @@ export default defineComponent({
       // 构建"更多"弹窗的 slot 内容
       const buildPopupSlot = () => {
         if (!isFolded) return [];
-        if (canSliceVNodes) {
-          // 直接菜单项场景：按索引截取并克隆
-          return flatItems.slice(foldStartIndex.value).map((vnode) => cloneVNode(vnode));
+        // 重新调用 slot 函数生成全新的 VNode 实例，避免与 ul 中 mount 的同一 VNode
+        // 共享 component instance，导致 Vue patch DOM 错乱
+        const freshContent = ctx.slots.default?.() || ctx.slots.content?.() || [];
+        const freshFlatItems = flattenSlotNodes(freshContent);
+        if (canSliceVNodes && foldStartIndex.value < freshFlatItems.length) {
+          // 直接菜单项场景：按索引截取
+          return freshFlatItems.slice(foldStartIndex.value);
         }
-        // 封装组件场景：渲染完整内容的克隆，通过 PopupOverflowContent 在 DOM 层面隐藏前 N 项
-        return (
-          <PopupOverflowContent foldIndex={foldStartIndex.value}>
-            {originalContent.map((vnode) => cloneVNode(vnode))}
-          </PopupOverflowContent>
-        );
+        // 封装组件场景：渲染完整内容，通过 PopupOverflowContent 在 DOM 层面隐藏前 N 项
+        return <PopupOverflowContent foldIndex={foldStartIndex.value}>{freshContent}</PopupOverflowContent>;
       };
 
       return (

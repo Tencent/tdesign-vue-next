@@ -130,6 +130,30 @@ export class VMenu {
     return [...this.expandValues];
   }
 
+  remove(value: MenuValue) {
+    // 从 cache 中移除
+    this.cache.forEach((data, _v2, set) => {
+      if (data.value === value) {
+        set.delete(data);
+      }
+    });
+
+    // 从树中移除
+    const removeFromChildren = (node: VMenuData): boolean => {
+      if (!node || !node.children) return false;
+      const index = node.children.findIndex((child) => child.value === value);
+      if (index !== -1) {
+        node.children.splice(index, 1);
+        return true;
+      }
+      for (const child of node.children) {
+        if (removeFromChildren(child)) return true;
+      }
+      return false;
+    };
+    removeFromChildren(this.data);
+  }
+
   getChild(value: MenuValue) {
     const target = DFS(this.data, value);
 

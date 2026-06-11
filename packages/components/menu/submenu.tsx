@@ -441,6 +441,7 @@ export default defineComponent({
     // Cleanup timers on unmount to prevent memory leaks
     onBeforeUnmount(() => {
       clearTimers();
+      menu?.vMenu?.remove(props.value);
     });
 
     return () => {
