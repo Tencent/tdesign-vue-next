@@ -5,6 +5,7 @@ import _ChatItem from './chat-item';
 import _ChatInput from './chat-input';
 import _ChatContent from './chat-content';
 import _ChatReasoning from './chat-reasoning';
+import _ChatThoughtChain from './chat-thought-chain';
 import _ChatLoading from './chat-loading';
 
 import _ChatActionbar from './chat-actionbar';
@@ -28,6 +29,7 @@ import {
   TdChatInputProps,
   TdChatSenderProps,
   TdChatReasoningProps,
+  TdChatThoughtChainProps,
   TdChatLoadingProps,
 } from './type';
 
@@ -46,6 +48,7 @@ export type ChatActionProps = TdChatActionProps;
 export type ChatInputProps = TdChatInputProps;
 export type ChatSenderProps = TdChatSenderProps;
 export type ChatReasoningProps = TdChatReasoningProps;
+export type ChatThoughtChainProps = TdChatThoughtChainProps;
 export type ChatLoadingProps = TdChatLoadingProps;
 
 export const ChatList = withInstall(_ChatList);
@@ -62,6 +65,8 @@ export const ChatSearchContent = withInstall(ChatSearchContentComponent, 't-chat
 export const ChatSuggestionContent = withInstall(ChatSuggestionContentComponent, 't-chat-suggestion-content');
 
 export const ChatMarkdown = withInstall(_ChatMarkdown, 't-chat-markdown');
+
+export const ChatThoughtChain = withInstall(_ChatThoughtChain);
 
 // TODO：待下线的组件
 export const Chat = withInstall(_ChatList); // 兼容历史版本，分别导出ChatList，Chat
@@ -93,6 +98,7 @@ export default {
     app.use(ChatInput, config);
     app.use(ChatItem, config);
     app.use(ChatReasoning, config);
+    app.use(ChatThoughtChain, config);
     app.component('TChat', Chat);
     app.component('TChatAction', ChatAction);
   },
