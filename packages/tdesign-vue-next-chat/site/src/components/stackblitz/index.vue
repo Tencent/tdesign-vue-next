@@ -18,6 +18,22 @@
       />
       <input type="hidden" name="project[files][src/components/Toolcall.vue]" :value="componentToolcallDemoContent" />
       <input type="hidden" name="project[files][src/components/Login.vue]" :value="componentLoginDemoContent" />
+      <input type="hidden" name="project[files][src/components/WeatherCard.vue]" :value="componentWeatherCardContent" />
+      <input
+        type="hidden"
+        name="project[files][src/components/PlanningSteps.vue]"
+        :value="componentPlanningStepsContent"
+      />
+      <input
+        type="hidden"
+        name="project[files][src/components/UserPreferencesForm.vue]"
+        :value="componentUserPreferencesFormContent"
+      />
+      <input
+        type="hidden"
+        name="project[files][src/components/ProgressPanel.vue]"
+        :value="componentProgressPanelContent"
+      />
 
       <input type="hidden" name="project[files][index.html]" :value="htmlContent" />
       <input type="hidden" name="project[files][package.json]" :value="packageJSONContent" />
@@ -50,6 +66,10 @@ import {
   mockDataReasoningContent,
   componentLoginDemoContent,
   componentToolcallDemoContent,
+  componentWeatherCardContent,
+  componentPlanningStepsContent,
+  componentUserPreferencesFormContent,
+  componentProgressPanelContent,
 } from './content';
 
 export default defineComponent({
@@ -71,6 +91,10 @@ export default defineComponent({
       mockDataReasoningContent,
       componentLoginDemoContent,
       componentToolcallDemoContent,
+      componentWeatherCardContent,
+      componentPlanningStepsContent,
+      componentUserPreferencesFormContent,
+      componentProgressPanelContent,
     };
     const match = window.location.hostname.match(/preview-pr-(\d+)-tdesign-vue-next-chat.surge.sh/);
     if (match) {
