@@ -23,6 +23,8 @@ export default {
   },
   /** 宽度随内容自适应 */
   autoWidth: Boolean,
+  /** 自动聚焦 */
+  autofocus: Boolean,
   /** [小数位数](https://en.wiktionary.org/wiki/decimal_place) */
   decimalPlaces: {
     type: [Number, Object] as PropType<TdInputNumberProps['decimalPlaces']>,

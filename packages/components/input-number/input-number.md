@@ -9,6 +9,7 @@
 align | String | - | 文本内容位置，居左/居中/居右。可选项：left/center/right | N
 allowInputOverLimit | Boolean | true | 是否允许输入超过 `max` `min` 范围外的数字。为保障用户体验，仅在失去焦点时进行数字范围矫正。默认允许超出，数字超出范围时，输入框变红提醒 | N
 autoWidth | Boolean | false | 宽度随内容自适应 | N
+autofocus | Boolean | false | `1.20.2`。自动聚焦 | N
 decimalPlaces | Number / Object | undefined | [小数位数](https://en.wiktionary.org/wiki/decimal_place)。TS 类型：`InputNumberDecimalPlaces` `type InputNumberDecimalPlaces = number \| { enableRound: boolean; places: number } `。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/input-number/type.ts) | N
 disabled | Boolean | undefined | 禁用组件 | N
 format | Function | - | 格式化输入框展示值。第二个事件参数 `context.fixedNumber` 表示处理过小数位数 `decimalPlaces` 的数字。TS 类型：`(value: InputNumberValue, context?: { fixedNumber?: InputNumberValue }) => InputNumberValue` | N
