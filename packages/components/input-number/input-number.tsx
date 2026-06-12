@@ -55,6 +55,7 @@ export default defineComponent({
             disabled={p.tDisabled.value}
             readonly={p.isReadonly.value}
             autocomplete="off"
+            autofocus={props.autofocus}
             placeholder={props.placeholder}
             // @ts-expect-error
             unselectable={p.isReadonly.value ? 'on' : 'off'}

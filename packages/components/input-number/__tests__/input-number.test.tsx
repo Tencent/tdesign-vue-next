@@ -55,6 +55,17 @@ describe('InputNumber', () => {
       expect(input.classes()).toContain('t-input--auto-width');
     });
 
+    it(':autofocus[boolean]', async () => {
+      const autofocus = ref(true);
+      const wrapper = mount(() => <InputNumber autofocus={autofocus.value} />);
+
+      expect(wrapper.find('input').attributes('autofocus')).toBeDefined();
+
+      autofocus.value = false;
+      await nextTick();
+      expect(wrapper.find('input').attributes('autofocus')).toBeUndefined();
+    });
+
     it(':decimalPlaces[number]', () => {
       const value = ref('100');
       const wrapper = mount(() => <InputNumber v-model={value.value} decimalPlaces={2} />);

@@ -5,7 +5,7 @@
  * */
 
 import { InputProps } from '../input';
-import { TNode } from '../common';
+import type { TNode } from '../common';
 
 export interface TdInputNumberProps<T = InputNumberValue> {
   /**
@@ -22,6 +22,11 @@ export interface TdInputNumberProps<T = InputNumberValue> {
    * @default false
    */
   autoWidth?: boolean;
+  /**
+   * 自动聚焦
+   * @default false
+   */
+  autofocus?: boolean;
   /**
    * [小数位数](https://en.wiktionary.org/wiki/decimal_place)
    */
