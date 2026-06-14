@@ -14,8 +14,8 @@ import {
 export function useRangeValue(props: TdDateRangePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);
 
-  const [_value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
-  const value = computed(() => _value.value || []);
+  const [rawValue, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
+  const value = computed(() => (Array.isArray(rawValue.value) ? rawValue.value : []));
 
   const formatRef = computed(() =>
     getDefaultFormat({
@@ -32,9 +32,11 @@ export function useRangeValue(props: TdDateRangePickerProps) {
   }
 
   // warning invalid value
-  if (_value.value && !isValidDate(_value.value, formatRef.value.format)) {
+  if (!Array.isArray(rawValue.value)) {
+    console.error(`typeof value: ${rawValue.value} must be Array!`);
+  } else if (!isValidDate(rawValue.value, formatRef.value.format)) {
     console.error(
-      `value: ${_value.value} is invalid dateTime! Check whether the value is consistent with format: ${formatRef.value.format}`,
+      `value: ${rawValue.value} is invalid dateTime! Check whether the value is consistent with format: ${formatRef.value.format}`,
     );
   }
 
@@ -75,7 +77,7 @@ export function useRangeValue(props: TdDateRangePickerProps) {
   watch(
     value,
     (newValue) => {
-      if (!_value.value) {
+      if (!rawValue.value) {
         cacheValue.value = [];
         return;
       }
