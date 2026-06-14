@@ -402,3 +402,273 @@ export default defineComponent({
 });
 </script>
 `;
+
+export const componentWeatherCardContent = `<template>
+  <t-card bordered style="margin-top: 8px">
+    <template v-if="error">
+      <div style="color: #e34d59">查询天气失败: {{ error.message }}</div>
+    </template>
+    <template v-else>
+      <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px">{{ args?.city }} 天气信息</div>
+      <div v-if="status === 'executing'" style="color: #0052d9">正在查询天气...</div>
+      <t-space v-if="status === 'complete' && result" direction="vertical" size="small">
+        <div>🌡️ 温度: {{ result.temperature }}</div>
+        <div>☁️ 天气: {{ result.condition }}</div>
+        <div>💧 湿度: {{ result.humidity }}</div>
+      </t-space>
+    </template>
+  </t-card>
+</template>
+
+<script setup lang="ts">
+/**
+ * 天气查询组件
+ * 展示 TOOL_CALL 基础用法
+ */
+
+interface WeatherArgs {
+  city: string;
+}
+
+interface WeatherResult {
+  temperature: string;
+  condition: string;
+  humidity: string;
+}
+
+defineProps<{
+  status?: string;
+  args?: WeatherArgs;
+  result?: WeatherResult;
+  error?: Error;
+}>();
+</script>
+`;
+
+export const componentPlanningStepsContent = `<template>
+  <t-card bordered style="margin-top: 8px">
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 12px">
+      正在为您规划 {{ args?.destination }} {{ args?.days }}日游
+    </div>
+
+    <!-- 进度条 -->
+    <div v-if="planningState?.progress !== undefined">
+      <t-progress :percentage="planningState.progress" />
+      <div style="font-size: 12px; color: #888; margin-top: 4px">
+        {{ planningState.message || '规划中...' }}
+      </div>
+    </div>
+  </t-card>
+</template>
+
+<script setup lang="ts">
+import { computed, watch } from 'vue';
+
+/**
+ * 规划步骤组件
+ * 展示 STATE 订阅 + agentState 注入
+ */
+
+interface PlanningArgs {
+  destination: string;
+  days: number;
+  taskId: string;
+}
+
+const props = defineProps<{
+  status?: string;
+  args?: PlanningArgs;
+  respond?: (response: any) => void;
+  agentState?: any;
+}>();
+
+// 因为配置了 subscribeKey，agentState 已经是 taskId 对应的状态对象
+const planningState = computed(() => props.agentState || {});
+
+const isComplete = computed(() => props.status === 'complete');
+
+// 当状态变为完成时，调用 respond
+watch(isComplete, (newVal) => {
+  if (newVal && props.respond) {
+    props.respond({ success: true });
+  }
+});
+</script>
+`;
+
+export const componentUserPreferencesFormContent = `<template>
+  <t-card bordered style="margin-top: 8px">
+    <!-- 已提交状态 -->
+    <template v-if="status === 'complete' && result">
+      <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #00a870">✓ 已收到您的偏好设置</div>
+      <t-space direction="vertical" size="small">
+        <div style="font-size: 12px; color: #666">预算：¥{{ result.budget }}</div>
+        <div style="font-size: 12px; color: #666">兴趣：{{ result.interests.join('、') }}</div>
+        <div style="font-size: 12px; color: #666">住宿：{{ result.accommodation }}</div>
+      </t-space>
+    </template>
+
+    <!-- 表单状态 -->
+    <template v-else>
+      <div style="font-size: 14px; font-weight: 600; margin-bottom: 12px">请设置您的旅游偏好</div>
+      <t-space direction="vertical" size="large" style="width: 100%">
+        <div>
+          <div style="margin-bottom: 4px; font-size: 12px">预算（元）</div>
+          <t-input-number v-model="budget" :min="0" :max="100000" placeholder="请输入预算" style="width: 100%" />
+        </div>
+        <div>
+          <div style="margin-bottom: 4px; font-size: 12px">兴趣爱好</div>
+          <t-select v-model="interests" multiple :options="interestOptions" placeholder="请选择兴趣爱好" />
+        </div>
+        <div>
+          <div style="margin-bottom: 4px; font-size: 12px">住宿类型</div>
+          <t-select v-model="accommodation" :options="accommodationOptions" placeholder="请选择住宿类型" />
+        </div>
+        <t-button theme="primary" block @click="handleSubmit"> 确认提交 </t-button>
+      </t-space>
+    </template>
+  </t-card>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+
+/**
+ * 用户偏好设置组件
+ * 展示 Human-in-the-Loop 交互
+ */
+
+interface UserPreferencesArgs {
+  destination: string;
+}
+
+interface UserPreferencesResponse {
+  budget: number;
+  interests: string[];
+  accommodation: string;
+}
+
+const props = defineProps<{
+  status?: string;
+  respond?: (response: UserPreferencesResponse) => void;
+  result?: UserPreferencesResponse;
+  args?: UserPreferencesArgs;
+}>();
+
+const budget = ref(5000);
+const interests = ref<string[]>(['美食', '文化']);
+const accommodation = ref('经济型');
+
+const interestOptions = [
+  { label: '美食', value: '美食' },
+  { label: '文化', value: '文化' },
+  { label: '自然', value: '自然' },
+  { label: '购物', value: '购物' },
+];
+
+const accommodationOptions = [
+  { label: '经济型', value: '经济型' },
+  { label: '舒适型', value: '舒适型' },
+  { label: '豪华型', value: '豪华型' },
+];
+
+const handleSubmit = () => {
+  props.respond?.({
+    budget: budget.value,
+    interests: interests.value,
+    accommodation: accommodation.value,
+  });
+};
+</script>
+`;
+
+export const componentProgressPanelContent = `<template>
+  <div
+    v-if="shouldShow"
+    :style="{
+      position: 'fixed',
+      right: '200px',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      width: '200px',
+      background: '#fff',
+      padding: '16px',
+      borderRadius: '8px',
+      boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
+      border: '1px solid #e7e7e7',
+      zIndex: 1000,
+    }"
+  >
+    <div
+      :style="{
+        marginBottom: '12px',
+        paddingBottom: '8px',
+        borderBottom: '1px solid #e7e7e7',
+      }"
+    >
+      <div style="font-size: 14px; font-weight: 600; color: #000; margin-bottom: 4px">规划进度</div>
+      <t-tag theme="primary" variant="light" size="small"> {{ completedCount }}/{{ totalCount }} </t-tag>
+    </div>
+
+    <!-- 步骤列表 -->
+    <t-space direction="vertical" size="small" style="width: 100%">
+      <div v-for="(item, index) in items" :key="index" style="display: flex; align-items: center; gap: 8px">
+        <check-circle-filled-icon v-if="item.status === 'completed'" style="color: #00a870; font-size: 14px" />
+        <loading-icon v-else-if="item.status === 'running'" style="color: #0052d9; font-size: 14px" />
+        <error-circle-filled-icon v-else-if="item.status === 'failed'" style="color: #e34d59; font-size: 14px" />
+        <time-filled-icon v-else style="color: #bbbbbb; font-size: 14px" />
+        <span
+          :style="{
+            flex: 1,
+            fontSize: '12px',
+            color: item.status === 'completed' ? '#00a870' : item.status === 'running' ? '#0052d9' : '#666',
+            fontWeight: item.status === 'running' ? 600 : 400,
+          }"
+        >
+          {{ item.label }}
+        </span>
+      </div>
+    </t-space>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue';
+import { useAgentState } from '@tdesign-vue-next/chat';
+import { CheckCircleFilledIcon, TimeFilledIcon, ErrorCircleFilledIcon, LoadingIcon } from 'tdesign-icons-vue-next';
+
+/**
+ * 右侧进度面板组件
+ * 演示如何在对话组件外部使用 useAgentState 获取状态
+ *
+ * 使用场景：展示规划行程的详细子步骤（从后端 STATE_DELTA 事件推送）
+ */
+
+// 使用 useAgentState 订阅状态更新
+const { stateMap, currentStateKey } = useAgentState();
+
+// 获取规划状态
+const planningState = computed(() => {
+  if (!currentStateKey.value || !stateMap.value[currentStateKey.value]) {
+    return null;
+  }
+  return stateMap.value[currentStateKey.value];
+});
+
+const items = computed(() => planningState.value?.items || []);
+const completedCount = computed(() => items.value.filter((item: any) => item.status === 'completed').length);
+const totalCount = computed(() => items.value.length);
+
+// 如果没有规划状态，或者所有步骤都完成了，不显示面板
+const shouldShow = computed(() => {
+  if (!planningState.value || !planningState.value.items || planningState.value.items.length === 0) {
+    return false;
+  }
+  // 如果所有步骤都完成了，隐藏面板
+  if (completedCount.value === totalCount.value && totalCount.value > 0) {
+    return false;
+  }
+  return true;
+});
+</script>
+`;

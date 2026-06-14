@@ -1,4 +1,4 @@
-import { defineComponent, computed, inject, onMounted, ref, toRefs, getCurrentInstance } from 'vue';
+import { defineComponent, computed, inject, onMounted, onBeforeUnmount, ref, toRefs, getCurrentInstance } from 'vue';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './types';
 import { useRipple, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
@@ -65,6 +65,10 @@ export default defineComponent({
       if (activeValues.includes(props.value) && !activeValues.includes(submenu?.value)) {
         activeValues.push(submenu?.value);
       }
+    });
+
+    onBeforeUnmount(() => {
+      menu?.vMenu?.remove(props.value);
     });
 
     return () => {
