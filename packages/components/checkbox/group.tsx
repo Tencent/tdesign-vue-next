@@ -15,9 +15,10 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('checkbox-group');
     const renderTNodeJSX = useTNodeJSX();
 
+    const { isArray } = Array;
     const { value, modelValue } = toRefs(props);
-    const [_innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-    const innerValue = computed(() => _innerValue.value || []);
+    const [rawValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const innerValue = computed(() => (isArray(rawValue.value) ? rawValue.value : []));
 
     const optionList = ref<Array<CheckboxOptionObj>>([]);
 
