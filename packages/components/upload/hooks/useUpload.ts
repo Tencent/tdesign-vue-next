@@ -23,7 +23,7 @@ export default function useUpload(props: TdUploadProps): any {
   // TODO: Form 表单控制上传组件是否禁用
   const { disabled, autoUpload, isBatchUpload, multiple, files, modelValue, defaultFiles } = toRefs(props);
   const { globalConfig, t, classPrefix } = useConfig('upload');
-  const [rawValue, setUploadValue] = useVModel(files, modelValue, defaultFiles.value, props.onChange, 'files');
+  const [rawValue, setRawValue] = useVModel(files, modelValue, defaultFiles.value, props.onChange, 'files');
   const uploadValue = computed(() => (Array.isArray(rawValue.value) ? rawValue.value : []));
   const xhrReq = ref<{ files: UploadFile[]; xhrReq: XMLHttpRequest }[]>([]);
   const toUploadFiles = ref<UploadFile[]>([]);
@@ -85,7 +85,7 @@ export default function useUpload(props: TdUploadProps): any {
     });
     // 单选或多文件替换，需要清空上一次上传成功的文件
     if (!props.multiple || props.isBatchUpload) {
-      setUploadValue([], {
+      setRawValue([], {
         trigger: 'progress-fail',
         e: p.event,
         file: p.files[0],
@@ -129,7 +129,7 @@ export default function useUpload(props: TdUploadProps): any {
   const handleNotAutoUpload = (toFiles: UploadFile[]) => {
     const tmpFiles = props.multiple && !isBatchUpload.value ? uploadValue.value.concat(toFiles) : toFiles;
     if (!tmpFiles.length) return;
-    setUploadValue(tmpFiles, {
+    setRawValue(tmpFiles, {
       trigger: 'add',
       index: uploadValue.value.length,
       file: toFiles[0],
@@ -259,7 +259,7 @@ export default function useUpload(props: TdUploadProps): any {
       ({ status, data, list, failedFiles }) => {
         uploading.value = false;
         if (status === 'success') {
-          setUploadValue([...data.files], {
+          setRawValue([...data.files], {
             trigger: 'add',
             file: data.files[0],
           });
@@ -307,17 +307,17 @@ export default function useUpload(props: TdUploadProps): any {
     if (props.isBatchUpload || !props.multiple) {
       toUploadFiles.value = [];
       props.onWaitingUploadFilesChange?.({ files: [], trigger: 'remove' });
-      setUploadValue([], changePrams);
+      setRawValue([], changePrams);
     } else if (!props.autoUpload) {
       const newVal = [...uploadValue.value];
       newVal.splice(p.index, 1);
-      setUploadValue(newVal, changePrams);
+      setRawValue(newVal, changePrams);
     } else {
       // autoUpload 场景下， p.index < uploadValue.length 表示移除已经上传成功的文件；反之表示移除待上传列表文件
       if (p.index < uploadValue.value.length) {
         const newVal = [...uploadValue.value];
         newVal.splice(p.index, 1);
-        setUploadValue(newVal, changePrams);
+        setRawValue(newVal, changePrams);
       } else {
         toUploadFiles.value.splice(p.index - uploadValue.value.length, 1);
         toUploadFiles.value = [...toUploadFiles.value];
@@ -343,7 +343,7 @@ export default function useUpload(props: TdUploadProps): any {
     if (autoUpload.value) {
       toUploadFiles.value = [];
     } else {
-      setUploadValue(
+      setRawValue(
         uploadValue.value.map((item) => {
           if (item.status !== 'success') {
             return { ...item, status: 'waiting' };
