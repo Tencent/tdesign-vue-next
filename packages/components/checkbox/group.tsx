@@ -17,7 +17,7 @@ export default defineComponent({
 
     const { isArray } = Array;
     const { value, modelValue } = toRefs(props);
-    const [rawValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [rawValue, setRawValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const innerValue = computed(() => (isArray(rawValue.value) ? rawValue.value : []));
 
     const optionList = ref<Array<CheckboxOptionObj>>([]);
@@ -97,7 +97,7 @@ export default defineComponent({
       const { checkAllVal, uncheckAllVal } = getAllCheckboxValue();
 
       const value: CheckboxGroupValue = checked ? checkAllVal : uncheckAllVal;
-      setInnerValue(value, {
+      setRawValue(value, {
         e: context.e,
         type: checked ? 'check' : 'uncheck',
         current: undefined,
@@ -114,7 +114,7 @@ export default defineComponent({
         const i = val.indexOf(currentValue);
         val.splice(i, 1);
       }
-      setInnerValue(val, {
+      setRawValue(val, {
         e: data.e,
         current: data.option.value,
         option: data.option,
