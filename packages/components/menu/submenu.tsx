@@ -292,7 +292,16 @@ export default defineComponent({
           onMouseenter={handleEnterPopup}
           onMouseleave={handleMouseLeavePopup}
         >
-          <ul class={`${classPrefix.value}-menu__popup-wrapper`}>{renderContent('default', 'content')}</ul>
+          <ul
+            class={[
+              `${classPrefix.value}-menu__popup-wrapper`,
+              {
+                [`${classPrefix.value}-menu__popup-overflow`]: isHead,
+              },
+            ]}
+          >
+            {renderContent('default', 'content')}
+          </ul>
         </div>
       );
 
