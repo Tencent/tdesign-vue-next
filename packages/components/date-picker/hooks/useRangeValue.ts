@@ -1,6 +1,5 @@
 import { ref, toRefs, computed, watch } from 'vue';
 import { useVModel } from '@tdesign/shared-hooks';
-import { isArray } from 'lodash-es';
 
 import { TdDateRangePickerProps } from '../type';
 import {
@@ -15,7 +14,8 @@ import {
 export function useRangeValue(props: TdDateRangePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);
 
-  const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
+  const [rawValue, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
+  const value = computed(() => (Array.isArray(rawValue.value) ? rawValue.value : []));
 
   const formatRef = computed(() =>
     getDefaultFormat({
@@ -32,11 +32,11 @@ export function useRangeValue(props: TdDateRangePickerProps) {
   }
 
   // warning invalid value
-  if (!isArray(value.value)) {
-    console.error(`typeof value: ${value.value} must be Array!`);
-  } else if (!isValidDate(value.value, formatRef.value.format)) {
+  if (!Array.isArray(rawValue.value)) {
+    console.error(`typeof value: ${rawValue.value} must be Array!`);
+  } else if (!isValidDate(rawValue.value, formatRef.value.format)) {
     console.error(
-      `value: ${value.value} is invalid dateTime! Check whether the value is consistent with format: ${formatRef.value.format}`,
+      `value: ${rawValue.value} is invalid dateTime! Check whether the value is consistent with format: ${formatRef.value.format}`,
     );
   }
 
@@ -77,7 +77,7 @@ export function useRangeValue(props: TdDateRangePickerProps) {
   watch(
     value,
     (newValue) => {
-      if (!newValue) {
+      if (!rawValue.value) {
         cacheValue.value = [];
         return;
       }
