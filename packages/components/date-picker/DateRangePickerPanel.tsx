@@ -38,7 +38,7 @@ export default defineComponent({
   },
 
   setup(props: TdDateRangePickerPanelProps) {
-    const { value, year, month, time, cacheValue, isFirstValueSelected, onChange } = useRangeValue(props);
+    const { value, year, month, time, cacheValue, isFirstValueSelected, onRawChange } = useRangeValue(props);
 
     const formatRef = computed(() =>
       getDefaultFormat({
@@ -107,7 +107,7 @@ export default defineComponent({
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (nextValue.length === 2 && isFirstValueSelected.value) {
-        onChange?.(
+        onRawChange?.(
           formatDate(nextValue, {
             format: formatRef.value.format,
             autoSwap: true,
@@ -220,7 +220,7 @@ export default defineComponent({
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (nextValue.length === 2 && isFirstValueSelected.value) {
-        onChange?.(
+        onRawChange?.(
           formatDate(nextValue, {
             format: formatRef.value.format,
             autoSwap: true,
@@ -252,7 +252,7 @@ export default defineComponent({
       if (!isArray(presetValue)) {
         console.error(`preset: ${preset} 预设值必须是数组!`);
       } else {
-        onChange?.(
+        onRawChange?.(
           formatDate(presetValue, {
             format: formatRef.value.format,
             autoSwap: true,

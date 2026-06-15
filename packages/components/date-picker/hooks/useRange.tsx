@@ -19,7 +19,7 @@ export function useRange(props: TdDateRangePickerProps) {
   const isMountedRef = ref(false);
   const inputRef = ref();
 
-  const { value, onChange, time, month, year, cacheValue, isFirstValueSelected } = useRangeValue(props);
+  const { value, onRawChange, time, month, year, cacheValue, isFirstValueSelected } = useRangeValue(props);
 
   const formatRef = computed(() =>
     getDefaultFormat({
@@ -64,7 +64,7 @@ export function useRange(props: TdDateRangePickerProps) {
       else context.e.stopPropagation();
 
       popupVisible.value = false;
-      onChange?.([], { dayjsValue: [], trigger: 'clear' });
+      onRawChange?.([], { dayjsValue: [], trigger: 'clear' });
     },
     onBlur: (newVal: string[], { e, position }: { e: MouseEvent; position: 'first' | 'second' }) => {
       props.onBlur?.({ value: newVal, partial: PARTIAL_MAP[position], e });
@@ -80,7 +80,7 @@ export function useRange(props: TdDateRangePickerProps) {
       // 输入框空值时清空 value
       if (newVal.every((v) => v === '')) {
         cacheValue.value = [];
-        onChange?.([], { dayjsValue: [], trigger: 'clear' });
+        onRawChange?.([], { dayjsValue: [], trigger: 'clear' });
         return;
       }
 
@@ -104,7 +104,7 @@ export function useRange(props: TdDateRangePickerProps) {
 
       popupVisible.value = false;
       if (isValidDate(newVal, formatRef.value.format)) {
-        onChange?.(
+        onRawChange?.(
           formatDate(newVal, {
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
@@ -202,6 +202,6 @@ export function useRange(props: TdDateRangePickerProps) {
     activeIndex,
     isFirstValueSelected,
     cacheValue,
-    onChange,
+    onChange: onRawChange,
   };
 }
