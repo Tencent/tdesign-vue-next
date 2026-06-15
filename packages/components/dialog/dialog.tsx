@@ -10,7 +10,7 @@ import {
   Teleport,
   ComponentPublicInstance,
 } from 'vue';
-import { DialogCloseContext } from './type';
+import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/shared-hooks';
 import { useSameTarget } from './hooks';
@@ -47,10 +47,10 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const dialogCardRef = ref<ComponentPublicInstance<{ resetPosition: () => void }>>(null);
     const { globalConfig } = useConfig('dialog');
-    const confirmBtnAction = (context: { e: MouseEvent }) => {
+    const confirmBtnAction: TdDialogProps['onConfirm'] = (context) => {
       props.onConfirm?.(context);
     };
-    const cancelBtnAction = (context: { e: MouseEvent }) => {
+    const cancelBtnAction: TdDialogProps['onCancel'] = (context) => {
       props.onCancel?.(context);
       emitCloseEvent({ e: context.e, trigger: 'cancel' });
     };
@@ -235,15 +235,17 @@ export default defineComponent({
             onMousedown={onMousedown}
             onMouseup={onMouseup}
           >
-            <TDialogCard
-              ref={dialogCardRef}
-              theme={theme}
-              {...otherProps}
-              v-slots={context.slots}
-              onConfirm={confirmBtnAction}
-              onCancel={cancelBtnAction}
-              onCloseBtnClick={closeBtnAction}
-            />
+            {otherProps.visible && (
+              <TDialogCard
+                ref={dialogCardRef}
+                theme={theme}
+                {...otherProps}
+                v-slots={context.slots}
+                onConfirm={confirmBtnAction}
+                onCancel={cancelBtnAction}
+                onCloseBtnClick={closeBtnAction}
+              />
+            )}
           </div>
         </div>
       );
