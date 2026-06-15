@@ -1,0 +1,185 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChatThoughtChain > :props > :items - array 1`] = `
+<div
+  class="t-chat__thought-chain"
+>
+  
+  <div
+    class="t-chat__thought-chain-item t-chat__thought-chain-item--success"
+  >
+    <div
+      class="t-chat__thought-chain-item__node"
+    >
+      <span
+        class="t-chat__thought-chain-item__icon"
+      >
+        <svg
+          class="t-icon t-icon-check-circle"
+          fill="none"
+          height="1em"
+          style="fill: none;"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <g
+            id="check-circle"
+          >
+            <path
+              d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z"
+              fill="transparent"
+              id="fill1"
+            />
+            <path
+              d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z"
+              id="stroke1"
+              stroke="currentColor"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+            <path
+              d="M16.5 9L10.5 15L7.5 12"
+              id="stroke2"
+              stroke="currentColor"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+          </g>
+        </svg>
+      </span>
+      <span
+        class="t-chat__thought-chain-item__line"
+      />
+    </div>
+    <div
+      class="t-chat__thought-chain-item__detail"
+    >
+      <div
+        class="t-chat__thought-chain-item__header t-chat__thought-chain-item__header--collapsible"
+      >
+        <span
+          class="t-chat__thought-chain-item__title"
+        >
+          分析问题
+        </span>
+        <svg
+          class="t-icon t-icon-chevron-down t-chat__thought-chain-item__arrow"
+          fill="none"
+          height="1em"
+          style="fill: none;"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <g
+            id="chevron-down"
+          >
+            <path
+              d="M17.5 9.5L12 15L6.5 9.5"
+              id="stroke1"
+              stroke="currentColor"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+          </g>
+        </svg>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <div
+    class="t-chat__thought-chain-item t-chat__thought-chain-item--processing"
+  >
+    <div
+      class="t-chat__thought-chain-item__node"
+    >
+      <span
+        class="t-chat__thought-chain-item__icon"
+      >
+        <svg
+          class="t-icon t-icon-loading"
+          fill="none"
+          height="1em"
+          style="fill: none;"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <path
+            d="M12 2.25C6.61556 2.25 2.25 6.61556 2.25 12C2.25 17.3844 6.61556 21.75 12 21.75V19.3125C7.96142 19.3125 4.6875 16.0386 4.6875 12C4.6875 7.96142 7.96142 4.6875 12 4.6875C16.0386 4.6875 19.3125 7.96142 19.3125 12H21.75C21.75 6.61556 17.3844 2.25 12 2.25Z"
+            fill="currentColor"
+            id="loading"
+          />
+        </svg>
+      </span>
+      <span
+        class="t-chat__thought-chain-item__line"
+      />
+    </div>
+    <div
+      class="t-chat__thought-chain-item__detail"
+    >
+      <div
+        class="t-chat__thought-chain-item__header t-chat__thought-chain-item__header--collapsible"
+      >
+        <span
+          class="t-chat__thought-chain-item__title"
+        >
+          检索资料
+        </span>
+        <svg
+          class="t-icon t-icon-chevron-down t-chat__thought-chain-item__arrow"
+          fill="none"
+          height="1em"
+          style="fill: none;"
+          viewBox="0 0 24 24"
+          width="1em"
+        >
+          <g
+            id="chevron-down"
+          >
+            <path
+              d="M17.5 9.5L12 15L6.5 9.5"
+              id="stroke1"
+              stroke="currentColor"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+          </g>
+        </svg>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <div
+    class="t-chat__thought-chain-item t-chat__thought-chain-item--pending"
+  >
+    <div
+      class="t-chat__thought-chain-item__node"
+    >
+      <span
+        class="t-chat__thought-chain-item__icon"
+      >
+        <span
+          class="t-chat__thought-chain-dot"
+        />
+      </span>
+      <!---->
+    </div>
+    <div
+      class="t-chat__thought-chain-item__detail"
+    >
+      <div
+        class="t-chat__thought-chain-item__header"
+      >
+        <span
+          class="t-chat__thought-chain-item__title"
+        >
+          输出回答
+        </span>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  
+</div>
+`;
