@@ -202,6 +202,6 @@ export function useRange(props: TdDateRangePickerProps) {
     activeIndex,
     isFirstValueSelected,
     cacheValue,
-    onChange: onRawChange,
+    onRawChange,
   };
 }
