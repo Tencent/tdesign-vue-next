@@ -139,6 +139,7 @@ export interface TypeTreeItemProps {
   itemKey: string;
   treeScope: TypeTreeScope;
   rowIndex: number;
+  hasLayerAnyChild: boolean;
 }
 
 export interface TypeEventContext {
