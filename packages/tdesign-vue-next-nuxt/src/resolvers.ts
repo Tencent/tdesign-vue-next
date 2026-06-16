@@ -116,19 +116,28 @@ export const resolveTDesignVariables = async (options: ModuleOptions) => {
 };
 
 /**
- * 仅在开发模式下将 lodash-es 加入 Vite 预构建，生产环境 rollup tree-shaking 已够用。
- * 减少开发时 lodash-es 大量 ESM 模块请求导致的性能问题。
+ * 仅在开发模式下优化 lodash-es 的 Vite 构建。
+ * resolvers.ts 静态导入 lodash-es，组件内部也可能用到。
  */
-export const resolveLodashEsOptimize = (nuxt: Nuxt) => {
+export const resolveEsmOptimize = (nuxt: Nuxt) => {
   if (!nuxt.options.dev) return;
 
   nuxt.hook('vite:extendConfig', (config) => {
+    const cfg = config as Record<string, unknown>;
+
+    // --- 1. optimizeDeps.include ---
     const existing = (config.optimizeDeps?.include ?? []) as string[];
     if (!existing.includes('lodash-es')) {
-      (config as Record<string, unknown>).optimizeDeps = {
+      cfg.optimizeDeps = {
         ...config.optimizeDeps,
         include: [...existing, 'lodash-es'],
       };
     }
+
+    // --- 2. SSR noExternal ---
+    cfg.ssr = {
+      ...config.ssr,
+      noExternal: [...(Array.isArray(config.ssr?.noExternal) ? config.ssr.noExternal : []), 'lodash-es'],
+    };
   });
 };
