@@ -46,7 +46,7 @@ export default defineComponent({
       activeIndex,
       isHoverCell,
       isFirstValueSelected,
-      onChange,
+      onRawChange,
     } = useRange(props);
 
     const isDisabled = useDisabled() as ComputedRef<boolean | Array<boolean>>;
@@ -226,7 +226,7 @@ export default defineComponent({
           cacheValue.value = nextValue;
           inputValue.value = nextValue;
         } else {
-          onChange?.(
+          onRawChange?.(
             formatDate(nextValue, {
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
@@ -384,7 +384,7 @@ export default defineComponent({
             partial: activeIndex.value ? 'end' : 'start',
           });
           if (!isSame) {
-            onChange?.(formattedValue, {
+            onRawChange?.(formattedValue, {
               dayjsValue: nextValue.map((v, i) =>
                 parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
               ),
@@ -424,7 +424,7 @@ export default defineComponent({
       if (!isArray(presetValue)) {
         console.error(`preset: ${preset} 预设值必须是数组!`);
       } else {
-        onChange?.(
+        onRawChange?.(
           formatDate(presetValue, {
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,

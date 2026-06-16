@@ -17,12 +17,12 @@ export default defineComponent({
 
     const { isArray } = Array;
     const { value, modelValue } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [rawValue, setRawValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const innerValue = computed(() => (isArray(rawValue.value) ? rawValue.value : []));
 
     const optionList = ref<Array<CheckboxOptionObj>>([]);
 
     const intersectionLen = computed<number>(() => {
-      if (!isArray(innerValue.value)) return 0;
       const values = optionList.value.map((item) => item.value);
       const n = intersection(innerValue.value, values);
       return n.length;
@@ -97,7 +97,7 @@ export default defineComponent({
       const { checkAllVal, uncheckAllVal } = getAllCheckboxValue();
 
       const value: CheckboxGroupValue = checked ? checkAllVal : uncheckAllVal;
-      setInnerValue(value, {
+      setRawValue(value, {
         e: context.e,
         type: checked ? 'check' : 'uncheck',
         current: undefined,
@@ -107,10 +107,6 @@ export default defineComponent({
 
     const handleCheckboxChange = (data: { checked: boolean; e: Event; option: TdCheckboxProps }) => {
       const currentValue = data.option.value;
-      if (!isArray(innerValue.value)) {
-        console.warn(`TDesign CheckboxGroup Warn: \`value\` must be an array, instead of ${typeof innerValue.value}`);
-        return;
-      }
       const val = [...innerValue.value];
       if (data.checked) {
         val.push(currentValue);
@@ -118,7 +114,7 @@ export default defineComponent({
         const i = val.indexOf(currentValue);
         val.splice(i, 1);
       }
-      setInnerValue(val, {
+      setRawValue(val, {
         e: data.e,
         current: data.option.value,
         option: data.option,
@@ -157,7 +153,7 @@ export default defineComponent({
       computed(() => ({
         name: props.name,
         isCheckAll: isCheckAll.value,
-        checkedValues: innerValue.value || [],
+        checkedValues: innerValue.value,
         maxExceeded: maxExceeded.value,
         disabled: props.disabled,
         readonly: props.readonly,
@@ -176,7 +172,7 @@ export default defineComponent({
             lazyLoad={props.lazyLoad}
             {...option}
             index={index}
-            checked={innerValue.value?.includes(option.value)}
+            checked={innerValue.value.includes(option.value)}
             data={option}
           ></Checkbox>
         ));

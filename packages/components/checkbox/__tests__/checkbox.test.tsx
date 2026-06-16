@@ -177,5 +177,31 @@ describe('CheckboxGroup', () => {
       expect(fn).toBeCalled();
       expect(checked.value).toEqual(['1', '2']);
     });
+
+    it(':value=null allows checking checkboxes', async () => {
+      const checked = ref(null);
+      const wrapper = mount(() => (
+        <CheckboxGroup v-model={checked.value}>
+          <Checkbox value="1">选项一</Checkbox>
+          <Checkbox value="2">选项二</Checkbox>
+        </CheckboxGroup>
+      ));
+      const checkboxs = wrapper.findAll('.t-checkbox input');
+      await checkboxs[0].trigger('change');
+      expect(checked.value).toEqual(['1']);
+    });
+
+    it(':value=undefined allows checking checkboxes', async () => {
+      const checked = ref(undefined);
+      const wrapper = mount(() => (
+        <CheckboxGroup v-model={checked.value}>
+          <Checkbox value="1">选项一</Checkbox>
+          <Checkbox value="2">选项二</Checkbox>
+        </CheckboxGroup>
+      ));
+      const checkboxs = wrapper.findAll('.t-checkbox input');
+      await checkboxs[0].trigger('change');
+      expect(checked.value).toEqual(['1']);
+    });
   });
 });
