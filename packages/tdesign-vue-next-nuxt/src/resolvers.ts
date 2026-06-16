@@ -6,6 +6,7 @@ import { pluginList, iconList, pluginMap } from './config';
 import { isMatch } from './utils';
 import { WEB_COMPONENT_MAP } from '@tdesign/common-js/components';
 
+import type { Nuxt } from '@nuxt/schema';
 import type { ModuleOptions } from './interface';
 
 const componentSpecialCases: Record<string, Record<string, { tag: string; export: 'default' | string }>> = {
@@ -112,4 +113,22 @@ export const resolveTDesignVariables = async (options: ModuleOptions) => {
         : Promise.reject('Unable to resolve tdesign-vue-next Global Style. Is it installed?'),
   );
   nuxt.options.css.push(tdesignGlobalStyle);
+};
+
+/**
+ * 仅在开发模式下将 lodash-es 加入 Vite 预构建，生产环境 rollup tree-shaking 已够用。
+ * 减少开发时 lodash-es 大量 ESM 模块请求导致的性能问题。
+ */
+export const resolveLodashEsOptimize = (nuxt: Nuxt) => {
+  if (!nuxt.options.dev) return;
+
+  nuxt.hook('vite:extendConfig', (config) => {
+    const existing = (config.optimizeDeps?.include ?? []) as string[];
+    if (!existing.includes('lodash-es')) {
+      (config as Record<string, unknown>).optimizeDeps = {
+        ...config.optimizeDeps,
+        include: [...existing, 'lodash-es'],
+      };
+    }
+  });
 };

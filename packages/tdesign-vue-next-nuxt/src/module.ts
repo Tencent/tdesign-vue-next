@@ -6,6 +6,7 @@ import {
   resolveTDesignPlugins,
   resolveTDesignVariables,
   resolveTDesignIcons,
+  resolveLodashEsOptimize,
 } from './resolvers';
 
 import type { ModuleOptions } from './interface';
@@ -86,5 +87,7 @@ export default defineNuxtModule<ModuleOptions>({
     resolveTDesignComponents(options);
     resolveTDesignPlugins(options);
     resolveTDesignIcons(options);
+
+    resolveLodashEsOptimize(nuxt);
   },
 });
