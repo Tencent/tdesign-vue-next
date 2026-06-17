@@ -12,7 +12,13 @@ export function useInputWidth(props: TdInputProps, inputRef: Ref<HTMLInputElemen
   const updateInputWidth = () => {
     if (!inputPreRef.value || !inputRef.value) return;
     // 使用 getComputedStyle 规避 transform 带来的影响
-    inputRef.value.style.width = getComputedStyle(inputPreRef.value).width;
+    const computedWidth = getComputedStyle(inputPreRef.value).width;
+    // 当计算宽度为 auto 或无效值时，如果输入框没有内容，应设置为 0px 以避免换行
+    if (computedWidth === 'auto' || !computedWidth) {
+      inputRef.value.style.width = !innerValue.value && !placeholder.value ? '0px' : computedWidth;
+    } else {
+      inputRef.value.style.width = computedWidth;
+    }
   };
 
   useResizeObserver(inputPreRef, () => {
