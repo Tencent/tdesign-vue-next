@@ -86,11 +86,11 @@ export const resolveTDesignIcons = (options: ModuleOptions) => {
 
   map(includeIcons, (icon: string) => {
     const iconName = options.iconPrefix ? `${options.iconPrefix}-${kebabCase(icon)}-icon` : `${kebabCase(icon)}-icon`;
-    const iconFilePath = kebabCase(icon);
     if (!isMatch(icon, options.iconExclude)) {
       addComponent({
         name: iconName,
-        filePath: `tdesign-icons-vue-next/esm/components/${iconFilePath}`,
+        export: `${icon}Icon`,
+        filePath: 'tdesign-icons-vue-next',
       });
     }
   });

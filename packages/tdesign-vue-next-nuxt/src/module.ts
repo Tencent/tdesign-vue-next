@@ -54,8 +54,12 @@ export default defineNuxtModule<ModuleOptions>({
     const localTDesignSource = resolveLocalTDesignSource(resolver, moduleMode);
     console.info('🚀 nuxt module for tdesign-vue-next is loading');
 
-    nuxt.options.build.transpile.push('tdesign-vue-next');
-    nuxt.options.build.transpile.push('tdesign-icons-vue-next');
+    const optimizeDeps = (nuxt.options.vite.optimizeDeps ||= {});
+    optimizeDeps.include ||= [];
+
+    // icon 仅在 server 端 transpile,  client 端不加入 transpile，避免 Nuxt 将其写进 Vite 的 `optimizeDeps.exclude`，再配合 optimizeDeps.include 让 esbuild 预构建，从而把数千个 icon 模块合并为少量请求，
+    nuxt.options.build.transpile.push((ctx) => (ctx.isServer ? 'tdesign-icons-vue-next' : false));
+    optimizeDeps.include.push('tdesign-icons-vue-next');
 
     if (localTDesignSource) {
       Object.assign(nuxt.options.alias, {
@@ -68,6 +72,11 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.options.build.transpile.push('@tdesign/shared-hooks');
       nuxt.options.build.transpile.push('@tdesign/shared-utils');
       nuxt.options.build.transpile.push('@tdesign/common-js/components');
+    } else {
+      //
+      // 同样仅在 server 端 transpile，client 端交给 esbuild 预构建，避免 tdesign-vue-next 内的全部 lodash-es 被逐个作为单独的 HTTP 请求加载。
+      nuxt.options.build.transpile.push((ctx) => (ctx.isServer ? 'tdesign-vue-next' : false));
+      optimizeDeps.include.push('tdesign-vue-next', 'lodash-es', 'dayjs');
     }
 
     if (options.esm) {
