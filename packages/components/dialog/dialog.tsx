@@ -102,12 +102,15 @@ export default defineComponent({
     });
     /**是否已经第一次渲染，懒加载判断 */
     const isMounted = ref(false);
+    /** 控制弹窗主体的挂载，关闭时需保留至离场动画结束，避免缩放动画无法触发 */
+    const cardVisible = ref(props.visible);
 
     watch(
       () => props.visible,
       (value) => {
         if (value) {
           isMounted.value = true;
+          cardVisible.value = true;
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (props.preventScrollThrough) {
               document.body.appendChild(styleEl.value);
@@ -201,6 +204,7 @@ export default defineComponent({
 
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
+      cardVisible.value = false;
       dialogCardRef.value?.resetPosition?.();
       props.onClosed?.();
     };
@@ -235,7 +239,7 @@ export default defineComponent({
             onMousedown={onMousedown}
             onMouseup={onMouseup}
           >
-            {otherProps.visible && (
+            {cardVisible.value && (
               <TDialogCard
                 ref={dialogCardRef}
                 theme={theme}
