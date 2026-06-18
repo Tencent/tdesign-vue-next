@@ -71,9 +71,9 @@ const createDialog: DialogMethod = (props, context) => {
         delete options.className;
         delete options.style;
         return h(DialogComponent, {
+          ...dialogOptions.value,
           onClose,
           visible: visible.value,
-          ...dialogOptions.value,
         });
       };
     },
@@ -151,12 +151,12 @@ DialogPlugin.install = (app: App): void => {
   // 如果使用 use 方法，自动绑定当前 App 的 context
   // eslint-disable-next-line no-underscore-dangle
   DialogPlugin._context = app._context;
-  Object.keys(extraApi).forEach((funcName: ExtraApiType) => {
+  (Object.keys(extraApi) as ExtraApiType[]).forEach((funcName) => {
     app.config.globalProperties.$dialog[funcName] = extraApi[funcName];
   });
 };
 
-Object.keys(extraApi).forEach((funcName: ExtraApiType) => {
+(Object.keys(extraApi) as ExtraApiType[]).forEach((funcName) => {
   DialogPlugin[funcName] = extraApi[funcName];
 });
 
