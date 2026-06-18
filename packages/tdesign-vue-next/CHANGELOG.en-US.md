@@ -5,6 +5,22 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.2 `2026-06-18`
+
+### 🚀 Features
+
+- The component for array-type input now supports using default values in case of null inputs @scffs ([#6717](https://github.com/Tencent/tdesign-vue-next/pull/6717))
+- `HeadMenu`: A maximum height has been added to the sub-menu overlay; scroll bars will appear once this maximum height is exceeded @HaixingOoO ([common#2555](https://github.com/Tencent/tdesign-common/pull/2555))
+- `InputNumber`: An `autofocus` attribute has been added @betavs ([#6722](https://github.com/Tencent/tdesign-vue-next/pull/6722))
+
+### 🐞 Bug Fixes
+
+- `Button`: Improve the ripple animation effect @uyarn ([#6661](https://github.com/Tencent/tdesign-vue-next/pull/6661))
+- `Dialog`: The issue where certain functions were executed multiple times when the component was used through plugins has been fixed @betavs ([#6711](https://github.com/Tencent/tdesign-vue-next/pull/6711))
+- `Form`: Style issues that occurred when `FormItem` was nested multiple times have been resolved @HaixingOoO  ([#6731](https://github.com/Tencent/tdesign-vue-next/pull/6731))
+- `Menu`: The problem of abnormal menu length display after adding or removing menu items has been fixed @uyarn ([#6712](https://github.com/Tencent/tdesign-vue-next/pull/6712))
+- `Table`: Errors in the translation of filter-related text have been corrected @liweijie0812 ([common#2553](https://github.com/Tencent/tdesign-common/pull/2553))
+
 ## 🌈 1.20.1 `2026-06-05`
 
 ### 🐞 Bug Fixes
