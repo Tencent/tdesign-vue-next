@@ -159,6 +159,8 @@ export default defineComponent({
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
+      // 中文输入法组合态下按 ESC 仅用于取消候选词，不应关闭对话框
+      if (e.code === 'Escape' && e.isComposing) return;
       if (e.code === 'Escape' && isTopInteractivePopup()) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
