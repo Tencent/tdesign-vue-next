@@ -579,6 +579,26 @@ describe('Dialog', () => {
       document.dispatchEvent(escEvent);
       await nextTick();
       expect(fn).toHaveBeenCalled();
+
+      // 中文输入法下按 ESC，不触发对话框关闭逻辑
+      const composingVisible = ref(true);
+      const composingFn = vi.fn();
+      const composingWrapper = mount(() => (
+        <Dialog
+          v-model:visible={composingVisible.value}
+          closeOnEscKeydown
+          onEscKeydown={composingFn}
+          body="this is content"
+        ></Dialog>
+      ));
+      await nextTick();
+
+      const composingEscEvent = new KeyboardEvent('keydown', { code: 'Escape', isComposing: true, bubbles: true });
+      document.dispatchEvent(composingEscEvent);
+      await nextTick();
+      expect(composingFn).not.toHaveBeenCalled();
+      expect(composingVisible.value).toBe(true);
+      composingWrapper.unmount();
     });
 
     it(':onOverlayClick', async () => {
