@@ -10,7 +10,7 @@ import {
   Teleport,
   ComponentPublicInstance,
 } from 'vue';
-import { DialogCloseContext } from './type';
+import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/shared-hooks';
 import { useSameTarget } from './hooks';
@@ -47,10 +47,10 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const dialogCardRef = ref<ComponentPublicInstance<{ resetPosition: () => void }>>(null);
     const { globalConfig } = useConfig('dialog');
-    const confirmBtnAction = (context: { e: MouseEvent }) => {
+    const confirmBtnAction: TdDialogProps['onConfirm'] = (context) => {
       props.onConfirm?.(context);
     };
-    const cancelBtnAction = (context: { e: MouseEvent }) => {
+    const cancelBtnAction: TdDialogProps['onCancel'] = (context) => {
       props.onCancel?.(context);
       emitCloseEvent({ e: context.e, trigger: 'cancel' });
     };
@@ -102,12 +102,15 @@ export default defineComponent({
     });
     /**是否已经第一次渲染，懒加载判断 */
     const isMounted = ref(false);
+    /** 控制弹窗主体的挂载，关闭时需保留至离场动画结束，避免缩放动画无法触发 */
+    const cardVisible = ref(props.visible);
 
     watch(
       () => props.visible,
       (value) => {
         if (value) {
           isMounted.value = true;
+          cardVisible.value = true;
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (props.preventScrollThrough) {
               document.body.appendChild(styleEl.value);
@@ -203,6 +206,7 @@ export default defineComponent({
 
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
+      cardVisible.value = false;
       dialogCardRef.value?.resetPosition?.();
       props.onClosed?.();
     };
@@ -237,15 +241,17 @@ export default defineComponent({
             onMousedown={onMousedown}
             onMouseup={onMouseup}
           >
-            <TDialogCard
-              ref={dialogCardRef}
-              theme={theme}
-              {...otherProps}
-              v-slots={context.slots}
-              onConfirm={confirmBtnAction}
-              onCancel={cancelBtnAction}
-              onCloseBtnClick={closeBtnAction}
-            />
+            {cardVisible.value && (
+              <TDialogCard
+                ref={dialogCardRef}
+                theme={theme}
+                {...otherProps}
+                v-slots={context.slots}
+                onConfirm={confirmBtnAction}
+                onCancel={cancelBtnAction}
+                onCloseBtnClick={closeBtnAction}
+              />
+            )}
           </div>
         </div>
       );

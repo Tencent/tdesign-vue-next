@@ -5,6 +5,22 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.2 `2026-06-18`
+
+### 🚀 Features
+
+- 数组类型输入类组件支持使用空值兜底 @scffs ([#6717](https://github.com/Tencent/tdesign-vue-next/pull/6717))
+- `HeadMenu`: 子菜单浮层新增最大高度，超出最大高度将会显示滚动条 @HaixingOoO ([common#2555](https://github.com/Tencent/tdesign-common/pull/2555))
+- `InputNumber`: 新增 `autofocus` 属性 @betavs ([#6722](https://github.com/Tencent/tdesign-vue-next/pull/6722))
+
+### 🐞 Bug Fixes
+
+- `Button`: 优化斜八度的动画效果 @uyarn ([#6661](https://github.com/Tencent/tdesign-vue-next/pull/6661))
+- `Dialog`: 修复通过插件形式调用时，部分函数会多次执行的问题 @betavs ([#6711](https://github.com/Tencent/tdesign-vue-next/pull/6711))
+- `Form`: 修复 `FormItem` 嵌套多层导致的样式问题 @HaixingOoO ([#6731](https://github.com/Tencent/tdesign-vue-next/pull/6731))
+- `Menu`: 修复在增删菜单项后展示菜单长度异常的问题 @uyarn ([#6712](https://github.com/Tencent/tdesign-vue-next/pull/6712))
+- `Table`: 修复 filter 翻译文案错误 @liweijie0812 ([common#2553](https://github.com/Tencent/tdesign-common/pull/2553))
+
 ## 🌈 1.20.1 `2026-06-05`
 
 ### 🐞 Bug Fixes
