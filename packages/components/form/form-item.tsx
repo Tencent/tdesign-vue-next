@@ -18,16 +18,14 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   GlobalIconType,
 } from 'tdesign-icons-vue-next';
-import {
-  isNil,
-  isArray,
-  isNumber,
-  isString,
-  isBoolean,
-  cloneDeep,
-  get as lodashGet,
-  set as lodashSet,
-} from 'lodash-es';
+import isNil from 'lodash-es/isNil';
+import isArray from 'lodash-es/isArray';
+import isNumber from 'lodash-es/isNumber';
+import isString from 'lodash-es/isString';
+import isBoolean from 'lodash-es/isBoolean';
+import cloneDeep from 'lodash-es/cloneDeep';
+import lodashGet from 'lodash-es/get';
+import lodashSet from 'lodash-es/set';
 
 import { validate } from './utils/form-model';
 import {

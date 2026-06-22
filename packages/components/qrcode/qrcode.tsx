@@ -8,7 +8,7 @@ import QRCodeSVG from './components/qrcode-svg';
 import QRcodeStatus from './components/qrcode-status';
 
 import type { ImageSettings } from '@tdesign/common-js/qrcode/types';
-import { isNumber } from 'lodash-es';
+import isNumber from 'lodash-es/isNumber';
 
 export default defineComponent({
   name: 'TQRCode',

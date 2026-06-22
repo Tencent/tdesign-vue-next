@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue';
 import dayjs from 'dayjs';
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 import { useSingleValue } from './hooks/useSingleValue';
 import { formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';

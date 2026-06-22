@@ -1,5 +1,5 @@
 import { ref, computed, toRefs } from 'vue';
-import { merge } from 'lodash-es';
+import merge from 'lodash-es/merge';
 import { SizeLimitObj, TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext } from '../type';
 import {
   getFilesAndErrors,

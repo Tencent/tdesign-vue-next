@@ -12,7 +12,7 @@
 </template>
 <script lang="tsx" setup>
 import { computed, getCurrentInstance } from 'vue';
-import { get } from 'lodash-es';
+import get from 'lodash-es/get';
 
 const { appContext } = getCurrentInstance();
 const path = computed(() => get(appContext, '$route.path', ''));

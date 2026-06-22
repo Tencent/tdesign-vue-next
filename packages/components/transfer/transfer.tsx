@@ -1,5 +1,7 @@
 import { defineComponent, computed, toRefs } from 'vue';
-import { pick, isFunction, isEqual } from 'lodash-es';
+import pick from 'lodash-es/pick';
+import isFunction from 'lodash-es/isFunction';
+import isEqual from 'lodash-es/isEqual';
 
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';

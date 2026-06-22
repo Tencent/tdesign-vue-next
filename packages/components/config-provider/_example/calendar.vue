@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { merge } from 'lodash-es';
+import merge from 'lodash-es/merge';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 import type { GlobalConfigProvider } from 'tdesign-vue-next';
 

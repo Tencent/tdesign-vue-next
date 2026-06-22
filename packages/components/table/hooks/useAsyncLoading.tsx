@@ -1,4 +1,4 @@
-import { isString } from 'lodash-es';
+import isString from 'lodash-es/isString';
 import { computed } from 'vue';
 import { useConfig, useTNodeJSX } from '@tdesign/shared-hooks';
 import { TdPrimaryTableProps } from '../type';

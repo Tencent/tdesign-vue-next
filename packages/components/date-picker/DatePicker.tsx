@@ -1,6 +1,8 @@
 import { defineComponent, computed, watch, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
-import { isFunction, isDate, isArray } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
+import isDate from 'lodash-es/isDate';
+import isArray from 'lodash-es/isArray';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
 import {

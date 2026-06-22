@@ -1,6 +1,6 @@
 /** 超出省略显示 */
 import { defineComponent, PropType, ref, computed, onMounted, onUpdated } from 'vue';
-import { debounce } from 'lodash-es';
+import debounce from 'lodash-es/debounce';
 import type { AttachNode, TNode } from '../../common';
 import { useContent } from '@tdesign/shared-hooks';
 import { isTextEllipsis } from '@tdesign/shared-utils';

@@ -1,5 +1,6 @@
 import { computed, ComputedRef, defineComponent, h, toRefs } from 'vue';
-import { isString, isPlainObject } from 'lodash-es';
+import isString from 'lodash-es/isString';
+import isPlainObject from 'lodash-es/isPlainObject';
 
 import { useConfig, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 

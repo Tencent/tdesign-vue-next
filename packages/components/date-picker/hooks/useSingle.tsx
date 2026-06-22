@@ -1,6 +1,6 @@
 import { ref, computed, watch } from 'vue';
 import dayjs from 'dayjs';
-import { omit } from 'lodash-es';
+import omit from 'lodash-es/omit';
 
 import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 

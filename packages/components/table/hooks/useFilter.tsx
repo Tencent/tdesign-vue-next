@@ -6,7 +6,7 @@ import { useConfig, useDefaultValue, useTNodeDefault } from '@tdesign/shared-hoo
 
 import TableFilterController from '../components/filter-controller';
 
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 import { getColumnsResetValue } from '@tdesign/common-js/table/utils';
 import { renderTitle } from './useTableHeader';
 

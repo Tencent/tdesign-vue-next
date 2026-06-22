@@ -1,5 +1,7 @@
 import { SetupContext, h, defineComponent, PropType, toRefs } from 'vue';
-import { get, isString, isFunction } from 'lodash-es';
+import get from 'lodash-es/get';
+import isString from 'lodash-es/isString';
+import isFunction from 'lodash-es/isFunction';
 import { useTNodeJSX } from '@tdesign/shared-hooks';
 
 import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from '../type';

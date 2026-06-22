@@ -1,4 +1,4 @@
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 import { getCurrentInstance, h } from 'vue';
 
 /**

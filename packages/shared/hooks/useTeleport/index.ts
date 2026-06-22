@@ -2,7 +2,7 @@ import { getAttach } from '@tdesign/shared-utils';
 import { computed, Ref, onMounted, ref, watch } from 'vue';
 // TODO need refactor
 import { AttachNode } from '../../../components/common';
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 
 /**
  * @description 返回挂载的节点, 用于teleport

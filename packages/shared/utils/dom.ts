@@ -5,7 +5,9 @@
 /* eslint-disable no-undef */
 import { ComponentPublicInstance, VNode, isVNode, Comment } from 'vue';
 import raf from 'raf';
-import { isArray, isString, isFunction } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isString from 'lodash-es/isString';
+import isFunction from 'lodash-es/isFunction';
 
 import { easeInOutCubic, EasingFunction } from '@tdesign/common-js/utils/easing';
 import { ScrollContainer, ScrollContainerElement } from '../../components/common';

@@ -1,5 +1,7 @@
 import { h, defineComponent, ref, watch } from 'vue';
-import { isArray, isNumber, isFunction } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isNumber from 'lodash-es/isNumber';
+import isFunction from 'lodash-es/isFunction';
 
 import props from './props';
 import { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from './type';

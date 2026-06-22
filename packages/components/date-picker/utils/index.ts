@@ -1,4 +1,4 @@
-import { isNil } from 'lodash-es';
+import isNil from 'lodash-es/isNil';
 import { parseToDayjs } from '@tdesign/common-js/date-picker/format';
 
 // 用于头部日期切换修正

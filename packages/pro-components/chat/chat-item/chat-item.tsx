@@ -4,7 +4,8 @@ import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 
 import props from './chat-item-props';
-import { isString, isObject } from 'lodash-es';
+import isString from 'lodash-es/isString';
+import isObject from 'lodash-es/isObject';
 import { Skeleton } from 'tdesign-vue-next';
 import Text from '../chat-content/chat-content';
 import { CheckCircleIcon } from 'tdesign-icons-vue-next';

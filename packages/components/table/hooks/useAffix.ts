@@ -1,4 +1,5 @@
-import { debounce, isBoolean } from 'lodash-es';
+import debounce from 'lodash-es/debounce';
+import isBoolean from 'lodash-es/isBoolean';
 import { computed, ref, watch, onBeforeUnmount } from 'vue';
 import { TdBaseTableProps } from '../type';
 import { on, off } from '@tdesign/shared-utils';

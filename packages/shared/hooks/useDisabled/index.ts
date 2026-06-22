@@ -1,5 +1,6 @@
 import { Ref, inject, computed, getCurrentInstance } from 'vue';
-import { isArray, isBoolean } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isBoolean from 'lodash-es/isBoolean';
 // TODO: need refator
 import { TdFormProps } from '../../../components/form/type';
 

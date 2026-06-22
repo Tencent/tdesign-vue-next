@@ -13,7 +13,7 @@ import {
 } from './type';
 import useTreeData from './hooks/useTreeData';
 import useTreeSelect from './hooks/useTreeSelect';
-import { get } from 'lodash-es';
+import get from 'lodash-es/get';
 import { ComponentScrollToElementParams } from '../common';
 import log from '@tdesign/common-js/log/index';
 import { usePrefixClass } from '@tdesign/shared-hooks';

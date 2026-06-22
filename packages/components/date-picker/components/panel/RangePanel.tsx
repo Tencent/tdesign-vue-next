@@ -5,7 +5,8 @@ import TExtraContent from './ExtraContent';
 import { TdDateRangePickerProps, PickerDateRange } from '../../type';
 import { getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { useTableData, useDisableDate } from '../../hooks';
-import { isArray, isFunction } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isFunction from 'lodash-es/isFunction';
 import log from '@tdesign/common-js/log/index';
 
 export default defineComponent({

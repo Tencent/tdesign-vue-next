@@ -1,4 +1,4 @@
-import { throttle } from 'lodash-es';
+import throttle from 'lodash-es/throttle';
 import { reactive } from '../utils/adapt';
 import { TypeTreeItemState } from '../types';
 

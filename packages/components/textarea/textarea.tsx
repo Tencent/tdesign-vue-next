@@ -10,7 +10,9 @@ import {
   StyleValue,
   CSSProperties,
 } from 'vue';
-import { isObject, merge, omit } from 'lodash-es';
+import isObject from 'lodash-es/isObject';
+import merge from 'lodash-es/merge';
+import omit from 'lodash-es/omit';
 
 import { FormItemInjectionKey } from '../form/constants';
 import setStyle from '@tdesign/common-js/utils/setStyle';

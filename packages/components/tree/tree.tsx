@@ -1,4 +1,5 @@
-import { isFunction, upperFirst } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
+import upperFirst from 'lodash-es/upperFirst';
 import {
   defineComponent,
   getCreateElement,

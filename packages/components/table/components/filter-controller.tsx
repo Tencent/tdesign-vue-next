@@ -1,6 +1,7 @@
 import { defineComponent, PropType, ref, h } from 'vue';
 import { FilterIcon as TdFilterIcon } from 'tdesign-icons-vue-next';
-import { isEmpty, isFunction } from 'lodash-es';
+import isEmpty from 'lodash-es/isEmpty';
+import isFunction from 'lodash-es/isFunction';
 import Popup, { PopupProps } from '../../popup';
 import { CheckboxGroup } from '../../checkbox';
 import { RadioGroup } from '../../radio';

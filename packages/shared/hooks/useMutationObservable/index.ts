@@ -1,5 +1,6 @@
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
-import { debounce, isEqual } from 'lodash-es';
+import debounce from 'lodash-es/debounce';
+import isEqual from 'lodash-es/isEqual';
 
 export interface MutationCallback {
   (mutations: MutationRecord[]): void;

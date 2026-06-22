@@ -11,7 +11,11 @@ import {
   nextTick,
   onMounted,
 } from 'vue';
-import { get, pick, isString, isFunction, upperFirst } from 'lodash-es';
+import get from 'lodash-es/get';
+import pick from 'lodash-es/pick';
+import isString from 'lodash-es/isString';
+import isFunction from 'lodash-es/isFunction';
+import upperFirst from 'lodash-es/upperFirst';
 
 import { formatClassNames, formatRowAttributes, formatRowClassNames } from '../utils';
 import { getRowFixedStyles, getColumnFixedStyles } from '../hooks/useFixed';

@@ -1,5 +1,6 @@
 import { computed, type Ref } from 'vue';
-import { isArray, isFunction } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isFunction from 'lodash-es/isFunction';
 import {
   computePaginationDisabled,
   decadeHasAnyAllowed,

@@ -1,4 +1,7 @@
-import { isEmpty, isObject, isNumber, isBoolean } from 'lodash-es';
+import isEmpty from 'lodash-es/isEmpty';
+import isObject from 'lodash-es/isObject';
+import isNumber from 'lodash-es/isNumber';
+import isBoolean from 'lodash-es/isBoolean';
 
 // https://github.com/validatorjs/validator.js
 

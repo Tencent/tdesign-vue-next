@@ -14,7 +14,7 @@ import {
   nextTick,
   Transition,
 } from 'vue';
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 import { useRipple, useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/shared-hooks';
 
 import props from './submenu-props';

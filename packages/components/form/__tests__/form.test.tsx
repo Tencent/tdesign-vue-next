@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon, InfoCircleIcon } from 'tdesign-icons-vue-next';
-import { isObject } from 'lodash-es';
+import isObject from 'lodash-es/isObject';
 import { FormItem, Form, Input, Switch, InputNumber } from '@tdesign/components';
 import formProps from '@tdesign/components/form/props';
 import { FormRules, Data, TdFormProps, IsDateOptions } from '@tdesign/components/form/type';

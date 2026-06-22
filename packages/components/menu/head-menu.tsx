@@ -18,7 +18,8 @@ import {
   nextTick,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
-import { isArray, isFunction } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isFunction from 'lodash-es/isFunction';
 
 import log from '@tdesign/common-js/log/log';
 import props from './head-menu-props';

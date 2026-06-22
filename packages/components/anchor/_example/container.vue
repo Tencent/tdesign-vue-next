@@ -17,7 +17,7 @@
 </template>
 <script lang="tsx" setup>
 import { computed, getCurrentInstance } from 'vue';
-import { get } from 'lodash-es';
+import get from 'lodash-es/get';
 import type { AnchorProps } from 'tdesign-vue-next';
 
 const { appContext } = getCurrentInstance();

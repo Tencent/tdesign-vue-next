@@ -1,5 +1,5 @@
 import { PropType, computed, defineComponent, inject, nextTick, reactive, ref, watchEffect } from 'vue';
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 
 import { formatPrecision } from '@tdesign/common-js/slider/utils';
 import { usePrefixClass } from '@tdesign/shared-hooks';

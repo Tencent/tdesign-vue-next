@@ -1,7 +1,8 @@
 import { join } from 'node:path';
 import { addComponent, addImportsSources, tryResolveModule, useNuxt } from '@nuxt/kit';
 
-import { map, kebabCase } from 'lodash-es';
+import map from 'lodash-es/map';
+import kebabCase from 'lodash-es/kebabCase';
 import { pluginList, iconList, pluginMap } from './config';
 import { isMatch } from './utils';
 import { WEB_COMPONENT_MAP } from '@tdesign/common-js/components';

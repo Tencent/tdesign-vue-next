@@ -1,5 +1,5 @@
 import { ref, Ref, getCurrentInstance } from 'vue';
-import { kebabCase } from 'lodash-es';
+import kebabCase from 'lodash-es/kebabCase';
 import { ChangeHandler } from '../useVModel';
 
 export function useDefaultValue<T, P extends any[]>(

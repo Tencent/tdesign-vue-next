@@ -1,5 +1,7 @@
 import { VNode, isVNode, Fragment, getCurrentInstance } from 'vue';
-import { isArray, isString, isObject } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isString from 'lodash-es/isString';
+import isObject from 'lodash-es/isObject';
 
 // TODO:PAOPAO move? i have no idea
 export interface JSXRenderContext {

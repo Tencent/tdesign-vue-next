@@ -6,7 +6,9 @@ import { SlotReturnArray, TNode } from '../../common';
 import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import props from '../props';
-import { isArray, isString, isFunction } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isString from 'lodash-es/isString';
+import isFunction from 'lodash-es/isFunction';
 
 export default defineComponent({
   name: 'TTransferOperations',

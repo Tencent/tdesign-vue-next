@@ -27,7 +27,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { template } = require('lodash-es');
+const template = require('lodash-es/template').default;
 const utils = require('../utils');
 const config = require('./config');
 

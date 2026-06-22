@@ -1,5 +1,7 @@
 import { computed, ComputedRef, VNode, getCurrentInstance, Slots, Component } from 'vue';
-import { isArray, isString, camelCase } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isString from 'lodash-es/isString';
+import camelCase from 'lodash-es/camelCase';
 
 import { useChildComponentSlots } from '@tdesign/shared-hooks';
 import type { DropdownOption, TdDropdownProps } from '../type';

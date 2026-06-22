@@ -1,5 +1,5 @@
 import { defineComponent, computed, VNode } from 'vue';
-import { isObject } from 'lodash-es';
+import isObject from 'lodash-es/isObject';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,
   RoundIcon as TdRoundIcon,

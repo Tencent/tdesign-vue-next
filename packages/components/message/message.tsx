@@ -6,7 +6,7 @@ import {
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 
 import { THEME_LIST, fadeIn, fadeOut } from '@tdesign/common-js/message/index';
 import { useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';

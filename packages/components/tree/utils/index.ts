@@ -1,4 +1,4 @@
-import { camelCase } from 'lodash-es';
+import camelCase from 'lodash-es/camelCase';
 import { TypeVNode, TypeSetupContext, isVueNext } from './adapt';
 import {
   TreeProps,

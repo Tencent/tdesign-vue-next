@@ -12,7 +12,7 @@ import {
   isVNode,
   Teleport,
 } from 'vue';
-import { isArray } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
 import { getChildren } from '@tdesign/shared-utils';
 
 /**

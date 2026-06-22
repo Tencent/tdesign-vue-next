@@ -4,7 +4,7 @@ import props from './props';
 import { useTNodeJSX, usePrefixClass, useFlatChildrenSlots } from '@tdesign/shared-hooks';
 
 import Button from '../button';
-import { isString } from 'lodash-es';
+import isString from 'lodash-es/isString';
 
 export default defineComponent({
   name: 'TComment',

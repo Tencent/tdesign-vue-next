@@ -1,6 +1,6 @@
 import { defineComponent, ref, toRefs, computed, Fragment } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { isArray } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
 
 import Input, { TdInputProps } from '../input';
 import props from './props';

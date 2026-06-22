@@ -11,7 +11,8 @@ import {
   watch,
   ComputedRef,
 } from 'vue';
-import { isArray, isNumber } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isNumber from 'lodash-es/isNumber';
 
 import { formatPrecision, formatSliderValue, getStopStyle } from '@tdesign/common-js/slider/utils';
 import { useCommonClassName, useDisabled, usePrefixClass, useVModel } from '@tdesign/shared-hooks';

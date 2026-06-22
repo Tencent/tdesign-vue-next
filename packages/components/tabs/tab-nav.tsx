@@ -1,5 +1,6 @@
 import { h, defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
-import { debounce, isFunction } from 'lodash-es';
+import debounce from 'lodash-es/debounce';
+import isFunction from 'lodash-es/isFunction';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,
   ChevronRightIcon as TdChevronRightIcon,

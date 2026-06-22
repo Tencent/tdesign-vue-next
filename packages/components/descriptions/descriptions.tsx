@@ -1,4 +1,5 @@
-import { isNil, isArray } from 'lodash-es';
+import isNil from 'lodash-es/isNil';
+import isArray from 'lodash-es/isArray';
 
 import { defineComponent, provide, ref } from 'vue';
 

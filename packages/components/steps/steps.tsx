@@ -1,5 +1,5 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs, VNode } from 'vue';
-import { isObject } from 'lodash-es';
+import isObject from 'lodash-es/isObject';
 import props from './props';
 import stepItemProps from './step-item-props';
 import { TdStepItemProps } from './type';

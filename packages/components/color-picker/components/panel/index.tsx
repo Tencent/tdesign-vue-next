@@ -1,5 +1,7 @@
 import { computed, defineComponent, ref, toRefs, watch } from 'vue';
-import { cloneDeep, isNull, isUndefined } from 'lodash-es';
+import cloneDeep from 'lodash-es/cloneDeep';
+import isNull from 'lodash-es/isNull';
+import isUndefined from 'lodash-es/isUndefined';
 import {
   Color,
   DEFAULT_COLOR,

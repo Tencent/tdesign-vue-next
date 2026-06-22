@@ -12,7 +12,12 @@ import {
   toRefs,
   onUnmounted,
 } from 'vue';
-import { isNil, isEqual, isString, isNumber, throttle, isFunction } from 'lodash-es';
+import isNil from 'lodash-es/isNil';
+import isEqual from 'lodash-es/isEqual';
+import isString from 'lodash-es/isString';
+import isNumber from 'lodash-es/isNumber';
+import throttle from 'lodash-es/throttle';
+import isFunction from 'lodash-es/isFunction';
 
 import props from './radio-group-props';
 import type { RadioOptionObj, RadioOption, TdRadioGroupProps } from './type';

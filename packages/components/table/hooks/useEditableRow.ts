@@ -1,5 +1,8 @@
 import { ref, computed, watch, toRefs } from 'vue';
-import { get, set, cloneDeep, isFunction } from 'lodash-es';
+import get from 'lodash-es/get';
+import set from 'lodash-es/set';
+import cloneDeep from 'lodash-es/cloneDeep';
+import isFunction from 'lodash-es/isFunction';
 
 import { PrimaryTableProps } from '../types';
 import { getEditableKeysMap } from '@tdesign/common-js/table/utils';

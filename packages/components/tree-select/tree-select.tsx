@@ -1,5 +1,9 @@
 import { defineComponent, ref, computed, watch, onMounted, toRefs, ComputedRef } from 'vue';
-import { isNil, isArray, isEmpty, isBoolean, isFunction } from 'lodash-es';
+import isNil from 'lodash-es/isNil';
+import isArray from 'lodash-es/isArray';
+import isEmpty from 'lodash-es/isEmpty';
+import isBoolean from 'lodash-es/isBoolean';
+import isFunction from 'lodash-es/isFunction';
 
 import { findParentValues } from '@tdesign/common-js/tree-select/utils';
 

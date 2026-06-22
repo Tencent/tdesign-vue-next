@@ -1,5 +1,6 @@
 import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent, onActivated, onDeactivated } from 'vue';
-import { isFunction, isUndefined } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
+import isUndefined from 'lodash-es/isUndefined';
 
 import { on, off, getScrollContainer } from '@tdesign/shared-utils';
 import props from './props';
