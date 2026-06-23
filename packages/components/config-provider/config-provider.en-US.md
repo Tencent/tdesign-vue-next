@@ -54,6 +54,38 @@ Vue.createApp({}).use(TDesign)
 }
 ```
 
+### Use i18n with the browser build
+
+To use internationalization with the browser build, pass a locale package to `global-config` of `t-config-provider`. The default locale is Chinese. The following example switches a plain JavaScript project to English:
+
+```html
+<div id="app">
+  <t-config-provider :global-config="globalConfig">
+    <t-space direction="vertical">
+      <t-date-picker></t-date-picker>
+      <t-pagination :total="36"></t-pagination>
+    </t-space>
+  </t-config-provider>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.css" />
+<script src="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js"></script>
+<script type="module">
+  import enConfig from 'https://unpkg.com/tdesign-vue-next/es/locale/en_US.mjs?module';
+
+  const app = Vue.createApp({
+    data() {
+      return {
+        globalConfig: enConfig,
+      };
+    },
+  });
+
+  app.use(TDesign).mount('#app');
+</script>
+```
+
 ## API
 
 ### ConfigProvider Props

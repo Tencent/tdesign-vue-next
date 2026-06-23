@@ -54,6 +54,37 @@ Vue.createApp({}).use(TDesign)
 }
 ```
 
+### 浏览器引入方式下使用国际化
+
+- 如需在浏览器引入方式下使用国际化，可通过 `t-config-provider` 的 `global-config` 配置语言包。默认语言为中文；下面示例演示在原生 JS 项目中切换为英文：
+
+```html
+<div id="app">
+  <t-config-provider :global-config="globalConfig">
+    <t-space direction="vertical">
+      <t-date-picker></t-date-picker>
+      <t-pagination :total="36"></t-pagination>
+    </t-space>
+  </t-config-provider>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.css" />
+<script src="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js"></script>
+<script type="module">
+  import enConfig from 'https://unpkg.com/tdesign-vue-next/es/locale/en_US.mjs?module';
+
+  const app = window.Vue.createApp({
+    data() {
+      return {
+        globalConfig: enConfig,
+      };
+    },
+  });
+
+  app.use(window.TDesign).mount('#app');
+</script>
+```
 
 ## API
 
