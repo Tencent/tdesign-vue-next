@@ -4,6 +4,8 @@ import { usePrefixClass } from '../useConfig';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 
 const period = 200;
+const rippleExtraWidth = 20;
+const rippleSkew = 'skewX(-8deg)';
 // 元素自身 background 等属性的过渡时长（与 less 变量 @anim-duration-base 对齐）
 // 用于在元素切换为 loading / disabled 时，让 ripple 背景过渡与元素自身同步收尾，避免视觉割裂
 const elementTransitionPeriod = 200;
@@ -69,7 +71,6 @@ export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) 
 
     const elBorder = parseInt(elStyle.borderWidth, 10);
     const border = elBorder > 0 ? elBorder : 0;
-    const width = dom.offsetWidth;
 
     if (rippleContainer.value.parentNode === null) {
       setStyle(rippleContainer.value, {
@@ -92,11 +93,12 @@ export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) 
     setStyle(ripple, {
       marginTop: '0',
       marginLeft: '0',
-      right: `${width}px`,
-      width: `${width + 20}px`,
+      right: '100%',
+      // 使用百分比尺寸与位移，让 ripple 在 loading icon 插入导致按钮变宽时仍覆盖完整按钮
+      width: `calc(100% + ${rippleExtraWidth}px)`,
       height: '100%',
       transition: `transform ${period}ms cubic-bezier(.38, 0, .24, 1), background ${period * 2}ms linear`,
-      transform: 'skewX(-8deg)',
+      transform: rippleSkew,
       pointerEvents: 'none',
       position: 'absolute',
       zIndex: 0,
@@ -126,7 +128,7 @@ export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) 
     rippleContainer.value.insertBefore(ripple, rippleContainer.value.firstChild);
 
     setTimeout(() => {
-      ripple.style.transform = `translateX(${width}px)`;
+      ripple.style.transform = `translateX(calc(100% - ${rippleExtraWidth}px)) ${rippleSkew}`;
     }, 0);
     // 标记 ripple 是否已经清理过，避免多次重复触发
     let cleared = false;
