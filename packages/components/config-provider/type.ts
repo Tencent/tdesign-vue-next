@@ -9,6 +9,7 @@ import { CalendarController } from '../calendar';
 import { ButtonProps } from '../button';
 import { FormErrorMessage } from '../form';
 import { ImageProps } from '../image';
+import { LoadingProps } from '../loading';
 import { MessageOptions } from '../message';
 import { TNode, SizeEnum } from '../common';
 
@@ -106,6 +107,10 @@ export interface GlobalConfigProvider {
    * 列表组件全局配置
    */
   list?: ListConfig;
+  /**
+   * 加载中组件全局配置
+   */
+  loading?: LoadingConfig;
   /**
    * 消息组件全局配置
    */
@@ -540,6 +545,15 @@ export interface DialogConfig {
    * 确认按钮主题色，即 Dialog 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }
    */
   confirmBtnTheme?: { default: string; info: string; warning: string; danger: string; success: string };
+  /**
+   * 全局配置的对话框位置，垂直水平居中显示 和 靠近顶部（top:20%）显示
+   * @default top
+   */
+  placement?: 'top' | 'center';
+  /**
+   * 对话框层级，默认为 2500
+   */
+  zIndex?: number;
 }
 
 export interface DrawerConfig {
@@ -692,6 +706,8 @@ export interface ListConfig {
    */
   loadingText?: string;
 }
+
+export interface LoadingConfig extends LoadingProps {}
 
 export interface MessageConfig extends MessageOptions {}
 
