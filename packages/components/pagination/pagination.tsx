@@ -19,7 +19,7 @@ import {
 } from '@tdesign/shared-hooks';
 
 import TInputNumber from '../input-number';
-import { Select } from '../select';
+import { Select, type TdSelectProps } from '../select';
 import TInputAdornment from '../input-adornment';
 import props from './props';
 import { usePaginationClasses, useMoreAction } from './hooks';
@@ -156,6 +156,10 @@ export default defineComponent({
         toPageCurrent = pageCount.value;
       }
 
+      if (toPageCurrent === innerCurrent.value) {
+        return;
+      }
+
       pageInfo = pageInfo || {
         current: toPageCurrent,
         previous: innerCurrent.value,
@@ -176,7 +180,7 @@ export default defineComponent({
       pageChangeMap[type]();
     };
 
-    const onSelectorChange = (val: string | number) => {
+    const onSelectorChange: TdSelectProps['onChange'] = (val) => {
       if (props.disabled) return;
 
       const pageSize = Number(val);

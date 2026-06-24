@@ -384,14 +384,24 @@ describe('Pagination', () => {
     });
 
     it('prev button disabled on first page', () => {
-      const wrapper = mount(<Pagination total={100} defaultCurrent={1} />);
+      const onCurrentChange = vi.fn();
+      const wrapper = mount(<Pagination total={100} defaultCurrent={1} onCurrentChange={onCurrentChange} />);
+
       expect(wrapper.find('.t-pagination__btn-prev').classes()).toContain('t-is-disabled');
+
+      wrapper.find('.t-pagination__btn-prev').trigger('click');
+      expect(onCurrentChange).not.toHaveBeenCalled();
       wrapper.unmount();
     });
 
     it('next button disabled on last page', () => {
-      const wrapper = mount(<Pagination total={100} defaultCurrent={10} />);
+      const onCurrentChange = vi.fn();
+      const wrapper = mount(<Pagination total={100} defaultCurrent={10} onCurrentChange={onCurrentChange} />);
+
       expect(wrapper.find('.t-pagination__btn-next').classes()).toContain('t-is-disabled');
+
+      wrapper.find('.t-pagination__btn-next').trigger('click');
+      expect(onCurrentChange).not.toHaveBeenCalled();
       wrapper.unmount();
     });
 
