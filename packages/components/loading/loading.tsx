@@ -2,7 +2,14 @@ import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties
 import GradientIcon from './icon/gradient';
 import { addClass, removeClass } from '@tdesign/shared-utils';
 import { getPropertyValFromObj } from '@tdesign/common-js/utils/general';
-import { useContent, useTNodeJSX, useTeleport, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
+import {
+  useContent,
+  useTNodeJSX,
+  useTeleport,
+  usePrefixClass,
+  useCommonClassName,
+  useConfig,
+} from '@tdesign/shared-hooks';
 
 import props from './props';
 
@@ -34,32 +41,41 @@ export default defineComponent({
     const renderContent = useContent();
     const { SIZE } = useCommonClassName();
 
+    // 加载中组件全局配置，优先级：组件属性 > 全局配置
+    const { globalConfig } = useConfig('loading');
+    const delay = computed(() => props.delay ?? globalConfig.value.delay);
+    const size = computed(() => props.size ?? globalConfig.value.size);
+    const zIndex = computed(() => props.zIndex ?? globalConfig.value.zIndex);
+    const showOverlay = computed(() => props.showOverlay ?? globalConfig.value.showOverlay);
+    const inheritColor = computed(() => props.inheritColor ?? globalConfig.value.inheritColor);
+    const preventScrollThrough = computed(() => props.preventScrollThrough ?? globalConfig.value.preventScrollThrough);
+
     const countDelay = () => {
       delayShowLoading.value = false;
       const timer = setTimeout(() => {
         delayShowLoading.value = true;
         clearTimeout(timer);
-      }, props.delay);
+      }, delay.value);
     };
     // teleport容器
     const teleportElement = useTeleport(() => props.attach);
     // 延时计时是否完成。用于控制延时计时结束前不能显示加载态
-    const delayCounted = computed(() => Boolean(!props.delay || (props.delay && delayShowLoading.value)));
+    const delayCounted = computed(() => Boolean(!delay.value || (delay.value && delayShowLoading.value)));
 
     // loading style
     const styles = computed(() => {
       const styles: CSSProperties = {};
-      if (props.zIndex !== undefined) {
-        styles.zIndex = props.zIndex;
+      if (zIndex.value !== undefined) {
+        styles.zIndex = zIndex.value;
       }
-      if (!['small', 'medium', 'large'].includes(props.size)) {
-        styles['font-size'] = props.size;
+      if (!['small', 'medium', 'large'].includes(size.value)) {
+        styles['font-size'] = size.value;
       }
       return styles;
     });
 
     const hasContent = computed(() => Boolean(props.default || slots.default || props.content || slots.content));
-    const lockFullscreen = computed(() => props.preventScrollThrough && props.fullscreen);
+    const lockFullscreen = computed(() => preventScrollThrough.value && props.fullscreen);
     const showText = computed(() => Boolean(props.text || slots.text));
     const showWrapLoading = computed(() => hasContent.value && props.loading && delayCounted.value);
     const showFullScreenLoading = computed(() => props.fullscreen && props.loading && delayCounted.value);
@@ -67,19 +83,19 @@ export default defineComponent({
     const classes = computed(() => {
       const baseClasses = [
         centerClass.value,
-        getPropertyValFromObj(SIZE.value, props.size),
-        { [inheritColorClass.value]: props.inheritColor },
+        getPropertyValFromObj(SIZE.value, size.value),
+        { [inheritColorClass.value]: inheritColor.value },
       ];
       const fullScreenClasses = [name.value, fullscreenClass.value, centerClass.value, overlayClass.value];
 
       return {
         baseClasses,
-        attachClasses: baseClasses.concat([name.value, fullClass.value, { [overlayClass.value]: props.showOverlay }]),
+        attachClasses: baseClasses.concat([name.value, fullClass.value, { [overlayClass.value]: showOverlay.value }]),
         withContentClasses: baseClasses.concat([
           name.value,
           fullClass.value,
           {
-            [overlayClass.value]: props.showOverlay,
+            [overlayClass.value]: showOverlay.value,
           },
         ]),
         fullScreenClasses,
@@ -99,7 +115,7 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      props.delay && countDelay();
+      delay.value && countDelay();
     });
 
     return () => {

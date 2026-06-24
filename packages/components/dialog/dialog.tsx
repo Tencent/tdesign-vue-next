@@ -65,6 +65,8 @@ export default defineComponent({
     const isModeLess = computed(() => props.mode === 'modeless');
     // 是否全屏对话框
     const isFullScreen = computed(() => props.mode === 'full-screen');
+    // 对话框位置，支持全局配置，优先级：组件属性 > 全局配置
+    const placement = computed(() => props.placement ?? globalConfig.value.placement);
     const computedVisible = computed(() => props.visible);
     const maskClass = computed(() => [
       `${COMPONENT_NAME.value}__mask`,
@@ -76,7 +78,7 @@ export default defineComponent({
         return [
           `${COMPONENT_NAME.value}__position`,
           !!props.top && `${COMPONENT_NAME.value}--top`,
-          `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`,
+          `${placement.value && !props.top ? `${COMPONENT_NAME.value}--${placement.value}` : ''}`,
         ];
       }
       return [];

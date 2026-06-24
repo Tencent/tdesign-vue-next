@@ -87,7 +87,6 @@ export default {
   /** 对话框位置，内置两种：垂直水平居中显示 和 靠近顶部（top:20%）显示。默认情况，为避免贴顶或贴底，顶部和底部距离最小为 `48px`，可通过调整 `top` 覆盖默认大小 */
   placement: {
     type: String as PropType<TdDialogProps['placement']>,
-    default: 'top' as TdDialogProps['placement'],
     validator(val: TdDialogProps['placement']): boolean {
       if (!val) return true;
       return ['top', 'center'].includes(val);

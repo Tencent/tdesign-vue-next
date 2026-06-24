@@ -52,6 +52,8 @@ export default defineComponent({
     const isDraggableMode = computed(() => ['modal', 'modeless'].includes(props.mode));
     // 是否全屏对话框
     const isFullScreen = computed(() => props.mode === 'full-screen');
+    // 对话框位置，支持全局配置，优先级：组件属性 > 全局配置
+    const placement = computed(() => props.placement ?? globalConfig.value.placement);
     const closeBtnAction = (e: MouseEvent) => props?.onCloseBtnClick?.({ e });
     // modal/modeless 模式开启 draggable 后，仅 header 作为拖拽手柄
     // body / footer 区域阻止 mousedown 冒泡，避免误触发拖拽
@@ -83,7 +85,7 @@ export default defineComponent({
       if (isFullScreen.value) {
         dialogClass.push(`${COMPONENT_NAME.value}__fullscreen`);
       } else {
-        dialogClass.push(`${COMPONENT_NAME.value}--default`, `${COMPONENT_NAME.value}--${props.placement}`);
+        dialogClass.push(`${COMPONENT_NAME.value}--default`, `${COMPONENT_NAME.value}--${placement.value}`);
       }
       return dialogClass;
     });
