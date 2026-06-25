@@ -118,6 +118,7 @@ image | Object | - | image global configs。Typescript: `ImageConfig` | N
 imageViewer | Object | - | imageViewer global configs。Typescript: `ImageViewerConfig` | N
 input | Object | - | Input global configs。Typescript: `InputConfig` | N
 list | Object | - | List global configs。Typescript: `ListConfig` | N
+loading | Object | - | Loading global configs。Typescript: `LoadingConfig` | N
 message | Object | - | Message Component global configs。Typescript: `MessageConfig` | N
 pagination | Object | - | Pagination global configs。Typescript: `PaginationConfig` | N
 popconfirm | Object | - | Popconfirm global configs。Typescript: `PopconfirmConfig` | N
@@ -232,6 +233,8 @@ closeOnEscKeydown | Boolean | true | trigger dialog close on `ESC` keydown | N
 closeOnOverlayClick | Boolean | true | \- | N
 confirm | Object | - | Typescript: `string \| ButtonProps` | N
 confirmBtnTheme | Object | - | Typescript: `{ default: string; info: string; warning: string; danger: string; success: string; }` | N
+placement | String | top | options: top/center | N
+zIndex | Number | - | \- | N
 
 ### DrawerConfig
 
@@ -300,6 +303,12 @@ name | type | default | description | required
 loadingMoreText | String | - | \- | N
 loadingText | String | - | \- | N
 
+### LoadingConfig
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+`LoadingProps` | \- | - | extends `LoadingProps` | N
+
 ### MessageConfig
 
 name | type | default | description | required
@@ -314,6 +323,11 @@ itemsPerPage | String | - | \- | N
 jumpTo | String | - | \- | N
 page | String | - | \- | N
 total | String | - | \- | N
+### PaginationConfig
+
+name | params | return | description
+-- | -- | -- | --
+jumper | `(jumperProps: JumperProps)` | `TNode<JumperProps>` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。<br/>`interface JumperProps { current: number; pageCount: number; onChange: (current: number) => void; }`<br/>
 
 ### PopconfirmConfig
 

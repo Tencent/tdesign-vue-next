@@ -24,7 +24,7 @@ export default {
   /** 延迟显示加载效果的时间，用于防止请求速度过快引起的加载闪烁，单位：毫秒 */
   delay: {
     type: Number,
-    default: 0,
+    default: undefined,
   },
   /** 是否显示为全屏加载 */
   fullscreen: Boolean,
@@ -34,7 +34,10 @@ export default {
     default: true as TdLoadingProps['indicator'],
   },
   /** 是否继承父元素颜色 */
-  inheritColor: Boolean,
+  inheritColor: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否处于加载状态 */
   loading: {
     type: Boolean,
@@ -43,17 +46,17 @@ export default {
   /** 防止滚动穿透，全屏加载模式有效 */
   preventScrollThrough: {
     type: Boolean,
-    default: true,
+    default: undefined,
   },
   /** 是否需要遮罩层，遮罩层对包裹元素才有效 */
   showOverlay: {
     type: Boolean,
-    default: true,
+    default: undefined,
   },
   /** 尺寸，示例：small/medium/large/12px/56px/0.3em */
   size: {
     type: String,
-    default: 'medium',
+    default: undefined,
   },
   /** 加载提示文案 */
   text: {

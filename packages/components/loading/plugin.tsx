@@ -1,7 +1,7 @@
 import { App, Plugin, createVNode, defineComponent, h, reactive, render, AppContext, ref } from 'vue';
 import { merge } from 'lodash-es';
 import LoadingComponent from './loading';
-import { usePrefixClass } from '@tdesign/shared-hooks';
+import { usePrefixClass, useConfig } from '@tdesign/shared-hooks';
 import { getAttach, removeClass, addClass } from '@tdesign/shared-utils';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
 
@@ -40,7 +40,10 @@ function createLoading(props: TdLoadingProps, context?: AppContext): LoadingInst
       parentRelativeClass.value = usePrefixClass('loading__parent--relative').value;
       lockClass.value = usePrefixClass('loading--lock').value;
 
-      return () => h(LoadingComponent, loadingOptions);
+      // 加载中组件全局配置，优先级：调用参数 > 全局配置
+      const { globalConfig } = useConfig('loading');
+
+      return () => h(LoadingComponent, { ...globalConfig.value, ...loadingOptions });
     },
   });
 
