@@ -450,6 +450,27 @@ describe('Drawer', () => {
       w2.unmount();
     });
 
+    it('should not close on ESC during IME composition', async () => {
+      const onClose = vi.fn();
+      const wrapper = mount(Drawer, {
+        attachTo: document.body,
+        props: { visible: true, body: '内容', closeOnEscKeydown: true, onClose },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      // Pressing ESC to cancel an IME candidate fires keydown with isComposing,
+      // it must not close the drawer.
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', isComposing: true }));
+      await nextTick();
+      expect(onClose).not.toHaveBeenCalled();
+      // A normal ESC still closes the drawer.
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+      await nextTick();
+      expect(onClose).toHaveBeenCalledTimes(1);
+      expect(onClose.mock.calls[0][0].trigger).toBe('esc');
+      wrapper.unmount();
+    });
+
     it(':destroyOnClose[boolean]', async () => {
       const w = mount(Drawer, {
         props: { visible: true, body: '内容', destroyOnClose: true },

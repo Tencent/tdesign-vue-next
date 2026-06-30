@@ -95,6 +95,8 @@ export default defineComponent({
     }));
 
     const handleEscKeydown = (e: KeyboardEvent) => {
+      // 中文输入法组合态下按 ESC 仅用于取消候选词，不应关闭抽屉
+      if (e.key === 'Escape' && e.isComposing) return;
       if (
         (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) &&
         e.key === 'Escape' &&
