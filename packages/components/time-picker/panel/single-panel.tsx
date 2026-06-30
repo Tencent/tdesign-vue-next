@@ -58,6 +58,10 @@ export default defineComponent({
       return dayjs();
     });
 
+    const emitChange = (formattedVal: string, e: MouseEvent) => {
+      if (formattedVal !== (props.internalValue ?? value.value)) props.onChange?.(formattedVal, e);
+    };
+
     // 面板打开时 触发滚动 初始化面板
     watch(
       () => dayjsValue.value,
@@ -210,7 +214,7 @@ export default defineComponent({
           formattedVal = dayjsValue.value.format(format.value);
         }
       }
-      if (formattedVal !== value.value) props.onChange?.(formattedVal, e);
+      emitChange(formattedVal, e);
 
       if (distance !== scrollTop) {
         const scrollCtrl = colsRef[cols.value.indexOf(col)];
@@ -229,15 +233,17 @@ export default defineComponent({
       time: number | string,
       idx: number,
       behavior: 'auto' | 'smooth' = 'auto',
-    ) => {
+    ): boolean => {
       const distance = getScrollDistance(col, time);
       const scrollCtrl = colsRef[idx];
-      if (!scrollCtrl || scrollCtrl.scrollTop === distance || !timeItemCanUsed(col, time)) return;
+      if (!scrollCtrl || scrollCtrl.scrollTop === distance || !timeItemCanUsed(col, time) || !scrollCtrl.scrollTo)
+        return false;
 
-      scrollCtrl.scrollTo?.({
+      scrollCtrl.scrollTo({
         top: distance,
         behavior,
       });
+      return true;
     };
 
     const handleTimeItemClick = (col: EPickerCols, el: string | number, idx: number, e: MouseEvent) => {
@@ -251,7 +257,12 @@ export default defineComponent({
           // eslint-disable-next-line no-param-reassign
           el = Number(el) + 12;
         }
-        scrollToTime(col, el, idx, 'smooth');
+        if (!timeItemCanUsed(col, el)) return;
+        const hasScrolled = scrollToTime(col, el, idx, 'smooth');
+        if (!hasScrolled) {
+          // @ts-ignore
+          emitChange(dayjsValue.value[col]?.(el).format(format.value), e);
+        }
       } else {
         const currentHour = dayjsValue.value.hour();
         if (el === AM && currentHour >= 12) {
