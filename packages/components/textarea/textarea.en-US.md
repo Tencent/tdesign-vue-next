@@ -1,5 +1,11 @@
 :: BASE_DOC ::
 
+### Clearable Textarea
+
+Textarea with a clear operation can quickly clear entered content.
+
+{{ clearable }}
+
 ## API
 
 ### Textarea Props
@@ -19,8 +25,10 @@ status | String | default | options: default/success/warning/error | N
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 value | String / Number | - | `v-model` and `v-model:value` is supported。Typescript：`TextareaValue` `type TextareaValue = string \| number`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/textarea/type.ts) | N
 defaultValue | String / Number | - | uncontrolled property。Typescript：`TextareaValue` `type TextareaValue = string \| number`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/textarea/type.ts) | N
+clearable | Boolean | false | Whether the content can be cleared | N
 onBlur | Function |  | Typescript：`(value: TextareaValue, context: { e: FocusEvent }) => void`<br/> | N
-onChange | Function |  | Typescript：`(value: TextareaValue, context?: { e?: InputEvent }) => void`<br/> | N
+onChange | Function |  | Typescript：`(value: TextareaValue, context?: { e?: InputEvent \| MouseEvent; trigger?: 'input' \| 'clear' }) => void`<br/> | N
+onClear | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onFocus | Function |  | Typescript：`(value: TextareaValue, context : { e: FocusEvent }) => void`<br/> | N
 onKeydown | Function |  | Typescript：`(value: TextareaValue, context: { e: KeyboardEvent }) => void`<br/> | N
 onKeypress | Function |  | Typescript：`(value: TextareaValue, context: { e: KeyboardEvent }) => void`<br/> | N
@@ -32,7 +40,8 @@ onValidate | Function |  | Typescript：`(context: { error?: 'exceed-maximum' \|
 name | params | description
 -- | -- | --
 blur | `(value: TextareaValue, context: { e: FocusEvent })` | \-
-change | `(value: TextareaValue, context?: { e?: InputEvent })` | \-
+change | `(value: TextareaValue, context?: { e?: InputEvent \| MouseEvent; trigger?: 'input' \| 'clear' })` | \-
+clear | `(context: { e: MouseEvent })` | \-
 focus | `(value: TextareaValue, context : { e: FocusEvent })` | \-
 keydown | `(value: TextareaValue, context: { e: KeyboardEvent })` | \-
 keypress | `(value: TextareaValue, context: { e: KeyboardEvent })` | \-

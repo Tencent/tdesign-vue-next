@@ -107,6 +107,37 @@ describe('Textarea', () => {
       value.value = '123456';
       expect(textarea.element.value).toBe('12345');
     });
+
+    it(':clearable', async () => {
+      const wrapper = mount(() => <Textarea value="text" clearable />);
+      expect(wrapper.find('.t-textarea__clear').exists()).toBeTruthy();
+      expect(wrapper.find('.t-textarea__clear--visible').exists()).toBeFalsy();
+
+      await wrapper.trigger('mouseenter');
+      expect(wrapper.find('.t-textarea__clear--visible').exists()).toBeTruthy();
+    });
+
+    it(':clearable should show when value is number zero', async () => {
+      const wrapper = mount(() => <Textarea value={0} clearable />);
+
+      await wrapper.trigger('mouseenter');
+
+      expect(wrapper.find('.t-textarea__clear--visible').exists()).toBeTruthy();
+    });
+
+    it(':clearable should not show when empty, disabled or readonly', async () => {
+      const emptyWrapper = mount(() => <Textarea value="" clearable />);
+      await emptyWrapper.trigger('mouseenter');
+      expect(emptyWrapper.find('.t-textarea__clear--visible').exists()).toBeFalsy();
+
+      const disabledWrapper = mount(() => <Textarea value="text" clearable disabled />);
+      await disabledWrapper.trigger('mouseenter');
+      expect(disabledWrapper.find('.t-textarea__clear').exists()).toBeFalsy();
+
+      const readonlyWrapper = mount(() => <Textarea value="text" clearable readonly />);
+      await readonlyWrapper.trigger('mouseenter');
+      expect(readonlyWrapper.find('.t-textarea__clear').exists()).toBeFalsy();
+    });
   });
 
   describe(':events', () => {
@@ -148,6 +179,21 @@ describe('Textarea', () => {
       const textarea = wrapper.find('textarea');
       await textarea.trigger('keyup');
       expect(fn).toBeCalled();
+    });
+
+    it(':onClear', async () => {
+      const onClear = vi.fn();
+      const onChange = vi.fn();
+      const wrapper = mount(() => <Textarea defaultValue="text" clearable onClear={onClear} onChange={onChange} />);
+      const textarea = wrapper.find('textarea');
+
+      await wrapper.trigger('mouseenter');
+      await wrapper.find('.t-textarea__clear').trigger('click');
+
+      expect(onClear).toHaveBeenCalledTimes(1);
+      expect(onClear.mock.calls[0][0].e.type).toBe('click');
+      expect(onChange).toHaveBeenCalledWith('', expect.objectContaining({ trigger: 'clear' }));
+      expect(textarea.element.value).toBe('');
     });
   });
 });

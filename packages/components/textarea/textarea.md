@@ -1,5 +1,11 @@
 :: BASE_DOC ::
 
+### 可清空的多行文本框
+
+带清空操作的多行文本框，可快捷清空输入过的内容。
+
+{{ clearable }}
+
 ## API
 
 ### Textarea Props
@@ -19,8 +25,10 @@ status | String | default | 文本框状态。可选项：default/success/warnin
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 value | String / Number | - | 文本框值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`TextareaValue` `type TextareaValue = string \| number`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/textarea/type.ts) | N
 defaultValue | String / Number | - | 文本框值。非受控属性。TS 类型：`TextareaValue` `type TextareaValue = string \| number`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/textarea/type.ts) | N
+clearable | Boolean | false | 是否可清空 | N
 onBlur | Function |  | TS 类型：`(value: TextareaValue, context: { e: FocusEvent }) => void`<br/>失去焦点时触发 | N
-onChange | Function |  | TS 类型：`(value: TextareaValue, context?: { e?: InputEvent }) => void`<br/>输入内容变化时触发 | N
+onChange | Function |  | TS 类型：`(value: TextareaValue, context?: { e?: InputEvent \| MouseEvent; trigger?: 'input' \| 'clear' }) => void`<br/>输入内容变化时触发 | N
+onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>清空按钮点击时触发 | N
 onFocus | Function |  | TS 类型：`(value: TextareaValue, context : { e: FocusEvent }) => void`<br/>获得焦点时触发 | N
 onKeydown | Function |  | TS 类型：`(value: TextareaValue, context: { e: KeyboardEvent }) => void`<br/>键盘按下时触发 | N
 onKeypress | Function |  | TS 类型：`(value: TextareaValue, context: { e: KeyboardEvent }) => void`<br/>按下字符键时触发（keydown -> keypress -> keyup） | N
@@ -32,7 +40,8 @@ onValidate | Function |  | TS 类型：`(context: { error?: 'exceed-maximum' \| 
 名称 | 参数 | 描述
 -- | -- | --
 blur | `(value: TextareaValue, context: { e: FocusEvent })` | 失去焦点时触发
-change | `(value: TextareaValue, context?: { e?: InputEvent })` | 输入内容变化时触发
+change | `(value: TextareaValue, context?: { e?: InputEvent \| MouseEvent; trigger?: 'input' \| 'clear' })` | 输入内容变化时触发
+clear | `(context: { e: MouseEvent })` | 清空按钮点击时触发
 focus | `(value: TextareaValue, context : { e: FocusEvent })` | 获得焦点时触发
 keydown | `(value: TextareaValue, context: { e: KeyboardEvent })` | 键盘按下时触发
 keypress | `(value: TextareaValue, context: { e: KeyboardEvent })` | 按下字符键时触发（keydown -> keypress -> keyup）

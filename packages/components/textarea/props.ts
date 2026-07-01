@@ -17,6 +17,8 @@ export default {
     type: [Boolean, Object] as PropType<TdTextareaProps['autosize']>,
     default: false as TdTextareaProps['autosize'],
   },
+  /** 是否可清空 */
+  clearable: Boolean,
   /** 是否禁用文本框 */
   disabled: {
     type: Boolean,
@@ -75,6 +77,8 @@ export default {
   onBlur: Function as PropType<TdTextareaProps['onBlur']>,
   /** 输入内容变化时触发 */
   onChange: Function as PropType<TdTextareaProps['onChange']>,
+  /** 清空按钮点击时触发 */
+  onClear: Function as PropType<TdTextareaProps['onClear']>,
   /** 获得焦点时触发 */
   onFocus: Function as PropType<TdTextareaProps['onFocus']>,
   /** 键盘按下时触发 */
