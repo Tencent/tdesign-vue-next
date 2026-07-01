@@ -102,7 +102,7 @@ export default defineComponent({
             alignItems: 'flex-end',
           }}
         >
-          {tooltipProps && <TTooltip content={tooltipProps.content} placement="top-right"></TTooltip>}
+          {tooltipProps && <TTooltip {...tooltipProps} placement="top-right"></TTooltip>}
           <p style={props.ellipsis ? ellipsisStyles.value : {}}>{content.value}</p>
           {renderEllipsisExpand()}
           {props.renderCopy?.()}
