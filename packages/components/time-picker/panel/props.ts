@@ -80,7 +80,6 @@ export const panelColProps = () => ({
   },
   internalValue: {
     type: String,
-    default: undefined,
   },
   range: {
     type: Array as PropType<Array<dayjs.Dayjs>>,
