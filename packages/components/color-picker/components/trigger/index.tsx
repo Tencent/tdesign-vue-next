@@ -33,6 +33,10 @@ export default defineComponent({
         };
       },
     },
+    isInput: {
+      type: Boolean,
+      default: true,
+    },
     onTriggerChange: {
       type: Function,
       default: () => {
@@ -77,6 +81,7 @@ export default defineComponent({
     });
 
     return () => {
+      const triggerClassName = `${baseClassName.value}__trigger--default`;
       const inputSlots = {
         label: () => {
           return (
@@ -97,15 +102,17 @@ export default defineComponent({
         },
       };
       return (
-        <TInput
-          borderless={props.borderless}
-          clearable={props.clearable}
-          size={props.size}
-          v-slots={inputSlots}
-          v-model={value.value}
-          disabled={props.disabled}
-          {...inputEvents.value}
-        />
+        <div class={[triggerClassName, { [`${triggerClassName}--no-input`]: !props.isInput }]}>
+          <TInput
+            borderless={props.borderless}
+            clearable={props.clearable}
+            size={props.size}
+            v-slots={inputSlots}
+            v-model={value.value}
+            disabled={props.disabled}
+            {...inputEvents.value}
+          />
+        </div>
       );
     };
   },

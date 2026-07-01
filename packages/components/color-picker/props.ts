@@ -42,6 +42,11 @@ export default {
   inputProps: {
     type: Object as PropType<TdColorPickerProps['inputProps']>,
   },
+  /** 是否显示颜色值输入框，值为 false 时仅显示颜色色块 */
+  isInput: {
+    type: Boolean,
+    default: true,
+  },
   /** 透传 Popup 组件全部属性，如 `placement` `overlayStyle` `overlayClassName` `trigger`等 */
   popupProps: {
     type: Object as PropType<TdColorPickerProps['popupProps']>,

@@ -14,6 +14,7 @@ enableAlpha | Boolean | false | \- | N
 enableMultipleGradient | Boolean | true | \- | N
 format | String | RGB | When `enableAlpha` is true, `HEX8/RGBA/HSLA/HSVA` are valid。options: HEX/HEX8/RGB/RGBA/HSL/HSLA/HSV/HSVA/CMYK/CSS | N
 inputProps | Object | - | Typescript：`InputProps`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/color-picker/type.ts) | N
+isInput | Boolean | true | Whether to display the color value input. When false, only the color swatch is displayed. | N
 popupProps | Object | - | Typescript：`PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/color-picker/type.ts) | N
 recentColors | Array | [] | used color recently。`v-model:recentColors` is supported。Typescript：`Array<string> \| boolean \| null` | N
 defaultRecentColors | Array | [] | used color recently。uncontrolled property。Typescript：`Array<string> \| boolean \| null` | N

@@ -49,6 +49,11 @@ export interface TdColorPickerProps {
    */
   inputProps?: InputProps;
   /**
+   * 是否显示颜色值输入框，值为 false 时仅显示颜色色块
+   * @default true
+   */
+  isInput?: boolean;
+  /**
    * 透传 Popup 组件全部属性，如 `placement` `overlayStyle` `overlayClassName` `trigger`等
    */
   popupProps?: PopupProps;

@@ -177,6 +177,20 @@ describe('ColorPicker', () => {
       expect(selectInput.classes()).toContain('t-is-disabled');
     });
 
+    it(':isInput[boolean]', async () => {
+      expect(colorPickerProps.isInput.default).toBe(true);
+
+      const wrapper = mount(<ColorPicker value="#0052d9" />);
+      expect(wrapper.find('.t-color-picker__trigger--default').exists()).toBe(true);
+      expect(wrapper.find('.t-color-picker__trigger--default--no-input').exists()).toBe(false);
+      expect(wrapper.find('.t-input__inner').exists()).toBe(true);
+
+      await wrapper.setProps({ isInput: false });
+      expect(wrapper.find('.t-color-picker__trigger--default--no-input').exists()).toBe(true);
+      expect(wrapper.find('.t-input').exists()).toBe(true);
+      expect(wrapper.find('.t-color-picker__trigger--default__color').exists()).toBe(true);
+    });
+
     it(':showPrimaryColorPreview[boolean]', async () => {
       const { panel: panel1 } = await mountColorPickerAndTriggerPanel({
         props: { value: '0052d9' },

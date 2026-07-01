@@ -63,6 +63,7 @@ export default defineComponent({
                 disabled={props.disabled}
                 clearable={props.clearable}
                 input-props={props.inputProps}
+                isInput={props.isInput}
                 onTriggerChange={setInnerValue}
                 onTriggerClear={handleClear}
                 size={props.size}
