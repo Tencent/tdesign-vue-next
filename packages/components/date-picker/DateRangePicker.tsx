@@ -67,7 +67,7 @@ export default defineComponent({
     watch(popupVisible, (visible) => {
       // 面板展开重置数据
       if (visible) {
-        if (isSingleSideDisabled()) activeIndex.value = props.disabled[0] ? 1 : 0;
+        if (isSingleSideDisabled()) activeIndex.value = isArray(props.disabled) && props.disabled[0] ? 1 : 0;
 
         isSelected.value = false;
         cacheValue.value = formatDate(value.value || [], {
