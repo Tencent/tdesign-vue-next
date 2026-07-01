@@ -8,7 +8,7 @@ import { TdSwitchProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** Switch 切换状态前的回调方法，常用于需要发起异步请求的场景，回调返回值支持布尔和 Promise 类型，返回`false`或 Promise reject不继续执行change，否则则继续执行。 */
+  /** Switch 切换状态前的回调方法，常用于需要发起异步请求的场景，回调返回值支持布尔和 Promise 类型，返回`false`或 Promise reject不继续执行change，否则则继续执行 */
   beforeChange: {
     type: Function as PropType<TdSwitchProps['beforeChange']>,
   },
@@ -35,6 +35,15 @@ export default {
     validator(val: TdSwitchProps['size']): boolean {
       if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);
+    },
+  },
+  /** 组件风格。round为圆形，rectangle为矩形，line为线形 */
+  theme: {
+    type: String as PropType<TdSwitchProps['theme']>,
+    default: 'round' as TdSwitchProps['theme'],
+    validator(val: TdSwitchProps['theme']): boolean {
+      if (!val) return true;
+      return ['round', 'rectangle', 'line'].includes(val);
     },
   },
   /** 开关值 */
