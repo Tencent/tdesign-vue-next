@@ -98,6 +98,23 @@ export default defineComponent({
       });
     };
 
+    /**
+     * 处理吸色事件
+     * @param pickedColor 吸色器返回的颜色值（hex格式）
+     */
+    const handleEyeDropperPick = (pickedColor: string) => {
+      console.log('[EyeDropper] Picked color:', pickedColor);
+      // 更新颜色状态
+      color.value.update(pickedColor);
+      console.log('[EyeDropper] Color after update:', color.value.rgba);
+      // 强制更新 innerValue（触发响应式）
+      innerValue.value = color.value.getFormattedColor(props.format, props.enableAlpha);
+      console.log('[EyeDropper] innerValue after update:', innerValue.value);
+      // 触发变更事件
+      emitColorChange('eyedropper');
+      console.log('[EyeDropper] emitColorChange called');
+    };
+
     watch(
       () => innerValue.value,
       (newColor) => {
@@ -289,7 +306,7 @@ export default defineComponent({
 
       return (
         <div class={[`${baseClassName.value}__panel`, props.disabled ? statusClassNames.disabled : false]}>
-          <PanelHeader {...props} mode={mode.value} onModeChange={handleModeChange} />
+          <PanelHeader {...props} mode={mode.value} onModeChange={handleModeChange} onEyeDropperPick={handleEyeDropperPick} />
           <div class={[`${baseClassName.value}__body`]}>
             {isGradient.value ? (
               <LinearGradient
