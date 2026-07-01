@@ -12,6 +12,25 @@
     "options": []
   },
   {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "round",
+    "options": [
+      {
+        "label": "round",
+        "value": "round"
+      },
+      {
+        "label": "rectangle",
+        "value": "rectangle"
+      },
+      {
+        "label": "line",
+        "value": "line"
+      }
+    ]
+  },
+  {
     "name": "size",
     "type": "enum",
     "defaultValue": "medium",

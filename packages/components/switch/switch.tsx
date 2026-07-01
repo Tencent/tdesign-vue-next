@@ -66,6 +66,8 @@ export default defineComponent({
         [STATUS.value.disabled]: disabled.value,
         [STATUS.value.loading]: props.loading,
         [STATUS.value.checked]: innerValue.value === activeValue.value || props.modelValue === activeValue.value,
+        [`${COMPONENT_NAME.value}--line`]: props.theme === 'line',
+        [`${COMPONENT_NAME.value}--rectangle`]: props.theme === 'rectangle',
       },
     ]);
     const nodeClasses = computed(() => {
