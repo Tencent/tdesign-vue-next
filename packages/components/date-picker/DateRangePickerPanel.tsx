@@ -218,7 +218,6 @@ export default defineComponent({
     function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = [...(cacheValue.value as string[])];
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (nextValue.length === 2 && isFirstValueSelected.value) {
         onRawChange?.(
           formatDate(nextValue, {
