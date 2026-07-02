@@ -33,7 +33,7 @@ export default {
     type: String as PropType<TdSwitchProps['shape']>,
     default: 'circle' as TdSwitchProps['shape'],
     validator(val: TdSwitchProps['shape']): boolean {
-      if (!val) return true;
+      if (val === undefined) return true;
       return ['circle', 'round', 'line'].includes(val);
     },
   },
