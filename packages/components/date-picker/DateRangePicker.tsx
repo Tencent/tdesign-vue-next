@@ -11,7 +11,6 @@ import {
   DatePickerYearChangeTrigger,
   DatePickerMonthChangeTrigger,
   PickerDateRange,
-  TdDateRangePickerProps,
 } from './type';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
@@ -48,6 +47,7 @@ export default defineComponent({
       isHoverCell,
       isFirstValueSelected,
       onRawChange,
+      closePopup,
     } = useRange(props);
 
     const isDisabled = useDisabled() as ComputedRef<boolean | Array<boolean>>;
@@ -298,10 +298,7 @@ export default defineComponent({
         activeIndex.value = nextIndex as 0 | 1;
         isFirstValueSelected.value = normalizedValue.some((v) => !!v);
       } else {
-        // 受控关闭面板时主动通知用户
-        const userPopupProps = props.popupProps as TdDateRangePickerProps['popupProps'];
-        userPopupProps?.onVisibleChange?.(false, { e, trigger: 'trigger-element-close' });
-        popupVisible.value = false;
+        closePopup({ e, trigger: 'trigger-element-close' });
       }
     }
 
@@ -452,7 +449,7 @@ export default defineComponent({
       const notValidIndex = getInvalidIndex(nextValue);
 
       if (isSingleSideDisabled()) {
-        popupVisible.value = false;
+        closePopup({ e, trigger: 'trigger-element-close' });
       } else if (!isFirstValueSelected.value) {
         // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
         let nextIndex = notValidIndex;
@@ -460,7 +457,7 @@ export default defineComponent({
         activeIndex.value = nextIndex as 0 | 1;
         isFirstValueSelected.value = nextValue.some((v) => !!v);
       } else if (nextValue.length === 2) {
-        popupVisible.value = false;
+        closePopup({ e, trigger: 'trigger-element-close' });
       }
     }
 
@@ -491,7 +488,7 @@ export default defineComponent({
         inputValue.value = formatDate(presetValue, {
           format: formatRef.value.format,
         });
-        popupVisible.value = false;
+        closePopup({ e: context.e, trigger: 'trigger-element-close' });
         props.onPresetClick?.(context);
       }
     }

@@ -1017,4 +1017,217 @@ describe('DatePicker', () => {
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onConfirm).toHaveBeenCalledTimes(1);
   });
+
+  describe('DateRangePicker: popupProps.onVisibleChange', () => {
+    const createPopupProps = (attachClass: string, onVisibleChange: ReturnType<typeof vi.fn>) => {
+      const popupProps: Record<string, unknown> = { attach: `.${attachClass}` };
+      popupProps.onVisibleChange = onVisibleChange;
+      return popupProps;
+    };
+
+    const openRangePickerPopup = async (wrapper: ReturnType<typeof mount>) => {
+      const trigger = wrapper.find('.t-input');
+      await trigger.trigger('mousedown');
+      await trigger.trigger('mouseup');
+      await trigger.trigger('click');
+      await nextTick();
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    };
+
+    const getDateCells = (wrapper: ReturnType<typeof mount>) => {
+      const cells = Array.from(wrapper.element.querySelectorAll('td.t-date-picker__cell')) as HTMLElement[];
+      return cells.length > 0
+        ? cells
+        : (Array.from(document.querySelectorAll('td.t-date-picker__cell')) as HTMLElement[]);
+    };
+
+    const findDateCell = (cells: HTMLElement[], day: string) =>
+      cells.find((cell) => cell.textContent?.trim() === day && !cell.className.includes('--additional'));
+
+    const selectRangeByCells = async (wrapper: ReturnType<typeof mount>, startDay = '10', endDay = '20') => {
+      findDateCell(getDateCells(wrapper), startDay)?.click();
+      await nextTick();
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      findDateCell(getDateCells(wrapper), endDay)?.click();
+      await nextTick();
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    };
+
+    const findConfirmBtn = (wrapper: ReturnType<typeof mount>) =>
+      (wrapper.element.querySelector('.t-date-picker__footer button') as HTMLElement | null) ||
+      (Array.from(document.querySelectorAll('button.t-button') as NodeListOf<HTMLElement>).find((b) =>
+        b.textContent?.trim().includes('确定'),
+      ) as HTMLElement | null);
+
+    const getVisibleChangeCloseCalls = (onVisibleChange: ReturnType<typeof vi.fn>) =>
+      onVisibleChange.mock.calls.filter(([visible]) => visible === false);
+
+    it('calls popupProps.onVisibleChange when second cell is selected without enableTimePicker', async () => {
+      const onVisibleChange = vi.fn();
+      const attachClass = 'drp-visible-change-cell-attach';
+
+      const wrapper = mount({
+        render() {
+          return (
+            <div class={attachClass}>
+              <DateRangePicker format="YYYY-MM-DD" popupProps={createPopupProps(attachClass, onVisibleChange)} />
+            </div>
+          );
+        },
+      });
+
+      await openRangePickerPopup(wrapper);
+      await selectRangeByCells(wrapper);
+
+      expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
+    });
+
+    it('calls popupProps["on-visible-change"] when second cell is selected without enableTimePicker', async () => {
+      const onVisibleChange = vi.fn();
+      const attachClass = 'drp-visible-change-kebab-attach';
+
+      const wrapper = mount({
+        render() {
+          return (
+            <div class={attachClass}>
+              <DateRangePicker
+                format="YYYY-MM-DD"
+                popupProps={{
+                  attach: `.${attachClass}`,
+                  'on-visible-change': onVisibleChange,
+                }}
+              />
+            </div>
+          );
+        },
+      });
+
+      await openRangePickerPopup(wrapper);
+      await selectRangeByCells(wrapper);
+
+      expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
+    });
+
+    it('calls popupProps.onVisibleChange when popup reports document close', async () => {
+      const onVisibleChange = vi.fn();
+      const attachClass = 'drp-visible-change-document-attach';
+
+      const wrapper = mount({
+        render() {
+          return (
+            <div class={attachClass}>
+              <DateRangePicker format="YYYY-MM-DD" popupProps={createPopupProps(attachClass, onVisibleChange)} />
+            </div>
+          );
+        },
+      });
+
+      await openRangePickerPopup(wrapper);
+
+      const popup = wrapper.findComponent({ name: 'TPopup' });
+      expect(popup.exists()).toBe(true);
+      popup.props('onVisibleChange')?.(false, {
+        trigger: 'document',
+        e: new MouseEvent('mousedown', { bubbles: true }),
+      });
+      await nextTick();
+
+      expect(
+        onVisibleChange.mock.calls.some(([visible, context]) => visible === false && context?.trigger === 'document'),
+      ).toBe(true);
+    });
+
+    it('calls popupProps.onVisibleChange when confirm button closes popup with enableTimePicker', async () => {
+      const onVisibleChange = vi.fn();
+      const attachClass = 'drp-visible-change-confirm-attach';
+      const value = ['2020-12-10 08:00:00', '2020-12-20 18:00:00'];
+
+      const wrapper = mount({
+        render() {
+          return (
+            <div class={attachClass}>
+              <DateRangePicker
+                value={value}
+                format="YYYY-MM-DD HH:mm:ss"
+                enableTimePicker={true}
+                popupProps={createPopupProps(attachClass, onVisibleChange)}
+              />
+            </div>
+          );
+        },
+      });
+
+      await openRangePickerPopup(wrapper);
+
+      const confirmBtn = findConfirmBtn(wrapper);
+      expect(confirmBtn).toBeTruthy();
+      confirmBtn?.click();
+      await nextTick();
+      confirmBtn?.click();
+      await nextTick();
+
+      expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
+    });
+
+    it('calls popupProps.onVisibleChange when clear button is clicked', async () => {
+      const onVisibleChange = vi.fn();
+      const attachClass = 'drp-visible-change-clear-attach';
+      const value = ['2020-12-10', '2020-12-20'];
+
+      const wrapper = mount({
+        render() {
+          return (
+            <div class={attachClass}>
+              <DateRangePicker
+                clearable
+                value={value}
+                format="YYYY-MM-DD"
+                popupProps={createPopupProps(attachClass, onVisibleChange)}
+              />
+            </div>
+          );
+        },
+      });
+
+      await openRangePickerPopup(wrapper);
+      await wrapper.find('.t-range-input').trigger('mouseenter');
+      await nextTick();
+
+      const clearIcon = wrapper.find('[class*="suffix-clear"]');
+      expect(clearIcon.exists()).toBe(true);
+      await clearIcon.trigger('click');
+      await nextTick();
+
+      expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
+    });
+
+    it('calls popupProps.onVisibleChange when preset is clicked', async () => {
+      const onVisibleChange = vi.fn();
+      const attachClass = 'drp-visible-change-preset-attach';
+      const presets = { lastWeek: ['2020-12-21', '2020-12-27'] as [string, string] };
+
+      const wrapper = mount({
+        render() {
+          return (
+            <div class={attachClass}>
+              <DateRangePicker
+                presets={presets}
+                format="YYYY-MM-DD"
+                popupProps={createPopupProps(attachClass, onVisibleChange)}
+              />
+            </div>
+          );
+        },
+      });
+
+      await openRangePickerPopup(wrapper);
+
+      const presetButton = wrapper.findAll('.t-button').find((btn) => btn.text() === 'lastWeek');
+      expect(presetButton).toBeTruthy();
+      if (presetButton) await presetButton.trigger('click');
+      await nextTick();
+
+      expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
+    });
+  });
 });
