@@ -1,6 +1,7 @@
 packages:
   - packages/**
   - internal/**
+  - '!packages/common'
 allowBuilds:
   canvas: true
   core-js: true
