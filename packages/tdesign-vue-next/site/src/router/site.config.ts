@@ -87,9 +87,9 @@ export const docs = [
         title: 'AI Chat 对话',
         titleEn: 'Chat',
         name: 'chat',
-        path: '/chat',
+        path: '/vue-next-chat',
         redirect: () => {
-          window.open('https://tdesign.tencent.com/chat', '_blank');
+          window.open('https://tdesign.tencent.com/vue-next-chat', '_blank');
         },
       },
     ],
