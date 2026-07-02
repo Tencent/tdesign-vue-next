@@ -102,6 +102,8 @@ export default defineComponent({
     );
 
     const content = computed<VNodeChild>(() => {
+      if (props.theme === 'line') return;
+
       if (isFunction(props.label)) {
         return props.label(h, { value: innerValue.value });
       }
