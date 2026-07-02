@@ -11,6 +11,7 @@ import {
   DatePickerYearChangeTrigger,
   DatePickerMonthChangeTrigger,
   PickerDateRange,
+  TdDateRangePickerProps,
 } from './type';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
@@ -297,6 +298,9 @@ export default defineComponent({
         activeIndex.value = nextIndex as 0 | 1;
         isFirstValueSelected.value = normalizedValue.some((v) => !!v);
       } else {
+        // 受控关闭面板时主动通知用户
+        const userPopupProps = props.popupProps as TdDateRangePickerProps['popupProps'];
+        userPopupProps?.onVisibleChange?.(false, { e, trigger: 'trigger-element-close' });
         popupVisible.value = false;
       }
     }
