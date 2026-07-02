@@ -61,6 +61,7 @@ export default defineComponent({
     // classes
     const classes = computed(() => [
       `${COMPONENT_NAME.value}`,
+      `${COMPONENT_NAME.value}--shape-${props.shape}`,
       SIZE.value[props.size],
       {
         [STATUS.value.disabled]: disabled.value,
@@ -126,14 +127,14 @@ export default defineComponent({
       let loadingContent: TNodeReturnValue;
       if (props.loading) {
         loadingContent = <TLoading size="small" />;
-      } else if (content.value) {
+      } else if (props.shape !== 'line' && content.value) {
         switchContent = content.value;
       }
 
       return (
         <div class={classes.value} onClick={toggle}>
           <span class={nodeClasses.value}>{loadingContent}</span>
-          <div class={contentClasses.value}>{switchContent}</div>
+          {props.shape !== 'line' && <div class={contentClasses.value}>{switchContent}</div>}
         </div>
       );
     };

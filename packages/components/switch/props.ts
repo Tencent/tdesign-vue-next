@@ -28,6 +28,15 @@ export default {
   },
   /** 是否处于加载中状态 */
   loading: Boolean,
+  /** 开关形状。`line` 形态不展示开关内容 `label` */
+  shape: {
+    type: String as PropType<TdSwitchProps['shape']>,
+    default: 'circle' as TdSwitchProps['shape'],
+    validator(val: TdSwitchProps['shape']): boolean {
+      if (!val) return true;
+      return ['circle', 'round', 'line'].includes(val);
+    },
+  },
   /** 开关尺寸 */
   size: {
     type: String as PropType<TdSwitchProps['size']>,

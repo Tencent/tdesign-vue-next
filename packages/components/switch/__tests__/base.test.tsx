@@ -137,6 +137,54 @@ describe('switch', () => {
         expect(eleCls.includes('t-size-s')).toBe(true);
       });
     });
+    // test props shape
+    describe(':props.shape', () => {
+      it('shape default value is circle', () => {
+        const wrapper = mount(Switch);
+        const ele = wrapper.find('.t-switch');
+        const eleCls = ele.classes();
+        expect(eleCls.includes('t-switch--shape-circle')).toBe(true);
+      });
+      it('shape={round} works find', () => {
+        const wrapper = mount({
+          render() {
+            return <Switch shape="round" />;
+          },
+        });
+        const ele = wrapper.find('.t-switch');
+        const eleCls = ele.classes();
+        expect(eleCls.includes('t-switch--shape-round')).toBe(true);
+      });
+      it('shape={line} works find', () => {
+        const label = vi.fn(() => 'open');
+        const wrapper = mount({
+          render() {
+            return <Switch shape="line" label={label} />;
+          },
+        });
+        const ele = wrapper.find('.t-switch');
+        const eleCls = ele.classes();
+        expect(eleCls.includes('t-switch--shape-line')).toBe(true);
+        expect(ele.find('.t-switch__content').exists()).toBe(false);
+        expect(label).not.toBeCalled();
+        expect(eleCls.includes('t-is-disabled')).toBe(false);
+        expect(eleCls.includes('t-is-loading')).toBe(false);
+      });
+      it('shape={line} works with size and status', () => {
+        const wrapper = mount({
+          render() {
+            return <Switch shape="line" size="small" defaultValue disabled loading />;
+          },
+        });
+        const ele = wrapper.find('.t-switch');
+        const eleCls = ele.classes();
+        expect(eleCls.includes('t-switch--shape-line')).toBe(true);
+        expect(eleCls.includes('t-size-s')).toBe(true);
+        expect(eleCls.includes('t-is-checked')).toBe(true);
+        expect(eleCls.includes('t-is-disabled')).toBe(true);
+        expect(eleCls.includes('t-is-loading')).toBe(true);
+      });
+    });
     // test props beforeChange
     describe(':props.beforeChange', () => {
       it('beforeChange resolve', async () => {
