@@ -5,6 +5,30 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.3 `2026-07-02`
+
+### 🚀 Features
+
+- `Button`: Improved the background color of outline and dashed buttons when hovered @RADWIMPS426 ([common#2569](https://github.com/Tencent/tdesign-common/pull/2569))
+- `ConfigProvider`: 
+  - A new `loading` property was added to globally configure the settings for the Loading component @uyarn ([#6749](https://github.com/Tencent/tdesign-vue-next/pull/6749))
+  - The `dialog` property now includes `zIndex` and `placement` configurations @uyarn ([#6749](https://github.com/Tencent/tdesign-vue-next/pull/6749))
+
+### 🐞 Bug Fixes
+
+- `DatePicker`: Fixed padding issues in multi-selection mode, as well as improved the display of examples showing disabled times @uyarn ([#6759](https://github.com/Tencent/tdesign-vue-next/pull/6759))
+- `DateRangePicker`: Resolved issues that occurred when `disabled` was set to an array of false values @uyarn ([#6759](https://github.com/Tencent/tdesign-vue-next/pull/6759))
+- `Dialog`: 
+  - Fixed the issue where pressing ESC would incorrectly close the dialog when using a Chinese input method inside it @uyarn ([#6740](https://github.com/Tencent/tdesign-vue-next/pull/6740))
+  - Fixed the problem where internal component references were not accessible before the popup appeared after the update to version `1.20.2` @uyarn ([#6754](https://github.com/Tencent/tdesign-vue-next/pull/6754))
+- `Drawer`: Fixed the issue where pressing ESC would incorrectly close the drawer when using an input method inside it @greymoth-jp ([#6756](https://github.com/Tencent/tdesign-vue-next/pull/6756))
+- `Pagination`: Prevented the `onCurrentChange` event from being triggered when the current page was selected @betavs ([#6748](https://github.com/Tencent/tdesign-vue-next/pull/6748))
+- `TagInput`: Fixed alignment issues when entering text alongside existing tags @DaZuiZui ([common#2564](https://github.com/Tencent/tdesign-common/pull/2564))
+- `Textarea`: Fixed the issue of multiple textarea tags being rendered incorrectly in certain scenarios @liweijie0812 ([#6772](https://github.com/Tencent/tdesign-vue-next/pull/6772))
+- `TimePicker`: Improved handling of situations where the initial time cannot be set to 0 @uyarn ([#6759](https://github.com/Tencent/tdesign-vue-next/pull/6759))
+- `Tree`: Fixed the issue where guidance lines were not displayed correctly when draggable nodes were moved above or below disabled nodes @RylanBot ([common#2532](https://github.com/Tencent/tdesign-common/pull/2532))
+- `Typography`: Fixed the problem where `tooltipProps` configurations did not take effect @liweijie0812 ([#6762](https://github.com/Tencent/tdesign-vue-next/pull/6762))
+
 ## 🌈 1.20.2 `2026-06-18`
 
 ### 🚀 Features
