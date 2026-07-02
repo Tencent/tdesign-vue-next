@@ -6,7 +6,6 @@ import changelog2Json from './plugins/changelog-to-json';
 
 import {
   joinPosix,
-  joinCommonRoot,
   joinComponentsRoot,
   joinTdesignVueNextRoot,
   getProComponentsChatRoot,
