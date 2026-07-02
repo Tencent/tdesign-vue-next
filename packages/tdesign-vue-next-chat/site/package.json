@@ -11,6 +11,7 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
+    "@tdesign/common-docs": "workspace:^",
     "@tdesign/components": "workspace:^",
     "@tdesign/internal-utils": "workspace:^",
     "@tdesign/pro-components-chat": "workspace:^",

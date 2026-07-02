@@ -801,6 +801,9 @@ importers:
       '@tdesign-vue-next/chat':
         specifier: workspace:^
         version: link:..
+      '@tdesign/common-docs':
+        specifier: workspace:^
+        version: link:../../common/docs
       '@tdesign/components':
         specifier: workspace:^
         version: link:../../components
@@ -914,6 +917,9 @@ importers:
 
   packages/tdesign-vue-next/site:
     dependencies:
+      '@tdesign/common-docs':
+        specifier: workspace:^
+        version: link:../../common/docs
       '@tdesign/site-components':
         specifier: catalog:tdesign
         version: 0.19.1
