@@ -67,7 +67,7 @@ export default defineComponent({
     watch(popupVisible, (visible) => {
       // 面板展开重置数据
       if (visible) {
-        if (isArray(props.disabled)) activeIndex.value = props.disabled[0] ? 1 : 0;
+        if (isSingleSideDisabled()) activeIndex.value = isArray(props.disabled) && props.disabled[0] ? 1 : 0;
 
         isSelected.value = false;
         cacheValue.value = formatDate(value.value || [], {
@@ -179,6 +179,34 @@ export default defineComponent({
       }
     });
 
+    function normalizeRangeValue(nextValue: string[]) {
+      return [nextValue[0] || '', nextValue[1] || ''];
+    }
+
+    function getInvalidIndex(nextValue: string[]) {
+      return nextValue.findIndex((v, index) => {
+        if (!v) return !(isArray(props.disabled) && props.disabled[index]);
+        return !isValidDate(v, formatRef.value.format);
+      });
+    }
+
+    function getDayjsValue(nextValue: string[]) {
+      return nextValue.map((v, i) =>
+        v ? parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]) : null,
+      );
+    }
+
+    function isSingleSideDisabled() {
+      return isArray(props.disabled) && props.disabled.filter(Boolean).length === 1;
+    }
+
+    function getAvailableActiveIndex() {
+      if (!isArray(props.disabled)) return activeIndex.value;
+      if (props.disabled[0] && !props.disabled[1]) return 1;
+      if (!props.disabled[0] && props.disabled[1]) return 0;
+      return activeIndex.value;
+    }
+
     // 日期 hover
     function onCellMouseEnter(date: Date) {
       isHoverCell.value = true;
@@ -197,46 +225,63 @@ export default defineComponent({
 
     // 日期点击
     function onCellClick(date: Date, { e }: { e: MouseEvent; partial: DateRangePickerPartial }) {
-      props.onPick?.(date, { e, partial: activeIndex.value ? 'end' : 'start' });
+      const nextActiveIndex = getAvailableActiveIndex();
+      activeIndex.value = nextActiveIndex as 0 | 1;
+
+      props.onPick?.(date, { e, partial: nextActiveIndex ? 'end' : 'start' });
 
       isHoverCell.value = false;
       isSelected.value = true;
 
       const nextValue = [...(inputValue.value as string[])];
-      nextValue[activeIndex.value] = formatDate(date, {
+      nextValue[nextActiveIndex] = formatDate(date, {
         format: formatRef.value.format,
       }) as string;
-      cacheValue.value = nextValue;
-      inputValue.value = nextValue;
+      const normalizedValue = normalizeRangeValue(nextValue);
+      cacheValue.value = normalizedValue;
+      inputValue.value = normalizedValue;
 
       // 有时间选择器走 confirm 逻辑
-      if (props.enableTimePicker) return;
+      if (props.enableTimePicker) {
+        const selectedValue = [...normalizedValue];
+        const selectedActiveIndex = nextActiveIndex;
+        setTimeout(() => {
+          popupVisible.value = true;
+          activeIndex.value = selectedActiveIndex as 0 | 1;
+          isSelected.value = true;
+          cacheValue.value = selectedValue;
+          inputValue.value = selectedValue;
+        });
+        return;
+      }
 
       // 确保两端都是有效值
-      const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
+      const notValidIndex = getInvalidIndex(normalizedValue);
 
       // 当两端都有有效值时更改 value
-      if (notValidIndex === -1 && nextValue.length === 2) {
+      if (notValidIndex === -1 && normalizedValue.length === 2) {
         // 二次修改时当其中一侧不符合上次区间规范时，清空另一侧数据
         if (
           !isFirstValueSelected.value &&
-          parseToDayjs(nextValue[0], formatRef.value.format).isAfter(parseToDayjs(nextValue[1], formatRef.value.format))
+          normalizedValue[0] &&
+          normalizedValue[1] &&
+          parseToDayjs(normalizedValue[0], formatRef.value.format).isAfter(
+            parseToDayjs(normalizedValue[1], formatRef.value.format),
+          )
         ) {
-          nextValue[activeIndex.value ? 0 : 1] = '';
-          cacheValue.value = nextValue;
-          inputValue.value = nextValue;
+          normalizedValue[activeIndex.value ? 0 : 1] = '';
+          cacheValue.value = normalizedValue;
+          inputValue.value = normalizedValue;
         } else {
           onRawChange?.(
-            formatDate(nextValue, {
+            formatDate(normalizedValue, {
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
               autoSwap: true,
               defaultTime: props.defaultTime,
             }) as DateValue[],
             {
-              dayjsValue: nextValue.map((v, i) =>
-                parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
-              ),
+              dayjsValue: getDayjsValue(normalizedValue),
               trigger: 'pick',
             },
           );
@@ -250,7 +295,7 @@ export default defineComponent({
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex as 0 | 1;
-        isFirstValueSelected.value = nextValue.some((v) => !!v);
+        isFirstValueSelected.value = normalizedValue.some((v) => !!v);
       } else {
         popupVisible.value = false;
       }
@@ -347,15 +392,17 @@ export default defineComponent({
       });
     }
     const confirmValueChange = (e?: MouseEvent) => {
-      const nextValue = [...(inputValue.value as string[])];
+      const nextValue = normalizeRangeValue([...(inputValue.value as string[])]);
 
-      const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
+      const notValidIndex = getInvalidIndex(nextValue);
 
       // 当两端都有有效值时更改 value
       if (notValidIndex === -1 && nextValue.length === 2) {
         // 二次修改时当其中一侧不符合上次区间规范时，清空另一侧数据
         if (
           !isFirstValueSelected.value &&
+          nextValue[0] &&
+          nextValue[1] &&
           parseToDayjs(nextValue[0], formatRef.value.format).isAfter(parseToDayjs(nextValue[1], formatRef.value.format))
         ) {
           nextValue[activeIndex.value ? 0 : 1] = '';
@@ -379,15 +426,13 @@ export default defineComponent({
             dayjs(formattedValue[1] as any).valueOf() === dayjs(value.value[1] as any).valueOf();
           //判断传入的值和当前值是否相同，不同再触发 onChange，避免不必要的事件触发
           props?.onConfirm?.({
-            date: nextValue.map((v) => dayjs(v).toDate()),
+            date: nextValue.map((v) => (v ? dayjs(v).toDate() : null)) as Date[],
             e: e || null,
             partial: activeIndex.value ? 'end' : 'start',
           });
           if (!isSame) {
             onRawChange?.(formattedValue, {
-              dayjsValue: nextValue.map((v, i) =>
-                parseToDayjs(v, formatRef.value.format, undefined, undefined, props.defaultTime?.[i]),
-              ),
+              dayjsValue: getDayjsValue(nextValue),
               trigger: 'confirm',
             });
           }
@@ -398,11 +443,11 @@ export default defineComponent({
     function onConfirmClick({ e }: { e: MouseEvent }) {
       confirmValueChange(e);
 
-      const nextValue = [...(inputValue.value as string[])];
+      const nextValue = normalizeRangeValue([...(inputValue.value as string[])]);
 
-      const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
+      const notValidIndex = getInvalidIndex(nextValue);
 
-      if (Array.isArray(props.disabled)) {
+      if (isSingleSideDisabled()) {
         popupVisible.value = false;
       } else if (!isFirstValueSelected.value) {
         // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
