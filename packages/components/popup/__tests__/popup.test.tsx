@@ -398,7 +398,7 @@ describe('Popup', () => {
       shadowRoot.appendChild(mountNode);
       document.body.appendChild(host);
 
-      const wrapper = await mount(
+      await mount(
         createShadowPopupWrapper({
           content,
           visible: true,
