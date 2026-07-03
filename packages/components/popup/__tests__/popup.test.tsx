@@ -1,10 +1,28 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { describe, it, beforeEach, afterEach, expect } from 'vitest';
+import { describe, it, beforeEach, afterEach, expect, vi } from 'vitest';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import Popup from '@tdesign/components/popup';
 
 const POPUPClASS = `.${usePrefixClass('popup').value}`;
+
+function createShadowDomMountPoint() {
+  const host = document.createElement('div');
+  const shadowRoot = host.attachShadow({ mode: 'open' });
+  const mountPoint = document.createElement('div');
+  const popupContainer = document.createElement('div');
+
+  shadowRoot.appendChild(mountPoint);
+  shadowRoot.appendChild(popupContainer);
+  document.body.appendChild(host);
+
+  return { shadowRoot, mountPoint, popupContainer };
+}
+
+function wait(ms = 0) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 describe('Popup', () => {
   beforeEach(() => {
     // create teleport target
@@ -321,6 +339,104 @@ describe('Popup', () => {
     it('onScroll', () => {});
     /** 当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=context-menu` 表示右击触发 */
     it('onVisibleChange', () => {});
+    it('keeps popup open when clicking overlay in shadow DOM', async () => {
+      const { shadowRoot, mountPoint, popupContainer } = createShadowDomMountPoint();
+      const onVisibleChange = vi.fn();
+
+      await mount(Popup, {
+        attachTo: mountPoint,
+        props: {
+          defaultVisible: true,
+          trigger: 'click',
+          delay: [0, 0],
+          content,
+          attach: () => popupContainer,
+          onVisibleChange,
+        },
+        slots: {
+          default: <button id="btn">btn</button>,
+        },
+      });
+
+      await wait();
+
+      const popupContent = shadowRoot.querySelector(`${POPUPClASS}__content`) as HTMLElement;
+      popupContent.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, composed: true }));
+
+      await wait();
+
+      const popup = shadowRoot.querySelector(POPUPClASS) as HTMLElement;
+      expect(popup.style.display).not.toBe('none');
+      expect(onVisibleChange).not.toHaveBeenCalledWith(false, expect.anything());
+    });
+
+    it('keeps parent popup open when moving to child popup in shadow DOM', async () => {
+      const { shadowRoot, mountPoint, popupContainer } = createShadowDomMountPoint();
+      const onParentVisibleChange = vi.fn();
+
+      await mount(Popup, {
+        attachTo: mountPoint,
+        props: {
+          defaultVisible: true,
+          trigger: 'hover',
+          delay: [0, 0],
+          attach: () => popupContainer,
+          onVisibleChange: onParentVisibleChange,
+        },
+        slots: {
+          default: <button id="parent-btn">parent</button>,
+          content: () => (
+            <div>
+              parent content
+              <Popup trigger="click" delay={[0, 0]} content="child content" attach={() => popupContainer}>
+                <button id="child-btn">child</button>
+              </Popup>
+            </div>
+          ),
+        },
+      });
+
+      await wait(20);
+
+      const childButton = shadowRoot.querySelector('#child-btn') as HTMLElement;
+      childButton.dispatchEvent(new MouseEvent('click', { bubbles: true, composed: true }));
+
+      await wait(20);
+
+      const popups = shadowRoot.querySelectorAll(POPUPClASS);
+      expect(popups.length).toBe(2);
+      const parentPopup = popups[0] as HTMLElement;
+      const childPopup = popups[1] as HTMLElement;
+
+      childPopup.getBoundingClientRect = vi.fn(
+        () =>
+          ({
+            x: 50,
+            y: 50,
+            width: 100,
+            height: 100,
+            top: 50,
+            left: 50,
+            right: 150,
+            bottom: 150,
+            toJSON: () => ({}),
+          } as DOMRect),
+      );
+
+      const mouseleaveEvent = new MouseEvent('mouseleave', { bubbles: true, composed: true, clientX: 80, clientY: 80 });
+      Object.defineProperties(mouseleaveEvent, {
+        x: { value: 80 },
+        y: { value: 80 },
+      });
+
+      parentPopup.dispatchEvent(mouseleaveEvent);
+
+      await wait();
+
+      expect(parentPopup.style.display).not.toBe('none');
+      expect(onParentVisibleChange).not.toHaveBeenCalledWith(false, expect.anything());
+    });
+
     it('keydown-esc hide popup', async () => {
       const wrapper = await mount(Popup, {
         props: {
@@ -341,7 +457,7 @@ describe('Popup', () => {
       });
       const btn = wrapper.find('#btn');
       await btn.trigger('keydown.esc');
-      await new Promise(setTimeout);
+      await wait();
       expect(wrapper.emitted()['update:visible'][0]).toEqual([false]);
     });
   });
