@@ -2,7 +2,11 @@ import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import MockDate from 'mockdate';
 import DatePicker, { DateRangePicker, DatePickerPanel, DateRangePickerPanel } from '@tdesign/components/date-picker';
+import type { TdDateRangePickerProps } from '../type';
+import type { PopupVisibleChangeContext } from '../../popup/type';
 import dayjs from 'dayjs';
+
+type DateRangePickerPopupProps = NonNullable<TdDateRangePickerProps['popupProps']>;
 
 // 固定时间，当使用 new Date() 时，返回固定时间，防止“当前时间”的副作用影响，导致 snapshot 变更，mockdate 插件见 https://github.com/boblauer/MockDate
 MockDate.set('2020-12-28');
@@ -1019,11 +1023,13 @@ describe('DatePicker', () => {
   });
 
   describe('DateRangePicker: popupProps.onVisibleChange', () => {
-    const createPopupProps = (attachClass: string, onVisibleChange: ReturnType<typeof vi.fn>) => {
-      const popupProps: Record<string, unknown> = { attach: `.${attachClass}` };
-      popupProps.onVisibleChange = onVisibleChange;
-      return popupProps;
-    };
+    const createPopupProps = (
+      attachClass: string,
+      onVisibleChange: (visible: boolean, context: PopupVisibleChangeContext) => void,
+    ): DateRangePickerPopupProps => ({
+      attach: `.${attachClass}`,
+      onVisibleChange,
+    });
 
     const openRangePickerPopup = async (wrapper: ReturnType<typeof mount>) => {
       const trigger = wrapper.find('.t-input');

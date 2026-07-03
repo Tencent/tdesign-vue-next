@@ -11,6 +11,7 @@ type PopupPropsWithKebabVisibleChange = NonNullable<TdDateRangePickerProps['popu
 // 测试只用到少量 props，避免 Partial<TdDateRangePickerProps> 触发类型递归过深
 type UseRangeTestProps = {
   value?: TdDateRangePickerProps['value'];
+  defaultValue?: TdDateRangePickerProps['defaultValue'];
   format?: string;
   mode?: TdDateRangePickerProps['mode'];
   clearable?: boolean;
@@ -19,7 +20,7 @@ type UseRangeTestProps = {
 };
 
 const defaultHookProps: UseRangeTestProps = {
-  value: [],
+  defaultValue: [],
   format: 'YYYY-MM-DD',
   mode: 'date',
 };
