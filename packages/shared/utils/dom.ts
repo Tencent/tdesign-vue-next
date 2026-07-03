@@ -131,6 +131,48 @@ export const getAttach = (node: any, triggerNode?: any): HTMLElement | Element =
   return document.body;
 };
 
+export function getComposedPath(event?: Event): EventTarget[] {
+  if (!event) return [];
+  if (typeof event.composedPath === 'function') {
+    return event.composedPath();
+  }
+
+  const path: EventTarget[] = [];
+  let current = event.target as Node;
+  while (current) {
+    path.push(current);
+    current =
+      (current as Node & { parentNode?: Node; host?: Node }).parentNode ||
+      (current as Node & { host?: Node }).host ||
+      null;
+  }
+  path.push(window);
+  return path;
+}
+
+export function includesNodeInPath(path: EventTarget[], node?: EventTarget | null): boolean {
+  if (!node) return false;
+  return path.includes(node);
+}
+
+export function containsWithShadow(root?: Node | null, target?: Node | null): boolean {
+  if (!root || !target) return false;
+  if (root === target) return true;
+  if (root.contains(target)) return true;
+
+  let current = target;
+  while (current) {
+    const parent =
+      (current as Node & { parentNode?: Node; host?: Node }).parentNode ||
+      (current as Node & { host?: Node }).host ||
+      null;
+    if (parent === root) return true;
+    current = parent;
+  }
+
+  return false;
+}
+
 /**
  * 获取滚动容器
  * 因为document不存在scroll等属性, 因此排除document

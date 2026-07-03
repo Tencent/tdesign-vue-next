@@ -16,6 +16,7 @@ import {
 } from 'vue';
 import { isFunction } from 'lodash-es';
 import { useRipple, useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/shared-hooks';
+import { containsWithShadow, getComposedPath, includesNodeInPath } from '@tdesign/shared-utils';
 
 import props from './submenu-props';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
@@ -214,13 +215,20 @@ export default defineComponent({
       }, 0);
     };
 
-    const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
+    const isTargetWithinPopup = (target?: Node) => {
+      return containsWithShadow(popupWrapperRef.value, target) || containsWithShadow(subPopupRef.value, target);
+    };
+
+    const isEventWithinSubmenu = (event: MouseEvent) => {
+      const path = getComposedPath(event);
+      return includesNodeInPath(path, submenuRef.value) || includesNodeInPath(path, popupWrapperRef.value);
+    };
 
     const handleMouseLeave = (e: MouseEvent) => {
       clearTimers();
 
       hideTimer.value = setTimeout(() => {
-        const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
+        const inPopup = isTargetWithinPopup(e.relatedTarget as Node);
 
         if (isCursorInPopup.value || inPopup) return;
         popupVisible.value = false;
@@ -228,20 +236,14 @@ export default defineComponent({
       }, 100);
     };
 
-    const handleMouseLeavePopup = (e: any) => {
-      const { toElement, relatedTarget } = e;
-      let target = toElement || relatedTarget;
+    const handleMouseLeavePopup = (e: MouseEvent) => {
+      const target = e.relatedTarget as Node;
 
-      if (target === subPopupRef.value) return;
-
-      const isSubmenu = (el: Element) => el === submenuRef.value;
-      while (target !== null && target !== document && !isSubmenu(target)) {
-        target = target.parentNode;
-      }
+      if (target === subPopupRef.value || isTargetWithinPopup(target)) return;
 
       isCursorInPopup.value = false;
 
-      if (!isSubmenu(target)) {
+      if (!isEventWithinSubmenu(e) && !containsWithShadow(submenuRef.value, target)) {
         clearTimers();
 
         // 使用延迟隐藏，避免在子项之间移动时闪烁

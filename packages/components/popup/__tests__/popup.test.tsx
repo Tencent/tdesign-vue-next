@@ -1,10 +1,39 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { describe, it, beforeEach, afterEach, expect } from 'vitest';
+import { defineComponent, nextTick, ref } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import Popup from '@tdesign/components/popup';
 
 const POPUPClASS = `.${usePrefixClass('popup').value}`;
+
+function createShadowPopupWrapper(popupProps = {}) {
+  return defineComponent({
+    components: { Popup },
+    setup() {
+      const attachRef = ref<HTMLElement>();
+      return {
+        attachRef,
+        popupProps,
+      };
+    },
+    template: `
+      <Popup v-bind="popupProps" :attach="() => attachRef">
+        <button id="btn">trigger</button>
+      </Popup>
+      <div ref="attachRef"></div>
+    `,
+  });
+}
+
+function waitPopupMounted() {
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      setTimeout(resolve, 0);
+    });
+  });
+}
+
 describe('Popup', () => {
   beforeEach(() => {
     // create teleport target
@@ -280,6 +309,46 @@ describe('Popup', () => {
       await btn.trigger('focus');
       expect(document.querySelector(POPUPClASS)).toBeDefined();
     });
+    it(':trigger hover works in shadowRoot', async () => {
+      const host = document.createElement('div');
+      const shadowRoot = host.attachShadow({ mode: 'open' });
+      const mountNode = document.createElement('div');
+      shadowRoot.appendChild(mountNode);
+      document.body.appendChild(host);
+
+      const wrapper = await mount(
+        createShadowPopupWrapper({
+          content,
+          trigger: 'hover',
+          delay: [0, 0],
+        }),
+        {
+          attachTo: mountNode,
+          global: {
+            stubs: { teleport: false },
+          },
+        },
+      );
+
+      const triggerNode = shadowRoot.querySelector('#btn') as HTMLElement;
+      triggerNode.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true, composed: true }));
+      await nextTick();
+      await new Promise(setTimeout);
+
+      const popup = shadowRoot.querySelector(POPUPClASS) as HTMLElement;
+      expect(popup).toBeTruthy();
+
+      popup.dispatchEvent(
+        new MouseEvent('mouseleave', {
+          bubbles: true,
+          composed: true,
+          relatedTarget: triggerNode,
+        }),
+      );
+      await new Promise(setTimeout);
+
+      expect(wrapper.emitted()['update:visible']).toBeFalsy();
+    });
     /** 是否显示浮层 */
     it(':visible', async () => {
       const wrapper = await mount(Popup, {
@@ -321,6 +390,43 @@ describe('Popup', () => {
     it('onScroll', () => {});
     /** 当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=context-menu` 表示右击触发 */
     it('onVisibleChange', () => {});
+    it('outside click works with shadowRoot popup', async () => {
+      const visibleChanges = [];
+      const host = document.createElement('div');
+      const shadowRoot = host.attachShadow({ mode: 'open' });
+      const mountNode = document.createElement('div');
+      shadowRoot.appendChild(mountNode);
+      document.body.appendChild(host);
+
+      const wrapper = await mount(
+        createShadowPopupWrapper({
+          content,
+          visible: true,
+          delay: [0, 0],
+          onVisibleChange: (...args) => visibleChanges.push(args),
+        }),
+        {
+          attachTo: mountNode,
+          global: {
+            stubs: { teleport: false },
+          },
+        },
+      );
+
+      await nextTick();
+      await waitPopupMounted();
+      const popup = shadowRoot.querySelector(POPUPClASS) as HTMLElement;
+      expect(popup).toBeTruthy();
+
+      popup.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, composed: true }));
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      expect(visibleChanges).toHaveLength(0);
+
+      document.body.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, composed: true }));
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      expect(visibleChanges[0][0]).toEqual(false);
+      expect(visibleChanges[0][1].trigger).toEqual('document');
+    });
     it('keydown-esc hide popup', async () => {
       const wrapper = await mount(Popup, {
         props: {
