@@ -5,6 +5,7 @@ import {
   ref,
   nextTick,
   onMounted,
+  onUpdated,
   toRefs,
   inject,
   StyleValue,
@@ -227,6 +228,13 @@ export default defineComponent({
         onKeypress: emitKeypress,
       });
       const { STATUS } = useCommonClassName();
+      const textareaClasses = computed(() => [
+        `${name.value}`,
+        {
+          [`${name.value}--clearable`]: props.clearable,
+        },
+      ]);
+
       const classes = computed(() => [
         `${name.value}__inner`,
         {
@@ -254,6 +262,61 @@ export default defineComponent({
           }`}</span>
         ));
 
+      // 清空按钮 - 使用CSS变量适配白天/夜间模式
+      const clearIcon =
+        props.clearable && innerValue.value ? (
+          <span
+            onClick={(e: any) => {
+              e.stopPropagation();
+              setInnerValue('');
+            }}
+            onMouseenter={(e: any) => {
+              (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--td-bg-color-container-hover)';
+              (e.currentTarget as HTMLElement).style.color = 'var(--td-brand-color)';
+            }}
+            onMouseleave={(e: any) => {
+              (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
+              (e.currentTarget as HTMLElement).style.color = 'var(--td-text-color-secondary)';
+              (e.currentTarget as HTMLElement).style.transform = '';
+            }}
+            onMousedown={(e: any) => {
+              (e.currentTarget as HTMLElement).style.transform = 'scale(0.85)';
+              (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--td-bg-color-container-active)';
+            }}
+            onMouseup={(e: any) => {
+              (e.currentTarget as HTMLElement).style.transform = '';
+              (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--td-bg-color-container-hover)';
+            }}
+            title="清空内容"
+            style={{
+              position: 'absolute',
+              top: '8px',
+              right: '8px',
+              zIndex: '10',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '32px',
+              height: '32px',
+              cursor: 'pointer',
+              borderRadius: '50%',
+              backgroundColor: 'transparent',
+              transition: 'all 0.2s ease',
+              color: 'var(--td-text-color-secondary)',
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 5L5 11M5 5L11 11"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        ) : null;
+
       return (
         <div class={textareaClasses.value} {...omit(attrs, ['style'])}>
           <textarea
@@ -266,6 +329,7 @@ export default defineComponent({
             {...inputEvents}
             {...inputAttrs.value}
           ></textarea>
+          {clearIcon}
           {textTips || limitText ? (
             <div
               class={[

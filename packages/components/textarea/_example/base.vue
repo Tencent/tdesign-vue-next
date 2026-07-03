@@ -15,6 +15,8 @@
       name="description"
       :autosize="{ minRows: 3, maxRows: 5 }"
     />
+
+    <t-textarea v-model="value4" placeholder="可清空的文本框" name="description" clearable />
   </t-space>
 </template>
 <script lang="ts" setup>
@@ -24,6 +26,7 @@ import type { TextareaProps } from 'tdesign-vue-next';
 const value = ref('');
 const value2 = ref('');
 const value3 = ref('');
+const value4 = ref('这是测试内容，可以点击右侧的清空按钮来清空');
 const onChange: TextareaProps['onChange'] = (value, e) => {
   console.log('onChange：', value, e);
 };

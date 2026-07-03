@@ -53,6 +53,11 @@ export interface TdTextareaProps {
    */
   status?: 'default' | 'success' | 'warning' | 'error';
   /**
+   * 是否可清空
+   * @default false
+   */
+  clearable?: boolean;
+  /**
    * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
    */
   tips?: string | TNode;

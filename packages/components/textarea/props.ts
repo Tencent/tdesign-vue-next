@@ -54,6 +54,11 @@ export default {
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
+  /** 是否可清空 */
+  clearable: {
+    type: Boolean,
+    default: false,
+  },
   /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
   tips: {
     type: [String, Function] as PropType<TdTextareaProps['tips']>,
