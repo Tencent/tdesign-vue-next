@@ -9,6 +9,7 @@ name | type | default | description | required
 allowInputOverMax | Boolean | false | \- | N
 autofocus | Boolean | false | \- | N
 autosize | Boolean / Object | false | Typescript：`boolean \| { minRows?: number; maxRows?: number }` | N
+clearable | Boolean | false | \- | N
 disabled | Boolean | undefined | \- | N
 maxcharacter | Number | - | \- | N
 maxlength | String / Number | - | Typescript：`string \| number` | N
@@ -21,6 +22,7 @@ value | String / Number | - | `v-model` and `v-model:value` is supported。Types
 defaultValue | String / Number | - | uncontrolled property。Typescript：`TextareaValue` `type TextareaValue = string \| number`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/textarea/type.ts) | N
 onBlur | Function |  | Typescript：`(value: TextareaValue, context: { e: FocusEvent }) => void`<br/> | N
 onChange | Function |  | Typescript：`(value: TextareaValue, context?: { e?: InputEvent }) => void`<br/> | N
+onClear | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onFocus | Function |  | Typescript：`(value: TextareaValue, context : { e: FocusEvent }) => void`<br/> | N
 onKeydown | Function |  | Typescript：`(value: TextareaValue, context: { e: KeyboardEvent }) => void`<br/> | N
 onKeypress | Function |  | Typescript：`(value: TextareaValue, context: { e: KeyboardEvent }) => void`<br/> | N
@@ -33,8 +35,7 @@ name | params | description
 -- | -- | --
 blur | `(value: TextareaValue, context: { e: FocusEvent })` | \-
 change | `(value: TextareaValue, context?: { e?: InputEvent })` | \-
+clear | `(context: { e: MouseEvent })` | \-
 focus | `(value: TextareaValue, context : { e: FocusEvent })` | \-
 keydown | `(value: TextareaValue, context: { e: KeyboardEvent })` | \-
-keypress | `(value: TextareaValue, context: { e: KeyboardEvent })` | \-
-keyup | `(value: TextareaValue, context: { e: KeyboardEvent })` | \-
-validate | `(context: { error?: 'exceed-maximum' \| 'below-minimum' })` | \-
+keypress | `(value: TextareaValue, context: { e: Key

@@ -11,6 +11,7 @@ import {
   CSSProperties,
 } from 'vue';
 import { isObject, merge, omit } from 'lodash-es';
+import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 import { FormItemInjectionKey } from '../form/constants';
 import setStyle from '@tdesign/common-js/utils/setStyle';
@@ -24,6 +25,7 @@ import {
   useTNodeJSX,
   usePrefixClass,
   useCommonClassName,
+  useGlobalIcon,
 } from '@tdesign/shared-hooks';
 
 import { useLengthLimit } from '../input/hooks/useLengthLimit';
@@ -42,7 +44,9 @@ export default defineComponent({
     const name = usePrefixClass('textarea');
     const TEXTAREA_TIPS_CLASS = computed(() => `${name.value}__tips`);
     const TEXTAREA_LIMIT = computed(() => `${name.value}__limit`);
-
+    const { CloseCircleFilledIcon } = useGlobalIcon({
+      CloseCircleFilledIcon: TdCloseCircleFilledIcon,
+    });
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const disabled = useDisabled();
@@ -52,7 +56,7 @@ export default defineComponent({
     const refTextareaElem = ref<HTMLTextAreaElement>();
     const focused = ref(false);
     const isComposing = ref(false);
-
+    const isHover = ref(false);
     const focus = () => refTextareaElem.value?.focus();
     const blur = () => refTextareaElem.value?.blur();
 
@@ -142,6 +146,22 @@ export default defineComponent({
       props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
     };
+    // 清空按钮点击时触发，同步内部受控值、原生 DOM 值并重新计算高度
+    const emitClear = (e: MouseEvent) => {
+      if (disabled.value || isReadonly.value) return;
+      // onChange 的 context.e 类型为 InputEvent，而清空按钮触发的是 MouseEvent，这里不透传事件对象，避免类型不匹配
+      setInnerValue('');
+      nextTick(() => setInputValue(''));
+      adjustTextareaHeight();
+      props.onClear?.({ e });
+    };
+
+    const onMouseenter = () => {
+      isHover.value = true;
+    };
+    const onMouseleave = () => {
+      isHover.value = false;
+    };
 
     // computed
     const textareaClasses = computed(() => {
@@ -150,9 +170,19 @@ export default defineComponent({
         {
           [`${prefix.value}-is-disabled`]: disabled.value,
           [`${prefix.value}-is-readonly`]: isReadonly.value,
+          [`${name.value}--clearable`]: props.clearable,
         },
       ];
     });
+    // 是否展示清空按钮：需可清空、有值、非禁用/只读，且鼠标处于悬浮状态（与 Input 组件交互保持一致）
+    const showClear = computed(
+      () =>
+        props.clearable &&
+        !disabled.value &&
+        !isReadonly.value &&
+        isHover.value &&
+        ![undefined, null, ''].includes(innerValue.value as never),
+    );
     const inputAttrs = computed<Record<string, any>>(() => {
       return getValidAttrs({
         autofocus: props.autofocus,
@@ -254,8 +284,19 @@ export default defineComponent({
           }`}</span>
         ));
 
+      const clearIcon = showClear.value ? (
+        <span class={`${name.value}__clear`} onClick={emitClear}>
+          <CloseCircleFilledIcon />
+        </span>
+      ) : null;
+
       return (
-        <div class={textareaClasses.value} {...omit(attrs, ['style'])}>
+        <div
+          class={textareaClasses.value}
+          onMouseenter={onMouseenter}
+          onMouseleave={onMouseleave}
+          {...omit(attrs, ['style'])}
+        >
           <textarea
             onInput={handleInput}
             onCompositionstart={onCompositionstart}
@@ -266,6 +307,7 @@ export default defineComponent({
             {...inputEvents}
             {...inputAttrs.value}
           ></textarea>
+          {clearIcon}
           {textTips || limitText ? (
             <div
               class={[

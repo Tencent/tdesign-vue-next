@@ -23,6 +23,11 @@ export interface TdTextareaProps {
    */
   autosize?: boolean | { minRows?: number; maxRows?: number };
   /**
+   * 是否可清空
+   * @default false
+   */
+  clearable?: boolean;
+  /**
    * 是否禁用文本框
    */
   disabled?: boolean;
@@ -76,6 +81,10 @@ export interface TdTextareaProps {
    * 输入内容变化时触发
    */
   onChange?: (value: TextareaValue, context?: { e?: InputEvent }) => void;
+  /**
+   * 清空按钮点击时触发
+   */
+  onClear?: (context: { e: MouseEvent }) => void;
   /**
    * 获得焦点时触发
    */

@@ -107,6 +107,54 @@ describe('Textarea', () => {
       value.value = '123456';
       expect(textarea.element.value).toBe('12345');
     });
+
+    it(':clearable', async () => {
+      const value = ref('text');
+      const wrapper = mount(() => <Textarea v-model={value.value} clearable />);
+      const root = wrapper.find('.t-textarea');
+      // clearable 为 true 时，根节点应带上 --clearable 修饰类（对应 tdesign-common 里的右侧内边距样式）
+      expect(root.classes()).toContain('t-textarea--clearable');
+      // 未悬浮时不展示清空按钮
+      expect(wrapper.find('.t-textarea__clear').exists()).toBeFalsy();
+      await root.trigger('mouseenter');
+      expect(wrapper.find('.t-textarea__clear').exists()).toBeTruthy();
+      await root.trigger('mouseleave');
+      expect(wrapper.find('.t-textarea__clear').exists()).toBeFalsy();
+    });
+
+    it(':clearable(default false)', async () => {
+      // 默认 clearable=false：即使有值且悬浮，也不应该出现清空按钮，防止未来默认值被误改
+      const value = ref('text');
+      const wrapper = mount(() => <Textarea v-model={value.value} />);
+      const root = wrapper.find('.t-textarea');
+      expect(root.classes()).not.toContain('t-textarea--clearable');
+      await root.trigger('mouseenter');
+      expect(wrapper.find('.t-textarea__clear').exists()).toBeFalsy();
+    });
+
+    it(':clearable(no value)', async () => {
+      const wrapper = mount(() => <Textarea clearable />);
+      const root = wrapper.find('.t-textarea');
+      await root.trigger('mouseenter');
+      // 没有内容时即使悬浮也不展示清空按钮
+      expect(wrapper.find('.t-textarea__clear').exists()).toBeFalsy();
+    });
+
+    it(':clearable(disabled)', async () => {
+      const wrapper = mount(() => <Textarea clearable disabled defaultValue="text" />);
+      const root = wrapper.find('.t-textarea');
+      await root.trigger('mouseenter');
+      // 禁用状态下即使悬浮也不展示清空按钮
+      expect(wrapper.find('.t-textarea__clear').exists()).toBeFalsy();
+    });
+
+    it(':clearable(readonly)', async () => {
+      const wrapper = mount(() => <Textarea clearable readonly defaultValue="text" />);
+      const root = wrapper.find('.t-textarea');
+      await root.trigger('mouseenter');
+      // 只读状态下即使悬浮也不展示清空按钮
+      expect(wrapper.find('.t-textarea__clear').exists()).toBeFalsy();
+    });
   });
 
   describe(':events', () => {
@@ -148,6 +196,21 @@ describe('Textarea', () => {
       const textarea = wrapper.find('textarea');
       await textarea.trigger('keyup');
       expect(fn).toBeCalled();
+    });
+
+    it(':onClear', async () => {
+      const fn = vi.fn();
+      const value = ref('text');
+      const wrapper = mount(() => <Textarea v-model={value.value} clearable onClear={fn} />);
+      const root = wrapper.find('.t-textarea');
+      await root.trigger('mouseenter');
+      const clearBtn = wrapper.find('.t-textarea__clear');
+      expect(clearBtn.exists()).toBeTruthy();
+      await clearBtn.trigger('click');
+      expect(fn).toBeCalled();
+      expect(value.value).toBe('');
+      const textarea = wrapper.find('textarea');
+      expect(textarea.element.value).toBe('');
     });
   });
 });
