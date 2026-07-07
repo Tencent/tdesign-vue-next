@@ -1317,7 +1317,7 @@ describe('DatePicker', () => {
       await wrapper.find('.t-input').trigger('mouseenter');
       await nextTick();
 
-      const clearIcon = wrapper.find('.t-input-clear');
+      const clearIcon = wrapper.find('[class*="suffix-clear"]');
       expect(clearIcon.exists()).toBe(true);
       await clearIcon.trigger('click');
       await nextTick();
