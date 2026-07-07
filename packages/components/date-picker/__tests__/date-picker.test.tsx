@@ -1290,7 +1290,17 @@ describe('DatePicker', () => {
       if (targetCell) targetCell.click();
       await nextTick();
 
-      expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
+      expect(getVisibleChangeCloseCalls(onVisibleChange)).toEqual(
+        expect.arrayContaining([
+          [
+            false,
+            expect.objectContaining({
+              trigger: 'trigger-element-close',
+              e: expect.any(MouseEvent),
+            }),
+          ],
+        ]),
+      );
     });
 
     it('calls popupProps.onVisibleChange when clear button is clicked', async () => {

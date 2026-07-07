@@ -170,7 +170,7 @@ export default defineComponent({
     }
 
     // 日期点击
-    function onCellClick(date: Date) {
+    function onCellClick(date: Date, { e }: { e: MouseEvent }) {
       isHoverCell.value = false;
       // date 模式自动切换年月
       if (props.mode === 'date') {
@@ -202,7 +202,7 @@ export default defineComponent({
             trigger: 'pick',
           },
         );
-        closePopup();
+        closePopup({ e });
       }
 
       props.onPick?.(date);

@@ -20,8 +20,7 @@ export function usePopupVisibleChange(popupProps?: PopupProps) {
   // 受控关闭面板，并主动触发 onVisibleChange
   // 程序化关闭统一标记 trigger: 'trigger-element-close'
   const closePopup = (context?: PopupVisibleChangeContext) => {
-    if (!popupVisible.value) return;
-    notifyPopupVisibleChange(false, context ?? { trigger: 'trigger-element-close' });
+    notifyPopupVisibleChange(false, { trigger: 'trigger-element-close', ...context });
     popupVisible.value = false;
   };
 
