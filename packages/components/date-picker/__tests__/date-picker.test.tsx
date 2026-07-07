@@ -1236,4 +1236,157 @@ describe('DatePicker', () => {
       expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
     });
   });
+
+  describe('DatePicker: popupProps.onVisibleChange', () => {
+    const createPopupProps = (
+      attachClass: string,
+      onVisibleChange: (visible: boolean, context: PopupVisibleChangeContext) => void,
+    ): DateRangePickerPopupProps => ({
+      attach: `.${attachClass}`,
+      onVisibleChange,
+    });
+
+    const openDatePickerPopup = async (wrapper: ReturnType<typeof mount>) => {
+      const trigger = wrapper.find('.t-input');
+      await trigger.trigger('mousedown');
+      await trigger.trigger('mouseup');
+      await trigger.trigger('click');
+      await nextTick();
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    };
+
+    const getDateCells = (wrapper: ReturnType<typeof mount>) => {
+      const cells = Array.from(wrapper.element.querySelectorAll('td.t-date-picker__cell')) as HTMLElement[];
+      return cells.length > 0
+        ? cells
+        : (Array.from(document.querySelectorAll('td.t-date-picker__cell')) as HTMLElement[]);
+    };
+
+    const findDateCell = (cells: HTMLElement[], day: string) =>
+      cells.find((cell) => cell.textContent?.trim() === day && !cell.className.includes('--additional'));
+
+    const getVisibleChangeCloseCalls = (onVisibleChange: ReturnType<typeof vi.fn>) =>
+      onVisibleChange.mock.calls.filter(([visible]) => visible === false);
+
+    it('calls popupProps.onVisibleChange when cell is selected', async () => {
+      const onVisibleChange = vi.fn();
+      const attachClass = 'dp-visible-change-cell-attach';
+
+      const wrapper = mount({
+        render() {
+          return (
+            <div class={attachClass}>
+              <DatePicker format="YYYY-MM-DD" popupProps={createPopupProps(attachClass, onVisibleChange)} />
+            </div>
+          );
+        },
+      });
+
+      await openDatePickerPopup(wrapper);
+
+      const cells = getDateCells(wrapper);
+      const targetCell = findDateCell(cells, '15');
+      expect(targetCell).toBeTruthy();
+      if (targetCell) targetCell.click();
+      await nextTick();
+
+      expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
+    });
+
+    it('calls popupProps.onVisibleChange when clear button is clicked', async () => {
+      const onVisibleChange = vi.fn();
+      const attachClass = 'dp-visible-change-clear-attach';
+      const value = '2020-12-10';
+
+      const wrapper = mount({
+        render() {
+          return (
+            <div class={attachClass}>
+              <DatePicker
+                clearable
+                value={value}
+                format="YYYY-MM-DD"
+                popupProps={createPopupProps(attachClass, onVisibleChange)}
+              />
+            </div>
+          );
+        },
+      });
+
+      await openDatePickerPopup(wrapper);
+      await wrapper.find('.t-input').trigger('mouseenter');
+      await nextTick();
+
+      const clearIcon = wrapper.find('.t-input-clear');
+      expect(clearIcon.exists()).toBe(true);
+      await clearIcon.trigger('click');
+      await nextTick();
+
+      expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
+    });
+
+    it('calls popupProps.onVisibleChange when preset is clicked', async () => {
+      const onVisibleChange = vi.fn();
+      const attachClass = 'dp-visible-change-preset-attach';
+      const presets = { today: '2020-12-28' };
+
+      const wrapper = mount({
+        render() {
+          return (
+            <div class={attachClass}>
+              <DatePicker
+                presets={presets}
+                format="YYYY-MM-DD"
+                popupProps={createPopupProps(attachClass, onVisibleChange)}
+              />
+            </div>
+          );
+        },
+      });
+
+      await openDatePickerPopup(wrapper);
+
+      const presetButton = wrapper.findAll('.t-button').find((btn) => btn.text() === 'today');
+      expect(presetButton).toBeTruthy();
+      if (presetButton) await presetButton.trigger('click');
+      await nextTick();
+
+      expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
+    });
+
+    it('calls popupProps.onVisibleChange when confirm button is clicked', async () => {
+      const onVisibleChange = vi.fn();
+      const attachClass = 'dp-visible-change-confirm-attach';
+      const value = '2020-12-10';
+
+      const wrapper = mount({
+        render() {
+          return (
+            <div class={attachClass}>
+              <DatePicker
+                value={value}
+                format="YYYY-MM-DD"
+                popupProps={createPopupProps(attachClass, onVisibleChange)}
+              />
+            </div>
+          );
+        },
+      });
+
+      await openDatePickerPopup(wrapper);
+
+      const findConfirmBtn = () =>
+        (wrapper.element.querySelector('.t-date-picker__footer button') as HTMLElement | null) ||
+        (Array.from(document.querySelectorAll('button.t-button') as NodeListOf<HTMLElement>).find((b) =>
+          b.textContent?.trim().includes('确定'),
+        ) as HTMLElement | null);
+
+      const confirmBtn = findConfirmBtn();
+      expect(confirmBtn).toBeTruthy();
+      confirmBtn?.click();
+      await nextTick();
+
+      expect(getVisibleChangeCloseCalls(onVisibleChange).length).toBeGreaterThan(0);
+    });
+  });
 });
