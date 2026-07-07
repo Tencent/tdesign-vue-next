@@ -151,7 +151,7 @@ export interface PopupVisibleChangeContext {
   trigger?: PopupTriggerSource;
 }
 
-export type PopupTriggerEvent = Event;
+export type PopupTriggerEvent = MouseEvent | FocusEvent | KeyboardEvent;
 
 export type PopupTriggerSource =
   | 'document'
