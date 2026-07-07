@@ -57,6 +57,7 @@ export default defineComponent({
       time,
       inputRef,
       onChange,
+      closePopup,
     } = useSingle(props);
 
     const isDisabled = useDisabled() as ComputedRef<boolean>;
@@ -201,7 +202,7 @@ export default defineComponent({
             trigger: 'pick',
           },
         );
-        popupVisible.value = false;
+        closePopup();
       }
 
       props.onPick?.(date);
@@ -263,7 +264,7 @@ export default defineComponent({
 
     function onTagClearClick({ e }: { e: MouseEvent }) {
       e.stopPropagation();
-      popupVisible.value = false;
+      closePopup({ e, trigger: 'trigger-element-close' });
       onChange?.(props.multiple ? [] : '', { dayjsValue: dayjs(), trigger: 'clear' });
       props.onClear?.({ e });
     }
@@ -365,7 +366,7 @@ export default defineComponent({
           format: formatRef.value.format,
         });
       }
-      popupVisible.value = false;
+      closePopup({ e, trigger: 'trigger-element-close' });
     }
 
     // 预设
@@ -385,7 +386,7 @@ export default defineComponent({
       inputValue.value = formatDate(presetVal, {
         format: formatRef.value.format,
       });
-      popupVisible.value = false;
+      closePopup({ e: context.e, trigger: 'trigger-element-close' });
       props.onPresetClick?.(context);
     }
 

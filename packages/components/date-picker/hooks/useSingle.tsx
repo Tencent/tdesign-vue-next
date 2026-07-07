@@ -13,6 +13,7 @@ import {
   parseToDayjs,
 } from '@tdesign/common-js/date-picker/format';
 import { useSingleValue } from './useSingleValue';
+import { usePopupVisibleChange } from './usePopupVisibleChange';
 
 export function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
@@ -32,7 +33,6 @@ export function useSingle(props: TdDatePickerProps) {
     }),
   );
 
-  const popupVisible = ref(false);
   const isHoverCell = ref(false);
   // 未真正选中前可能不断变更输入框的内容
   const inputValue = ref(
@@ -40,6 +40,9 @@ export function useSingle(props: TdDatePickerProps) {
       ? formatDate(value.value, { format: formatRef.value.format }) || []
       : formatDate(value.value, { format: formatRef.value.format }),
   );
+
+  // 使用公共 Hook 管理弹窗可见性
+  const { popupVisible, notifyPopupVisibleChange, closePopup } = usePopupVisibleChange(props.popupProps);
 
   // input 设置
   const inputProps = computed(() => {
@@ -88,13 +91,13 @@ export function useSingle(props: TdDatePickerProps) {
           onEnter: (val: string) => {
             if (!val) {
               onChange('', { dayjsValue: dayjs(), trigger: 'enter' });
-              popupVisible.value = false;
+              closePopup({ trigger: 'trigger-element-close' });
               return;
             }
 
             if (!isValidDate(val, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) return;
 
-            popupVisible.value = false;
+            closePopup({ trigger: 'trigger-element-close' });
             if (isValidDate(val, formatRef.value.format)) {
               onChange?.(
                 formatDate(val, {
@@ -127,10 +130,7 @@ export function useSingle(props: TdDatePickerProps) {
     onVisibleChange: (visible: boolean, context: any) => {
       if (disabled.value) return;
       // 这里劫持了进一步向 popup 传递的 onVisibleChange 事件，为了保证可以在 Datepicker 中使用 popupProps.onVisibleChange，故此处理
-      props.popupProps?.onVisibleChange?.(visible, context);
-      // TODO
-      // @ts-ignore types only declare onVisibleChange，but not declare on-visible-change
-      props.popupProps?.['on-visible-change']?.(visible, context);
+      notifyPopupVisibleChange(visible, context);
       // 输入框点击不关闭面板
       if (context.trigger === 'trigger-element-click') {
         popupVisible.value = true;
@@ -165,5 +165,6 @@ export function useSingle(props: TdDatePickerProps) {
     cacheValue,
     isHoverCell,
     onChange,
+    closePopup,
   };
 }

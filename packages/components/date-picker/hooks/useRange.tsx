@@ -5,9 +5,10 @@ import { omit } from 'lodash-es';
 import { useConfig, useTNodeJSX, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { TdDateRangePickerProps, DateValue, DateRangePickerPartial } from '../type';
-import type { PopupVisibleChangeContext } from '../../popup/type';
 import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { useRangeValue } from './useRangeValue';
+import { usePopupVisibleChange } from './usePopupVisibleChange';
+import type { PopupVisibleChangeContext } from '../../popup/type';
 
 export const PARTIAL_MAP: Record<'first' | 'second', DateRangePickerPartial> = { first: 'start', second: 'end' };
 
@@ -31,25 +32,24 @@ export function useRange(props: TdDateRangePickerProps) {
     }),
   );
 
-  const popupVisible = ref(false);
   const isHoverCell = ref(false);
   const activeIndex = ref<0 | 1>(0); // 确定当前选中的输入框序号
   const inputValue = ref(formatDate(props.value, { format: formatRef.value.format })); // 未真正选中前可能不断变更输入框的内容
   const isReadOnly = useReadonly();
 
-  // 通知 popupProps 中的 visible 变化回调
-  const notifyPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
+  // 使用公共 Hook 管理弹窗可见性
+  const { popupVisible, notifyPopupVisibleChange, closePopup } = usePopupVisibleChange(props.popupProps);
+
+  // 包装 closePopup，增加只读判断
+  const closePopupWithCheck = (context?: PopupVisibleChangeContext) => {
     if (isReadOnly.value) return;
-    props.popupProps?.onVisibleChange?.(visible, context);
-    // @ts-ignore types only declare onVisibleChange，but not declare on-visible-change
-    props.popupProps?.['on-visible-change']?.(visible, context);
+    closePopup(context);
   };
 
-  // 受控关闭面板，并主动触发 onVisibleChange
-  const closePopup = (context?: PopupVisibleChangeContext) => {
-    if (!popupVisible.value || isReadOnly.value) return;
-    notifyPopupVisibleChange(false, context ?? { trigger: 'trigger-element-close' });
-    popupVisible.value = false;
+  // 包装 notifyPopupVisibleChange，增加只读判断
+  const notifyPopupVisibleChangeWithCheck = (visible: boolean, context: PopupVisibleChangeContext) => {
+    if (isReadOnly.value) return;
+    notifyPopupVisibleChange(visible, context);
   };
 
   // input 设置
@@ -79,7 +79,7 @@ export function useRange(props: TdDateRangePickerProps) {
       if (context instanceof MouseEvent) context.stopPropagation();
       else context.e.stopPropagation();
 
-      closePopup({
+      closePopupWithCheck({
         e: context instanceof MouseEvent ? context : context.e,
         trigger: 'trigger-element-close',
       });
@@ -121,7 +121,7 @@ export function useRange(props: TdDateRangePickerProps) {
     onEnter: (newVal: string[]) => {
       if (!isValidDate(newVal, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) return;
 
-      closePopup({ trigger: 'trigger-element-close' });
+      closePopupWithCheck({ trigger: 'trigger-element-close' });
       if (isValidDate(newVal, formatRef.value.format)) {
         onRawChange?.(
           formatDate(newVal, {
@@ -154,7 +154,7 @@ export function useRange(props: TdDateRangePickerProps) {
       if (isReadOnly.value) return;
 
       // 这里劫持了进一步向 popup 传递的 onVisibleChange 事件，为了保证可以在 Datepicker 中使用 popupProps.onVisibleChange，故此处理
-      notifyPopupVisibleChange(visible, context);
+      notifyPopupVisibleChangeWithCheck(visible, context);
 
       // 输入框点击不关闭面板
       if (context.trigger === 'trigger-element-click') {
@@ -219,6 +219,6 @@ export function useRange(props: TdDateRangePickerProps) {
     isFirstValueSelected,
     cacheValue,
     onRawChange,
-    closePopup,
+    closePopup: closePopupWithCheck,
   };
 }
