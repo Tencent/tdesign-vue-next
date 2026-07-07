@@ -6,3 +6,8 @@
     <t-descriptions-item label="Address">Shenzhen Penguin Island D1 4A Mail Center</t-descriptions-item>
   </t-descriptions>
 </template>
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const checked = ref(true);
+</script>
