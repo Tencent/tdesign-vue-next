@@ -363,7 +363,9 @@ export default defineComponent({
             popper.state.elements.reference = triggerEl.value;
             popper.update();
           } else {
-            setVisible(false, { trigger: getTriggerType({ type: 'mouseenter' } as MouseEvent) });
+            // getTriggerType maps real event types to popup trigger sources. Hidden trigger cleanup has no
+            // user event, so avoid faking mouseenter and report it as a trigger-element close instead.
+            setVisible(false, { trigger: getTriggerType() });
           }
         }
         if (props.showArrow) {

@@ -1367,7 +1367,7 @@ describe('DatePicker', () => {
     it('calls popupProps.onVisibleChange when confirm button is clicked', async () => {
       const onVisibleChange = vi.fn();
       const attachClass = 'dp-visible-change-confirm-attach';
-      const value = '2020-12-10';
+      const value = '2020-12-10 08:00:00';
 
       const wrapper = mount({
         render() {
@@ -1375,7 +1375,8 @@ describe('DatePicker', () => {
             <div class={attachClass}>
               <DatePicker
                 value={value}
-                format="YYYY-MM-DD"
+                format="YYYY-MM-DD HH:mm:ss"
+                enableTimePicker={true}
                 popupProps={createPopupProps(attachClass, onVisibleChange)}
               />
             </div>

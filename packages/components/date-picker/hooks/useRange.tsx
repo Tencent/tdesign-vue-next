@@ -152,6 +152,9 @@ export function useRange(props: TdDateRangePickerProps) {
     overlayClassName: [props.popupProps?.overlayClassName, `${COMPONENT_NAME.value}__panel-container`],
     onVisibleChange: (visible: boolean, context: any) => {
       if (isReadOnly.value) return;
+      if (!visible && context.trigger === 'trigger-element-close' && !context.e) {
+        return;
+      }
 
       // 这里劫持了进一步向 popup 传递的 onVisibleChange 事件，为了保证可以在 Datepicker 中使用 popupProps.onVisibleChange，故此处理
       notifyPopupVisibleChangeWithCheck(visible, context);
