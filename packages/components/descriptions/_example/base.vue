@@ -1,5 +1,5 @@
 <template>
-  <t-descriptions title="Shipping address">
+  <t-descriptions title="Shipping address" :colon="checked">
     <t-descriptions-item label="Name">TDesign</t-descriptions-item>
     <t-descriptions-item label="Telephone Number">139****0609</t-descriptions-item>
     <t-descriptions-item label="Area">China Tencent Headquarters</t-descriptions-item>
