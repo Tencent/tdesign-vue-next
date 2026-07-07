@@ -84,18 +84,21 @@ describe('useSingle closePopup', () => {
     expect(onVisibleChange).not.toHaveBeenCalled();
   });
 
-  it('notifies onVisibleChange when inputProps onEnter closes popup', async () => {
+  it('notifies onVisibleChange with event when closePopup is called with context', () => {
     const onVisibleChange = vi.fn();
-    const singleHook = createSingleHook({
-      popupProps: { onVisibleChange },
-      value: '2020-12-10',
-      format: 'YYYY-MM-DD',
-    });
+    const singleHook = createSingleHook({ popupProps: { onVisibleChange } });
 
     singleHook.popupVisible.value = true;
-    await singleHook.inputProps.value.onEnter('2020-12-15');
+    const mockEvent = new MouseEvent('click');
+    singleHook.closePopup({ e: mockEvent, trigger: 'trigger-element-close' });
 
-    expect(onVisibleChange).toHaveBeenCalledWith(false, expect.objectContaining({ trigger: 'trigger-element-close' }));
+    expect(onVisibleChange).toHaveBeenCalledWith(
+      false,
+      expect.objectContaining({
+        trigger: 'trigger-element-close',
+        e: mockEvent,
+      }),
+    );
     expect(singleHook.popupVisible.value).toBe(false);
   });
 });
