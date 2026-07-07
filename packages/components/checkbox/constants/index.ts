@@ -9,6 +9,8 @@ export interface CheckboxGroupInjectData {
   readonly: boolean;
   indeterminate: boolean;
   checkedValues: TdCheckboxGroupProps['value'];
+  /** 按钮风格。为空表示不启用按钮风格，子 Checkbox 使用默认方框样式 */
+  variant: TdCheckboxGroupProps['variant'];
   handleCheckboxChange: (data: { checked: boolean; e: Event; option: TdCheckboxProps }) => void;
   onCheckedChange: (p: { checked: boolean; checkAll: boolean; e: Event; option: TdCheckboxProps }) => void;
 }

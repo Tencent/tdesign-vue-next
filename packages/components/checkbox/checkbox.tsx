@@ -105,14 +105,18 @@ export default defineComponent({
       { immediate: true },
     );
 
-    /** update labelClasses, do not use computed to get labelClasses */
+    /** 按钮风格：跟随所属 CheckboxGroup 的 variant 决定前缀类，对齐 tdesign-common 的 t-checkbox-button 契约 */
     const COMPONENT_NAME = usePrefixClass('checkbox');
+    const checkboxBtnName = usePrefixClass('checkbox-button');
+    const prefixCls = computed(() => (checkboxGroupData?.value.variant ? checkboxBtnName.value : COMPONENT_NAME.value));
+
+    /** update labelClasses, do not use computed to get labelClasses */
     const labelClasses = ref({});
     watch(
-      [tChecked, isDisabled, tIndeterminate],
+      [tChecked, isDisabled, tIndeterminate, prefixCls],
       () => {
         labelClasses.value = [
-          `${COMPONENT_NAME.value}`,
+          `${prefixCls.value}`,
           {
             [STATUS.value.checked]: tChecked.value,
             [STATUS.value.disabled]: isDisabled.value,
@@ -160,7 +164,7 @@ export default defineComponent({
                 <input
                   type="checkbox"
                   tabindex="-1"
-                  class={`${COMPONENT_NAME.value}__former`}
+                  class={`${prefixCls.value}__former`}
                   disabled={isDisabled.value}
                   readonly={isReadonly.value}
                   indeterminate={tIndeterminate.value}
@@ -172,11 +176,11 @@ export default defineComponent({
                   key="input"
                 ></input>,
                 <span
-                  class={`${COMPONENT_NAME.value}__input`}
+                  class={`${prefixCls.value}__input`}
                   key="input-span"
                   onClick={props.stopLabelTrigger && handleChange} // stopLabelTrigger 情况下，仍需保证真正的 input 触发 change
                 />,
-                <span class={`${COMPONENT_NAME.value}__label`} key="label">
+                <span class={`${prefixCls.value}__label`} key="label">
                   {renderContent('default', 'label')}
                 </span>,
               ]}

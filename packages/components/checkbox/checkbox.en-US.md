@@ -32,13 +32,16 @@ change | `(checked: boolean, context: { e: Event })` | \-
 name | type | default | description | required
 -- | -- | -- | -- | --
 disabled | Boolean | undefined | \- | N
+direction | String | horizontal | Options of CheckboxGroup will be arranged vertically if `direction=vertical`. Only takes effect when `variant` is set. Options: horizontal/vertical | N
 lazyLoad | Boolean | false | load checkbox content when it entering the visible area | N
 max | Number | undefined | \- | N
 name | String | - | \- | N
 options | Array | - | Typescript：`Array<CheckboxOption>` `type CheckboxOption = string \| number \| CheckboxOptionObj` `interface CheckboxOptionObj extends TdCheckboxProps { text?: string; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/checkbox/type.ts) | N
 readonly | Boolean | undefined | \- | N
+size | String | medium | Component size. Only takes effect when `variant` is set. Options: small/medium/large | N
 value | Array | [] | `v-model` and `v-model:value` is supported。Typescript：`T` `type CheckboxGroupValue = Array<string \| number \| boolean>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/checkbox/type.ts) | N
 defaultValue | Array | [] | uncontrolled property。Typescript：`T` `type CheckboxGroupValue = Array<string \| number \| boolean>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/checkbox/type.ts) | N
+variant | String | undefined | Button style of CheckboxGroup. Empty means the button style is disabled and the default checkbox style is used. Options: outline/primary-filled/default-filled | N
 onChange | Function |  | Typescript：`(value: T, context: CheckboxGroupChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/checkbox/type.ts)。<br/>`interface CheckboxGroupChangeContext { e: Event; current: string \| number \| boolean; option: CheckboxOption \| TdCheckboxProps; type: 'check' \| 'uncheck' }`<br/> | N
 
 ### CheckboxGroup Events

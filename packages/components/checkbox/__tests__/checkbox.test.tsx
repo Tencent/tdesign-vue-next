@@ -204,4 +204,109 @@ describe('CheckboxGroup', () => {
       expect(checked.value).toEqual(['1']);
     });
   });
+
+  describe(':variant (button style)', () => {
+    it('renders default checkbox class when variant is not set (no regression)', () => {
+      const wrapper = mount(() => (
+        <CheckboxGroup>
+          <Checkbox value="1">选项一</Checkbox>
+        </CheckboxGroup>
+      ));
+      expect(wrapper.find('.t-checkbox').exists()).toBeTruthy();
+      expect(wrapper.find('.t-checkbox-button').exists()).toBeFalsy();
+    });
+
+    it('switches children to t-checkbox-button when variant is set', () => {
+      const wrapper = mount(() => (
+        <CheckboxGroup variant="outline">
+          <Checkbox value="1">选项一</Checkbox>
+          <Checkbox value="2">选项二</Checkbox>
+        </CheckboxGroup>
+      ));
+      expect(wrapper.find('.t-checkbox').exists()).toBeFalsy();
+      expect(wrapper.findAll('.t-checkbox-button').length).toBe(2);
+    });
+
+    it.each([
+      ['outline', 't-checkbox-group__outline'],
+      ['default-filled', 't-checkbox-group--filled'],
+      ['primary-filled', 't-checkbox-group--primary-filled'],
+    ])('applies %s modifier class %s on the group root', (variant, expectedClass) => {
+      const wrapper = mount(() => (
+        <CheckboxGroup variant={variant as 'outline' | 'default-filled' | 'primary-filled'}>
+          <Checkbox value="1">选项一</Checkbox>
+        </CheckboxGroup>
+      ));
+      const group = wrapper.find('.t-checkbox-group');
+      expect(group.classes()).toContain(expectedClass);
+    });
+
+    it('primary-filled also carries the shared --filled modifier', () => {
+      const wrapper = mount(() => (
+        <CheckboxGroup variant="primary-filled">
+          <Checkbox value="1">选项一</Checkbox>
+        </CheckboxGroup>
+      ));
+      const group = wrapper.find('.t-checkbox-group');
+      expect(group.classes()).toContain('t-checkbox-group--filled');
+      expect(group.classes()).toContain('t-checkbox-group--primary-filled');
+    });
+
+    it('applies size class on the group root, defaulting to medium', () => {
+      const wrapper = mount(() => (
+        <CheckboxGroup variant="outline">
+          <Checkbox value="1">选项一</Checkbox>
+        </CheckboxGroup>
+      ));
+      expect(wrapper.find('.t-checkbox-group').classes()).toContain('t-size-m');
+    });
+
+    it('applies --vertical modifier only when variant is also set', () => {
+      const withVariant = mount(() => (
+        <CheckboxGroup variant="outline" direction="vertical">
+          <Checkbox value="1">选项一</Checkbox>
+        </CheckboxGroup>
+      ));
+      expect(withVariant.find('.t-checkbox-group').classes()).toContain('t-checkbox-group--vertical');
+
+      const withoutVariant = mount(() => (
+        <CheckboxGroup direction="vertical">
+          <Checkbox value="1">选项一</Checkbox>
+        </CheckboxGroup>
+      ));
+      expect(withoutVariant.find('.t-checkbox-group').classes()).not.toContain('t-checkbox-group--vertical');
+    });
+
+    it('warns in dev when direction=vertical is set without variant', () => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+      mount(() => (
+        <CheckboxGroup direction="vertical">
+          <Checkbox value="1">选项一</Checkbox>
+        </CheckboxGroup>
+      ));
+      expect(warnSpy).toHaveBeenCalledWith(
+        expect.stringContaining('`direction` only takes effect when `variant` is set'),
+      );
+      warnSpy.mockRestore();
+    });
+
+    it('keeps checked/disabled/indeterminate state classes under button style', () => {
+      const checked = ref(['1']);
+      const wrapper = mount(() => (
+        <CheckboxGroup v-model={checked.value} variant="outline">
+          <Checkbox value="1">选项一</Checkbox>
+          <Checkbox value="2" disabled>
+            选项二
+          </Checkbox>
+          <Checkbox value="3" indeterminate>
+            选项三
+          </Checkbox>
+        </CheckboxGroup>
+      ));
+      const buttons = wrapper.findAll('.t-checkbox-button');
+      expect(buttons[0].classes()).toContain('t-is-checked');
+      expect(buttons[1].classes()).toContain('t-is-disabled');
+      expect(buttons[2].classes()).toContain('t-is-indeterminate');
+    });
+  });
 });

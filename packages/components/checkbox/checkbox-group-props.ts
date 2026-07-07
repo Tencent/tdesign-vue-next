@@ -13,6 +13,15 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 当取值为 vertical 时，多选框选项以垂直方向排列。仅在按钮风格（variant 不为空）下生效 */
+  direction: {
+    type: String as PropType<TdCheckboxGroupProps['direction']>,
+    default: 'horizontal' as TdCheckboxGroupProps['direction'],
+    validator(val: TdCheckboxGroupProps['direction']): boolean {
+      if (!val) return true;
+      return ['horizontal', 'vertical'].includes(val);
+    },
+  },
   /** 是否启用懒加载。子组件 Checkbox 数据量大时建议开启；加载复杂内容或大量图片时建议开启 */
   lazyLoad: Boolean,
   /** 支持最多选中的数量 */
@@ -34,6 +43,15 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 组件尺寸，仅在按钮风格（variant 不为空）下生效 */
+  size: {
+    type: String as PropType<TdCheckboxGroupProps['size']>,
+    default: 'medium' as TdCheckboxGroupProps['size'],
+    validator(val: TdCheckboxGroupProps['size']): boolean {
+      if (!val) return true;
+      return ['small', 'medium', 'large'].includes(val);
+    },
+  },
   /** 选中值 */
   value: {
     type: Array as PropType<TdCheckboxGroupProps['value']>,
@@ -47,6 +65,15 @@ export default {
   defaultValue: {
     type: Array as PropType<TdCheckboxGroupProps['defaultValue']>,
     default: (): TdCheckboxGroupProps['defaultValue'] => [],
+  },
+  /** 多选框组按钮形式。为空表示不启用按钮风格，仍为默认的方框多选框 */
+  variant: {
+    type: String as PropType<TdCheckboxGroupProps['variant']>,
+    default: undefined as TdCheckboxGroupProps['variant'],
+    validator(val: TdCheckboxGroupProps['variant']): boolean {
+      if (!val) return true;
+      return ['outline', 'primary-filled', 'default-filled'].includes(val);
+    },
   },
   /** 值变化时触发。`context.current` 表示当前变化的数据项，如果是全选则为空；`context.type` 表示引起选中数据变化的是选中或是取消选中，`context.option` 表示当前变化的数据项 */
   onChange: Function as PropType<TdCheckboxGroupProps['onChange']>,

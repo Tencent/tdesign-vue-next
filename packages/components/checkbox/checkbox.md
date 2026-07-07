@@ -32,13 +32,16 @@ change | `(checked: boolean, context: { e: Event })` | 值变化时触发
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 disabled | Boolean | undefined | 是否禁用组件。优先级：Form.disabled < CheckboxGroup.disabled < Checkbox.disabled | N
+direction | String | horizontal | 当取值为 vertical 时，多选框选项以垂直方向排列。仅在按钮风格（variant 不为空）下生效。可选项：horizontal/vertical | N
 lazyLoad | Boolean | false | 是否启用懒加载。子组件 Checkbox 数据量大时建议开启；加载复杂内容或大量图片时建议开启 | N
 max | Number | undefined | 支持最多选中的数量 | N
 name | String | - | 统一设置内部复选框 HTML 属性 | N
 options | Array | - | 以配置形式设置子元素。示例1：`['北京', '上海']` ，示例2: `[{ label: '全选', checkAll: true }, { label: '上海', value: 'shanghai' }]`。checkAll 值为 true 表示当前选项为「全选选项」。TS 类型：`Array<CheckboxOption>` `type CheckboxOption = string \| number \| CheckboxOptionObj` `interface CheckboxOptionObj extends TdCheckboxProps { text?: string; }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/checkbox/type.ts) | N
 readonly | Boolean | undefined | 只读状态 | N
+size | String | medium | 组件尺寸，仅在按钮风格（variant 不为空）下生效。可选项：small/medium/large | N
 value | Array | [] | 选中值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`T` `type CheckboxGroupValue = Array<string \| number \| boolean>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/checkbox/type.ts) | N
 defaultValue | Array | [] | 选中值。非受控属性。TS 类型：`T` `type CheckboxGroupValue = Array<string \| number \| boolean>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/checkbox/type.ts) | N
+variant | String | undefined | 多选框组按钮形式。为空表示不启用按钮风格，仍为默认的方框多选框。可选项：outline/primary-filled/default-filled | N
 onChange | Function |  | TS 类型：`(value: T, context: CheckboxGroupChangeContext) => void`<br/>值变化时触发。`context.current` 表示当前变化的数据项，如果是全选则为空；`context.type` 表示引起选中数据变化的是选中或是取消选中，`context.option` 表示当前变化的数据项。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/checkbox/type.ts)。<br/>`interface CheckboxGroupChangeContext { e: Event; current: string \| number \| boolean; option: CheckboxOption \| TdCheckboxProps; type: 'check' \| 'uncheck' }`<br/> | N
 
 ### CheckboxGroup Events
