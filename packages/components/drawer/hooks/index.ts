@@ -52,6 +52,11 @@ export const useDrag = (props: TdDrawerProps) => {
   };
 
   const handleMousemove = (e: MouseEvent) => {
+    // 若鼠标主键已松开（如在浏览器窗口外或切换窗口时释放，导致 document 未收到 mouseup），主动结束拖拽，避免松手后尺寸仍跟随鼠标变化
+    if (e.buttons === 0) {
+      handleMouseup();
+      return;
+    }
     // 鼠标移动时计算draggedSizeValue的值
     const { x, y } = e;
     const maxHeight = document.documentElement.clientHeight;

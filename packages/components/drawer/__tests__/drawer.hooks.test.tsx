@@ -5,12 +5,13 @@ import { defineComponent, nextTick } from 'vue';
 import { useDrag } from '@tdesign/components/drawer/hooks';
 import type { TdDrawerProps } from '@tdesign/components/drawer/type';
 
-// jsdom MouseEvent does not support x/y properties
+// jsdom MouseEvent does not reflect x/y and buttons from the init dict
 class FakeMouseEvent extends MouseEvent {
   constructor(type: string, values: Record<string, unknown> = {}) {
-    const { x, y, ...mouseValues } = values;
+    const { x, y, buttons, ...mouseValues } = values;
     super(type, mouseValues as MouseEventInit);
     Object.assign(this, { x: x || 0, y: y || 0 });
+    Object.defineProperty(this, 'buttons', { value: buttons ?? 0, configurable: true });
   }
 }
 
@@ -40,7 +41,8 @@ const DragTestComponent = defineComponent({
 async function performDrag(handleEl: Element, x: number, y: number) {
   handleEl.dispatchEvent(new FakeMouseEvent('mousedown', { bubbles: true }));
   await nextTick();
-  document.dispatchEvent(new FakeMouseEvent('mousemove', { x, y }));
+  // buttons: 1 表示拖拽过程中鼠标主键处于按下状态
+  document.dispatchEvent(new FakeMouseEvent('mousemove', { x, y, buttons: 1 }));
   await nextTick();
   document.dispatchEvent(new FakeMouseEvent('mouseup', { x, y }));
   await nextTick();
@@ -243,6 +245,36 @@ describe('Drawer Hooks', () => {
         expect(typeof onSizeDragEnd.mock.calls[0][0].size).toBe('number');
       });
 
+      // https://github.com/Tencent/tdesign-vue-next/issues/6781
+      // 拖拽过程中在浏览器窗口外或切换窗口时松开鼠标，document 收不到 mouseup，
+      // 回到页面移动鼠标时（buttons 为 0）应主动结束拖拽，避免尺寸继续跟随鼠标变化
+      it('stops dragging when mouseup is missed and mouse button is released', async () => {
+        const onSizeDragEnd = vi.fn();
+        const removeSpy = vi.spyOn(document, 'removeEventListener');
+        wrapper = mount(DragTestComponent, {
+          attachTo: document.body,
+          props: { placement: 'right', onSizeDragEnd },
+        });
+
+        wrapper.find('.drag-handle').element.dispatchEvent(new FakeMouseEvent('mousedown', { bubbles: true }));
+        await nextTick();
+
+        // 回到页面后的第一次移动，鼠标主键已抬起（buttons 为 0），应结束拖拽并移除监听
+        document.dispatchEvent(new FakeMouseEvent('mousemove', { x: 200, y: 100, buttons: 0 }));
+        await nextTick();
+
+        expect(removeSpy).toHaveBeenCalledWith('mouseup', expect.any(Function), true);
+        expect(removeSpy).toHaveBeenCalledWith('mousemove', expect.any(Function), true);
+        expect(onSizeDragEnd).not.toHaveBeenCalled();
+
+        // 结束拖拽后即使再有按下状态的移动，也不应再触发尺寸变化
+        document.dispatchEvent(new FakeMouseEvent('mousemove', { x: 260, y: 100, buttons: 1 }));
+        await nextTick();
+        expect(onSizeDragEnd).not.toHaveBeenCalled();
+
+        removeSpy.mockRestore();
+      });
+
       it(':sizeDraggable[false] prevents drag', async () => {
         const onSizeDragEnd = vi.fn();
         wrapper = mount(DragTestComponent, {
@@ -253,7 +285,7 @@ describe('Drawer Hooks', () => {
         wrapper.find('.drag-handle').element.dispatchEvent(new FakeMouseEvent('mousedown', { bubbles: true }));
         await nextTick();
 
-        document.dispatchEvent(new FakeMouseEvent('mousemove', { x: 400, y: 100 }));
+        document.dispatchEvent(new FakeMouseEvent('mousemove', { x: 400, y: 100, buttons: 1 }));
         await nextTick();
 
         expect(onSizeDragEnd).not.toHaveBeenCalled();
