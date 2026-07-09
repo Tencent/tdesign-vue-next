@@ -6,18 +6,24 @@ import { Drawer } from '@tdesign/components';
 import drawerProps from '@tdesign/components/drawer/props';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 
+// jsdom MouseEvent does not reflect x/y and buttons from the init dict
 class FakeMouseEvent extends MouseEvent {
   constructor(type: string, values: Record<string, unknown> = {}) {
-    const { x, y, ...mouseValues } = values;
+    const { x, y, buttons, ...mouseValues } = values;
     super(type, mouseValues as MouseEventInit);
     Object.assign(this, { x: x || 0, y: y || 0 });
+    Object.defineProperty(this, 'buttons', { value: buttons ?? 0, configurable: true });
   }
 }
 
-function moveElement(element: Element, x: number, y: number) {
+async function moveElement(element: Element, x: number, y: number) {
   element.dispatchEvent(new FakeMouseEvent('mousedown', {}));
-  document.dispatchEvent(new FakeMouseEvent('mousemove', { x, y }));
+  await nextTick();
+  // buttons: 1 表示拖拽过程中鼠标主键处于按下状态
+  document.dispatchEvent(new FakeMouseEvent('mousemove', { x, y, buttons: 1 }));
+  await nextTick();
   document.dispatchEvent(new FakeMouseEvent('mouseup', { x, y }));
+  await nextTick();
 }
 
 describe('Drawer', () => {
@@ -742,8 +748,7 @@ describe('Drawer', () => {
       await nextTick();
 
       const content = w.find('.t-drawer__content-wrapper');
-      moveElement(content.element.lastChild as Element, 400, 100);
-      await nextTick();
+      await moveElement(content.element.lastChild as Element, 400, 100);
       expect(onSizeDragEnd).toHaveBeenCalled();
       expect(onSizeDragEnd.mock.calls[0][0].e).toBeInstanceOf(MouseEvent);
       expect(typeof onSizeDragEnd.mock.calls[0][0].size).toBe('number');
@@ -916,8 +921,7 @@ describe('Drawer', () => {
         await nextTick();
 
         const content = w.find('.t-drawer__content-wrapper');
-        moveElement(content.element.lastChild as Element, x, y);
-        await nextTick();
+        await moveElement(content.element.lastChild as Element, x, y);
         expect(onSizeDragEnd).toHaveBeenCalled();
         expect(onSizeDragEnd.mock.calls[0][0].e).toBeInstanceOf(MouseEvent);
         expect(typeof onSizeDragEnd.mock.calls[0][0].size).toBe('number');
@@ -933,8 +937,7 @@ describe('Drawer', () => {
       await nextTick();
 
       const content = w.find('.t-drawer__content-wrapper');
-      moveElement(content.element.lastChild as Element, 500, 100);
-      await nextTick();
+      await moveElement(content.element.lastChild as Element, 500, 100);
       expect((content.element as HTMLElement).style.width).toBe('300px');
       w.unmount();
     });
