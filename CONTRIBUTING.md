@@ -12,7 +12,7 @@
 
 > `packages/tdesign-vue-next-chat` 是 Vue Chat 高阶组件的站点、打包入口。
 
-> `packages/tdesign-vue-next-nuxt` 是 Vue Nuxt 高阶组件的站点、源码和打包入口。
+> `packages/tdesign-vue-next-nuxt` 是 Vue Nuxt 模块的源码和打包入口。
 
 > `packages/auto-import-resolver` 是  unplugin-vue-components 源码和打包入口。
 
