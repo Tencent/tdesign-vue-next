@@ -12,11 +12,16 @@
 
 > `packages/tdesign-vue-next-chat` 是 Vue Chat 高阶组件的站点、打包入口。
 
+> `packages/tdesign-vue-next-nuxt` 是 Vue Nuxt 高阶组件的站点、源码和打包入口。
+
+> `packages/auto-import-resolver` 是  unplugin-vue-components 源码和打包入口。
+
+
 大部分情况下，您参与贡献的开发过程，都只需要关注 `packages/components`、`packages/pro-components` 和 `packages/common`的相关代码。
 
 ## 进行开发
 
-请使用 `node 18` 与 `pnpm 9` 版本进行开发。
+请使用 `node 22` 与 `pnpm 10` 版本进行开发。
 
 ### 1.初始化子仓库
 
