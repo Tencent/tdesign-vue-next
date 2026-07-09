@@ -32,6 +32,8 @@ describe('Drawer', () => {
   });
 
   afterEach(() => {
+    // 清理可能残留的拖拽全局事件监听，避免影响其他测试文件
+    document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
     document.body.innerHTML = '';
     vi.useRealTimers();
   });

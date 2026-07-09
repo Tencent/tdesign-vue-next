@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue';
+import { computed, getCurrentScope, onScopeDispose, ref } from 'vue';
 import { Styles } from '../../common';
 import { getSizeDraggable, calcMoveSize } from '@tdesign/common-js/drawer/utils';
 import type { TdDrawerProps } from '../type';
@@ -111,6 +111,12 @@ export const useDrag = (props: TdDrawerProps) => {
   });
 
   const draggingStyles = computed<Styles>(() => (isSizeDragging.value ? { userSelect: 'none' } : {}));
+
+  if (getCurrentScope()) {
+    onScopeDispose(() => {
+      handleMouseup();
+    });
+  }
 
   return {
     draggedSizeValue,
