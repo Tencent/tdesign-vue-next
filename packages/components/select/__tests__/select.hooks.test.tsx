@@ -437,7 +437,7 @@ describe('Select Hooks', () => {
         const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
         const mockSelectPanelRef = {
           isVirtual: false,
-          innerRef: { querySelector: () => null } as unknown as HTMLDivElement,
+          innerRef: { querySelector: (): null => null } as unknown as HTMLDivElement,
         };
         const ctx = createKeyboardControlContext({
           // @ts-ignore
