@@ -22,6 +22,8 @@ export default {
     type: Boolean,
     default: true,
   },
+  /** 是否开启吸色功能，启用后面板顶部出现吸色按钮，仅支持 Chrome/Edge 等现代浏览器 */
+  eyeDropper: Boolean,
   /** 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效 */
   format: {
     type: String as PropType<TdColorPickerPanelProps['format']>,

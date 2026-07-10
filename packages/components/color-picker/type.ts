@@ -40,6 +40,11 @@ export interface TdColorPickerProps {
    */
   enableMultipleGradient?: boolean;
   /**
+   * 是否开启吸色功能，启用后面板顶部出现吸色按钮，仅支持 Chrome/Edge 等现代浏览器
+   * @default false
+   */
+  eyeDropper?: boolean;
+  /**
    * 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效
    * @default RGB
    */
@@ -134,12 +139,17 @@ export interface TdColorPickerPanelProps {
    */
   enableMultipleGradient?: boolean;
   /**
+   * 是否开启吸色功能，启用后面板顶部出现吸色按钮，仅支持 Chrome/Edge 等现代浏览器
+   * @default false
+   */
+  eyeDropper?: boolean;
+  /**
    * 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效
    * @default RGB
    */
   format?: 'HEX' | 'HEX8' | 'RGB' | 'RGBA' | 'HSL' | 'HSLA' | 'HSV' | 'HSVA' | 'CMYK' | 'CSS';
   /**
-   * 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”
+   * 最近使用的颜色。值为 [] 表示以组件内部的”最近使用颜色”为准，值长度大于 0 则以该值为准显示”最近使用颜色”。值为 false 或 null 则完全不显示”最近使用颜色”
    * @default []
    */
   recentColors?: Array<string> | boolean | null;
@@ -198,7 +208,8 @@ export type ColorPickerChangeTrigger =
   | 'palette-alpha-bar'
   | 'input'
   | 'preset'
-  | 'recent';
+  | 'recent'
+  | 'eyedropper';
 
 export interface ColorObject {
   alpha: number;

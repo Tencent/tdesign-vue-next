@@ -111,6 +111,11 @@ export default defineComponent({
       },
     );
 
+    const handleEyeDropperPick = (hex: string) => {
+      color.value.update(hex);
+      emitColorChange('eyedropper');
+    };
+
     /**
      * mode change
      * @param newMode
@@ -289,7 +294,7 @@ export default defineComponent({
 
       return (
         <div class={[`${baseClassName.value}__panel`, props.disabled ? statusClassNames.disabled : false]}>
-          <PanelHeader {...props} mode={mode.value} onModeChange={handleModeChange} />
+          <PanelHeader {...props} mode={mode.value} onModeChange={handleModeChange} onEyeDropperPick={handleEyeDropperPick} />
           <div class={[`${baseClassName.value}__body`]}>
             {isGradient.value ? (
               <LinearGradient
