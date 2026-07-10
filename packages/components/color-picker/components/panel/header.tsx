@@ -84,7 +84,11 @@ export default defineComponent({
               type="button"
               aria-label="eyedropper"
               disabled={eyeDropperDisabled}
-              class={[`${baseClassName.value}__eyedropper`, { [statusClassNames.disabled]: eyeDropperDisabled }]}
+              class={[
+                `${baseClassName.value}__icon`,
+                `${baseClassName.value}__eyedropper`,
+                { [statusClassNames.disabled]: eyeDropperDisabled },
+              ]}
               onClick={handleEyeDropperClick}
             >
               <SipIcon />
