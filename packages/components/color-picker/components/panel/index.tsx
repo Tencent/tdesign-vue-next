@@ -217,6 +217,21 @@ export default defineComponent({
     };
 
     /**
+     * 吸色（EyeDropper）取色
+     * 单色模式下更新整体颜色；渐变模式下与输入框行为一致，仅更新当前选中的渐变节点。
+     * EyeDropper 返回的始终是不透明 hex，开启透明通道时保留吸色前的 alpha（alpha 仅由透明度滑条控制）。
+     * @param hex 吸色器返回的颜色值（形如 #rrggbb）
+     */
+    const handleEyeDropperPick = (hex: string) => {
+      const prevAlpha = color.value.alpha;
+      color.value.update(hex);
+      if (props.enableAlpha) {
+        color.value.alpha = prevAlpha;
+      }
+      emitColorChange('eyedropper');
+    };
+
+    /**
      * 色块点击
      * @param type
      * @param value
@@ -289,7 +304,12 @@ export default defineComponent({
 
       return (
         <div class={[`${baseClassName.value}__panel`, props.disabled ? statusClassNames.disabled : false]}>
-          <PanelHeader {...props} mode={mode.value} onModeChange={handleModeChange} />
+          <PanelHeader
+            {...props}
+            mode={mode.value}
+            onModeChange={handleModeChange}
+            onEyeDropperPick={handleEyeDropperPick}
+          />
           <div class={[`${baseClassName.value}__body`]}>
             {isGradient.value ? (
               <LinearGradient

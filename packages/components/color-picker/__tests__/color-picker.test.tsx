@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { ref, nextTick } from 'vue';
 import { ColorPicker } from '@tdesign/components';
 import type { ColorObject } from '@tdesign/components/color-picker';
@@ -91,6 +91,125 @@ describe('ColorPicker', () => {
       sliderNode2.element.dispatchEvent(new MouseEvent('click', { clientX: 10, clientY: 0 }));
       await nextTick();
       expect(sliderNode2.element.children.length).toBe(2);
+    });
+
+    describe(':eyeDropper[boolean]', () => {
+      const stubEyeDropper = (hex = '#ff6600') => {
+        vi.stubGlobal(
+          'EyeDropper',
+          class {
+            // eslint-disable-next-line class-methods-use-this
+            open() {
+              return Promise.resolve({ sRGBHex: hex });
+            }
+          },
+        );
+      };
+
+      afterEach(() => {
+        vi.unstubAllGlobals();
+        // 清理本组用例挂载的 Popup 浮层，避免残留 DOM 遮挡后续用例的 trigger
+        document.body.innerHTML = '';
+      });
+
+      it('does not render eyedropper button by default', async () => {
+        stubEyeDropper();
+        const { panel } = await mountColorPickerAndTriggerPanel({ props: { value: '#0052d9' } });
+        expect(panel.find('.t-color-picker__eyedropper').exists()).toBeFalsy();
+      });
+
+      it('picks color and emits change with trigger eyedropper', async () => {
+        stubEyeDropper('#ff6600');
+        const onChange = vi.fn();
+        const { panel } = await mountColorPickerAndTriggerPanel({
+          props: { value: '#0052d9', eyeDropper: true, onChange },
+        });
+        const btn = panel.find('.t-color-picker__eyedropper');
+        expect(btn.exists()).toBeTruthy();
+        expect(btn.classes()).not.toContain('t-is-disabled');
+        await btn.trigger('click');
+        await nextTick();
+        expect(onChange).toHaveBeenCalledTimes(1);
+        const [, context] = onChange.mock.calls[0];
+        expect(context.trigger).toBe('eyedropper');
+        expect(context.color.hex).toBe('#ff6600');
+      });
+
+      it('renders disabled button when EyeDropper API is not supported', async () => {
+        // jsdom 默认无 EyeDropper 全局对象
+        const onChange = vi.fn();
+        const { panel } = await mountColorPickerAndTriggerPanel({
+          props: { value: '#0052d9', eyeDropper: true, onChange },
+        });
+        const btn = panel.find('.t-color-picker__eyedropper');
+        expect(btn.exists()).toBeTruthy();
+        expect(btn.classes()).toContain('t-is-disabled');
+        expect((btn.element as HTMLButtonElement).disabled).toBe(true);
+        await btn.trigger('click');
+        await nextTick();
+        expect(onChange).not.toHaveBeenCalled();
+      });
+
+      it('keeps current alpha when enableAlpha is true', async () => {
+        stubEyeDropper('#ff6600');
+        const onChange = vi.fn();
+        const { panel } = await mountColorPickerAndTriggerPanel({
+          props: { value: 'rgba(0, 82, 217, 0.5)', format: 'RGBA', enableAlpha: true, eyeDropper: true, onChange },
+        });
+        await panel.find('.t-color-picker__eyedropper').trigger('click');
+        await nextTick();
+        const [, context] = onChange.mock.calls[0];
+        expect(context.color.hex).toBe('#ff6600');
+        expect(context.color.alpha).toBe(0.5);
+      });
+
+      it('renders button even when only one color mode', async () => {
+        stubEyeDropper();
+        const { panel } = await mountColorPickerAndTriggerPanel({
+          props: { value: '#0052d9', colorModes: ['monochrome'], eyeDropper: true },
+        });
+        expect(panel.find('.t-radio-group').exists()).toBeFalsy();
+        expect(panel.find('.t-color-picker__eyedropper').exists()).toBeTruthy();
+      });
+
+      it('does not emit change when user cancels picking', async () => {
+        vi.stubGlobal(
+          'EyeDropper',
+          class {
+            // eslint-disable-next-line class-methods-use-this
+            open() {
+              return Promise.reject(new DOMException('User aborted', 'AbortError'));
+            }
+          },
+        );
+        const onChange = vi.fn();
+        const { panel } = await mountColorPickerAndTriggerPanel({
+          props: { value: '#0052d9', eyeDropper: true, onChange },
+        });
+        await panel.find('.t-color-picker__eyedropper').trigger('click');
+        await nextTick();
+        expect(onChange).not.toHaveBeenCalled();
+      });
+
+      it('updates only the selected gradient stop in gradient mode', async () => {
+        stubEyeDropper('#ff6600');
+        const onChange = vi.fn();
+        const { panel } = await mountColorPickerAndTriggerPanel({
+          props: {
+            value: 'linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)',
+            colorModes: ['linear-gradient'],
+            eyeDropper: true,
+            onChange,
+          },
+        });
+        await panel.find('.t-color-picker__eyedropper').trigger('click');
+        await nextTick();
+        const [value, context] = onChange.mock.calls[0];
+        expect(context.trigger).toBe('eyedropper');
+        // 仍为渐变值，仅更新选中的渐变节点，而非把整体颜色替换为单色
+        expect(value).toContain('linear-gradient');
+        expect(value).toContain('255, 102, 0');
+      });
     });
 
     describe(':format[HEX/HEX8/RGB/RGBA/HSL/HSLA/HSV/HSVA/CMYK/CSS]', async () => {

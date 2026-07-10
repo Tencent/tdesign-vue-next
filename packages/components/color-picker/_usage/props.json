@@ -30,6 +30,12 @@
     "options": []
   },
   {
+    "name": "eyeDropper",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
     "name": "size",
     "type": "enum",
     "defaultValue": "medium",

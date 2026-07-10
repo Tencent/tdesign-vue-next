@@ -22,6 +22,8 @@ export default {
     type: Boolean,
     default: true,
   },
+  /** 是否开启吸色（屏幕取色）功能。开启后面板顶部显示吸色按钮，基于浏览器原生 EyeDropper API 实现，浏览器不支持时按钮呈禁用状态 */
+  eyeDropper: Boolean,
   /** 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效 */
   format: {
     type: String as PropType<TdColorPickerPanelProps['format']>,

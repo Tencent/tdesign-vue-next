@@ -40,6 +40,11 @@ export interface TdColorPickerProps {
    */
   enableMultipleGradient?: boolean;
   /**
+   * 是否开启吸色（屏幕取色）功能。开启后面板顶部显示吸色按钮，基于浏览器原生 EyeDropper API 实现，浏览器不支持时按钮呈禁用状态
+   * @default false
+   */
+  eyeDropper?: boolean;
+  /**
    * 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效
    * @default RGB
    */
@@ -134,6 +139,11 @@ export interface TdColorPickerPanelProps {
    */
   enableMultipleGradient?: boolean;
   /**
+   * 是否开启吸色（屏幕取色）功能。开启后面板顶部显示吸色按钮，基于浏览器原生 EyeDropper API 实现，浏览器不支持时按钮呈禁用状态
+   * @default false
+   */
+  eyeDropper?: boolean;
+  /**
    * 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效
    * @default RGB
    */
@@ -198,7 +208,8 @@ export type ColorPickerChangeTrigger =
   | 'palette-alpha-bar'
   | 'input'
   | 'preset'
-  | 'recent';
+  | 'recent'
+  | 'eyedropper';
 
 export interface ColorObject {
   alpha: number;

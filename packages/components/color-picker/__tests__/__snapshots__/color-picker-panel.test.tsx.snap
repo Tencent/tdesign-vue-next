@@ -73,6 +73,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 1`]
         />
       </div>
     </div>
+    <!---->
   </div>
   <div
     class="t-color-picker__body"
@@ -1342,6 +1343,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`]
         />
       </div>
     </div>
+    <!---->
   </div>
   <div
     class="t-color-picker__body"
@@ -2318,6 +2320,7 @@ exports[`ColorPickerPanel > :ui > :mount 1`] = `
         />
       </div>
     </div>
+    <!---->
   </div>
   <div
     class="t-color-picker__body"
