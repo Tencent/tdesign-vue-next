@@ -141,6 +141,37 @@ describe('ColorPicker', () => {
       });
     });
 
+    it(':isInput[boolean]', async () => {
+      // 默认展示色值输入框，不带 input-less 修饰类
+      const wrapper = mount(<ColorPicker value="#0052d9" isInput={true} />);
+      expect(wrapper.find('.t-color-picker__trigger--input-less').exists()).toBe(false);
+
+      // isInput=false 时触发器带上 input-less 修饰类，色块仍正常渲染
+      await wrapper.setProps({ isInput: false });
+      const trigger = wrapper.find('.t-color-picker__trigger');
+      expect(trigger.classes()).toContain('t-color-picker__trigger--input-less');
+      expect(trigger.find('.t-color-picker__trigger--default__color').exists()).toBe(true);
+
+      // 不影响其他交互：点击触发器仍能正常打开面板
+      await userEvent.click(trigger.element);
+      const panel = wrapper.findComponent(ColorPanel);
+      expect(panel.exists()).toBe(true);
+    });
+
+    it(':isInput[boolean] does not affect clearable', async () => {
+      // isInput=false 时清空能力不受影响
+      const value = ref('#0052d9');
+      const fn = vi.fn();
+      const wrapper = mount(<ColorPicker v-model={value.value} isInput={false} clearable={true} onClear={fn} />);
+      await wrapper.find('.t-input').trigger('mouseenter');
+      const closeIcon = wrapper.findComponent(CloseCircleFilledIcon);
+      expect(closeIcon.exists()).toBeTruthy();
+      await closeIcon.trigger('click');
+      expect(fn).toBeCalled();
+      expect(value.value).toBe('');
+      wrapper.unmount();
+    });
+
     it(':recentColors[array<string>]', async () => {
       const recentColors = ['red', 'yellow', 'blue'];
       const { panel } = await mountColorPickerAndTriggerPanel({

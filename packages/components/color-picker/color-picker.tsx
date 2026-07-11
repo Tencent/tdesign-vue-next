@@ -54,7 +54,15 @@ export default defineComponent({
       };
       return (
         <TPopup {...popProps} content={renderPopupContent}>
-          <div class={`${baseClassName.value}__trigger`} ref={refTrigger}>
+          <div
+            class={[
+              `${baseClassName.value}__trigger`,
+              {
+                [`${baseClassName.value}__trigger--input-less`]: !props.isInput,
+              },
+            ]}
+            ref={refTrigger}
+          >
             {renderTNodeJSXDefault(
               'default',
               <DefaultTrigger
