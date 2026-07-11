@@ -228,8 +228,7 @@ export default defineComponent({
           !isServer && on(document, 'mousedown', onDocumentMouseDown, true);
           if (props.trigger === 'focus') {
             once(triggerEl.value, 'keydown', (ev: KeyboardEvent) => {
-              const code = typeof process !== 'undefined' && process.env?.TEST ? '27' : 'Escape';
-              if (ev.code === code) {
+              if (isEscapeKey(ev)) {
                 hide(ev);
               }
             });
