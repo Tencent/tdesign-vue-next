@@ -8,6 +8,7 @@ import Popup from '@tdesign/components/popup';
 const POPUPClASS = `.${usePrefixClass('popup').value}`;
 
 function createShadowPopupWrapper(popupProps = {}) {
+  // eslint-disable-next-line vue/one-component-per-file
   return defineComponent({
     components: { Popup },
     setup() {
@@ -20,6 +21,37 @@ function createShadowPopupWrapper(popupProps = {}) {
     template: `
       <Popup v-bind="popupProps" :attach="() => attachRef">
         <button id="btn">trigger</button>
+      </Popup>
+      <div ref="attachRef"></div>
+    `,
+  });
+}
+
+function createNestedShadowPopupWrapper(onParentVisibleChange) {
+  // eslint-disable-next-line vue/one-component-per-file
+  return defineComponent({
+    components: { Popup },
+    setup() {
+      const attachRef = ref<HTMLElement>();
+      return {
+        attachRef,
+        onParentVisibleChange,
+      };
+    },
+    template: `
+      <Popup
+        visible
+        trigger="hover"
+        :delay="[0, 0]"
+        :attach="() => attachRef"
+        :onVisibleChange="onParentVisibleChange"
+      >
+        <button id="parent-trigger">parent trigger</button>
+        <template #content>
+          <Popup visible trigger="hover" :delay="[0, 0]" :attach="() => attachRef" content="child content">
+            <button id="child-trigger">child trigger</button>
+          </Popup>
+        </template>
       </Popup>
       <div ref="attachRef"></div>
     `,
@@ -349,6 +381,41 @@ describe('Popup', () => {
 
       expect(wrapper.emitted()['update:visible']).toBeFalsy();
     });
+    it(':trigger hover remains open when moving to a nested popup in shadowRoot', async () => {
+      const parentVisibleChanges = [];
+      const host = document.createElement('div');
+      const shadowRoot = host.attachShadow({ mode: 'open' });
+      const mountNode = document.createElement('div');
+      shadowRoot.appendChild(mountNode);
+      document.body.appendChild(host);
+
+      await mount(
+        createNestedShadowPopupWrapper((...args) => parentVisibleChanges.push(args)),
+        {
+          attachTo: mountNode,
+          global: {
+            stubs: { teleport: false },
+          },
+        },
+      );
+
+      await nextTick();
+      await waitPopupMounted();
+      await waitPopupMounted();
+      const popups = shadowRoot.querySelectorAll(POPUPClASS);
+      expect(popups).toHaveLength(2);
+
+      popups[0].dispatchEvent(
+        new MouseEvent('mouseleave', {
+          bubbles: true,
+          composed: true,
+          relatedTarget: popups[1],
+        }),
+      );
+      await new Promise(setTimeout);
+
+      expect(parentVisibleChanges).toHaveLength(0);
+    });
     /** 是否显示浮层 */
     it(':visible', async () => {
       const wrapper = await mount(Popup, {
@@ -426,6 +493,35 @@ describe('Popup', () => {
       await new Promise((resolve) => setTimeout(resolve, 0));
       expect(visibleChanges[0][0]).toEqual(false);
       expect(visibleChanges[0][1].trigger).toEqual('document');
+    });
+    it('clicking a nested popup in shadowRoot does not close its parent', async () => {
+      const parentVisibleChanges = [];
+      const host = document.createElement('div');
+      const shadowRoot = host.attachShadow({ mode: 'open' });
+      const mountNode = document.createElement('div');
+      shadowRoot.appendChild(mountNode);
+      document.body.appendChild(host);
+
+      await mount(
+        createNestedShadowPopupWrapper((...args) => parentVisibleChanges.push(args)),
+        {
+          attachTo: mountNode,
+          global: {
+            stubs: { teleport: false },
+          },
+        },
+      );
+
+      await nextTick();
+      await waitPopupMounted();
+      await waitPopupMounted();
+      const popups = shadowRoot.querySelectorAll(POPUPClASS);
+      expect(popups).toHaveLength(2);
+
+      popups[1].dispatchEvent(new MouseEvent('mousedown', { bubbles: true, composed: true }));
+      await new Promise(setTimeout);
+
+      expect(parentVisibleChanges).toHaveLength(0);
     });
     it('keydown-esc hide popup', async () => {
       const wrapper = await mount(Popup, {

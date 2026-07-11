@@ -31,29 +31,35 @@ import Container from './container';
 import props from './props';
 import { PopupTriggerEvent, TdPopupProps } from './type';
 
+function isEscapeKey(ev: KeyboardEvent) {
+  return ev.key === 'Escape' || ev.code === 'Escape' || ev.keyCode === 27;
+}
+
+type PopupId = symbol;
+
 type PopupRegistryEntry = {
-  id: string;
-  parentId?: string;
+  id: PopupId;
+  parentId?: PopupId;
   element?: HTMLElement;
 };
 
-const popupRegistry = new Map<string, PopupRegistryEntry>();
+const popupRegistry = new Map<PopupId, PopupRegistryEntry>();
 
 function registerPopup(entry: PopupRegistryEntry) {
   popupRegistry.set(entry.id, entry);
 }
 
-function unregisterPopup(id: string) {
+function unregisterPopup(id: PopupId) {
   popupRegistry.delete(id);
 }
 
-function updatePopupElement(id: string, element?: HTMLElement) {
+function updatePopupElement(id: PopupId, element?: HTMLElement) {
   const entry = popupRegistry.get(id);
   if (!entry) return;
   entry.element = element;
 }
 
-function getPopupDescendants(id: string): HTMLElement[] {
+function getPopupDescendants(id: PopupId): HTMLElement[] {
   const descendants: HTMLElement[] = [];
 
   popupRegistry.forEach((entry) => {
@@ -67,7 +73,7 @@ function getPopupDescendants(id: string): HTMLElement[] {
 }
 
 const parentKey = Symbol() as InjectionKey<{
-  id: string;
+  id: PopupId;
   assertMouseLeave: (ev: MouseEvent) => void;
 }>;
 
@@ -126,7 +132,7 @@ export default defineComponent({
 
     const arrowStyle = ref<CSSProperties>({});
 
-    const id = `popup-${Date.now().toString(36)}`;
+    const id = Symbol('popup');
     const parent = inject(parentKey, undefined);
 
     registerPopup({ id, parentId: parent?.id });
