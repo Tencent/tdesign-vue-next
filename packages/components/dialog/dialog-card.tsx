@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, toRefs } from 'vue';
+import { computed, defineComponent, getCurrentInstance, ref, toRefs } from 'vue';
 import {
   CloseIcon as TdCloseIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
@@ -30,6 +30,7 @@ export default defineComponent({
     ...dialogCardProps,
   },
   setup(props, { expose }) {
+    const instance = getCurrentInstance();
     const rootRef = ref<HTMLElement | null>(null);
     const COMPONENT_NAME = usePrefixClass('dialog');
     const classPrefix = usePrefixClass();
@@ -128,6 +129,9 @@ export default defineComponent({
         const closeClassName = isFullScreen.value
           ? [`${COMPONENT_NAME.value}__close`, `${COMPONENT_NAME.value}__close--fullscreen`]
           : `${COMPONENT_NAME.value}__close`;
+        // 自定义关闭按钮（TNode 或插槽）时，不套用默认 __close 容器样式，实现完全替换
+        const isCustomCloseBtn =
+          typeof props?.closeBtn === 'function' || Boolean(instance?.slots?.closeBtn || instance?.slots?.['close-btn']);
         const getIcon = () => {
           const icon = {
             info: <InfoCircleFilledIcon class={`${classPrefix.value}-is-info`} />,
@@ -146,7 +150,11 @@ export default defineComponent({
               </div>
 
               {props?.closeBtn ? (
-                <span class={closeClassName} onClick={closeBtnAction} onMousedown={onStopDown}>
+                <span
+                  class={isCustomCloseBtn ? undefined : closeClassName}
+                  onClick={closeBtnAction}
+                  onMousedown={onStopDown}
+                >
                   {renderTNodeJSX('closeBtn', <CloseIcon />)}
                 </span>
               ) : null}
