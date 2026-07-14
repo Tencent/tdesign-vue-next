@@ -9,8 +9,10 @@ import {
   GradientColorPoint,
   initColorFormat,
   TD_COLOR_USED_COLORS_MAX_SIZE,
+  useDropper,
 } from '@tdesign/common-js/color-picker/index';
-import { useCommonClassName, useConfig, useDefaultValue, useVModel } from '@tdesign/shared-hooks';
+import { useCommonClassName, useConfig, useDefaultValue, useGlobalIcon, useVModel } from '@tdesign/shared-hooks';
+import { FocusIcon as TdFocusIcon } from 'tdesign-icons-vue-next';
 import props from '../../color-picker-panel-props';
 import { useBaseClassName } from '../../hooks';
 import type { ColorPickerChangeTrigger, TdColorPickerProps } from '../../type';
@@ -84,6 +86,20 @@ export default defineComponent({
      */
     const handleRecentlyUsedColorsChange = (colors: string[]) => {
       setInnerRecentColors(colors);
+    };
+
+    const { FocusIcon } = useGlobalIcon({ FocusIcon: TdFocusIcon });
+
+    const { support, open } = useDropper();
+
+    /** 屏幕取色 */
+    const handleDroppper = async () => {
+      if (props.disabled) {
+        return;
+      }
+      open().then(({ sRGBHex }) => {
+        color.value.update(sRGBHex);
+      });
     };
 
     /**
@@ -317,6 +333,16 @@ export default defineComponent({
                   />
                 </div>
               ) : null}
+
+              {support && (
+                <span
+                  role="button"
+                  class={[`${baseClassName.value}__icon`, `${baseClassName.value}__dropper`]}
+                  onClick={handleDroppper}
+                >
+                  <FocusIcon />
+                </span>
+              )}
             </div>
 
             <FormatPanel {...props} color={color.value} format={formatModel.value} onInputChange={handleInputChange} />
