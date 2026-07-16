@@ -5,6 +5,18 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.6.0 `2026-07-16`
+
+###  🚀 Features
+
+- `ChatEngine`: Supports the latest AGUI protocol @lLzhengH
+
+### 🐞 Bug Fixes
+
+- Fixed the issue of conflicts arising from the default global instance usage of markdown components @RSS1102 @uyarn ([#6791](https://github.com/Tencent/tdesign-vue-next/pull/6791))
+- `ChatContent`: Fixed the XSS vulnerability in this component @uyarn ([#6698](https://github.com/Tencent/tdesign-vue-next/pull/6698))
+- `ChatSender`: Fixed the problem where pressing Enter while using mixed input modes in the Safari browser would trigger sending immediately @goldjunkrat ([#6808](https://github.com/Tencent/tdesign-vue-next/pull/6808))
+
 ## 🌈 0.5.2 `2026-03-27`
 
 ### 🚀 Features
