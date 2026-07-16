@@ -11,6 +11,9 @@
   <a href="https://www.npmjs.com/package/@tdesign-vue-next/chat">
     <img src="https://img.shields.io/npm/v/@tdesign-vue-next/chat.svg?sanitize=true" alt="Version">
   </a>
+  <a href="https://www.npmjs.com/package/@tdesign-vue-next/chat">
+    <img src="https://img.shields.io/npm/dm/@tdesign-vue-next/chat" alt="Downloads">
+  </a>
 </p>
 
 ## 📦 安装
