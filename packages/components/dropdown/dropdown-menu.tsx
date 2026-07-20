@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted, h, reactive } from 'vue';
+import { defineComponent, ref, onMounted, h, reactive, withDirectives } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 import DropdownItem from './dropdown-item';
 
@@ -71,78 +71,85 @@ export default defineComponent({
 
         if (optionItem.children) {
           optionItem.children = renderOptions(optionItem.children, deep + 1);
-          renderContent = (
-            <div key={idx}>
-              <DropdownItem
-                style={optionItem.style}
-                class={[`${dropdownClass.value}__item`, `${dropdownClass.value}__item--suffix`, optionItem.class]}
-                value={optionItem.value}
-                theme={optionItem.theme}
-                active={optionItem.active}
-                prefixIcon={optionItem.prefixIcon}
-                disabled={optionItem.disabled}
-                minColumnWidth={props.minColumnWidth}
-                maxColumnWidth={props.maxColumnWidth}
-                isSubmenu={true}
+          const item = (
+            <DropdownItem
+              style={optionItem.style}
+              class={[`${dropdownClass.value}__item`, `${dropdownClass.value}__item--suffix`, optionItem.class]}
+              value={optionItem.value}
+              theme={optionItem.theme}
+              active={optionItem.active}
+              prefixIcon={optionItem.prefixIcon}
+              disabled={optionItem.disabled}
+              minColumnWidth={props.minColumnWidth}
+              maxColumnWidth={props.maxColumnWidth}
+              isSubmenu={true}
+            >
+              <div class={`${dropdownClass.value}__item-content`}>
+                <span class={`${dropdownClass.value}__item-text`}>{getContent(optionItem.content)}</span>
+                <ChevronRightIcon class={`${dropdownClass.value}__item-direction`} size="16" />
+              </div>
+              <div
+                class={[
+                  `${dropdownClass.value}__submenu-wrapper`,
+                  {
+                    [`${dropdownClass.value}__submenu-wrapper--${props.direction}`]: props.direction,
+                  },
+                ]}
+                style={{
+                  position: 'absolute',
+                  top: `${submenuTop}px`,
+                }}
               >
-                <div class={`${dropdownClass.value}__item-content`}>
-                  <span class={`${dropdownClass.value}__item-text`}>{getContent(optionItem.content)}</span>
-                  <ChevronRightIcon class={`${dropdownClass.value}__item-direction`} size="16" />
-                </div>
                 <div
                   class={[
-                    `${dropdownClass.value}__submenu-wrapper`,
+                    `${dropdownClass.value}__submenu`,
                     {
-                      [`${dropdownClass.value}__submenu-wrapper--${props.direction}`]: props.direction,
+                      [`${dropdownClass.value}__submenu--disabled`]: optionItem.disabled,
                     },
                   ]}
                   style={{
-                    position: 'absolute',
-                    top: `${submenuTop}px`,
+                    position: 'static',
+                    maxHeight: `${props.maxHeight}px`,
                   }}
+                  onScroll={(e: MouseEvent) => handleScroll(e, deep + 1)}
                 >
-                  <div
-                    class={[
-                      `${dropdownClass.value}__submenu`,
-                      {
-                        [`${dropdownClass.value}__submenu--disabled`]: optionItem.disabled,
-                      },
-                    ]}
-                    style={{
-                      position: 'static',
-                      maxHeight: `${props.maxHeight}px`,
-                    }}
-                    onScroll={(e: MouseEvent) => handleScroll(e, deep + 1)}
-                  >
-                    <ul>{optionItem.children}</ul>
-                  </div>
+                  <ul>{optionItem.children}</ul>
                 </div>
-              </DropdownItem>
+              </div>
+            </DropdownItem>
+          );
+
+          renderContent = (
+            <div key={idx}>
+              {optionItem.directives ? withDirectives(item, optionItem.directives) : item}
               {optionItem.divider ? <TDivider /> : null}
             </div>
           );
         } else {
+          const item = (
+            <DropdownItem
+              style={optionItem.style}
+              class={[`${dropdownClass.value}__item`, optionItem.class]}
+              value={optionItem.value}
+              theme={optionItem.theme}
+              active={optionItem.active}
+              prefixIcon={optionItem.prefixIcon}
+              disabled={optionItem.disabled}
+              minColumnWidth={props.minColumnWidth}
+              maxColumnWidth={props.maxColumnWidth}
+              onClick={
+                optionItem.disabled || optionItem.children
+                  ? () => null
+                  : (value: string | number | { [key: string]: any }, context: { e: MouseEvent }) =>
+                      handleItemClick({ data: optionItem, context })
+              }
+            >
+              <span class={`${dropdownClass.value}__item-text`}>{getContent(optionItem.content)}</span>
+            </DropdownItem>
+          );
           renderContent = (
             <div key={idx}>
-              <DropdownItem
-                style={optionItem.style}
-                class={[`${dropdownClass.value}__item`, optionItem.class]}
-                value={optionItem.value}
-                theme={optionItem.theme}
-                active={optionItem.active}
-                prefixIcon={optionItem.prefixIcon}
-                disabled={optionItem.disabled}
-                minColumnWidth={props.minColumnWidth}
-                maxColumnWidth={props.maxColumnWidth}
-                onClick={
-                  optionItem.disabled || optionItem.children
-                    ? () => null
-                    : (value: string | number | { [key: string]: any }, context: { e: MouseEvent }) =>
-                        handleItemClick({ data: optionItem, context })
-                }
-              >
-                <span class={`${dropdownClass.value}__item-text`}>{getContent(optionItem.content)}</span>
-              </DropdownItem>
+              {optionItem.directives ? withDirectives(item, optionItem.directives) : item}
               {optionItem.divider ? <TDivider /> : null}
             </div>
           );

@@ -1,4 +1,4 @@
-import { nextTick } from 'vue';
+import { nextTick, Directive } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
@@ -8,6 +8,51 @@ import DropdownProps from '@tdesign/components/dropdown/props';
 import { sleep } from '@tdesign/internal-utils';
 
 describe('Dropdown', () => {
+  it('should support custom directives on TDropdownItem', async () => {
+    const vTest: Directive = {
+      mounted(el, binding) {
+        el.setAttribute('data-test', binding.value);
+      },
+    };
+
+    const wrapper = mount(
+      {
+        render() {
+          return (
+            <Dropdown
+              trigger="click"
+              v-slots={{
+                dropdown: () => (
+                  <DropdownMenu>
+                    <DropdownItem v-test="foo">Option 1</DropdownItem>
+                    <DropdownItem>Option 2</DropdownItem>
+                  </DropdownMenu>
+                ),
+              }}
+            >
+              <Button>Click me</Button>
+            </Dropdown>
+          );
+        },
+      },
+      {
+        global: {
+          directives: {
+            test: vTest,
+          },
+        },
+      },
+    );
+
+    await wrapper.find('button').trigger('click');
+    await nextTick();
+    await sleep(100);
+    const dropdownItem = document.querySelector('.t-dropdown__item');
+    expect(dropdownItem?.getAttribute('data-test')).toBe('foo');
+
+    wrapper.unmount();
+  });
+
   describe('props', () => {
     let wrapper: VueWrapper<InstanceType<typeof Dropdown>> | null = null;
 
