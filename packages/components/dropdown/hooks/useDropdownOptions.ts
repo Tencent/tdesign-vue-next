@@ -57,7 +57,7 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
           ...itemProps,
           ...(slotPrefixIcon ? { prefixIcon: () => slotPrefixIcon } : {}),
           children: childrenCtx?.length > 0 ? getOptionsFromChildren(childrenCtx) : null,
-          directives: item.dirs,
+          directives: item.dirs ? item.dirs.map((d: any) => [d.dir, d.value, d.arg, d.modifiers]) : undefined,
         };
       })
       .filter((v) => !!v.content);

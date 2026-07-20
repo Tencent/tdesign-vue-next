@@ -8,51 +8,6 @@ import DropdownProps from '@tdesign/components/dropdown/props';
 import { sleep } from '@tdesign/internal-utils';
 
 describe('Dropdown', () => {
-  it('should support custom directives on TDropdownItem', async () => {
-    const vTest: Directive = {
-      mounted(el, binding) {
-        el.setAttribute('data-test', binding.value);
-      },
-    };
-
-    const wrapper = mount(
-      {
-        render() {
-          return (
-            <Dropdown
-              trigger="click"
-              v-slots={{
-                dropdown: () => (
-                  <DropdownMenu>
-                    <DropdownItem v-test="foo">Option 1</DropdownItem>
-                    <DropdownItem>Option 2</DropdownItem>
-                  </DropdownMenu>
-                ),
-              }}
-            >
-              <Button>Click me</Button>
-            </Dropdown>
-          );
-        },
-      },
-      {
-        global: {
-          directives: {
-            test: vTest,
-          },
-        },
-      },
-    );
-
-    await wrapper.find('button').trigger('click');
-    await nextTick();
-    await sleep(100);
-    const dropdownItem = document.querySelector('.t-dropdown__item');
-    expect(dropdownItem?.getAttribute('data-test')).toBe('foo');
-
-    wrapper.unmount();
-  });
-
   describe('props', () => {
     let wrapper: VueWrapper<InstanceType<typeof Dropdown>> | null = null;
 
@@ -797,6 +752,42 @@ describe('Dropdown', () => {
         // 验证 onVisibleChange 被调用两次（一次 true，一次 false）
         expect(onVisibleChange).toHaveBeenCalled();
       });
+    });
+
+    it('SupportCustomDirectives', async () => {
+      const vTest: Directive = {
+        mounted(el, binding) {
+          el.setAttribute('data-test', binding.value);
+        },
+      };
+
+      const wrapper = mount(
+        <Dropdown popupProps={{ visible: true }}>
+          {{
+            default: () => <Button>Menu</Button>,
+            dropdown: () => (
+              <DropdownMenu>
+                <DropdownItem v-test="foo">Option 1</DropdownItem>
+                <DropdownItem>Option 2</DropdownItem>
+              </DropdownMenu>
+            ),
+          }}
+        </Dropdown>,
+        {
+          global: {
+            directives: {
+              test: vTest,
+            },
+          },
+        },
+      );
+
+      await sleep(200);
+      const dropdownItems = document.querySelectorAll('.t-dropdown__item');
+      expect(dropdownItems[0]?.getAttribute('data-test')).toBe('foo');
+      expect(dropdownItems[1]?.getAttribute('data-test')).toBeNull();
+
+      wrapper.unmount();
     });
   });
 });
