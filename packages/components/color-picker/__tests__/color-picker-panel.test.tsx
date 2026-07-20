@@ -1,8 +1,26 @@
 import { ColorObject, ColorPickerChangeTrigger, ColorPickerPanel } from '@tdesign/components/color-picker';
 import { mount } from '@vue/test-utils';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { ref } from 'vue';
 import coloPickerPaneProps from '@tdesign/components/color-picker/color-picker-panel-props';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
+class MockEyeDropper {
+  // eslint-disable-next-line class-methods-use-this
+  open() {
+    return Promise.resolve({ sRGBHex: '#AaBbCc' });
+  }
+}
+
+class CancelEyeDropper {
+  // eslint-disable-next-line class-methods-use-this
+  open() {
+    return Promise.reject(new DOMException('User canceled', 'AbortError'));
+  }
+}
 
 /**
  * 因为在 color-picker 中已经测试过基本的 props 了，因此这里只是做额外的测试
@@ -47,6 +65,28 @@ describe('ColorPickerPanel', () => {
       );
       expect(wrapper.find('.t-color-picker__swatches .t-color-picker__icon').exists()).toBeFalsy();
     });
+
+    it(':eyeDropper[boolean]', async () => {
+      vi.stubGlobal('EyeDropper', MockEyeDropper);
+
+      const wrapper = mount(() => <ColorPickerPanel eyeDropper />);
+      const button = wrapper.find('.t-color-picker__eyedropper');
+
+      expect(button.exists()).toBeTruthy();
+      expect(button.attributes('disabled')).toBeUndefined();
+    });
+
+    it(':eyeDropper disabled when unsupported', async () => {
+      const wrapper = mount(() => <ColorPickerPanel eyeDropper />);
+
+      expect(wrapper.find('.t-color-picker__eyedropper').attributes('disabled')).toBeDefined();
+    });
+
+    it(':eyeDropper fallback mode is enabled without native API', async () => {
+      const wrapper = mount(() => <ColorPickerPanel eyeDropper={{ mode: 'fallback' }} />);
+
+      expect(wrapper.find('.t-color-picker__eyedropper').attributes('disabled')).toBeUndefined();
+    });
   });
 
   describe(':event', () => {
@@ -74,6 +114,35 @@ describe('ColorPickerPanel', () => {
       const args2 = fn2.mock.calls[0];
       expect(args2[0]).toBe('linear-gradient(80deg,rgb(241, 29, 0) 0%,rgb(73, 106, 220) 100%)');
       expect(args2[1].trigger).toBe('input');
+    });
+
+    it(':change trigger by eyedropper', async () => {
+      vi.stubGlobal('EyeDropper', MockEyeDropper);
+
+      const fn = vi.fn((value: string, context: { color: ColorObject; trigger: ColorPickerChangeTrigger }) => {});
+      const wrapper = mount(() => (
+        <ColorPickerPanel eyeDropper onChange={fn} colorModes={['monochrome']} format="HEX" />
+      ));
+
+      await wrapper.find('.t-color-picker__eyedropper').trigger('click');
+      await vi.waitFor(() => expect(fn).toHaveBeenCalled());
+
+      expect(fn.mock.calls[0][0]).toBe('#aabbcc');
+      expect(fn.mock.calls[0][1].trigger).toBe('eyedropper');
+    });
+
+    it(':eyeDropper cancel does not trigger change', async () => {
+      vi.stubGlobal('EyeDropper', CancelEyeDropper);
+
+      const fn = vi.fn((value: string, context: { color: ColorObject; trigger: ColorPickerChangeTrigger }) => {});
+      const wrapper = mount(() => (
+        <ColorPickerPanel eyeDropper onChange={fn} colorModes={['monochrome']} format="HEX" />
+      ));
+
+      await wrapper.find('.t-color-picker__eyedropper').trigger('click');
+      await Promise.resolve();
+
+      expect(fn).not.toHaveBeenCalled();
     });
   });
 });

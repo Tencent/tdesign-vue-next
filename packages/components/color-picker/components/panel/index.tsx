@@ -1,4 +1,5 @@
-import { computed, defineComponent, ref, toRefs, watch } from 'vue';
+import { computed, defineComponent, onBeforeUnmount, ref, toRefs, watch } from 'vue';
+import { SipIcon as TdSipIcon } from 'tdesign-icons-vue-next';
 import { cloneDeep, isNull, isUndefined } from 'lodash-es';
 import {
   Color,
@@ -8,12 +9,14 @@ import {
   getColorObject,
   GradientColorPoint,
   initColorFormat,
+  isEyeDropperSupported,
+  openEyeDropper,
   TD_COLOR_USED_COLORS_MAX_SIZE,
 } from '@tdesign/common-js/color-picker/index';
-import { useCommonClassName, useConfig, useDefaultValue, useVModel } from '@tdesign/shared-hooks';
+import { useCommonClassName, useConfig, useDefaultValue, useGlobalIcon, useVModel } from '@tdesign/shared-hooks';
 import props from '../../color-picker-panel-props';
 import { useBaseClassName } from '../../hooks';
-import type { ColorPickerChangeTrigger, TdColorPickerProps } from '../../type';
+import type { ColorPickerChangeTrigger, EyeDropperConfig, TdColorPickerProps } from '../../type';
 import type { TdColorModes } from '../../types';
 import FormatPanel from '../format';
 import AlphaSlider from './alpha';
@@ -32,6 +35,7 @@ export default defineComponent({
     const baseClassName = useBaseClassName();
     const { STATUS } = useCommonClassName();
     const { t, globalConfig } = useConfig('colorPicker');
+    const { SipIcon } = useGlobalIcon({ SipIcon: TdSipIcon });
     const statusClassNames = STATUS.value;
     const { value: inputValue, modelValue, recentColors } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
@@ -56,6 +60,13 @@ export default defineComponent({
     const color = ref(new Color(innerValue.value || defaultEmptyColor.value));
 
     const formatModel = ref<TdColorPickerProps['format']>(initColorFormat(props.format, props.enableAlpha));
+    const getEyeDropperOptions = (config: EyeDropperConfig) => {
+      if (!config || config === true) return {};
+      return config;
+    };
+    const eyeDropperOptions = computed(() => getEyeDropperOptions(props.eyeDropper));
+    const eyeDropperSupported = computed(() => isEyeDropperSupported(eyeDropperOptions.value));
+    const eyeDropperAbortController = ref<AbortController | null>(null);
 
     /**
      * 添加最近使用颜色
@@ -189,6 +200,34 @@ export default defineComponent({
       emitColorChange('input');
     };
 
+    const handleEyeDropperPick = (hex: string) => {
+      const previousAlpha = color.value.alpha;
+      color.value.update(hex);
+      if (props.enableAlpha) {
+        color.value.alpha = previousAlpha;
+        if (color.value.isGradient) {
+          color.value.updateCurrentGradientColor();
+        }
+      }
+      emitColorChange('eyedropper');
+    };
+
+    const handleEyeDropperClick = async () => {
+      if (!eyeDropperSupported.value || props.disabled) return;
+
+      eyeDropperAbortController.value?.abort();
+      eyeDropperAbortController.value = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      const hex = await openEyeDropper({
+        ...eyeDropperOptions.value,
+        signal: eyeDropperAbortController.value?.signal,
+      });
+      if (hex) handleEyeDropperPick(hex);
+    };
+
+    onBeforeUnmount(() => {
+      eyeDropperAbortController.value?.abort();
+    });
+
     /**
      * 渐变改变
      * @param param0
@@ -257,6 +296,8 @@ export default defineComponent({
         systemColors = systemColors.filter((color) => Color.isGradientColor(color));
       }
       const showSystemColors = Array.isArray(systemColors) && systemColors.length;
+      const showEyeDropper = Boolean(props.eyeDropper);
+      const eyeDropperDisabled = !eyeDropperSupported.value || props.disabled;
 
       const renderSwatches = () => {
         if (!showSystemColors && !showUsedColors) return null;
@@ -302,6 +343,22 @@ export default defineComponent({
             <SaturationPanel {...baseProps} onChange={handleSatAndValueChange} />
 
             <div class={[`${baseClassName.value}__sliders-wrapper`]}>
+              {showEyeDropper ? (
+                <button
+                  type="button"
+                  aria-label="eyedropper"
+                  disabled={eyeDropperDisabled}
+                  class={[
+                    `${baseClassName.value}__icon`,
+                    `${baseClassName.value}__eyedropper`,
+                    `${baseClassName.value}__sliders-eyedropper`,
+                    { [statusClassNames.disabled]: eyeDropperDisabled },
+                  ]}
+                  onClick={handleEyeDropperClick}
+                >
+                  <SipIcon />
+                </button>
+              ) : null}
               <div class={[`${baseClassName.value}__sliders`]}>
                 <HueSlider {...baseProps} onChange={handleHueChange} />
                 {props.enableAlpha ? <AlphaSlider {...baseProps} onChange={handleAlphaChange} /> : null}

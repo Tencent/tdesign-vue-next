@@ -30,6 +30,10 @@ export default {
     default: true,
   },
   /** 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效 */
+  eyeDropper: {
+    type: [Boolean, Object] as unknown as PropType<TdColorPickerProps['eyeDropper']>,
+    default: false as TdColorPickerProps['eyeDropper'],
+  },
   format: {
     type: String as PropType<TdColorPickerProps['format']>,
     default: 'RGB' as TdColorPickerProps['format'],

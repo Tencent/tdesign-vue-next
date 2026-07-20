@@ -39,6 +39,7 @@
     "@tdesign/internal-utils": "workspace:^",
     "@tdesign/shared-hooks": "workspace:^",
     "@tdesign/shared-utils": "workspace:^",
+    "html2canvas-pro": "2.2.4",
     "tdesign-vue-next": "workspace:^"
   },
   "devDependencies": {

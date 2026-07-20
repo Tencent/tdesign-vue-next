@@ -9,6 +9,13 @@ import { PopupProps } from '../popup';
 import { SelectInputProps } from '../select-input';
 import { SizeEnum } from '../common';
 
+export type EyeDropperConfig =
+  | boolean
+  | {
+      mode?: 'native' | 'fallback';
+      showPreview?: boolean;
+    };
+
 export interface TdColorPickerProps {
   /**
    * 无边框模式
@@ -39,6 +46,11 @@ export interface TdColorPickerProps {
    * @default true
    */
   enableMultipleGradient?: boolean;
+  /**
+   * 是否开启吸色（屏幕取色）功能。开启后颜色条前显示吸色按钮
+   * @default false
+   */
+  eyeDropper?: EyeDropperConfig;
   /**
    * 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效
    * @default RGB
@@ -134,6 +146,11 @@ export interface TdColorPickerPanelProps {
    */
   enableMultipleGradient?: boolean;
   /**
+   * 是否开启吸色（屏幕取色）功能。开启后颜色条前显示吸色按钮
+   * @default false
+   */
+  eyeDropper?: EyeDropperConfig;
+  /**
    * 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效
    * @default RGB
    */
@@ -198,7 +215,8 @@ export type ColorPickerChangeTrigger =
   | 'palette-alpha-bar'
   | 'input'
   | 'preset'
-  | 'recent';
+  | 'recent'
+  | 'eyedropper';
 
 export interface ColorObject {
   alpha: number;
