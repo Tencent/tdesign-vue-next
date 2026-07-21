@@ -4,7 +4,6 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { AffixProps } from '../affix';
 import { LoadingProps } from '../loading';
 import { TableConfig } from '../config-provider';
 import { PaginationProps, PageInfo } from '../pagination';
@@ -19,7 +18,7 @@ import { ButtonProps } from '../button';
 import { CheckboxGroupProps } from '../checkbox';
 import { DialogProps } from '../dialog';
 import { FormRule, AllValidateResult } from '../form';
-import {
+import type {
   TNode,
   OptionData,
   SizeEnum,
@@ -95,6 +94,11 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   empty?: string | TNode;
   /**
+   * 是否启用锁定滚动条。开启后，切换分页、数据刷新等行为都不会重置滚动条位置。
+   * @default false
+   */
+  enableLockScrollbar?: boolean;
+  /**
    * 首行内容，横跨所有列
    */
   firstFullRow?: string | TNode;
@@ -108,11 +112,6 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footData?: Array<T>;
   /**
-   * 请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。
-   * @deprecated
-   */
-  footerAffixProps?: Partial<AffixProps>;
-  /**
    * 表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
    * @default false
    */
@@ -122,12 +121,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footerSummary?: string | TNode;
   /**
-   * 请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
-   * @deprecated
-   */
-  headerAffixProps?: Partial<AffixProps>;
-  /**
-   * 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。
+   * 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性
    * @default false
    */
   headerAffixedTop?: boolean | Partial<AffixProps>;
@@ -297,16 +291,6 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * 表格内容滚动时触发
    */
   onScroll?: (params: { e: WheelEvent }) => void;
-  /**
-   * 表格内容横向滚动时触发。请更为使用 `onScroll` 事件
-   * @deprecated
-   */
-  onScrollX?: (params: { e: WheelEvent }) => void;
-  /**
-   * 表格内容纵向滚动时触发。当内容超出高度(height)或最大高度(max-height)时，会出现纵向滚动条。请更为使用 `onScroll` 事件
-   * @deprecated
-   */
-  onScrollY?: (params: { e: WheelEvent }) => void;
 }
 
 /** 组件实例方法 */
@@ -322,7 +306,7 @@ export interface BaseTableInstanceFunctions<T extends TableRowData = TableRowDat
   /**
    * 纵向滚动到指定行。示例：`scrollToElement({ index: 100, top: 80, time: 200, behavior: 'smooth' })`
    */
-  scrollToElement: (params: ComponentScrollToElementParams) => void;
+  scrollToElement?: (params: ComponentScrollToElementParams) => void;
 }
 
 export interface BaseTableCol<T extends TableRowData = TableRowData> {
@@ -449,7 +433,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   defaultDisplayColumns?: CheckboxGroupValue;
   /**
-   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过拖拽手柄进行行拖拽排序。值为 `col` 表示列顺序拖拽。值为 `row-handler-col` 表示同时支持行拖拽和列拖拽。⚠️`drag-col` 已废弃，请勿使用。
+   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过拖拽手柄进行行拖拽排序。值为 `col` 表示列顺序拖拽。值为 `row-handler-col` 表示同时支持行拖拽和列拖拽。⚠️`drag-col` 已废弃，请勿使用
    */
   dragSort?: 'row' | 'row-handler' | 'col' | 'row-handler-col' | 'drag-col';
   /**
@@ -561,12 +545,6 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   sortIcon?: TNode;
   /**
-   * 允许表格行拖拽时排序。请更为使用 `dragSort=\"row\"`
-   * @default false
-   * @deprecated
-   */
-  sortOnRowDraggable?: boolean;
-  /**
    * 异步加载区域被点击时触发
    */
   onAsyncLoadingClick?: (context: { status: 'loading' | 'load-more' }) => void;
@@ -585,7 +563,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
   /**
    * 列配置弹窗显示或隐藏变化时触发
    */
-  onColumnControllerVisibleChange?: (visible: boolean, context: { trigger: 'cancel' | 'confirm' | 'open' }) => void;
+  onColumnControllerVisibleChange?: (visible: boolean, context: { trigger: 'cancel' | 'confirm' }) => void;
   /**
    * 本地数据排序导致 `data` 变化时触发，第一个参数指变化后的数据，第二个参数 `context.trigger` 表示触发本次变化的来源
    */
@@ -738,11 +716,6 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
     expandedTreeNodes: Array<string | number>,
     options: TableTreeNodeExpandOptions<T>,
   ) => void;
-  /**
-   * 树形结构，用户操作引起节点展开或收起时触发。请更为使用 `onExpandedTreeNodesChange`
-   * @deprecated
-   */
-  onTreeExpandChange?: (context: TableTreeExpandChangeContext<T>) => void;
 }
 
 /** 组件实例方法 */
@@ -872,6 +845,11 @@ export interface TableColumnFilter {
    * 用于配置当前筛选器可选值有哪些，仅当 `filter.type` 等于 `single` 或 `multiple` 时有效
    */
   list?: Array<OptionData>;
+  /**
+   * 选项过滤功能配置，`listFilterConfig=true` 表示使用默认过滤功能和组件风格，`listFilterConfig.filterMethod` 用于自定义过滤方法，其中 `props/className/style` 分别表示透传属性、类名、样式到输入框组件
+   * @default false
+   */
+  listFilterConfig?: boolean | ListFilterConfig;
   /**
    * 透传 Popup 组件全部属性到筛选器浮层
    */
@@ -1038,7 +1016,9 @@ export interface RowClassNameParams<T> {
   type?: 'body' | 'foot';
 }
 
-export type TableRowspanAndColspanFunc<T> = (params: BaseTableCellParams<T>) => RowspanColspan;
+export type TableRowspanAndColspanFunc<T extends TableRowData = TableRowData> = (
+  params: BaseTableCellParams<T>,
+) => RowspanColspan;
 
 export interface RowspanColspan {
   colspan?: number;
@@ -1058,9 +1038,9 @@ export interface ActiveRowActionContext<T> {
 
 export type ActiveRowActionType = 'shift-area-selection' | 'space-one-selection' | 'clear' | 'select-all';
 
-export interface BaseTableCellEventContext<T> {
+export interface BaseTableCellEventContext<T extends TableRowData = TableRowData> {
   row: T;
-  col: BaseTableCol;
+  col: BaseTableCol<T>;
   rowIndex: number;
   colIndex: number;
   e: MouseEvent;
@@ -1086,9 +1066,11 @@ export interface BaseTableCellParams<T> {
   colIndex: number;
 }
 
-export type TableColumnClassName<T> = ClassName | ((context: CellData<T>) => ClassName);
+export type TableColumnClassName<T extends TableRowData = TableRowData> =
+  | ClassName
+  | ((context: CellData<T>) => ClassName);
 
-export interface CellData<T> extends BaseTableCellParams<T> {
+export interface CellData<T extends TableRowData = TableRowData> extends BaseTableCellParams<T> {
   type: 'th' | 'td';
 }
 
@@ -1247,13 +1229,6 @@ export interface TableTreeNodeExpandOptions<T> {
   trigger?: 'expand-fold-icon' | 'row-click' | 'default-expand-all' | 'expand-all' | 'fold-all';
 }
 
-export interface TableTreeExpandChangeContext<T> {
-  row: T;
-  rowIndex: number;
-  rowState: TableRowState<T>;
-  trigger?: 'expand-fold-icon' | 'row-click';
-}
-
 export type TableRowValue = string | number;
 
 export interface SwapParams<T> {
@@ -1261,6 +1236,14 @@ export interface SwapParams<T> {
   target: T;
   currentIndex: number;
   targetIndex: number;
+}
+
+export interface ListFilterConfig {
+  filterMethod?: (item: OptionData, keyword: string) => boolean;
+  props?: InputProps;
+  className?: string;
+  style?: Styles;
+  slots?: { [key: string]: () => JSX.Element };
 }
 
 export type FilterProps = RadioProps | CheckboxProps | InputProps | { [key: string]: any };
