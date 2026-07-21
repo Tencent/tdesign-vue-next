@@ -94,7 +94,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   empty?: string | TNode;
   /**
-   * 是否启用锁定滚动条。开启后，切换分页、数据刷新等行为都不会重置滚动条位置。
+   * 切换分页时是否锁定滚动条。开启后，切换分页时不会重置滚动条位置。
    * @default false
    */
   enableLockScrollbar?: boolean;

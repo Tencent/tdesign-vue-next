@@ -19,7 +19,7 @@ data | Array | [] | 数据源，泛型 T 指表格数据类型。TS 类型：`Ar
 disableDataPage | Boolean | false | 是否禁用本地数据分页。当 `data` 数据长度超过分页大小时，会自动进行本地数据分页。如果 `disableDataPage` 设置为 true，则无论何时，都不会进行本地数据分页 | N
 disableSpaceInactiveRow | Boolean | undefined | 默认重复按下 Space 键可取消当前行高亮，是否禁用取消 | N
 empty | String / Slot / Function | '' | 空表格呈现样式，支持全局配置 `GlobalConfigProvider`。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-enableLockScrollbar | Boolean | false | 是否启用锁定滚动条。开启后，切换分页、数据刷新等行为都不会重置滚动条位置。 | N
+enableLockScrollbar | Boolean | false | 切换分页时是否锁定滚动条。开启后，切换分页时不会重置滚动条位置。 | N
 firstFullRow | String / Slot / Function | - | 首行内容，横跨所有列。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 fixedRows | Array | - | 固定行（冻结行），示例：[M, N]，表示冻结表头 M 行和表尾 N 行。M 和 N 值为 0 时，表示不冻结行。TS 类型：`Array<number>` | N
 footData | Array | [] | 表尾数据源，泛型 T 指表格数据类型。TS 类型：`Array<T>` | N
