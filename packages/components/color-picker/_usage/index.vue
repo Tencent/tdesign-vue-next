@@ -2,10 +2,10 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #colorPicker="{ configProps }">
-      <t-color-picker v-bind="configProps" :default-value="defaultColor" />
+      <t-color-picker v-bind="configProps" eye-dropper :default-value="defaultColor" />
     </template>
     <template #colorPickerPanel="{ configProps }">
-      <t-color-picker-panel v-bind="configProps" :default-value="defaultColor" />
+      <t-color-picker-panel v-bind="configProps" eye-dropper :default-value="defaultColor" />
     </template>
   </base-usage>
 </template>
@@ -24,8 +24,8 @@ const panelList = [
 const defaultColor = ref('rgb(0, 82, 217)');
 
 const usageCodeMap = {
-  colorPicker: '<t-color-picker v-bind="configProps" />',
-  colorPickerPanel: '<t-color-picker-panel v-bind="configProps" />',
+  colorPicker: '<t-color-picker v-bind="configProps" eye-dropper />',
+  colorPickerPanel: '<t-color-picker-panel v-bind="configProps" eye-dropper />',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 
