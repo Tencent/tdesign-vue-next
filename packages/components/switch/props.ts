@@ -37,6 +37,15 @@ export default {
       return ['small', 'medium', 'large'].includes(val);
     },
   },
+  /** 开关外观风格 */
+  theme: {
+    type: String as PropType<TdSwitchProps['theme']>,
+    default: 'default' as TdSwitchProps['theme'],
+    validator(val: TdSwitchProps['theme']): boolean {
+      if (!val) return true;
+      return ['default', 'rectangle', 'line'].includes(val);
+    },
+  },
   /** 开关值 */
   value: {
     type: [String, Number, Boolean] as PropType<TdSwitchProps['value']>,

@@ -63,6 +63,7 @@ export default defineComponent({
       `${COMPONENT_NAME.value}`,
       SIZE.value[props.size],
       {
+        [`${COMPONENT_NAME.value}--${props.theme}`]: props.theme !== 'default',
         [STATUS.value.disabled]: disabled.value,
         [STATUS.value.loading]: props.loading,
         [STATUS.value.checked]: innerValue.value === activeValue.value || props.modelValue === activeValue.value,

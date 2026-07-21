@@ -35,6 +35,11 @@ export interface TdSwitchProps<T = SwitchValue> {
    */
   size?: 'small' | 'medium' | 'large';
   /**
+   * 开关外观风格
+   * @default default
+   */
+  theme?: 'default' | 'rectangle' | 'line';
+  /**
    * 开关值
    */
   value?: T;

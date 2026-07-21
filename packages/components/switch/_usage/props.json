@@ -29,5 +29,24 @@
         "value": "large"
       }
     ]
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "rectangle",
+        "value": "rectangle"
+      },
+      {
+        "label": "line",
+        "value": "line"
+      }
+    ]
   }
 ]
