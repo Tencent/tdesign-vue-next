@@ -4,6 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { AffixProps } from '../affix';
 import { LoadingProps } from '../loading';
 import { TableConfig } from '../config-provider';
 import { PaginationProps, PageInfo } from '../pagination';
@@ -112,6 +113,11 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footData?: Array<T>;
   /**
+   * 请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。
+   * @deprecated
+   */
+  footerAffixProps?: Partial<AffixProps>;
+  /**
    * 表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
    * @default false
    */
@@ -121,7 +127,12 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footerSummary?: string | TNode;
   /**
-   * 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性
+   * 请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
+   * @deprecated
+   */
+  headerAffixProps?: Partial<AffixProps>;
+  /**
+   * 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。
    * @default false
    */
   headerAffixedTop?: boolean | Partial<AffixProps>;
@@ -291,6 +302,16 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * 表格内容滚动时触发
    */
   onScroll?: (params: { e: WheelEvent }) => void;
+  /**
+   * 表格内容横向滚动时触发。请更为使用 `onScroll` 事件
+   * @deprecated
+   */
+  onScrollX?: (params: { e: WheelEvent }) => void;
+  /**
+   * 表格内容纵向滚动时触发。当内容超出高度(height)或最大高度(max-height)时，会出现纵向滚动条。请更为使用 `onScroll` 事件
+   * @deprecated
+   */
+  onScrollY?: (params: { e: WheelEvent }) => void;
 }
 
 /** 组件实例方法 */
@@ -545,6 +566,12 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   sortIcon?: TNode;
   /**
+   * 允许表格行拖拽时排序。请更为使用 `dragSort=\"row\"`
+   * @default false
+   * @deprecated
+   */
+  sortOnRowDraggable?: boolean;
+  /**
    * 异步加载区域被点击时触发
    */
   onAsyncLoadingClick?: (context: { status: 'loading' | 'load-more' }) => void;
@@ -563,7 +590,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
   /**
    * 列配置弹窗显示或隐藏变化时触发
    */
-  onColumnControllerVisibleChange?: (visible: boolean, context: { trigger: 'cancel' | 'confirm' }) => void;
+  onColumnControllerVisibleChange?: (visible: boolean, context: { trigger: 'cancel' | 'confirm' | 'open' }) => void;
   /**
    * 本地数据排序导致 `data` 变化时触发，第一个参数指变化后的数据，第二个参数 `context.trigger` 表示触发本次变化的来源
    */
@@ -716,6 +743,11 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
     expandedTreeNodes: Array<string | number>,
     options: TableTreeNodeExpandOptions<T>,
   ) => void;
+  /**
+   * 树形结构，用户操作引起节点展开或收起时触发。请更为使用 `onExpandedTreeNodesChange`
+   * @deprecated
+   */
+  onTreeExpandChange?: (context: TableTreeExpandChangeContext<T>) => void;
 }
 
 /** 组件实例方法 */
@@ -845,11 +877,6 @@ export interface TableColumnFilter {
    * 用于配置当前筛选器可选值有哪些，仅当 `filter.type` 等于 `single` 或 `multiple` 时有效
    */
   list?: Array<OptionData>;
-  /**
-   * 选项过滤功能配置，`listFilterConfig=true` 表示使用默认过滤功能和组件风格，`listFilterConfig.filterMethod` 用于自定义过滤方法，其中 `props/className/style` 分别表示透传属性、类名、样式到输入框组件
-   * @default false
-   */
-  listFilterConfig?: boolean | ListFilterConfig;
   /**
    * 透传 Popup 组件全部属性到筛选器浮层
    */
@@ -1229,6 +1256,13 @@ export interface TableTreeNodeExpandOptions<T> {
   trigger?: 'expand-fold-icon' | 'row-click' | 'default-expand-all' | 'expand-all' | 'fold-all';
 }
 
+export interface TableTreeExpandChangeContext<T> {
+  row: T;
+  rowIndex: number;
+  rowState: TableRowState<T>;
+  trigger?: 'expand-fold-icon' | 'row-click';
+}
+
 export type TableRowValue = string | number;
 
 export interface SwapParams<T> {
@@ -1236,14 +1270,6 @@ export interface SwapParams<T> {
   target: T;
   currentIndex: number;
   targetIndex: number;
-}
-
-export interface ListFilterConfig {
-  filterMethod?: (item: OptionData, keyword: string) => boolean;
-  props?: InputProps;
-  className?: string;
-  style?: Styles;
-  slots?: { [key: string]: () => JSX.Element };
 }
 
 export type FilterProps = RadioProps | CheckboxProps | InputProps | { [key: string]: any };
