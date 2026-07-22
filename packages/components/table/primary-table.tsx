@@ -296,13 +296,14 @@ export default defineComponent({
               onRuleChange,
               onEditableChange: onPrimaryTableCellEditChange,
             };
+            const rowValue = get(p.row, props.rowKey || 'id');
             if (props.editableRowKeys) {
-              const rowValue = get(p.row, props.rowKey || 'id');
               cellProps.editable = editableKeysMap.value[rowValue] || false;
-              const key = [rowValue, p.col.colKey].join('__');
-              const errorList = errorListMap.value?.[key];
-              errorList && (cellProps.errors = errorList);
             }
+            // 恢复校验错误信息：行编辑与单元格编辑（含 keepEditMode + 虚拟滚动重新挂载）场景均需要
+            const errorListKey = [rowValue, p.col.colKey].join('__');
+            const errorList = errorListMap.value?.[errorListKey];
+            errorList && (cellProps.errors = errorList);
             if (props.editableCellState) {
               cellProps.readonly = !props.editableCellState(p);
             }
