@@ -223,8 +223,15 @@ export default defineComponent({
     });
 
     const onEditableCellChange: EditableCellProps['onChange'] = (params) => {
+      const rowKey = props.rowKey || 'id';
+      const sourceRowValue = get(params.row, rowKey);
       props.onRowEdit?.(params);
-      const rowValue = get(params.editedRow, props.rowKey || 'id');
+      const sourceRow = props.data.find((row) => get(row, rowKey) === sourceRowValue);
+      // TODO: 当前为兼容 rowEdit 中直接修改 row 的行为，后续应通过受控数据更新机制替代对 props.data 的直接修改。
+      if (sourceRow && sourceRow !== params.row) {
+        Object.assign(sourceRow, params.row);
+      }
+      const rowValue = get(params.editedRow, rowKey);
       onUpdateEditedCell(rowValue, params.row, {
         [params.col.colKey]: params.value,
       });
