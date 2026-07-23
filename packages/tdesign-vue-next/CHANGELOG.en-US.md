@@ -27,10 +27,6 @@ docClass: timeline
 - `TreeSelect`: Fixed errors in the parameters of the change event callback, as well as issues that did not match the documentation. @RSS1102 ([#6829](https://github.com/Tencent/tdesign-vue-next/pull/6829))
 - `Typography`: Fixed the problem where the custom Tooltip’s display position was incorrect. @Wesley-0808 ([#6821](https://github.com/Tencent/tdesign-vue-next/pull/6821))
 
-### 🚧 Others
-
-- `Popup`: Removed certain judgment logic related to environment variables. @uyarn ([#6778](https://github.com/Tencent/tdesign-vue-next/pull/6778))
-
 ## 🌈 1.20.3 `2026-07-02`
 
 ### 🚀 Features
