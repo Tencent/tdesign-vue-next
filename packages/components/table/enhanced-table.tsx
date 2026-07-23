@@ -16,6 +16,7 @@ import useTreeSelect from './hooks/useTreeSelect';
 import { get } from 'lodash-es';
 import { ComponentScrollToElementParams } from '../common';
 import log from '@tdesign/common-js/log/index';
+import swapDragArrayElement from '@tdesign/common-js/utils/swapDragArrayElement';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
@@ -59,14 +60,31 @@ export default defineComponent({
     });
 
     const onDragSortChange = (params: DragSortContext<TableRowData>) => {
-      if (props.beforeDragSort && !props.beforeDragSort(params)) return;
+      let dragSortParams = params;
+      if (params.sort === 'col') {
+        const { currentIndex, targetIndex } = params;
+        const newData = swapDragArrayElement([...props.columns], currentIndex, targetIndex);
+        dragSortParams = {
+          ...params,
+          data: props.columns,
+          current: props.columns[currentIndex],
+          target: props.columns[targetIndex],
+          newData,
+          currentData: newData,
+        };
+      }
+      if (props.beforeDragSort && !props.beforeDragSort(dragSortParams)) return;
+      if (dragSortParams.sort === 'col') {
+        props.onDragSort?.(dragSortParams);
+        return;
+      }
       swapData({
-        current: params.current,
-        target: params.target,
-        currentIndex: params.currentIndex,
-        targetIndex: params.targetIndex,
+        current: dragSortParams.current,
+        target: dragSortParams.target,
+        currentIndex: dragSortParams.currentIndex,
+        targetIndex: dragSortParams.targetIndex,
       });
-      props.onDragSort?.(params);
+      props.onDragSort?.(dragSortParams);
     };
 
     const onEnhancedTableRowClick: TdPrimaryTableProps['onRowClick'] = (p) => {
