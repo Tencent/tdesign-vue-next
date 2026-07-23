@@ -121,7 +121,9 @@ export default defineComponent({
 
           renderContent = (
             <div key={idx}>
-              {optionItem.directives ? withDirectives(item, optionItem.directives) : item}
+              {Array.isArray(optionItem.directives) && optionItem.directives.length
+                ? withDirectives(item, optionItem.directives)
+                : item}
               {optionItem.divider ? <TDivider /> : null}
             </div>
           );
