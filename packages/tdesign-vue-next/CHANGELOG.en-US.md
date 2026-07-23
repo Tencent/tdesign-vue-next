@@ -5,6 +5,32 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.4 `2026-07-23`
+
+### 🚀 Features
+
+- `Tag`: The `title` parameter accepts `Boolean` values; if `false` is provided, the `title` will not be displayed, while if no value is provided or `true` is used, the default content will be shown. @Wesley-0808 ([#6822](https://github.com/Tencent/tdesign-vue-next/pull/6822))
+- `Icon`: Add new icons `send-1-filled`、`send-1`、`star-1` 和 `star-1-filled` @RADWIMPS426 ([icon#250](https://github.com/Tencent/tdesign-icon/pull/250)) ([icon#255](https://github.com/Tencent/tdesign-icon/pull/255))
+
+### 🐞 Bug Fixes
+
+- `Checkbox`: Fixed the issue where the checkbox could still change its selected state even when it was disabled. @ZhuYuRan001 ([#6813](https://github.com/Tencent/tdesign-vue-next/pull/6813))
+- `Dialog`: Fixed the problem where the styles of the outer `t-dialog__close` element affected the appearance of the custom closeBtn. @xuxiao1797 ([#6801](https://github.com/Tencent/tdesign-vue-next/pull/6801))
+- `Drawer`: Fixed the issue where, in the `sizeDraggable` mode, releasing the mouse button outside the window caused the drawer’s size to continue adjusting. @xuxiao1797 ([#6789](https://github.com/Tencent/tdesign-vue-next/pull/6789))
+- `Select`: Fixed the warning that appeared when using the Tab key to open the dropdown menu. @xuxiao1797 ([#6790](https://github.com/Tencent/tdesign-vue-next/pull/6790))
+- `Swiper`: Fixed the logic error that occurred when there were only two items in the slideshow. @yuxi-ovo ([#6830](https://github.com/Tencent/tdesign-vue-next/pull/6830))
+- `Table`: 
+  - Fixed issues related to cells appearing incorrectly when virtual scrolling was used in conjunction with merged cells. @uyarn ([#6827](https://github.com/Tencent/tdesign-vue-next/pull/6827))
+  - Fixed the problem where the validation status was lost when virtual scrolling was used with editable cells. @uyarn ([#6827](https://github.com/Tencent/tdesign-vue-next/pull/6827))
+  - Fixed issues that arose after configuring `editableRowKeys`. @uyarn ([#6827](https://github.com/Tencent/tdesign-vue-next/pull/6827))
+  - Fixed the issue where column dragging and sorting were not supported in tree tables. @uyarn ([#6832](https://github.com/Tencent/tdesign-vue-next/pull/6832))
+- `TreeSelect`: Fixed errors in the parameters of the change event callback, as well as issues that did not match the documentation. @RSS1102 ([#6829](https://github.com/Tencent/tdesign-vue-next/pull/6829))
+- `Typography`: Fixed the problem where the custom Tooltip’s display position was incorrect. @Wesley-0808 ([#6821](https://github.com/Tencent/tdesign-vue-next/pull/6821))
+
+### 🚧 Others
+
+- `Popup`: Removed certain judgment logic related to environment variables. @uyarn ([#6778](https://github.com/Tencent/tdesign-vue-next/pull/6778))
+
 ## 🌈 1.20.3 `2026-07-02`
 
 ### 🚀 Features
