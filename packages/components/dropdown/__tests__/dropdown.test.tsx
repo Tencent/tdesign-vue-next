@@ -1,4 +1,4 @@
-import { nextTick } from 'vue';
+import { nextTick, Directive } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
@@ -752,6 +752,42 @@ describe('Dropdown', () => {
         // 验证 onVisibleChange 被调用两次（一次 true，一次 false）
         expect(onVisibleChange).toHaveBeenCalled();
       });
+    });
+
+    it('supports custom directives', async () => {
+      const vTest: Directive = {
+        mounted(el, binding) {
+          el.setAttribute('data-test', binding.value);
+        },
+      };
+
+      const wrapper = mount(
+        <Dropdown popupProps={{ visible: true }}>
+          {{
+            default: () => <Button>Menu</Button>,
+            dropdown: () => (
+              <DropdownMenu>
+                <DropdownItem v-test="foo">Option 1</DropdownItem>
+                <DropdownItem>Option 2</DropdownItem>
+              </DropdownMenu>
+            ),
+          }}
+        </Dropdown>,
+        {
+          global: {
+            directives: {
+              test: vTest,
+            },
+          },
+        },
+      );
+
+      await sleep(200);
+      const dropdownItems = document.querySelectorAll('.t-dropdown__item');
+      expect(dropdownItems[0]?.getAttribute('data-test')).toBe('foo');
+      expect(dropdownItems[1]?.getAttribute('data-test')).toBeNull();
+
+      wrapper.unmount();
     });
   });
 });
