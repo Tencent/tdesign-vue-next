@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.5 `2026-07-23`
+
+### 🐞 Bug Fixes
+
+- `Dropdown`: Fixed the issue where custom `v-` directives did not work. @Wesley-0808 ([#6818](https://github.com/Tencent/tdesign-vue-next/pull/6818))
+
 ## 🌈 1.20.4 `2026-07-23`
 
 ### 🚀 Features
