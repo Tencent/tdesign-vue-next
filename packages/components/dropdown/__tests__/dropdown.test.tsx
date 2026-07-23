@@ -754,7 +754,7 @@ describe('Dropdown', () => {
       });
     });
 
-    it('SupportCustomDirectives', async () => {
+    it('supports custom directives', async () => {
       const vTest: Directive = {
         mounted(el, binding) {
           el.setAttribute('data-test', binding.value);
