@@ -20,7 +20,8 @@ import props from './props';
 
 import { useTNodeJSX, useGlobalIcon, usePrefixClass, useResizeObserver } from '@tdesign/shared-hooks';
 
-import { isObject, isString } from 'lodash-es';
+import isObject from 'lodash-es/isObject';
+import isString from 'lodash-es/isString';
 
 export default defineComponent({
   name: 'TProgress',

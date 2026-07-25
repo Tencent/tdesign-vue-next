@@ -4,7 +4,7 @@ import { useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared
 
 import TLoading from '../loading';
 import props from './props';
-import { isString } from 'lodash-es';
+import isString from 'lodash-es/isString';
 import { TdCardProps } from './type';
 
 export default defineComponent({

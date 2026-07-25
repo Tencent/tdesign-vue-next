@@ -1,5 +1,6 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
-import { get, omit } from 'lodash-es';
+import get from 'lodash-es/get';
+import omit from 'lodash-es/omit';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';

@@ -1,5 +1,8 @@
 import { computed, Slots, Ref, ref } from 'vue';
-import { get, isArray, isFunction, uniqBy } from 'lodash-es';
+import get from 'lodash-es/get';
+import isArray from 'lodash-es/isArray';
+import isFunction from 'lodash-es/isFunction';
+import uniqBy from 'lodash-es/uniqBy';
 
 import { useChildComponentSlots } from '@tdesign/shared-hooks';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectValue, SelectOption } from '../type';

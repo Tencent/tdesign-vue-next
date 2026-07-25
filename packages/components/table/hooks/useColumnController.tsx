@@ -3,7 +3,7 @@
  */
 import { computed, ref, SetupContext, toRefs, watch, h } from 'vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 import { CheckboxGroupValue, CheckboxOptionObj, CheckboxGroupChangeContext } from '../../checkbox';
 import { DialogPlugin } from '../../dialog/plugin';
 import { renderTitle } from './useTableHeader';

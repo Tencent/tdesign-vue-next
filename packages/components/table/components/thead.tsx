@@ -1,5 +1,5 @@
 import { defineComponent, computed, PropType, ref, Ref, h, CSSProperties } from 'vue';
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 import { getColumnFixedStyles } from '../hooks/useFixed';
 import useClassName from '../hooks/useClassName';
 import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';

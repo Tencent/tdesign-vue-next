@@ -1,6 +1,7 @@
 import { defineComponent, computed, ref, onMounted } from 'vue';
 import dayjs from 'dayjs';
-import { isArray, isFunction } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isFunction from 'lodash-es/isFunction';
 
 import dateRangePickerPanelProps from './date-range-picker-panel-props';
 import dateRangePickerProps from './date-range-picker-props';

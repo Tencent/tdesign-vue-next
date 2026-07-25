@@ -1,6 +1,7 @@
 // TODO 应当提取到公共 hooks 中
 import { computed, h, inject, getCurrentInstance, ref, provide } from 'vue';
-import { cloneDeep, isFunction } from 'lodash-es';
+import cloneDeep from 'lodash-es/cloneDeep';
+import isFunction from 'lodash-es/isFunction';
 
 import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from '../utils/context';
 import { GlobalConfigProvider, TdConfigProviderProps } from '../type';

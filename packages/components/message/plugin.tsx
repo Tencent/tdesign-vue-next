@@ -24,7 +24,8 @@
  *
  */
 import { App, AppContext, createVNode, isVNode, nextTick, Plugin, render, VNode } from 'vue';
-import { isObject, isString } from 'lodash-es';
+import isObject from 'lodash-es/isObject';
+import isString from 'lodash-es/isString';
 import { getAttach } from '@tdesign/shared-utils';
 import { DEFAULT_Z_INDEX, DEFAULT_DURATION } from '@tdesign/common-js/message/index';
 import MessageList from './message-list';

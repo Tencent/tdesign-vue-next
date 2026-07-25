@@ -1,5 +1,5 @@
 import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from 'vue';
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 import props from './props';
 import { GuideCrossProps } from './types';
 import { TdGuideProps, GuideStep } from './type';

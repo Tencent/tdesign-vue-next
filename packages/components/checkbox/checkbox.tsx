@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs, inject, watch, computed, ComputedRef } from 'vue';
-import { isString } from 'lodash-es';
+import isString from 'lodash-es/isString';
 import props from './props';
 import {
   useVModel,

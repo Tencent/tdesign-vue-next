@@ -1,4 +1,4 @@
-import { pick } from 'lodash-es';
+import pick from 'lodash-es/pick';
 import { TreeStore } from '@tdesign/common-js/tree/tree-store';
 import { watch, TypeRef } from '../utils/adapt';
 import {

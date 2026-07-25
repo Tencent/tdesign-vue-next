@@ -6,7 +6,9 @@ import { TNodeReturnValue } from '../common';
 
 // hooks
 
-import { isArray, isString, isFunction } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isString from 'lodash-es/isString';
+import isFunction from 'lodash-es/isFunction';
 
 export default defineComponent({
   name: 'TSwitch',

@@ -1,5 +1,5 @@
 import { defineComponent, computed } from 'vue';
-import { isArray } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
 import Popup from '../popup';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import RangeInput from './range-input';

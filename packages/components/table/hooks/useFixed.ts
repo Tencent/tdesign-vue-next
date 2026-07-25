@@ -10,7 +10,10 @@ import {
   onBeforeUnmount,
   Ref,
 } from 'vue';
-import { get, pick, xorWith, debounce } from 'lodash-es';
+import get from 'lodash-es/get';
+import pick from 'lodash-es/pick';
+import xorWith from 'lodash-es/xorWith';
+import debounce from 'lodash-es/debounce';
 
 import log from '@tdesign/common-js/log/index';
 import { ClassName, Styles } from '../../common';

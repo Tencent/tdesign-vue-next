@@ -1,4 +1,7 @@
-import { isArray, isEmpty, isNumber, isObject } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isEmpty from 'lodash-es/isEmpty';
+import isNumber from 'lodash-es/isNumber';
+import isObject from 'lodash-es/isObject';
 
 import {
   TreeNode,

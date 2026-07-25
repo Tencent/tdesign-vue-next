@@ -3,7 +3,8 @@ import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
 import { usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 import { AnchorInjectionKey } from './constants';
-import { isString, isFunction } from 'lodash-es';
+import isString from 'lodash-es/isString';
+import isFunction from 'lodash-es/isFunction';
 
 const localProps = {
   ...props,

@@ -2,7 +2,9 @@ import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
 import props from './props';
 import { useTNodeJSX, useChildSlots, usePrefixClass, useFlatChildrenSlots } from '@tdesign/shared-hooks';
 
-import { isArray, isNumber, isString } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isNumber from 'lodash-es/isNumber';
+import isString from 'lodash-es/isString';
 
 import { getFlexGapPolyFill } from '@tdesign/common-js/utils/helper';
 import { SizeEnum } from '../common';

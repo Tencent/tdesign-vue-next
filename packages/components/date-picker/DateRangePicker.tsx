@@ -2,7 +2,8 @@ import { defineComponent, computed, ref, watch, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
 import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 
-import { isArray, isFunction } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isFunction from 'lodash-es/isFunction';
 
 import props from './date-range-picker-props';
 import {

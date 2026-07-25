@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash-es';
+import cloneDeep from 'lodash-es/cloneDeep';
 import _BaseTable from './base-table';
 import _PrimaryTable from './primary-table';
 import _EnhancedTable from './enhanced-table';

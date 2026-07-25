@@ -1,4 +1,4 @@
-import { isBoolean } from 'lodash-es';
+import isBoolean from 'lodash-es/isBoolean';
 import { usePrefixClass, TypeCreateElement, computed, TCheckBox, TypeVNode } from '../utils/adapt';
 import { TypeTreeItemState } from '../types';
 import { getTNode } from '../utils';

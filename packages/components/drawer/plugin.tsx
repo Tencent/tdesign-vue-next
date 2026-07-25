@@ -2,7 +2,7 @@ import { App, ref, Plugin, defineComponent, h, onMounted, nextTick, render, crea
 import DrawerComponent from './drawer';
 import { getAttach } from '@tdesign/shared-utils';
 import { DrawerOptions, DrawerMethod, DrawerInstance } from './type';
-import { omit } from 'lodash-es';
+import omit from 'lodash-es/omit';
 
 const createDrawer: DrawerMethod = (props, context) => {
   const options = { ...props };

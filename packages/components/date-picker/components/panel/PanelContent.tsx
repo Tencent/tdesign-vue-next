@@ -1,5 +1,6 @@
 import { defineComponent, PropType } from 'vue';
-import { isFunction, isArray } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
+import isArray from 'lodash-es/isArray';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import type { TdDatePickerProps, TdDateRangePickerProps } from '../../type';
 

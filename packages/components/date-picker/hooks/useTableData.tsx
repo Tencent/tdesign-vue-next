@@ -1,5 +1,6 @@
 import { useConfig } from '@tdesign/shared-hooks';
-import { isArray, isFunction } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isFunction from 'lodash-es/isFunction';
 import dayjs from 'dayjs';
 import {
   getWeeks,

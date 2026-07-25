@@ -7,7 +7,8 @@ import {
   usePrefixClass,
   useCommonClassName,
 } from '@tdesign/shared-hooks';
-import { omit, isString } from 'lodash-es';
+import omit from 'lodash-es/omit';
+import isString from 'lodash-es/isString';
 import props from './props';
 import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 

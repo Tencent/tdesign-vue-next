@@ -1,5 +1,5 @@
 import { defineComponent, computed, PropType } from 'vue';
-import { isPlainObject } from 'lodash-es';
+import isPlainObject from 'lodash-es/isPlainObject';
 import { useConfig, usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 import TButton from '../../../button';
 

@@ -4,7 +4,7 @@ import { useVModel, useConfig, useTNodeJSX } from '@tdesign/shared-hooks';
 import props from './props';
 
 import Tooltip from '../tooltip/index';
-import { isArray } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
 
 export default defineComponent({
   name: 'TRate',

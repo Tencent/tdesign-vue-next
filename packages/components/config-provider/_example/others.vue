@@ -91,7 +91,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { merge } from 'lodash-es';
+import merge from 'lodash-es/merge';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 import { ErrorIcon, ChevronRightIcon, CloseIcon, CloseCircleIcon } from 'tdesign-icons-vue-next';
 import type {

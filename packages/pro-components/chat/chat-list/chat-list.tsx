@@ -1,7 +1,9 @@
 import { defineComponent, computed, provide, ref, onMounted, onUnmounted } from 'vue';
 import { ClearIcon, ArrowDownIcon } from 'tdesign-icons-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
-import { isArray, throttle, debounce } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import throttle from 'lodash-es/throttle';
+import debounce from 'lodash-es/debounce';
 
 import props from './props';
 import { Divider, Popconfirm, Button } from 'tdesign-vue-next';

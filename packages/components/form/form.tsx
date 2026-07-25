@@ -1,5 +1,8 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs } from 'vue';
-import { isEmpty, isArray, isBoolean, isFunction } from 'lodash-es';
+import isEmpty from 'lodash-es/isEmpty';
+import isArray from 'lodash-es/isArray';
+import isBoolean from 'lodash-es/isBoolean';
+import isFunction from 'lodash-es/isFunction';
 
 import { requestSubmit } from '@tdesign/shared-utils';
 import { FormItemValidateResult } from './form-item';

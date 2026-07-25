@@ -1,5 +1,6 @@
 import { computed, Ref, VNode } from 'vue';
-import { cloneDeep, isArray } from 'lodash-es';
+import cloneDeep from 'lodash-es/cloneDeep';
+import isArray from 'lodash-es/isArray';
 
 import log from '@tdesign/common-js/log/log';
 import { getStopStyle } from '@tdesign/common-js/slider/utils';

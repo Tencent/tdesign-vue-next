@@ -1,5 +1,5 @@
 import { ref, Ref, toRefs } from 'vue';
-import { get } from 'lodash-es';
+import get from 'lodash-es/get';
 import { useDefaultValue } from '@tdesign/shared-hooks';
 import { BaseTableProps } from '../types';
 import { RowEventContext, TableRowData } from '../type';

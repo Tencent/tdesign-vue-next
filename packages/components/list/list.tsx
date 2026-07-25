@@ -1,5 +1,6 @@
 import { defineComponent, VNodeChild, computed, ref } from 'vue';
-import { omit, isString } from 'lodash-es';
+import omit from 'lodash-es/omit';
+import isString from 'lodash-es/isString';
 
 import { useConfig, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 import TLoading from '../loading';

@@ -1,4 +1,7 @@
-import { isUndefined, isNumber, isObject, isArray } from 'lodash-es';
+import isUndefined from 'lodash-es/isUndefined';
+import isNumber from 'lodash-es/isNumber';
+import isObject from 'lodash-es/isObject';
+import isArray from 'lodash-es/isArray';
 import { GutterObject, TdColProps, TdRowProps } from '../type';
 
 export interface RowProviderType {

@@ -46,7 +46,7 @@
 </template>
 
 <script lang="tsx" setup>
-import { cloneDeep } from 'lodash-es';
+import cloneDeep from 'lodash-es/cloneDeep';
 import { ref, watch } from 'vue';
 import { EnhancedTable as TEnhancedTable, MessagePlugin } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';

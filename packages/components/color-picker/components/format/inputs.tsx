@@ -1,5 +1,5 @@
 import { defineComponent, PropType, reactive, watch } from 'vue';
-import { throttle } from 'lodash-es';
+import throttle from 'lodash-es/throttle';
 import { Color, getColorFormatInputs, getColorFormatMap } from '@tdesign/common-js/color-picker/index';
 import props from '../../props';
 import TInput from '../../../input';

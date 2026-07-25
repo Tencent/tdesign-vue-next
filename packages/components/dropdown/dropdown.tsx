@@ -1,5 +1,7 @@
 import { defineComponent, ref, computed } from 'vue';
-import { omit, isArray, isNumber } from 'lodash-es';
+import omit from 'lodash-es/omit';
+import isArray from 'lodash-es/isArray';
+import isNumber from 'lodash-es/isNumber';
 
 import Popup, { PopupVisibleChangeContext } from '../popup/index';
 import DropdownMenu from './dropdown-menu';

@@ -1,5 +1,11 @@
 import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType, ComputedRef } from 'vue';
-import { get, isArray, debounce, cloneDeep, isFunction, intersection, pick as picker } from 'lodash-es';
+import get from 'lodash-es/get';
+import isArray from 'lodash-es/isArray';
+import debounce from 'lodash-es/debounce';
+import cloneDeep from 'lodash-es/cloneDeep';
+import isFunction from 'lodash-es/isFunction';
+import intersection from 'lodash-es/intersection';
+import picker from 'lodash-es/pick';
 
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';

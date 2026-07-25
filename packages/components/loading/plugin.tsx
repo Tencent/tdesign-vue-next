@@ -1,5 +1,5 @@
 import { App, Plugin, createVNode, defineComponent, h, reactive, render, AppContext, ref } from 'vue';
-import { merge } from 'lodash-es';
+import merge from 'lodash-es/merge';
 import LoadingComponent from './loading';
 import { usePrefixClass, useConfig } from '@tdesign/shared-hooks';
 import { getAttach, removeClass, addClass } from '@tdesign/shared-utils';

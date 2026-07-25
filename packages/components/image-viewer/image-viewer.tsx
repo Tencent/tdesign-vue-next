@@ -1,6 +1,6 @@
 import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, onBeforeUnmount, ref, toRefs, watch } from 'vue';
-import { isNumber } from 'lodash-es';
+import isNumber from 'lodash-es/isNumber';
 
 import {
   useVModel,

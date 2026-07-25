@@ -1,5 +1,6 @@
 import { computed, isVNode, Slots } from 'vue';
-import { isArray, isString } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
+import isString from 'lodash-es/isString';
 import { useChildComponentSlots } from '@tdesign/shared-hooks';
 import type { TdBreadcrumbProps, TdBreadcrumbItemProps } from '../type';
 

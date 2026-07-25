@@ -1,5 +1,5 @@
 import { defineComponent, inject, isVNode } from 'vue';
-import { omit } from 'lodash-es';
+import omit from 'lodash-es/omit';
 import props from './timeline-item-props';
 import { useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 

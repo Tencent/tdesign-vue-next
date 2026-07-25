@@ -1,5 +1,6 @@
 import { SetupContext, ref, computed, toRefs, Ref, ComputedRef } from 'vue';
-import { pick, isObject } from 'lodash-es';
+import pick from 'lodash-es/pick';
+import isObject from 'lodash-es/isObject';
 
 import Input, { StrInputProps } from '../../input';
 import Loading from '../../loading';

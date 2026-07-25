@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import { isArray } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
 
 import { useChildComponentSlots } from '@tdesign/shared-hooks';
 

@@ -1,5 +1,5 @@
 import { Ref, inject, computed, getCurrentInstance } from 'vue';
-import { isBoolean } from 'lodash-es';
+import isBoolean from 'lodash-es/isBoolean';
 // TODO need refactor
 import { TdFormProps } from '../../../components/form/type';
 

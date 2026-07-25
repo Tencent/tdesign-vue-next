@@ -1,5 +1,8 @@
 import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
-import { pick, get, isFunction, throttle } from 'lodash-es';
+import pick from 'lodash-es/pick';
+import get from 'lodash-es/get';
+import isFunction from 'lodash-es/isFunction';
+import throttle from 'lodash-es/throttle';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';

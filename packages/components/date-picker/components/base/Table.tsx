@@ -3,7 +3,7 @@ import { defineComponent, PropType, computed } from 'vue';
 import TDatePickerCell from './Cell';
 import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import { parseToDayjs } from '@tdesign/common-js/date-picker/format';
-import { isArray } from 'lodash-es';
+import isArray from 'lodash-es/isArray';
 
 import type { TdDatePickerProps, DateMultipleValue } from '../../type';
 

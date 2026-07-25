@@ -1,5 +1,5 @@
 import { ComputedRef } from 'vue';
-import { cloneDeep } from 'lodash-es';
+import cloneDeep from 'lodash-es/cloneDeep';
 import { TdSelectProps, TdOptionProps, SelectValue, SelectOption } from '../type';
 
 export const getSingleContent = (

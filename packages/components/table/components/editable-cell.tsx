@@ -1,5 +1,9 @@
 import { computed, defineComponent, onMounted, onUnmounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
-import { get, set, isFunction, cloneDeep, isObject } from 'lodash-es';
+import get from 'lodash-es/get';
+import set from 'lodash-es/set';
+import isFunction from 'lodash-es/isFunction';
+import cloneDeep from 'lodash-es/cloneDeep';
+import isObject from 'lodash-es/isObject';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
 import {
   TableRowData,

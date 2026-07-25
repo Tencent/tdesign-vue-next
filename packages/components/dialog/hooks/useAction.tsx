@@ -1,5 +1,7 @@
 import { getCurrentInstance } from 'vue';
-import { omit, isString, isObject } from 'lodash-es';
+import omit from 'lodash-es/omit';
+import isString from 'lodash-es/isString';
+import isObject from 'lodash-es/isObject';
 
 import { useTNodeJSX } from '@tdesign/shared-hooks';
 import TButton, { ButtonProps } from '../../button';

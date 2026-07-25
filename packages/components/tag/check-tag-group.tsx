@@ -4,7 +4,7 @@ import props from './check-tag-group-props';
 import CheckTag from './check-tag';
 
 import { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from './type';
-import { isFunction } from 'lodash-es';
+import isFunction from 'lodash-es/isFunction';
 
 export default defineComponent({
   name: 'TCheckTagGroup',

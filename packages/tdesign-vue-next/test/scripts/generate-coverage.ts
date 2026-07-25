@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { camelCase } from 'lodash-es';
+import camelCase from 'lodash-es/camelCase';
 import { parseFromString } from 'dom-parser';
 import { joinTdesignVueNextRoot, getWorkspaceRoot } from '@tdesign/internal-utils';
 import { execSync } from 'child_process';

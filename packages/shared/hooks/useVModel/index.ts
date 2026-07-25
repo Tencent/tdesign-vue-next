@@ -1,5 +1,5 @@
 import { ref, Ref, getCurrentInstance } from 'vue';
-import { kebabCase } from 'lodash-es';
+import kebabCase from 'lodash-es/kebabCase';
 
 export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
 

@@ -9,7 +9,7 @@ import {
 } from '@tdesign/common-js/image-viewer/transform';
 import type { ZoomOptions, ZoomResult, TranslateOffset } from '@tdesign/common-js/image-viewer/transform';
 import { ref } from 'vue';
-import { throttle } from 'lodash-es';
+import throttle from 'lodash-es/throttle';
 import { ImageScale } from '../type';
 import { DEFAULT_IMAGE_SCALE } from '@tdesign/common-js/image-viewer/transform';
 

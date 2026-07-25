@@ -1,6 +1,6 @@
 import { computed, defineComponent, VNode } from 'vue';
 import props from './props';
-import { isObject } from 'lodash-es';
+import isObject from 'lodash-es/isObject';
 import StickyItem from './sticky-item';
 
 import { usePrefixClass, useChildComponentSlots } from '@tdesign/shared-hooks';

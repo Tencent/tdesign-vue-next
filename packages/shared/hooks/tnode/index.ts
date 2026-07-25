@@ -1,5 +1,9 @@
 import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
-import { camelCase, kebabCase, isFunction, isString, isObject } from 'lodash-es';
+import camelCase from 'lodash-es/camelCase';
+import kebabCase from 'lodash-es/kebabCase';
+import isFunction from 'lodash-es/isFunction';
+import isString from 'lodash-es/isString';
+import isObject from 'lodash-es/isObject';
 
 import {
   getDefaultNode,

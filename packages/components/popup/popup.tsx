@@ -1,5 +1,11 @@
 import { createPopper, Placement } from '@popperjs/core';
-import { inRange, max, min, isObject, debounce, isString, isFunction } from 'lodash-es';
+import inRange from 'lodash-es/inRange';
+import max from 'lodash-es/max';
+import min from 'lodash-es/min';
+import isObject from 'lodash-es/isObject';
+import debounce from 'lodash-es/debounce';
+import isString from 'lodash-es/isString';
+import isFunction from 'lodash-es/isFunction';
 import {
   computed,
   CSSProperties,

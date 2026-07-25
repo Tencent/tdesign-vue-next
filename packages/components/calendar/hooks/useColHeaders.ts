@@ -5,7 +5,7 @@ import { TdCalendarProps, WeekDay } from '../type';
 import { useConfig } from '@tdesign/shared-hooks';
 import { COMPONENT_NAME } from '../constants';
 import * as utils from '../utils';
-import { isObject } from 'lodash-es';
+import isObject from 'lodash-es/isObject';
 
 export function useColHeaders(props: TdCalendarProps, state: CalendarState) {
   const { t, globalConfig } = useConfig(COMPONENT_NAME);
