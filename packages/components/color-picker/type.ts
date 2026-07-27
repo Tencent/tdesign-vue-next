@@ -198,7 +198,8 @@ export type ColorPickerChangeTrigger =
   | 'palette-alpha-bar'
   | 'input'
   | 'preset'
-  | 'recent';
+  | 'recent'
+  | 'eyedropper';
 
 export interface ColorObject {
   alpha: number;

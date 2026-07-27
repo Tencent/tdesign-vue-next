@@ -93,6 +93,11 @@ export default {
     type: String,
     default: '',
   },
+  /** 是否显示拾色器功能 */
+  showEyeDropper: {
+    type: Boolean,
+    default: true,
+  },
   /** 选中的色值发生变化时触发，第一个参数 `value` 表示新色值，`context.color` 表示当前调色板控制器的色值，`context.trigger` 表示触发颜色变化的来源 */
   onChange: Function as PropType<TdColorPickerProps['onChange']>,
   /** 清空按钮点击时触发 */

@@ -9,6 +9,8 @@ import {
   GradientColorPoint,
   initColorFormat,
   TD_COLOR_USED_COLORS_MAX_SIZE,
+  // PR合并后需要从子包导入
+  // getEyeDropper,
 } from '@tdesign/common-js/color-picker/index';
 import { useCommonClassName, useConfig, useDefaultValue, useVModel } from '@tdesign/shared-hooks';
 import props from '../../color-picker-panel-props';
@@ -22,6 +24,9 @@ import HueSlider from './hue';
 import LinearGradient from './linear-gradient';
 import SaturationPanel from './saturation';
 import SwatchesPanel from './swatches';
+// PR合并后需要删除这个导入语句
+import { getEyeDropper } from '../../utils/eyedropper';
+import { SipIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
   name: 'ColorPanel',
@@ -229,6 +234,17 @@ export default defineComponent({
       emitColorChange(trigger);
     };
 
+    const openEyeDropper = async (trigger?: ColorPickerChangeTrigger): Promise<void> => {
+      const eyeDropper = getEyeDropper();
+
+      const result = await eyeDropper.open();
+      if (!result) {
+        return;
+      }
+      color.value.update(result.sRGBHex);
+      emitColorChange(trigger);
+    };
+
     return () => {
       const baseProps = {
         color: color.value,
@@ -315,6 +331,11 @@ export default defineComponent({
                       background: isGradient.value ? color.value.linearGradient : color.value.rgba,
                     }}
                   />
+                </div>
+              ) : null}
+              {props.showEyeDropper ? (
+                <div class={`${baseClassName.value}__eyedropper`} onClick={() => openEyeDropper('eyedropper')}>
+                  <SipIcon />
                 </div>
               ) : null}
             </div>
