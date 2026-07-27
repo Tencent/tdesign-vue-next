@@ -7,7 +7,7 @@ import { useConfig, useTNodeJSX } from '@tdesign/shared-hooks';
 import useClassName from '../hooks/useClassName';
 import baseTableProps from '../base-table-props';
 import { TNodeReturnValue } from '../../common';
-import useRowspanAndColspan from '../hooks/useRowspanAndColspan';
+import useRowspanAndColspan, { getCellKey, SkipSpansValue } from '../hooks/useRowspanAndColspan';
 import { BaseTableProps, RowAndColFixedPosition } from '../types';
 import { TdBaseTableProps } from '../type';
 import type { VirtualScrollConfig } from '@tdesign/shared-hooks';
@@ -149,6 +149,44 @@ export default defineComponent({
 
       const renderData = props.virtualConfig.isVirtualScroll.value ? props.virtualConfig.visibleData.value : data.value;
 
+      const getFirstRowReviveInfo = () => {
+        if (!props.virtualConfig.isVirtualScroll.value || !renderData?.length || !skipSpansMap.value.size) {
+          return null;
+        }
+        // 定位虚拟滚动窗口真正的起始行（全局索引出现跳变处），以兼容存在冻结行（fixedRows）的场景
+        let windowStartRenderIndex = 0;
+        for (let k = 1; k < renderData.length; k++) {
+          if ((renderData[k].VIRTUAL_SCROLL_INDEX ?? k) !== (renderData[k - 1].VIRTUAL_SCROLL_INDEX ?? k - 1) + 1) {
+            windowStartRenderIndex = k;
+            break;
+          }
+        }
+        const firstRow = renderData[windowStartRenderIndex];
+        const firstIndex = firstRow.VIRTUAL_SCROLL_INDEX ?? 0;
+        let reviveCells: Map<number, { row: TableBodyProps['data'][number]; rowspan: number; colspan: number }> = null;
+        columns.value.forEach((col, colIndex) => {
+          const cellKey = getCellKey(firstRow, rowKey.value, col.colKey, colIndex, firstIndex);
+          const state: SkipSpansValue = skipSpansMap.value.get(cellKey);
+          // 仅处理：被合并跳过 && 合并块起始列即当前列（避免 colspan 场景重复复活） && 合并块起始行在窗口之前
+          if (!state?.skipped || state.startColIndex !== colIndex || !(state.startRowIndex < firstIndex)) {
+            return;
+          }
+          const startRow = data.value[state.startRowIndex];
+          if (!startRow) return;
+          const startKey = getCellKey(startRow, rowKey.value, col.colKey, colIndex, state.startRowIndex);
+          const startState = skipSpansMap.value.get(startKey) || {};
+          const remainRowspan = (startState.rowspan || 1) - (firstIndex - state.startRowIndex);
+          if (!reviveCells) reviveCells = new Map();
+          reviveCells.set(colIndex, {
+            row: startRow,
+            rowspan: remainRowspan,
+            colspan: startState.colspan,
+          });
+        });
+        return reviveCells ? { renderIndex: windowStartRenderIndex, reviveCells } : null;
+      };
+      const firstRowReviveInfo = getFirstRowReviveInfo();
+
       renderData?.forEach((row, rowIndex) => {
         const rowKey = props.rowKey || 'id';
         const rowValue = get(row, rowKey);
@@ -160,6 +198,7 @@ export default defineComponent({
           rowIndex: row.VIRTUAL_SCROLL_INDEX || rowIndex,
           dataLength,
           skipSpansMap: skipSpansMap.value,
+          reviveCells: firstRowReviveInfo?.renderIndex === rowIndex ? firstRowReviveInfo.reviveCells : null,
           virtualConfig: props.virtualConfig,
           active: props.activeRow?.includes(rowValue),
           isHover: props.hoverRow === rowValue,

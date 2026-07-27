@@ -208,6 +208,16 @@ describe('Tag', () => {
       expect(span2.attributes('title')).toBe(title);
     });
 
+    it(':title[boolean]', () => {
+      const wrapper1 = mount(<Tag title={true} content="Tag Content"></Tag>);
+      const span1 = wrapper1.find('.t-tag > span');
+      expect(span1.attributes('title')).toBe('Tag Content');
+
+      const wrapper2 = mount(<Tag title={false} content="Tag Content"></Tag>);
+      const span2 = wrapper2.find('.t-tag > span');
+      expect(span2.attributes('title')).toBeUndefined();
+    });
+
     it(':variant[dark/light/outline/light-outline]', () => {
       const wrapper = mount(<Tag variant={'dark'}></Tag>);
       expect(wrapper.classes('t-tag--dark')).toBeTruthy();
