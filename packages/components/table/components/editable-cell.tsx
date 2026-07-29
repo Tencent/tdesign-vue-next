@@ -93,7 +93,8 @@ export default defineComponent({
     const isClearingValidate = ref(false);
     const isEdit = ref(isKeepEditMode.value || props.col.edit?.defaultEditable || false);
     const editValue = ref();
-    const errorList = ref<AllValidateResult[]>();
+    // 使用 props.errors 初始化，保证虚拟滚动下单元格重新挂载时能恢复已有校验状态
+    const errorList = ref<AllValidateResult[]>(props.errors);
     const classPrefix = usePrefixClass();
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });

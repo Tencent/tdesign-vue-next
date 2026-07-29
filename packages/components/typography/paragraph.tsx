@@ -1,5 +1,5 @@
 import { defineComponent, computed, PropType } from 'vue';
-import { usePrefixClass } from '@tdesign/shared-hooks';
+import { usePrefixClass, useContent } from '@tdesign/shared-hooks';
 import props from './paragraph-props';
 import Ellipsis from './components/ellipsis';
 
@@ -12,10 +12,11 @@ export default defineComponent({
     },
     ...props,
   },
-  setup(props, { slots }) {
+  setup(props) {
     const COMPONENT_NAME = usePrefixClass('typography');
+    const renderContent = useContent();
     const content = computed(() => {
-      return props.content || slots?.default();
+      return renderContent('content', 'default');
     });
 
     return () => {
