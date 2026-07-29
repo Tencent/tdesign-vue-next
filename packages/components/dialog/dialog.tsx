@@ -105,7 +105,7 @@ export default defineComponent({
     /**是否已经第一次渲染，懒加载判断 */
     const isMounted = ref(false);
     /** 控制弹窗主体的挂载，关闭时需保留至离场动画结束，避免缩放动画无法触发 */
-    const cardVisible = ref(props.visible);
+    const cardVisible = ref(!props.lazy || props.visible);
 
     watch(
       () => props.visible,
@@ -208,7 +208,7 @@ export default defineComponent({
 
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
-      cardVisible.value = false;
+      cardVisible.value = !props.destroyOnClose;
       dialogCardRef.value?.resetPosition?.();
       props.onClosed?.();
     };

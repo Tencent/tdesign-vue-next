@@ -63,8 +63,7 @@ export default {
   },
   /** 标签标题，在标签hover时展示，默认为标签内容 */
   title: {
-    type: String,
-    default: '',
+    type: [String, Boolean] as PropType<TdTagProps['title']>,
   },
   /** 标签风格变体 */
   variant: {
