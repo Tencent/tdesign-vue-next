@@ -136,32 +136,35 @@ export default defineComponent({
     };
 
     const swiperTo = (index: number, context: { source: SwiperChangeSource }) => {
-      let targetIndex = index % swiperItemLength.value;
+      const length = swiperItemLength.value;
+      let targetIndex = ((index % length) + length) % length;
       navActiveIndex.value = targetIndex;
       emit('update:current', targetIndex);
       props.onChange?.(targetIndex, context);
       isSwitching.value = true;
-      if (props.animation === 'slide' && swiperItemLength.value > 1 && props.type !== 'card') {
+      if (props.animation === 'slide' && length > 1 && props.type !== 'card') {
         targetIndex = index;
         isBeginToEnd = false;
         isEndToBegin = false;
-        if (index >= swiperItemLength.value) {
+
+        // 最后一张点击下一张：进入尾部克隆的第一张
+        if (index >= length) {
           clearTimer();
           setTimeout(() => {
             isEndToBegin = true;
             currentIndex.value = 0;
           }, props.duration);
         }
-        if (currentIndex.value === 0) {
-          if (swiperItemLength.value >= 2 && index === swiperItemLength.value - 1) {
-            targetIndex = -1;
-            navActiveIndex.value = swiperItemLength.value - 1;
-            clearTimer();
-            setTimeout(() => {
-              isBeginToEnd = true;
-              currentIndex.value = swiperItemLength.value - 1;
-            }, props.duration);
-          }
+
+        // 第一张点击上一张：进入头部克隆的最后一张
+        if (index < 0) {
+          targetIndex = -1;
+          navActiveIndex.value = length - 1;
+          clearTimer();
+          setTimeout(() => {
+            isBeginToEnd = true;
+            currentIndex.value = length - 1;
+          }, props.duration);
         }
       }
       currentIndex.value = targetIndex;
@@ -221,12 +224,6 @@ export default defineComponent({
     };
     const goPrevious = (context: { source: SwiperChangeSource }) => {
       if (isSwitching.value) return;
-      if (currentIndex.value - 1 < 0) {
-        if (props.animation === 'slide' && swiperItemLength.value === 2) {
-          return swiperTo(0, context);
-        }
-        return swiperTo(swiperItemLength.value - 1, context);
-      }
       return swiperTo(currentIndex.value - 1, context);
     };
     const renderPagination = () => {

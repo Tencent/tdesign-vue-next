@@ -417,6 +417,37 @@ describe('Select Hooks', () => {
         await nextTick();
         expect(ctx.scrollToMock).toHaveBeenCalledWith({ top: 32, behavior: 'smooth' });
       });
+
+      // https://github.com/Tencent/tdesign-vue-next/issues/6750
+      // 首次通过键盘（Tab 聚焦后按方向键）打开下拉时，popup 内容尚未渲染，
+      // popupContentRef.value 为 undefined，滚动逻辑不应报错
+      it('does not scroll or throw when popup content is not ready (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const ctx = createKeyboardControlContext({
+          popupContentRef: computed((): HTMLElement => undefined),
+        });
+        const { hoverIndex } = useKeyboardControl(ctx);
+        hoverIndex.value = 1;
+        await nextTick();
+        expect(ctx.scrollToMock).not.toHaveBeenCalled();
+      });
+
+      // 选项高度取不到时（列表未渲染出选项）同样跳过滚动，避免 NaN 滚动
+      it('does not scroll when option height is unavailable (unit)', async () => {
+        const { useKeyboardControl } = await import('../hooks/useKeyboardControl');
+        const mockSelectPanelRef = {
+          isVirtual: false,
+          innerRef: { querySelector: (): null => null } as unknown as HTMLDivElement,
+        };
+        const ctx = createKeyboardControlContext({
+          // @ts-ignore
+          selectPanelRef: ref(mockSelectPanelRef),
+        });
+        const { hoverIndex } = useKeyboardControl(ctx);
+        hoverIndex.value = 1;
+        await nextTick();
+        expect(ctx.scrollToMock).not.toHaveBeenCalled();
+      });
     });
   });
 

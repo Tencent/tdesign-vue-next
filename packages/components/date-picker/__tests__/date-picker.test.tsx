@@ -152,6 +152,115 @@ describe('DatePicker', () => {
     expect(presetsEl.text()).toBe('presets');
   });
 
+  it('DateRangePicker: disabled array keeps empty enabled side selectable', async () => {
+    const attachClass = 'date-range-disabled-empty-attach';
+    const onChange = vi.fn();
+
+    const wrapper = mount({
+      render() {
+        return (
+          <div class={attachClass}>
+            <DateRangePicker
+              disabled={[true, false]}
+              enableTimePicker={true}
+              onChange={onChange}
+              panelActiveDate={[
+                { year: 2020, month: 1 },
+                { year: 2020, month: 2 },
+              ]}
+              popupProps={{ attach: `.${attachClass}` }}
+            />
+          </div>
+        );
+      },
+    });
+
+    const trigger = wrapper.findAll('input.t-input__inner')[1];
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
+    await trigger.trigger('click');
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    const endCell = wrapper
+      .findAll('td.t-date-picker__cell')
+      .find((cell) => cell.text() === '15' && !cell.classes().some((className) => className.includes('--additional')));
+
+    expect(endCell).toBeTruthy();
+    expect(endCell?.classes().some((className) => className.includes('--disabled'))).toBe(false);
+
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it('DateRangePicker: disabled false array confirms first value then moves to second panel', async () => {
+    const onChange = vi.fn();
+    const attachClass = 'date-range-disabled-false-attach';
+
+    const wrapper = mount({
+      render() {
+        return (
+          <div class={attachClass}>
+            <DateRangePicker
+              disabled={[false, false]}
+              enableTimePicker={true}
+              onChange={onChange}
+              popupProps={{ attach: `.${attachClass}` }}
+            />
+          </div>
+        );
+      },
+    });
+
+    const trigger = wrapper.findAll('input.t-input__inner')[0];
+    await trigger.trigger('mousedown');
+    await trigger.trigger('mouseup');
+    await trigger.trigger('click');
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    const getCell = (text: string) =>
+      wrapper
+        .findAll('td.t-date-picker__cell')
+        .find(
+          (cell) => cell.text() === text && !cell.classes().some((className) => className.includes('--additional')),
+        );
+
+    const startCell = getCell('15');
+    expect(startCell).toBeTruthy();
+    await startCell?.trigger('click');
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    await nextTick();
+
+    const confirmButton = wrapper.find('.t-date-picker__footer button');
+    expect(confirmButton).toBeTruthy();
+    confirmButton.element.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+    confirmButton.element.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+    confirmButton.element.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(onChange).not.toHaveBeenCalled();
+    expect(wrapper.find('.t-date-picker__footer button').exists()).toBe(true);
+
+    const endCell = getCell('20');
+    expect(endCell).toBeTruthy();
+    await endCell?.trigger('click');
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    await nextTick();
+
+    const finalConfirmButton = wrapper.find('.t-date-picker__footer button');
+    expect(finalConfirmButton).toBeTruthy();
+    finalConfirmButton.element.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+    finalConfirmButton.element.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+    finalConfirmButton.element.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    await nextTick();
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange.mock.calls[0][0]).toEqual(['2020-12-15 00:00:00', '2020-12-20 23:59:59']);
+  });
+
   it("DatePicker: :defaultTime[string] & :valueType['time-stamp'] without enableTimePicker", async () => {
     // 测试 DatePicker 当 valueType 为 time-stamp 且提供 defaultTime 但不启用 enableTimePicker 时
     const defaultTime = '10:30:45';

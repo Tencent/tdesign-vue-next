@@ -16,6 +16,7 @@
   "dependencies": {
     "nprogress": "catalog:deps",
     "semver": "catalog:docs",
+    "@tdesign/common-docs": "workspace:^",
     "@tdesign/site-components": "catalog:tdesign",
     "@tdesign/theme-generator": "catalog:tdesign",
     "vue": "catalog:deps",

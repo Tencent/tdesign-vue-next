@@ -131,7 +131,40 @@ describe('DialogCard', () => {
       });
 
       expect(typeof wrapper1.vm.$props.closeBtn).toBe('function');
-      expect(wrapper1.find('.t-dialog__close').exists()).toBe(true);
+      // 自定义 closeBtn（TNode）时应完全替换默认关闭按钮，不再套用 t-dialog__close 样式容器
+      expect(wrapper1.find('.t-dialog__close').exists()).toBe(false);
+      expect(wrapper1.text()).toContain('Custom Close');
+    });
+
+    it(':closeBtn[function] should fully replace the default close button', () => {
+      const closeBtnFn = () => <span class="custom-close-btn">关闭</span>;
+      const wrapper1 = mount(DialogCard, {
+        props: {
+          closeBtn: closeBtnFn,
+          header: true,
+        },
+      });
+
+      const customBtn = wrapper1.find('.custom-close-btn');
+      expect(customBtn.exists()).toBe(true);
+      // 自定义节点不应被 t-dialog__close 包裹
+      expect(wrapper1.find('.t-dialog__close').exists()).toBe(false);
+      expect(customBtn.element.closest('.t-dialog__close')).toBeNull();
+    });
+
+    it(':closeBtn[slot] should fully replace the default close button', () => {
+      const wrapper1 = mount(DialogCard, {
+        props: {
+          closeBtn: true,
+          header: true,
+        },
+        slots: {
+          closeBtn: '<span class="custom-close-slot">X</span>',
+        },
+      });
+
+      expect(wrapper1.find('.custom-close-slot').exists()).toBe(true);
+      expect(wrapper1.find('.t-dialog__close').exists()).toBe(false);
     });
 
     it(':confirmBtn[string]', () => {

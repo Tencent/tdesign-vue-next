@@ -223,8 +223,15 @@ export default defineComponent({
     });
 
     const onEditableCellChange: EditableCellProps['onChange'] = (params) => {
+      const rowKey = props.rowKey || 'id';
+      const sourceRowValue = get(params.row, rowKey);
       props.onRowEdit?.(params);
-      const rowValue = get(params.editedRow, props.rowKey || 'id');
+      const sourceRow = props.data.find((row) => get(row, rowKey) === sourceRowValue);
+      // TODO: 当前为兼容 rowEdit 中直接修改 row 的行为，后续应通过受控数据更新机制替代对 props.data 的直接修改。
+      if (sourceRow && sourceRow !== params.row) {
+        Object.assign(sourceRow, params.row);
+      }
+      const rowValue = get(params.editedRow, rowKey);
       onUpdateEditedCell(rowValue, params.row, {
         [params.col.colKey]: params.value,
       });
@@ -296,13 +303,14 @@ export default defineComponent({
               onRuleChange,
               onEditableChange: onPrimaryTableCellEditChange,
             };
+            const rowValue = get(p.row, props.rowKey || 'id');
             if (props.editableRowKeys) {
-              const rowValue = get(p.row, props.rowKey || 'id');
               cellProps.editable = editableKeysMap.value[rowValue] || false;
-              const key = [rowValue, p.col.colKey].join('__');
-              const errorList = errorListMap.value?.[key];
-              errorList && (cellProps.errors = errorList);
             }
+            // 恢复校验错误信息：行编辑与单元格编辑（含 keepEditMode + 虚拟滚动重新挂载）场景均需要
+            const errorListKey = [rowValue, p.col.colKey].join('__');
+            const errorList = errorListMap.value?.[errorListKey];
+            errorList && (cellProps.errors = errorList);
             if (props.editableCellState) {
               cellProps.readonly = !props.editableCellState(p);
             }

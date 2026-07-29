@@ -22,11 +22,11 @@ export default defineComponent({
     });
 
     const ellipsisState = computed((): TypographyEllipsis => {
-      const ellipsis = props.ellipsis;
+      const ellipsis = typeof props.ellipsis === 'object' ? { ...props.ellipsis } : {};
       return {
         row: 1,
         expandable: false,
-        ...(typeof ellipsis === 'object' ? ellipsis : null),
+        ...{ ...ellipsis, placement: 'top-right' },
       };
     });
 
@@ -102,7 +102,7 @@ export default defineComponent({
             alignItems: 'flex-end',
           }}
         >
-          {tooltipProps && <TTooltip content={tooltipProps.content} placement="top-right"></TTooltip>}
+          {tooltipProps && <TTooltip {...tooltipProps}></TTooltip>}
           <p style={props.ellipsis ? ellipsisStyles.value : {}}>{content.value}</p>
           {renderEllipsisExpand()}
           {props.renderCopy?.()}
