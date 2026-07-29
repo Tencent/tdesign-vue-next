@@ -104,15 +104,14 @@ export default defineComponent({
 
     const renderTitle = (tagContent: string) => {
       const vProps = vnode.props || {};
+
       if (Reflect.has(vProps, 'title')) {
+        if (vProps.title === false) return undefined;
+        if (vProps.title === true) return tagContent || undefined;
         return vProps.title || undefined;
       }
 
-      if (tagContent) {
-        return tagContent;
-      }
-
-      return undefined;
+      return tagContent || undefined;
     };
 
     return () => {

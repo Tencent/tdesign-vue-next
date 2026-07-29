@@ -4,7 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TNode, SizeEnum } from '../common';
+import type { TNode, SizeEnum } from '../common';
 
 export interface TdTagProps {
   /**
@@ -55,9 +55,8 @@ export interface TdTagProps {
   theme?: 'default' | 'primary' | 'warning' | 'danger' | 'success';
   /**
    * 标签标题，在标签hover时展示，默认为标签内容
-   * @default ''
    */
-  title?: string;
+  title?: string | boolean;
   /**
    * 标签风格变体
    * @default dark

@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, toRefs, reactive, Fragment } from 'vue';
+import { defineComponent, ref, computed, toRefs, reactive, Fragment, onMounted, onBeforeUnmount } from 'vue';
 import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
 import Attachments from '../attachments';
@@ -20,7 +20,12 @@ export default defineComponent({
   },
   emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus', 'fileSelect', 'remove', 'fileClick'], // declare the custom events here
   setup(props, { emit }) {
-    const isComposition = false;
+    // 是否正在使用输入法（IME）合成中文/日文等
+    const isComposition = ref(false);
+    // compositionend 之后的短暂锁：Safari 在中文输入法确认候选词时，
+    // 会在 compositionend 之后紧跟着派发一次 keydown Enter，且该事件的
+    // isComposing 已经为 false、keyCode 也不是 229，需要额外拦截这一次。
+    let compositionEndLock = false;
     const senderTextarea = ref(null);
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
@@ -51,10 +56,14 @@ export default defineComponent({
     };
     const keydownFn = (value: string, context: { e: KeyboardEvent }) => {
       const {
-        e: { key, shiftKey },
+        e: { key, shiftKey, keyCode },
       } = context;
       if (key === 'Enter') {
-        if (isComposition || context.e.isComposing) {
+        // 兼容各浏览器（尤其 Safari）：中文输入法回车"确认候选"时不应触发发送
+        // - Chrome/Firefox: isComposing === true 或 keyCode === 229
+        // - Safari: 上述判断都可能为 false，因此额外用 compositionstart/end 维护 isComposition，
+        //   并在 compositionend 后的短暂窗口内加锁拦截这一次回车
+        if (isComposition.value || context.e.isComposing || keyCode === 229 || compositionEndLock) {
           return;
         }
         if (shiftKey) {
@@ -65,6 +74,38 @@ export default defineComponent({
         sendClick(context.e);
       }
     };
+    const compositionStartFn = () => {
+      isComposition.value = true;
+    };
+    const compositionEndFn = () => {
+      isComposition.value = false;
+      // Safari 会在 compositionend 之后紧接着派发一次 keydown Enter，用一个 tick 的锁拦掉
+      compositionEndLock = true;
+      // 使用宏任务队列在下一次事件循环中释放锁
+      setTimeout(() => {
+        compositionEndLock = false;
+      }, 0);
+    };
+    // tdesign Textarea 未对外透传 compositionstart/compositionend 事件，
+    // 通过 DOM 手动绑定到内部的原生 <textarea> 上
+    let nativeTextareaEl: HTMLTextAreaElement | null = null;
+    onMounted(() => {
+      const rootEl = (senderTextarea.value as any)?.$el || (senderTextarea.value as any);
+      const el: HTMLTextAreaElement | null =
+        rootEl && rootEl.querySelector ? (rootEl.querySelector('textarea') as HTMLTextAreaElement) : null;
+      if (el) {
+        nativeTextareaEl = el;
+        el.addEventListener('compositionstart', compositionStartFn);
+        el.addEventListener('compositionend', compositionEndFn);
+      }
+    });
+    onBeforeUnmount(() => {
+      if (nativeTextareaEl) {
+        nativeTextareaEl.removeEventListener('compositionstart', compositionStartFn);
+        nativeTextareaEl.removeEventListener('compositionend', compositionEndFn);
+        nativeTextareaEl = null;
+      }
+    });
     const focusFn = (value: string, context: { e: FocusEvent }) => {
       focusFlag.value = true;
       emit('focus', value, context);

@@ -73,8 +73,12 @@ export default defineComponent({
     const hidePreselection = !props.panelPreselection && props.value.length === 2;
 
     const disableDateOptions = computed(() => {
-      const startDateValue = new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0));
-      const endDateValue = new Date(parseToDayjs(props.value[1], format.value, 'end').toDate().setHours(23, 59, 59));
+      const startDateValue = props.value[0]
+        ? new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0))
+        : undefined;
+      const endDateValue = props.value[1]
+        ? new Date(parseToDayjs(props.value[1], format.value, 'end').toDate().setHours(23, 59, 59))
+        : undefined;
       let start = props.isFirstValueSelected && props.activeIndex === 1 ? startDateValue : undefined;
       let end = props.isFirstValueSelected && props.activeIndex === 0 ? endDateValue : undefined;
 
@@ -192,6 +196,13 @@ export default defineComponent({
       cell: props.cell,
     }));
 
+    const selectedValue = computed(() => {
+      if (props.disabled && isArray(props.disabled) && props.disabled[0] !== props.disabled[1]) {
+        return props.value[props.disabled[0] ? 1 : 0];
+      }
+      return props.value[props.activeIndex];
+    });
+
     return () => (
       <div
         class={[
@@ -205,7 +216,7 @@ export default defineComponent({
         {['top', 'left'].includes(props.presetsPlacement) ? (
           <TExtraContent
             presets={props.presets}
-            selectedValue={props.value[props.activeIndex]}
+            selectedValue={selectedValue.value}
             enableTimePicker={props.enableTimePicker}
             onPresetClick={props.onPresetClick}
             onConfirmClick={props.onConfirmClick}
@@ -259,7 +270,7 @@ export default defineComponent({
         {['bottom', 'right'].includes(props.presetsPlacement) ? (
           <TExtraContent
             presets={props.presets}
-            selectedValue={props.value[props.activeIndex]}
+            selectedValue={selectedValue.value}
             enableTimePicker={props.enableTimePicker}
             onPresetClick={props.onPresetClick}
             onConfirmClick={props.onConfirmClick}

@@ -113,6 +113,7 @@ export default defineComponent({
             format={props.format || DEFAULT_FORMAT}
             steps={props.steps || DEFAULT_STEPS}
             value={dayjs(props.value, props.format).isValid() ? props.value : defaultValue.value}
+            internalValue={props.value}
             triggerScroll={triggerScroll.value}
             onChange={props.onChange}
             resetTriggerScroll={resetTriggerScroll}
