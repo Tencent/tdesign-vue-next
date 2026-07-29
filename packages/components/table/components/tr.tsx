@@ -82,6 +82,7 @@ export interface TrProps extends TrCommonProps {
   attach?: AttachNode;
   active?: boolean;
   isHover?: boolean;
+  reviveCells?: Map<number, { row: TableRowData; rowspan: number; colspan: number }>;
 }
 
 export const ROW_LISTENERS = [
@@ -149,6 +150,8 @@ export default defineComponent({
     rowAndColFixedPosition: Map as PropType<RowAndColFixedPosition>,
     // 合并单元格，是否跳过渲染
     skipSpansMap: Map as PropType<TrProps['skipSpansMap']>,
+    // 虚拟滚动场景下，需要在窗口首行复活的合并单元格
+    reviveCells: Map as PropType<TrProps['reviveCells']>,
     virtualConfig: Object as PropType<TrProps['virtualConfig']>,
     active: Boolean,
     isHover: Boolean,
@@ -329,6 +332,23 @@ export default defineComponent({
           rowIndex: props.rowIndex,
           colIndex,
         };
+        // 虚拟滚动场景下，合并块起始单元格已滚出渲染窗口时，在窗口首行复活该合并单元格，
+        // 使用合并块起始行数据渲染，并将 rowspan 调整为剩余可见行数，避免表格错位
+        const reviveCell = props.reviveCells?.get(colIndex);
+        if (reviveCell) {
+          reviveCell.rowspan > 1 && (cellSpans.rowspan = reviveCell.rowspan);
+          reviveCell.colspan > 1 && (cellSpans.colspan = reviveCell.colspan);
+          return renderTd(
+            { row: reviveCell.row, col, rowIndex: props.rowIndex, colIndex },
+            {
+              dataLength,
+              rowAndColFixedPosition,
+              columnLength: columns.length,
+              cellSpans,
+              cellEmptyContent: props.cellEmptyContent,
+            },
+          );
+        }
         let spanState = null;
         if (props.skipSpansMap.size) {
           const cellKey = getCellKey(row, props.rowKey, col.colKey, colIndex);

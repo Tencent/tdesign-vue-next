@@ -201,17 +201,25 @@ export default defineComponent({
 
     const change = (
       valueParam: TreeSelectValue,
-      node: TreeNodeModel<TreeOptionData>,
+      node: TreeNodeModel<TreeOptionData> | null,
       trigger: TreeSelectValueChangeTrigger,
+      e?: MouseEvent | KeyboardEvent | Event,
+      index?: number,
     ) => {
-      setTreeSelectValue(valueParam, { node, trigger });
+      setTreeSelectValue(valueParam, {
+        node,
+        trigger,
+        data: node?.data ?? null,
+        index,
+        e,
+      });
       changeNodeInfo();
     };
 
     const clear = (content: { e: MouseEvent }) => {
       const defaultValue: TreeSelectValue = props.multiple ? [] : '';
       actived.value = [];
-      change(defaultValue, null, 'clear');
+      change(defaultValue, null, 'clear', content.e);
       props.onClear?.({ e: content.e });
     };
 
@@ -223,7 +231,9 @@ export default defineComponent({
       if (isObjectValue.value) {
         current = valueParam.map(getNodeItem);
       }
-      change(current, context.node, 'check');
+      const trigger: TreeSelectValueChangeTrigger = context.node.checked ? 'check' : 'uncheck';
+      const index = context.node.getIndex();
+      change(current, context.node, trigger, context.e, index);
     };
 
     const treeNodeActive = (
@@ -248,7 +258,7 @@ export default defineComponent({
       } else {
         current = isEmpty(valueParam) ? '' : valueParam[0];
       }
-      change(current, context.node, 'check');
+      change(current, context.node, 'check', context.e, context.node.getIndex());
       actived.value = valueParam;
     };
 
@@ -276,7 +286,7 @@ export default defineComponent({
         isArray(treeSelectValue.value) && (treeSelectValue.value as Array<TreeSelectValue>).splice(index, 1);
       }
       props.onRemove?.({ value, data: null, e: context && (context.e as MouseEvent) });
-      change(treeSelectValue.value, null, trigger as 'tag-remove' | 'backspace');
+      change(treeSelectValue.value, null, trigger as 'tag-remove' | 'backspace', context?.e as MouseEvent, index);
     };
 
     const handlePopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
