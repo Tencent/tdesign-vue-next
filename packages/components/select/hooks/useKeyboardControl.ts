@@ -151,6 +151,9 @@ export function useKeyboardControl({
       `.${classPrefix.value}-select-option`,
     )?.clientHeight;
 
+    // popup 内容可能尚未渲染（如首次通过键盘打开下拉列表），此时无需滚动，避免访问 undefined 报错
+    if (!popupContentRef.value || !optionHeight) return;
+
     const scrollHeight = optionHeight * index;
 
     popupContentRef.value.scrollTo({

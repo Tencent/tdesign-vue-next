@@ -26,6 +26,10 @@ import { PopupTriggerEvent, TdPopupProps } from './type';
 const POPUP_ATTR_NAME = 'data-td-popup';
 const POPUP_PARENT_ATTR_NAME = 'data-td-popup-parent';
 
+function isEscapeKey(ev: KeyboardEvent) {
+  return ev.key === 'Escape' || ev.code === 'Escape' || ev.keyCode === 27;
+}
+
 /**
  * @param id
  * @param upwards query upwards poppers
@@ -115,7 +119,7 @@ export default defineComponent({
 
     const arrowStyle = ref<CSSProperties>({});
 
-    const id = typeof process !== 'undefined' && process.env?.TEST ? '' : Date.now().toString(36);
+    const id = Date.now().toString(36);
     const parent = inject(parentKey, undefined);
 
     provide(parentKey, {
@@ -215,8 +219,7 @@ export default defineComponent({
           !isServer && on(document, 'mousedown', onDocumentMouseDown, true);
           if (props.trigger === 'focus') {
             once(triggerEl.value, 'keydown', (ev: KeyboardEvent) => {
-              const code = typeof process !== 'undefined' && process.env?.TEST ? '27' : 'Escape';
-              if (ev.code === code) {
+              if (isEscapeKey(ev)) {
                 hide(ev);
               }
             });
