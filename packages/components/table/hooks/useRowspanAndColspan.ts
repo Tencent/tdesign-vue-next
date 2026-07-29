@@ -7,6 +7,8 @@ export interface SkipSpansValue {
   colspan?: number;
   rowspan?: number;
   skipped?: boolean;
+  startRowIndex?: number;
+  startColIndex?: number;
 }
 
 export function getCellKey(row: TableRowData, rowKey: string, colKey: string, colIndex: number, rowIndex?: number) {
@@ -47,6 +49,9 @@ export default function useRowspanAndColspan(
           const cellKey = getCellKey(data.value[i], rowKey.value, columns.value[j].colKey, j, i);
           const state = skipSpansMap.value.get(cellKey) || {};
           state.skipped = true;
+          // 记录合并块起始单元格坐标，供虚拟滚动首行复活合并单元格使用
+          state.startRowIndex = rowIndex;
+          state.startColIndex = colIndex;
           skipSpansMap.value.set(cellKey, state);
         }
       }
