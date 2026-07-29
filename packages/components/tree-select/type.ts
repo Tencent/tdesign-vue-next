@@ -186,10 +186,7 @@ export interface TdTreeSelectProps<
   /**
    * 节点选中状态变化时触发，`context.node` 表示当前变化的选项，`context. trigger` 表示触发变化的来源
    */
-  onChange?: (
-    value: TreeSelectValue,
-    context: { node: TreeNodeModel<DataOption>; trigger: TreeSelectValueChangeTrigger; e?: MouseEvent | KeyboardEvent },
-  ) => void;
+  onChange?: (value: TreeSelectValue, context: TreeSelectChangeContext<DataOption>) => void;
   /**
    * 点击清除按钮时触发
    */
@@ -217,6 +214,14 @@ export interface TdTreeSelectProps<
 }
 
 export type TreeSelectValue = string | number | object | Array<TreeSelectValue>;
+
+export interface TreeSelectChangeContext<DataOption> {
+  node: TreeNodeModel<DataOption> | null;
+  data: DataOption | null;
+  index?: number;
+  trigger: TreeSelectValueChangeTrigger;
+  e?: MouseEvent | KeyboardEvent | Event;
+}
 
 export type TreeSelectValueChangeTrigger = 'clear' | 'tag-remove' | 'backspace' | 'check' | 'uncheck';
 

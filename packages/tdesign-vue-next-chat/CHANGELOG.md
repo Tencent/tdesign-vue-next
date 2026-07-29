@@ -5,6 +5,19 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.6.0 `2026-07-16`
+
+###  🚀 Features
+
+- `ChatEngine`: 支持新版 AGUI 协议，同时兼容旧版 AGUI 协议 @lLzhengH
+
+### 🐞 Bug Fixes
+
+- `ChatMarkdown`: 
+    - 修复 markdown 组件默认挂载全局实例冲突的缺陷 @RSS1102 @uyarn ([#6791](https://github.com/Tencent/tdesign-vue-next/pull/6791))
+- `ChatContent`: 修复组件 XSS 漏洞的问题 @uyarn ([#6698](https://github.com/Tencent/tdesign-vue-next/pull/6698))
+- `ChatSender`: 修复在 Safari 中混合输入时回车会直接触发发送的问题 @goldjunkrat ([#6808](https://github.com/Tencent/tdesign-vue-next/pull/6808))
+
 ## 🌈 0.5.2 `2026-03-27`
 
 ### 🚀 Features
