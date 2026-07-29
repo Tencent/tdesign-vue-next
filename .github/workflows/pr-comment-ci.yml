@@ -44,7 +44,7 @@ jobs:
               core.info(`body: ${body}`)
               if (body.startsWith('/update-common')) {
                 next_action='update-common'
-                const prMatch = body.match(/^\/update-common\s+#(\d+)/)
+                const prMatch = body.match(/^\/update-common\s+(\d+)/)
                 if (prMatch) {
                   core.setOutput('common_pr_number', prMatch[1])
                   core.info(`common_pr_number: ${prMatch[1]}`)
