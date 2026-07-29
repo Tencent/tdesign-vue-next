@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       next_action: ${{ steps.get-action.outputs.next_action }}
+      common_pr_number: ${{ steps.get-action.outputs.common_pr_number }}
     if: ${{ github.event.issue.pull_request }}
     steps:
       - uses: actions/checkout@v4
@@ -43,6 +44,11 @@ jobs:
               core.info(`body: ${body}`)
               if (body.startsWith('/update-common')) {
                 next_action='update-common'
+                const prMatch = body.match(/^\/update-common\s+#(\d+)/)
+                if (prMatch) {
+                  core.setOutput('common_pr_number', prMatch[1])
+                  core.info(`common_pr_number: ${prMatch[1]}`)
+                }
               }
               if (body.startsWith('/update-snapshot')) {
                 next_action='update-snapshot'
@@ -85,17 +91,34 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-      - name: submodule init and sync remote
+      - name: submodule init and sync
+        env:
+          COMMON_PR_NUMBER: ${{ needs.check.outputs.common_pr_number }}
         run: |
-          git submodule update --init --remote
+          git submodule update --init
+          if [ -n "$COMMON_PR_NUMBER" ]; then
+            echo "Checking out tdesign-common PR #$COMMON_PR_NUMBER"
+            cd packages/common
+            git fetch origin "pull/${COMMON_PR_NUMBER}/head:refs/heads/pr-${COMMON_PR_NUMBER}"
+            git checkout "pr-${COMMON_PR_NUMBER}"
+          else
+            git submodule update --remote
+            echo "Updated common to latest remote"
+          fi
 
       - name: Commit common
+        env:
+          COMMON_PR_NUMBER: ${{ needs.check.outputs.common_pr_number }}
         run: |
           git status
           working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
           if [ "$working_tree_clean" -eq "0" ]; then
             git add .
-            git commit -m "chore: update common"
+            if [ -n "$COMMON_PR_NUMBER" ]; then
+              git commit -m "chore: update common to PR ${COMMON_PR_NUMBER}"
+            else
+              git commit -m "chore: update common"
+            fi
           fi
           git status
 
