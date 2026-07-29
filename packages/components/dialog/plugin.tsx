@@ -73,6 +73,7 @@ const createDialog: DialogMethod = (props, context) => {
         return h(DialogComponent, {
           ...dialogOptions.value,
           onClose,
+          lazy: dialogOptions.value.lazy ?? true,
           visible: visible.value,
         });
       };

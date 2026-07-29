@@ -1,4 +1,15 @@
-import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch, ComputedRef } from 'vue';
+import {
+  defineComponent,
+  computed,
+  toRefs,
+  ref,
+  nextTick,
+  reactive,
+  watch,
+  onMounted,
+  getCurrentInstance,
+  ComputedRef,
+} from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
@@ -177,14 +188,17 @@ export default defineComponent({
       },
     );
 
+    const instance = getCurrentInstance();
+
     const updateSuffixWidth = (selector: string, cssVar: string, widthRef: typeof suffixWidthRef) => {
-      const wrapperEl = tagInputRef.value?.$el as HTMLElement;
-      if (!wrapperEl) return;
+      // TInput 通过 expose 只暴露了 { inputRef, focus, blur }，其组件 ref 无法访问 $el，直接使用 TagInput 自身根节点（即 TInput 渲染出的 .t-input__wrap）
+      const wrapperEl = instance?.proxy?.$el as HTMLElement;
+      if (!wrapperEl || wrapperEl.nodeType !== 1) return;
 
       const inputEl = wrapperEl.querySelector(`.${classPrefix.value}-input`) as HTMLElement;
       if (!inputEl) return;
 
-      const targetEl = wrapperEl.querySelector(selector);
+      const targetEl = inputEl.querySelector(selector);
       const width = targetEl ? targetEl.getBoundingClientRect().width : 0;
       if (width !== widthRef.value) {
         widthRef.value = width;
@@ -217,11 +231,25 @@ export default defineComponent({
     };
 
     watch(
-      () => [excessTagsDisplayType.value, suffix.value, showClearIcon.value, classPrefix.value, isBreakLine.value],
+      () => [
+        excessTagsDisplayType.value,
+        suffix.value,
+        showClearIcon.value,
+        classPrefix.value,
+        isBreakLine.value,
+        size.value,
+        tagValue.value?.length,
+      ],
       () => {
         handleSuffixWidthUpdate();
       },
     );
+
+    // 初始渲染（如带默认值）时 watch 依赖不会变化，需在挂载完成后主动计算一次，
+    // 否则换行模式下预留间距为 0，后置图标会与标签重叠
+    onMounted(() => {
+      handleSuffixWidthUpdate();
+    });
 
     return () => {
       const suffixIconNode = showClearIcon.value ? (

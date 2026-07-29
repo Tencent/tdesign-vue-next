@@ -12,7 +12,9 @@ import {
   PrimaryTableInstanceFunctions,
   ErrorListObjectType,
   PrimaryTableCellParams,
+  PrimaryTableCol,
 } from '../type';
+import { AllValidateResult } from '../../form/type';
 import { getCellKey, getRowKeyFromCell } from './useRowspanAndColspan';
 import { OnEditableChangeContext, EditableCellInstance } from '../components/editable-cell';
 
@@ -92,22 +94,82 @@ export default function useRowEdit(props: PrimaryTableProps) {
       }, reject);
     });
 
+  // 收集所有始终保持编辑态（keepEditMode）的可编辑列（含多级表头）
+  const getKeepEditColumns = (columns: PrimaryTableCol<TableRowData>[] = []) => {
+    const result: PrimaryTableCol<TableRowData>[] = [];
+    columns.forEach((col) => {
+      if (col.edit?.component && col.edit?.keepEditMode) {
+        result.push(col);
+      }
+      if (col.children?.length) {
+        result.push(...getKeepEditColumns(col.children));
+      }
+    });
+    return result;
+  };
+
+  type CellValidateResult = { cellKey: string; persistKey: string; errorList: AllValidateResult[] };
+
   // 校验可编辑单元格
   const validateTableCellData = (): Promise<{ result: TableErrorListMap }> => {
-    const cellKeys = Object.keys(editingCells.value);
-
     // 过滤不存在的行，如删除操作
     const existKeys = props.data.map((v) => v[props.rowKey]?.toString());
-    const promiseList = cellKeys
-      .filter((v) => existKeys.includes(getRowKeyFromCell(v)))
-      .map((cellKey) => editingCells.value[cellKey].validateEdit('parent'));
+    const editingCellKeys = Object.keys(editingCells.value).filter((v) => existKeys.includes(getRowKeyFromCell(v)));
+
+    const keepEditColumns = getKeepEditColumns(props.columns as PrimaryTableCol<TableRowData>[]);
+    const keepEditColKeys = new Set(keepEditColumns.map((col) => col.colKey));
+
+    const promiseList: Promise<CellValidateResult>[] = [];
+
+    // 1. 校验当前处于编辑态（已挂载）的单元格，使用组件内的实时编辑值。
+    //    keepEditMode 列交由步骤 2 基于数据整表校验，避免虚拟滚动下未挂载行漏校验。
+    editingCellKeys.forEach((cellKey) => {
+      const context = editingCells.value[cellKey];
+      if (keepEditColKeys.has(context.col.colKey)) return;
+      const rowValue = get(context.row, props.rowKey || 'id');
+      promiseList.push(
+        context.validateEdit('parent').then((result) => ({
+          cellKey,
+          persistKey: [rowValue, context.col.colKey].join('__'),
+          errorList: result === true ? [] : result,
+        })),
+      );
+    });
+
+    // 2. keepEditMode 场景：虚拟滚动只挂载可视区行，导致未挂载行不参与校验且滚动后校验状态丢失。
+    //    这里对所有数据行的 keepEditMode 列基于行数据（含已编辑值）补充校验，保证校验完整且滚动后可恢复。
+    keepEditColumns.forEach((col) => {
+      props.data.forEach((row, rowIndex) => {
+        const rowValue = get(row, props.rowKey || 'id');
+        const editedRow = editedFormData.value[rowValue];
+        const value = editedRow ? get(editedRow, col.colKey) : get(row, col.colKey);
+        const cellKey = getCellKey(row, props.rowKey || 'id', col.colKey, 0, rowIndex);
+        const persistKey = [rowValue, col.colKey].join('__');
+        const params = { row, col, rowIndex, colIndex: 0 } as PrimaryTableCellParams<TableRowData>;
+        const rules = isFunction(col.edit.rules) ? col.edit.rules(params) : col.edit.rules;
+        if (!rules || !rules.length) return;
+        promiseList.push(
+          validate(value, rules).then((r) => ({
+            cellKey,
+            persistKey,
+            errorList: r.filter((t) => !t.result),
+          })),
+        );
+      });
+    });
+
     return new Promise((resolve, reject) => {
       Promise.all(promiseList).then((arr) => {
         const allErrorListMap: TableErrorListMap = {};
-        arr.forEach((result, index) => {
-          if (result === true) return;
-          allErrorListMap[cellKeys[index]] = result;
+        const persistentErrorMap: TableErrorListMap = {};
+        arr.forEach(({ cellKey, persistKey, errorList }) => {
+          if (errorList?.length) {
+            allErrorListMap[cellKey] = errorList;
+            persistentErrorMap[persistKey] = errorList;
+          }
         });
+        // 持久化校验错误信息，供虚拟滚动下单元格重新挂载时通过 errors 属性恢复校验状态
+        errorListMap.value = persistentErrorMap;
         props.onValidate?.({ result: allErrorListMap });
         resolve({ result: allErrorListMap });
       }, reject);

@@ -62,13 +62,11 @@ const pickDate = ref();
 const timePickerProps = computed<DatePickerProps['timePickerProps']>(() => {
   return {
     disableTime: () => {
-      if (pickDate.value === dayjs().format('YYYY-MM-DD')) {
-        return {
-          hour: [0, 1, 2, 3, 4, 5, 6],
-        };
-      }
-      return {};
+      return {
+        hour: [1, 2, 3, 4, 5, 6],
+      };
     },
+    hideDisabledTime: false,
   };
 });
 const onPick: DatePickerProps['onPick'] = (date) => {

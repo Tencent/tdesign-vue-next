@@ -1,6 +1,7 @@
 packages:
   - packages/**
   - internal/**
+  - '!packages/common'
 allowBuilds:
   canvas: true
   core-js: true
@@ -93,9 +94,9 @@ catalogs:
     lint-staged: ^13.2.3
     prettier: ^2.8.1
   tdesign:
-    '@tdesign/site-components': ^0.19.1
+    '@tdesign/site-components': ^0.19.2
     '@tdesign/theme-generator': ^1.2.4
-    tdesign-icons-vue-next: ~0.4.4
+    tdesign-icons-vue-next: ~0.4.7
     tdesign-publish-cli: ^0.0.12
   test:
     '@testing-library/dom': ^9.3.1

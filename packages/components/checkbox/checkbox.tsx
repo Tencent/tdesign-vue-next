@@ -124,7 +124,7 @@ export default defineComponent({
     );
 
     const handleChange = (e: Event) => {
-      if (isReadonly.value) return;
+      if (isReadonly.value || isDisabled.value) return;
       const checked = !tChecked.value;
       setInnerChecked(checked, { e });
       if (checkboxGroupData?.value.handleCheckboxChange) {
