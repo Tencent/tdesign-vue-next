@@ -30,6 +30,12 @@
     "options": []
   },
   {
+    "name": "isInput",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
     "name": "size",
     "type": "enum",
     "defaultValue": "medium",
