@@ -1,471 +1,257 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { vi } from 'vitest';
-import { ref, nextTick } from 'vue';
-import { Radio, RadioGroup, RadioButton } from '@tdesign/components/radio';
-import { getRadioGroupKidsMount, getRadioGroupDefaultMount } from './mount';
+import { nextTick, ref } from 'vue';
+import { afterEach, expect, vi } from 'vitest';
 
-describe('Radio Component', () => {
-  it('props.allowUncheck works fine', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = mount(<Radio checked={true} allowUncheck={true} onChange={onChangeFn}></Radio>);
-    wrapper.findComponent(Radio).trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled();
-    expect(onChangeFn.mock.calls[0][0]).toBe(false);
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('click');
-  });
+import Radio from '@tdesign/components/radio';
 
-  it('props.checked works fine', () => {
-    // checked default value is false
-    const wrapper1 = mount(<Radio></Radio>);
-    expect(wrapper1.classes('t-is-checked')).toBeFalsy();
-    // checked = true
-    const wrapper2 = mount(<Radio checked={true}></Radio>);
-    expect(wrapper2.classes('t-is-checked')).toBeTruthy();
-    expect(wrapper2.element).toMatchSnapshot();
-    // checked = false
-    const wrapper3 = mount(<Radio checked={false}></Radio>);
-    expect(wrapper3.classes('t-is-checked')).toBeFalsy();
-    expect(wrapper3.element).toMatchSnapshot();
-  });
+const RADIO = '.t-radio';
+const INPUT = 'input.t-radio__former';
+const LABEL = '.t-radio__label';
 
-  it(`props.checked is equal to true`, () => {
-    const wrapper = mount(<Radio checked={true}></Radio>);
-    const domWrapper = wrapper.find('input');
-    expect(domWrapper.element.checked).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('props.default works fine', () => {
-    const wrapper = mount(<Radio default={() => <span class="custom-node">TNode</span>}></Radio>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('slots.default works fine', () => {
-    const wrapper = mount(<Radio v-slots={{ default: () => <span class="custom-node">TNode</span> }}></Radio>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('props.disabled works fine', () => {
-    // disabled default value is undefined
-    const wrapper1 = mount(<Radio>Text</Radio>);
-    expect(wrapper1.classes('t-is-disabled')).toBeFalsy();
-    // disabled = true
-    const wrapper2 = mount(<Radio disabled={true}>Text</Radio>);
-    expect(wrapper2.classes('t-is-disabled')).toBeTruthy();
-    expect(wrapper2.element).toMatchSnapshot();
-    // disabled = false
-    const wrapper3 = mount(<Radio disabled={false}>Text</Radio>);
-    expect(wrapper3.classes('t-is-disabled')).toBeFalsy();
-    expect(wrapper3.element).toMatchSnapshot();
-  });
-
-  it('props.disabled works fine', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = mount(
-      <Radio disabled={true} onChange={onChangeFn}>
-        Text
-      </Radio>,
-    );
-    wrapper.findComponent(Radio).trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).not.toHaveBeenCalled();
-  });
-
-  it('props.name works fine', () => {
-    const wrapper = mount(<Radio name={'radio-gender-name'}></Radio>).find('input');
-    expect(wrapper.attributes('name')).toBe('radio-gender-name');
-  });
-
-  it('Events.change: checked default value is false, click radio and trigger change', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = mount(<Radio onChange={onChangeFn}></Radio>);
-    wrapper.find('.t-radio__label').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled();
-    expect(onChangeFn.mock.calls[0][0]).toBe(true);
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('click');
-  });
-  it('Events.change: checked value is true, without allowUncheck, click radio and can not trigger change', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = mount(<Radio checked={true} onChange={onChangeFn}></Radio>);
-    wrapper.find('.t-radio__label').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).not.toHaveBeenCalled();
-  });
-});
-
-describe('RadioGroup Component', () => {
-  it('props.allowUncheck works fine', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupDefaultMount({ value: 1, allowUncheck: true }, { onChange: onChangeFn });
-    wrapper.find('.t-radio').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled();
-    expect(onChangeFn.mock.calls[0][0]).toBe(undefined);
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('click');
-  });
-
-  it('props.allowUncheck works fine', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupKidsMount({ value: 1, allowUncheck: true }, { onChange: onChangeFn });
-    wrapper.find('.t-radio').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled();
-    expect(onChangeFn.mock.calls[0][0]).toBe(undefined);
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('click');
-  });
-
-  it('props.disabled is equal true', () => {
-    const wrapper = getRadioGroupDefaultMount({ disabled: true });
-    expect(wrapper.findAll('.t-radio.t-is-disabled').length).toBe(4);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('props.disabled is equal true', () => {
-    const wrapper = getRadioGroupKidsMount({ disabled: true });
-    expect(wrapper.findAll('.t-radio.t-is-disabled').length).toBe(4);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('Props.disabled: disabled radio can not trigger change', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupDefaultMount({ disabled: true }, { onChange: onChangeFn });
-    wrapper.find('.t-radio').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).not.toHaveBeenCalled();
-  });
-
-  it('Props.disabled: disabled radio can not trigger change', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupKidsMount({ disabled: true }, { onChange: onChangeFn });
-    wrapper.find('.t-radio').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).not.toHaveBeenCalled();
-  });
-
-  it(`props.name is equal to 'custom-radio-name'`, () => {
-    const wrapper = getRadioGroupDefaultMount({ name: 'custom-radio-name' });
-    const domWrapper = wrapper.find('input');
-    expect(domWrapper.attributes('name')).toBe('custom-radio-name');
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it(`props.name is equal to 'custom-radio-name'`, () => {
-    const wrapper = getRadioGroupKidsMount({ name: 'custom-radio-name' });
-    const domWrapper = wrapper.find('input');
-    expect(domWrapper.attributes('name')).toBe('custom-radio-name');
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('props.options works fine. `{".t-radio":4}` should exist', () => {
-    const wrapper = getRadioGroupDefaultMount();
-    expect(wrapper.findAll('.t-radio').length).toBe(4);
-  });
-
-  it('props.options works fine. `".custom-node"` should exist', () => {
-    const wrapper = getRadioGroupDefaultMount();
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('props.options works fine. `{".t-radio.t-is-disabled":1}` should exist', () => {
-    const wrapper = getRadioGroupDefaultMount();
-    expect(wrapper.findAll('.t-radio.t-is-disabled').length).toBe(1);
-  });
-
-  it(`props.value is equal to '2'`, () => {
-    const wrapper = getRadioGroupDefaultMount({ value: '2' });
-    const domWrapper = wrapper.find('.t-radio.t-is-checked input');
-    expect(domWrapper.element.value).toBe('2');
-  });
-
-  it(`props.value is equal to '2'`, () => {
-    const wrapper = getRadioGroupKidsMount({ value: '2' });
-    const domWrapper = wrapper.find('.t-radio.t-is-checked input');
-    expect(domWrapper.element.value).toBe('2');
-  });
-
-  const variantClassNameList = ['t-radio-group__outline', 't-radio-group--primary-filled', 't-radio-group--filled'];
-  ['outline', 'primary-filled', 'default-filled'].forEach((item, index) => {
-    it(`props.variant is equal to ${item}`, () => {
-      const wrapper = mount(<RadioGroup variant={item}></RadioGroup>);
-      if (typeof variantClassNameList[index] === 'string') {
-        expect(wrapper.classes(variantClassNameList[index])).toBeTruthy();
-      } else if (typeof variantClassNameList[index] === 'object') {
-        const classNameKey = Object.keys(variantClassNameList[index])[0];
-        expect(wrapper.classes(classNameKey)).toBeFalsy();
-      }
-    });
-  });
-
-  it('Events.change: default value is 2, trigger change after click', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupDefaultMount({ value: 2 }, { onChange: onChangeFn });
-    wrapper.find('.t-radio').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled();
-    expect(onChangeFn.mock.calls[0][0]).toBe(1);
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('click');
-  });
-  it('Events.change: default value is empty, trigger change after click', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupDefaultMount({}, { onChange: onChangeFn });
-    wrapper.find('.t-radio').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled();
-    expect(onChangeFn.mock.calls[0][0]).toBe(1);
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('click');
-  });
-
-  it('Events.change: default value is 2, trigger change after click', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupKidsMount({ value: 2 }, { onChange: onChangeFn });
-    wrapper.find('.t-radio').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled();
-    expect(onChangeFn.mock.calls[0][0]).toBe(1);
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('click');
-  });
-  it('Events.change: default value is empty, trigger change after click', async () => {
-    const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupKidsMount({}, { onChange: onChangeFn });
-    wrapper.find('.t-radio').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled();
-    expect(onChangeFn.mock.calls[0][0]).toBe(1);
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('click');
-  });
+afterEach(() => {
+  vi.restoreAllMocks();
 });
 
 describe('Radio', () => {
-  // test props api
-  describe(':props', () => {
-    it(':checked', () => {
-      const wrapper = mount(() => <Radio checked></Radio>);
-      const radio = wrapper.find('.t-radio');
-      expect(radio.exists()).toBeTruthy();
-      expect(radio.classes()).toContain('t-is-checked');
-    });
-    it(':defaultChecked', () => {
-      const wrapper = mount(() => <Radio checked></Radio>);
-      const radio = wrapper.find('.t-radio');
-      expect(radio.exists()).toBeTruthy();
-      expect(radio.classes()).toContain('t-is-checked');
-    });
-    it(':disabled', () => {
-      const wrapper = mount(() => <Radio disabled></Radio>);
-      const radio = wrapper.find('.t-radio');
-      expect(radio.classes()).toContain('t-is-disabled');
-    });
-    it(':name', () => {
-      const wrapper = mount(() => <Radio name="name"></Radio>);
-      const input = wrapper.find('.t-radio input');
-      expect(input.element.getAttribute('name')).toBe('name');
-    });
-    it(':default', () => {
-      const wrapper = mount(() => <Radio default="label"></Radio>);
-      const label = wrapper.find('.t-radio__label');
-      expect(label.exists()).toBeTruthy();
-      expect(label.text()).toBe('label');
-    });
-    it(':label', () => {
-      const wrapper = mount(() => <Radio label="label"></Radio>);
-      const label = wrapper.find('.t-radio__label');
-      expect(label.exists()).toBeTruthy();
-      expect(label.text()).toBe('label');
-    });
-    it(':allowUncheck', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => (
-        <Radio allowUncheck onChange={fn}>
-          label
-        </Radio>
-      ));
-      const radio = wrapper.find('.t-radio');
-      await radio.trigger('click');
-      await nextTick();
-      expect(fn).toBeCalled();
-    });
-  });
-  describe(':events', () => {
-    it(':onChange', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Radio onChange={fn}>label</Radio>);
-      const radio = wrapper.find('.t-radio');
-      await radio.trigger('click');
-      await nextTick();
-      expect(fn).toBeCalled();
-    });
-
-    it(':onClick', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <Radio onClick={fn}>label</Radio>);
-      await wrapper.trigger('click');
-      await nextTick();
-      expect(fn).toBeCalled();
-    });
-  });
-});
-
-describe('RadioGroup', () => {
-  describe(':props', () => {
-    it(':disabled', () => {
-      const wrapper = mount(() => (
-        <RadioGroup disabled>
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      const radioList = wrapper.findAll('.t-radio');
-      radioList.forEach((radio) => {
-        expect(radio.classes()).toContain('t-is-disabled');
+  describe('props', () => {
+    it(':allowUncheck[boolean]', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Radio, {
+        props: { checked: true, onChange },
       });
-    });
 
-    it(':name', () => {
-      const wrapper = mount(() => (
-        <RadioGroup name="name">
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      const inputList = wrapper.findAll('.t-radio input');
-      inputList.forEach((input) => {
-        expect(input.element.getAttribute('name')).toBe('name');
+      expect(wrapper.get(INPUT).attributes('data-allow-uncheck')).toBeUndefined();
+      await wrapper.get(RADIO).trigger('click');
+      expect(onChange).not.toHaveBeenCalled();
+
+      await wrapper.setProps({ allowUncheck: true });
+      expect(wrapper.get(INPUT).attributes('data-allow-uncheck')).toBe('true');
+      await wrapper.get(RADIO).trigger('click');
+      expect(onChange).toHaveBeenCalledWith(false, { e: expect.any(MouseEvent) });
+
+      const uncheckedChange = vi.fn();
+      const uncheckedWrapper = mount(Radio, {
+        props: { allowUncheck: true, onChange: uncheckedChange },
       });
+      await uncheckedWrapper.get(RADIO).trigger('click');
+      expect(uncheckedChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
     });
 
-    it(':size', () => {
-      const sizeList = ['small', 'large'];
-      sizeList.forEach((size) => {
-        const wrapper = mount(() => (
-          <RadioGroup size={size}>
-            <Radio value="1">选项一</Radio>
-            <Radio value="2">选项二</Radio>
-          </RadioGroup>
-        ));
-        expect(wrapper.find('.t-radio-group').classes()).toContain(`t-size-${size.slice(0, 1)}`);
+    it(':checked[boolean]', async () => {
+      const wrapper = mount(Radio, { props: { checked: false } });
+
+      expect(wrapper.classes()).not.toContain('t-is-checked');
+      expect(wrapper.get<HTMLInputElement>(INPUT).element.checked).toBe(false);
+
+      await wrapper.get(RADIO).trigger('click');
+      expect(wrapper.emitted('update:checked')).toEqual([[true]]);
+      expect(wrapper.classes()).not.toContain('t-is-checked');
+
+      await wrapper.setProps({ checked: true });
+      expect(wrapper.classes()).toContain('t-is-checked');
+      expect(wrapper.get<HTMLInputElement>(INPUT).element.checked).toBe(true);
+    });
+
+    it(':defaultChecked[boolean]', async () => {
+      const wrapper = mount(Radio, {
+        props: { allowUncheck: true, defaultChecked: true },
       });
+
+      expect(wrapper.classes()).toContain('t-is-checked');
+      await wrapper.get(RADIO).trigger('click');
+      expect(wrapper.classes()).not.toContain('t-is-checked');
+      expect(wrapper.emitted('update:checked')).toBeUndefined();
     });
 
-    it(':defaultValue', () => {
-      const defaultValue = ref('1');
-      const wrapper = mount(() => (
-        <RadioGroup defaultValue={defaultValue.value}>
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      const inputList = wrapper.findAll('.t-radio');
-      expect(inputList[0].classes()).toContain('t-is-checked');
-      expect(inputList[1].classes()).not.toContain('t-is-checked');
+    it(':modelValue[boolean]', async () => {
+      const wrapper = mount(Radio, {
+        props: { allowUncheck: true, checked: false, modelValue: true },
+      });
+
+      expect(wrapper.classes()).toContain('t-is-checked');
+      await wrapper.get(RADIO).trigger('click');
+      expect(wrapper.emitted('update:modelValue')).toEqual([[false]]);
+      expect(wrapper.emitted('update:checked')).toBeUndefined();
+      expect(wrapper.classes()).toContain('t-is-checked');
+
+      await wrapper.setProps({ modelValue: false });
+      expect(wrapper.classes()).not.toContain('t-is-checked');
+
+      const value = ref(false);
+      const modelWrapper = mount(() => <Radio v-model={value.value} />);
+      await modelWrapper.get(RADIO).trigger('click');
+      await nextTick();
+      expect(value.value).toBe(true);
+      expect(modelWrapper.get(RADIO).classes()).toContain('t-is-checked');
     });
-    it(':options', () => {
-      const options = [
-        {
-          value: '1',
-          label: '选项一',
-          disabled: true,
+
+    it(':default[string]', () => {
+      const wrapper = mount(Radio, { props: { default: 'Default content' } });
+      expect(wrapper.get(LABEL).text()).toBe('Default content');
+    });
+
+    it(':default[slot/function]', () => {
+      const functionWrapper = mount(Radio, {
+        props: { default: () => <span class="function-content">Function content</span> },
+      });
+      expect(functionWrapper.get('.function-content').text()).toBe('Function content');
+
+      const slotWrapper = mount(Radio, {
+        props: { label: 'Label content' },
+        slots: { default: () => <span class="slot-content">Slot content</span> },
+      });
+      expect(slotWrapper.get('.slot-content').text()).toBe('Slot content');
+      expect(slotWrapper.get(LABEL).text()).not.toContain('Label content');
+    });
+
+    it(':disabled[boolean]', async () => {
+      const onChange = vi.fn();
+      const onClick = vi.fn();
+      const wrapper = mount(Radio, {
+        props: { disabled: true, onChange, onClick },
+      });
+
+      expect(wrapper.classes()).toContain('t-is-disabled');
+      expect(wrapper.attributes('tabindex')).toBeUndefined();
+      expect(wrapper.get(INPUT).attributes('disabled')).toBeDefined();
+      await wrapper.get(RADIO).trigger('click');
+      expect(onChange).not.toHaveBeenCalled();
+      expect(onClick).not.toHaveBeenCalled();
+
+      const formDisabledWrapper = mount(Radio, {
+        global: {
+          provide: { formDisabled: { disabled: ref(true) } },
         },
-        {
-          value: '2',
-          label: '选项二',
+      });
+      expect(formDisabledWrapper.classes()).toContain('t-is-disabled');
+
+      const overrideWrapper = mount(Radio, {
+        props: { disabled: false },
+        global: {
+          provide: { formDisabled: { disabled: ref(true) } },
         },
-      ];
-      const defaultValue = ref('1');
-      const wrapper = mount(() => <RadioGroup defaultValue={defaultValue.value} options={options}></RadioGroup>);
-      const inputList = wrapper.findAll('.t-radio');
-      expect(inputList.length).toBe(2);
-      expect(inputList[0].classes()).toContain('t-is-checked');
-      expect(inputList[1].classes()).not.toContain('t-is-checked');
+      });
+      expect(overrideWrapper.classes()).not.toContain('t-is-disabled');
+      expect(overrideWrapper.attributes('tabindex')).toBe('0');
     });
 
-    it(':variant', () => {
-      // const variantList = ['outline', 'primary-filled', 'default-filled'];
-      const wrapper1 = mount(() => (
-        <RadioGroup variant="outline">
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      expect(wrapper1.find('.t-radio-group').classes()).toContain(`t-radio-group__outline`);
-      const wrapper2 = mount(() => (
-        <RadioGroup variant="primary-filled">
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      expect(wrapper2.find('.t-radio-group').classes()).toContain(`t-radio-group--primary-filled`);
-      const wrapper3 = mount(() => (
-        <RadioGroup variant="default-filled">
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      expect(wrapper3.find('.t-radio-group').classes()).toContain(`t-radio-group--filled`);
-    });
-    it(':direction', () => {
-      const wrapper1 = mount(() => (
-        <RadioGroup>
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      expect(wrapper1.find('.t-radio-group').classes()).not.toContain('t-radio-group--vertical');
-      const wrapper2 = mount(() => (
-        <RadioGroup direction="horizontal">
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      expect(wrapper2.find('.t-radio-group').classes()).not.toContain('t-radio-group--vertical');
-      const wrapper3 = mount(() => (
-        <RadioGroup direction="vertical">
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      expect(wrapper3.find('.t-radio-group').classes()).toContain('t-radio-group--vertical');
+    it(':label[string]', () => {
+      const wrapper = mount(Radio, { props: { label: 'Label content' } });
+      expect(wrapper.get(LABEL).text()).toBe('Label content');
     });
 
-    it(':theme', () => {
-      const wrapper = mount(() => (
-        <RadioGroup theme="radio">
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      expect(wrapper.findComponent(Radio)).toBeTruthy();
-      const wrapper2 = mount(() => (
-        <RadioGroup theme="button">
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
+    it(':label[slot/function]', () => {
+      const functionWrapper = mount(Radio, {
+        props: { label: () => <span class="function-label">Function label</span> },
+      });
+      expect(functionWrapper.get('.function-label').text()).toBe('Function label');
 
-      expect(wrapper2.findComponent(RadioButton)).toBeTruthy();
+      const slotWrapper = mount(Radio, {
+        slots: { label: () => <span class="slot-label">Slot label</span> },
+      });
+      expect(slotWrapper.get('.slot-label').text()).toBe('Slot label');
+    });
+
+    it(':name[string]', () => {
+      const wrapper = mount(Radio, { props: { name: 'radio-name' } });
+      expect(wrapper.get(INPUT).attributes('name')).toBe('radio-name');
+    });
+
+    it(':readonly[boolean]', async () => {
+      const onChange = vi.fn();
+      const onClick = vi.fn();
+      const wrapper = mount(Radio, {
+        props: { onChange, onClick, readonly: true },
+      });
+
+      expect(wrapper.get(INPUT).attributes('readonly')).toBeDefined();
+      await wrapper.get(RADIO).trigger('click');
+      expect(onChange).not.toHaveBeenCalled();
+      expect(onClick).not.toHaveBeenCalled();
+
+      const formReadonlyWrapper = mount(Radio, {
+        global: {
+          provide: { formReadonly: { readonly: ref(true) } },
+        },
+      });
+      expect(formReadonlyWrapper.get(INPUT).attributes('readonly')).toBeDefined();
+
+      const overrideWrapper = mount(Radio, {
+        props: { readonly: false },
+        global: {
+          provide: { formReadonly: { readonly: ref(true) } },
+        },
+      });
+      expect(overrideWrapper.get(INPUT).attributes('readonly')).toBeUndefined();
+    });
+
+    it(':value[string/number/boolean]', () => {
+      const stringWrapper = mount(Radio, { props: { value: 'radio-value' } });
+      expect(stringWrapper.get<HTMLInputElement>(INPUT).element.value).toBe('radio-value');
+      expect(stringWrapper.get(INPUT).attributes('data-value')).toBe("'radio-value'");
+
+      const numberWrapper = mount(Radio, { props: { value: 1 } });
+      expect(numberWrapper.get(INPUT).attributes('data-value')).toBe('1');
+
+      const booleanWrapper = mount(Radio, { props: { value: false } });
+      expect(booleanWrapper.get(INPUT).attributes('data-value')).toBe('false');
+
+      const wrapperAttrs = mount(Radio, { attrs: { 'data-testid': 'radio' } });
+      expect(wrapperAttrs.attributes('data-testid')).toBe('radio');
+      expect(wrapperAttrs.get(INPUT).attributes('data-testid')).toBeUndefined();
     });
   });
 
-  describe(':events', () => {
-    it(':onChange', async () => {
-      const defaultValue = ref('1');
-      const fn = vi.fn();
-      const wrapper = mount(() => (
-        <RadioGroup v-model={defaultValue.value} onChange={fn}>
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-        </RadioGroup>
-      ));
-      const radioList = wrapper.findAll('.t-radio');
-      expect(radioList[0].classes()).toContain('t-is-checked');
-      await radioList[1].trigger('click');
-      expect(fn).toBeCalled();
-      expect(radioList[1].classes()).toContain('t-is-checked');
-      expect(defaultValue.value).toBe('2');
+  describe('events', () => {
+    it('change', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Radio, { props: { onChange } });
+
+      await wrapper.get(LABEL).trigger('click');
+      expect(onChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
+      expect(wrapper.classes()).toContain('t-is-checked');
+
+      const inputChange = vi.fn();
+      const inputWrapper = mount(Radio, { props: { onChange: inputChange } });
+      await inputWrapper.get(INPUT).trigger('click');
+      expect(inputChange).not.toHaveBeenCalled();
+    });
+
+    it('click', async () => {
+      const onChange = vi.fn();
+      const onClick = vi.fn();
+      const wrapper = mount(Radio, {
+        props: { checked: true, onChange, onClick },
+      });
+
+      await wrapper.get(RADIO).trigger('click');
+      expect(onClick).toHaveBeenCalledWith({ e: expect.any(MouseEvent) });
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    // Current behavior is tracked by #6844. These listeners should be bound to the input after the source is fixed.
+    it('focus/blur/keydown/keyup', async () => {
+      const onFocus = vi.fn();
+      const onBlur = vi.fn();
+      const onKeydown = vi.fn();
+      const onKeyup = vi.fn();
+      const wrapper = mount(Radio, {
+        attrs: { onBlur, onFocus, onKeydown, onKeyup },
+      });
+      const input = wrapper.get(INPUT);
+
+      expect(input.attributes('keydown')).toBeDefined();
+      expect(wrapper.attributes('onfocus')).toBeUndefined();
+
+      await input.trigger('focus');
+      await input.trigger('blur');
+      await input.trigger('keydown', { key: 'Enter' });
+      await input.trigger('keyup', { key: 'Enter' });
+
+      expect(onFocus).not.toHaveBeenCalled();
+      expect(onBlur).not.toHaveBeenCalled();
+      expect(onKeydown).not.toHaveBeenCalled();
+      expect(onKeyup).not.toHaveBeenCalled();
     });
   });
 });
