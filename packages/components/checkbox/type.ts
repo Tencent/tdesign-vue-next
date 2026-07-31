@@ -4,7 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TNode } from '../common';
+import { TNode, SizeEnum } from '../common';
 
 export interface TdCheckboxProps {
   /**
@@ -79,6 +79,11 @@ export interface TdCheckboxGroupProps<T = CheckboxGroupValue> {
    */
   disabled?: boolean;
   /**
+   * 当取值为 vertical 时，多选框选项以垂直方向排列。仅在按钮风格（variant 不为空）下生效
+   * @default horizontal
+   */
+  direction?: 'horizontal' | 'vertical';
+  /**
    * 是否启用懒加载。子组件 Checkbox 数据量大时建议开启；加载复杂内容或大量图片时建议开启
    * @default false
    */
@@ -101,6 +106,11 @@ export interface TdCheckboxGroupProps<T = CheckboxGroupValue> {
    */
   readonly?: boolean;
   /**
+   * 组件尺寸，仅在按钮风格（variant 不为空）下生效
+   * @default medium
+   */
+  size?: SizeEnum;
+  /**
    * 选中值
    * @default []
    */
@@ -115,6 +125,10 @@ export interface TdCheckboxGroupProps<T = CheckboxGroupValue> {
    * @default []
    */
   modelValue?: T;
+  /**
+   * 多选框组按钮形式。为空表示不启用按钮风格，仍为默认的方框多选框
+   */
+  variant?: 'outline' | 'primary-filled' | 'default-filled';
   /**
    * 值变化时触发。`context.current` 表示当前变化的数据项，如果是全选则为空；`context.type` 表示引起选中数据变化的是选中或是取消选中，`context.option` 表示当前变化的数据项
    */

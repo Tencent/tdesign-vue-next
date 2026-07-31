@@ -5,7 +5,13 @@ import Checkbox from './checkbox';
 import props from './checkbox-group-props';
 import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 import { CheckboxGroupInjectionKey } from './constants';
-import { useVModel, useTNodeJSX, usePrefixClass, useChildComponentSlots } from '@tdesign/shared-hooks';
+import {
+  useVModel,
+  useTNodeJSX,
+  usePrefixClass,
+  useChildComponentSlots,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
@@ -14,6 +20,30 @@ export default defineComponent({
     /** 样式 */
     const COMPONENT_NAME = usePrefixClass('checkbox-group');
     const renderTNodeJSX = useTNodeJSX();
+    const { SIZE } = useCommonClassName();
+
+    if (process.env.NODE_ENV !== 'production') {
+      watchEffect(() => {
+        if (props.direction === 'vertical' && !props.variant) {
+          console.warn(
+            'TDesign CheckboxGroup Warn: `direction` only takes effect when `variant` is set. Received `direction="vertical"` without `variant`, it will be ignored.',
+          );
+        }
+      });
+    }
+
+    // 按钮风格下 group 根节点的修饰类，与 tdesign-common 定义的 class 契约保持一致：
+    // __outline / --filled / --primary-filled / --vertical
+    const groupClass = computed(() => [
+      COMPONENT_NAME.value,
+      SIZE.value[props.size],
+      {
+        [`${COMPONENT_NAME.value}__outline`]: props.variant === 'outline',
+        [`${COMPONENT_NAME.value}--filled`]: props.variant === 'primary-filled' || props.variant === 'default-filled',
+        [`${COMPONENT_NAME.value}--primary-filled`]: props.variant === 'primary-filled',
+        [`${COMPONENT_NAME.value}--vertical`]: Boolean(props.variant) && props.direction === 'vertical',
+      },
+    ]);
 
     const { isArray } = Array;
     const { value, modelValue } = toRefs(props);
@@ -158,6 +188,7 @@ export default defineComponent({
         disabled: props.disabled,
         readonly: props.readonly,
         indeterminate: indeterminate.value,
+        variant: props.variant,
         handleCheckboxChange,
         onCheckedChange,
       })),
@@ -182,7 +213,7 @@ export default defineComponent({
         children = nodes;
       }
       return (
-        <div class={COMPONENT_NAME.value} role="group" aria-label="checkbox-group">
+        <div class={groupClass.value} role="group" aria-label="checkbox-group">
           {children}
         </div>
       );
