@@ -8,6 +8,8 @@ import { TNodeReturnValue } from '../common';
 
 import { isArray, isString, isFunction } from 'lodash-es';
 
+const SWITCH_SHAPES = ['circle', 'round', 'line'];
+
 export default defineComponent({
   name: 'TSwitch',
   props,
@@ -58,9 +60,12 @@ export default defineComponent({
         });
     }
 
+    const shape = computed(() => (SWITCH_SHAPES.includes(props.shape) ? props.shape : 'circle'));
+
     // classes
     const classes = computed(() => [
       `${COMPONENT_NAME.value}`,
+      `${COMPONENT_NAME.value}--shape-${shape.value}`,
       SIZE.value[props.size],
       {
         [STATUS.value.disabled]: disabled.value,
@@ -126,14 +131,14 @@ export default defineComponent({
       let loadingContent: TNodeReturnValue;
       if (props.loading) {
         loadingContent = <TLoading size="small" />;
-      } else if (content.value) {
+      } else if (shape.value !== 'line' && content.value) {
         switchContent = content.value;
       }
 
       return (
         <div class={classes.value} onClick={toggle}>
           <span class={nodeClasses.value}>{loadingContent}</span>
-          <div class={contentClasses.value}>{switchContent}</div>
+          {shape.value !== 'line' && <div class={contentClasses.value}>{switchContent}</div>}
         </div>
       );
     };

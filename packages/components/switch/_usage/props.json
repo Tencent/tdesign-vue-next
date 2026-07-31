@@ -12,6 +12,25 @@
     "options": []
   },
   {
+    "name": "shape",
+    "type": "enum",
+    "defaultValue": "circle",
+    "options": [
+      {
+        "label": "circle",
+        "value": "circle"
+      },
+      {
+        "label": "round",
+        "value": "round"
+      },
+      {
+        "label": "line",
+        "value": "line"
+      }
+    ]
+  },
+  {
     "name": "size",
     "type": "enum",
     "defaultValue": "medium",

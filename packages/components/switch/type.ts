@@ -30,6 +30,11 @@ export interface TdSwitchProps<T = SwitchValue> {
    */
   loading?: boolean;
   /**
+   * 开关形状。`line` 形态不展示开关内容 `label`
+   * @default circle
+   */
+  shape?: 'circle' | 'round' | 'line';
+  /**
    * 开关尺寸
    * @default medium
    */
