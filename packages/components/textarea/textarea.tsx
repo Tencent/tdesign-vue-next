@@ -10,7 +10,8 @@ import {
   StyleValue,
   CSSProperties,
 } from 'vue';
-import { isObject, merge, omit } from 'lodash-es';
+import { isNil, isObject, merge, omit } from 'lodash-es';
+import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 import { FormItemInjectionKey } from '../form/constants';
 import setStyle from '@tdesign/common-js/utils/setStyle';
@@ -24,6 +25,7 @@ import {
   useTNodeJSX,
   usePrefixClass,
   useCommonClassName,
+  useGlobalIcon,
 } from '@tdesign/shared-hooks';
 
 import { useLengthLimit } from '../input/hooks/useLengthLimit';
@@ -42,6 +44,9 @@ export default defineComponent({
     const name = usePrefixClass('textarea');
     const TEXTAREA_TIPS_CLASS = computed(() => `${name.value}__tips`);
     const TEXTAREA_LIMIT = computed(() => `${name.value}__limit`);
+    const { CloseCircleFilledIcon } = useGlobalIcon({
+      CloseCircleFilledIcon: TdCloseCircleFilledIcon,
+    });
 
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
@@ -51,6 +56,7 @@ export default defineComponent({
 
     const refTextareaElem = ref<HTMLTextAreaElement>();
     const focused = ref(false);
+    const isHover = ref(false);
     const isComposing = ref(false);
 
     const focus = () => refTextareaElem.value?.focus();
@@ -95,7 +101,7 @@ export default defineComponent({
           val = typeof stringInfo === 'object' && stringInfo.characters;
         }
       }
-      !isComposing.value && setInnerValue(val, { e });
+      !isComposing.value && setInnerValue(val, { e, trigger: 'input' });
       nextTick(() => setInputValue(val));
       adjustTextareaHeight();
     };
@@ -143,6 +149,23 @@ export default defineComponent({
       formItem?.handleBlur();
     };
 
+    const getClearEvent = (context: MouseEvent | { e: MouseEvent }) => ('e' in context ? context.e : context);
+
+    const emitClear = (context: MouseEvent | { e: MouseEvent }) => {
+      const e = getClearEvent(context);
+      setInnerValue('', { e, trigger: 'clear' });
+      props.onClear?.({ e });
+      nextTick(() => {
+        refTextareaElem.value?.focus();
+        adjustTextareaHeight();
+      });
+    };
+
+    const onClearMouseDown = (context: MouseEvent | { e: MouseEvent }) => {
+      const e = getClearEvent(context);
+      e.preventDefault();
+    };
+
     // computed
     const textareaClasses = computed(() => {
       return [
@@ -150,8 +173,19 @@ export default defineComponent({
         {
           [`${prefix.value}-is-disabled`]: disabled.value,
           [`${prefix.value}-is-readonly`]: isReadonly.value,
+          [`${name.value}--clearable`]: props.clearable,
         },
       ];
+    });
+    const showClear = computed(() => {
+      return Boolean(
+        props.clearable &&
+          !isNil(innerValue.value) &&
+          innerValue.value !== '' &&
+          !disabled.value &&
+          !isReadonly.value &&
+          isHover.value,
+      );
     });
     const inputAttrs = computed<Record<string, any>>(() => {
       return getValidAttrs({
@@ -255,7 +289,16 @@ export default defineComponent({
         ));
 
       return (
-        <div class={textareaClasses.value} {...omit(attrs, ['style'])}>
+        <div
+          class={textareaClasses.value}
+          onMouseenter={() => {
+            isHover.value = true;
+          }}
+          onMouseleave={() => {
+            isHover.value = false;
+          }}
+          {...omit(attrs, ['style'])}
+        >
           <textarea
             onInput={handleInput}
             onCompositionstart={onCompositionstart}
@@ -266,6 +309,13 @@ export default defineComponent({
             {...inputEvents}
             {...inputAttrs.value}
           ></textarea>
+          {props.clearable && !disabled.value && !isReadonly.value ? (
+            <CloseCircleFilledIcon
+              class={[`${name.value}__clear`, { [`${name.value}__clear--visible`]: showClear.value }]}
+              onMousedown={onClearMouseDown}
+              onClick={emitClear}
+            />
+          ) : null}
           {textTips || limitText ? (
             <div
               class={[
