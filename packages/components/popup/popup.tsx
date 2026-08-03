@@ -17,50 +17,63 @@ import {
 } from 'vue';
 import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
-import { off, on, once, isServer } from '@tdesign/shared-utils';
+import {
+  off,
+  on,
+  once,
+  isServer,
+  containsWithShadow,
+  getComposedPath,
+  includesNodeInPath,
+} from '@tdesign/shared-utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 import Container from './container';
 import props from './props';
 import { PopupTriggerEvent, TdPopupProps } from './type';
 
-const POPUP_ATTR_NAME = 'data-td-popup';
-const POPUP_PARENT_ATTR_NAME = 'data-td-popup-parent';
-
 function isEscapeKey(ev: KeyboardEvent) {
   return ev.key === 'Escape' || ev.code === 'Escape' || ev.keyCode === 27;
 }
 
-/**
- * @param id
- * @param upwards query upwards poppers
- */
-function getPopperTree(id: number | string, upwards?: boolean): Element[] {
-  const list = [] as any;
-  const selectors = [POPUP_PARENT_ATTR_NAME, POPUP_ATTR_NAME];
+type PopupId = symbol;
 
-  if (!id) return list;
-  if (upwards) {
-    selectors.unshift(selectors.pop());
-  }
+type PopupRegistryEntry = {
+  id: PopupId;
+  parentId?: PopupId;
+  element?: HTMLElement;
+};
 
-  recurse(id);
+const popupRegistry = new Map<PopupId, PopupRegistryEntry>();
 
-  return list;
+function registerPopup(entry: PopupRegistryEntry) {
+  popupRegistry.set(entry.id, entry);
+}
 
-  function recurse(id: number | string) {
-    const children = document.querySelectorAll(`[${selectors[0]}="${id}"]`);
-    children.forEach((el) => {
-      list.push(el);
-      const childId = el.getAttribute(selectors[1]);
-      if (childId && childId !== id) {
-        recurse(childId);
-      }
-    });
-  }
+function unregisterPopup(id: PopupId) {
+  popupRegistry.delete(id);
+}
+
+function updatePopupElement(id: PopupId, element?: HTMLElement) {
+  const entry = popupRegistry.get(id);
+  if (!entry) return;
+  entry.element = element;
+}
+
+function getPopupDescendants(id: PopupId): HTMLElement[] {
+  const descendants: HTMLElement[] = [];
+
+  popupRegistry.forEach((entry) => {
+    if (entry.parentId === id && entry.element) {
+      descendants.push(entry.element);
+      descendants.push(...getPopupDescendants(entry.id));
+    }
+  });
+
+  return descendants;
 }
 
 const parentKey = Symbol() as InjectionKey<{
-  id: string;
+  id: PopupId;
   assertMouseLeave: (ev: MouseEvent) => void;
 }>;
 
@@ -119,8 +132,10 @@ export default defineComponent({
 
     const arrowStyle = ref<CSSProperties>({});
 
-    const id = Date.now().toString(36);
+    const id = Symbol('popup');
     const parent = inject(parentKey, undefined);
+
+    registerPopup({ id, parentId: parent?.id });
 
     provide(parentKey, {
       id,
@@ -241,6 +256,7 @@ export default defineComponent({
     );
 
     onUnmounted(() => {
+      unregisterPopup(id);
       destroyPopper();
       clearAllTimeout();
       off(document, 'mousedown', onDocumentMouseDown, true);
@@ -436,21 +452,23 @@ export default defineComponent({
     }
 
     function onDocumentMouseDown(ev: MouseEvent) {
+      const eventPath = getComposedPath(ev);
+
       // click content
-      if (popperEl.value?.contains(ev.target as Node)) {
+      if (includesNodeInPath(eventPath, popperEl.value) || containsWithShadow(popperEl.value, ev.target as Node)) {
         return;
       }
 
       // click trigger element
-      if (triggerEl.value?.contains(ev.target as Node)) {
+      if (includesNodeInPath(eventPath, triggerEl.value) || containsWithShadow(triggerEl.value, ev.target as Node)) {
         return;
       }
 
       // ignore upwards
-      const activedPopper = getPopperTree(id).find((el) => el.contains(ev.target as Node));
       if (
-        activedPopper &&
-        getPopperTree(activedPopper.getAttribute(POPUP_PARENT_ATTR_NAME), true).some((el) => el === popperEl.value)
+        getPopupDescendants(id).some(
+          (el) => includesNodeInPath(eventPath, el) || containsWithShadow(el, ev.target as Node),
+        )
       ) {
         return;
       }
@@ -460,9 +478,19 @@ export default defineComponent({
 
     function onMouseLeave(ev: MouseEvent) {
       isOverlayHover.value = false;
-      if (props.trigger !== 'hover' || triggerEl.value.contains(ev.target as Node)) return;
+      if (props.trigger !== 'hover') return;
 
-      const isCursorOverlaps = getPopperTree(id).some((el) => {
+      const relatedTarget = ev.relatedTarget as Node;
+      const descendants = getPopupDescendants(id);
+      if (
+        containsWithShadow(triggerEl.value, relatedTarget) ||
+        containsWithShadow(popperEl.value, relatedTarget) ||
+        descendants.some((el) => containsWithShadow(el, relatedTarget))
+      ) {
+        return;
+      }
+
+      const isCursorOverlaps = [popperEl.value, ...descendants].filter(Boolean).some((el) => {
         const rect = el.getBoundingClientRect();
 
         return ev.x > rect.x && ev.x < rect.x + rect.width && ev.y > rect.y && ev.y < rect.y + rect.height;
@@ -507,12 +535,11 @@ export default defineComponent({
       const overlay =
         visible.value || !props.destroyOnClose ? (
           <div
-            {...{
-              [POPUP_ATTR_NAME]: id,
-              [POPUP_PARENT_ATTR_NAME]: parent?.id,
-            }}
             class={[prefixCls.value, props.overlayClassName]}
-            ref={(ref: HTMLElement) => (popperEl.value = ref)}
+            ref={(ref: HTMLElement) => {
+              popperEl.value = ref;
+              updatePopupElement(id, ref);
+            }}
             style={[{ zIndex: props.zIndex }, getOverlayStyle(), hidePopup && { visibility: 'hidden' }]}
             v-show={visible.value}
             onClick={onOverlayClick}
