@@ -26,7 +26,6 @@ catalogs:
     '@vitejs/plugin-vue': ^5.2.1
     '@vitejs/plugin-vue-jsx': ^4.1.2
     '@vue/babel-plugin-jsx': ^1.4.0
-    '@vue/compiler-sfc': ^3.5.0
     autoprefixer: ^10.4.14
     cross-env: ^7.0.3
     esbuild: ^0.14.54
