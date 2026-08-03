@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
-import { ref } from 'vue';
+import { nextTick, ref } from 'vue';
 import Checkbox, { CheckboxGroup } from '@tdesign/components/checkbox';
 
 describe('Checkbox', () => {
@@ -50,6 +50,35 @@ describe('Checkbox', () => {
       const wrapper = mount(() => <Checkbox name="name" />);
       const input = wrapper.find('.t-checkbox input');
       expect(input.element.getAttribute('name')).toBe('name');
+    });
+
+    it('cleans up lazy-load observers and shows content when disabled', async () => {
+      const unobserve = vi.fn();
+      const observe = vi.fn();
+      const originalIntersectionObserver = window.IntersectionObserver;
+      window.IntersectionObserver = class {
+        observe = observe;
+        unobserve = unobserve;
+      } as unknown as typeof IntersectionObserver;
+      const wrapper = mount(Checkbox, { props: { lazyLoad: true, label: 'label' } });
+      await nextTick();
+
+      expect(wrapper.find('input').exists()).toBe(false);
+      await wrapper.setProps({ lazyLoad: false });
+
+      expect(unobserve).toHaveBeenCalled();
+      expect(wrapper.find('input').exists()).toBe(true);
+      wrapper.unmount();
+      window.IntersectionObserver = originalIntersectionObserver;
+    });
+
+    it('unmounts safely without IntersectionObserver', () => {
+      const originalIntersectionObserver = window.IntersectionObserver;
+      window.IntersectionObserver = undefined;
+      const wrapper = mount(Checkbox, { props: { lazyLoad: true, label: 'label' } });
+
+      expect(() => wrapper.unmount()).not.toThrow();
+      window.IntersectionObserver = originalIntersectionObserver;
     });
   });
   describe(': events', () => {
