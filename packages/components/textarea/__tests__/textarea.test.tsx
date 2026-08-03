@@ -107,6 +107,61 @@ describe('Textarea', () => {
       value.value = '123456';
       expect(textarea.element.value).toBe('12345');
     });
+
+    it('reconciles controlled maxcharacter input without readonly warnings', async () => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+      const wrapper = mount(Textarea, { props: { value: '', maxcharacter: 4 } });
+      const textarea = wrapper.get('textarea');
+
+      await textarea.setValue('你好a');
+
+      expect(textarea.element.value).toBe('你好');
+      expect(wrapper.emitted('update:value')).toEqual([['你好']]);
+      expect(warnSpy.mock.calls.flat().join(' ')).not.toContain(
+        'Set operation on key "value" failed: target is readonly',
+      );
+    });
+
+    it('forwards rows and string styles to the native textarea', async () => {
+      const wrapper = mount(Textarea, {
+        attrs: { rows: 4, style: 'height: 80px; color: red;' },
+      });
+      const textarea = wrapper.get('textarea');
+      await nextTick();
+
+      expect(wrapper.attributes('rows')).toBeUndefined();
+      expect(wrapper.attributes('style')).toBeUndefined();
+      expect(textarea.attributes('rows')).toBe('4');
+      expect(textarea.element.style.height).toBe('80px');
+      expect(textarea.element.style.color).toBe('red');
+    });
+
+    it('clears calculated height when autosize is disabled', async () => {
+      const wrapper = mount(Textarea, { props: { autosize: true, defaultValue: 'content' } });
+      const textarea = wrapper.get('textarea');
+      await nextTick();
+      await nextTick();
+
+      expect(textarea.element.style.height).not.toBe('');
+
+      await wrapper.setProps({ autosize: false });
+      await nextTick();
+
+      expect(textarea.classes()).not.toContain('t-hide-scrollbar');
+      expect(textarea.element.style.height).toBe('');
+      expect(textarea.element.style.minHeight).toBe('');
+    });
+
+    it('uses Unicode length for the maxlength counter', async () => {
+      const onValidate = vi.fn();
+      const wrapper = mount(Textarea, {
+        props: { value: '😊', maxlength: 1, allowInputOverMax: true, onValidate },
+      });
+      await nextTick();
+
+      expect(wrapper.get('.t-textarea__limit').text()).toBe('1/1');
+      expect(onValidate).not.toHaveBeenCalled();
+    });
   });
 
   describe(':events', () => {

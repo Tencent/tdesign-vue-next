@@ -10,11 +10,10 @@ import {
   StyleValue,
   CSSProperties,
 } from 'vue';
-import { isObject, merge, omit } from 'lodash-es';
+import { omit } from 'lodash-es';
 
 import { FormItemInjectionKey } from '../form/constants';
-import setStyle from '@tdesign/common-js/utils/setStyle';
-import { getCharacterLength, getValidAttrs } from '@tdesign/common-js/utils/helper';
+import { getCharacterLength, getUnicodeLength, getValidAttrs } from '@tdesign/common-js/utils/helper';
 
 // hooks
 import {
@@ -60,17 +59,17 @@ export default defineComponent({
     const adjustTextareaHeight = () => {
       if (props.autosize === true) {
         nextTick(() => {
+          if (props.autosize !== true) return;
           textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
         });
       } else if (props.autosize && typeof props.autosize === 'object') {
         const { minRows, maxRows } = props.autosize;
         nextTick(() => {
+          if (!props.autosize || typeof props.autosize !== 'object') return;
           textareaStyle.value = calcTextareaHeight(refTextareaElem.value, minRows, maxRows);
         });
-      } else if (attrs.rows) {
-        textareaStyle.value = { height: 'auto', minHeight: 'auto' };
-      } else if (attrs.style && (attrs.style as CSSProperties)?.height) {
-        textareaStyle.value = { height: (attrs.style as CSSProperties)?.height };
+      } else {
+        textareaStyle.value = {};
       }
     };
 
@@ -83,7 +82,6 @@ export default defineComponent({
 
       if (textareaElem.value !== sV) {
         textareaElem.value = sV;
-        innerValue.value = sV;
       }
     };
     const inputValueChangeHandle = (e: InputEvent) => {
@@ -164,7 +162,7 @@ export default defineComponent({
       });
     });
     const characterNumber = computed(() => {
-      const characterInfo = getCharacterLength(String(innerValue.value || ''));
+      const characterInfo = getCharacterLength(String(innerValue.value ?? ''));
       if (typeof characterInfo === 'object') {
         // @ts-ignore
         // TODO: 这里的写法本身就有问题，因为 getCharacterLength(String(innerValue.value || '')) 一定会返回 number，所以这个分支肯定是进不了的，除非 getCharacterLength 写得有问题
@@ -194,15 +192,6 @@ export default defineComponent({
       adjustTextareaHeight();
       if (props.autofocus) {
         el.focus();
-      }
-    });
-
-    watch(textareaStyle, (val) => {
-      const { style } = attrs as { style: StyleValue };
-      if (isObject(style)) {
-        setStyle(refTextareaElem.value, merge(style, val) as Record<string, any>);
-      } else {
-        setStyle(refTextareaElem.value, val);
       }
     });
 
@@ -249,13 +238,13 @@ export default defineComponent({
           <span class={TEXTAREA_LIMIT.value}>{`${characterNumber.value}/${props.maxcharacter}`}</span>
         )) ||
         (!props.maxcharacter && props.maxlength && (
-          <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
+          <span class={TEXTAREA_LIMIT.value}>{`${getUnicodeLength(String(innerValue.value ?? ''))}/${
             props.maxlength
           }`}</span>
         ));
 
       return (
-        <div class={textareaClasses.value} {...omit(attrs, ['style'])}>
+        <div class={textareaClasses.value} {...omit(attrs, ['style', 'rows'])}>
           <textarea
             onInput={handleInput}
             onCompositionstart={onCompositionstart}
@@ -263,6 +252,8 @@ export default defineComponent({
             ref={refTextareaElem}
             value={innerValue.value}
             class={classes.value}
+            rows={attrs.rows as string | number}
+            style={[attrs.style as StyleValue, textareaStyle.value]}
             {...inputEvents}
             {...inputAttrs.value}
           ></textarea>
