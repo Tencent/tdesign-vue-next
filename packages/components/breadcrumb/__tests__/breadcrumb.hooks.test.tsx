@@ -1,5 +1,6 @@
 import { nextTick, computed } from 'vue';
 import { mount } from '@vue/test-utils';
+import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { useBreadcrumbOptions, useEllipsis } from '@tdesign/components/breadcrumb/hooks';
 import { Breadcrumb, BreadcrumbItem } from '@tdesign/components/breadcrumb';
@@ -17,7 +18,7 @@ const mountEllipsis = (props: TdBreadcrumbProps, itemData: { content: string; in
     render() {
       return <div />;
     },
-  });
+  }) as VueWrapper<any>;
 
 describe('Breadcrumb hooks', () => {
   describe('useBreadcrumbOptions', () => {
@@ -187,13 +188,14 @@ describe('Breadcrumb hooks', () => {
         { props: { count: 5 } },
       );
       await nextTick();
-      expect(wrapper.vm.displayItems.length).toBe(3);
-      expect(wrapper.vm.ellipsisItems.length).toBe(3);
+      const vm = wrapper.vm as any;
+      expect(vm.displayItems.length).toBe(3);
+      expect(vm.ellipsisItems.length).toBe(3);
 
       await wrapper.setProps({ count: 2 });
       await nextTick();
-      expect(wrapper.vm.displayItems.length).toBe(2);
-      expect(wrapper.vm.ellipsisItems.length).toBe(0);
+      expect(vm.displayItems.length).toBe(2);
+      expect(vm.ellipsisItems.length).toBe(0);
       wrapper.unmount();
     });
   });

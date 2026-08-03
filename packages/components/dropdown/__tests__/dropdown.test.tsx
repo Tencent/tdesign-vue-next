@@ -639,7 +639,7 @@ describe('Dropdown', () => {
       it('calls popupProps["on-visible-change"] when hideAfterItemClick is true', async () => {
         const onVisibleChange = vi.fn();
         const options = [{ content: 'Option 1', value: '1' }];
-        const popupProps = { 'on-visible-change': onVisibleChange };
+        const popupProps = { 'on-visible-change': onVisibleChange } as any;
 
         const wrapper = mount(
           <Dropdown options={options} popupProps={popupProps} hideAfterItemClick={true} trigger="click">
@@ -709,7 +709,7 @@ describe('Dropdown', () => {
       it('calls popupProps["on-visible-change"] when visibility changes', async () => {
         const onVisibleChange = vi.fn();
         const options = [{ content: 'Option 1', value: '1' }];
-        const popupProps = { 'on-visible-change': onVisibleChange };
+        const popupProps = { 'on-visible-change': onVisibleChange } as any;
 
         const wrapper = mount(
           <Dropdown options={options} popupProps={popupProps} trigger="click">

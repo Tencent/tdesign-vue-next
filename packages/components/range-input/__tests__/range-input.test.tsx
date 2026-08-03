@@ -2,6 +2,7 @@ import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import RangeInput from '../range-input';
+import type { RangeInputInstanceFunctions } from '../type';
 
 describe('RangeInput', () => {
   describe('props', () => {
@@ -221,7 +222,7 @@ describe('RangeInput', () => {
   describe('instance methods', () => {
     it('should have instance methods', async () => {
       const wrapper = mount(<RangeInput />);
-      const instance = wrapper.vm;
+      const instance = wrapper.vm as unknown as RangeInputInstanceFunctions;
 
       expect(typeof instance.focus).toBe('function');
       expect(typeof instance.blur).toBe('function');
@@ -230,7 +231,7 @@ describe('RangeInput', () => {
 
     it('focus method with position parameter', async () => {
       const wrapper = mount(<RangeInput />);
-      const instance = wrapper.vm;
+      const instance = wrapper.vm as unknown as RangeInputInstanceFunctions;
 
       // 测试方法调用不会抛出错误
       expect(() => {
@@ -242,7 +243,7 @@ describe('RangeInput', () => {
 
     it('blur method with position parameter', async () => {
       const wrapper = mount(<RangeInput />);
-      const instance = wrapper.vm;
+      const instance = wrapper.vm as unknown as RangeInputInstanceFunctions;
 
       expect(() => {
         instance.blur();
@@ -253,7 +254,7 @@ describe('RangeInput', () => {
 
     it('select method with position parameter', async () => {
       const wrapper = mount(<RangeInput />);
-      const instance = wrapper.vm;
+      const instance = wrapper.vm as unknown as RangeInputInstanceFunctions;
 
       // 测试方法存在
       expect(typeof instance.select).toBe('function');
@@ -262,7 +263,7 @@ describe('RangeInput', () => {
     it('should focus with different positions', async () => {
       const wrapper = mount(<RangeInput />);
       await nextTick();
-      const instance = wrapper.vm;
+      const instance = wrapper.vm as unknown as RangeInputInstanceFunctions;
 
       // 测试默认focus (first)
       expect(() => {
@@ -279,7 +280,7 @@ describe('RangeInput', () => {
     it('should blur with different positions', async () => {
       const wrapper = mount(<RangeInput />);
       await nextTick();
-      const instance = wrapper.vm;
+      const instance = wrapper.vm as unknown as RangeInputInstanceFunctions;
 
       expect(() => {
         instance.blur?.();
@@ -291,7 +292,7 @@ describe('RangeInput', () => {
     it('should select with different positions', async () => {
       const wrapper = mount(<RangeInput />);
       await nextTick();
-      const instance = wrapper.vm;
+      const instance = wrapper.vm as unknown as RangeInputInstanceFunctions;
 
       // 测试select方法存在且可调用
       expect(typeof instance.select).toBe('function');
@@ -704,7 +705,7 @@ describe('RangeInput', () => {
       it('should handle instance methods without input refs', async () => {
         const wrapper = mount(<RangeInput />);
         await nextTick();
-        const instance = wrapper.vm;
+        const instance = wrapper.vm as unknown as RangeInputInstanceFunctions;
 
         // 测试当inputRefs可能为空的情况
         // The component's expose methods should handle missing refs gracefully

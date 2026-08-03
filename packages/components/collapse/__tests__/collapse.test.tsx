@@ -14,7 +14,7 @@ describe('Collapse', () => {
           <CollapsePanel value="1" header="标题1" default="内容1" />
           <CollapsePanel value="2" header="标题2" default="内容2" />
         </Collapse>,
-      ) as VueWrapper<InstanceType<typeof Collapse>>;
+      ) as unknown as VueWrapper<InstanceType<typeof Collapse>>;
     });
 
     it(':borderless[boolean]', async () => {

@@ -10,11 +10,11 @@ describe('Transfer', () => {
   describe('props', () => {
     let wrapper: VueWrapper<InstanceType<typeof Transfer>> | null = null;
     beforeEach(() => {
-      wrapper = mount(<Transfer data={transferMockData} />) as VueWrapper<InstanceType<typeof Transfer>>;
+      wrapper = mount(<Transfer data={transferMockData} />) as unknown as VueWrapper<InstanceType<typeof Transfer>>;
     });
 
     it(':checkboxProps[object]', () => {
-      const checkboxProps = { size: 'small' };
+      const checkboxProps = { disabled: true };
       const wrapper = mount(<Transfer data={transferMockData} checkboxProps={checkboxProps} />);
       const transfer = wrapper.find('.t-transfer');
       expect(transfer.exists()).toBeTruthy();

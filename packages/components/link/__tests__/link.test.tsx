@@ -11,7 +11,7 @@ describe('Link', () => {
     let wrapper!: VueWrapper<InstanceType<typeof Link>>;
 
     beforeEach(() => {
-      wrapper = mount(<Link>链接</Link>) as VueWrapper<InstanceType<typeof Link>>;
+      wrapper = mount(<Link>链接</Link>) as unknown as VueWrapper<InstanceType<typeof Link>>;
     });
 
     afterEach(() => {

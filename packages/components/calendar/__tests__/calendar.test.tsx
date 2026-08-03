@@ -13,7 +13,7 @@ describe('Calendar', () => {
     let wrapper: VueWrapper<InstanceType<typeof Calendar>> | null = null;
 
     beforeEach(() => {
-      wrapper = mount(<Calendar year={2020} month={12} />) as VueWrapper<InstanceType<typeof Calendar>>;
+      wrapper = mount(<Calendar year={2020} month={12} />) as unknown as VueWrapper<InstanceType<typeof Calendar>>;
     });
 
     afterEach(() => {
