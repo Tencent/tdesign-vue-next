@@ -76,7 +76,9 @@ export default defineComponent({
         } else if (type === 'remove') {
           const index = expandValues.value.indexOf(value);
           const tmp = [...expandValues.value];
-          tmp.splice(index, 1);
+          if (index !== -1) {
+            tmp.splice(index, 1);
+          }
           setExpand(tmp);
         }
       },
