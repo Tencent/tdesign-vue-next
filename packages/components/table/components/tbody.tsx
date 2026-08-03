@@ -1,6 +1,6 @@
 import { defineComponent, computed, PropType, toRefs } from 'vue';
 import { camelCase, get, pick } from 'lodash-es';
-import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
+import TrElement, { ROW_LISTENERS, TABLE_PROPS, TrProps } from './tr';
 
 import { useConfig, useTNodeJSX } from '@tdesign/shared-hooks';
 
@@ -204,7 +204,7 @@ export default defineComponent({
           isHover: props.hoverRow === rowValue,
           ...pick(props, properties),
           // 遍历的同时，计算后面的节点，是否会因为合并单元格跳过渲染
-        };
+        } as TrProps;
         if (props.onCellClick) {
           trProps.onCellClick = props.onCellClick;
         }
@@ -214,7 +214,7 @@ export default defineComponent({
             v-slots={slots}
             key={get(row, rowKey || 'id') || rowIndex}
             {...trProps}
-            onRowMounted={props.handleRowMounted}
+            {...{ 'onRow-mounted': props.handleRowMounted }}
           />
         );
         trNodeList.push(trNode);

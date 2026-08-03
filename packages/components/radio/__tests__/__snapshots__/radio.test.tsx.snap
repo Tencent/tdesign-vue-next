@@ -6,6 +6,7 @@ exports[`Radio Component > props.checked is equal to true 1`] = `
   tabindex="0"
 >
   <input
+    checked=""
     class="t-radio__former"
     name=""
     tabindex="-1"
@@ -28,6 +29,7 @@ exports[`Radio Component > props.checked works fine 1`] = `
   tabindex="0"
 >
   <input
+    checked=""
     class="t-radio__former"
     name=""
     tabindex="-1"

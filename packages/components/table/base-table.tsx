@@ -14,7 +14,7 @@ import {
 } from '@tdesign/shared-hooks';
 import useAffix from './hooks/useAffix';
 import Loading from '../loading';
-import TBody, { extendTableProps } from './components/tbody';
+import TBody, { extendTableProps, TableBodyProps } from './components/tbody';
 import { BaseTableProps } from './types';
 
 import useStyle, { formatCSSUnit } from './hooks/useStyle';
@@ -576,7 +576,11 @@ export default defineComponent({
         '-moz-transform': translate,
         '-webkit-transform': translate,
       };
-      const tableBodyProps = {
+      const inheritedTableBodyProps = pick(
+        props as unknown as Record<string, unknown>,
+        extendTableProps,
+      ) as Partial<TableBodyProps>;
+      const tableBodyProps: Record<string, unknown> = {
         classPrefix,
         ellipsisOverlayClassName: tableSize.value !== 'medium' ? sizeClassNames[tableSize.value] : '',
         rowAndColFixedPosition: rowAndColFixedPosition.value,
@@ -592,7 +596,7 @@ export default defineComponent({
         tableContentElm: tableContentRef.value,
         handleRowMounted: virtualConfig.handleRowMounted,
         renderExpandedRow: props.renderExpandedRow,
-        ...pick(props, extendTableProps),
+        ...inheritedTableBodyProps,
         // 内部使用分页信息必须取 innerPagination
         pagination: innerPagination.value,
         attach: props.attach,
@@ -627,7 +631,7 @@ export default defineComponent({
                 {...{ ...headProps, thWidthList: columnResizable ? thWidthList.value : {} }}
               />
             )}
-            <TBody v-slots={context.slots} ref={tableBodyRef} {...tableBodyProps} />
+            <TBody v-slots={context.slots} ref={tableBodyRef} {...(tableBodyProps as unknown as TableBodyProps)} />
             <TFoot
               v-slots={context.slots}
               rowKey={props.rowKey}

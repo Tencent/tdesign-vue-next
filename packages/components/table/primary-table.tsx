@@ -347,7 +347,7 @@ export default defineComponent({
     });
 
     const onInnerPageChange = (pageInfo: PageInfo, newData: Array<TableRowData>) => {
-      innerPagination.value = { ...innerPagination.value, ...pageInfo };
+      innerPagination.value = Object.assign({}, innerPagination.value, pageInfo);
       currentPaginateData.value = newData;
       props.onPageChange?.(pageInfo, newData);
       const changeParams: Parameters<TdPrimaryTableProps['onChange']> = [

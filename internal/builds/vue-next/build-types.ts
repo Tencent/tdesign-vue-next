@@ -7,7 +7,7 @@ const typesTempDir = 'vue-next';
 
 const generateSourceTypes = async () => {
   // 1. 编译 tsc
-  await run(`tsc --outDir ${typesTempDir} -p tsconfig.json --emitDeclarationOnly`);
+  await run(`tsc --outDir ${typesTempDir} -p tsconfig.build.vue.json --emitDeclarationOnly`);
 
   const typesRoot = joinWorkspaceRoot(typesTempDir);
 
@@ -55,8 +55,8 @@ const removeSourceTypes = async () => {
 };
 
 export const buildTypes = async () => {
+  await removeSourceTypes();
   try {
-    await removeSourceTypes();
     await generateSourceTypes();
     const targets = ['es', 'esm', 'lib', 'cjs'] as const;
     await Promise.all(
@@ -64,8 +64,6 @@ export const buildTypes = async () => {
         await generateTargetTypes(target);
       }),
     );
-  } catch (error) {
-    console.error(error);
   } finally {
     await removeSourceTypes();
   }

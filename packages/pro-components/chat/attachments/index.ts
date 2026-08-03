@@ -5,5 +5,5 @@ import { omiVueify } from 'omi-vueify';
 // 附件
 export const Attachments = omiVueify('t-attachments', {
   methodNames: [],
-}) as DefineComponent<TdAttachmentsProps>;
+}) as unknown as DefineComponent<TdAttachmentsProps>;
 export default Attachments;
