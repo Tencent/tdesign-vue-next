@@ -6,7 +6,7 @@ const typesTempDir = 'vue-next-chat';
 
 const generateSourceTypes = async () => {
   // 1. 编译 tsc
-  await run(`tsc --outDir ${typesTempDir} -p tsconfig.json --emitDeclarationOnly`);
+  await run(`tsc --outDir ${typesTempDir} -p tsconfig.build.chat.json --emitDeclarationOnly`);
 
   const typesRoot = joinWorkspaceRoot(typesTempDir);
 
@@ -46,8 +46,8 @@ const removeSourceTypes = async () => {
 };
 
 export const buildTypes = async () => {
+  await removeSourceTypes();
   try {
-    await removeSourceTypes();
     await generateSourceTypes();
     const targets = ['es', 'esm'] as const;
     await Promise.all(
@@ -55,8 +55,6 @@ export const buildTypes = async () => {
         await generateTargetTypes(target);
       }),
     );
-  } catch (error) {
-    console.error(error);
   } finally {
     await removeSourceTypes();
   }

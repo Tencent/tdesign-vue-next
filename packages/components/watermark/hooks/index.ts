@@ -3,7 +3,7 @@ import { unref, watch, getCurrentScope, onScopeDispose } from 'vue';
 
 export const defaultWindow = typeof window !== 'undefined' ? window : undefined;
 export interface ConfigurableWindow {
-  window?: Window;
+  window?: Pick<typeof globalThis, 'MutationObserver'>;
 }
 // eslint-disable-next-line no-undef
 export interface MutationObserverOptions extends MutationObserverInit, ConfigurableWindow {}
@@ -52,7 +52,7 @@ export function useMutationObserver(
       cleanup();
 
       if (isSupported && window && el) {
-        observer = new MutationObserver(callback);
+        observer = new window.MutationObserver(callback);
         observer.observe(el, mutationOptions);
       }
     },

@@ -16,7 +16,7 @@ describe('InputAdornment', () => {
         <InputAdornment>
           <input />
         </InputAdornment>,
-      ) as VueWrapper<InstanceType<typeof InputAdornment>>;
+      ) as unknown as VueWrapper<InstanceType<typeof InputAdornment>>;
       expect(wrapper.find('.t-input-adornment').exists()).toBe(false);
       expect(wrapper.find('input').exists()).toBe(true);
     });
@@ -26,7 +26,7 @@ describe('InputAdornment', () => {
         <InputAdornment prepend="http://">
           <input />
         </InputAdornment>,
-      ) as VueWrapper<InstanceType<typeof InputAdornment>>;
+      ) as unknown as VueWrapper<InstanceType<typeof InputAdornment>>;
       expect(wrapper.find('.t-input-adornment').exists()).toBe(true);
       expect(wrapper.classes('t-input-adornment--prepend')).toBe(true);
       expect(wrapper.find('.t-input-adornment__prepend').exists()).toBe(true);
@@ -61,7 +61,7 @@ describe('InputAdornment', () => {
         <InputAdornment prepend="">
           <input />
         </InputAdornment>,
-      ) as VueWrapper<InstanceType<typeof InputAdornment>>;
+      ) as unknown as VueWrapper<InstanceType<typeof InputAdornment>>;
       expect(wrapper.find('.t-input-adornment').exists()).toBe(false);
     });
 
@@ -70,7 +70,7 @@ describe('InputAdornment', () => {
         <InputAdornment append=".com">
           <input />
         </InputAdornment>,
-      ) as VueWrapper<InstanceType<typeof InputAdornment>>;
+      ) as unknown as VueWrapper<InstanceType<typeof InputAdornment>>;
       expect(wrapper.find('.t-input-adornment').exists()).toBe(true);
       expect(wrapper.classes('t-input-adornment--append')).toBe(true);
       expect(wrapper.find('.t-input-adornment__append').exists()).toBe(true);
@@ -105,7 +105,7 @@ describe('InputAdornment', () => {
         <InputAdornment append="">
           <input />
         </InputAdornment>,
-      ) as VueWrapper<InstanceType<typeof InputAdornment>>;
+      ) as unknown as VueWrapper<InstanceType<typeof InputAdornment>>;
       expect(wrapper.find('.t-input-adornment').exists()).toBe(false);
     });
 
@@ -114,7 +114,7 @@ describe('InputAdornment', () => {
         <InputAdornment prepend="http://" append=".com">
           <input />
         </InputAdornment>,
-      ) as VueWrapper<InstanceType<typeof InputAdornment>>;
+      ) as unknown as VueWrapper<InstanceType<typeof InputAdornment>>;
       expect(wrapper.classes('t-input-adornment--prepend')).toBe(true);
       expect(wrapper.classes('t-input-adornment--append')).toBe(true);
       expect(wrapper.find('.t-input-adornment__prepend .t-input-adornment__text').text()).toBe('http://');

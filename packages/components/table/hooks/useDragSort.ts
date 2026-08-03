@@ -1,5 +1,5 @@
 // 表格 行拖拽 + 列拖拽功能
-import { SetupContext, computed, toRefs, ref, watch, h, ComputedRef } from 'vue';
+import { SetupContext, computed, toRefs, ref, shallowRef, watch, h, ComputedRef } from 'vue';
 import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs';
 import { isFunction } from 'lodash-es';
 import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
@@ -9,6 +9,7 @@ import { hasClass } from '@tdesign/shared-utils';
 import swapDragArrayElement from '@tdesign/common-js/utils/swapDragArrayElement';
 import { BaseTableColumns, SimplePageInfo } from '../types';
 import { getColumnDataByKey, getColumnIndexByKey } from '@tdesign/common-js/table/utils';
+import type { PaginationProps } from '../../pagination';
 
 function removeNode(node: HTMLElement) {
   if (node.parentElement !== null) {
@@ -29,7 +30,7 @@ export default function useDragSort(
   }>,
 ) {
   const { sortOnRowDraggable, dragSort, data } = toRefs(props);
-  const innerPagination = ref(props.pagination);
+  const innerPagination = shallowRef<PaginationProps>(props.pagination);
   const { tableDraggableClasses, tableBaseClass, tableFullRowClasses, tableExpandClasses } = useClassName();
   const columns = ref<PrimaryTableCol[]>(props.columns || []);
   const primaryTableRef = ref(null);
