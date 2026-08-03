@@ -47,15 +47,14 @@ export default defineComponent({
         handleToggle(e);
         return;
       }
-      Promise.resolve(props.beforeChange())
-        .then((v) => {
+      Promise.resolve(props.beforeChange()).then(
+        (v) => {
           if (v) {
             handleToggle(e);
           }
-        })
-        .catch((e) => {
-          throw new Error(`Switch: some error occurred: ${e}`);
-        });
+        },
+        () => undefined,
+      );
     }
 
     // classes

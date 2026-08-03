@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+import { flushPromises, mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import Switch from '@tdesign/components/switch';
 
@@ -98,6 +98,23 @@ describe('Switch', () => {
       expect(wrapper.element).toMatchSnapshot();
       wrapper.find('.t-switch').trigger('click');
       expect(fn).toHaveBeenCalled();
+    });
+
+    it('keeps the value when beforeChange rejects', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Switch, {
+        props: {
+          beforeChange: () => Promise.reject('denied'),
+          defaultValue: false,
+          onChange,
+        },
+      });
+
+      await wrapper.get('.t-switch').trigger('click');
+      await flushPromises();
+
+      expect(wrapper.get('.t-switch').classes()).not.toContain('t-is-checked');
+      expect(onChange).not.toHaveBeenCalled();
     });
   });
 
