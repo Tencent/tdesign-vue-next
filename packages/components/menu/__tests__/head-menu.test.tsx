@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { HeadMenu } from '@tdesign/components/menu';
+import { defineComponent, h } from 'vue';
+import { HeadMenu, MenuItem } from '@tdesign/components/menu';
 
 // every component needs four parts: props/events/slots/functions.
 describe('HeadMenu', () => {
@@ -25,6 +26,25 @@ describe('HeadMenu', () => {
   });
 
   describe('slot', () => {
+    it('accepts a single VNode returned by a wrapper component', () => {
+      const MenuContent = defineComponent({
+        setup(_, { slots }) {
+          return () => <div>{slots.default?.()}</div>;
+        },
+      });
+      const wrapper = mount(HeadMenu, {
+        props: { expandType: 'popup' },
+        slots: {
+          default: () =>
+            h(MenuContent, null, {
+              default: () => <MenuItem value="one">One</MenuItem>,
+            }),
+        },
+      });
+
+      expect(wrapper.find('.t-menu__item').text()).toBe('One');
+    });
+
     it('<logo>', () => {
       const wrapper = mount(HeadMenu, {
         slots: {
