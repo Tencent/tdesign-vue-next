@@ -106,7 +106,6 @@ export const packageJSONContent = JSON.stringify(
     },
     devDependencies: {
       vite: catalogs.bundle.vite,
-      '@vue/compiler-sfc': catalogs.bundle['@vue/compiler-sfc'],
       '@vitejs/plugin-vue': catalogs.bundle['@vitejs/plugin-vue'],
       '@vitejs/plugin-vue-jsx': catalogs.bundle['@vitejs/plugin-vue-jsx'],
     },

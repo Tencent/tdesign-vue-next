@@ -8,6 +8,7 @@ import TEllipsis from './ellipsis';
 import { formatClassNames } from '../utils';
 import { RowAndColFixedPosition, BaseTableColumns, ThRowspanAndColspan } from '../types';
 import { AttachNode } from '../../common';
+import type { TooltipProps } from '../../tooltip';
 
 export interface TheadProps {
   classPrefix: string;
@@ -182,7 +183,21 @@ export default defineComponent({
                     },
                   }
                 : {};
-            const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
+            const ellipsisTitleConfig =
+              col.ellipsisTitle &&
+              typeof col.ellipsisTitle === 'object' &&
+              'props' in col.ellipsisTitle &&
+              'content' in col.ellipsisTitle
+                ? col.ellipsisTitle
+                : undefined;
+            const content = ellipsisTitleConfig
+              ? ellipsisTitleConfig.content(h, { col, colIndex: index })
+              : isFunction(col.ellipsisTitle)
+              ? col.ellipsisTitle(h, { col, colIndex: index })
+              : undefined;
+            const tooltipProps =
+              ellipsisTitleConfig?.props ??
+              (typeof col.ellipsisTitle === 'object' ? (col.ellipsisTitle as TooltipProps) : undefined);
             const isEllipsis = col.ellipsisTitle !== undefined ? Boolean(col.ellipsisTitle) : Boolean(col.ellipsis);
             const attrs = (isFunction(col.attrs) ? col.attrs({ ...colParams, type: 'th' }) : col.attrs) || {};
             if (col.colspan > 1) {
@@ -204,7 +219,7 @@ export default defineComponent({
                       placement="bottom"
                       attach={props.attach || (theadRef.value ? () => getTableNode(theadRef.value) : undefined)}
                       tooltipContent={content && (() => content)}
-                      tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
+                      tooltipProps={tooltipProps}
                       overlayClassName={props.ellipsisOverlayClassName}
                       classPrefix={props.classPrefix}
                     >

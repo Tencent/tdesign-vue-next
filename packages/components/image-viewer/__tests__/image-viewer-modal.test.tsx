@@ -73,6 +73,10 @@ describe('ImageViewerModal', () => {
     });
 
     it(':currentImage with custom props', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        text: () => Promise.resolve('<svg viewBox="0 0 100 100"></svg>'),
+      } as Response);
       const customImageInfo = {
         mainImage: testImages[1],
         thumbnail: 'https://tdesign.gtimg.com/demo/demo-thumb-2.png',
@@ -92,6 +96,8 @@ describe('ImageViewerModal', () => {
       });
       await nextTick();
       expect(document.querySelector('.t-image-viewer-mini__content')).toBeTruthy();
+      await vi.waitFor(() => expect(fetchSpy).toHaveBeenCalledWith(customImageInfo.mainImage));
+      fetchSpy.mockRestore();
     });
 
     it(':title[string/function]', async () => {
