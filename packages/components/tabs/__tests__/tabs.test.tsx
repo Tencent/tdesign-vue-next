@@ -71,6 +71,23 @@ describe('Tabs', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
+    it(':action accepts string and function content without warnings', () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+      const stringWrapper = mount({
+        render() {
+          return <Tabs action="More actions" />;
+        },
+      });
+      const functionWrapper = mount({
+        render() {
+          return <Tabs action={() => <button>Create</button>} />;
+        },
+      });
+
+      expect(stringWrapper.find('.t-tabs__operations--right').text()).toContain('More actions');
+      expect(functionWrapper.find('button').text()).toBe('Create');
+      expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('Invalid prop'));
+    });
   });
 
   // test events
