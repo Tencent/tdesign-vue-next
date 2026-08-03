@@ -51,6 +51,16 @@ describe('Checkbox', () => {
       const input = wrapper.find('.t-checkbox input');
       expect(input.element.getAttribute('name')).toBe('name');
     });
+
+    it.each([
+      [0, '0'],
+      [false, 'false'],
+      ['', ''],
+    ] as const)('passes falsy value %j to the native input', (value, expected) => {
+      const wrapper = mount(Checkbox, { props: { value } });
+
+      expect(wrapper.get('input').attributes('value')).toBe(expected);
+    });
   });
   describe(': events', () => {
     it(':onChange', async () => {

@@ -165,7 +165,7 @@ export default defineComponent({
                   readonly={isReadonly.value}
                   indeterminate={tIndeterminate.value}
                   name={tName.value}
-                  value={props.value ? props.value : undefined}
+                  value={props.value}
                   checked={tChecked.value}
                   onChange={handleChange}
                   onClick={(e: MouseEvent) => e.stopPropagation()}
