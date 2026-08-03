@@ -58,6 +58,14 @@ export default defineComponent({
         });
     }
 
+    function handleKeydown(e: KeyboardEvent) {
+      if (e.key !== ' ' && e.key !== 'Enter') return;
+      e.preventDefault();
+      (e.currentTarget as HTMLElement).click();
+    }
+
+    const isChecked = computed(() => innerValue.value === activeValue.value || props.modelValue === activeValue.value);
+
     // classes
     const classes = computed(() => [
       `${COMPONENT_NAME.value}`,
@@ -65,7 +73,7 @@ export default defineComponent({
       {
         [STATUS.value.disabled]: disabled.value,
         [STATUS.value.loading]: props.loading,
-        [STATUS.value.checked]: innerValue.value === activeValue.value || props.modelValue === activeValue.value,
+        [STATUS.value.checked]: isChecked.value,
       },
     ]);
     const nodeClasses = computed(() => {
@@ -131,7 +139,16 @@ export default defineComponent({
       }
 
       return (
-        <div class={classes.value} onClick={toggle}>
+        <div
+          class={classes.value}
+          role="switch"
+          aria-checked={isChecked.value}
+          aria-disabled={disabled.value || props.loading || undefined}
+          aria-busy={props.loading || undefined}
+          tabindex={disabled.value || props.loading ? undefined : '0'}
+          onClick={toggle}
+          onKeydown={handleKeydown}
+        >
           <span class={nodeClasses.value}>{loadingContent}</span>
           <div class={contentClasses.value}>{switchContent}</div>
         </div>

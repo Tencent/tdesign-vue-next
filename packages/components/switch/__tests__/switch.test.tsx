@@ -85,6 +85,31 @@ describe('Switch', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it('exposes switch semantics and updates aria-checked', async () => {
+      const wrapper = mount(Switch, { props: { defaultValue: false } });
+      const root = wrapper.get('.t-switch');
+
+      expect(root.attributes()).toMatchObject({ role: 'switch', 'aria-checked': 'false', tabindex: '0' });
+
+      await root.trigger('click');
+
+      expect(root.attributes('aria-checked')).toBe('true');
+    });
+
+    it('exposes disabled and loading states to assistive technology', () => {
+      const disabled = mount(Switch, { props: { disabled: true } });
+      const loading = mount(Switch, { props: { loading: true } });
+
+      expect(disabled.get('.t-switch').attributes('aria-disabled')).toBe('true');
+      expect(disabled.get('.t-switch').attributes('aria-busy')).toBeUndefined();
+      expect(disabled.get('.t-switch').attributes('tabindex')).toBeUndefined();
+      expect(loading.get('.t-switch').attributes()).toMatchObject({
+        'aria-disabled': 'true',
+        'aria-busy': 'true',
+      });
+      expect(loading.get('.t-switch').attributes('tabindex')).toBeUndefined();
+    });
   });
 
   describe('@event', () => {
@@ -98,6 +123,44 @@ describe('Switch', () => {
       expect(wrapper.element).toMatchSnapshot();
       wrapper.find('.t-switch').trigger('click');
       expect(fn).toHaveBeenCalled();
+    });
+
+    it.each([' ', 'Enter'])('toggles with the %j key', async (key) => {
+      const beforeChange = vi.fn(() => true);
+      const onChange = vi.fn();
+      const wrapper = mount(Switch, { props: { beforeChange, defaultValue: false, onChange } });
+      const root = wrapper.get('.t-switch');
+
+      await root.trigger('keydown', { key });
+      await Promise.resolve();
+
+      expect(beforeChange).toHaveBeenCalledOnce();
+      expect(onChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
+      expect(root.attributes('aria-checked')).toBe('true');
+    });
+
+    it('prevents Space scrolling and ignores unrelated keys', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Switch, { props: { onChange } });
+      const root = wrapper.get('.t-switch');
+      const spaceEvent = new KeyboardEvent('keydown', { key: ' ', bubbles: true, cancelable: true });
+
+      root.element.dispatchEvent(spaceEvent);
+      await root.trigger('keydown', { key: 'ArrowRight' });
+
+      expect(spaceEvent.defaultPrevented).toBe(true);
+      expect(onChange).toHaveBeenCalledOnce();
+    });
+
+    it.each([{ disabled: true }, { loading: true }])('blocks keyboard toggles with %o', async (props) => {
+      const beforeChange = vi.fn(() => true);
+      const onChange = vi.fn();
+      const wrapper = mount(Switch, { props: { ...props, beforeChange, onChange } });
+
+      await wrapper.get('.t-switch').trigger('keydown', { key: ' ' });
+
+      expect(beforeChange).not.toHaveBeenCalled();
+      expect(onChange).not.toHaveBeenCalled();
     });
   });
 
