@@ -91,6 +91,7 @@
 </template>
 
 <script lang="tsx" setup>
+import { ref } from 'vue';
 import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 import { ErrorIcon, ChevronRightIcon, CloseIcon, CloseCircleIcon } from 'tdesign-icons-vue-next';
@@ -162,8 +163,11 @@ const customConfig: GlobalConfigProvider = {
   },
 };
 const globalConfig = merge(empty, enConfig, customConfig);
-const transferChecked: TransferProps['checked'] = [];
-const transferTargetValue: TransferProps['value'] = [];
+
+const transferChecked = ref([]);
+const transferTargetValue = ref([]);
+const treeValue = ref('');
+
 const options1: SelectProps['options'] = [
   {
     label: 'Shanghai',
@@ -178,7 +182,6 @@ const options1: SelectProps['options'] = [
     value: 'shenzhen',
   },
 ];
-const treeValue = '';
 const treeOptions: TreeSelectProps['data'] = [
   {
     label: '1',
