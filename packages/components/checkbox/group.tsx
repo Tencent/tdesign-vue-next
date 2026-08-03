@@ -51,7 +51,7 @@ export default defineComponent({
       () => !isCheckAll.value && intersectionLen.value < optionList.value.length && intersectionLen.value !== 0,
     );
 
-    const maxExceeded = computed<boolean>(() => !isUndefined(props.max) && innerValue.value.length === props.max);
+    const maxExceeded = computed<boolean>(() => !isUndefined(props.max) && innerValue.value.length >= props.max);
 
     watchEffect(() => {
       if (!props.options) return [];
@@ -63,31 +63,34 @@ export default defineComponent({
     /**
      * 获取所有复选框的值。
      * 此函数遍历 `optionList` 中的项，忽略被标记为 `checkAll`、`disabled` 或 `readonly` 的项，
-     * 并收集非这些状态的项的值到一个 Set 集合中。如果达到最大限制 `maxExceeded`，则停止遍历。
+     * 并收集非这些状态的项的值到一个 Set 集合中。收集结果不会超过 `max` 限制。
      *
      */
     const getAllCheckboxValue = () => {
       const checkAllVal = new Set<TdCheckboxProps['value']>();
       const uncheckAllVal = new Set<TdCheckboxProps['value']>();
+      const immutableValues = new Set(
+        optionList.value
+          .filter((item) => (item.disabled || item.readonly) && innerValue.value.includes(item.value))
+          .map((item) => item.value),
+      );
+      let availableCount = isUndefined(props.max) ? Infinity : Math.max(props.max - immutableValues.size, 0);
       // 遍历选项列表，忽略特定状态的项，并收集有效值
       for (let i = 0, len = optionList.value.length; i < len; i++) {
         const item = optionList.value[i];
 
         // 如果项被标记为检查所有、禁用或只读，且未选中，则跳过当前循环迭代
         if (item.checkAll) continue;
-        if (item.disabled) {
+        if (item.disabled || item.readonly) {
           if (!innerValue.value.includes(item.value)) continue;
-          else uncheckAllVal.add(item.value); // 添加禁用状态项的值到集合中
-        }
-        if (item.readonly) {
-          if (!innerValue.value.includes(item.value)) continue;
-          else uncheckAllVal.add(item.value); // 添加禁用状态项的值到集合中
+          uncheckAllVal.add(item.value); // 取消全选时保留不可变选项
+          checkAllVal.add(item.value);
+          continue;
         }
 
-        checkAllVal.add(item.value); // 添加非排除状态项的值到集合中
-
-        // 如果已达到最大限制，则终止循环
-        if (maxExceeded.value) break;
+        if (availableCount <= 0) continue;
+        if (!checkAllVal.has(item.value)) availableCount -= 1;
+        checkAllVal.add(item.value); // 添加未超过最大限制的选项
       }
 
       return { checkAllVal: [...checkAllVal], uncheckAllVal: [...uncheckAllVal] }; // 从 Set 集合转换为数组并返回

@@ -146,6 +146,17 @@ describe('CheckboxGroup', () => {
       expect(checkboxs[0].classes()).toContain('t-is-checked');
       expect(checkboxs[1].classes()).not.toContain('t-is-checked');
     });
+
+    it('disables unchecked options when a controlled value already exceeds max', async () => {
+      const wrapper = mount(CheckboxGroup, {
+        props: { value: ['a', 'b'], max: 1, options: ['a', 'b', 'c'] },
+      });
+
+      expect(wrapper.findAll('.t-checkbox')[2].classes()).toContain('t-is-disabled');
+      await wrapper.findAll('input')[2].trigger('change');
+
+      expect(wrapper.emitted('update:value')).toBeUndefined();
+    });
   });
 
   describe(':events', () => {
@@ -161,6 +172,63 @@ describe('CheckboxGroup', () => {
       const checkboxs = wrapper.findAll('.t-checkbox input');
       await checkboxs[0].trigger('change');
       expect(checked.value).toEqual(['1', '2']);
+    });
+
+    it(':checkAll respects max', async () => {
+      const checked = ref([]);
+      const wrapper = mount(() => (
+        <CheckboxGroup
+          v-model={checked.value}
+          max={1}
+          options={[
+            { label: '全选', checkAll: true },
+            { label: '选项一', value: '1' },
+            { label: '选项二', value: '2' },
+          ]}
+        />
+      ));
+
+      await wrapper.findAll('input')[0].trigger('change');
+
+      expect(checked.value).toEqual(['1']);
+    });
+
+    it(':checkAll selects nothing when max is zero', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(CheckboxGroup, {
+        props: {
+          max: 0,
+          onChange,
+          options: [
+            { label: '全选', checkAll: true },
+            { label: '选项一', value: '1' },
+          ],
+        },
+      });
+
+      await wrapper.findAll('input')[0].trigger('change');
+
+      expect(onChange).toHaveBeenCalledWith([], expect.objectContaining({ type: 'check' }));
+    });
+
+    it(':checkAll preserves selected disabled options within max', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(CheckboxGroup, {
+        props: {
+          defaultValue: ['disabled'],
+          max: 1,
+          onChange,
+          options: [
+            { label: '全选', checkAll: true },
+            { label: '普通选项', value: 'enabled' },
+            { label: '禁用选项', value: 'disabled', disabled: true },
+          ],
+        },
+      });
+
+      await wrapper.findAll('input')[0].trigger('change');
+
+      expect(onChange).toHaveBeenCalledWith(['disabled'], expect.objectContaining({ type: 'check' }));
     });
 
     it(':onChange', async () => {
