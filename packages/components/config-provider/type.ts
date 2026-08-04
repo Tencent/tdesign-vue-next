@@ -385,6 +385,11 @@ export interface ColorPickerConfig {
    */
   clearConfirmText?: string;
   /**
+   * 语言配置，“吸色” 吸色按钮文案
+   * @default ''
+   */
+  eyeDropper?: string;
+  /**
    * 语言配置，“最近使用颜色” 区域标题文本
    * @default ''
    */
