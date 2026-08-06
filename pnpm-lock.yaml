@@ -257,8 +257,8 @@ catalogs:
       specifier: ^1.2.4
       version: 1.2.4
     tdesign-icons-vue-next:
-      specifier: ~0.4.7
-      version: 0.4.7
+      specifier: ^0.4.8
+      version: 0.4.8
     tdesign-publish-cli:
       specifier: ^0.0.12
       version: 0.0.12
@@ -591,7 +591,7 @@ importers:
     devDependencies:
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.7(vue@3.5.34(typescript@5.7.3))
+        version: 0.4.8(vue@3.5.34(typescript@5.7.3))
       tsdown:
         specifier: catalog:bundle
         version: 0.12.9(publint@0.3.21)(typescript@5.7.3)(vue-tsc@2.2.10(typescript@5.7.3))
@@ -630,7 +630,7 @@ importers:
         version: 1.15.6
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.7(vue@3.5.34(typescript@5.8.3))
+        version: 0.4.8(vue@3.5.34(typescript@5.8.3))
       tinycolor2:
         specifier: catalog:deps
         version: 1.6.0
@@ -658,7 +658,7 @@ importers:
         version: 4.18.1
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.7(vue@3.5.34(typescript@5.8.3))
+        version: 0.4.8(vue@3.5.34(typescript@5.8.3))
       vue:
         specifier: '>=3.1.0'
         version: 3.5.34(typescript@5.8.3)
@@ -739,7 +739,7 @@ importers:
         version: 1.15.6
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.7(vue@3.5.34(typescript@5.8.3))
+        version: 0.4.8(vue@3.5.34(typescript@5.8.3))
       tinycolor2:
         specifier: catalog:deps
         version: 1.6.0
@@ -778,7 +778,7 @@ importers:
         version: 0.0.12(omi@7.7.13)(vue@3.5.34(typescript@5.8.3))
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.7(vue@3.5.34(typescript@5.8.3))
+        version: 0.4.8(vue@3.5.34(typescript@5.8.3))
       tdesign-vue-next:
         specifier: workspace:^
         version: link:../tdesign-vue-next
@@ -895,7 +895,7 @@ importers:
         version: 4.4.6(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.0))(@babel/plugin-syntax-typescript@7.28.6(@babel/core@7.29.0))(@parcel/watcher@2.5.6)(@rollup/plugin-babel@6.0.4(@babel/core@7.29.0)(rollup@4.60.4))(@types/node@22.15.32)(@vitejs/devtools@0.1.24(@pnpm/logger@1001.0.1)(crossws@0.4.5(srvx@0.11.15))(db0@0.3.4)(ioredis@5.10.1)(typescript@5.8.3)(vite@7.3.3(@types/node@22.15.32)(jiti@2.7.0)(less@4.3.0)(terser@5.43.1)(tsx@4.20.3)(yaml@2.9.0)))(@vue/compiler-sfc@3.5.34)(cac@6.7.14)(db0@0.3.4)(eslint@10.4.0(jiti@2.7.0))(ioredis@5.10.1)(less@4.3.0)(magicast@0.5.3)(optionator@0.9.4)(rolldown@1.0.0-beta.28)(rollup-plugin-visualizer@7.0.1(rolldown@1.0.0-beta.28)(rollup@4.60.4))(rollup@4.60.4)(srvx@0.11.15)(terser@5.43.1)(tsx@4.20.3)(typescript@5.8.3)(vite@7.3.3(@types/node@22.15.32)(jiti@2.7.0)(less@4.3.0)(terser@5.43.1)(tsx@4.20.3)(yaml@2.9.0))(vue-tsc@2.2.10(typescript@5.8.3))(yaml@2.9.0)
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.4.7(vue@3.5.34(typescript@5.8.3))
+        version: 0.4.8(vue@3.5.34(typescript@5.8.3))
       tdesign-vue-next:
         specifier: workspace:^
         version: link:../tdesign-vue-next
@@ -10090,8 +10090,8 @@ packages:
   tdesign-icons-svg@0.0.1:
     resolution: {integrity: sha512-4l05CgPXwI33Y6hU8ytKYIIXVznR22x6blhhtB6MntSHj2xrA+Unx4U/qy+Do/lCMtYao9q1wVkaZvxNjuX7jw==}
 
-  tdesign-icons-vue-next@0.4.7:
-    resolution: {integrity: sha512-0TRVH0L9O7vAMQ7j2vU/VYBMzS5FI+OVf7bWjwAVMmWXArsAyJI8mzpNWThZok96B6hsRY+2hK/NSOFZy8hMqA==}
+  tdesign-icons-vue-next@0.4.8:
+    resolution: {integrity: sha512-JLinPtu6Zq/HfUpsTKRnmwOrkBXZhDhwWbFXbA5mRJtiW/hbLq1DKI9bwW8EtNCcXh4BPzPg3TpzVeGTM5tqQw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -22314,12 +22314,12 @@ snapshots:
 
   tdesign-icons-svg@0.0.1: {}
 
-  tdesign-icons-vue-next@0.4.7(vue@3.5.34(typescript@5.7.3)):
+  tdesign-icons-vue-next@0.4.8(vue@3.5.34(typescript@5.7.3)):
     dependencies:
       '@babel/runtime': 7.27.6
       vue: 3.5.34(typescript@5.7.3)
 
-  tdesign-icons-vue-next@0.4.7(vue@3.5.34(typescript@5.8.3)):
+  tdesign-icons-vue-next@0.4.8(vue@3.5.34(typescript@5.8.3)):
     dependencies:
       '@babel/runtime': 7.27.6
       vue: 3.5.34(typescript@5.8.3)
