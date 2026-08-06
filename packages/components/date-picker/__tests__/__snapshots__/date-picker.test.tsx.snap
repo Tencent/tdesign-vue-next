@@ -59,11 +59,6 @@ exports[`DatePicker > :mode 1`] = `
                   y="0"
                 />
                 <path
-                  d="M21 10H3V5H21V10Z"
-                  fill="#000"
-                  stroke="none"
-                />
-                <path
                   d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
                   fill="none"
                   stroke="#000"
@@ -230,11 +225,6 @@ exports[`DatePicker > :range 1`] = `
                   y="0"
                 />
                 <path
-                  d="M21 10H3V5H21V10Z"
-                  fill="#000"
-                  stroke="none"
-                />
-                <path
                   d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
                   fill="none"
                   stroke="#000"
@@ -357,11 +347,6 @@ exports[`DatePicker > :value 1`] = `
                   width="24"
                   x="0"
                   y="0"
-                />
-                <path
-                  d="M21 10H3V5H21V10Z"
-                  fill="#000"
-                  stroke="none"
                 />
                 <path
                   d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"

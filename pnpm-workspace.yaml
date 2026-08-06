@@ -95,7 +95,7 @@ catalogs:
   tdesign:
     '@tdesign/site-components': ^0.19.2
     '@tdesign/theme-generator': ^1.2.4
-    tdesign-icons-vue-next: https://pkg.pr.new/Tencent/tdesign-icons/tdesign-icons-vue-next@ad06b1b
+    tdesign-icons-vue-next: ^0.4.9
     tdesign-publish-cli: ^0.0.12
   test:
     '@testing-library/dom': ^9.3.1
