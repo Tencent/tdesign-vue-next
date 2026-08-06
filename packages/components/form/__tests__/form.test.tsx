@@ -459,6 +459,33 @@ describe('Form', () => {
         expect(form.find('.t-input__extra').exists()).toBe(true);
       });
 
+      it('trigger=all matches change and blur validation', async () => {
+        const validator = vi.fn(() => false);
+        rules.value = { name: [{ validator, trigger: 'all' }] };
+
+        formData.value.name = 'test';
+        await sleep(16);
+        expect(validator).toHaveBeenCalled();
+
+        await reset();
+        await nextTick();
+        await sleep(16);
+        validator.mockClear();
+        await form.findComponent(Input).vm.$.exposed.focus();
+        await form.findComponent(Input).vm.$.exposed.blur();
+        await sleep(16);
+        expect(validator).toHaveBeenCalled();
+      });
+
+      it('trigger=all executes once during full validation', async () => {
+        const validator = vi.fn(() => false);
+        rules.value = { name: [{ validator, trigger: 'all' }] };
+
+        await validate();
+
+        expect(validator).toHaveBeenCalledTimes(1);
+      });
+
       it('type', async () => {
         rules.value = { name: [{ required: true, type: 'error' }] };
         await validate();
