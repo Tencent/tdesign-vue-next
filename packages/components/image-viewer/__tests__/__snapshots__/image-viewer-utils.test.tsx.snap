@@ -19,15 +19,76 @@ exports[`ImageViewerUtils > props > :scale[number] renders utils container and i
         viewBox="0 0 24 24"
         width="1em"
       >
+        <defs>
+          <mask
+            height="24"
+            id="t-icon-overlap-7-0"
+            mask-type="luminance"
+            maskContentUnits="userSpaceOnUse"
+            maskUnits="userSpaceOnUse"
+            width="24"
+            x="0"
+            y="0"
+          >
+            <rect
+              fill="#fff"
+              height="24"
+              width="24"
+              x="0"
+              y="0"
+            />
+            <path
+              d="M16 8.5V17.5H21L16 8.5Z"
+              fill="#000"
+              stroke="none"
+            />
+          </mask>
+          <mask
+            height="24"
+            id="t-icon-overlap-7-1"
+            mask-type="luminance"
+            maskContentUnits="userSpaceOnUse"
+            maskUnits="userSpaceOnUse"
+            width="24"
+            x="0"
+            y="0"
+          >
+            <rect
+              fill="#fff"
+              height="24"
+              width="24"
+              x="0"
+              y="0"
+            />
+            <path
+              d="M12 3L12 21"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+            <g>
+              <path
+                d="M8 8.5V17.5H3L8 8.5Z M16 8.5V17.5H21L16 8.5Z"
+                fill="none"
+                stroke="#000"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+            </g>
+          </mask>
+        </defs>
         <g
           id="mirror"
         >
           <g
             id="fill1"
+            mask="url(#t-icon-overlap-7-1)"
           >
             <path
               d="M8 8.5V17.5H3L8 8.5Z"
               fill="transparent"
+              mask="url(#t-icon-overlap-7-0)"
             />
             <path
               d="M16 8.5V17.5H21L16 8.5Z"
@@ -45,13 +106,7 @@ exports[`ImageViewerUtils > props > :scale[number] renders utils container and i
             id="stroke1"
           >
             <path
-              d="M8 8.5V17.5H3L8 8.5Z"
-              stroke="currentColor"
-              stroke-linecap="square"
-              stroke-width="2"
-            />
-            <path
-              d="M16 8.5V17.5H21L16 8.5Z"
+              d="M8 8.5V17.5H3L8 8.5Z M16 8.5V17.5H21L16 8.5Z"
               stroke="currentColor"
               stroke-linecap="square"
               stroke-width="2"
@@ -102,6 +157,40 @@ exports[`ImageViewerUtils > props > :scale[number] renders utils container and i
         viewBox="0 0 24 24"
         width="1em"
       >
+        <defs>
+          <mask
+            height="24"
+            id="t-icon-overlap-15-0"
+            mask-type="luminance"
+            maskContentUnits="userSpaceOnUse"
+            maskUnits="userSpaceOnUse"
+            width="24"
+            x="0"
+            y="0"
+          >
+            <rect
+              fill="#fff"
+              height="24"
+              width="24"
+              x="0"
+              y="0"
+            />
+            <path
+              d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+            <path
+              d="M7.5 10.5H10.5L13.5 10.5"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+          </mask>
+        </defs>
         <g
           id="zoom-out"
         >
@@ -109,6 +198,7 @@ exports[`ImageViewerUtils > props > :scale[number] renders utils container and i
             d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033Z"
             fill="transparent"
             id="fill1"
+            mask="url(#t-icon-overlap-15-0)"
           />
           <path
             d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
@@ -149,6 +239,40 @@ exports[`ImageViewerUtils > props > :scale[number] renders utils container and i
         viewBox="0 0 24 24"
         width="1em"
       >
+        <defs>
+          <mask
+            height="24"
+            id="t-icon-overlap-18-0"
+            mask-type="luminance"
+            maskContentUnits="userSpaceOnUse"
+            maskUnits="userSpaceOnUse"
+            width="24"
+            x="0"
+            y="0"
+          >
+            <rect
+              fill="#fff"
+              height="24"
+              width="24"
+              x="0"
+              y="0"
+            />
+            <path
+              d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+            <path
+              d="M10.5 13.5V10.5M10.5 10.5L10.5 7.5M10.5 10.5H7.5M10.5 10.5H13.5"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="square"
+              stroke-width="2"
+            />
+          </mask>
+        </defs>
         <g
           id="zoom-in"
         >
@@ -156,6 +280,7 @@ exports[`ImageViewerUtils > props > :scale[number] renders utils container and i
             d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033Z"
             fill="transparent"
             id="fill1"
+            mask="url(#t-icon-overlap-18-0)"
           />
           <path
             d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
@@ -190,6 +315,79 @@ exports[`ImageViewerUtils > props > :scale[number] renders utils container and i
           viewBox="0 0 24 24"
           width="1em"
         >
+          <defs>
+            <mask
+              height="24"
+              id="t-icon-overlap-24-0"
+              mask-type="luminance"
+              maskContentUnits="userSpaceOnUse"
+              maskUnits="userSpaceOnUse"
+              width="24"
+              x="0"
+              y="0"
+            >
+              <rect
+                fill="#fff"
+                height="24"
+                width="24"
+                x="0"
+                y="0"
+              />
+              <circle
+                cx="15.75"
+                cy="8.25"
+                fill="#000"
+                r="2"
+                stroke="none"
+              />
+              <path
+                d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+              />
+              <circle
+                cx="15.75"
+                cy="8.25"
+                fill="none"
+                r="2"
+                stroke="#000"
+                stroke-width="2"
+              />
+            </mask>
+            <mask
+              height="24"
+              id="t-icon-overlap-24-1"
+              mask-type="luminance"
+              maskContentUnits="userSpaceOnUse"
+              maskUnits="userSpaceOnUse"
+              width="24"
+              x="0"
+              y="0"
+            >
+              <rect
+                fill="#fff"
+                height="24"
+                width="24"
+                x="0"
+                y="0"
+              />
+              <path
+                d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+              />
+              <circle
+                cx="15.75"
+                cy="8.25"
+                fill="none"
+                r="2"
+                stroke="#000"
+                stroke-width="2"
+              />
+            </mask>
+          </defs>
           <g
             id="image"
           >
@@ -197,12 +395,14 @@ exports[`ImageViewerUtils > props > :scale[number] renders utils container and i
               d="M3 21H20L9 10L3 16V21Z"
               fill="transparent"
               id="fill1"
+              mask="url(#t-icon-overlap-24-0)"
             />
             <circle
               cx="15.75"
               cy="8.25"
               fill="transparent"
               id="fill2"
+              mask="url(#t-icon-overlap-24-1)"
               r="2"
             />
             <path

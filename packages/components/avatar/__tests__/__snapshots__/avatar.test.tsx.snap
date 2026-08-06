@@ -65,6 +65,79 @@ exports[`Avatar > props > :content[string/function] 2`] = `
               viewBox="0 0 24 24"
               width="1em"
             >
+              <defs>
+                <mask
+                  height="24"
+                  id="t-icon-overlap-15-0"
+                  mask-type="luminance"
+                  maskContentUnits="userSpaceOnUse"
+                  maskUnits="userSpaceOnUse"
+                  width="24"
+                  x="0"
+                  y="0"
+                >
+                  <rect
+                    fill="#fff"
+                    height="24"
+                    width="24"
+                    x="0"
+                    y="0"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="#000"
+                    r="2"
+                    stroke="none"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="none"
+                    r="2"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </mask>
+                <mask
+                  height="24"
+                  id="t-icon-overlap-15-1"
+                  mask-type="luminance"
+                  maskContentUnits="userSpaceOnUse"
+                  maskUnits="userSpaceOnUse"
+                  width="24"
+                  x="0"
+                  y="0"
+                >
+                  <rect
+                    fill="#fff"
+                    height="24"
+                    width="24"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="none"
+                    r="2"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </mask>
+              </defs>
               <g
                 id="image"
               >
@@ -72,12 +145,14 @@ exports[`Avatar > props > :content[string/function] 2`] = `
                   d="M3 21H20L9 10L3 16V21Z"
                   fill="transparent"
                   id="fill1"
+                  mask="url(#t-icon-overlap-15-0)"
                 />
                 <circle
                   cx="15.75"
                   cy="8.25"
                   fill="transparent"
                   id="fill2"
+                  mask="url(#t-icon-overlap-15-1)"
                   r="2"
                 />
                 <path
@@ -182,6 +257,79 @@ exports[`Avatar > props > :default[string/function] 2`] = `
               viewBox="0 0 24 24"
               width="1em"
             >
+              <defs>
+                <mask
+                  height="24"
+                  id="t-icon-overlap-28-0"
+                  mask-type="luminance"
+                  maskContentUnits="userSpaceOnUse"
+                  maskUnits="userSpaceOnUse"
+                  width="24"
+                  x="0"
+                  y="0"
+                >
+                  <rect
+                    fill="#fff"
+                    height="24"
+                    width="24"
+                    x="0"
+                    y="0"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="#000"
+                    r="2"
+                    stroke="none"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="none"
+                    r="2"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </mask>
+                <mask
+                  height="24"
+                  id="t-icon-overlap-28-1"
+                  mask-type="luminance"
+                  maskContentUnits="userSpaceOnUse"
+                  maskUnits="userSpaceOnUse"
+                  width="24"
+                  x="0"
+                  y="0"
+                >
+                  <rect
+                    fill="#fff"
+                    height="24"
+                    width="24"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="none"
+                    r="2"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </mask>
+              </defs>
               <g
                 id="image"
               >
@@ -189,12 +337,14 @@ exports[`Avatar > props > :default[string/function] 2`] = `
                   d="M3 21H20L9 10L3 16V21Z"
                   fill="transparent"
                   id="fill1"
+                  mask="url(#t-icon-overlap-28-0)"
                 />
                 <circle
                   cx="15.75"
                   cy="8.25"
                   fill="transparent"
                   id="fill2"
+                  mask="url(#t-icon-overlap-28-1)"
                   r="2"
                 />
                 <path
@@ -329,6 +479,79 @@ exports[`AvatarGroup > props > :collapseAvatar[slot] 1`] = `
               viewBox="0 0 24 24"
               width="1em"
             >
+              <defs>
+                <mask
+                  height="24"
+                  id="t-icon-overlap-135-0"
+                  mask-type="luminance"
+                  maskContentUnits="userSpaceOnUse"
+                  maskUnits="userSpaceOnUse"
+                  width="24"
+                  x="0"
+                  y="0"
+                >
+                  <rect
+                    fill="#fff"
+                    height="24"
+                    width="24"
+                    x="0"
+                    y="0"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="#000"
+                    r="2"
+                    stroke="none"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="none"
+                    r="2"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </mask>
+                <mask
+                  height="24"
+                  id="t-icon-overlap-135-1"
+                  mask-type="luminance"
+                  maskContentUnits="userSpaceOnUse"
+                  maskUnits="userSpaceOnUse"
+                  width="24"
+                  x="0"
+                  y="0"
+                >
+                  <rect
+                    fill="#fff"
+                    height="24"
+                    width="24"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="none"
+                    r="2"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </mask>
+              </defs>
               <g
                 id="image"
               >
@@ -336,12 +559,14 @@ exports[`AvatarGroup > props > :collapseAvatar[slot] 1`] = `
                   d="M3 21H20L9 10L3 16V21Z"
                   fill="transparent"
                   id="fill1"
+                  mask="url(#t-icon-overlap-135-0)"
                 />
                 <circle
                   cx="15.75"
                   cy="8.25"
                   fill="transparent"
                   id="fill2"
+                  mask="url(#t-icon-overlap-135-1)"
                   r="2"
                 />
                 <path
@@ -452,6 +677,79 @@ exports[`AvatarGroup > props > :collapseAvatar[string/function] 1`] = `
               viewBox="0 0 24 24"
               width="1em"
             >
+              <defs>
+                <mask
+                  height="24"
+                  id="t-icon-overlap-116-0"
+                  mask-type="luminance"
+                  maskContentUnits="userSpaceOnUse"
+                  maskUnits="userSpaceOnUse"
+                  width="24"
+                  x="0"
+                  y="0"
+                >
+                  <rect
+                    fill="#fff"
+                    height="24"
+                    width="24"
+                    x="0"
+                    y="0"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="#000"
+                    r="2"
+                    stroke="none"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="none"
+                    r="2"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </mask>
+                <mask
+                  height="24"
+                  id="t-icon-overlap-116-1"
+                  mask-type="luminance"
+                  maskContentUnits="userSpaceOnUse"
+                  maskUnits="userSpaceOnUse"
+                  width="24"
+                  x="0"
+                  y="0"
+                >
+                  <rect
+                    fill="#fff"
+                    height="24"
+                    width="24"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="none"
+                    r="2"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </mask>
+              </defs>
               <g
                 id="image"
               >
@@ -459,12 +757,14 @@ exports[`AvatarGroup > props > :collapseAvatar[string/function] 1`] = `
                   d="M3 21H20L9 10L3 16V21Z"
                   fill="transparent"
                   id="fill1"
+                  mask="url(#t-icon-overlap-116-0)"
                 />
                 <circle
                   cx="15.75"
                   cy="8.25"
                   fill="transparent"
                   id="fill2"
+                  mask="url(#t-icon-overlap-116-1)"
                   r="2"
                 />
                 <path
@@ -569,6 +869,79 @@ exports[`AvatarGroup > props > :collapseAvatar[string/function] 2`] = `
               viewBox="0 0 24 24"
               width="1em"
             >
+              <defs>
+                <mask
+                  height="24"
+                  id="t-icon-overlap-125-0"
+                  mask-type="luminance"
+                  maskContentUnits="userSpaceOnUse"
+                  maskUnits="userSpaceOnUse"
+                  width="24"
+                  x="0"
+                  y="0"
+                >
+                  <rect
+                    fill="#fff"
+                    height="24"
+                    width="24"
+                    x="0"
+                    y="0"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="#000"
+                    r="2"
+                    stroke="none"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="none"
+                    r="2"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </mask>
+                <mask
+                  height="24"
+                  id="t-icon-overlap-125-1"
+                  mask-type="luminance"
+                  maskContentUnits="userSpaceOnUse"
+                  maskUnits="userSpaceOnUse"
+                  width="24"
+                  x="0"
+                  y="0"
+                >
+                  <rect
+                    fill="#fff"
+                    height="24"
+                    width="24"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="none"
+                    r="2"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </mask>
+              </defs>
               <g
                 id="image"
               >
@@ -576,12 +949,14 @@ exports[`AvatarGroup > props > :collapseAvatar[string/function] 2`] = `
                   d="M3 21H20L9 10L3 16V21Z"
                   fill="transparent"
                   id="fill1"
+                  mask="url(#t-icon-overlap-125-0)"
                 />
                 <circle
                   cx="15.75"
                   cy="8.25"
                   fill="transparent"
                   id="fill2"
+                  mask="url(#t-icon-overlap-125-1)"
                   r="2"
                 />
                 <path

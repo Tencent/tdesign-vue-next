@@ -40,6 +40,61 @@ exports[`DatePicker > :mode 1`] = `
             viewBox="0 0 24 24"
             width="1em"
           >
+            <defs>
+              <mask
+                height="24"
+                id="t-icon-overlap-26-0"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M21 10H3V5H21V10Z"
+                  fill="#000"
+                  stroke="none"
+                />
+                <path
+                  d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </mask>
+              <mask
+                height="24"
+                id="t-icon-overlap-26-1"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </mask>
+            </defs>
             <g
               id="calendar"
             >
@@ -47,11 +102,13 @@ exports[`DatePicker > :mode 1`] = `
                 d="M21 10H3V21H21V10Z"
                 fill="transparent"
                 id="fill1"
+                mask="url(#t-icon-overlap-26-0)"
               />
               <path
                 d="M21 10H3V5H21V10Z"
                 fill="transparent"
                 id="fill2"
+                mask="url(#t-icon-overlap-26-1)"
               />
               <path
                 d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
@@ -154,6 +211,61 @@ exports[`DatePicker > :range 1`] = `
             viewBox="0 0 24 24"
             width="1em"
           >
+            <defs>
+              <mask
+                height="24"
+                id="t-icon-overlap-37-0"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M21 10H3V5H21V10Z"
+                  fill="#000"
+                  stroke="none"
+                />
+                <path
+                  d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </mask>
+              <mask
+                height="24"
+                id="t-icon-overlap-37-1"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </mask>
+            </defs>
             <g
               id="calendar"
             >
@@ -161,11 +273,13 @@ exports[`DatePicker > :range 1`] = `
                 d="M21 10H3V21H21V10Z"
                 fill="transparent"
                 id="fill1"
+                mask="url(#t-icon-overlap-37-0)"
               />
               <path
                 d="M21 10H3V5H21V10Z"
                 fill="transparent"
                 id="fill2"
+                mask="url(#t-icon-overlap-37-1)"
               />
               <path
                 d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
@@ -226,6 +340,61 @@ exports[`DatePicker > :value 1`] = `
             viewBox="0 0 24 24"
             width="1em"
           >
+            <defs>
+              <mask
+                height="24"
+                id="t-icon-overlap-17-0"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M21 10H3V5H21V10Z"
+                  fill="#000"
+                  stroke="none"
+                />
+                <path
+                  d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </mask>
+              <mask
+                height="24"
+                id="t-icon-overlap-17-1"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </mask>
+            </defs>
             <g
               id="calendar"
             >
@@ -233,11 +402,13 @@ exports[`DatePicker > :value 1`] = `
                 d="M21 10H3V21H21V10Z"
                 fill="transparent"
                 id="fill1"
+                mask="url(#t-icon-overlap-17-0)"
               />
               <path
                 d="M21 10H3V5H21V10Z"
                 fill="transparent"
                 id="fill2"
+                mask="url(#t-icon-overlap-17-1)"
               />
               <path
                 d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"

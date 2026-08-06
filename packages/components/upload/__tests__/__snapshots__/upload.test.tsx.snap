@@ -55,6 +55,79 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
                     viewBox="0 0 24 24"
                     width="1em"
                   >
+                    <defs>
+                      <mask
+                        height="24"
+                        id="t-icon-overlap-281-0"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="#000"
+                          r="2"
+                          stroke="none"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="none"
+                          r="2"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </mask>
+                      <mask
+                        height="24"
+                        id="t-icon-overlap-281-1"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="none"
+                          r="2"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </mask>
+                    </defs>
                     <g
                       id="image"
                     >
@@ -62,12 +135,14 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
                         d="M3 21H20L9 10L3 16V21Z"
                         fill="transparent"
                         id="fill1"
+                        mask="url(#t-icon-overlap-281-0)"
                       />
                       <circle
                         cx="15.75"
                         cy="8.25"
                         fill="transparent"
                         id="fill2"
+                        mask="url(#t-icon-overlap-281-1)"
                         r="2"
                       />
                       <path
@@ -254,6 +329,79 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
                     viewBox="0 0 24 24"
                     width="1em"
                   >
+                    <defs>
+                      <mask
+                        height="24"
+                        id="t-icon-overlap-292-0"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="#000"
+                          r="2"
+                          stroke="none"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="none"
+                          r="2"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </mask>
+                      <mask
+                        height="24"
+                        id="t-icon-overlap-292-1"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="none"
+                          r="2"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </mask>
+                    </defs>
                     <g
                       id="image"
                     >
@@ -261,12 +409,14 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
                         d="M3 21H20L9 10L3 16V21Z"
                         fill="transparent"
                         id="fill1"
+                        mask="url(#t-icon-overlap-292-0)"
                       />
                       <circle
                         cx="15.75"
                         cy="8.25"
                         fill="transparent"
                         id="fill2"
+                        mask="url(#t-icon-overlap-292-1)"
                         r="2"
                       />
                       <path
@@ -456,6 +606,79 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
                     viewBox="0 0 24 24"
                     width="1em"
                   >
+                    <defs>
+                      <mask
+                        height="24"
+                        id="t-icon-overlap-259-0"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="#000"
+                          r="2"
+                          stroke="none"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="none"
+                          r="2"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </mask>
+                      <mask
+                        height="24"
+                        id="t-icon-overlap-259-1"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="none"
+                          r="2"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </mask>
+                    </defs>
                     <g
                       id="image"
                     >
@@ -463,12 +686,14 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
                         d="M3 21H20L9 10L3 16V21Z"
                         fill="transparent"
                         id="fill1"
+                        mask="url(#t-icon-overlap-259-0)"
                       />
                       <circle
                         cx="15.75"
                         cy="8.25"
                         fill="transparent"
                         id="fill2"
+                        mask="url(#t-icon-overlap-259-1)"
                         r="2"
                       />
                       <path
@@ -655,6 +880,79 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
                     viewBox="0 0 24 24"
                     width="1em"
                   >
+                    <defs>
+                      <mask
+                        height="24"
+                        id="t-icon-overlap-270-0"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="#000"
+                          r="2"
+                          stroke="none"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="none"
+                          r="2"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </mask>
+                      <mask
+                        height="24"
+                        id="t-icon-overlap-270-1"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="none"
+                          r="2"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </mask>
+                    </defs>
                     <g
                       id="image"
                     >
@@ -662,12 +960,14 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
                         d="M3 21H20L9 10L3 16V21Z"
                         fill="transparent"
                         id="fill1"
+                        mask="url(#t-icon-overlap-270-0)"
                       />
                       <circle
                         cx="15.75"
                         cy="8.25"
                         fill="transparent"
                         id="fill2"
+                        mask="url(#t-icon-overlap-270-1)"
                         r="2"
                       />
                       <path
@@ -854,6 +1154,79 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
                     viewBox="0 0 24 24"
                     width="1em"
                   >
+                    <defs>
+                      <mask
+                        height="24"
+                        id="t-icon-overlap-303-0"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="#000"
+                          r="2"
+                          stroke="none"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="none"
+                          r="2"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </mask>
+                      <mask
+                        height="24"
+                        id="t-icon-overlap-303-1"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="none"
+                          r="2"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </mask>
+                    </defs>
                     <g
                       id="image"
                     >
@@ -861,12 +1234,14 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
                         d="M3 21H20L9 10L3 16V21Z"
                         fill="transparent"
                         id="fill1"
+                        mask="url(#t-icon-overlap-303-0)"
                       />
                       <circle
                         cx="15.75"
                         cy="8.25"
                         fill="transparent"
                         id="fill2"
+                        mask="url(#t-icon-overlap-303-1)"
                         r="2"
                       />
                       <path
@@ -1313,6 +1688,79 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
                 viewBox="0 0 24 24"
                 width="1em"
               >
+                <defs>
+                  <mask
+                    height="24"
+                    id="t-icon-overlap-841-0"
+                    mask-type="luminance"
+                    maskContentUnits="userSpaceOnUse"
+                    maskUnits="userSpaceOnUse"
+                    width="24"
+                    x="0"
+                    y="0"
+                  >
+                    <rect
+                      fill="#fff"
+                      height="24"
+                      width="24"
+                      x="0"
+                      y="0"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="#000"
+                      r="2"
+                      stroke="none"
+                    />
+                    <path
+                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="none"
+                      r="2"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </mask>
+                  <mask
+                    height="24"
+                    id="t-icon-overlap-841-1"
+                    mask-type="luminance"
+                    maskContentUnits="userSpaceOnUse"
+                    maskUnits="userSpaceOnUse"
+                    width="24"
+                    x="0"
+                    y="0"
+                  >
+                    <rect
+                      fill="#fff"
+                      height="24"
+                      width="24"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="none"
+                      r="2"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </mask>
+                </defs>
                 <g
                   id="image"
                 >
@@ -1320,12 +1768,14 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
                     d="M3 21H20L9 10L3 16V21Z"
                     fill="transparent"
                     id="fill1"
+                    mask="url(#t-icon-overlap-841-0)"
                   />
                   <circle
                     cx="15.75"
                     cy="8.25"
                     fill="transparent"
                     id="fill2"
+                    mask="url(#t-icon-overlap-841-1)"
                     r="2"
                   />
                   <path
@@ -1373,6 +1823,77 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             viewBox="0 0 24 24"
             width="1em"
           >
+            <defs>
+              <mask
+                height="24"
+                id="t-icon-overlap-842-0"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                  fill="#000"
+                  stroke="none"
+                />
+                <path
+                  d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+                <path
+                  d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+              </mask>
+              <mask
+                height="24"
+                id="t-icon-overlap-842-1"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+                <path
+                  d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+              </mask>
+            </defs>
             <g
               clipPath="url(#clip0_543_7945)"
               id="browse"
@@ -1381,11 +1902,13 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
                 d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
                 fill="transparent"
                 id="fill1"
+                mask="url(#t-icon-overlap-842-0)"
               />
               <path
                 d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
                 fill="transparent"
                 id="fill2"
+                mask="url(#t-icon-overlap-842-1)"
               />
               <path
                 d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
@@ -1542,6 +2065,79 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       viewBox="0 0 24 24"
                       width="1em"
                     >
+                      <defs>
+                        <mask
+                          height="24"
+                          id="t-icon-overlap-851-0"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <circle
+                            cx="15.75"
+                            cy="8.25"
+                            fill="#000"
+                            r="2"
+                            stroke="none"
+                          />
+                          <path
+                            d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                          <circle
+                            cx="15.75"
+                            cy="8.25"
+                            fill="none"
+                            r="2"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                        </mask>
+                        <mask
+                          height="24"
+                          id="t-icon-overlap-851-1"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <path
+                            d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                          <circle
+                            cx="15.75"
+                            cy="8.25"
+                            fill="none"
+                            r="2"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                        </mask>
+                      </defs>
                       <g
                         id="image"
                       >
@@ -1549,12 +2145,14 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                           d="M3 21H20L9 10L3 16V21Z"
                           fill="transparent"
                           id="fill1"
+                          mask="url(#t-icon-overlap-851-0)"
                         />
                         <circle
                           cx="15.75"
                           cy="8.25"
                           fill="transparent"
                           id="fill2"
+                          mask="url(#t-icon-overlap-851-1)"
                           r="2"
                         />
                         <path
@@ -1597,6 +2195,40 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
+                  <defs>
+                    <mask
+                      height="24"
+                      id="t-icon-overlap-852-0"
+                      mask-type="luminance"
+                      maskContentUnits="userSpaceOnUse"
+                      maskUnits="userSpaceOnUse"
+                      width="24"
+                      x="0"
+                      y="0"
+                    >
+                      <rect
+                        fill="#fff"
+                        height="24"
+                        width="24"
+                        x="0"
+                        y="0"
+                      />
+                      <path
+                        d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M12 9V18"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                    </mask>
+                  </defs>
                   <g
                     id="delete"
                   >
@@ -1604,6 +2236,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       d="M5 5H19L18.5 22H5.5L5 5Z"
                       fill="transparent"
                       id="fill1"
+                      mask="url(#t-icon-overlap-852-0)"
                     />
                     <path
                       d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
@@ -1685,6 +2318,79 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       viewBox="0 0 24 24"
                       width="1em"
                     >
+                      <defs>
+                        <mask
+                          height="24"
+                          id="t-icon-overlap-856-0"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <circle
+                            cx="15.75"
+                            cy="8.25"
+                            fill="#000"
+                            r="2"
+                            stroke="none"
+                          />
+                          <path
+                            d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                          <circle
+                            cx="15.75"
+                            cy="8.25"
+                            fill="none"
+                            r="2"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                        </mask>
+                        <mask
+                          height="24"
+                          id="t-icon-overlap-856-1"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <path
+                            d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                          <circle
+                            cx="15.75"
+                            cy="8.25"
+                            fill="none"
+                            r="2"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                        </mask>
+                      </defs>
                       <g
                         id="image"
                       >
@@ -1692,12 +2398,14 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                           d="M3 21H20L9 10L3 16V21Z"
                           fill="transparent"
                           id="fill1"
+                          mask="url(#t-icon-overlap-856-0)"
                         />
                         <circle
                           cx="15.75"
                           cy="8.25"
                           fill="transparent"
                           id="fill2"
+                          mask="url(#t-icon-overlap-856-1)"
                           r="2"
                         />
                         <path
@@ -1739,6 +2447,77 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
+                  <defs>
+                    <mask
+                      height="24"
+                      id="t-icon-overlap-857-0"
+                      mask-type="luminance"
+                      maskContentUnits="userSpaceOnUse"
+                      maskUnits="userSpaceOnUse"
+                      width="24"
+                      x="0"
+                      y="0"
+                    >
+                      <rect
+                        fill="#fff"
+                        height="24"
+                        width="24"
+                        x="0"
+                        y="0"
+                      />
+                      <path
+                        d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                        fill="#000"
+                        stroke="none"
+                      />
+                      <path
+                        d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                    </mask>
+                    <mask
+                      height="24"
+                      id="t-icon-overlap-857-1"
+                      mask-type="luminance"
+                      maskContentUnits="userSpaceOnUse"
+                      maskUnits="userSpaceOnUse"
+                      width="24"
+                      x="0"
+                      y="0"
+                    >
+                      <rect
+                        fill="#fff"
+                        height="24"
+                        width="24"
+                        x="0"
+                        y="0"
+                      />
+                      <path
+                        d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                    </mask>
+                  </defs>
                   <g
                     clipPath="url(#clip0_543_7945)"
                     id="browse"
@@ -1747,11 +2526,13 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
                       fill="transparent"
                       id="fill1"
+                      mask="url(#t-icon-overlap-857-0)"
                     />
                     <path
                       d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
                       fill="transparent"
                       id="fill2"
+                      mask="url(#t-icon-overlap-857-1)"
                     />
                     <path
                       d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
@@ -1784,6 +2565,40 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
+                  <defs>
+                    <mask
+                      height="24"
+                      id="t-icon-overlap-858-0"
+                      mask-type="luminance"
+                      maskContentUnits="userSpaceOnUse"
+                      maskUnits="userSpaceOnUse"
+                      width="24"
+                      x="0"
+                      y="0"
+                    >
+                      <rect
+                        fill="#fff"
+                        height="24"
+                        width="24"
+                        x="0"
+                        y="0"
+                      />
+                      <path
+                        d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M12 9V18"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                    </mask>
+                  </defs>
                   <g
                     id="delete"
                   >
@@ -1791,6 +2606,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       d="M5 5H19L18.5 22H5.5L5 5Z"
                       fill="transparent"
                       id="fill1"
+                      mask="url(#t-icon-overlap-858-0)"
                     />
                     <path
                       d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
@@ -1872,6 +2688,79 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       viewBox="0 0 24 24"
                       width="1em"
                     >
+                      <defs>
+                        <mask
+                          height="24"
+                          id="t-icon-overlap-862-0"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <circle
+                            cx="15.75"
+                            cy="8.25"
+                            fill="#000"
+                            r="2"
+                            stroke="none"
+                          />
+                          <path
+                            d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                          <circle
+                            cx="15.75"
+                            cy="8.25"
+                            fill="none"
+                            r="2"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                        </mask>
+                        <mask
+                          height="24"
+                          id="t-icon-overlap-862-1"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <path
+                            d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                          <circle
+                            cx="15.75"
+                            cy="8.25"
+                            fill="none"
+                            r="2"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                        </mask>
+                      </defs>
                       <g
                         id="image"
                       >
@@ -1879,12 +2768,14 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                           d="M3 21H20L9 10L3 16V21Z"
                           fill="transparent"
                           id="fill1"
+                          mask="url(#t-icon-overlap-862-0)"
                         />
                         <circle
                           cx="15.75"
                           cy="8.25"
                           fill="transparent"
                           id="fill2"
+                          mask="url(#t-icon-overlap-862-1)"
                           r="2"
                         />
                         <path
@@ -1926,6 +2817,77 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
+                  <defs>
+                    <mask
+                      height="24"
+                      id="t-icon-overlap-863-0"
+                      mask-type="luminance"
+                      maskContentUnits="userSpaceOnUse"
+                      maskUnits="userSpaceOnUse"
+                      width="24"
+                      x="0"
+                      y="0"
+                    >
+                      <rect
+                        fill="#fff"
+                        height="24"
+                        width="24"
+                        x="0"
+                        y="0"
+                      />
+                      <path
+                        d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                        fill="#000"
+                        stroke="none"
+                      />
+                      <path
+                        d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                    </mask>
+                    <mask
+                      height="24"
+                      id="t-icon-overlap-863-1"
+                      mask-type="luminance"
+                      maskContentUnits="userSpaceOnUse"
+                      maskUnits="userSpaceOnUse"
+                      width="24"
+                      x="0"
+                      y="0"
+                    >
+                      <rect
+                        fill="#fff"
+                        height="24"
+                        width="24"
+                        x="0"
+                        y="0"
+                      />
+                      <path
+                        d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                    </mask>
+                  </defs>
                   <g
                     clipPath="url(#clip0_543_7945)"
                     id="browse"
@@ -1934,11 +2896,13 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
                       fill="transparent"
                       id="fill1"
+                      mask="url(#t-icon-overlap-863-0)"
                     />
                     <path
                       d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
                       fill="transparent"
                       id="fill2"
+                      mask="url(#t-icon-overlap-863-1)"
                     />
                     <path
                       d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
@@ -1971,6 +2935,40 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
+                  <defs>
+                    <mask
+                      height="24"
+                      id="t-icon-overlap-864-0"
+                      mask-type="luminance"
+                      maskContentUnits="userSpaceOnUse"
+                      maskUnits="userSpaceOnUse"
+                      width="24"
+                      x="0"
+                      y="0"
+                    >
+                      <rect
+                        fill="#fff"
+                        height="24"
+                        width="24"
+                        x="0"
+                        y="0"
+                      />
+                      <path
+                        d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M12 9V18"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                    </mask>
+                  </defs>
                   <g
                     id="delete"
                   >
@@ -1978,6 +2976,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       d="M5 5H19L18.5 22H5.5L5 5Z"
                       fill="transparent"
                       id="fill1"
+                      mask="url(#t-icon-overlap-864-0)"
                     />
                     <path
                       d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
@@ -2060,6 +3059,40 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
+                  <defs>
+                    <mask
+                      height="24"
+                      id="t-icon-overlap-867-0"
+                      mask-type="luminance"
+                      maskContentUnits="userSpaceOnUse"
+                      maskUnits="userSpaceOnUse"
+                      width="24"
+                      x="0"
+                      y="0"
+                    >
+                      <rect
+                        fill="#fff"
+                        height="24"
+                        width="24"
+                        x="0"
+                        y="0"
+                      />
+                      <path
+                        d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M12 9V18"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                    </mask>
+                  </defs>
                   <g
                     id="delete"
                   >
@@ -2067,6 +3100,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       d="M5 5H19L18.5 22H5.5L5 5Z"
                       fill="transparent"
                       id="fill1"
+                      mask="url(#t-icon-overlap-867-0)"
                     />
                     <path
                       d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
@@ -2149,6 +3183,40 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
+                  <defs>
+                    <mask
+                      height="24"
+                      id="t-icon-overlap-870-0"
+                      mask-type="luminance"
+                      maskContentUnits="userSpaceOnUse"
+                      maskUnits="userSpaceOnUse"
+                      width="24"
+                      x="0"
+                      y="0"
+                    >
+                      <rect
+                        fill="#fff"
+                        height="24"
+                        width="24"
+                        x="0"
+                        y="0"
+                      />
+                      <path
+                        d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M12 9V18"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linecap="square"
+                        stroke-width="2"
+                      />
+                    </mask>
+                  </defs>
                   <g
                     id="delete"
                   >
@@ -2156,6 +3224,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       d="M5 5H19L18.5 22H5.5L5 5Z"
                       fill="transparent"
                       id="fill1"
+                      mask="url(#t-icon-overlap-870-0)"
                     />
                     <path
                       d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
@@ -2226,6 +3295,79 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                 viewBox="0 0 24 24"
                 width="1em"
               >
+                <defs>
+                  <mask
+                    height="24"
+                    id="t-icon-overlap-874-0"
+                    mask-type="luminance"
+                    maskContentUnits="userSpaceOnUse"
+                    maskUnits="userSpaceOnUse"
+                    width="24"
+                    x="0"
+                    y="0"
+                  >
+                    <rect
+                      fill="#fff"
+                      height="24"
+                      width="24"
+                      x="0"
+                      y="0"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="#000"
+                      r="2"
+                      stroke="none"
+                    />
+                    <path
+                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="none"
+                      r="2"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </mask>
+                  <mask
+                    height="24"
+                    id="t-icon-overlap-874-1"
+                    mask-type="luminance"
+                    maskContentUnits="userSpaceOnUse"
+                    maskUnits="userSpaceOnUse"
+                    width="24"
+                    x="0"
+                    y="0"
+                  >
+                    <rect
+                      fill="#fff"
+                      height="24"
+                      width="24"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="none"
+                      r="2"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </mask>
+                </defs>
                 <g
                   id="image"
                 >
@@ -2233,12 +3375,14 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                     d="M3 21H20L9 10L3 16V21Z"
                     fill="transparent"
                     id="fill1"
+                    mask="url(#t-icon-overlap-874-0)"
                   />
                   <circle
                     cx="15.75"
                     cy="8.25"
                     fill="transparent"
                     id="fill2"
+                    mask="url(#t-icon-overlap-874-1)"
                     r="2"
                   />
                   <path
@@ -2286,6 +3430,77 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             viewBox="0 0 24 24"
             width="1em"
           >
+            <defs>
+              <mask
+                height="24"
+                id="t-icon-overlap-875-0"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                  fill="#000"
+                  stroke="none"
+                />
+                <path
+                  d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+                <path
+                  d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+              </mask>
+              <mask
+                height="24"
+                id="t-icon-overlap-875-1"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+                <path
+                  d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+              </mask>
+            </defs>
             <g
               clipPath="url(#clip0_543_7945)"
               id="browse"
@@ -2294,11 +3509,13 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                 d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
                 fill="transparent"
                 id="fill1"
+                mask="url(#t-icon-overlap-875-0)"
               />
               <path
                 d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
                 fill="transparent"
                 id="fill2"
+                mask="url(#t-icon-overlap-875-1)"
               />
               <path
                 d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
