@@ -116,30 +116,7 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                     <defs>
                       <mask
                         height="24"
-                        id="t-icon-overlap-13-0"
-                        mask-type="luminance"
-                        maskContentUnits="userSpaceOnUse"
-                        maskUnits="userSpaceOnUse"
-                        width="24"
-                        x="0"
-                        y="0"
-                      >
-                        <rect
-                          fill="#fff"
-                          height="24"
-                          width="24"
-                          x="0"
-                          y="0"
-                        />
-                        <path
-                          d="M16 8.5V17.5H21L16 8.5Z"
-                          fill="#000"
-                          stroke="none"
-                        />
-                      </mask>
-                      <mask
-                        height="24"
-                        id="t-icon-overlap-13-1"
+                        id="t-icon-mirror-instance-v1-overlap-fill1"
                         mask-type="luminance"
                         maskContentUnits="userSpaceOnUse"
                         maskUnits="userSpaceOnUse"
@@ -177,12 +154,11 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                     >
                       <g
                         id="fill1"
-                        mask="url(#t-icon-overlap-13-1)"
+                        mask="url(#t-icon-mirror-instance-v1-overlap-fill1)"
                       >
                         <path
                           d="M8 8.5V17.5H3L8 8.5Z"
                           fill="transparent"
-                          mask="url(#t-icon-overlap-13-0)"
                         />
                         <path
                           d="M16 8.5V17.5H21L16 8.5Z"
@@ -254,7 +230,7 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                     <defs>
                       <mask
                         height="24"
-                        id="t-icon-overlap-21-0"
+                        id="t-icon-zoom-out-instance-v3-overlap-fill1"
                         mask-type="luminance"
                         maskContentUnits="userSpaceOnUse"
                         maskUnits="userSpaceOnUse"
@@ -292,7 +268,7 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033Z"
                         fill="transparent"
                         id="fill1"
-                        mask="url(#t-icon-overlap-21-0)"
+                        mask="url(#t-icon-zoom-out-instance-v3-overlap-fill1)"
                       />
                       <path
                         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
@@ -336,7 +312,7 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                     <defs>
                       <mask
                         height="24"
-                        id="t-icon-overlap-24-0"
+                        id="t-icon-zoom-in-instance-v4-overlap-fill1"
                         mask-type="luminance"
                         maskContentUnits="userSpaceOnUse"
                         maskUnits="userSpaceOnUse"
@@ -374,7 +350,7 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033Z"
                         fill="transparent"
                         id="fill1"
-                        mask="url(#t-icon-overlap-24-0)"
+                        mask="url(#t-icon-zoom-in-instance-v4-overlap-fill1)"
                       />
                       <path
                         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
@@ -412,7 +388,7 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                       <defs>
                         <mask
                           height="24"
-                          id="t-icon-overlap-30-0"
+                          id="t-icon-image-instance-v5-overlap-fill1"
                           mask-type="luminance"
                           maskContentUnits="userSpaceOnUse"
                           maskUnits="userSpaceOnUse"
@@ -451,7 +427,7 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                         </mask>
                         <mask
                           height="24"
-                          id="t-icon-overlap-30-1"
+                          id="t-icon-image-instance-v5-overlap-fill2"
                           mask-type="luminance"
                           maskContentUnits="userSpaceOnUse"
                           maskUnits="userSpaceOnUse"
@@ -489,14 +465,14 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                           d="M3 21H20L9 10L3 16V21Z"
                           fill="transparent"
                           id="fill1"
-                          mask="url(#t-icon-overlap-30-0)"
+                          mask="url(#t-icon-image-instance-v5-overlap-fill1)"
                         />
                         <circle
                           cx="15.75"
                           cy="8.25"
                           fill="transparent"
                           id="fill2"
-                          mask="url(#t-icon-overlap-30-1)"
+                          mask="url(#t-icon-image-instance-v5-overlap-fill2)"
                           r="2"
                         />
                         <path

@@ -43,7 +43,7 @@ exports[`DatePicker > :mode 1`] = `
             <defs>
               <mask
                 height="24"
-                id="t-icon-overlap-26-0"
+                id="t-icon-calendar-instance-v0-overlap-fill1"
                 mask-type="luminance"
                 maskContentUnits="userSpaceOnUse"
                 maskUnits="userSpaceOnUse"
@@ -72,7 +72,7 @@ exports[`DatePicker > :mode 1`] = `
               </mask>
               <mask
                 height="24"
-                id="t-icon-overlap-26-1"
+                id="t-icon-calendar-instance-v0-overlap-fill2"
                 mask-type="luminance"
                 maskContentUnits="userSpaceOnUse"
                 maskUnits="userSpaceOnUse"
@@ -102,13 +102,13 @@ exports[`DatePicker > :mode 1`] = `
                 d="M21 10H3V21H21V10Z"
                 fill="transparent"
                 id="fill1"
-                mask="url(#t-icon-overlap-26-0)"
+                mask="url(#t-icon-calendar-instance-v0-overlap-fill1)"
               />
               <path
                 d="M21 10H3V5H21V10Z"
                 fill="transparent"
                 id="fill2"
-                mask="url(#t-icon-overlap-26-1)"
+                mask="url(#t-icon-calendar-instance-v0-overlap-fill2)"
               />
               <path
                 d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
@@ -214,7 +214,7 @@ exports[`DatePicker > :range 1`] = `
             <defs>
               <mask
                 height="24"
-                id="t-icon-overlap-37-0"
+                id="t-icon-calendar-instance-v0-overlap-fill1"
                 mask-type="luminance"
                 maskContentUnits="userSpaceOnUse"
                 maskUnits="userSpaceOnUse"
@@ -243,7 +243,7 @@ exports[`DatePicker > :range 1`] = `
               </mask>
               <mask
                 height="24"
-                id="t-icon-overlap-37-1"
+                id="t-icon-calendar-instance-v0-overlap-fill2"
                 mask-type="luminance"
                 maskContentUnits="userSpaceOnUse"
                 maskUnits="userSpaceOnUse"
@@ -273,13 +273,13 @@ exports[`DatePicker > :range 1`] = `
                 d="M21 10H3V21H21V10Z"
                 fill="transparent"
                 id="fill1"
-                mask="url(#t-icon-overlap-37-0)"
+                mask="url(#t-icon-calendar-instance-v0-overlap-fill1)"
               />
               <path
                 d="M21 10H3V5H21V10Z"
                 fill="transparent"
                 id="fill2"
-                mask="url(#t-icon-overlap-37-1)"
+                mask="url(#t-icon-calendar-instance-v0-overlap-fill2)"
               />
               <path
                 d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
@@ -343,7 +343,7 @@ exports[`DatePicker > :value 1`] = `
             <defs>
               <mask
                 height="24"
-                id="t-icon-overlap-17-0"
+                id="t-icon-calendar-instance-v0-overlap-fill1"
                 mask-type="luminance"
                 maskContentUnits="userSpaceOnUse"
                 maskUnits="userSpaceOnUse"
@@ -372,7 +372,7 @@ exports[`DatePicker > :value 1`] = `
               </mask>
               <mask
                 height="24"
-                id="t-icon-overlap-17-1"
+                id="t-icon-calendar-instance-v0-overlap-fill2"
                 mask-type="luminance"
                 maskContentUnits="userSpaceOnUse"
                 maskUnits="userSpaceOnUse"
@@ -402,13 +402,13 @@ exports[`DatePicker > :value 1`] = `
                 d="M21 10H3V21H21V10Z"
                 fill="transparent"
                 id="fill1"
-                mask="url(#t-icon-overlap-17-0)"
+                mask="url(#t-icon-calendar-instance-v0-overlap-fill1)"
               />
               <path
                 d="M21 10H3V5H21V10Z"
                 fill="transparent"
                 id="fill2"
-                mask="url(#t-icon-overlap-17-1)"
+                mask="url(#t-icon-calendar-instance-v0-overlap-fill2)"
               />
               <path
                 d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
