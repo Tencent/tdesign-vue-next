@@ -1,7 +1,7 @@
-import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
 import { vi } from 'vitest';
-import { Tabs, TabPanel } from '@tdesign/components/tabs';
+import { nextTick } from 'vue';
+import { TabPanel, Tabs } from '@tdesign/components/tabs';
+import { mount } from '@vue/test-utils';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Tabs', () => {
@@ -87,6 +87,25 @@ describe('Tabs', () => {
       expect(stringWrapper.find('.t-tabs__operations--right').text()).toContain('More actions');
       expect(functionWrapper.find('button').text()).toBe('Create');
       expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('Invalid prop'));
+    });
+    it(':defaultValue[0]', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Tabs defaultValue={0}>
+              <TabPanel value={0} label="Zero">
+                Zero panel
+              </TabPanel>
+              <TabPanel value={1} label="One">
+                One panel
+              </TabPanel>
+            </Tabs>
+          );
+        },
+      });
+
+      expect(wrapper.find('.t-tabs__nav-item.t-is-active').text()).toBe('Zero');
+      expect(wrapper.findAll('.t-tab-panel')[0].classes()).not.toContain('t-is-hidden');
     });
   });
 

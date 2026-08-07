@@ -12,6 +12,40 @@ exports[`ImageModalIcon > props > :icon[function] 1`] = `
     viewBox="0 0 24 24"
     width="1em"
   >
+    <defs>
+      <mask
+        height="24"
+        id="t-icon-zoom-in-instance-v0-overlap-fill1"
+        mask-type="luminance"
+        maskContentUnits="userSpaceOnUse"
+        maskUnits="userSpaceOnUse"
+        width="24"
+        x="0"
+        y="0"
+      >
+        <rect
+          fill="#fff"
+          height="24"
+          width="24"
+          x="0"
+          y="0"
+        />
+        <path
+          d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
+          fill="none"
+          stroke="#000"
+          stroke-linecap="square"
+          stroke-width="2"
+        />
+        <path
+          d="M10.5 13.5V10.5M10.5 10.5L10.5 7.5M10.5 10.5H7.5M10.5 10.5H13.5"
+          fill="none"
+          stroke="#000"
+          stroke-linecap="square"
+          stroke-width="2"
+        />
+      </mask>
+    </defs>
     <g
       id="zoom-in"
     >
@@ -19,6 +53,7 @@ exports[`ImageModalIcon > props > :icon[function] 1`] = `
         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033Z"
         fill="transparent"
         id="fill1"
+        mask="url(#t-icon-zoom-in-instance-v0-overlap-fill1)"
       />
       <path
         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
@@ -52,6 +87,40 @@ exports[`ImageModalIcon > props > :label[string] 1`] = `
     viewBox="0 0 24 24"
     width="1em"
   >
+    <defs>
+      <mask
+        height="24"
+        id="t-icon-zoom-in-instance-v0-overlap-fill1"
+        mask-type="luminance"
+        maskContentUnits="userSpaceOnUse"
+        maskUnits="userSpaceOnUse"
+        width="24"
+        x="0"
+        y="0"
+      >
+        <rect
+          fill="#fff"
+          height="24"
+          width="24"
+          x="0"
+          y="0"
+        />
+        <path
+          d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
+          fill="none"
+          stroke="#000"
+          stroke-linecap="square"
+          stroke-width="2"
+        />
+        <path
+          d="M10.5 13.5V10.5M10.5 10.5L10.5 7.5M10.5 10.5H7.5M10.5 10.5H13.5"
+          fill="none"
+          stroke="#000"
+          stroke-linecap="square"
+          stroke-width="2"
+        />
+      </mask>
+    </defs>
     <g
       id="zoom-in"
     >
@@ -59,6 +128,7 @@ exports[`ImageModalIcon > props > :label[string] 1`] = `
         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033Z"
         fill="transparent"
         id="fill1"
+        mask="url(#t-icon-zoom-in-instance-v0-overlap-fill1)"
       />
       <path
         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"

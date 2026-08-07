@@ -58,6 +58,14 @@ import { template } from '@tdesign/common-js/utils/stringTemplate';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
+/**
+ * 判断规则是否匹配当前校验触发方式，任一侧为 `all` 时均匹配。
+ * @param ruleTrigger 规则配置的触发方式，默认为 `change`
+ * @param validateTrigger 当前实际执行校验的触发方式
+ */
+const isTriggerMatched = (ruleTrigger: ValidateTriggerType = 'change', validateTrigger: ValidateTriggerType) =>
+  ruleTrigger === 'all' || validateTrigger === 'all' || ruleTrigger === validateTrigger;
+
 export default defineComponent({
   name: 'TFormItem',
   props,
@@ -244,10 +252,7 @@ export default defineComponent({
         resultList: [],
         allowSetValue: false,
       };
-      result.rules =
-        trigger === 'all'
-          ? innerRules.value
-          : innerRules.value.filter((item) => (item.trigger || 'change') === trigger);
+      result.rules = innerRules.value.filter((item) => isTriggerMatched(item.trigger, trigger));
       if (innerRules.value.length && !result.rules?.length) {
         return result;
       }
