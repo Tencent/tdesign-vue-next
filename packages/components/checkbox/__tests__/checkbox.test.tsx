@@ -1,207 +1,286 @@
 import { mount } from '@vue/test-utils';
-import { describe, expect, it, vi } from 'vitest';
 import { ref } from 'vue';
-import Checkbox, { CheckboxGroup } from '@tdesign/components/checkbox';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
-describe('Checkbox', () => {
-  describe(':props', () => {
-    it(':checked', () => {
-      const checked = ref(true);
-      const wrapper = mount(() => <Checkbox v-model={checked.value} />);
-      const checkbox = wrapper.find('.t-checkbox');
-      expect(checkbox.classes()).toContain('t-is-checked');
-    });
+import Checkbox from '..';
 
-    it(':defaultChecked', () => {
-      const checked = ref(true);
-      const wrapper = mount(() => <Checkbox defaultChecked={checked.value} />);
-      const checkbox = wrapper.find('.t-checkbox');
-      expect(checkbox.classes()).toContain('t-is-checked');
-    });
-
-    it(':default', () => {
-      const checked = ref(true);
-      const wrapper = mount(() => <Checkbox defaultChecked={checked.value} default="checkbox" />);
-      const label = wrapper.find('.t-checkbox__label');
-      expect(label.exists()).toBeTruthy();
-      expect(label.text()).toBe('checkbox');
-    });
-
-    it(':disabled', () => {
-      const wrapper = mount(() => <Checkbox disabled default="checkbox" />);
-      const checkbox = wrapper.find('.t-checkbox');
-      expect(checkbox.classes()).toContain('t-is-disabled');
-    });
-
-    it(':indeterminate', () => {
-      const wrapper = mount(() => <Checkbox indeterminate default="checkbox" />);
-      const checkbox = wrapper.find('.t-checkbox');
-      expect(checkbox.classes()).toContain('t-is-indeterminate');
-    });
-
-    it(':label', () => {
-      const wrapper = mount(() => <Checkbox label="label" />);
-      const label = wrapper.find('.t-checkbox__label');
-      expect(label.exists()).toBeTruthy();
-      expect(label.text()).toBe('label');
-    });
-
-    it(':name', () => {
-      const wrapper = mount(() => <Checkbox name="name" />);
-      const input = wrapper.find('.t-checkbox input');
-      expect(input.element.getAttribute('name')).toBe('name');
-    });
-  });
-  describe(': events', () => {
-    it(':onChange', async () => {
-      const checked = ref(true);
-      const fn = vi.fn();
-      const wrapper = mount(() => <Checkbox v-model={checked.value} label="label" onChange={fn} />);
-      const input = wrapper.find('input');
-      await input.trigger('change');
-      expect(fn).toBeCalled();
-      expect(checked.value).toBeFalsy();
-    });
-  });
+afterEach(() => {
+  vi.useRealTimers();
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
 });
 
-describe('CheckboxGroup', () => {
-  describe(':props', () => {
-    it('', () => {
-      const wrapper = mount(() => (
-        <CheckboxGroup>
-          <Checkbox value="1">选项一</Checkbox>
-          <Checkbox value="2">选项二</Checkbox>
-        </CheckboxGroup>
-      ));
-      const checkboxs = wrapper.findAll('.t-checkbox');
-      expect(checkboxs.length).toBe(2);
+describe('Checkbox', () => {
+  describe('props', () => {
+    it(':checkAll[boolean]', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Checkbox, { props: { checkAll: true, onChange } });
+
+      expect(wrapper.get('label').classes()).not.toContain('t-is-checked');
+
+      await wrapper.get('input').trigger('change');
+
+      expect(wrapper.get('label').classes()).not.toContain('t-is-checked');
+      expect(onChange).toHaveBeenCalledWith(true, { e: expect.any(Event) });
     });
 
-    it(':disabled', () => {
-      const wrapper = mount(() => (
-        <CheckboxGroup disabled>
-          <Checkbox value="1">选项一</Checkbox>
-          <Checkbox value="2">选项二</Checkbox>
-        </CheckboxGroup>
-      ));
-      const checkboxs = wrapper.findAll('.t-checkbox');
-      expect(checkboxs[0].classes()).toContain('t-is-disabled');
-      expect(checkboxs[1].classes()).toContain('t-is-disabled');
+    it(':checked[boolean]', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Checkbox, { props: { checked: false, onChange } });
+      const root = wrapper.get('label.t-checkbox');
+      const input = root.get('input.t-checkbox__former');
+
+      expect(root.attributes('tabindex')).toBe('0');
+      expect(root.classes()).not.toEqual(
+        expect.arrayContaining(['t-is-checked', 't-is-disabled', 't-is-indeterminate']),
+      );
+      expect(input.attributes('type')).toBe('checkbox');
+      expect(input.attributes('tabindex')).toBe('-1');
+      expect((input.element as HTMLInputElement).checked).toBe(false);
+      expect(root.get('.t-checkbox__input').element.tagName).toBe('SPAN');
+      expect(root.get('.t-checkbox__label').text()).toBe('');
+
+      await input.trigger('change');
+
+      expect(wrapper.emitted('update:checked')).toEqual([[true]]);
+      expect(wrapper.emitted('update:modelValue')).toBeUndefined();
+      expect(onChange).toHaveBeenCalledWith(true, { e: expect.any(Event) });
+      expect(root.classes()).not.toContain('t-is-checked');
+
+      await wrapper.setProps({ checked: true });
+
+      expect(root.classes()).toContain('t-is-checked');
+      expect((input.element as HTMLInputElement).checked).toBe(true);
     });
 
-    it(':name', () => {
-      const wrapper = mount(() => (
-        <CheckboxGroup name="name">
-          <Checkbox value="1">选项一</Checkbox>
-          <Checkbox value="2">选项二</Checkbox>
-        </CheckboxGroup>
-      ));
-      const checkboxs = wrapper.findAll('.t-checkbox input');
-      expect(checkboxs[0].element.getAttribute('name')).toBe('name');
-      expect(checkboxs[1].element.getAttribute('name')).toBe('name');
+    it(':modelValue[boolean]', async () => {
+      const wrapper = mount(Checkbox, { props: { modelValue: true } });
+
+      await wrapper.get('input').trigger('change');
+
+      expect(wrapper.emitted('update:modelValue')).toEqual([[false]]);
+      expect(wrapper.emitted('update:checked')).toBeUndefined();
+      expect(wrapper.get('label').classes()).toContain('t-is-checked');
+
+      await wrapper.setProps({ modelValue: false, checked: true });
+
+      expect(wrapper.get('label').classes()).not.toContain('t-is-checked');
+
+      await wrapper.get('input').trigger('change');
+
+      expect(wrapper.emitted('update:modelValue')).toEqual([[false], [true]]);
+      expect(wrapper.emitted('update:checked')).toBeUndefined();
     });
 
-    it(':value', () => {
-      const checked = ref(['1']);
-      const wrapper = mount(() => (
-        <CheckboxGroup v-model={checked.value}>
-          <Checkbox value="1">选项一</Checkbox>
-          <Checkbox value="2">选项二</Checkbox>
-        </CheckboxGroup>
-      ));
-      const checkboxs = wrapper.findAll('.t-checkbox');
-      expect(checkboxs[0].classes()).toContain('t-is-checked');
-      expect(checkboxs[1].classes()).not.toContain('t-is-checked');
+    it(':defaultChecked[boolean]', async () => {
+      const wrapper = mount(Checkbox, { props: { defaultChecked: true } });
+
+      expect(wrapper.get('label').classes()).toContain('t-is-checked');
+
+      await wrapper.get('input').trigger('change');
+
+      expect(wrapper.get('label').classes()).not.toContain('t-is-checked');
     });
 
-    it(':value', () => {
-      const defaultValue = ref(['1']);
-      const wrapper = mount(() => (
-        <CheckboxGroup defaultValue={defaultValue.value}>
-          <Checkbox value="1">选项一</Checkbox>
-          <Checkbox value="2">选项二</Checkbox>
-        </CheckboxGroup>
-      ));
-      const checkboxs = wrapper.findAll('.t-checkbox');
-      expect(checkboxs[0].classes()).toContain('t-is-checked');
-      expect(checkboxs[1].classes()).not.toContain('t-is-checked');
+    it(':default[string/slot/function]', () => {
+      const byString = mount(Checkbox, { props: { default: 'Default content' } });
+      const byFunction = mount(Checkbox, {
+        props: { default: () => <strong data-testid="default-node">Function content</strong> },
+      });
+      const bySlot = mount(Checkbox, {
+        props: { label: 'Label fallback' },
+        slots: { default: () => <span data-testid="default-slot">Slot content</span> },
+      });
+      const propBeforeSlot = mount(Checkbox, {
+        props: { default: 'Default prop', label: 'Label prop' },
+        slots: { default: () => <span data-testid="ignored-slot">Slot content</span> },
+      });
+
+      expect(byString.get('.t-checkbox__label').text()).toBe('Default content');
+      expect(byFunction.get('[data-testid="default-node"]').text()).toBe('Function content');
+      expect(bySlot.get('[data-testid="default-slot"]').text()).toBe('Slot content');
+      expect(propBeforeSlot.get('.t-checkbox__label').text()).toBe('Default prop');
+      expect(propBeforeSlot.find('[data-testid="ignored-slot"]').exists()).toBe(false);
     });
 
-    it(':options', () => {
-      const defaultValue = ref(['1']);
-      const options = [
-        {
-          label: '选项一',
-          value: '1',
-        },
-        {
-          label: '选项二',
-          value: '2',
-        },
-      ];
-      const wrapper = mount(() => <CheckboxGroup defaultValue={defaultValue.value} options={options}></CheckboxGroup>);
-      const checkboxs = wrapper.findAll('.t-checkbox');
-      expect(checkboxs.length).toBe(2);
-      expect(checkboxs[0].classes()).toContain('t-is-checked');
-      expect(checkboxs[1].classes()).not.toContain('t-is-checked');
+    it(':disabled[boolean]', async () => {
+      const onChange = vi.fn();
+      const disabled = mount(Checkbox, { props: { disabled: true, onChange } });
+      const inherited = mount(Checkbox, {
+        global: { provide: { formDisabled: { disabled: ref(true) } } },
+      });
+      const overridden = mount(Checkbox, {
+        props: { disabled: false },
+        global: { provide: { formDisabled: { disabled: ref(true) } } },
+      });
+
+      expect(disabled.get('label').classes()).toContain('t-is-disabled');
+      expect(disabled.get('label').attributes('tabindex')).toBeUndefined();
+      expect(disabled.get('input').attributes('disabled')).toBeDefined();
+      expect(inherited.get('label').classes()).toContain('t-is-disabled');
+      expect(overridden.get('label').classes()).not.toContain('t-is-disabled');
+
+      await disabled.get('input').trigger('change');
+
+      expect(onChange).not.toHaveBeenCalled();
+      expect(disabled.get('label').classes()).not.toContain('t-is-checked');
+    });
+
+    it(':indeterminate[boolean]', async () => {
+      const wrapper = mount(Checkbox, { props: { indeterminate: true } });
+      const input = wrapper.get('input');
+
+      expect(wrapper.get('label').classes()).toContain('t-is-indeterminate');
+      expect((input.element as HTMLInputElement).indeterminate).toBe(true);
+
+      await wrapper.setProps({ indeterminate: false });
+
+      expect(wrapper.get('label').classes()).not.toContain('t-is-indeterminate');
+      expect((input.element as HTMLInputElement).indeterminate).toBe(false);
+    });
+
+    it(':label[string/function]', () => {
+      const byString = mount(Checkbox, { props: { label: 'Label content' } });
+      const byFunction = mount(Checkbox, {
+        props: { label: () => <strong data-testid="label-node">Node content</strong> },
+      });
+
+      expect(byString.get('.t-checkbox__label').text()).toBe('Label content');
+      expect(byFunction.get('[data-testid="label-node"]').text()).toBe('Node content');
+    });
+
+    it(':lazyLoad[boolean]', () => {
+      vi.stubGlobal('IntersectionObserver', undefined);
+      const immediate = mount(Checkbox, { props: { lazyLoad: false } });
+      const lazy = mount(Checkbox, { props: { lazyLoad: true } });
+
+      expect(immediate.find('input').exists()).toBe(true);
+      expect(lazy.find('input').exists()).toBe(true);
+    });
+
+    it(':name[string]', async () => {
+      const wrapper = mount(Checkbox, { props: { name: 'first-name' } });
+
+      expect(wrapper.get('input').attributes('name')).toBe('first-name');
+
+      await wrapper.setProps({ name: 'second-name' });
+
+      expect(wrapper.get('input').attributes('name')).toBe('second-name');
+    });
+
+    it(':readonly[boolean]', async () => {
+      const onChange = vi.fn();
+      const readonly = mount(Checkbox, { props: { readonly: true, onChange } });
+      const formReadonly = ref(true);
+      const inherited = mount(Checkbox, {
+        global: { provide: { formReadonly: { readonly: formReadonly } } },
+      });
+      const overridden = mount(Checkbox, {
+        props: { readonly: false },
+        global: { provide: { formReadonly: { readonly: formReadonly } } },
+      });
+
+      expect(readonly.get('input').attributes('readonly')).toBeDefined();
+      expect(inherited.get('input').attributes('readonly')).toBeDefined();
+      expect(overridden.get('input').attributes('readonly')).toBeUndefined();
+
+      await readonly.get('input').trigger('change');
+
+      expect(onChange).not.toHaveBeenCalled();
+
+      formReadonly.value = false;
+      await inherited.vm.$nextTick();
+
+      expect(inherited.get('input').attributes('readonly')).toBeUndefined();
+    });
+
+    it(':title[string]', async () => {
+      const wrapper = mount(Checkbox, { props: { title: 'Checkbox title' } });
+
+      expect(wrapper.get('label').attributes('title')).toBe('Checkbox title');
+
+      await wrapper.setProps({ title: '' });
+
+      expect(wrapper.get('label').attributes('title')).toBeUndefined();
+    });
+
+    it(':value[string/number/boolean]', () => {
+      const stringValue = mount(Checkbox, { props: { value: 'alpha' } });
+      const numberValue = mount(Checkbox, { props: { value: 7 } });
+      const booleanValue = mount(Checkbox, { props: { value: true } });
+
+      expect(stringValue.get('input').attributes('value')).toBe('alpha');
+      expect(numberValue.get('input').attributes('value')).toBe('7');
+      expect(booleanValue.get('input').attributes('value')).toBe('true');
+
+      // Current behavior tracked by #6851: documented falsy values are omitted from the native input.
+      for (const value of [0, false, ''] as const) {
+        const wrapper = mount(Checkbox, { props: { value } });
+        expect(wrapper.get('input').attributes('value')).toBeUndefined();
+      }
+    });
+
+    it(':needRipple[boolean]', () => {
+      vi.useFakeTimers();
+      const wrapper = mount(Checkbox, { props: { needRipple: true } });
+      const root = wrapper.get('label');
+
+      root.element.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true, button: 0 }));
+      expect(root.element.children).toHaveLength(4);
+
+      root.element.dispatchEvent(new MouseEvent('pointerup', { bubbles: true }));
+      vi.runAllTimers();
+
+      expect(root.element.children).toHaveLength(3);
+    });
+
+    it(':stopLabelTrigger[boolean]', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Checkbox, { props: { stopLabelTrigger: true, onChange } });
+      const stoppedEvent = new MouseEvent('click', { bubbles: true, cancelable: true });
+
+      wrapper.get('label').element.dispatchEvent(stoppedEvent);
+      expect(stoppedEvent.defaultPrevented).toBe(true);
+
+      await wrapper.get('.t-checkbox__input').trigger('click');
+      expect(wrapper.get('label').classes()).toContain('t-is-checked');
+      expect(onChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
+
+      await wrapper.setProps({ stopLabelTrigger: false });
+      const nativeEvent = new MouseEvent('click', { bubbles: true, cancelable: true });
+      wrapper.get('label').element.dispatchEvent(nativeEvent);
+
+      expect(nativeEvent.defaultPrevented).toBe(false);
     });
   });
 
-  describe(':events', () => {
-    it(':checkAll', async () => {
-      const checked = ref([]);
-      const wrapper = mount(() => (
-        <CheckboxGroup v-model={checked.value}>
-          <Checkbox checkAll>全选</Checkbox>
-          <Checkbox value="1">选项一</Checkbox>
-          <Checkbox value="2">选项二</Checkbox>
-        </CheckboxGroup>
-      ));
-      const checkboxs = wrapper.findAll('.t-checkbox input');
-      await checkboxs[0].trigger('change');
-      expect(checked.value).toEqual(['1', '2']);
+  describe('events', () => {
+    it('change', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Checkbox, { props: { onChange } });
+
+      await wrapper.get('input').trigger('change');
+
+      expect(wrapper.get('label').classes()).toContain('t-is-checked');
+      expect(onChange).toHaveBeenCalledWith(true, { e: expect.any(Event) });
+
+      await wrapper.get('input').trigger('change');
+
+      expect(wrapper.get('label').classes()).not.toContain('t-is-checked');
+      expect(onChange).toHaveBeenLastCalledWith(false, { e: expect.any(Event) });
     });
 
-    it(':onChange', async () => {
-      const checked = ref(['1']);
-      const fn = vi.fn();
+    it('click', async () => {
+      const onParentClick = vi.fn();
       const wrapper = mount(() => (
-        <CheckboxGroup v-model={checked.value} onChange={fn}>
-          <Checkbox value="1">选项一</Checkbox>
-          <Checkbox value="2">选项二</Checkbox>
-        </CheckboxGroup>
+        <div onClick={onParentClick}>
+          <Checkbox />
+        </div>
       ));
-      const checkboxs = wrapper.findAll('.t-checkbox input');
-      await checkboxs[1].trigger('change');
-      expect(fn).toBeCalled();
-      expect(checked.value).toEqual(['1', '2']);
-    });
 
-    it(':value=null allows checking checkboxes', async () => {
-      const checked = ref(null);
-      const wrapper = mount(() => (
-        <CheckboxGroup v-model={checked.value}>
-          <Checkbox value="1">选项一</Checkbox>
-          <Checkbox value="2">选项二</Checkbox>
-        </CheckboxGroup>
-      ));
-      const checkboxs = wrapper.findAll('.t-checkbox input');
-      await checkboxs[0].trigger('change');
-      expect(checked.value).toEqual(['1']);
-    });
+      await wrapper.get('input').trigger('click');
 
-    it(':value=undefined allows checking checkboxes', async () => {
-      const checked = ref(undefined);
-      const wrapper = mount(() => (
-        <CheckboxGroup v-model={checked.value}>
-          <Checkbox value="1">选项一</Checkbox>
-          <Checkbox value="2">选项二</Checkbox>
-        </CheckboxGroup>
-      ));
-      const checkboxs = wrapper.findAll('.t-checkbox input');
-      await checkboxs[0].trigger('change');
-      expect(checked.value).toEqual(['1']);
+      expect(onParentClick).not.toHaveBeenCalled();
     });
   });
 });
