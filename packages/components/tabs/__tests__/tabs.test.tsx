@@ -85,30 +85,32 @@ describe('Tabs', () => {
       expect(wrapper.find('.t-tabs__nav-item.t-is-active').text()).toBe('First');
     });
 
-    it(':action[string/function]', () => {
+    it(':action[string/TNode/boolean/slot]', () => {
       const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
       const stringWrapper = mount(Tabs, { props: { action: 'More actions' } });
       const functionWrapper = mount(Tabs, {
         props: { action: () => h('button', { class: 'custom-action' }, 'Create') },
       });
+      const booleanWrapper = mount(Tabs, { props: { action: () => false } });
+      const slotWrapper = mount(Tabs, {
+        slots: { action: () => h('button', { class: 'action-slot' }, 'Slot action') },
+      });
 
       expect(stringWrapper.find('.t-tabs__operations--right').text()).toContain('More actions');
       expect(functionWrapper.find('.custom-action').text()).toBe('Create');
-      // TTabNav currently declares action as Array, while the public prop also accepts string and TNode.
-      expect(warn.mock.calls.flat().join(' ')).toContain('Invalid prop: type check failed for prop "action"');
-    });
+      expect(booleanWrapper.find('.t-tabs__operations--right').text()).toBe('');
+      expect(slotWrapper.find('.action-slot').text()).toBe('Slot action');
 
-    it(':action[slot]', () => {
-      vi.spyOn(console, 'warn').mockImplementation(() => undefined);
-      const wrapper = mount(Tabs, {
-        slots: { action: () => h('button', { class: 'action-slot' }, 'Create') },
-      });
-
-      expect(wrapper.find('.action-slot').text()).toBe('Create');
+      const hasActionPropWarning = warn.mock.calls
+        .flat()
+        .some(
+          (message) =>
+            typeof message === 'string' && message.includes('Invalid prop: type check failed for prop "action"'),
+        );
+      expect(hasActionPropWarning).toBe(false);
     });
 
     it(':action[string] + :placement[vertical]', () => {
-      vi.spyOn(console, 'warn').mockImplementation(() => undefined);
       const wrapper = mount(Tabs, {
         props: { action: 'Hidden action', placement: 'left' },
       });
