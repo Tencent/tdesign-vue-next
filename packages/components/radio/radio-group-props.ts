@@ -68,6 +68,7 @@ export default {
   /** 选中的值，非受控属性 */
   defaultValue: {
     type: [String, Number, Boolean] as PropType<TdRadioGroupProps['defaultValue']>,
+    default: undefined as TdRadioGroupProps['defaultValue'],
   },
   /** 单选组件按钮形式 */
   variant: {

@@ -23,7 +23,8 @@ export function useKeyboard(
         // Number
         let value: number | string | boolean = !isNaN(Number(data.value)) ? Number(data.value) : data.value;
         // Boolean
-        value = (isString(value) && { true: true, false: false }[value]) || value;
+        if (value === 'true') value = true;
+        if (value === 'false') value = false;
         // String
         value = isString(value) && value[0] === "'" ? value.replace(/'/g, '') : value;
         setInnerValue(value, { e });

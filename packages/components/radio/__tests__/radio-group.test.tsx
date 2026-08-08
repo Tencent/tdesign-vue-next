@@ -274,8 +274,7 @@ describe('RadioGroup', () => {
       const implicitBooleanWrapper = mount(RadioGroup, {
         props: { options: [{ label: 'False', value: false }] },
       });
-      // Current behavior is tracked by #6882. An absent defaultValue is normalized to false.
-      expect(implicitBooleanWrapper.get(RADIO).classes()).toContain('t-is-checked');
+      expect(implicitBooleanWrapper.get(RADIO).classes()).not.toContain('t-is-checked');
     });
 
     it(':modelValue[string/number/boolean]', async () => {
@@ -301,7 +300,7 @@ describe('RadioGroup', () => {
       expect(numberWrapper.get(RADIO).classes()).toContain('t-is-checked');
 
       const booleanWrapper = mount(RadioGroup, {
-        props: { modelValue: true, options: [{ label: 'True', value: true }] },
+        props: { modelValue: false, options: [{ label: 'False', value: false }] },
       });
       expect(booleanWrapper.get(RADIO).classes()).toContain('t-is-checked');
     });
@@ -315,11 +314,11 @@ describe('RadioGroup', () => {
       expect(validateVariant('default-filled')).toBe(true);
       expect(validateVariant('filled')).toBe(false);
 
-      const wrapper = mountGroupWithOptions();
+      const wrapper = mountGroupWithOptions({ value: 1 });
       expect(wrapper.get(RADIO_GROUP).classes()).toContain('t-radio-group__outline');
       expect(wrapper.find(BG_BLOCK).exists()).toBe(false);
 
-      await wrapper.setProps({ value: 1, variant: 'primary-filled' });
+      await wrapper.setProps({ variant: 'primary-filled' });
       expect(wrapper.get(RADIO_GROUP).classes()).toContain('t-radio-group--filled');
       expect(wrapper.get(RADIO_GROUP).classes()).toContain('t-radio-group--primary-filled');
       expect(wrapper.find(BG_BLOCK).exists()).toBe(true);
@@ -377,8 +376,19 @@ describe('RadioGroup', () => {
         props: { options: ['first'], variant: 'primary-filled' },
       });
       await nextTick();
-      // Current behavior is tracked by #6882. An absent defaultValue currently normalizes to false.
-      expect(emptyWrapper.get(BG_BLOCK).attributes('style')).toContain('height: 9px');
+      expect(emptyWrapper.find(BG_BLOCK).exists()).toBe(false);
+
+      const explicitFalseWrapper = mount(RadioGroup, {
+        props: {
+          defaultValue: false,
+          options: [{ label: 'False', value: false }],
+          theme: 'button',
+          variant: 'primary-filled',
+        },
+      });
+      await nextTick();
+      expect(explicitFalseWrapper.get(RADIO_BUTTON).classes()).toContain('t-is-checked');
+      expect(explicitFalseWrapper.find(BG_BLOCK).exists()).toBe(true);
 
       const outlineWrapper = mount(
         <RadioGroup variant="outline" value="first">
@@ -461,6 +471,60 @@ describe('RadioGroup', () => {
   });
 
   describe('events', () => {
+    it('mouse change preserves boolean false', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(
+        <RadioGroup onChange={onChange}>
+          <Radio value={false}>False</Radio>
+        </RadioGroup>,
+      );
+
+      expect(wrapper.get(RADIO).classes()).not.toContain('t-is-checked');
+      await wrapper.get(RADIO).trigger('click');
+      expect(onChange).toHaveBeenCalledWith(false, {
+        e: expect.any(MouseEvent),
+        name: '',
+      });
+      expect(wrapper.get(RADIO).classes()).toContain('t-is-checked');
+    });
+
+    it('keyboard change preserves boolean, string, and number values', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(
+        <RadioGroup onChange={onChange}>
+          <Radio value={true}>True</Radio>
+          <Radio value={false}>False</Radio>
+          <Radio value="false">String false</Radio>
+          <Radio value={0}>Zero</Radio>
+        </RadioGroup>,
+      );
+      const radios = wrapper.findAll(RADIO);
+
+      radios.forEach((radio) => {
+        expect(radio.classes()).not.toContain('t-is-checked');
+      });
+
+      await radios[1].trigger('keydown', { code: 'Space' });
+      expect(onChange).toHaveBeenLastCalledWith(false, {
+        e: expect.any(KeyboardEvent),
+      });
+      expect(radios[1].classes()).toContain('t-is-checked');
+
+      await radios[2].trigger('keydown', { code: 'Space' });
+      expect(onChange).toHaveBeenLastCalledWith('false', {
+        e: expect.any(KeyboardEvent),
+      });
+      expect(radios[1].classes()).not.toContain('t-is-checked');
+      expect(radios[2].classes()).toContain('t-is-checked');
+
+      await radios[3].trigger('keydown', { code: 'Space' });
+      expect(onChange).toHaveBeenLastCalledWith(0, {
+        e: expect.any(KeyboardEvent),
+      });
+      expect(radios[2].classes()).not.toContain('t-is-checked');
+      expect(radios[3].classes()).toContain('t-is-checked');
+    });
+
     it('change', async () => {
       const onChange = vi.fn();
       const wrapper = mountGroupWithOptions({
