@@ -84,14 +84,14 @@ describe('Radio hooks', () => {
       expect(setValue).not.toHaveBeenCalled();
     });
 
-    // Current behavior is tracked by #6844. The listener remains active after the component is unmounted.
     it('lifecycle', () => {
       const { setValue, wrapper } = mountKeyboard();
       const root = wrapper.element;
 
       wrapper.unmount();
       const event = dispatchKeyboard(root, { code: 'Space' });
-      expect(setValue).toHaveBeenCalledWith(1, { e: event });
+      expect(event.defaultPrevented).toBe(false);
+      expect(setValue).not.toHaveBeenCalled();
     });
   });
 });

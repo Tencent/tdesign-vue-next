@@ -229,29 +229,31 @@ describe('Radio', () => {
       expect(onChange).not.toHaveBeenCalled();
     });
 
-    // Current behavior is tracked by #6844. These listeners should be bound to the input after the source is fixed.
-    it('focus/blur/keydown/keyup', async () => {
+    it('focus/blur/keydown/keyup/keypress', async () => {
       const onFocus = vi.fn();
       const onBlur = vi.fn();
       const onKeydown = vi.fn();
       const onKeyup = vi.fn();
+      const onKeypress = vi.fn();
       const wrapper = mount(Radio, {
-        attrs: { onBlur, onFocus, onKeydown, onKeyup },
+        attrs: { onBlur, onFocus, onKeydown, onKeyup, onKeypress },
       });
       const input = wrapper.get(INPUT);
 
-      expect(input.attributes('keydown')).toBeDefined();
+      expect(input.attributes('keydown')).toBeUndefined();
       expect(wrapper.attributes('onfocus')).toBeUndefined();
 
       await input.trigger('focus');
       await input.trigger('blur');
       await input.trigger('keydown', { key: 'Enter' });
       await input.trigger('keyup', { key: 'Enter' });
+      await input.trigger('keypress', { key: 'Enter' });
 
-      expect(onFocus).not.toHaveBeenCalled();
-      expect(onBlur).not.toHaveBeenCalled();
-      expect(onKeydown).not.toHaveBeenCalled();
-      expect(onKeyup).not.toHaveBeenCalled();
+      expect(onFocus).toHaveBeenCalledTimes(1);
+      expect(onBlur).toHaveBeenCalledTimes(1);
+      expect(onKeydown).toHaveBeenCalledTimes(1);
+      expect(onKeyup).toHaveBeenCalledTimes(1);
+      expect(onKeypress).toHaveBeenCalledTimes(1);
     });
   });
 });
