@@ -76,24 +76,50 @@ describe('Switch', () => {
       await flushPromises();
       expect(falseWrapper.get('.t-switch').classes()).toContain('t-is-checked');
       expect(onChange).not.toHaveBeenCalled();
+    });
 
-      // Current behavior is tracked by #6848. Promise rejection should be swallowed after the source is fixed.
+    it(':beforeChange[Promise rejection]', async () => {
+      const rejection = new Error('denied');
       const errorHandler = vi.fn();
+      const onChange = vi.fn();
       const rejectedWrapper = mount(Switch, {
-        props: { beforeChange: () => false, defaultValue: false },
+        props: {
+          beforeChange: () => Promise.reject(rejection),
+          defaultValue: false,
+          onChange,
+        },
         global: { config: { errorHandler } },
       });
-      const rejectedChain = {
-        then: () => ({
-          catch: (onRejected: (reason: unknown) => unknown) => onRejected('denied'),
-        }),
-      } as unknown as Promise<boolean>;
-      vi.spyOn(Promise, 'resolve').mockReturnValue(rejectedChain as never);
 
-      rejectedWrapper.element.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await rejectedWrapper.get('.t-switch').trigger('click');
+      await flushPromises();
 
-      expect(errorHandler.mock.calls[0][0]).toEqual(new Error('Switch: some error occurred: denied'));
       expect(rejectedWrapper.get('.t-switch').classes()).not.toContain('t-is-checked');
+      expect(onChange).not.toHaveBeenCalled();
+      expect(errorHandler).not.toHaveBeenCalled();
+    });
+
+    it(':beforeChange[Promise continuation error]', async () => {
+      const error = new Error('onChange failed');
+      const errorHandler = vi.fn();
+      const onChange = vi.fn(() => {
+        throw error;
+      });
+      const wrapper = mount(Switch, {
+        props: {
+          beforeChange: () => Promise.resolve(true),
+          defaultValue: false,
+          onChange,
+        },
+        global: { config: { errorHandler } },
+      });
+
+      wrapper.element.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await flushPromises();
+
+      expect(wrapper.get('.t-switch').classes()).toContain('t-is-checked');
+      expect(onChange).toHaveBeenCalledOnce();
+      expect(errorHandler.mock.calls[0][0]).toBe(error);
     });
 
     it(':customValue[array]', async () => {
