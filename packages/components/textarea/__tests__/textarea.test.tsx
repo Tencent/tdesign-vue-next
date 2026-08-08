@@ -5,6 +5,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import Textarea, { type TextareaProps, type TextareaValue } from '@tdesign/components/textarea';
 import textareaProps from '@tdesign/components/textarea/props';
 import { FormItemInjectionKey } from '@tdesign/components/form/constants';
+import { sleep } from '@tdesign/internal-utils';
 
 const INFO = '.t-textarea__info_wrapper';
 const LIMIT = '.t-textarea__limit';
@@ -36,11 +37,6 @@ const mockTextareaHeight = () => {
   ) {
     return this.value ? 48 : 20;
   });
-};
-
-const flushAutosize = async () => {
-  await nextTick();
-  await nextTick();
 };
 
 afterEach(() => {
@@ -94,7 +90,7 @@ describe('Textarea', () => {
       const wrapper = mount(Textarea, {
         props: { autosize: true, defaultValue: 'content' },
       });
-      await flushAutosize();
+      await sleep(0);
 
       const textarea = getTextarea(wrapper);
       expect(textarea.classes()).toContain('t-hide-scrollbar');
@@ -103,7 +99,7 @@ describe('Textarea', () => {
       expect(textarea.element.style.minHeight).toBe('22px');
 
       await wrapper.setProps({ autosize: false });
-      await flushAutosize();
+      await sleep(0);
 
       expect(textarea.classes()).not.toContain('t-hide-scrollbar');
       // Current behavior is tracked by #6846. Autosize dimensions should be cleared after the source is fixed.
@@ -111,7 +107,7 @@ describe('Textarea', () => {
       expect(textarea.element.style.minHeight).toBe('22px');
 
       const defaultWrapper = mount(Textarea);
-      await flushAutosize();
+      await sleep(0);
       const defaultTextarea = getTextarea(defaultWrapper);
       expect(defaultTextarea.element.style.height).toBe('');
       expect(defaultTextarea.element.style.minHeight).toBe('');
@@ -123,7 +119,7 @@ describe('Textarea', () => {
       const wrapper = mount(Textarea, {
         props: { autosize: { minRows: 2, maxRows: 6 }, defaultValue: 'content' },
       });
-      await flushAutosize();
+      await sleep(0);
 
       const textarea = getTextarea(wrapper);
       expect(textarea.classes()).toContain('t-resize-none');
@@ -132,7 +128,7 @@ describe('Textarea', () => {
       expect(textarea.element.style.minHeight).toBe('38px');
 
       await wrapper.setProps({ autosize: { minRows: 3, maxRows: 8 } });
-      await flushAutosize();
+      await sleep(0);
       expect(textarea.element.style.height).toBe('54px');
       expect(textarea.element.style.minHeight).toBe('54px');
     });
@@ -404,7 +400,7 @@ describe('Textarea', () => {
     // Current behavior is tracked by #6846. rows should be forwarded to the native textarea after the source is fixed.
     it(':rows[number] attr', async () => {
       const wrapper = mount(Textarea, { attrs: { rows: 4 } });
-      await flushAutosize();
+      await sleep(0);
 
       const textarea = getTextarea(wrapper);
       expect(textarea.element.style.height).toBe('auto');
@@ -417,7 +413,7 @@ describe('Textarea', () => {
       const objectWrapper = mount(Textarea, {
         attrs: { style: { color: 'red', height: '80px' } },
       });
-      await flushAutosize();
+      await sleep(0);
 
       const objectTextarea = getTextarea(objectWrapper);
       expect(objectTextarea.element.style.color).toBe('red');
@@ -427,7 +423,7 @@ describe('Textarea', () => {
       const stringWrapper = mount(Textarea, {
         attrs: { style: 'height: 80px; color: red;' },
       });
-      await flushAutosize();
+      await sleep(0);
       // Current behavior is tracked by #6846. String styles should be forwarded after the source is fixed.
       expect(stringWrapper.attributes('style')).toBeUndefined();
       expect(getTextarea(stringWrapper).attributes('style')).toBeUndefined();
