@@ -10,11 +10,10 @@ import {
   StyleValue,
   CSSProperties,
 } from 'vue';
-import { isObject, merge, omit } from 'lodash-es';
+import { omit } from 'lodash-es';
 
 import { FormItemInjectionKey } from '../form/constants';
-import setStyle from '@tdesign/common-js/utils/setStyle';
-import { getCharacterLength, getValidAttrs } from '@tdesign/common-js/utils/helper';
+import { getCharacterLength, getUnicodeLength, getValidAttrs } from '@tdesign/common-js/utils/helper';
 
 // hooks
 import {
@@ -83,7 +82,6 @@ export default defineComponent({
 
       if (textareaElem.value !== sV) {
         textareaElem.value = sV;
-        innerValue.value = sV;
       }
     };
     const inputValueChangeHandle = (e: InputEvent) => {
@@ -197,15 +195,6 @@ export default defineComponent({
       }
     });
 
-    watch(textareaStyle, (val) => {
-      const { style } = attrs as { style: StyleValue };
-      if (isObject(style)) {
-        setStyle(refTextareaElem.value, merge(style, val) as Record<string, any>);
-      } else {
-        setStyle(refTextareaElem.value, val);
-      }
-    });
-
     watch(() => props.autosize, adjustTextareaHeight, { deep: true });
 
     expose({
@@ -249,7 +238,7 @@ export default defineComponent({
           <span class={TEXTAREA_LIMIT.value}>{`${characterNumber.value}/${props.maxcharacter}`}</span>
         )) ||
         (!props.maxcharacter && props.maxlength && (
-          <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
+          <span class={TEXTAREA_LIMIT.value}>{`${getUnicodeLength(String(innerValue.value ?? ''))}/${
             props.maxlength
           }`}</span>
         ));
@@ -263,6 +252,7 @@ export default defineComponent({
             ref={refTextareaElem}
             value={innerValue.value}
             class={classes.value}
+            style={[attrs.style as StyleValue, textareaStyle.value]}
             {...inputEvents}
             {...inputAttrs.value}
           ></textarea>

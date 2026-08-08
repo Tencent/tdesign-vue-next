@@ -107,6 +107,45 @@ describe('Textarea', () => {
       value.value = '123456';
       expect(textarea.element.value).toBe('12345');
     });
+
+    it('reconciles controlled maxcharacter input without readonly warnings', async () => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+      const wrapper = mount(Textarea, { props: { value: '', maxcharacter: 4 } });
+      const textarea = wrapper.get('textarea');
+
+      await textarea.setValue('你好a');
+
+      expect(textarea.element.value).toBe('你好');
+      expect(wrapper.emitted('update:value')).toEqual([['你好']]);
+      expect(warnSpy.mock.calls.flat().join(' ')).not.toContain(
+        'Set operation on key "value" failed: target is readonly',
+      );
+      warnSpy.mockRestore();
+    });
+
+    it.each([
+      ['string', 'height: 80px; color: red;'],
+      ['object', { height: '80px', color: 'red' }],
+    ])('applies %s styles to the native textarea', async (_, style) => {
+      const wrapper = mount(Textarea, { attrs: { style } });
+      const textarea = wrapper.get('textarea');
+      await nextTick();
+
+      expect(wrapper.attributes('style')).toBeUndefined();
+      expect(textarea.element.style.height).toBe('80px');
+      expect(textarea.element.style.color).toBe('red');
+    });
+
+    it('uses Unicode length for the maxlength counter', async () => {
+      const onValidate = vi.fn();
+      const wrapper = mount(Textarea, {
+        props: { value: '😊', maxlength: 1, allowInputOverMax: true, onValidate },
+      });
+      await nextTick();
+
+      expect(wrapper.get('.t-textarea__limit').text()).toBe('1/1');
+      expect(onValidate).not.toHaveBeenCalled();
+    });
   });
 
   describe(':events', () => {
