@@ -1,10 +1,14 @@
-import { mount } from '@vue/test-utils';
+import { afterEach, vi } from 'vitest';
 import { nextTick } from 'vue';
-import { vi } from 'vitest';
-import { Tabs, TabPanel } from '@tdesign/components/tabs';
+import { TabPanel, Tabs } from '@tdesign/components/tabs';
+import { mount } from '@vue/test-utils';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Tabs', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   // test props api
   describe(':props', () => {
     it('', () => {
@@ -70,6 +74,42 @@ describe('Tabs', () => {
         },
       });
       expect(wrapper.element).toMatchSnapshot();
+    });
+    it(':action accepts string, TNode, boolean, and slot content without warnings', () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+      const stringWrapper = mount({
+        render() {
+          return <Tabs action="More actions" />;
+        },
+      });
+      const functionWrapper = mount({
+        render() {
+          return <Tabs action={() => <button>Create</button>} />;
+        },
+      });
+      const booleanWrapper = mount({
+        render() {
+          return <Tabs action={() => false} />;
+        },
+      });
+      const slotWrapper = mount(Tabs, {
+        slots: {
+          action: () => <button class="slot-action">Slot action</button>,
+        },
+      });
+
+      expect(stringWrapper.find('.t-tabs__operations--right').text()).toContain('More actions');
+      expect(functionWrapper.find('button').text()).toBe('Create');
+      expect(booleanWrapper.find('.t-tabs__operations--right').text()).toBe('');
+      expect(slotWrapper.find('.slot-action').text()).toBe('Slot action');
+
+      const hasActionPropWarning = warn.mock.calls
+        .flat()
+        .some(
+          (message) =>
+            typeof message === 'string' && message.includes('Invalid prop: type check failed for prop "action"'),
+        );
+      expect(hasActionPropWarning).toBe(false);
     });
     it(':defaultValue[0]', () => {
       const wrapper = mount({
