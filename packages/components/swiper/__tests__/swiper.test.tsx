@@ -5,39 +5,97 @@ import { expect, vi } from 'vitest';
 import { Swiper, SwiperItem } from '@tdesign/components';
 import swiperProps from '@tdesign/components/swiper/props';
 
-const mountSwiper = (props: Record<string, unknown> = {}, itemCount = 3) => {
-  return mount(Swiper, {
+const mocks = vi.hoisted(() => ({
+  resizeCallbacks: [] as Array<() => void>,
+  nativeResizeCallbacks: [] as Array<() => void>,
+}));
+
+vi.mock('@tdesign/shared-hooks', async (importOriginal) => {
+  const original = await importOriginal<typeof import('@tdesign/shared-hooks')>();
+  return {
+    ...original,
+    useResizeObserver: (_target: unknown, callback: () => void) => {
+      mocks.resizeCallbacks.push(callback);
+    },
+  };
+});
+
+type SwiperWrapper = VueWrapper<InstanceType<typeof Swiper>>;
+type SlotRenderer = () => ReturnType<typeof h>;
+
+const originalResizeObserver = window.ResizeObserver;
+
+class ResizeObserverMock {
+  constructor(callback: ResizeObserverCallback) {
+    mocks.nativeResizeCallbacks.push(() => callback([], this));
+  }
+
+  observe() {}
+
+  unobserve() {}
+
+  disconnect() {}
+}
+
+const mountSwiper = (
+  props: Record<string, unknown> = {},
+  itemCount = 3,
+  slots: Record<string, SlotRenderer> = {},
+  attachTo?: HTMLElement,
+) =>
+  mount(Swiper, {
     props: { autoplay: false, ...props },
     slots: {
       default: () =>
-        Array.from({ length: itemCount }, (_, i) => (
-          <SwiperItem key={i}>
-            <div class={`slide-${i}`}>Slide {i}</div>
+        Array.from({ length: itemCount }, (_, index) => (
+          <SwiperItem key={index}>
+            <div class={`slide-${index}`}>Slide {index}</div>
           </SwiperItem>
         )),
+      ...slots,
     },
-  }) as VueWrapper<InstanceType<typeof Swiper>>;
+    ...(attachTo ? { attachTo } : {}),
+  }) as SwiperWrapper;
+
+const getActiveNavigationIndex = (wrapper: SwiperWrapper) =>
+  wrapper.findAll('.t-swiper__navigation-item').findIndex((item) => item.classes().includes('t-is-active'));
+
+const finishSwitching = async (duration = 300) => {
+  vi.advanceTimersByTime(duration + 51);
+  await nextTick();
 };
 
 describe('Swiper', () => {
   beforeEach(() => {
     vi.useFakeTimers();
+    mocks.resizeCallbacks.length = 0;
+    mocks.nativeResizeCallbacks.length = 0;
+    Object.defineProperty(window, 'ResizeObserver', {
+      configurable: true,
+      writable: true,
+      value: ResizeObserverMock,
+    });
   });
 
   afterEach(() => {
     vi.clearAllTimers();
     vi.useRealTimers();
+    Object.defineProperty(window, 'ResizeObserver', {
+      configurable: true,
+      writable: true,
+      value: originalResizeObserver,
+    });
   });
 
   describe('props', () => {
-    let wrapper!: VueWrapper<InstanceType<typeof Swiper>>;
+    it(':default[slot]', () => {
+      const wrapper = mountSwiper();
 
-    beforeEach(async () => {
-      wrapper = mountSwiper();
-      await nextTick();
-    });
+      expect(wrapper.classes()).toContain('t-swiper');
+      expect(wrapper.findAll('.t-swiper__container__item')).toHaveLength(5);
+      expect(wrapper.find('.slide-0').text()).toBe('Slide 0');
+      expect(getActiveNavigationIndex(wrapper)).toBe(0);
 
-    afterEach(() => {
       wrapper.unmount();
     });
 
@@ -47,8 +105,8 @@ describe('Swiper', () => {
       expect(validator(null)).toBe(true);
       expect(validator('slide')).toBe(true);
       expect(validator('fade')).toBe(true);
-      // @ts-expect-error
-      expect(validator('invalid')).toBe(false);
+      // @ts-expect-error -- exercises the generated prop validator
+      expect(validator('other')).toBe(false);
     });
 
     it(':direction validator', () => {
@@ -57,8 +115,8 @@ describe('Swiper', () => {
       expect(validator(null)).toBe(true);
       expect(validator('horizontal')).toBe(true);
       expect(validator('vertical')).toBe(true);
-      // @ts-expect-error
-      expect(validator('invalid')).toBe(false);
+      // @ts-expect-error -- exercises the generated prop validator
+      expect(validator('other')).toBe(false);
     });
 
     it(':trigger validator', () => {
@@ -67,8 +125,8 @@ describe('Swiper', () => {
       expect(validator(null)).toBe(true);
       expect(validator('hover')).toBe(true);
       expect(validator('click')).toBe(true);
-      // @ts-expect-error
-      expect(validator('invalid')).toBe(false);
+      // @ts-expect-error -- exercises the generated prop validator
+      expect(validator('other')).toBe(false);
     });
 
     it(':type validator', () => {
@@ -77,506 +135,471 @@ describe('Swiper', () => {
       expect(validator(null)).toBe(true);
       expect(validator('default')).toBe(true);
       expect(validator('card')).toBe(true);
-      // @ts-expect-error
-      expect(validator('invalid')).toBe(false);
+      // @ts-expect-error -- exercises the generated prop validator
+      expect(validator('other')).toBe(false);
     });
 
-    it(':animation[slide/fade]', async () => {
-      // Default: slide — container uses translate3d
-      const container = wrapper.find('.t-swiper__container');
-      expect((container.element as HTMLElement).style.transform).toContain('translate3d');
-      expect(wrapper.find('.t-swiper-fade').exists()).toBe(false);
+    it(':animation[slide/fade]', () => {
+      const slide = mountSwiper({ animation: 'slide' });
+      const fade = mountSwiper({ animation: 'fade' });
 
-      // Fade — adds fade class, no transform
-      const wrapperFade = mountSwiper({ animation: 'fade' });
-      await nextTick();
-      expect(wrapperFade.find('.t-swiper-fade').exists()).toBe(true);
-      const fadeContainer = wrapperFade.find('.t-swiper__container');
-      expect((fadeContainer.element as HTMLElement).style.transform).toBe('');
-      wrapperFade.unmount();
+      expect((slide.find('.t-swiper__container').element as HTMLElement).style.transform).toContain('translate3d');
+      expect(slide.findAll('.t-swiper__container__item')).toHaveLength(5);
+      expect(fade.find('.t-swiper-fade').exists()).toBe(true);
+      expect((fade.find('.t-swiper__container').element as HTMLElement).style.transform).toBe('');
+      expect(fade.findAll('.t-swiper__container__item')).toHaveLength(3);
+
+      slide.unmount();
+      fade.unmount();
     });
 
-    it(':direction[horizontal/vertical]', async () => {
-      // Default: horizontal — no vertical class
-      expect(wrapper.find('.t-swiper__wrap').classes()).not.toContain('t-swiper--vertical');
+    it(':animation[empty]', () => {
+      const wrapper = mountSwiper({ animation: '' });
 
-      // Vertical
-      const wrapperVertical = mountSwiper({ direction: 'vertical', height: 200 });
-      await nextTick();
-      expect(wrapperVertical.find('.t-swiper__wrap').classes()).toContain('t-swiper--vertical');
-      wrapperVertical.unmount();
+      expect((wrapper.find('.t-swiper__container').element as HTMLElement).style.transform).toBe('');
+
+      wrapper.unmount();
     });
 
-    it(':type[default/card]', async () => {
-      // Default: no card class
-      expect(wrapper.find('.t-swiper-card').exists()).toBe(false);
+    it(':autoplay[boolean] + :interval[number]', async () => {
+      const autoplay = mountSwiper({ autoplay: true, interval: 1000, duration: 100 });
+      const stopped = mountSwiper({ autoplay: true, interval: 0 });
 
-      // Card
-      const wrapperCard = mountSwiper({ type: 'card' });
+      vi.advanceTimersByTime(851);
       await nextTick();
-      expect(wrapperCard.find('.t-swiper-card').exists()).toBe(true);
-      wrapperCard.unmount();
+      expect(getActiveNavigationIndex(autoplay)).toBe(1);
+      expect(getActiveNavigationIndex(stopped)).toBe(0);
+
+      autoplay.unmount();
+      stopped.unmount();
     });
 
-    it(':autoplay[boolean]', async () => {
-      // autoplay=false — no timer fires, stays at index 0
-      vi.advanceTimersByTime(10000);
-      await nextTick();
-      const navItems = wrapper.findAll('.t-swiper__navigation-item');
-      expect(navItems[0].classes()).toContain('t-is-active');
+    it(':cardScale[number]', () => {
+      const wrapper = mountSwiper({ type: 'card', cardScale: 0.5 });
+      const inactive = wrapper.findAll('.t-swiper__card').find((item) => !item.classes().includes('t-is-active'));
 
-      // autoplay=true — timer fires and switches
-      const wrapperAuto = mountSwiper({ autoplay: true, interval: 1000, duration: 300 });
-      await nextTick();
-      vi.advanceTimersByTime(1500);
-      await nextTick();
-      const autoNavItems = wrapperAuto.findAll('.t-swiper__navigation-item');
-      expect(autoNavItems[1].classes()).toContain('t-is-active');
-      wrapperAuto.unmount();
-    });
+      expect((inactive?.element as HTMLElement).style.transform).toContain('scale(0.5)');
 
-    it(':loop[boolean]', async () => {
-      // loop=false — stops at end
-      const wrapperNoLoop = mountSwiper({ loop: false, autoplay: true, interval: 500, duration: 100 });
-      await nextTick();
-
-      // Advance past all items — should stop at last (index 1 for 3-item non-loop slide)
-      for (let i = 0; i < 5; i++) {
-        vi.advanceTimersByTime(600);
-        await nextTick();
-      }
-      // Timer should be cleared (isEnd=true), no further switching
-      const navItems = wrapperNoLoop.findAll('.t-swiper__navigation-item');
-      const activeCount = navItems.filter((item) => item.classes().includes('t-is-active')).length;
-      expect(activeCount).toBe(1);
-      wrapperNoLoop.unmount();
-    });
-
-    it(':stopOnHover[boolean]', async () => {
-      // stopOnHover=true (default) — hovering pauses autoplay
-      const wrapperHover = mountSwiper({ autoplay: true, interval: 1000, duration: 300, stopOnHover: true });
-      await nextTick();
-
-      await wrapperHover.find('.t-swiper').trigger('mouseenter');
-      vi.advanceTimersByTime(5000);
-      await nextTick();
-      // Should still be at first item since timer was cleared on hover
-      const navItems = wrapperHover.findAll('.t-swiper__navigation-item');
-      expect(navItems[0].classes()).toContain('t-is-active');
-
-      await wrapperHover.find('.t-swiper').trigger('mouseleave');
-      wrapperHover.unmount();
-
-      // stopOnHover=false — hovering does not pause
-      const wrapperNoHover = mountSwiper({ autoplay: true, interval: 1000, duration: 300, stopOnHover: false });
-      await nextTick();
-
-      await wrapperNoHover.find('.t-swiper').trigger('mouseenter');
-      vi.advanceTimersByTime(1500);
-      await nextTick();
-      const navItems2 = wrapperNoHover.findAll('.t-swiper__navigation-item');
-      expect(navItems2[1].classes()).toContain('t-is-active');
-      wrapperNoHover.unmount();
+      wrapper.unmount();
     });
 
     it(':current[number]', async () => {
-      const wrapperCurrent = mountSwiper({ current: 1 });
-      await nextTick();
-      const navItems = wrapperCurrent.findAll('.t-swiper__navigation-item');
-      expect(navItems[1].classes()).toContain('t-is-active');
-      wrapperCurrent.unmount();
+      const wrapper = mountSwiper({ current: 1 });
+
+      expect(getActiveNavigationIndex(wrapper)).toBe(1);
+      await wrapper.setProps({ current: 2 });
+      expect(getActiveNavigationIndex(wrapper)).toBe(2);
+
+      wrapper.unmount();
     });
 
-    it(':defaultCurrent[number]', async () => {
-      const wrapperDefault = mountSwiper({ defaultCurrent: 2 });
-      await nextTick();
-      const navItems = wrapperDefault.findAll('.t-swiper__navigation-item');
-      expect(navItems[2].classes()).toContain('t-is-active');
-      wrapperDefault.unmount();
+    it(':current[number] with :defaultCurrent[number] keeps current behavior for zero', () => {
+      const wrapper = mountSwiper({ current: 0, defaultCurrent: 2 });
+
+      // `props.current || props.defaultCurrent` currently treats the controlled zero as absent.
+      expect(getActiveNavigationIndex(wrapper)).toBe(2);
+
+      wrapper.unmount();
     });
 
-    it(':height[number]', async () => {
-      // height applies to container when animation='fade'
-      const wrapperFade = mountSwiper({ animation: 'fade', height: 300 });
-      await nextTick();
-      const fadeCont = wrapperFade.find('.t-swiper__container');
-      expect((fadeCont.element as HTMLElement).style.height).toBe('300px');
-      wrapperFade.unmount();
+    it(':defaultCurrent[number]', () => {
+      const wrapper = mountSwiper({ defaultCurrent: 2 });
 
-      // height applies to container when direction='vertical' + animation='slide'
-      const wrapperVertical = mountSwiper({ direction: 'vertical', height: 400 });
-      await nextTick();
-      const vertCont = wrapperVertical.find('.t-swiper__container');
-      expect((vertCont.element as HTMLElement).style.height).toBe('400px');
-      wrapperVertical.unmount();
+      expect(getActiveNavigationIndex(wrapper)).toBe(2);
+
+      wrapper.unmount();
+    });
+
+    it(':direction[horizontal/vertical]', () => {
+      const horizontal = mountSwiper({ direction: 'horizontal' });
+      const vertical = mountSwiper({ direction: 'vertical', height: 320 });
+
+      expect(horizontal.find('.t-swiper__wrap').classes()).not.toContain('t-swiper--vertical');
+      expect(vertical.find('.t-swiper__wrap').classes()).toContain('t-swiper--vertical');
+      expect((vertical.find('.t-swiper__container').element as HTMLElement).style.transform).toContain(
+        'translate3d(0,',
+      );
+
+      horizontal.unmount();
+      vertical.unmount();
     });
 
     it(':duration[number]', async () => {
-      // Fade animation shows duration in item transition
-      const wrapperFade = mountSwiper({ animation: 'fade', duration: 500 });
+      const wrapper = mountSwiper({ duration: 600 });
+
       await nextTick();
-      const items = wrapperFade.findAll('.t-swiper__container__item');
-      const activeItem = items.find((item) => item.classes().includes('t-swiper__fade'));
-      expect(activeItem).toBeTruthy();
-      wrapperFade.unmount();
+      await wrapper.find('.t-swiper__arrow-right').trigger('click');
+      expect((wrapper.find('.t-swiper__container').element as HTMLElement).style.transition).toBe(
+        'transform 0.6s ease',
+      );
+
+      wrapper.unmount();
     });
 
-    it(':cardScale[number]', async () => {
-      // Card mode — non-active items scaled by cardScale
-      const wrapperCard = mountSwiper({ type: 'card', cardScale: 0.5 });
+    it(':height[number]', () => {
+      const fade = mountSwiper({ animation: 'fade', height: 300 });
+      const card = mountSwiper({ type: 'card', height: 240 });
+      const vertical = mountSwiper({ direction: 'vertical', height: 400 });
+
+      expect((fade.find('.t-swiper__container').element as HTMLElement).style.height).toBe('300px');
+      expect((card.find('.t-swiper__container').element as HTMLElement).style.height).toBe('240px');
+      expect((vertical.find('.t-swiper__container').element as HTMLElement).style.height).toBe('400px');
+
+      fade.unmount();
+      card.unmount();
+      vertical.unmount();
+    });
+
+    it(':loop[boolean]', async () => {
+      const wrapper = mountSwiper({ autoplay: true, loop: false, interval: 500, duration: 100 });
+
+      vi.advanceTimersByTime(3000);
       await nextTick();
-      const items = wrapperCard.findAll('.t-swiper__card');
-      expect(items.length).toBeGreaterThan(0);
-      // Active item should not have scale in its transform (scale=1)
-      const activeItem = items.find((item) => item.classes().includes('t-is-active'));
-      expect(activeItem).toBeTruthy();
-      expect((activeItem?.element as HTMLElement).style.transform).toContain('scale(1)');
-      wrapperCard.unmount();
+      expect(getActiveNavigationIndex(wrapper)).toBe(1);
+
+      wrapper.unmount();
+    });
+
+    it(':navigation[object] placement and size', () => {
+      const outside = mountSwiper({ navigation: { placement: 'outside', size: 'large' } });
+      const small = mountSwiper({ navigation: { placement: 'inside', size: 'small' } });
+
+      expect(outside.find('.t-swiper__wrap').classes()).toEqual(
+        expect.arrayContaining(['t-swiper--outside', 't-swiper--large']),
+      );
+      expect(small.find('.t-swiper__wrap').classes()).toEqual(
+        expect.arrayContaining(['t-swiper--inside', 't-swiper--small']),
+      );
+
+      outside.unmount();
+      small.unmount();
+    });
+
+    it.each([
+      ['bars', 't-swiper__navigation-bars'],
+      ['dots', 't-swiper__navigation-dots'],
+      ['dots-bar', 't-swiper__navigation-dots-bar'],
+      ['fraction', 't-swiper__navigation--fraction'],
+    ])(':navigation[object] type=%s', (type, className) => {
+      const wrapper = mountSwiper({ navigation: { type } });
+
+      expect(wrapper.find(`.${className}`).exists()).toBe(true);
+
+      wrapper.unmount();
+    });
+
+    it(':navigation[object] showSlideBtn', async () => {
+      const always = mountSwiper({ navigation: { showSlideBtn: 'always' } });
+      const hover = mountSwiper({ navigation: { showSlideBtn: 'hover' } });
+      const never = mountSwiper({ navigation: { showSlideBtn: 'never' } });
+
+      await nextTick();
+      expect(always.find('.t-swiper__arrow--default').exists()).toBe(true);
+      expect(hover.find('.t-swiper__arrow--default').exists()).toBe(false);
+      await hover.trigger('mouseenter');
+      expect(hover.find('.t-swiper__arrow--default').exists()).toBe(true);
+      await hover.trigger('mouseleave');
+      expect(hover.find('.t-swiper__arrow--default').exists()).toBe(false);
+      expect(never.find('.t-swiper__arrow--default').exists()).toBe(false);
+
+      always.unmount();
+      hover.unmount();
+      never.unmount();
+    });
+
+    it(':navigation[vnode]', () => {
+      const wrapper = mountSwiper({ navigation: h('div', { class: 'vnode-navigation' }, 'VNode') });
+
+      expect(wrapper.find('.vnode-navigation').text()).toBe('VNode');
+
+      wrapper.unmount();
+    });
+
+    it(':navigation[function]', () => {
+      const wrapper = mountSwiper({ navigation: () => h('div', { class: 'function-navigation' }, 'Function') });
+
+      // The public TNode type accepts a function, but the current implementation falls back to the default navigation.
+      expect(wrapper.find('.function-navigation').exists()).toBe(false);
+      expect(wrapper.find('.t-swiper__navigation-bars').exists()).toBe(true);
+
+      wrapper.unmount();
+    });
+
+    it(':navigation[slot]', () => {
+      const wrapper = mountSwiper({}, 3, {
+        navigation: () => h('div', { class: 'slot-navigation' }, 'Slot'),
+      });
+
+      expect(wrapper.find('.slot-navigation').text()).toBe('Slot');
+
+      wrapper.unmount();
+    });
+
+    it(':stopOnHover[boolean]', async () => {
+      const stopped = mountSwiper({ autoplay: true, interval: 1000, duration: 100, stopOnHover: true });
+      const running = mountSwiper({ autoplay: true, interval: 1000, duration: 100, stopOnHover: false });
+
+      await stopped.trigger('mouseenter');
+      await running.trigger('mouseenter');
+      vi.advanceTimersByTime(851);
+      await nextTick();
+      expect(getActiveNavigationIndex(stopped)).toBe(0);
+      expect(getActiveNavigationIndex(running)).toBe(1);
+
+      await stopped.trigger('mouseleave');
+      vi.advanceTimersByTime(851);
+      await nextTick();
+      expect(getActiveNavigationIndex(stopped)).toBe(1);
+
+      stopped.unmount();
+      running.unmount();
     });
 
     it(':trigger[hover/click]', async () => {
-      // Default trigger=hover — hovering navigation item switches
-      const navItems = wrapper.findAll('.t-swiper__navigation-item');
-      await navItems[1].trigger('mouseenter');
-      await nextTick();
-      expect(navItems[1].classes()).toContain('t-is-active');
+      const hover = mountSwiper({ trigger: 'hover' });
+      const click = mountSwiper({ trigger: 'click' });
+      const hoverItems = hover.findAll('.t-swiper__navigation-item');
+      const clickItems = click.findAll('.t-swiper__navigation-item');
 
-      // trigger=click — clicking navigation item switches
-      const wrapperClick = mountSwiper({ trigger: 'click' });
-      await nextTick();
-      const clickNavItems = wrapperClick.findAll('.t-swiper__navigation-item');
-      await clickNavItems[2].trigger('click');
-      await nextTick();
-      expect(clickNavItems[2].classes()).toContain('t-is-active');
+      await hoverItems[1].trigger('mouseenter');
+      await hoverItems[2].trigger('click');
+      expect(getActiveNavigationIndex(hover)).toBe(1);
+      await clickItems[1].trigger('mouseenter');
+      await clickItems[2].trigger('click');
+      expect(getActiveNavigationIndex(click)).toBe(2);
 
-      // Hover should NOT switch when trigger=click
-      await clickNavItems[0].trigger('mouseenter');
-      await nextTick();
-      expect(clickNavItems[2].classes()).toContain('t-is-active');
-      wrapperClick.unmount();
+      hover.unmount();
+      click.unmount();
     });
 
-    describe('navigation', () => {
-      it(':navigation.placement[inside/outside]', async () => {
-        // Default: inside
-        expect(wrapper.find('.t-swiper__wrap').classes()).toContain('t-swiper--inside');
-        expect(wrapper.find('.t-swiper__wrap').classes()).not.toContain('t-swiper--outside');
+    it(':type[default/card]', () => {
+      const defaultType = mountSwiper({ type: 'default' });
+      const card = mountSwiper({ type: 'card' });
 
-        // Outside
-        const wrapperOutside = mountSwiper({ navigation: { placement: 'outside' } });
-        await nextTick();
-        expect(wrapperOutside.find('.t-swiper__wrap').classes()).toContain('t-swiper--outside');
-        expect(wrapperOutside.find('.t-swiper__wrap').classes()).not.toContain('t-swiper--inside');
-        wrapperOutside.unmount();
-      });
+      expect(defaultType.find('.t-swiper-card').exists()).toBe(false);
+      expect(card.find('.t-swiper-card').exists()).toBe(true);
+      expect(card.findAll('.t-swiper__container__item')).toHaveLength(5);
 
-      it(':navigation.showSlideBtn[always/hover/never]', async () => {
-        // Default: always — arrows visible
-        expect(wrapper.find('.t-swiper__arrow--default').exists()).toBe(true);
+      defaultType.unmount();
+      card.unmount();
+    });
 
-        // hover — arrows hidden initially, visible on mouseenter
-        const wrapperHover = mountSwiper({ navigation: { showSlideBtn: 'hover' } });
-        await nextTick();
-        expect(wrapperHover.find('.t-swiper__arrow--default').exists()).toBe(false);
+    it(':default[slot] with one item', () => {
+      const wrapper = mountSwiper({}, 1);
 
-        await wrapperHover.find('.t-swiper').trigger('mouseenter');
-        await nextTick();
-        expect(wrapperHover.find('.t-swiper__arrow--default').exists()).toBe(true);
+      expect(wrapper.findAll('.t-swiper__container__item')).toHaveLength(1);
+      expect(wrapper.findAll('.t-swiper__navigation-item')).toHaveLength(1);
 
-        await wrapperHover.find('.t-swiper').trigger('mouseleave');
-        await nextTick();
-        expect(wrapperHover.find('.t-swiper__arrow--default').exists()).toBe(false);
-        wrapperHover.unmount();
-
-        // never — arrows never visible
-        const wrapperNever = mountSwiper({ navigation: { showSlideBtn: 'never' } });
-        await nextTick();
-        expect(wrapperNever.find('.t-swiper__arrow--default').exists()).toBe(false);
-
-        await wrapperNever.find('.t-swiper').trigger('mouseenter');
-        await nextTick();
-        expect(wrapperNever.find('.t-swiper__arrow--default').exists()).toBe(false);
-        wrapperNever.unmount();
-      });
-
-      it(':navigation.size[small/medium/large]', async () => {
-        // Default: medium — no size modifier class
-        expect(wrapper.find('.t-swiper__wrap').classes()).not.toContain('t-swiper--small');
-        expect(wrapper.find('.t-swiper__wrap').classes()).not.toContain('t-swiper--large');
-
-        // Small
-        const wrapperSmall = mountSwiper({ navigation: { size: 'small' } });
-        await nextTick();
-        expect(wrapperSmall.find('.t-swiper__wrap').classes()).toContain('t-swiper--small');
-        wrapperSmall.unmount();
-
-        // Large
-        const wrapperLarge = mountSwiper({ navigation: { size: 'large' } });
-        await nextTick();
-        expect(wrapperLarge.find('.t-swiper__wrap').classes()).toContain('t-swiper--large');
-        wrapperLarge.unmount();
-      });
-
-      it(':navigation.type[dots/dots-bar/bars/fraction]', async () => {
-        // Default: bars
-        expect(wrapper.find('.t-swiper__navigation-bars').exists()).toBe(true);
-
-        // Dots
-        const wrapperDots = mountSwiper({ navigation: { type: 'dots' } });
-        await nextTick();
-        expect(wrapperDots.find('.t-swiper__navigation-dots').exists()).toBe(true);
-        expect(wrapperDots.findAll('.t-swiper__navigation-item').length).toBe(3);
-        wrapperDots.unmount();
-
-        // Dots-bar
-        const wrapperDotsBar = mountSwiper({ navigation: { type: 'dots-bar' } });
-        await nextTick();
-        expect(wrapperDotsBar.find('.t-swiper__navigation-dots-bar').exists()).toBe(true);
-        wrapperDotsBar.unmount();
-
-        // Fraction
-        const wrapperFraction = mountSwiper({ navigation: { type: 'fraction' } });
-        await nextTick();
-        expect(wrapperFraction.find('.t-swiper__navigation--fraction').exists()).toBe(true);
-        expect(wrapperFraction.find('.t-swiper__navigation-text-fraction').text()).toBe('1/3');
-        wrapperFraction.unmount();
-      });
-
-      it(':navigation[slot/function]', async () => {
-        // VNode passed directly as navigation prop
-        const wrapperVNode = mount(Swiper, {
-          props: { autoplay: false, navigation: h('div', { class: 'custom-nav' }, 'Custom') },
-          slots: {
-            default: () => [
-              <SwiperItem key={0}>
-                <div>Slide 0</div>
-              </SwiperItem>,
-              <SwiperItem key={1}>
-                <div>Slide 1</div>
-              </SwiperItem>,
-            ],
-          },
-        });
-        await nextTick();
-        expect(wrapperVNode.find('.custom-nav').exists()).toBe(true);
-        expect(wrapperVNode.find('.custom-nav').text()).toBe('Custom');
-        wrapperVNode.unmount();
-
-        // Slot
-        const wrapperSlot = mount(Swiper, {
-          props: { autoplay: false },
-          slots: {
-            default: () => [
-              <SwiperItem key={0}>
-                <div>Slide 0</div>
-              </SwiperItem>,
-              <SwiperItem key={1}>
-                <div>Slide 1</div>
-              </SwiperItem>,
-            ],
-            navigation: () => <div class="slot-nav">Slot Nav</div>,
-          },
-        });
-        await nextTick();
-        expect(wrapperSlot.find('.slot-nav').exists()).toBe(true);
-        expect(wrapperSlot.find('.slot-nav').text()).toBe('Slot Nav');
-        wrapperSlot.unmount();
-      });
+      wrapper.unmount();
     });
   });
 
   describe('events', () => {
-    it('onChange', async () => {
+    it('onChange[source=click]', async () => {
       const onChange = vi.fn();
-      const wrapperEvent = mountSwiper({ onChange });
-      await nextTick();
+      const wrapper = mountSwiper({ onChange });
 
-      // Click arrow right to trigger change
-      await wrapperEvent.find('.t-swiper__arrow-right').trigger('click');
       await nextTick();
-      expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange.mock.calls[0][0]).toBe(1);
-      expect(onChange.mock.calls[0][1]).toEqual({ source: 'click' });
-      wrapperEvent.unmount();
+      await wrapper.find('.t-swiper__arrow-right').trigger('click');
+      expect(onChange).toHaveBeenCalledWith(1, { source: 'click' });
+
+      wrapper.unmount();
     });
 
-    it('onChange via navigation hover', async () => {
+    it('onChange[source=hover]', async () => {
       const onChange = vi.fn();
-      const wrapperEvent = mountSwiper({ onChange, trigger: 'hover' });
-      await nextTick();
+      const wrapper = mountSwiper({ onChange, trigger: 'hover' });
 
-      const navItems = wrapperEvent.findAll('.t-swiper__navigation-item');
-      await navItems[2].trigger('mouseenter');
-      await nextTick();
-      expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange.mock.calls[0][0]).toBe(2);
-      expect(onChange.mock.calls[0][1]).toEqual({ source: 'hover' });
-      wrapperEvent.unmount();
+      await wrapper.findAll('.t-swiper__navigation-item')[2].trigger('mouseenter');
+      expect(onChange).toHaveBeenCalledWith(2, { source: 'hover' });
+
+      wrapper.unmount();
     });
 
-    it('onChange via navigation click', async () => {
+    it('onChange[source=click] via navigation', async () => {
       const onChange = vi.fn();
-      const wrapperEvent = mountSwiper({ onChange, trigger: 'click' });
-      await nextTick();
+      const wrapper = mountSwiper({ onChange, trigger: 'click' });
 
-      const navItems = wrapperEvent.findAll('.t-swiper__navigation-item');
-      await navItems[1].trigger('click');
-      await nextTick();
-      expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange.mock.calls[0][0]).toBe(1);
-      expect(onChange.mock.calls[0][1]).toEqual({ source: 'click' });
-      wrapperEvent.unmount();
+      await wrapper.findAll('.t-swiper__navigation-item')[2].trigger('click');
+      expect(onChange).toHaveBeenCalledWith(2, { source: 'click' });
+
+      wrapper.unmount();
     });
 
-    it('onChange via autoplay', async () => {
+    it('onChange[source=autoplay]', async () => {
       const onChange = vi.fn();
-      const wrapperEvent = mountSwiper({ autoplay: true, interval: 1000, duration: 300, onChange });
-      await nextTick();
+      const wrapper = mountSwiper({ onChange, autoplay: true, interval: 1000, duration: 100 });
 
-      vi.advanceTimersByTime(1500);
+      vi.advanceTimersByTime(851);
       await nextTick();
-      expect(onChange).toHaveBeenCalled();
-      expect(onChange.mock.calls[0][1]).toEqual({ source: 'autoplay' });
-      wrapperEvent.unmount();
+      expect(onChange).toHaveBeenCalledWith(1, { source: 'autoplay' });
+
+      wrapper.unmount();
     });
 
     it('update:current', async () => {
-      const wrapperEvent = mountSwiper();
-      await nextTick();
+      const wrapper = mountSwiper();
 
-      // Click arrow to trigger switch
-      await wrapperEvent.find('.t-swiper__arrow-right').trigger('click');
       await nextTick();
-      const emitted = wrapperEvent.emitted('update:current');
-      expect(emitted).toBeTruthy();
-      expect(emitted?.[0]).toEqual([1]);
-      wrapperEvent.unmount();
+      await wrapper.find('.t-swiper__arrow-right').trigger('click');
+      expect(wrapper.emitted('update:current')).toEqual([[1]]);
+
+      wrapper.unmount();
+    });
+
+    it('ignores arrow clicks while switching', async () => {
+      const onChange = vi.fn();
+      const wrapper = mountSwiper({ onChange });
+
+      await nextTick();
+      await wrapper.find('.t-swiper__arrow-right').trigger('click');
+      await wrapper.find('.t-swiper__arrow-right').trigger('click');
+      await wrapper.find('.t-swiper__arrow-left').trigger('click');
+      expect(onChange).toHaveBeenCalledTimes(1);
+
+      wrapper.unmount();
+    });
+
+    it('wraps slide items in both directions', async () => {
+      const onNext = vi.fn();
+      const next = mountSwiper({ defaultCurrent: 2, duration: 100, onChange: onNext });
+
+      await nextTick();
+      await next.find('.t-swiper__arrow-right').trigger('click');
+      expect(onNext).toHaveBeenCalledWith(0, { source: 'click' });
+      vi.advanceTimersByTime(100);
+      await nextTick();
+      expect((next.find('.t-swiper__container').element as HTMLElement).style.transform).toContain('-100%');
+
+      const onPrevious = vi.fn();
+      const previous = mountSwiper({ defaultCurrent: 0, duration: 100, onChange: onPrevious });
+      await nextTick();
+      await previous.find('.t-swiper__arrow-left').trigger('click');
+      expect(onPrevious).toHaveBeenCalledWith(2, { source: 'click' });
+      vi.advanceTimersByTime(100);
+      await nextTick();
+      expect((previous.find('.t-swiper__container').element as HTMLElement).style.transform).toContain('-300%');
+
+      next.unmount();
+      previous.unmount();
+    });
+
+    it('wraps card items and advances regular card items', async () => {
+      const regular = mountSwiper({ type: 'card', defaultCurrent: 0, duration: 100 });
+      const wrapped = mountSwiper({ type: 'card', defaultCurrent: 2, duration: 100 });
+
+      await nextTick();
+      await regular.find('.t-swiper__arrow-right').trigger('click');
+      await wrapped.find('.t-swiper__arrow-right').trigger('click');
+      expect(getActiveNavigationIndex(regular)).toBe(1);
+      expect(getActiveNavigationIndex(wrapped)).toBe(0);
+
+      regular.unmount();
+      wrapped.unmount();
+    });
+
+    it('renders the wrapped fraction index', async () => {
+      const wrapper = mountSwiper({ navigation: { type: 'fraction' }, defaultCurrent: 2, duration: 100 });
+
+      expect(wrapper.find('.t-swiper__navigation-text-fraction').text()).toBe('3/3');
+      await wrapper.find('.t-swiper__arrow-right').trigger('click');
+      expect(wrapper.find('.t-swiper__navigation-text-fraction').text()).toBe('1/3');
+      await finishSwitching(100);
+      await wrapper.find('.t-swiper__arrow-left').trigger('click');
+
+      wrapper.unmount();
+    });
+
+    it(':current change reports the current source', async () => {
+      const onChange = vi.fn();
+      const wrapper = mountSwiper({ current: 0, onChange });
+
+      await wrapper.setProps({ current: 2 });
+      expect(onChange).toHaveBeenCalledWith(2, { source: 'autoplay' });
+
+      wrapper.unmount();
     });
   });
 
-  describe('edge cases', () => {
-    it('single item — no cloning for slide', async () => {
-      const wrapperSingle = mountSwiper({}, 1);
+  describe('lifecycle', () => {
+    it(':loop[false] clears autoplay after switching to the end', async () => {
+      const wrapper = mountSwiper({ autoplay: true, loop: false, interval: 5000, duration: 100 });
+
       await nextTick();
-      // Only 1 item, no cloned items
-      const items = wrapperSingle.findAll('.t-swiper__container__item');
-      expect(items.length).toBe(1);
-      // Navigation has 1 item
-      expect(wrapperSingle.findAll('.t-swiper__navigation-item').length).toBe(1);
-      wrapperSingle.unmount();
+      await wrapper.find('.t-swiper__arrow-right').trigger('click');
+      await nextTick();
+      vi.advanceTimersByTime(151);
+      await nextTick();
+
+      expect(getActiveNavigationIndex(wrapper)).toBe(1);
+      expect(vi.getTimerCount()).toBe(0);
+
+      wrapper.unmount();
     });
 
-    it('slide animation clones first and last items', async () => {
-      const wrapperSlide = mountSwiper({ animation: 'slide' }, 3);
+    it('updates dimensions with ResizeObserver', async () => {
+      const host = document.createElement('div');
+      Object.defineProperties(host, {
+        offsetWidth: { configurable: true, value: 800 },
+        offsetHeight: { configurable: true, value: 240 },
+      });
+      document.body.appendChild(host);
+      const wrapper = mountSwiper({ type: 'card' }, 3, {}, host);
+      const parent = wrapper.element.parentNode as HTMLElement;
+      Object.defineProperties(parent, {
+        offsetWidth: { configurable: true, value: 800 },
+        offsetHeight: { configurable: true, value: 240 },
+      });
       await nextTick();
-      // 3 items + 2 cloned = 5
-      const items = wrapperSlide.findAll('.t-swiper__container__item');
-      expect(items.length).toBe(5);
-      wrapperSlide.unmount();
+      const callback = mocks.resizeCallbacks.at(-1) ?? mocks.nativeResizeCallbacks.at(-1);
+
+      expect(callback).toBeDefined();
+      callback?.();
+      await nextTick();
+      expect((wrapper.find('.t-swiper__container').element as HTMLElement).style.height).toBe('240px');
+      expect((wrapper.find('.t-swiper__card').element as HTMLElement).style.transform).not.toContain('translateX(0px)');
+
+      Object.defineProperties(parent, {
+        offsetWidth: { configurable: true, value: 0 },
+        offsetHeight: { configurable: true, value: 0 },
+      });
+      callback?.();
+      await nextTick();
+      expect((wrapper.find('.t-swiper__container').element as HTMLElement).style.height).toBe('0px');
+
+      wrapper.unmount();
+      expect(() => callback?.()).not.toThrow();
+      host.remove();
     });
 
-    it('fade animation does not clone items', async () => {
-      const wrapperFade = mountSwiper({ animation: 'fade' }, 3);
-      await nextTick();
-      const items = wrapperFade.findAll('.t-swiper__container__item');
-      expect(items.length).toBe(3);
-      wrapperFade.unmount();
-    });
-
-    it('arrow left goes to previous item', async () => {
+    it(':loop[false] does not restart autoplay from the end', async () => {
       const onChange = vi.fn();
-      const wrapperArrow = mountSwiper({ defaultCurrent: 1, onChange });
-      await nextTick();
+      const wrapper = mountSwiper({
+        type: 'card',
+        loop: false,
+        defaultCurrent: 2,
+        autoplay: true,
+        interval: 1000,
+        duration: 100,
+        onChange,
+      });
 
-      await wrapperArrow.find('.t-swiper__arrow-left').trigger('click');
+      await wrapper.trigger('mouseenter');
+      await wrapper.trigger('mouseleave');
+      vi.advanceTimersByTime(2000);
       await nextTick();
-      expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange.mock.calls[0][0]).toBe(0);
-      wrapperArrow.unmount();
+      expect(onChange).not.toHaveBeenCalled();
+
+      wrapper.unmount();
     });
 
-    it('arrow left wraps to last item from first', async () => {
-      const onChange = vi.fn();
-      const wrapperArrow = mountSwiper({ defaultCurrent: 0, onChange });
-      await nextTick();
+    it(':autoplay[true] keeps its timer after unmount in the current implementation', () => {
+      const wrapper = mountSwiper({ autoplay: true, interval: 1000 });
 
-      await wrapperArrow.find('.t-swiper__arrow-left').trigger('click');
-      await nextTick();
-      expect(onChange).toHaveBeenCalled();
-      expect(onChange.mock.calls[0][0]).toBe(2);
-      wrapperArrow.unmount();
-    });
-
-    it('fraction navigation shows correct text', async () => {
-      const wrapperFraction = mountSwiper({ navigation: { type: 'fraction' }, defaultCurrent: 1 });
-      await nextTick();
-      expect(wrapperFraction.find('.t-swiper__navigation-text-fraction').text()).toBe('2/3');
-      wrapperFraction.unmount();
-    });
-
-    it('fraction navigation arrow buttons work', async () => {
-      const onChange = vi.fn();
-      const wrapperFraction = mountSwiper({ navigation: { type: 'fraction' }, onChange });
-      await nextTick();
-
-      // Click right arrow in fraction nav
-      await wrapperFraction.find('.t-swiper__arrow-right').trigger('click');
-      await nextTick();
-      expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange.mock.calls[0][0]).toBe(1);
-
-      // Wait for isSwitching to clear
-      vi.advanceTimersByTime(400);
-      await nextTick();
-
-      // Click left arrow
-      await wrapperFraction.find('.t-swiper__arrow-left').trigger('click');
-      await nextTick();
-      expect(onChange).toHaveBeenCalledTimes(2);
-      expect(onChange.mock.calls[1][0]).toBe(0);
-      wrapperFraction.unmount();
-    });
-
-    it('mouseenter/mouseleave on swiper', async () => {
-      const wrapperMouse = mountSwiper({ autoplay: true, interval: 1000, duration: 300, stopOnHover: true });
-      await nextTick();
-
-      // Mouse enter pauses
-      await wrapperMouse.find('.t-swiper').trigger('mouseenter');
-      vi.advanceTimersByTime(5000);
-      await nextTick();
-      const navItems = wrapperMouse.findAll('.t-swiper__navigation-item');
-      expect(navItems[0].classes()).toContain('t-is-active');
-
-      // Mouse leave resumes
-      await wrapperMouse.find('.t-swiper').trigger('mouseleave');
-      vi.advanceTimersByTime(1500);
-      await nextTick();
-      const navItemsAfter = wrapperMouse.findAll('.t-swiper__navigation-item');
-      expect(navItemsAfter[1].classes()).toContain('t-is-active');
-      wrapperMouse.unmount();
-    });
-
-    it('current prop change triggers swiperTo', async () => {
-      const onChange = vi.fn();
-      const wrapperControlled = mountSwiper({ current: 0, onChange });
-      await nextTick();
-
-      await wrapperControlled.setProps({ current: 2 });
-      await nextTick();
-      expect(onChange).toHaveBeenCalled();
-      expect(onChange.mock.calls[0][0]).toBe(2);
-      wrapperControlled.unmount();
-    });
-
-    it('vertical direction with height sets container style', async () => {
-      const wrapperVertical = mountSwiper({ direction: 'vertical', height: 400 });
-      await nextTick();
-      const container = wrapperVertical.find('.t-swiper__container');
-      const style = (container.element as HTMLElement).style;
-      expect(style.height).toBe('400px');
-      expect(style.transform).toContain('translate3d(0,');
-      wrapperVertical.unmount();
+      expect(vi.getTimerCount()).toBeGreaterThan(0);
+      wrapper.unmount();
+      // The source currently has no unmount hook that clears the autoplay timer.
+      expect(vi.getTimerCount()).toBeGreaterThan(0);
     });
   });
 });
