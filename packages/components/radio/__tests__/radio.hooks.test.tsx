@@ -56,10 +56,17 @@ describe('Radio hooks', () => {
       const trueEvent = dispatchKeyboard(wrapper.element, { code: 'Space' });
       expect(setValue).toHaveBeenLastCalledWith(true, { e: trueEvent });
 
-      // Current behavior is tracked by #6882. The false mapping falls back to the original string.
       input.dataset.value = 'false';
       const falseEvent = dispatchKeyboard(wrapper.element, { code: 'Space' });
-      expect(setValue).toHaveBeenLastCalledWith('false', { e: falseEvent });
+      expect(setValue).toHaveBeenLastCalledWith(false, { e: falseEvent });
+
+      input.dataset.value = "'false'";
+      const stringFalseEvent = dispatchKeyboard(wrapper.element, { code: 'Space' });
+      expect(setValue).toHaveBeenLastCalledWith('false', { e: stringFalseEvent });
+
+      input.dataset.value = '0';
+      const zeroEvent = dispatchKeyboard(wrapper.element, { code: 'Space' });
+      expect(setValue).toHaveBeenLastCalledWith(0, { e: zeroEvent });
     });
 
     it('allowUncheck[boolean]', () => {
