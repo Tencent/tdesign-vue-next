@@ -136,6 +136,22 @@ describe('Textarea', () => {
       expect(textarea.element.style.color).toBe('red');
     });
 
+    it('preserves composing input when autosize recalculates styles', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Textarea, { props: { defaultValue: '', autosize: true, onChange } });
+      const textarea = wrapper.get('textarea');
+      await nextTick();
+      await nextTick();
+
+      await textarea.trigger('compositionstart');
+      textarea.element.value = '你';
+      await textarea.trigger('input', { inputType: 'insertCompositionText', isComposing: true });
+      await nextTick();
+
+      expect(textarea.element.value).toBe('你');
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
     it('uses Unicode length for the maxlength counter', async () => {
       const onValidate = vi.fn();
       const wrapper = mount(Textarea, {

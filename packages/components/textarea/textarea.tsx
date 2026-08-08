@@ -7,12 +7,13 @@ import {
   onMounted,
   toRefs,
   inject,
-  StyleValue,
+  normalizeStyle,
   CSSProperties,
 } from 'vue';
 import { omit } from 'lodash-es';
 
 import { FormItemInjectionKey } from '../form/constants';
+import setStyle from '@tdesign/common-js/utils/setStyle';
 import { getCharacterLength, getUnicodeLength, getValidAttrs } from '@tdesign/common-js/utils/helper';
 
 // hooks
@@ -51,6 +52,7 @@ export default defineComponent({
     const refTextareaElem = ref<HTMLTextAreaElement>();
     const focused = ref(false);
     const isComposing = ref(false);
+    let previousTextareaStyle: Record<string, any> = {};
 
     const focus = () => refTextareaElem.value?.focus();
     const blur = () => refTextareaElem.value?.blur();
@@ -195,6 +197,23 @@ export default defineComponent({
       }
     });
 
+    watch(
+      [refTextareaElem, textareaStyle, () => attrs.style],
+      ([el, internalStyle, style]) => {
+        if (!el) return;
+        const normalizedStyle = (normalizeStyle([style]) || {}) as Record<string, any>;
+        const nextStyle = { ...normalizedStyle, ...internalStyle };
+        const removedStyle = Object.keys(previousTextareaStyle).reduce<Record<string, string>>((result, key) => {
+          if (!(key in nextStyle)) result[key] = '';
+          return result;
+        }, {});
+
+        setStyle(el, { ...removedStyle, ...nextStyle });
+        previousTextareaStyle = nextStyle;
+      },
+      { deep: true },
+    );
+
     watch(() => props.autosize, adjustTextareaHeight, { deep: true });
 
     expose({
@@ -252,7 +271,6 @@ export default defineComponent({
             ref={refTextareaElem}
             value={innerValue.value}
             class={classes.value}
-            style={[attrs.style as StyleValue, textareaStyle.value]}
             {...inputEvents}
             {...inputAttrs.value}
           ></textarea>
