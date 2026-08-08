@@ -71,6 +71,25 @@ describe('Tabs', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
+    it(':defaultValue[0]', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Tabs defaultValue={0}>
+              <TabPanel value={0} label="Zero">
+                Zero panel
+              </TabPanel>
+              <TabPanel value={1} label="One">
+                One panel
+              </TabPanel>
+            </Tabs>
+          );
+        },
+      });
+
+      expect(wrapper.find('.t-tabs__nav-item.t-is-active').text()).toBe('Zero');
+      expect(wrapper.findAll('.t-tab-panel')[0].classes()).not.toContain('t-is-hidden');
+    });
   });
 
   // test events

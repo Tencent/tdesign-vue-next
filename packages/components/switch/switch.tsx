@@ -47,13 +47,13 @@ export default defineComponent({
         handleToggle(e);
         return;
       }
-      Promise.resolve(props.beforeChange()).then(
+      return Promise.resolve(props.beforeChange()).then(
         (v) => {
           if (v) {
             handleToggle(e);
           }
         },
-        () => undefined,
+        (): void => undefined,
       );
     }
 
