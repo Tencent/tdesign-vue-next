@@ -1,0 +1,10 @@
+node_modules/
+dist/
+es/
+lib/
+coverage/
+.cache/
+.vite/
+.turbo/
+storybook-static/
+packages/common/

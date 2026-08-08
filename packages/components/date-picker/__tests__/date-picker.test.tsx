@@ -477,8 +477,6 @@ describe('DatePicker', () => {
     const panel =
       (wrapper.element.querySelector('.t-time-picker__panel') as HTMLElement | null) ||
       (document.querySelector('.t-time-picker__panel') as HTMLElement | null);
-    if (!panel) {
-    }
     expect(panel).toBeTruthy();
     if (panel) {
       const timeCols = panel.querySelectorAll('.t-time-picker__panel-body-scroll') as NodeListOf<HTMLElement>;

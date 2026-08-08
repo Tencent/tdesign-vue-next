@@ -78,15 +78,15 @@ export function useKeyboardControl({
         }
         hoverIndex.value = newIndex;
         break;
-      case 'Enter':
+      case 'Enter': {
         if (hoverIndex.value === -1) break;
 
         let finalOptions =
           selectPanelRef.value.isVirtual && isFilterable.value && virtualFilteredOptions.value.length
             ? virtualFilteredOptions.value
             : isRemoteSearch.value
-            ? optionsList.value
-            : filteredOptions.value;
+              ? optionsList.value
+              : filteredOptions.value;
 
         if (!finalOptions.length) finalOptions = optionsList.value;
         if (!innerPopupVisible.value) {
@@ -127,6 +127,7 @@ export function useKeyboardControl({
           filteredOptions.value = [];
         }
         break;
+      }
       case 'Escape':
         if (innerPopupVisible.value) {
           e?.stopImmediatePropagation?.();

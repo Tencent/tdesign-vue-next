@@ -75,7 +75,7 @@ export default {
     const mockMessage = ref<ChatMessagesData[]>(mockData);
 
     // 预览效果弹窗
-    let visible = ref(false);
+    const visible = ref(false);
     const previewHandler = () => {
       console.log(1231);
 

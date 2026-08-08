@@ -31,6 +31,7 @@ export const SRCDOC_ATTR_RE = /\s+srcdoc\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi;
  * 剥离 URL/属性值中的控制字符（含 NUL、Tab、换行等），用于挡住
  * `java&#9;script:` / `java\tscript:` 之类的协议黑名单绕过。
  */
+// eslint-disable-next-line no-control-regex -- Control characters are intentionally stripped from URL input.
 export const stripCtrlChars = (value: string): string => (value || '').replace(/[\u0000-\u001F\u007F]+/g, '');
 
 const normalizeUrlInput = (rawHref: string | null | undefined): string => {

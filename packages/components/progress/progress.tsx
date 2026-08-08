@@ -108,10 +108,11 @@ export default defineComponent({
         case LARGE:
           diameterValue = CIRCLE_SIZE_PX.LARGE;
           break;
-        default:
+        default: {
           const customSize = Number(props.size);
           diameterValue = !isNaN(customSize) && customSize > 0 ? customSize : CIRCLE_SIZE_PX.MEDIUM;
           break;
+        }
       }
       return diameterValue;
     });

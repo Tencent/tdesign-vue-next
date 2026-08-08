@@ -14,13 +14,12 @@
 import { readdirSync, statSync, existsSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { join, relative, dirname } from 'node:path';
 import { transform } from 'esbuild';
-// @ts-ignore prettier v2 没有类型声明
 import * as prettier from 'prettier';
 
 const COMPONENTS_DIR = join(__dirname, '..', 'packages', 'components');
 
 // 通过 prettier.resolveConfig 自动解析项目根目录的 prettier 配置
-const prettierConfig = prettier.resolveConfig.sync(join(__dirname, '..')) || {};
+const prettierConfigPromise = prettier.resolveConfig(join(__dirname, '..'));
 
 // 匹配 lang="ts" 或 lang="tsx"
 const LANG_ATTR_RE = /\s+lang=["'](tsx?)["']/;
@@ -95,7 +94,8 @@ async function transformVueSFC(source: string, filePath?: string): Promise<strin
 
   // 使用 prettier 格式化，确保生成的代码符合项目规范
   try {
-    result = prettier.format(result, { ...prettierConfig, parser: 'vue' });
+    const prettierConfig = (await prettierConfigPromise) || {};
+    result = await prettier.format(result, { ...prettierConfig, parser: 'vue' });
   } catch {
     // prettier 格式化失败时，返回未格式化的结果
     console.warn(`[generate-js-examples] prettier 格式化失败: ${filePath || 'unknown'}`);

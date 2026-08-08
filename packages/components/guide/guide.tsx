@@ -70,7 +70,7 @@ export default defineComponent({
       } else if (context.slots['highlight-content']) {
         // 支持插槽
         node = context.slots['highlight-content'](hWithParams());
-      } else if (!!highlightContent) {
+      } else if (highlightContent) {
         // 支持组件
         node = <node />;
       }

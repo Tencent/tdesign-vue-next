@@ -162,7 +162,7 @@ const handleHoverLeave = (e) => {
   tooltipTimeouts.set(id, timeout);
 };
 
-const markdownContent = `人工智能的发展经历了不同的阶段和研究方法，包括​​符号处理、神经网络、机器学习、深度学习等[ref:1|人工智能的发展历程|探讨AI从诞生到现在的重要里程碑和技术突破|https://tdesign.tencent.com][ref:2|机器学习算法详解|深入分析各种机器学习算法的原理和应用场景|https://tdesign.tencent.com]。`;
+const markdownContent = `人工智能的发展经历了不同的阶段和研究方法，包括符号处理、神经网络、机器学习、深度学习等[ref:1|人工智能的发展历程|探讨AI从诞生到现在的重要里程碑和技术突破|https://tdesign.tencent.com][ref:2|机器学习算法详解|深入分析各种机器学习算法的原理和应用场景|https://tdesign.tencent.com]。`;
 
 const options = {
   engine: {

@@ -18,8 +18,8 @@
     "postinstall": "husky install && pnpm -r postinstall",
     "init": "git submodule init && git submodule update",
     "lint:tsc": "tsc --noEmit",
-    "lint": "pnpm lint:tsc && eslint --ext .vue,.js,.ts,.tsx ./packages --max-warnings 0 --cache",
-    "lint:fix": "eslint --ext .vue,.js,.ts,.tsx ./packages --max-warnings 0 --fix --cache",
+    "lint": "pnpm lint:tsc && eslint ./packages --max-warnings 0 --cache",
+    "lint:fix": "eslint ./packages --max-warnings 0 --fix --cache",
     "dev:vue": "pnpm -C packages/tdesign-vue-next/site dev",
     "test:vue": "pnpm -C packages/tdesign-vue-next/test test",
     "test:vue:update": "pnpm -C packages/tdesign-vue-next/test test:update",
@@ -51,28 +51,23 @@
     "@babel/preset-env": "catalog:bundle",
     "@commitlint/cli": "catalog:lint",
     "@commitlint/config-conventional": "catalog:lint",
+    "@tdesign/eslint-config": "https://pkg.pr.new/TDesignOteam/eslint-prettier-config/@tdesign/eslint-config@c21e4ff",
+    "@tdesign/prettier-config": "https://pkg.pr.new/TDesignOteam/eslint-prettier-config/@tdesign/prettier-config@c21e4ff",
     "@types/node": "catalog:types",
-    "@typescript-eslint/eslint-plugin": "catalog:lint",
-    "@typescript-eslint/parser": "catalog:lint",
     "@vue/babel-plugin-jsx": "catalog:bundle",
-    "@vue/eslint-config-typescript": "catalog:lint",
     "autoprefixer": "catalog:bundle",
     "cross-env": "catalog:bundle",
     "cz-git": "catalog:lint",
     "czg": "catalog:lint",
-    "eslint": "catalog:lint",
-    "eslint-config-prettier": "catalog:lint",
-    "eslint-plugin-import": "catalog:lint",
-    "eslint-plugin-prettier": "catalog:lint",
-    "eslint-plugin-vue": "catalog:lint",
+    "eslint": "10.8.0",
     "husky": "catalog:lint",
     "lint-staged": "catalog:lint",
     "postcss": "catalog:bundle",
-    "prettier": "catalog:lint",
+    "prettier": "3.9.6",
     "rimraf": "catalog:bundle",
     "tdesign-publish-cli": "catalog:tdesign",
     "tsx": "catalog:bundle",
-    "typescript": "catalog:types"
+    "typescript": "5.9.3"
   },
   "config": {
     "commitizen": {
@@ -84,5 +79,14 @@
       "prettier --write --cache",
       "eslint --fix --cache"
     ]
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "@vue/test-utils@2.4.6": {
+        "peerDependencies": {
+          "@vue/server-renderer": "^3.0.1"
+        }
+      }
+    }
   }
 }

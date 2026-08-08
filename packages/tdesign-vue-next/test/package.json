@@ -20,6 +20,7 @@
     "@tdesign/internal-utils": "workspace:^",
     "@vitejs/plugin-vue": "catalog:bundle",
     "@vitejs/plugin-vue-jsx": "catalog:bundle",
+    "@vue/server-renderer": "catalog:deps",
     "@vue/test-utils": "catalog:test",
     "canvas": "catalog:test",
     "dom-parser": "catalog:test",

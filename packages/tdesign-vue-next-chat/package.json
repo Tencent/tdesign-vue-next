@@ -45,7 +45,7 @@
     "tdesign-icons-vue-next": "catalog:tdesign",
     "tdesign-vue-next": "workspace:^",
     "tdesign-web-components": "1.3.1-alpha.14",
-    "omi-vueify": "^0.0.12"
+    "omi-vueify": "catalog:deps"
   },
   "devDependencies": {
     "tvision-charts-vue-next": "^3.3.13",
