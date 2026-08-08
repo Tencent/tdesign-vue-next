@@ -1,4 +1,4 @@
-import { onBeforeMount, onMounted, Ref } from 'vue';
+import { onBeforeUnmount, onMounted, Ref } from 'vue';
 import { isString } from 'lodash-es';
 import { off, on } from '@tdesign/shared-utils';
 import { CHECKED_CODE_REG } from '@tdesign/common-js/common';
@@ -35,7 +35,7 @@ export function useKeyboard(
     on(radioGroupRef.value, 'keydown', checkRadioInGroup);
   });
 
-  onBeforeMount(() => {
+  onBeforeUnmount(() => {
     off(radioGroupRef.value, 'keydown', checkRadioInGroup);
   });
 }
