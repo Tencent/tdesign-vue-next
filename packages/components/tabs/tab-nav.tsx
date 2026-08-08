@@ -26,7 +26,7 @@ export default defineComponent({
       type: Array as { new (): Array<InstanceType<typeof TTabPanel>> },
       default: (): Array<InstanceType<typeof TTabPanel>> => [] as Array<InstanceType<typeof TTabPanel>>,
     },
-    action: [String, Object, Array],
+    action: [String, Object, Array, Boolean],
     value: tabProps.value,
     placement: tabProps.placement,
     scrollPosition: tabProps.scrollPosition,
