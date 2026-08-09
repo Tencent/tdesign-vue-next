@@ -418,9 +418,9 @@ export default defineComponent({
     /**
      * 通过递归扁平化 slot VNode 树来获取所有叶子菜单项节点
      */
-    const flattenSlotNodes = (nodes: VNode[]): VNode[] => {
+    const flattenSlotNodes = (nodes: VNode | VNode[]): VNode[] => {
       const result: VNode[] = [];
-      for (const node of nodes) {
+      for (const node of isArray(nodes) ? nodes : [nodes]) {
         // Fragment 节点：Vue 将 v-for 列表、多根节点等包装为 Fragment
         if (node.type === Fragment) {
           if (isArray(node.children)) {
@@ -431,7 +431,8 @@ export default defineComponent({
         } else if (isArray(node.children)) {
           result.push(...flattenSlotNodes(node.children as VNode[]));
         } else if (isFunction((node.children as any)?.default)) {
-          result.push(...flattenSlotNodes((node.children as any).default()));
+          const children = (node.children as any).default();
+          result.push(...flattenSlotNodes(children));
         } else {
           result.push(node);
         }
