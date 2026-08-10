@@ -26,6 +26,15 @@ export default defineComponent({
 
     const isDisabled = useDisabled();
 
+    const handleClick = (event: MouseEvent) => {
+      if (isDisabled.value || props.loading) {
+        event.preventDefault();
+        event.stopPropagation();
+        return;
+      }
+      props.onClick?.(event);
+    };
+
     const mergeTheme = computed(() => {
       const { theme, variant } = props;
       if (theme) return theme;
@@ -76,7 +85,8 @@ export default defineComponent({
       const buttonAttrs = {
         class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
         type: props.type,
-        disabled: isDisabled.value || props.loading,
+        disabled: isDisabled.value,
+        'aria-disabled': props.loading || undefined,
         href: props.href,
         tabindex: isDisabled.value ? undefined : '0',
         form: props.form, // 原生属性，声明后需要显式透传
@@ -88,7 +98,7 @@ export default defineComponent({
           ref: btnRef,
           ...attrs,
           ...buttonAttrs,
-          onClick: props.onClick,
+          onClick: handleClick,
         },
         [buttonContent],
       );

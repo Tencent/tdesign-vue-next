@@ -208,8 +208,8 @@ exports[`Button > props > :href[string] 1`] = `
 
 exports[`Button > props > :loading[Button contains element \`.t-loading\`] 1`] = `
 <button
+  aria-disabled="true"
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-is-loading"
-  disabled=""
   href=""
   tabindex="0"
   type="button"
@@ -252,8 +252,8 @@ exports[`Button > props > :loading[Button contains element \`.t-loading\`] 1`] =
 
 exports[`Button > props > :loading[boolean] 1`] = `
 <button
+  aria-disabled="true"
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-is-loading"
-  disabled=""
   href=""
   tabindex="0"
   type="button"
@@ -313,8 +313,8 @@ exports[`Button > props > :loading[boolean] 2`] = `
 
 exports[`Button > props > :loadingProps[object] 1`] = `
 <button
+  aria-disabled="true"
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-is-loading"
-  disabled=""
   href=""
   tabindex="0"
   type="button"

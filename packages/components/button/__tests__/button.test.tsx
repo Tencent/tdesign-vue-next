@@ -103,6 +103,8 @@ describe('Button', () => {
       // true
       const wrapper2 = mount(<Button loading={true}>Text</Button>);
       expect(wrapper2.classes('t-is-loading')).toBeTruthy();
+      expect(wrapper2.attributes('disabled')).toBeUndefined();
+      expect(wrapper2.attributes('aria-disabled')).toBe('true');
       expect(wrapper2.element).toMatchSnapshot();
 
       // false
@@ -304,6 +306,55 @@ describe('Button', () => {
       expect(fn).toHaveBeenCalled();
       expect(fn.mock.calls[0][0].stopPropagation).toBeTruthy();
       expect(fn.mock.calls[0][0].type).toBe('click');
+    });
+
+    it('does not activate while loading', () => {
+      const onClick = vi.fn();
+      const onParentClick = vi.fn();
+      const wrapper = mount(() => (
+        <div onClick={onParentClick}>
+          <Button loading onClick={onClick} href="#target">
+            Text
+          </Button>
+        </div>
+      ));
+      const event = new MouseEvent('click', { bubbles: true, cancelable: true });
+
+      wrapper.find('a').element.dispatchEvent(event);
+
+      expect(event.defaultPrevented).toBeTruthy();
+      expect(onClick).not.toHaveBeenCalled();
+      expect(onParentClick).not.toHaveBeenCalled();
+    });
+
+    it('does not submit a form while loading', () => {
+      const onSubmit = vi.fn((event: SubmitEvent) => event.preventDefault());
+      const wrapper = mount(
+        () => (
+          <form onSubmit={onSubmit}>
+            <Button loading type="submit">
+              Text
+            </Button>
+          </form>
+        ),
+        { attachTo: document.body },
+      );
+
+      wrapper.find('button').element.click();
+
+      expect(onSubmit).not.toHaveBeenCalled();
+      wrapper.unmount();
+    });
+
+    it('keeps focus when entering loading state', async () => {
+      const wrapper = mount(<Button>Text</Button>, { attachTo: document.body });
+      const button = wrapper.find('button').element;
+      button.focus();
+
+      await wrapper.setProps({ loading: true });
+
+      expect(document.activeElement).toBe(button);
+      wrapper.unmount();
     });
   });
 });
