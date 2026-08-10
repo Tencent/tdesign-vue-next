@@ -26,13 +26,9 @@ export default defineComponent({
 
     const isDisabled = useDisabled();
 
-    const handleClick = (event: MouseEvent) => {
-      if (isDisabled.value || props.loading) {
-        event.preventDefault();
-        event.stopPropagation();
-        return;
-      }
-      props.onClick?.(event);
+    const handleLoadingClick = (event: MouseEvent) => {
+      event.preventDefault();
+      event.stopPropagation();
     };
 
     const mergeTheme = computed(() => {
@@ -98,7 +94,7 @@ export default defineComponent({
           ref: btnRef,
           ...attrs,
           ...buttonAttrs,
-          onClick: handleClick,
+          onClick: props.loading ? handleLoadingClick : props.onClick,
         },
         [buttonContent],
       );

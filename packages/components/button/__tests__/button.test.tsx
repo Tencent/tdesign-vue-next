@@ -308,6 +308,21 @@ describe('Button', () => {
       expect(fn.mock.calls[0][0].type).toBe('click');
     });
 
+    it('keeps normal link activation unchanged', () => {
+      const onClick = vi.fn();
+      const wrapper = mount(
+        <Button onClick={onClick} href="#target">
+          Text
+        </Button>,
+      );
+      const event = new MouseEvent('click', { bubbles: true, cancelable: true });
+
+      wrapper.find('a').element.dispatchEvent(event);
+
+      expect(event.defaultPrevented).toBeFalsy();
+      expect(onClick).toHaveBeenCalledOnce();
+    });
+
     it('does not activate while loading', () => {
       const onClick = vi.fn();
       const onParentClick = vi.fn();
