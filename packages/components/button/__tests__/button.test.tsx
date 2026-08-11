@@ -62,6 +62,25 @@ describe('Button', () => {
       expect(wrapper3.element).toMatchSnapshot();
     });
 
+    it('renders disabled state correctly for non-button tags', () => {
+      const anchor = mount(
+        <Button tag="a" href="#target" disabled>
+          Text
+        </Button>,
+      );
+      const div = mount(
+        <Button tag="div" disabled>
+          Text
+        </Button>,
+      );
+
+      [anchor, div].forEach((wrapper) => {
+        expect(wrapper.attributes('disabled')).toBeUndefined();
+        expect(wrapper.attributes('aria-disabled')).toBe('true');
+        expect(wrapper.attributes('tabindex')).toBe('-1');
+      });
+    });
+
     it(':ghost[boolean]', () => {
       // default
       const wrapper1 = mount(<Button>Text</Button>);
@@ -329,6 +348,25 @@ describe('Button', () => {
       const wrapper = mount(() => (
         <div onClick={onParentClick}>
           <Button loading onClick={onClick} href="#target">
+            Text
+          </Button>
+        </div>
+      ));
+      const event = new MouseEvent('click', { bubbles: true, cancelable: true });
+
+      wrapper.find('a').element.dispatchEvent(event);
+
+      expect(event.defaultPrevented).toBeTruthy();
+      expect(onClick).not.toHaveBeenCalled();
+      expect(onParentClick).not.toHaveBeenCalled();
+    });
+
+    it('does not activate when disabled on a non-button tag', () => {
+      const onClick = vi.fn();
+      const onParentClick = vi.fn();
+      const wrapper = mount(() => (
+        <div onClick={onParentClick}>
+          <Button tag="a" disabled onClick={onClick} href="#target">
             Text
           </Button>
         </div>

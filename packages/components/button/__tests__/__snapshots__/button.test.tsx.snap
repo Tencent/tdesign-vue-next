@@ -191,7 +191,6 @@ exports[`Button > props > :ghost[boolean] 2`] = `
 exports[`Button > props > :href[string] 1`] = `
 <a
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
-  disabled="false"
   href="https://tdesign.tencent.com/"
   tabindex="0"
   type="button"
@@ -515,7 +514,6 @@ exports[`Button > props > :tag[button/a/div] 1`] = `
 exports[`Button > props > :tag[button/a/div] 2`] = `
 <a
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
-  disabled="false"
   href=""
   tabindex="0"
   type="button"
@@ -533,7 +531,6 @@ exports[`Button > props > :tag[button/a/div] 2`] = `
 exports[`Button > props > :tag[button/a/div] 3`] = `
 <div
   class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
-  disabled="false"
   href=""
   tabindex="0"
   type="button"

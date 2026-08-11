@@ -26,7 +26,7 @@ export default defineComponent({
 
     const isDisabled = useDisabled();
 
-    const handleLoadingClick = (event: MouseEvent) => {
+    const handleDisabledClick = (event: MouseEvent) => {
       event.preventDefault();
       event.stopPropagation();
     };
@@ -78,23 +78,26 @@ export default defineComponent({
         return props.tag || 'button';
       };
 
+      const tag = renderTag();
+      const isNativeButton = tag === 'button';
+
       const buttonAttrs = {
         class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
         type: props.type,
-        disabled: isDisabled.value,
-        'aria-disabled': props.loading || undefined,
+        disabled: isNativeButton ? isDisabled.value : undefined,
+        'aria-disabled': props.loading || (!isNativeButton && isDisabled.value) || undefined,
         href: props.href,
-        tabindex: isDisabled.value ? undefined : '0',
+        tabindex: isDisabled.value ? (isNativeButton ? undefined : '-1') : '0',
         form: props.form, // 原生属性，声明后需要显式透传
       };
 
       return h(
-        renderTag(),
+        tag,
         {
           ref: btnRef,
           ...attrs,
           ...buttonAttrs,
-          onClick: props.loading ? handleLoadingClick : props.onClick,
+          onClick: isDisabled.value || props.loading ? handleDisabledClick : props.onClick,
         },
         [buttonContent],
       );
