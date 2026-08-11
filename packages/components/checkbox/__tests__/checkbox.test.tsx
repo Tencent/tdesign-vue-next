@@ -51,6 +51,15 @@ describe('Checkbox', () => {
       const input = wrapper.find('.t-checkbox input');
       expect(input.element.getAttribute('name')).toBe('name');
     });
+
+    it('does not throw when keyboard interaction happens before lazy content mounts', async () => {
+      const wrapper = mount(() => <Checkbox lazyLoad label="label" />);
+      const label = wrapper.get('label');
+      const input = label.element.querySelector('input');
+      input?.remove();
+
+      await expect(label.trigger('keydown', { key: 'Enter' })).resolves.toBeUndefined();
+    });
   });
   describe(': events', () => {
     it(':onChange', async () => {

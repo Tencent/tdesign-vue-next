@@ -5,8 +5,10 @@ export function useKeyboardEvent(handleChange: (e: Event) => void) {
     const isCheckedCode = CHECKED_CODE_REG.test(e.key) || CHECKED_CODE_REG.test(e.code);
     if (isCheckedCode) {
       e.preventDefault();
-      const { disabled } = (e.currentTarget as HTMLElement).querySelector('input');
-      !disabled && handleChange(e);
+      const input = (e.currentTarget as HTMLElement).querySelector('input');
+      if (input && !input.disabled) {
+        handleChange(e);
+      }
     }
   };
 
