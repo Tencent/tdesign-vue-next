@@ -4,8 +4,18 @@ import observe from '@tdesign/common-js/utils/observe';
 export function useCheckboxLazyLoad(labelRef: Ref<HTMLElement>, lazyLoad: Ref<boolean>) {
   const ioObserver = ref<IntersectionObserver>();
   const showCheckbox = ref(true);
+  const clearObserver = () => {
+    if (ioObserver.value && labelRef.value) {
+      ioObserver.value.unobserve(labelRef.value);
+    }
+    ioObserver.value = undefined;
+  };
   const handleLazyLoad = () => {
-    if (!lazyLoad.value) return;
+    clearObserver();
+    if (!lazyLoad.value) {
+      showCheckbox.value = true;
+      return;
+    }
     showCheckbox.value = false;
     const io = observe(
       labelRef.value,
@@ -22,10 +32,7 @@ export function useCheckboxLazyLoad(labelRef: Ref<HTMLElement>, lazyLoad: Ref<bo
 
   watch([lazyLoad, labelRef], handleLazyLoad);
 
-  onBeforeUnmount(() => {
-    if (!lazyLoad.value) return;
-    ioObserver.value.unobserve(labelRef.value);
-  });
+  onBeforeUnmount(clearObserver);
 
   return {
     showCheckbox,
