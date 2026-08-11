@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
+import { h } from 'vue';
 import { Comment } from '@tdesign/components/comment';
 
 describe('Comment', () => {
@@ -145,6 +146,24 @@ describe('Comment', () => {
       const wrapper2 = mount(<Comment />);
       expect(wrapper2.find('.t-comment__actions').exists()).toBe(false);
       wrapper2.unmount();
+    });
+
+    it(':actions[prop TNode array]', () => {
+      const wrapper = mount(Comment, {
+        props: {
+          actions: [
+            () => [h('i', { class: 'like-icon' }), h('span', '6')],
+            () => [h('i', { class: 'reply-icon' }), h('span', '回复')],
+          ],
+        },
+      });
+      const buttons = wrapper.findAll('.t-comment__actions .t-button');
+      expect(buttons.length).toBe(2);
+      expect(buttons[0].find('.t-button__text').element.children.length).toBe(2);
+      expect(buttons[0].find('.t-button__text').text()).toBe('6');
+      expect(buttons[1].find('.t-button__text').element.children.length).toBe(2);
+      expect(buttons[1].find('.t-button__text').text()).toBe('回复');
+      wrapper.unmount();
     });
 
     it(':reply[string]', () => {

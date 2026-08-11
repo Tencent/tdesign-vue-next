@@ -4,16 +4,13 @@
     author="评论作者名"
     datetime="今天16:38"
     content="这里是评论者写的评论内容。"
-  >
-    <template #actions>
-      <t-space key="thumbUp" :size="6">
-        <t-icon name="thumb-up" />
-        <span>6</span>
-      </t-space>
-      <t-space key="chat" :size="6">
-        <t-icon name="chat" />
-        <span>回复</span>
-      </t-space>
-    </template>
-  </t-comment>
+    :actions="actions"
+  />
 </template>
+
+<script setup lang="tsx">
+import { h } from 'vue';
+import { ChatIcon, ThumbUpIcon } from 'tdesign-icons-vue-next';
+
+const actions = [() => [h(ThumbUpIcon), h('span', '6')], () => [h(ChatIcon), h('span', '回复')]];
+</script>
