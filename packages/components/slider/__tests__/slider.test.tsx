@@ -233,7 +233,7 @@ describe('Slider', () => {
     });
 
     it(':tooltipProps[object]', async () => {
-      const tooltipProps = { placement: 'bottom', theme: 'light' };
+      const tooltipProps = { placement: 'bottom' as const, theme: 'light' as const };
       const wrapper = mount(<Slider modelValue={50} tooltipProps={tooltipProps} />);
       await nextTick();
       const tooltip = wrapper.findComponent({ name: 'TTooltip' });

@@ -1,4 +1,4 @@
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
 import { omit } from 'lodash-es';
 
@@ -16,7 +16,7 @@ import { useSingleValue } from './useSingleValue';
 
 export function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
-  const disabled = useDisabled();
+  const disabled = useDisabled() as ComputedRef<boolean>;
 
   const inputRef = ref();
   const isReadOnly = useReadonly();

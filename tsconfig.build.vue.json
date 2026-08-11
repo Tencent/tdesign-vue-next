@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "globals.d.ts",
+    "jsx.d.ts",
+    "packages/common/**/*.ts",
+    "packages/components/**/*.ts",
+    "packages/components/**/*.tsx",
+    "packages/shared/**/*.ts",
+    "packages/shared/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "lib",
+    "cjs",
+    "esm",
+    "es",
+    "vue-next",
+    "vue-next-chat",
+    "**/__tests__/**",
+    "**/_example/**"
+  ]
+}

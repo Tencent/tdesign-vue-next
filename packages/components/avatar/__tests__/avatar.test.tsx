@@ -13,7 +13,7 @@ describe('Avatar', () => {
   describe('props', () => {
     let wrapper: VueWrapper<InstanceType<typeof Avatar>> | null = null;
     beforeEach(() => {
-      wrapper = mount(<Avatar>Avatar</Avatar>) as VueWrapper<InstanceType<typeof Avatar>>;
+      wrapper = mount(<Avatar>Avatar</Avatar>) as unknown as VueWrapper<InstanceType<typeof Avatar>>;
     });
 
     it(':alt[string]', () => {

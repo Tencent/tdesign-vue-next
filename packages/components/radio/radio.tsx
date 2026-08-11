@@ -1,4 +1,5 @@
 import { defineComponent, inject, toRefs, computed, ref, ComputedRef } from 'vue';
+import type { InputHTMLAttributes } from 'vue';
 import {
   useVModel,
   useContent,
@@ -57,17 +58,15 @@ export default defineComponent({
 
     const inputEvents = computed(() =>
       getValidAttrs({
-        focus: attrs.onFocus,
-        blur: attrs.onBlur,
-        keydown: attrs.onKeydown,
-        keyup: attrs.onKeyup,
-        keypresss: attrs.onKeypresss,
+        onFocus: attrs.onFocus as InputHTMLAttributes['onFocus'],
+        onBlur: attrs.onBlur as InputHTMLAttributes['onBlur'],
+        onKeydown: attrs.onKeydown as InputHTMLAttributes['onKeydown'],
+        onKeyup: attrs.onKeyup as InputHTMLAttributes['onKeyup'],
+        onKeypress: attrs.onKeypress as InputHTMLAttributes['onKeypress'],
       }),
     );
     const wrapperAttrs = computed(() => {
-      const events = [...Object.keys(inputEvents.value), 'input', 'change'].map(
-        (str) => `on${str[0].toUpperCase()}${str.slice(1)}`,
-      );
+      const events = [...Object.keys(inputEvents.value), 'onInput', 'onChange'];
       return omit(attrs, events);
     });
     /** Event END */

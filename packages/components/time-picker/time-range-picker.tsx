@@ -4,7 +4,7 @@ import { isArray } from 'lodash-es';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
-import { RangeInputPopup, RangeInputPosition } from '../range-input';
+import { RangeInputPopup, RangeInputPosition, RangeInputProps } from '../range-input';
 import TimePickerPanel from './panel/time-picker-panel';
 
 import { TIME_PICKER_EMPTY } from '@tdesign/common-js/time-picker/const';
@@ -184,19 +184,21 @@ export default defineComponent({
           }}
           onInputChange={handleInputChange}
           inputValue={isShowPanel.value ? currentValue.value : innerValue.value ?? TIME_PICKER_EMPTY}
-          rangeInputProps={{
-            size: props.size,
-            clearable: props.clearable,
-            class: inputClasses.value,
-            value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
-            placeholder: props.placeholder || [globalConfig.value.placeholder, globalConfig.value.placeholder],
-            borderless: props.borderless,
-            prefixIcon: () => renderTNodeJSX('prefixIcon'),
-            suffixIcon: () => renderTNodeJSX('suffixIcon') || <TimeIcon />,
-            readonly: isReadOnly.value || !allowInput.value,
-            activeIndex: currentPanelIdx.value,
-            ...rangeInputEvents.value,
-          }}
+          rangeInputProps={
+            {
+              size: props.size,
+              clearable: props.clearable,
+              class: inputClasses.value,
+              value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
+              placeholder: props.placeholder || [globalConfig.value.placeholder, globalConfig.value.placeholder],
+              borderless: props.borderless,
+              prefixIcon: () => renderTNodeJSX('prefixIcon'),
+              suffixIcon: () => renderTNodeJSX('suffixIcon') || <TimeIcon />,
+              readonly: isReadOnly.value || !allowInput.value,
+              activeIndex: currentPanelIdx.value,
+              ...rangeInputEvents.value,
+            } as RangeInputProps & { class?: unknown }
+          }
           label={props.label}
           status={props.status}
           tips={props.tips}

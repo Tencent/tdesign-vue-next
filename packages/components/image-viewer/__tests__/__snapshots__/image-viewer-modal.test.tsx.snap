@@ -113,11 +113,41 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                     viewBox="0 0 24 24"
                     width="1em"
                   >
+                    <defs>
+                      <mask
+                        height="24"
+                        id="t-icon-mirror-instance-v1-overlap-fill1"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <g>
+                          <path
+                            d="M8 8.5V17.5H3L8 8.5Z M16 8.5V17.5H21L16 8.5Z"
+                            fill="none"
+                            stroke="#000"
+                            stroke-linecap="square"
+                            stroke-width="2"
+                          />
+                        </g>
+                      </mask>
+                    </defs>
                     <g
                       id="mirror"
                     >
                       <g
                         id="fill1"
+                        mask="url(#t-icon-mirror-instance-v1-overlap-fill1)"
                       >
                         <path
                           d="M8 8.5V17.5H3L8 8.5Z"
@@ -139,13 +169,7 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                         id="stroke1"
                       >
                         <path
-                          d="M8 8.5V17.5H3L8 8.5Z"
-                          stroke="currentColor"
-                          stroke-linecap="square"
-                          stroke-width="2"
-                        />
-                        <path
-                          d="M16 8.5V17.5H21L16 8.5Z"
+                          d="M8 8.5V17.5H3L8 8.5Z M16 8.5V17.5H21L16 8.5Z"
                           stroke="currentColor"
                           stroke-linecap="square"
                           stroke-width="2"
@@ -196,6 +220,40 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                     viewBox="0 0 24 24"
                     width="1em"
                   >
+                    <defs>
+                      <mask
+                        height="24"
+                        id="t-icon-zoom-out-instance-v3-overlap-fill1"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <path
+                          d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
+                          fill="none"
+                          stroke="#000"
+                          stroke-linecap="square"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M7.5 10.5H10.5L13.5 10.5"
+                          fill="none"
+                          stroke="#000"
+                          stroke-linecap="square"
+                          stroke-width="2"
+                        />
+                      </mask>
+                    </defs>
                     <g
                       id="zoom-out"
                     >
@@ -203,6 +261,7 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033Z"
                         fill="transparent"
                         id="fill1"
+                        mask="url(#t-icon-zoom-out-instance-v3-overlap-fill1)"
                       />
                       <path
                         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
@@ -243,6 +302,40 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                     viewBox="0 0 24 24"
                     width="1em"
                   >
+                    <defs>
+                      <mask
+                        height="24"
+                        id="t-icon-zoom-in-instance-v4-overlap-fill1"
+                        mask-type="luminance"
+                        maskContentUnits="userSpaceOnUse"
+                        maskUnits="userSpaceOnUse"
+                        width="24"
+                        x="0"
+                        y="0"
+                      >
+                        <rect
+                          fill="#fff"
+                          height="24"
+                          width="24"
+                          x="0"
+                          y="0"
+                        />
+                        <path
+                          d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
+                          fill="none"
+                          stroke="#000"
+                          stroke-linecap="square"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M10.5 13.5V10.5M10.5 10.5L10.5 7.5M10.5 10.5H7.5M10.5 10.5H13.5"
+                          fill="none"
+                          stroke="#000"
+                          stroke-linecap="square"
+                          stroke-width="2"
+                        />
+                      </mask>
+                    </defs>
                     <g
                       id="zoom-in"
                     >
@@ -250,6 +343,7 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033Z"
                         fill="transparent"
                         id="fill1"
+                        mask="url(#t-icon-zoom-in-instance-v4-overlap-fill1)"
                       />
                       <path
                         d="M15.8033 15.8033C12.8744 18.7322 8.12563 18.7322 5.1967 15.8033C2.26777 12.8744 2.26777 8.12563 5.1967 5.1967C8.12563 2.26777 12.8744 2.26777 15.8033 5.1967C18.7322 8.12563 18.7322 12.8744 15.8033 15.8033ZM15.8033 15.8033L21.1066 21.1066"
@@ -284,6 +378,58 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                       viewBox="0 0 24 24"
                       width="1em"
                     >
+                      <defs>
+                        <mask
+                          height="24"
+                          id="t-icon-image-instance-v5-overlap-fill1"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <path
+                            d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                        </mask>
+                        <mask
+                          height="24"
+                          id="t-icon-image-instance-v5-overlap-fill2"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <circle
+                            cx="15.75"
+                            cy="8.25"
+                            fill="none"
+                            r="2"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                        </mask>
+                      </defs>
                       <g
                         id="image"
                       >
@@ -291,12 +437,14 @@ exports[`ImageViewerModal > props > :visible[boolean] 1`] = `
                           d="M3 21H20L9 10L3 16V21Z"
                           fill="transparent"
                           id="fill1"
+                          mask="url(#t-icon-image-instance-v5-overlap-fill1)"
                         />
                         <circle
                           cx="15.75"
                           cy="8.25"
                           fill="transparent"
                           id="fill2"
+                          mask="url(#t-icon-image-instance-v5-overlap-fill2)"
                           r="2"
                         />
                         <path

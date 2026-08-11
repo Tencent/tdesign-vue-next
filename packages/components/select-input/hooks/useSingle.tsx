@@ -52,7 +52,7 @@ function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputPr
 }
 
 export function useSingle(
-  props: TdSelectInputProps & { valueDisplayOptions: SelectInputValueDisplayOptions },
+  props: TdSelectInputProps & { valueDisplayOptions?: SelectInputValueDisplayOptions },
   context: SetupContext,
   popupRef: Ref<PopupInstanceFunctions>,
 ) {

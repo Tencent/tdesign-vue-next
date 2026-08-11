@@ -44,9 +44,9 @@ describe('Watermark Hooks', () => {
     it('should return true when having a scope', () => {
       const spy = vi.fn();
       const scope = new EffectScope();
-      // @ts-expect-error for mocking effect scope
-      scope.on();
-      expect(tryOnScopeDispose(spy)).toBe(true);
+      scope.run(() => {
+        expect(tryOnScopeDispose(spy)).toBe(true);
+      });
       scope.stop();
       expect(spy).toBeCalled();
     });
@@ -108,9 +108,9 @@ describe('Watermark Hooks', () => {
     it('stop should be called when scope is disposed', () => {
       const callback = vi.fn();
       const scope = new EffectScope();
-      // @ts-expect-error for mocking effect scope
-      scope.on();
-      useMutationObserver(document.body, callback);
+      scope.run(() => {
+        useMutationObserver(document.body, callback);
+      });
       scope.stop();
       expect(disconnectFn).toBeCalled();
     });

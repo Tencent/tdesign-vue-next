@@ -13,7 +13,7 @@ describe('Space', () => {
           <Button>Button 1</Button>
           <Button>Button 2</Button>
         </Space>,
-      ) as VueWrapper<InstanceType<typeof Space>>;
+      ) as unknown as VueWrapper<InstanceType<typeof Space>>;
     });
 
     it(':align', async () => {

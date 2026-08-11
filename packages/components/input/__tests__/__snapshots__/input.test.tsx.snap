@@ -12,6 +12,7 @@ exports[`Input > props > :align[string] 1`] = `
     spellcheck="false"
     type="text"
     unselectable="off"
+    value=""
   />
   <!---->
   <!---->
@@ -43,6 +44,7 @@ exports[`Input > props > :label[TNode] 1`] = `
       spellcheck="false"
       type="text"
       unselectable="off"
+      value=""
     />
     <!---->
     <!---->
@@ -78,6 +80,7 @@ exports[`Input > props > :label[slot] 1`] = `
       spellcheck="false"
       type="text"
       unselectable="off"
+      value=""
     />
     <!---->
     <!---->
@@ -100,6 +103,7 @@ exports[`Input > props > :status[string] 1`] = `
     spellcheck="false"
     type="text"
     unselectable="off"
+    value=""
   />
   <!---->
   <!---->
@@ -123,6 +127,7 @@ exports[`Input > props > :suffix[TNode] 1`] = `
       spellcheck="false"
       type="text"
       unselectable="off"
+      value=""
     />
     <!---->
     <div
@@ -157,6 +162,7 @@ exports[`Input > props > :suffix[slot] 1`] = `
       spellcheck="false"
       type="text"
       unselectable="off"
+      value=""
     />
     <!---->
     <div
@@ -193,6 +199,7 @@ exports[`Input > props > :suffixIcon[TNode] 1`] = `
       spellcheck="false"
       type="text"
       unselectable="off"
+      value=""
     />
     <!---->
     <!---->
@@ -226,6 +233,7 @@ exports[`Input > props > :suffixIcon[slot suffix-icon] 1`] = `
       spellcheck="false"
       type="text"
       unselectable="off"
+      value=""
     />
     <!---->
     <!---->
@@ -261,6 +269,7 @@ exports[`Input > props > :suffixIcon[slot] 1`] = `
       spellcheck="false"
       type="text"
       unselectable="off"
+      value=""
     />
     <!---->
     <!---->

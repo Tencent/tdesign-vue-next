@@ -7,6 +7,7 @@ import useClassName from './useClassName';
 import { TNodeReturnValue } from '../../common';
 import { BaseTableColumns } from '../types';
 import TEllipsis from '../components/ellipsis';
+import type { TooltipProps } from '../../tooltip';
 
 // 渲染表头的通用方法
 export function renderTitle(slots: SetupContext['slots'], col: BaseTableColumns[0], index: number) {
@@ -53,7 +54,17 @@ export default function useTableHeader(props: TdBaseTableProps) {
       [tableSortClasses.sortable]: sortIcon,
       [tableFilterClasses.filterable]: filterIcon,
     };
-    const content = isFunction(ellipsisTitle) ? ellipsisTitle(h, { col, colIndex }) : undefined;
+    const ellipsisTitleConfig =
+      ellipsisTitle && typeof ellipsisTitle === 'object' && 'props' in ellipsisTitle && 'content' in ellipsisTitle
+        ? ellipsisTitle
+        : undefined;
+    const content = ellipsisTitleConfig
+      ? ellipsisTitleConfig.content(h, { col, colIndex })
+      : isFunction(ellipsisTitle)
+      ? ellipsisTitle(h, { col, colIndex })
+      : undefined;
+    const tooltipProps =
+      ellipsisTitleConfig?.props ?? (typeof ellipsisTitle === 'object' ? (ellipsisTitle as TooltipProps) : undefined);
     const isEllipsis = ellipsisTitle !== undefined ? Boolean(ellipsisTitle) : Boolean(col.ellipsis);
     return (
       <div class={classes}>
@@ -63,7 +74,7 @@ export default function useTableHeader(props: TdBaseTableProps) {
               placement="bottom"
               attach={props.attach || (attach ? () => attach : undefined)}
               tooltipContent={content && (() => content)}
-              tooltipProps={typeof ellipsisTitle === 'object' ? ellipsisTitle : undefined}
+              tooltipProps={tooltipProps}
               classPrefix={extra?.classPrefix}
               overlayClassName={extra?.ellipsisOverlayClassName}
             >

@@ -4,7 +4,7 @@ import { DragSortProps, DragSortInnerProps } from '../types';
 export function useDragSorter<T>(props: DragSortProps<T>): DragSortInnerProps {
   const { sortOnDraggable, onDragSort, onDragOverCheck } = props;
   const draggingIndex = ref(-1);
-  const dragStartData = ref(null);
+  const dragStartData = ref<T>();
   const isDropped = ref(null);
   const startInfo = reactive({ nodeX: 0, nodeWidth: 0, mouseX: 0 });
 
@@ -36,7 +36,7 @@ export function useDragSorter<T>(props: DragSortProps<T>): DragSortInnerProps {
 
     onDragSort?.({
       currentIndex: draggingIndex.value,
-      current: dragStartData,
+      current: dragStartData.value,
       target: record,
       targetIndex: index,
     });
@@ -70,7 +70,7 @@ export function useDragSorter<T>(props: DragSortProps<T>): DragSortInnerProps {
     }
     isDropped.value = false;
     draggingIndex.value = -1;
-    dragStartData.value = null;
+    dragStartData.value = undefined;
   }
 
   function getDragProps(index: number, record: T) {

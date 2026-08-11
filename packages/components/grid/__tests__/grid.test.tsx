@@ -24,7 +24,7 @@ describe('Row', () => {
             <div>col-3</div>
           </Col>
         </Row>,
-      ) as VueWrapper<InstanceType<typeof Row>>;
+      ) as unknown as VueWrapper<InstanceType<typeof Row>>;
     });
 
     afterEach(() => {
