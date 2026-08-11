@@ -81,7 +81,9 @@ export default defineComponent({
               expanded.push(value);
             }
           } else if (type === 'remove') {
-            expanded.splice(index, 1);
+            if (index !== -1) {
+              expanded.splice(index, 1);
+            }
           }
         } else if (mode.value === 'normal' && value !== undefined) {
           expanded.splice(0, 1);
