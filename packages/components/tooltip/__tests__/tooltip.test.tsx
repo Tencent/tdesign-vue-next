@@ -5,9 +5,7 @@ import type { TooltipProps } from '@tdesign/components/tooltip';
 import tooltipProps from '@tdesign/components/tooltip/props';
 import popupProps from '@tdesign/components/popup/props';
 import type { PopupVisibleChangeContext } from '@tdesign/components/popup';
-import { createTooltipTestHarness } from './mount';
-
-const {
+import {
   cleanup,
   getPopupStub,
   getVisibleChange,
@@ -15,7 +13,7 @@ const {
   renderTooltip,
   renderTooltipWithPopupStub,
   waitForPopupRender,
-} = createTooltipTestHarness();
+} from './mount';
 
 describe('Tooltip', () => {
   afterEach(() => {
