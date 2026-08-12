@@ -1,6 +1,7 @@
 import { createApp, nextTick } from 'vue';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { NotifyPlugin } from '@tdesign/components/notification';
+import { sleep } from '@tdesign/internal-utils';
 
 const animationMocks = vi.hoisted(() => ({
   fadeIn: vi.fn(),
@@ -19,11 +20,6 @@ const createAttach = (id?: string) => {
   document.body.appendChild(element);
   attachNodes.push(element);
   return element;
-};
-
-const flushPlugin = async () => {
-  await Promise.resolve();
-  await nextTick();
 };
 
 describe('NotifyPlugin', () => {
@@ -70,7 +66,7 @@ describe('NotifyPlugin', () => {
       await notification;
 
       NotifyPlugin.close(notification);
-      await flushPlugin();
+      await sleep(0);
       expect(attach.querySelector('.t-notification')).toBeNull();
     });
 
