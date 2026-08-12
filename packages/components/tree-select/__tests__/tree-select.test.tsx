@@ -1,99 +1,27 @@
-import { nextTick, type VNode } from 'vue';
+import { nextTick } from 'vue';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { mount, type VueWrapper } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 
 import { Form } from '@tdesign/components';
 import FakeArrow from '@tdesign/components/common-components/fake-arrow';
-import SelectInput from '@tdesign/components/select-input';
-import Tree, { type TreeNodeModel } from '@tdesign/components/tree';
-import TreeSelect, { type TreeSelectProps } from '@tdesign/components/tree-select';
+import { type TreeNodeModel } from '@tdesign/components/tree';
+import TreeSelect from '@tdesign/components/tree-select';
 import treeSelectProps from '@tdesign/components/tree-select/props';
+import {
+  aliasData,
+  createNode,
+  createTreeSelectTestHarness,
+  data,
+  getSelectInput,
+  getSelectInputHandler,
+  getTree,
+  getTreeHandler,
+} from './mount';
 
-const data = [
-  {
-    label: '广东省',
-    value: 'guangdong',
-    children: [
-      { label: '广州市', value: 'guangzhou' },
-      { label: '深圳市', value: 'shenzhen' },
-    ],
-  },
-  {
-    label: '江苏省',
-    value: 'jiangsu',
-    children: [
-      { label: '南京市', value: 'nanjing' },
-      { label: '苏州市', value: 'suzhou' },
-    ],
-  },
-];
-
-const aliasData = [
-  {
-    name: '广东省',
-    id: 'guangdong',
-    list: [
-      { name: '广州市', id: 'guangzhou' },
-      { name: '深圳市', id: 'shenzhen' },
-    ],
-  },
-];
-
-const wrappers: VueWrapper[] = [];
-type TestSlots = Record<string, (...args: unknown[]) => VNode>;
-
-const renderTreeSelect = (props: TreeSelectProps = {}, slots: TestSlots = {}) => {
-  const wrapper = mount(TreeSelect, {
-    attachTo: document.body,
-    props: {
-      data,
-      ...props,
-    },
-    slots,
-  });
-  wrappers.push(wrapper);
-  return wrapper;
-};
-
-const flushPopup = async () => {
-  await nextTick();
-  await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
-  await nextTick();
-};
-
-const renderOpenTreeSelect = async (props: TreeSelectProps = {}, slots: TestSlots = {}) => {
-  const wrapper = renderTreeSelect({ popupVisible: true, ...props }, slots);
-  await flushPopup();
-  return wrapper;
-};
-
-const getSelectInput = (wrapper: VueWrapper) => wrapper.findComponent(SelectInput);
-const getTree = (wrapper: VueWrapper) => wrapper.findComponent(Tree);
-
-const getSelectInputHandler = (wrapper: VueWrapper, name: string) =>
-  (getSelectInput(wrapper).props() as Record<string, unknown>)[name] as (...args: unknown[]) => unknown;
-
-const getTreeHandler = (wrapper: VueWrapper, name: string) =>
-  (getTree(wrapper).props() as Record<string, unknown>)[name] as (...args: unknown[]) => unknown;
-
-const createNode = (
-  overrides: Partial<{
-    actived: boolean;
-    checked: boolean;
-    data: Record<string, unknown>;
-    getIndex: () => number;
-  }> = {},
-) =>
-  ({
-    actived: true,
-    checked: true,
-    data: { label: '深圳市', value: 'shenzhen' },
-    getIndex: () => 1,
-    ...overrides,
-  } as unknown as TreeNodeModel);
+const { cleanup, renderOpenTreeSelect, renderTreeSelect, trackWrapper } = createTreeSelectTestHarness();
 
 afterEach(() => {
-  wrappers.splice(0).forEach((wrapper) => wrapper.unmount());
+  cleanup();
   document.body.innerHTML = '';
   vi.restoreAllMocks();
 });
@@ -157,7 +85,7 @@ describe('TreeSelect', () => {
         </Form>,
         { attachTo: document.body },
       );
-      wrappers.push(wrapper);
+      trackWrapper(wrapper);
 
       const treeSelect = wrapper.findComponent(TreeSelect);
       expect(getSelectInput(treeSelect).props('disabled')).toBe(true);
