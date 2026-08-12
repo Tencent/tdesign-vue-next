@@ -7,7 +7,7 @@ import Submenu from '../submenu';
 import type { TdSubmenuProps } from '../type';
 import type { TdMenuInterface, TdSubMenuInterface } from '../types';
 
-import { createMenuContext as createMenu } from './helpers';
+import { createMenuContext as createMenu } from './mount';
 
 const popupStubProps = {
   overlayClassName: [String, Array],

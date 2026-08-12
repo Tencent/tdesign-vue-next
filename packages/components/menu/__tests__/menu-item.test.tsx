@@ -7,7 +7,7 @@ import menuItemProps from '../menu-item-props';
 import type { TdMenuItemProps } from '../type';
 import type { TdMenuInterface, TdSubMenuInterface } from '../types';
 
-import { createMenuContext as createContext } from './helpers';
+import { createMenuContext as createContext } from './mount';
 
 const mountItem = (
   props: TdMenuItemProps = {},
