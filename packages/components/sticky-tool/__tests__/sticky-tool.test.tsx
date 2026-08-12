@@ -7,13 +7,9 @@ import Popup from '@tdesign/components/popup';
 import { StickyItem, StickyTool } from '@tdesign/components/sticky-tool';
 import stickyToolProps from '@tdesign/components/sticky-tool/props';
 
-const DEFAULT_ITEM = { label: 'Feedback', popup: 'Tell us what you think' };
+import { getVNodeText } from './helpers';
 
-const getVNodeText = (node: VNode) => {
-  if (typeof node.children === 'string') return node.children;
-  if (!Array.isArray(node.children)) return '';
-  return node.children.map((child) => (typeof child === 'string' ? child : (child as VNode).children)).join('');
-};
+const DEFAULT_ITEM = { label: 'Feedback', popup: 'Tell us what you think' };
 
 describe('StickyTool', () => {
   const wrappers: VueWrapper[] = [];
