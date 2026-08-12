@@ -7,7 +7,7 @@ import { Loading } from '@tdesign/components/loading';
 import CascaderItem from '@tdesign/components/cascader/components/Item';
 import type { CascaderOption } from '@tdesign/components/cascader/types';
 
-import { createCascaderContext as createContext, createCascaderStore } from './helpers';
+import { createCascaderContext as createContext, createCascaderStore } from './mount';
 
 const options: CascaderOption[] = [
   {

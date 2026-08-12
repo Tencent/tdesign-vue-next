@@ -7,7 +7,7 @@ import Popup from '@tdesign/components/popup';
 import { StickyItem } from '@tdesign/components/sticky-tool';
 import stickyItemProps from '@tdesign/components/sticky-tool/sticky-item-props';
 
-import { getVNodeText } from './helpers';
+import { getVNodeText } from './mount';
 
 type StickyItemMountProps = Partial<InstanceType<typeof StickyItem>['$props']>;
 

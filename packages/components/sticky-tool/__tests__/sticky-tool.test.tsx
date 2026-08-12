@@ -7,7 +7,7 @@ import Popup from '@tdesign/components/popup';
 import { StickyItem, StickyTool } from '@tdesign/components/sticky-tool';
 import stickyToolProps from '@tdesign/components/sticky-tool/props';
 
-import { getVNodeText } from './helpers';
+import { getVNodeText } from './mount';
 
 const DEFAULT_ITEM = { label: 'Feedback', popup: 'Tell us what you think' };
 

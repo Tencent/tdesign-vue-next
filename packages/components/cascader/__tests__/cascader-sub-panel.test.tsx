@@ -6,7 +6,7 @@ import TreeStore from '@tdesign/common-js/tree/tree-store';
 import CascaderSubPanel from '@tdesign/components/cascader/components/Panel';
 import type { CascaderContextType, CascaderOption, FilterValue, TreeNode } from '@tdesign/components/cascader/types';
 
-import { createCascaderContext, createCascaderStore } from './helpers';
+import { createCascaderContext, createCascaderStore } from './mount';
 
 const options: CascaderOption[] = [
   {
