@@ -6,7 +6,8 @@ import MenuItem from '../menu-item';
 import Submenu from '../submenu';
 import type { TdSubmenuProps } from '../type';
 import type { TdMenuInterface, TdSubMenuInterface } from '../types';
-import type { VMenu } from '../utils';
+
+import { createMenuContext as createMenu } from './helpers';
 
 const popupStubProps = {
   overlayClassName: [String, Array],
@@ -29,24 +30,6 @@ const PopupStub = defineComponent({
     );
   },
 });
-
-const createMenu = (overrides: Partial<TdMenuInterface> = {}) => {
-  const add = vi.fn();
-  const remove = vi.fn();
-  const menu: TdMenuInterface = {
-    activeValue: ref(),
-    activeValues: ref([]),
-    expandValues: ref([]),
-    isHead: false,
-    mode: ref('normal'),
-    open: vi.fn(),
-    select: vi.fn(),
-    theme: ref('light'),
-    vMenu: { add, remove } as unknown as VMenu,
-    ...overrides,
-  };
-  return { add, menu, remove };
-};
 
 type SubmenuTestProps = TdSubmenuProps & { expandType?: string };
 

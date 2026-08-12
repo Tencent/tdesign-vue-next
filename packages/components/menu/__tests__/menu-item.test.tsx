@@ -6,26 +6,8 @@ import MenuItem from '../menu-item';
 import menuItemProps from '../menu-item-props';
 import type { TdMenuItemProps } from '../type';
 import type { TdMenuInterface, TdSubMenuInterface } from '../types';
-import type { VMenu } from '../utils';
 
-const createContext = (overrides: Partial<TdMenuInterface> = {}) => {
-  const add = vi.fn();
-  const remove = vi.fn();
-  const menu: TdMenuInterface = {
-    activeValue: ref(),
-    activeValues: ref([]),
-    collapsed: ref(false),
-    expandValues: ref([]),
-    isHead: false,
-    mode: ref('normal'),
-    open: vi.fn(),
-    select: vi.fn(),
-    theme: ref('light'),
-    vMenu: { add, remove } as unknown as VMenu,
-    ...overrides,
-  };
-  return { add, menu, remove };
-};
+import { createMenuContext as createContext } from './helpers';
 
 const mountItem = (
   props: TdMenuItemProps = {},
