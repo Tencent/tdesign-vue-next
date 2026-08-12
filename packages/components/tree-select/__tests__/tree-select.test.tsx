@@ -5,7 +5,7 @@ import { mount } from '@vue/test-utils';
 import { Form } from '@tdesign/components';
 import FakeArrow from '@tdesign/components/common-components/fake-arrow';
 import { type TreeNodeModel } from '@tdesign/components/tree';
-import TreeSelect from '@tdesign/components/tree-select';
+import TreeSelect, { type TreeSelectProps } from '@tdesign/components/tree-select';
 import treeSelectProps from '@tdesign/components/tree-select/props';
 import {
   aliasData,
