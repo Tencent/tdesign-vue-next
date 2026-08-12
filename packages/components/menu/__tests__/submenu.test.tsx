@@ -1,4 +1,3 @@
-/* eslint-disable vue/one-component-per-file -- Submenu behavior scenarios use local test-only hosts and context probes. */
 import { mount } from '@vue/test-utils';
 import { defineComponent, inject, nextTick, provide, ref } from 'vue';
 
@@ -161,6 +160,7 @@ describe('Submenu', () => {
 
     it(':value[string] (nested indentation)', () => {
       const { menu } = createMenu();
+      // eslint-disable-next-line vue/one-component-per-file -- Local host verifies nested indentation through real injections.
       const Host = defineComponent({
         name: 'TMenu',
         setup() {
@@ -196,6 +196,7 @@ describe('Submenu', () => {
 
     it('mount (nested items)', () => {
       let childContext: TdSubMenuInterface | undefined;
+      // eslint-disable-next-line vue/one-component-per-file -- Local probe captures the nested submenu context.
       const ContextProbe = defineComponent({
         setup() {
           childContext = inject<TdSubMenuInterface>('TdSubmenu');
@@ -354,6 +355,7 @@ describe('Submenu', () => {
 
     it('popup context', async () => {
       let childContext: TdSubMenuInterface | undefined;
+      // eslint-disable-next-line vue/one-component-per-file -- Local probe exercises popup context callbacks.
       const ContextProbe = defineComponent({
         setup() {
           childContext = inject<TdSubMenuInterface>('TdSubmenu');
@@ -428,6 +430,7 @@ describe('Submenu', () => {
 
     it('popup (nested head menu)', async () => {
       const { menu } = createMenu({ isHead: true, mode: ref('popup') });
+      // eslint-disable-next-line vue/one-component-per-file -- Local host reproduces nested head-menu placement.
       const Host = defineComponent({
         name: 'THeadMenu',
         setup() {
@@ -455,6 +458,7 @@ describe('Submenu', () => {
     it('popup (nested side menu)', async () => {
       const closeParentPopup = vi.fn();
       const { menu } = createMenu({ mode: ref('popup') });
+      // eslint-disable-next-line vue/one-component-per-file -- Local host reproduces nested side-menu behavior.
       const Host = defineComponent({
         name: 'TMenu',
         setup() {

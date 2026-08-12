@@ -1,4 +1,3 @@
-/* eslint-disable vue/one-component-per-file -- HeadMenu scenarios intentionally colocate small test-only stubs and slot fixtures. */
 import { mount, type VueWrapper } from '@vue/test-utils';
 import { computed, defineComponent, Fragment, h, inject, nextTick, ref } from 'vue';
 
@@ -10,6 +9,7 @@ import Submenu from '../submenu';
 import type { TdMenuInterface } from '../types';
 import { HeadMenuContextProbe } from './mount';
 
+// eslint-disable-next-line vue/one-component-per-file -- HeadMenu-specific Tabs stub stays beside its scenarios.
 const HeadMenuTabsStub = defineComponent({
   name: 'TTabs',
   props: { value: [String, Number] },
@@ -23,6 +23,7 @@ const HeadMenuTabsStub = defineComponent({
   },
 });
 
+// eslint-disable-next-line vue/one-component-per-file -- Companion stub for HeadMenu tab-panel rendering.
 const HeadMenuTabPanelStub = defineComponent({
   name: 'TTabPanel',
   props: { label: null, value: [String, Number] },
@@ -128,6 +129,7 @@ describe('HeadMenu', () => {
 
     const MORE_VALUE = '__t_head_menu_more__';
 
+    // eslint-disable-next-line vue/one-component-per-file -- Overflow-specific submenu stub stays with its layout setup.
     const SubmenuStub = defineComponent({
       name: 'TSubmenu',
       inheritAttrs: false,
@@ -152,6 +154,7 @@ describe('HeadMenu', () => {
       },
     });
 
+    // eslint-disable-next-line vue/one-component-per-file -- Fixture covers wrapped slot traversal only in this suite.
     const WrappedItems = defineComponent({
       name: 'WrappedItems',
       setup() {
@@ -470,6 +473,7 @@ describe('HeadMenu', () => {
       });
 
       it('flattens fragments, array children, and slot-function wrappers', async () => {
+        // eslint-disable-next-line vue/one-component-per-file -- Local fixture exercises slot-function wrapper flattening.
         const SlotWrapper = defineComponent({
           name: 'SlotWrapper',
           setup(_, { slots }) {
@@ -495,6 +499,7 @@ describe('HeadMenu', () => {
 
       it('currently throws when an unmounted wrapper slot returns one VNode', () => {
         // See issue #6857.
+        // eslint-disable-next-line vue/one-component-per-file -- Local fixture reproduces the single-VNode wrapper edge case.
         const SlotWrapper = defineComponent({
           name: 'SingleSlotWrapper',
           setup(_, { slots }) {

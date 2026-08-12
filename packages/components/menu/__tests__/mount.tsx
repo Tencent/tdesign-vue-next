@@ -1,4 +1,3 @@
-/* eslint-disable vue/one-component-per-file -- Shared Menu mount utilities intentionally own their test-only host, probe, and stubs. */
 import { mount } from '@vue/test-utils';
 import { defineComponent, h, inject, nextTick, provide, ref, shallowRef } from 'vue';
 import { vi } from 'vitest';
@@ -29,6 +28,7 @@ export const createMenuContext = (overrides: Partial<TdMenuInterface> = {}) => {
   return { add, menu, remove };
 };
 
+// eslint-disable-next-line vue/one-component-per-file -- Shared probe exposes HeadMenu context state to assertions.
 export const HeadMenuContextProbe = defineComponent({
   name: 'HeadMenuContextProbe',
   setup() {
@@ -48,6 +48,7 @@ export const HeadMenuContextProbe = defineComponent({
   },
 });
 
+// eslint-disable-next-line vue/one-component-per-file -- This stub is owned by mountMenuItem.
 const MenuItemTooltipStub = defineComponent({
   props: {
     content: Function,
@@ -95,6 +96,7 @@ const popupStubProps = {
   visible: Boolean,
 };
 
+// eslint-disable-next-line vue/one-component-per-file -- This popup stub is owned by mountSubmenu.
 export const SubmenuPopupStub = defineComponent({
   name: 'TPopup',
   inheritAttrs: false,
@@ -109,6 +111,7 @@ export const SubmenuPopupStub = defineComponent({
   },
 });
 
+// eslint-disable-next-line vue/one-component-per-file -- Lightweight popup variant is selected by mountSubmenu.
 const SubmenuPopupTriggerOnlyStub = defineComponent({
   name: 'TPopup',
   props: popupStubProps,
@@ -136,6 +139,7 @@ export const mountSubmenu = (
   const createdContext = createMenuContext();
   const context = { ...createdContext, menu: options.menu ?? createdContext.menu };
   const currentProps = shallowRef<SubmenuTestProps>({ ...props });
+  // eslint-disable-next-line vue/one-component-per-file -- Host supplies the parent name and injection for mountSubmenu.
   const Host = defineComponent({
     name: options.parentName ?? 'TMenu',
     setup() {
