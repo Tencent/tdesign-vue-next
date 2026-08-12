@@ -3,6 +3,7 @@ import { mount, VueWrapper } from '@vue/test-utils';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import Popup from '@tdesign/components/popup';
 import popupProps from '@tdesign/components/popup/props';
+import { sleep } from '@tdesign/internal-utils';
 
 const { createPopperMock, popperInstances } = vi.hoisted(() => ({
   createPopperMock: vi.fn(),
@@ -53,19 +54,9 @@ function mountPopup(
   return wrapper;
 }
 
-async function flushRender() {
-  await nextTick();
-  await nextTick();
-}
-
-async function waitForTimeout() {
-  await new Promise((resolve) => setTimeout(resolve, 0));
-  await flushRender();
-}
-
 async function setVisible(wrapper: PopupWrapper, visible = true) {
   await wrapper.setProps({ visible });
-  await flushRender();
+  await nextTick();
 }
 
 function setRect(element: Element, rect: Partial<DOMRect>) {
@@ -199,38 +190,38 @@ describe('Popup', () => {
     it(':delay[number]', async () => {
       vi.useFakeTimers();
       const wrapper = mountPopup({ content: contentText, delay: 30 });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('mouseenter');
       await vi.advanceTimersByTimeAsync(29);
       expect(getPopup()).toBeNull();
       await vi.advanceTimersByTimeAsync(1);
-      await flushRender();
+      await nextTick();
       expect(getPopup()?.style.display).not.toBe('none');
 
       await wrapper.find('.trigger').trigger('mouseleave');
       await vi.advanceTimersByTimeAsync(29);
       expect(getPopup()?.style.display).not.toBe('none');
       await vi.advanceTimersByTimeAsync(1);
-      await flushRender();
+      await nextTick();
       expect(getPopup()?.style.display).toBe('none');
     });
 
     it(':delay[array]', async () => {
       vi.useFakeTimers();
       const wrapper = mountPopup({ content: contentText, delay: [20, 40] });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('mouseenter');
       await vi.advanceTimersByTimeAsync(20);
-      await flushRender();
+      await nextTick();
       expect(getPopup()?.style.display).not.toBe('none');
 
       await wrapper.find('.trigger').trigger('mouseleave');
       await vi.advanceTimersByTimeAsync(39);
       expect(getPopup()?.style.display).not.toBe('none');
       await vi.advanceTimersByTimeAsync(1);
-      await flushRender();
+      await nextTick();
       expect(getPopup()?.style.display).toBe('none');
     });
 
@@ -260,15 +251,15 @@ describe('Popup', () => {
         visible: false,
         onVisibleChange,
       });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('click');
-      await waitForTimeout();
+      await sleep(0);
       expect(onVisibleChange).not.toHaveBeenCalled();
       expect(getPopup()).toBeNull();
 
       await wrapper.setProps({ visible: true });
-      await flushRender();
+      await nextTick();
       expect(getPopupContent()?.classList.contains('t-is-disabled')).toBe(true);
     });
 
@@ -485,7 +476,7 @@ describe('Popup', () => {
       vi.useFakeTimers();
       const onVisibleChange = vi.fn();
       const wrapper = mountPopup({ content: contentText, delay: 0, onVisibleChange });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('mouseenter');
       await vi.runOnlyPendingTimersAsync();
@@ -502,14 +493,14 @@ describe('Popup', () => {
     it(':trigger[click]', async () => {
       const onVisibleChange = vi.fn();
       const wrapper = mountPopup({ content: contentText, trigger: 'click', onVisibleChange });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('click');
-      await waitForTimeout();
+      await sleep(0);
       expect(onVisibleChange).toHaveBeenLastCalledWith(true, { trigger: 'trigger-element-click' });
 
       await wrapper.find('.trigger').trigger('click');
-      await waitForTimeout();
+      await sleep(0);
       expect(onVisibleChange).toHaveBeenLastCalledWith(
         false,
         expect.objectContaining({ trigger: 'trigger-element-click' }),
@@ -519,14 +510,14 @@ describe('Popup', () => {
     it(':trigger[focus]', async () => {
       const onVisibleChange = vi.fn();
       const wrapper = mountPopup({ content: contentText, trigger: 'focus', onVisibleChange });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('focusin');
-      await waitForTimeout();
+      await sleep(0);
       expect(onVisibleChange).toHaveBeenLastCalledWith(true, { trigger: 'trigger-element-focus' });
 
       await wrapper.find('.trigger').trigger('focusout');
-      await waitForTimeout();
+      await sleep(0);
       expect(onVisibleChange).toHaveBeenLastCalledWith(
         false,
         expect.objectContaining({ trigger: 'trigger-element-blur' }),
@@ -536,12 +527,12 @@ describe('Popup', () => {
     it(':trigger[context-menu] toggles on the contextmenu event', async () => {
       const onVisibleChange = vi.fn();
       const wrapper = mountPopup({ content: contentText, trigger: 'context-menu', onVisibleChange });
-      await flushRender();
+      await nextTick();
       const event = new MouseEvent('contextmenu', { bubbles: true, cancelable: true });
       const preventDefault = vi.spyOn(event, 'preventDefault');
 
       wrapper.find('.trigger').element.dispatchEvent(event);
-      await waitForTimeout();
+      await sleep(0);
 
       expect(preventDefault).toHaveBeenCalled();
       // Current behavior: getTriggerType checks `context-menu`, while the native event type is `contextmenu`.
@@ -553,7 +544,7 @@ describe('Popup', () => {
       const addEventListener = vi.spyOn(HTMLElement.prototype, 'addEventListener');
       const onVisibleChange = vi.fn();
       const wrapper = mountPopup({ content: contentText, trigger: 'context-menu', onVisibleChange });
-      await flushRender();
+      await nextTick();
       const contextMenuCalls = addEventListener.mock.calls.filter(([type]) => type === 'contextmenu');
       const contextMenuCall = contextMenuCalls[contextMenuCalls.length - 1];
       const listener = contextMenuCall?.[1] as EventListener;
@@ -568,10 +559,10 @@ describe('Popup', () => {
     it(':trigger[mousedown] currently does not register a mousedown listener', async () => {
       const onVisibleChange = vi.fn();
       const wrapper = mountPopup({ content: contentText, trigger: 'mousedown', onVisibleChange });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('mousedown');
-      await waitForTimeout();
+      await sleep(0);
 
       // Current behavior: `mousedown` is accepted by props but is absent from the event-name map.
       expect(onVisibleChange).not.toHaveBeenCalled();
@@ -584,10 +575,10 @@ describe('Popup', () => {
       document.body.appendChild(trigger);
       const onVisibleChange = vi.fn();
       mountPopup({ content: contentText, trigger: 'click', triggerElement: '#external-trigger', onVisibleChange }, {});
-      await flushRender();
+      await nextTick();
 
       trigger.click();
-      await waitForTimeout();
+      await sleep(0);
       expect(onVisibleChange).toHaveBeenLastCalledWith(true, { trigger: 'trigger-element-click' });
     });
 
@@ -617,7 +608,7 @@ describe('Popup', () => {
 
     it(':defaultVisible[boolean]', async () => {
       mountPopup({ content: contentText, defaultVisible: true });
-      await flushRender();
+      await nextTick();
       expect(getPopup()?.style.display).not.toBe('none');
     });
 
@@ -626,7 +617,7 @@ describe('Popup', () => {
       expect(getPopup()).toBeNull();
 
       await wrapper.setProps({ modelValue: true });
-      await flushRender();
+      await nextTick();
       expect(getPopup()?.style.display).not.toBe('none');
     });
 
@@ -689,10 +680,10 @@ describe('Popup', () => {
         trigger: 'click',
         onVisibleChange,
       });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('click');
-      await waitForTimeout();
+      await sleep(0);
 
       expect(onVisibleChange).toHaveBeenCalledWith(true, { trigger: 'trigger-element-click' });
       expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([true]);
@@ -700,10 +691,10 @@ describe('Popup', () => {
 
     it('update:visible', async () => {
       const wrapper = mountPopup({ content: contentText, visible: false, trigger: 'click' });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('click');
-      await waitForTimeout();
+      await sleep(0);
 
       expect(wrapper.emitted('update:visible')?.[0]).toEqual([true]);
     });
@@ -711,11 +702,11 @@ describe('Popup', () => {
     it('closes on a document mousedown', async () => {
       const onVisibleChange = vi.fn();
       mountPopup({ content: contentText, defaultVisible: true, trigger: 'click', onVisibleChange });
-      await flushRender();
+      await nextTick();
       const event = new MouseEvent('mousedown', { bubbles: true });
 
       document.body.dispatchEvent(event);
-      await waitForTimeout();
+      await sleep(0);
 
       expect(onVisibleChange).toHaveBeenLastCalledWith(false, { e: event, trigger: 'document' });
     });
@@ -723,11 +714,11 @@ describe('Popup', () => {
     it('does not close on a mousedown inside the trigger or popup', async () => {
       const onVisibleChange = vi.fn();
       const wrapper = mountPopup({ content: contentText, defaultVisible: true, trigger: 'click', onVisibleChange });
-      await flushRender();
+      await nextTick();
 
       wrapper.find('.trigger').element.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
       getPopupContent().dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
-      await waitForTimeout();
+      await sleep(0);
 
       expect(onVisibleChange).not.toHaveBeenCalled();
     });
@@ -746,7 +737,7 @@ describe('Popup', () => {
         delay: 0,
         onVisibleChange: onParentVisibleChange,
       });
-      await flushRender();
+      await nextTick();
       const popups = [...document.querySelectorAll<HTMLElement>('.t-popup')];
       const childPopup = popups.find((popup) => popup.hasAttribute('data-td-popup-parent'));
       const parentPopup = popups.find((popup) => !popup.hasAttribute('data-td-popup-parent'));
@@ -784,7 +775,7 @@ describe('Popup', () => {
         delay: 0,
         onVisibleChange: onParentVisibleChange,
       });
-      await flushRender();
+      await nextTick();
       const childPopup = [...document.querySelectorAll<HTMLElement>('.t-popup')].find((popup) =>
         popup.hasAttribute('data-td-popup-parent'),
       );
@@ -810,14 +801,14 @@ describe('Popup', () => {
     ])('closes a focus popup with Escape detected by %s', async (_, keyboardInit) => {
       const onVisibleChange = vi.fn();
       const wrapper = mountPopup({ content: contentText, trigger: 'focus', onVisibleChange });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('focusin');
-      await waitForTimeout();
+      await sleep(0);
       onVisibleChange.mockClear();
 
       wrapper.find('.trigger').element.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, ...keyboardInit }));
-      await waitForTimeout();
+      await sleep(0);
 
       expect(onVisibleChange).toHaveBeenLastCalledWith(false, expect.objectContaining({ trigger: 'keydown-esc' }));
     });
@@ -825,15 +816,15 @@ describe('Popup', () => {
     it('a non-Escape key currently consumes the focus escape listener', async () => {
       const onVisibleChange = vi.fn();
       const wrapper = mountPopup({ content: contentText, trigger: 'focus', onVisibleChange });
-      await flushRender();
+      await nextTick();
 
       await wrapper.find('.trigger').trigger('focusin');
-      await waitForTimeout();
+      await sleep(0);
       onVisibleChange.mockClear();
 
       await wrapper.find('.trigger').trigger('keydown', { key: 'Enter' });
       await wrapper.find('.trigger').trigger('keydown', { key: 'Escape' });
-      await waitForTimeout();
+      await sleep(0);
 
       // Current behavior: the listener is registered with `once`, so Enter removes it before Escape.
       expect(onVisibleChange).not.toHaveBeenCalled();
@@ -919,7 +910,7 @@ describe('Popup', () => {
       vi.useFakeTimers();
       const onVisibleChange = vi.fn();
       const wrapper = mountPopup({ content: contentText, defaultVisible: true, onVisibleChange });
-      await flushRender();
+      await nextTick();
 
       getExposed(wrapper).close();
       await vi.runOnlyPendingTimersAsync();
@@ -966,7 +957,7 @@ describe('Popup', () => {
       const destroy = vi.spyOn(firstPopper, 'destroy');
 
       await wrapper.setProps({ placement: 'bottom' });
-      await flushRender();
+      await nextTick();
 
       expect(destroy).toHaveBeenCalled();
       if (createPopperMock.mock.calls.length) {
@@ -1030,13 +1021,13 @@ describe('Popup', () => {
         { content: contentText, trigger: 'click', triggerElement: '#trigger-a', onVisibleChange },
         {},
       );
-      await flushRender();
+      await nextTick();
 
       await wrapper.setProps({ trigger: 'focus', triggerElement: '#trigger-b' });
-      await flushRender();
+      await sleep(0);
       triggerA.click();
       triggerB.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
-      await waitForTimeout();
+      await sleep(0);
 
       expect(onVisibleChange).toHaveBeenCalledTimes(1);
       expect(onVisibleChange).toHaveBeenCalledWith(true, { trigger: 'trigger-element-focus' });
@@ -1052,7 +1043,7 @@ describe('Popup', () => {
         { content: contentText, trigger: 'click', triggerElement: '#persistent-trigger', onVisibleChange },
         {},
       );
-      await flushRender();
+      await nextTick();
 
       wrapper.unmount();
       wrappers.splice(wrappers.indexOf(wrapper), 1);
