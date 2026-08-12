@@ -1,3 +1,4 @@
+/* eslint-disable vue/one-component-per-file -- Shared Menu mount utilities intentionally own their test-only host, probe, and stubs. */
 import { mount } from '@vue/test-utils';
 import { defineComponent, h, inject, nextTick, provide, ref, shallowRef } from 'vue';
 import { vi } from 'vitest';

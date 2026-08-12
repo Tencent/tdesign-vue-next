@@ -1,3 +1,4 @@
+/* eslint-disable vue/one-component-per-file -- Submenu behavior scenarios use local test-only hosts and context probes. */
 import { mount } from '@vue/test-utils';
 import { defineComponent, inject, nextTick, provide, ref } from 'vue';
 

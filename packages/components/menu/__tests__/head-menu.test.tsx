@@ -1,3 +1,4 @@
+/* eslint-disable vue/one-component-per-file -- HeadMenu scenarios intentionally colocate small test-only stubs and slot fixtures. */
 import { mount, type VueWrapper } from '@vue/test-utils';
 import { computed, defineComponent, Fragment, h, inject, nextTick, ref } from 'vue';
 
