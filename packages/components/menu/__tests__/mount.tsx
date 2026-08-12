@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import type { VueWrapper } from '@vue/test-utils';
 import { defineComponent, h, inject, nextTick, provide, ref, shallowRef } from 'vue';
 import { vi } from 'vitest';
 
@@ -8,6 +9,19 @@ import Submenu from '../submenu';
 import type { TdMenuItemProps, TdSubmenuProps } from '../type';
 import type { TdMenuInterface, TdSubMenuInterface } from '../types';
 import type { VMenu } from '../utils';
+
+const mountedWrappers: VueWrapper[] = [];
+
+const trackWrapper = <T extends VueWrapper>(wrapper: T): T => {
+  mountedWrappers.push(wrapper);
+  return wrapper;
+};
+
+export const cleanupMenuMounts = () => {
+  mountedWrappers.splice(0).forEach((wrapper) => {
+    if (!wrapper.vm.$.isUnmounted) wrapper.unmount();
+  });
+};
 
 export const createMenuContext = (overrides: Partial<TdMenuInterface> = {}) => {
   const add = vi.fn();
@@ -48,21 +62,6 @@ export const HeadMenuContextProbe = defineComponent({
   },
 });
 
-// eslint-disable-next-line vue/one-component-per-file -- This stub is owned by mountMenuItem.
-const MenuItemTooltipStub = defineComponent({
-  props: {
-    content: Function,
-    placement: String,
-  },
-  setup(props, { slots }) {
-    return () =>
-      h('div', { class: 'tooltip-stub', 'data-placement': props.placement }, [
-        slots.default?.(),
-        h('span', { class: 'tooltip-content' }, props.content?.()),
-      ]);
-  },
-});
-
 type TestSlots = Record<string, () => ReturnType<typeof h> | ReturnType<typeof h>[] | string>;
 
 export const mountMenuItem = (
@@ -72,7 +71,6 @@ export const mountMenuItem = (
     router?: object;
     slots?: TestSlots;
     submenu?: TdSubMenuInterface | null;
-    tooltipStub?: boolean;
   } = {},
 ) => {
   const context = options.menu ? { menu: options.menu } : createMenuContext();
@@ -82,47 +80,10 @@ export const mountMenuItem = (
       TdMenu: context.menu,
       ...(options.submenu === null ? {} : { TdSubmenu: options.submenu }),
     },
-    stubs: options.tooltipStub ? { TTooltip: MenuItemTooltipStub } : {},
   };
-  const wrapper = mount(MenuItem, { props, slots: options.slots, global });
+  const wrapper = trackWrapper(mount(MenuItem, { props, slots: options.slots, global }));
   return { ...context, wrapper };
 };
-
-const popupStubProps = {
-  overlayClassName: [String, Array],
-  overlayInnerClassName: [String, Array],
-  placement: String,
-  popperOptions: Object,
-  visible: Boolean,
-};
-
-// eslint-disable-next-line vue/one-component-per-file -- This popup stub is owned by mountSubmenu.
-export const SubmenuPopupStub = defineComponent({
-  name: 'TPopup',
-  inheritAttrs: false,
-  props: popupStubProps,
-  setup(props, { slots }) {
-    return () => (
-      <div class="popup-stub" data-placement={props.placement} data-visible={String(props.visible)}>
-        <div class="popup-trigger">{slots.default?.()}</div>
-        <div class="popup-content">{slots.content?.()}</div>
-      </div>
-    );
-  },
-});
-
-// eslint-disable-next-line vue/one-component-per-file -- Lightweight popup variant is selected by mountSubmenu.
-const SubmenuPopupTriggerOnlyStub = defineComponent({
-  name: 'TPopup',
-  props: popupStubProps,
-  setup(props, { slots }) {
-    return () => (
-      <div class="popup-stub" data-visible={String(props.visible)}>
-        {slots.default?.()}
-      </div>
-    );
-  },
-});
 
 type SubmenuTestProps = TdSubmenuProps & { expandType?: string };
 
@@ -132,7 +93,6 @@ export const mountSubmenu = (
     menu?: TdMenuInterface;
     parentName?: 'TMenu' | 'THeadMenu';
     parentSubmenu?: TdSubMenuInterface;
-    renderPopupContent?: boolean;
     slots?: TestSlots;
   } = {},
 ) => {
@@ -148,13 +108,7 @@ export const mountSubmenu = (
       return () => h(Submenu, currentProps.value, options.slots);
     },
   });
-  const wrapper = mount(Host, {
-    global: {
-      stubs: {
-        TPopup: options.renderPopupContent === false ? SubmenuPopupTriggerOnlyStub : SubmenuPopupStub,
-      },
-    },
-  });
+  const wrapper = trackWrapper(mount(Host));
   return {
     ...context,
     async setProps(nextProps: Partial<SubmenuTestProps>) {
@@ -167,4 +121,4 @@ export const mountSubmenu = (
 };
 
 export const mountPopupOverflowContent = (foldIndex: number, slots: TestSlots = {}) =>
-  mount(PopupOverflowContent, { props: { foldIndex }, slots });
+  trackWrapper(mount(PopupOverflowContent, { props: { foldIndex }, slots }));

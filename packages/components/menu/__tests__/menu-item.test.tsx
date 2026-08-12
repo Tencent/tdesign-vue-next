@@ -1,10 +1,15 @@
 import { flushPromises, mount } from '@vue/test-utils';
 import { defineComponent, nextTick, provide, ref } from 'vue';
 
+import { Tooltip } from '../../tooltip';
 import MenuItem from '../menu-item';
 import menuItemProps from '../menu-item-props';
 
-import { createMenuContext as createContext, mountMenuItem as mountItem } from './mount';
+import { cleanupMenuMounts, createMenuContext as createContext, mountMenuItem as mountItem } from './mount';
+
+afterEach(() => {
+  cleanupMenuMounts();
+});
 
 describe('MenuItem', () => {
   describe('props', () => {
@@ -89,15 +94,12 @@ describe('MenuItem', () => {
     it(':collapsed[boolean]', () => {
       const topMenu = createContext({ collapsed: ref(true) }).menu;
       const nestedMenu = createContext({ collapsed: ref(true) }).menu;
-      const top = mountItem({ content: 'Top' }, { menu: topMenu, submenu: null, tooltipStub: true }).wrapper;
-      const nested = mountItem(
-        { content: 'Nested' },
-        { menu: nestedMenu, submenu: { value: 'parent' }, tooltipStub: true },
-      ).wrapper;
+      const top = mountItem({ content: 'Top' }, { menu: topMenu, submenu: null }).wrapper;
+      const nested = mountItem({ content: 'Nested' }, { menu: nestedMenu, submenu: { value: 'parent' } }).wrapper;
 
-      expect(top.get('.tooltip-stub').attributes('data-placement')).toBe('right');
-      expect(top.get('.tooltip-content').text()).toBe('Top');
-      expect(nested.find('.tooltip-stub').exists()).toBe(false);
+      expect(top.getComponent(Tooltip).props('placement')).toBe('right');
+      expect(top.get('li').text()).toBe('Top');
+      expect(nested.findComponent(Tooltip).exists()).toBe(false);
     });
 
     it(':target[string]', () => {

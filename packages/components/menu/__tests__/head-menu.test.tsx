@@ -1,45 +1,14 @@
 import { mount, type VueWrapper } from '@vue/test-utils';
-import { computed, defineComponent, Fragment, h, inject, nextTick, ref } from 'vue';
+import { defineComponent, Fragment, h, nextTick, ref } from 'vue';
 
 import log from '@tdesign/common-js/log/log';
+import { sleep } from '@tdesign/internal-utils';
+import { TabPanel } from '../../tabs';
 import HeadMenu from '../head-menu';
 import headMenuProps from '../head-menu-props';
 import MenuItem from '../menu-item';
 import Submenu from '../submenu';
-import type { TdMenuInterface } from '../types';
 import { HeadMenuContextProbe } from './mount';
-
-// eslint-disable-next-line vue/one-component-per-file -- HeadMenu-specific Tabs stub stays beside its scenarios.
-const HeadMenuTabsStub = defineComponent({
-  name: 'TTabs',
-  props: { value: [String, Number] },
-  emits: ['change'],
-  setup(props, { slots }) {
-    return () => (
-      <div class="tabs-stub" data-value={String(props.value ?? '')}>
-        {slots.default?.()}
-      </div>
-    );
-  },
-});
-
-// eslint-disable-next-line vue/one-component-per-file -- Companion stub for HeadMenu tab-panel rendering.
-const HeadMenuTabPanelStub = defineComponent({
-  name: 'TTabPanel',
-  props: { label: null, value: [String, Number] },
-  setup(props) {
-    return () => (
-      <span class="panel-stub" data-value={String(props.value)}>
-        {props.label}
-      </span>
-    );
-  },
-});
-
-const emitHeadMenuTabChange = async (wrapper: VueWrapper, value: string) => {
-  wrapper.findComponent(HeadMenuTabsStub).vm.$emit('change', value);
-  await nextTick();
-};
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -127,33 +96,6 @@ describe('HeadMenu', () => {
       });
     });
 
-    const MORE_VALUE = '__t_head_menu_more__';
-
-    // eslint-disable-next-line vue/one-component-per-file -- Overflow-specific submenu stub stays with its layout setup.
-    const SubmenuStub = defineComponent({
-      name: 'TSubmenu',
-      inheritAttrs: false,
-      props: {
-        expandType: String,
-        title: [String, Function],
-        value: [String, Number],
-      },
-      setup(props, { attrs, slots }) {
-        const menu = inject<TdMenuInterface>('TdMenu');
-        const active = computed(() => menu.activeValues.value.includes(props.value));
-        return () => (
-          <li
-            {...attrs}
-            class={[attrs.class, 't-submenu', { 't-is-active': active.value }]}
-            data-menu-value={String(props.value)}
-          >
-            <span class="submenu-title">{typeof props.title === 'function' ? props.title() : props.title}</span>
-            <div class="submenu-content">{slots.default?.()}</div>
-          </li>
-        );
-      },
-    });
-
     // eslint-disable-next-line vue/one-component-per-file -- Fixture covers wrapped slot traversal only in this suite.
     const WrappedItems = defineComponent({
       name: 'WrappedItems',
@@ -175,23 +117,30 @@ describe('HeadMenu', () => {
     let auxiliaryMargin = 0;
     let menuSpacing = 0;
     let hideMoreBeforeWidthRead = false;
-    let resizeCallback: ResizeObserverCallback | undefined;
-    let resizeObserver: ResizeObserver | undefined;
+    let resizeObservers: ResizeObserverMock[] = [];
     let frameId = 0;
     let frameCallbacks = new Map<number, FrameRequestCallback>();
     const mountedWrappers: VueWrapper[] = [];
 
     class ResizeObserverMock implements ResizeObserver {
+      readonly callback: ResizeObserverCallback;
+
+      readonly elements = new Set<Element>();
+
       constructor(callback: ResizeObserverCallback) {
-        resizeCallback = callback;
-        resizeObserver = this;
+        this.callback = callback;
+        resizeObservers.push(this);
       }
 
-      disconnect = vi.fn();
+      disconnect = vi.fn(() => this.elements.clear());
 
-      observe = vi.fn();
+      observe = vi.fn((element: Element) => {
+        this.elements.add(element);
+      });
 
-      unobserve = vi.fn();
+      unobserve = vi.fn((element: Element) => {
+        this.elements.delete(element);
+      });
     }
 
     const rect = (width: number): DOMRect => ({
@@ -221,25 +170,27 @@ describe('HeadMenu', () => {
     };
 
     const triggerResize = async () => {
-      resizeCallback?.([], resizeObserver as ResizeObserver);
+      const observer = resizeObservers.find((item) =>
+        [...item.elements].some((element) => (element as HTMLElement).classList.contains('t-head-menu__inner')),
+      );
+      observer?.callback([], observer);
       await nextTick();
       await nextTick();
     };
 
     const mountHeadMenu = (options: Parameters<typeof mount<typeof HeadMenu>>[1] = {}) => {
-      const wrapper = mount(HeadMenu, {
-        ...options,
-        global: {
-          ...options.global,
-          stubs: { ...options.global?.stubs, TSubmenu: SubmenuStub },
-        },
-      });
+      const wrapper = mount(HeadMenu, options);
       mountedWrappers.push(wrapper);
       return wrapper;
     };
 
     const topMenuChildren = (wrapper: VueWrapper) =>
       Array.from(wrapper.get('.t-head-menu__inner > ul.t-menu').element.children) as HTMLElement[];
+
+    const getMoreSubmenu = (wrapper: VueWrapper) => wrapper.get('.t-head-menu__submenu--more');
+
+    const getMoreItems = (wrapper: VueWrapper) =>
+      wrapper.findAll('.t-head-menu__submenu--more > div[style*="display: none"] .t-menu__item');
 
     describe('overflow', () => {
       beforeEach(() => {
@@ -250,8 +201,7 @@ describe('HeadMenu', () => {
         auxiliaryMargin = 0;
         menuSpacing = 0;
         hideMoreBeforeWidthRead = false;
-        resizeCallback = undefined;
-        resizeObserver = undefined;
+        resizeObservers = [];
         frameId = 0;
         frameCallbacks = new Map();
 
@@ -343,11 +293,18 @@ describe('HeadMenu', () => {
 
         expect(children.slice(0, 3).map((element) => element.style.display)).toEqual(['', '', 'none']);
         expect(children[3].style.display).toBe('');
-        expect(children[3].classList).toContain('t-is-active');
-        expect(wrapper.get('[data-menu-value="__t_head_menu_more__"] .submenu-content').text()).toBe('Three');
+        expect(getMoreSubmenu(wrapper).get('.t-menu__item').classes()).toContain('t-is-active');
+        await getMoreSubmenu(wrapper).trigger('mouseenter');
+        await sleep(0);
+        await nextTick();
+        expect(
+          [...document.body.querySelectorAll<HTMLElement>('.t-menu__popup .t-menu__item')].map(
+            (item) => item.textContent,
+          ),
+        ).toEqual(['Three']);
 
         await wrapper.findAll('.t-head-menu__inner > ul.t-menu > .t-menu__item')[0].trigger('click');
-        expect(children[3].classList).not.toContain('t-is-active');
+        expect(getMoreSubmenu(wrapper).get('.t-menu__item').classes()).not.toContain('t-is-active');
       });
 
       it('responds to ResizeObserver changes by folding and unfolding', async () => {
@@ -366,7 +323,7 @@ describe('HeadMenu', () => {
         let children = topMenuChildren(wrapper);
         expect(children.slice(0, 3).every((element) => element.style.display === '')).toBe(true);
         expect(children[3].style.display).toBe('none');
-        expect(wrapper.get('[data-menu-value="__t_head_menu_more__"] .submenu-content').text()).toBe('');
+        expect(getMoreItems(wrapper)).toHaveLength(0);
 
         innerWidth = 100;
         await triggerResize();
@@ -389,9 +346,7 @@ describe('HeadMenu', () => {
         await settleLayout();
 
         expect(wrapper.get('.wrapped-items').attributes('style')).toContain('display: contents');
-        const overflowItems = wrapper.findAll(
-          '[data-menu-value="__t_head_menu_more__"] .submenu-content .t-menu__item',
-        );
+        const overflowItems = getMoreItems(wrapper);
         expect(overflowItems.map((item) => item.text())).toEqual(['One', 'Two', 'Three']);
         expect(overflowItems.map((item) => item.attributes('style'))).toEqual([
           'display: none;',
@@ -439,7 +394,7 @@ describe('HeadMenu', () => {
           },
         });
         await settleLayout();
-        const more = wrapper.get(`[data-menu-value="${MORE_VALUE}"]`);
+        const more = getMoreSubmenu(wrapper);
 
         expect((more.element as HTMLElement).style.visibility).toBe('');
         expect((more.element as HTMLElement).style.display).toBe('');
@@ -534,7 +489,7 @@ describe('HeadMenu', () => {
         });
         await settleLayout();
 
-        expect(wrapper.get(`[data-menu-value="${MORE_VALUE}"]`).classes()).toContain('t-is-active');
+        expect(getMoreSubmenu(wrapper).get('.t-menu__item').classes()).toContain('t-is-active');
       });
 
       it('uses the content slot when rebuilding folded popup items', async () => {
@@ -550,7 +505,7 @@ describe('HeadMenu', () => {
         });
         await settleLayout();
 
-        expect(wrapper.get(`[data-menu-value="${MORE_VALUE}"] .submenu-content`).text()).toBe('Three');
+        expect(getMoreItems(wrapper).map((item) => item.text())).toEqual(['Three']);
       });
 
       it('coalesces pending animation frames and cancels one on unmount', async () => {
@@ -559,14 +514,15 @@ describe('HeadMenu', () => {
           props: { expandType: 'popup' },
           slots: { default: () => values.value.map((value) => <MenuItem value={value}>{value}</MenuItem>) },
         });
-        expect(requestAnimationFrame).toHaveBeenCalledTimes(1);
+        const scheduledFrameCount = vi.mocked(requestAnimationFrame).mock.calls.length;
+        expect(scheduledFrameCount).toBeGreaterThan(0);
 
         values.value = ['one', 'two'];
         await nextTick();
-        expect(requestAnimationFrame).toHaveBeenCalledTimes(1);
+        expect(requestAnimationFrame).toHaveBeenCalledTimes(scheduledFrameCount);
 
         wrapper.unmount();
-        expect(cancelAnimationFrame).toHaveBeenCalledTimes(1);
+        expect(cancelAnimationFrame).toHaveBeenCalled();
       });
     });
   });
@@ -661,12 +617,11 @@ describe('HeadMenu', () => {
               </Submenu>
             ),
           },
-          global: { stubs: { TTabPanel: HeadMenuTabPanelStub, TTabs: HeadMenuTabsStub } },
         });
         await nextTick();
 
         expect(wrapper.get('.t-head-menu__submenu').element).toBeInstanceOf(HTMLElement);
-        expect(wrapper.findAll('.panel-stub').map((panel) => panel.attributes('data-value'))).toEqual([
+        expect(wrapper.findAllComponents(TabPanel).map((panel) => panel.props('value'))).toEqual([
           'push-child',
           'replace-child',
           'empty-child',
@@ -694,16 +649,16 @@ describe('HeadMenu', () => {
               </Submenu>
             ),
           },
-          global: { stubs: { TTabPanel: HeadMenuTabPanelStub, TTabs: HeadMenuTabsStub } },
         });
         await nextTick();
+        const navItems = wrapper.findAll('.t-tabs__nav-item');
 
-        await emitHeadMenuTabChange(wrapper, 'push-child');
+        await navItems[0].trigger('click');
         expect(onChange).toHaveBeenCalledWith('push-child');
         expect(pushClick).toHaveBeenCalledWith({ value: 'push-child' });
         expect(push).toHaveBeenCalledWith('/push');
 
-        await emitHeadMenuTabChange(wrapper, 'replace-child');
+        await navItems[1].trigger('click');
         expect(replaceClick).toHaveBeenCalledWith({ value: 'replace-child' });
         expect(replace).toHaveBeenCalledWith('/replace');
       });
@@ -727,15 +682,15 @@ describe('HeadMenu', () => {
           },
           global: {
             mocks: { $router: router },
-            stubs: { TTabPanel: HeadMenuTabPanelStub, TTabs: HeadMenuTabsStub },
           },
         });
         await nextTick();
+        const navItems = wrapper.findAll('.t-tabs__nav-item');
 
-        await emitHeadMenuTabChange(wrapper, 'push-child');
+        await navItems[0].trigger('click');
         expect(router.push).toHaveBeenCalledWith('/push');
 
-        await emitHeadMenuTabChange(wrapper, 'href-child');
+        await navItems[1].trigger('click');
         expect(window.location.href).toBe(currentHref);
       });
 

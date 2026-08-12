@@ -1,11 +1,25 @@
 import { mount } from '@vue/test-utils';
+import type { VueWrapper } from '@vue/test-utils';
 import { defineComponent, inject, nextTick, provide, ref } from 'vue';
 
+import { Popup } from '../../popup';
 import MenuItem from '../menu-item';
 import Submenu from '../submenu';
 import type { TdSubMenuInterface } from '../types';
 
-import { createMenuContext as createMenu, mountSubmenu, SubmenuPopupStub } from './mount';
+import { cleanupMenuMounts, createMenuContext as createMenu, mountSubmenu } from './mount';
+
+const openSubmenu = async (wrapper: VueWrapper) => {
+  await wrapper.get('li').trigger('mouseenter');
+  await vi.advanceTimersByTimeAsync(0);
+  await nextTick();
+};
+
+const getTeleportedElement = (selector: string) => {
+  const element = document.body.querySelector<HTMLElement>(selector);
+  expect(element).not.toBeNull();
+  return element as HTMLElement;
+};
 
 describe('Submenu', () => {
   beforeEach(() => {
@@ -13,8 +27,10 @@ describe('Submenu', () => {
   });
 
   afterEach(() => {
+    cleanupMenuMounts();
     vi.runOnlyPendingTimers();
     vi.useRealTimers();
+    document.body.innerHTML = '';
   });
 
   describe('props', () => {
@@ -213,7 +229,7 @@ describe('Submenu', () => {
   });
 
   describe('events', () => {
-    it(':popupProps[object] + popup (side menu)', () => {
+    it(':popupProps[object] + popup (side menu)', async () => {
       const customModifier = { name: 'custom' };
       const { submenu, wrapper } = mountSubmenu(
         {
@@ -228,30 +244,32 @@ describe('Submenu', () => {
         },
         { slots: { default: () => <span>Product</span> } },
       );
-      const popup = submenu.findComponent(SubmenuPopupStub);
+      const popup = submenu.findComponent(Popup);
       const props = popup.props();
+      await openSubmenu(wrapper);
 
-      expect(popup.attributes('data-placement')).toBe('right-top');
+      expect(popup.props('placement')).toBe('right-top');
       expect(props.overlayInnerClassName).toEqual(
         expect.arrayContaining(['t-menu__popup', 't-is-vertical', 'custom-inner']),
       );
       expect(props.overlayClassName).toEqual(expect.arrayContaining(['t-menu--light', 'custom-overlay']));
-      expect(wrapper.get('.t-menu__spacer').classes()).toContain('t-menu__spacer--left');
+      expect(getTeleportedElement('.t-menu__spacer').classList).toContain('t-menu__spacer--left');
       expect((props.popperOptions as { modifiers: object[] }).modifiers[1]).toBe(customModifier);
     });
 
-    it('popup (head menu)', () => {
+    it('popup (head menu)', async () => {
       const { menu } = createMenu({ isHead: true });
       const { submenu, wrapper } = mountSubmenu(
         { expandType: 'popup', title: 'Products', value: 'products' },
         { menu, parentName: 'THeadMenu', slots: { default: () => 'Product' } },
       );
-      const popup = submenu.findComponent(SubmenuPopupStub);
+      const popup = submenu.findComponent(Popup);
+      await openSubmenu(wrapper);
 
-      expect(popup.attributes('data-placement')).toBe('bottom-left');
+      expect(popup.props('placement')).toBe('bottom-left');
       expect(popup.props('overlayClassName')).toEqual(expect.arrayContaining(['t-is-head-menu']));
-      expect(wrapper.get('.t-menu__popup-wrapper').classes()).toContain('t-menu__popup-overflow');
-      expect(wrapper.get('.t-menu__spacer').classes()).not.toContain('t-menu__spacer--left');
+      expect(getTeleportedElement('.t-menu__popup-wrapper').classList).toContain('t-menu__popup-overflow');
+      expect(getTeleportedElement('.t-menu__spacer').classList).not.toContain('t-menu__spacer--left');
     });
 
     it('mouseenter/mouseleave', async () => {
@@ -265,14 +283,14 @@ describe('Submenu', () => {
       await vi.runOnlyPendingTimersAsync();
       await nextTick();
 
-      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(true);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
       expect(menu.open).toHaveBeenCalledWith('products');
       expect(menu.open).toHaveBeenCalledWith('products', 'add');
 
       await wrapper.get('li').trigger('mouseleave', { relatedTarget: null });
       await vi.advanceTimersByTimeAsync(100);
       await nextTick();
-      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(false);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(false);
       expect(menu.open).toHaveBeenCalledWith('products', 'remove');
     });
 
@@ -287,7 +305,7 @@ describe('Submenu', () => {
       await vi.runOnlyPendingTimersAsync();
       await nextTick();
 
-      const overlay = wrapper.get('.t-menu__spacer');
+      const overlay = getTeleportedElement('.t-menu__spacer');
       const popupTarget = document.createElement('div');
       popupTarget.className = 't-menu__popup';
 
@@ -296,11 +314,11 @@ describe('Submenu', () => {
       await vi.advanceTimersByTimeAsync(0);
 
       await wrapper.get('li').trigger('mouseleave', { relatedTarget: null });
-      await overlay.trigger('mouseenter');
+      overlay.dispatchEvent(new MouseEvent('mouseenter'));
       await wrapper.get('li').trigger('mouseleave', { relatedTarget: popupTarget });
       await vi.advanceTimersByTimeAsync(100);
 
-      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(true);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
       expect(parentSubmenu.cancelHideTimer).toHaveBeenCalled();
     });
 
@@ -314,39 +332,40 @@ describe('Submenu', () => {
       await wrapper.get('li').trigger('mouseenter');
       await vi.runOnlyPendingTimersAsync();
 
-      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(false);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(false);
       expect(menu.open).not.toHaveBeenCalled();
     });
 
-    it('popup placement', () => {
+    it('popup placement', async () => {
       const { submenu, wrapper } = mountSubmenu(
         { expandType: 'popup', title: 'Products', value: 'products' },
         { slots: { default: () => 'Product' } },
       );
-      const options = submenu.findComponent(SubmenuPopupStub).props('popperOptions') as {
+      const options = submenu.findComponent(Popup).props('popperOptions') as {
         modifiers: Array<{ fn?: (input: { state: { placement: string } }) => void }>;
       };
       const updatePlacement = options.modifiers[0].fn;
-      const spacer = wrapper.get('.t-menu__spacer');
+      await openSubmenu(wrapper);
+      const spacer = getTeleportedElement('.t-menu__spacer');
 
       updatePlacement?.({ state: { placement: 'bottom-right' } });
-      expect(spacer.classes()).toContain('t-menu__spacer--bottom');
-      expect(spacer.classes()).not.toContain('t-menu__spacer--top');
+      expect(spacer.classList).toContain('t-menu__spacer--bottom');
+      expect(spacer.classList).not.toContain('t-menu__spacer--top');
 
       updatePlacement?.({ state: { placement: 'top-left' } });
-      expect(spacer.classes()).toContain('t-menu__spacer--top');
-      expect(spacer.classes()).not.toContain('t-menu__spacer--bottom');
+      expect(spacer.classList).toContain('t-menu__spacer--top');
+      expect(spacer.classList).not.toContain('t-menu__spacer--bottom');
 
       updatePlacement?.({ state: { placement: 'right-top' } });
-      expect(spacer.classes()).not.toContain('t-menu__spacer--top');
+      expect(spacer.classList).not.toContain('t-menu__spacer--top');
     });
 
     it('popup placement (before mount)', () => {
       const { submenu } = mountSubmenu(
         { expandType: 'popup', title: 'Products', value: 'products' },
-        { renderPopupContent: false, slots: { default: () => 'Product' } },
+        { slots: { default: () => 'Product' } },
       );
-      const options = submenu.findComponent({ name: 'TPopup' }).props('popperOptions') as {
+      const options = submenu.findComponent(Popup).props('popperOptions') as {
         modifiers: Array<{ fn?: (input: { state: { placement: string } }) => void }>;
       };
 
@@ -374,19 +393,16 @@ describe('Submenu', () => {
         { menu, parentSubmenu, slots: { default: () => <ContextProbe /> } },
       );
 
+      await openSubmenu(wrapper);
       await nextTick();
       expect(parentSubmenu.setSubPopup).toHaveBeenCalledWith(expect.any(HTMLElement));
-
-      await wrapper.get('li').trigger('mouseenter');
-      await vi.runOnlyPendingTimersAsync();
-      await nextTick();
       expect(parentSubmenu.cancelHideTimer).toHaveBeenCalled();
 
       childContext?.closeParentPopup?.(new MouseEvent('mouseleave'));
       expect(parentSubmenu.closeParentPopup).toHaveBeenCalled();
       await vi.advanceTimersByTimeAsync(100);
       await nextTick();
-      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(false);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(false);
 
       await wrapper.get('li').trigger('mouseenter');
       await vi.advanceTimersByTimeAsync(0);
@@ -394,7 +410,7 @@ describe('Submenu', () => {
       childContext?.closeParentPopup?.(new MouseEvent('mouseleave'));
       childContext?.cancelHideTimer?.();
       await vi.advanceTimersByTimeAsync(100);
-      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(true);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
     });
 
     it('mouseleave (outside)', async () => {
@@ -408,11 +424,13 @@ describe('Submenu', () => {
       await vi.runOnlyPendingTimersAsync();
       await nextTick();
 
-      await wrapper.get('.t-menu__spacer').trigger('mouseleave', { relatedTarget: document.body });
+      getTeleportedElement('.t-menu__spacer').dispatchEvent(
+        new MouseEvent('mouseleave', { relatedTarget: document.body }),
+      );
       expect(parentSubmenu.closeParentPopup).toHaveBeenCalled();
       await vi.advanceTimersByTimeAsync(100);
       await nextTick();
-      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(false);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(false);
     });
 
     it('unmount', async () => {
@@ -444,15 +462,16 @@ describe('Submenu', () => {
           );
         },
       });
-      const wrapper = mount(Host, { global: { stubs: { TPopup: SubmenuPopupStub } } });
+      const wrapper = mount(Host);
       await nextTick();
-      const popups = wrapper.findAllComponents(SubmenuPopupStub);
+      const popups = wrapper.findAllComponents(Popup);
 
       expect(popups[1].props('placement')).toBe('right-top');
       expect(popups[1].props('overlayClassName')).toEqual(
         expect.arrayContaining([expect.objectContaining({ 't-menu-is-nested': true })]),
       );
       expect(popups[1].find('.t-fake-arrow').attributes('style')).toContain('rotate(-90deg)');
+      wrapper.unmount();
     });
 
     it('popup (nested side menu)', async () => {
@@ -473,17 +492,28 @@ describe('Submenu', () => {
           );
         },
       });
-      const wrapper = mount(Host, { global: { stubs: { TPopup: SubmenuPopupStub } } });
+      const wrapper = mount(Host);
       await nextTick();
-      const popups = wrapper.findAllComponents(SubmenuPopupStub);
-      const spacers = wrapper.findAll('.t-menu__spacer');
+      const popups = wrapper.findAllComponents(Popup);
 
       expect(popups.some((popup) => popup.find('.t-fake-arrow').attributes('style')?.includes('rotate(-90deg)'))).toBe(
         true,
       );
 
-      await spacers[0].trigger('mouseleave', { relatedTarget: spacers.at(-1)?.element });
+      await wrapper.get('li').trigger('mouseenter');
+      await vi.advanceTimersByTimeAsync(0);
+      await nextTick();
+
+      const childSubmenu = getTeleportedElement('.t-menu__popup-wrapper li.t-submenu');
+      childSubmenu.dispatchEvent(new MouseEvent('mouseenter'));
+      await vi.advanceTimersByTimeAsync(0);
+      await nextTick();
+
+      const spacers = [...document.body.querySelectorAll<HTMLElement>('.t-menu__spacer')];
+      expect(spacers.length).toBeGreaterThanOrEqual(2);
+      spacers[0].dispatchEvent(new MouseEvent('mouseleave', { relatedTarget: spacers.at(-1) }));
       expect(closeParentPopup).not.toHaveBeenCalled();
+      wrapper.unmount();
     });
   });
 });

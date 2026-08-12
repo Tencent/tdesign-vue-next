@@ -1,6 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 
-import { mountPopupOverflowContent } from './mount';
+import { cleanupMenuMounts, mountPopupOverflowContent } from './mount';
+
+afterEach(() => {
+  cleanupMenuMounts();
+});
 
 describe('PopupOverflowContent', () => {
   describe('props', () => {
