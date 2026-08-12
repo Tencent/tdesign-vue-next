@@ -1,4 +1,3 @@
-/* eslint-disable vue/one-component-per-file */
 import { mount } from '@vue/test-utils';
 import { defineComponent, inject, nextTick, provide, ref } from 'vue';
 
@@ -6,7 +5,7 @@ import MenuItem from '../menu-item';
 import Submenu from '../submenu';
 import type { TdSubMenuInterface } from '../types';
 
-import { createMenuContext as createMenu, mountSubmenu, PopupStub } from './mount';
+import { createMenuContext as createMenu, mountSubmenu, SubmenuPopupStub } from './mount';
 
 describe('Submenu', () => {
   beforeEach(() => {
@@ -227,7 +226,7 @@ describe('Submenu', () => {
         },
         { slots: { default: () => <span>Product</span> } },
       );
-      const popup = submenu.findComponent(PopupStub);
+      const popup = submenu.findComponent(SubmenuPopupStub);
       const props = popup.props();
 
       expect(popup.attributes('data-placement')).toBe('right-top');
@@ -245,7 +244,7 @@ describe('Submenu', () => {
         { expandType: 'popup', title: 'Products', value: 'products' },
         { menu, parentName: 'THeadMenu', slots: { default: () => 'Product' } },
       );
-      const popup = submenu.findComponent(PopupStub);
+      const popup = submenu.findComponent(SubmenuPopupStub);
 
       expect(popup.attributes('data-placement')).toBe('bottom-left');
       expect(popup.props('overlayClassName')).toEqual(expect.arrayContaining(['t-is-head-menu']));
@@ -264,14 +263,14 @@ describe('Submenu', () => {
       await vi.runOnlyPendingTimersAsync();
       await nextTick();
 
-      expect(submenu.findComponent(PopupStub).props('visible')).toBe(true);
+      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(true);
       expect(menu.open).toHaveBeenCalledWith('products');
       expect(menu.open).toHaveBeenCalledWith('products', 'add');
 
       await wrapper.get('li').trigger('mouseleave', { relatedTarget: null });
       await vi.advanceTimersByTimeAsync(100);
       await nextTick();
-      expect(submenu.findComponent(PopupStub).props('visible')).toBe(false);
+      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(false);
       expect(menu.open).toHaveBeenCalledWith('products', 'remove');
     });
 
@@ -299,7 +298,7 @@ describe('Submenu', () => {
       await wrapper.get('li').trigger('mouseleave', { relatedTarget: popupTarget });
       await vi.advanceTimersByTimeAsync(100);
 
-      expect(submenu.findComponent(PopupStub).props('visible')).toBe(true);
+      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(true);
       expect(parentSubmenu.cancelHideTimer).toHaveBeenCalled();
     });
 
@@ -313,7 +312,7 @@ describe('Submenu', () => {
       await wrapper.get('li').trigger('mouseenter');
       await vi.runOnlyPendingTimersAsync();
 
-      expect(submenu.findComponent(PopupStub).props('visible')).toBe(false);
+      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(false);
       expect(menu.open).not.toHaveBeenCalled();
     });
 
@@ -322,7 +321,7 @@ describe('Submenu', () => {
         { expandType: 'popup', title: 'Products', value: 'products' },
         { slots: { default: () => 'Product' } },
       );
-      const options = submenu.findComponent(PopupStub).props('popperOptions') as {
+      const options = submenu.findComponent(SubmenuPopupStub).props('popperOptions') as {
         modifiers: Array<{ fn?: (input: { state: { placement: string } }) => void }>;
       };
       const updatePlacement = options.modifiers[0].fn;
@@ -384,7 +383,7 @@ describe('Submenu', () => {
       expect(parentSubmenu.closeParentPopup).toHaveBeenCalled();
       await vi.advanceTimersByTimeAsync(100);
       await nextTick();
-      expect(submenu.findComponent(PopupStub).props('visible')).toBe(false);
+      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(false);
 
       await wrapper.get('li').trigger('mouseenter');
       await vi.advanceTimersByTimeAsync(0);
@@ -392,7 +391,7 @@ describe('Submenu', () => {
       childContext?.closeParentPopup?.(new MouseEvent('mouseleave'));
       childContext?.cancelHideTimer?.();
       await vi.advanceTimersByTimeAsync(100);
-      expect(submenu.findComponent(PopupStub).props('visible')).toBe(true);
+      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(true);
     });
 
     it('mouseleave (outside)', async () => {
@@ -410,7 +409,7 @@ describe('Submenu', () => {
       expect(parentSubmenu.closeParentPopup).toHaveBeenCalled();
       await vi.advanceTimersByTimeAsync(100);
       await nextTick();
-      expect(submenu.findComponent(PopupStub).props('visible')).toBe(false);
+      expect(submenu.findComponent(SubmenuPopupStub).props('visible')).toBe(false);
     });
 
     it('unmount', async () => {
@@ -441,9 +440,9 @@ describe('Submenu', () => {
           );
         },
       });
-      const wrapper = mount(Host, { global: { stubs: { TPopup: PopupStub } } });
+      const wrapper = mount(Host, { global: { stubs: { TPopup: SubmenuPopupStub } } });
       await nextTick();
-      const popups = wrapper.findAllComponents(PopupStub);
+      const popups = wrapper.findAllComponents(SubmenuPopupStub);
 
       expect(popups[1].props('placement')).toBe('right-top');
       expect(popups[1].props('overlayClassName')).toEqual(
@@ -469,9 +468,9 @@ describe('Submenu', () => {
           );
         },
       });
-      const wrapper = mount(Host, { global: { stubs: { TPopup: PopupStub } } });
+      const wrapper = mount(Host, { global: { stubs: { TPopup: SubmenuPopupStub } } });
       await nextTick();
-      const popups = wrapper.findAllComponents(PopupStub);
+      const popups = wrapper.findAllComponents(SubmenuPopupStub);
       const spacers = wrapper.findAll('.t-menu__spacer');
 
       expect(popups.some((popup) => popup.find('.t-fake-arrow').attributes('style')?.includes('rotate(-90deg)'))).toBe(

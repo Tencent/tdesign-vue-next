@@ -1,6 +1,5 @@
-/* eslint-disable vue/one-component-per-file */
 import { mount } from '@vue/test-utils';
-import { defineComponent, h, nextTick, provide, ref, shallowRef } from 'vue';
+import { defineComponent, h, inject, nextTick, provide, ref, shallowRef } from 'vue';
 import { vi } from 'vitest';
 
 import PopupOverflowContent from '../components/popup-overflow-content';
@@ -29,7 +28,26 @@ export const createMenuContext = (overrides: Partial<TdMenuInterface> = {}) => {
   return { add, menu, remove };
 };
 
-const TooltipStub = defineComponent({
+export const HeadMenuContextProbe = defineComponent({
+  name: 'HeadMenuContextProbe',
+  setup() {
+    const menu = inject<TdMenuInterface>('TdMenu');
+    return () => (
+      <div class="context-probe">
+        <span data-testid="active">{String(menu.activeValue.value ?? '')}</span>
+        <span data-testid="expanded">{menu.expandValues?.value.join(',')}</span>
+        <span data-testid="mode">{menu.mode.value}</span>
+        <button data-testid="select" onClick={() => menu.select('selected')} />
+        <button data-testid="open-one" onClick={() => menu.open?.('one', 'add')} />
+        <button data-testid="open-two" onClick={() => menu.open?.('two', 'add')} />
+        <button data-testid="remove-one" onClick={() => menu.open?.('one', 'remove')} />
+        <button data-testid="remove-missing" onClick={() => menu.open?.('missing', 'remove')} />
+      </div>
+    );
+  },
+});
+
+const MenuItemTooltipStub = defineComponent({
   props: {
     content: Function,
     placement: String,
@@ -62,7 +80,7 @@ export const mountMenuItem = (
       TdMenu: context.menu,
       ...(options.submenu === null ? {} : { TdSubmenu: options.submenu }),
     },
-    stubs: options.tooltipStub ? { TTooltip: TooltipStub } : {},
+    stubs: options.tooltipStub ? { TTooltip: MenuItemTooltipStub } : {},
   };
   const wrapper = mount(MenuItem, { props, slots: options.slots, global });
   return { ...context, wrapper };
@@ -76,7 +94,7 @@ const popupStubProps = {
   visible: Boolean,
 };
 
-export const PopupStub = defineComponent({
+export const SubmenuPopupStub = defineComponent({
   name: 'TPopup',
   inheritAttrs: false,
   props: popupStubProps,
@@ -90,7 +108,7 @@ export const PopupStub = defineComponent({
   },
 });
 
-const PopupTriggerOnlyStub = defineComponent({
+const SubmenuPopupTriggerOnlyStub = defineComponent({
   name: 'TPopup',
   props: popupStubProps,
   setup(props, { slots }) {
@@ -126,7 +144,11 @@ export const mountSubmenu = (
     },
   });
   const wrapper = mount(Host, {
-    global: { stubs: { TPopup: options.renderPopupContent === false ? PopupTriggerOnlyStub : PopupStub } },
+    global: {
+      stubs: {
+        TPopup: options.renderPopupContent === false ? SubmenuPopupTriggerOnlyStub : SubmenuPopupStub,
+      },
+    },
   });
   return {
     ...context,

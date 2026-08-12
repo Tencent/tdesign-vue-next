@@ -1,4 +1,3 @@
-/* eslint-disable vue/one-component-per-file */
 import { mount, type VueWrapper } from '@vue/test-utils';
 import { computed, defineComponent, Fragment, h, inject, nextTick, ref } from 'vue';
 
@@ -8,43 +7,22 @@ import headMenuProps from '../head-menu-props';
 import MenuItem from '../menu-item';
 import Submenu from '../submenu';
 import type { TdMenuInterface } from '../types';
+import { HeadMenuContextProbe } from './mount';
 
-const HeadMenuContextProbe = defineComponent({
-  name: 'HeadMenuContextProbe',
-  setup() {
-    const menu = inject<TdMenuInterface>('TdMenu');
-    return () => (
-      <div class="context-probe">
-        <span data-testid="active">{String(menu.activeValue.value ?? '')}</span>
-        <span data-testid="expanded">{menu.expandValues?.value.join(',')}</span>
-        <span data-testid="mode">{menu.mode.value}</span>
-        <button data-testid="select" onClick={() => menu.select('selected')} />
-        <button data-testid="open-one" onClick={() => menu.open?.('one', 'add')} />
-        <button data-testid="open-two" onClick={() => menu.open?.('two', 'add')} />
-        <button data-testid="remove-one" onClick={() => menu.open?.('one', 'remove')} />
-        <button data-testid="remove-missing" onClick={() => menu.open?.('missing', 'remove')} />
-      </div>
-    );
-  },
-});
-
-const TabsStub = defineComponent({
+const HeadMenuTabsStub = defineComponent({
   name: 'TTabs',
   props: { value: [String, Number] },
   emits: ['change'],
-  setup(props, { emit, slots }) {
+  setup(props, { slots }) {
     return () => (
       <div class="tabs-stub" data-value={String(props.value ?? '')}>
         {slots.default?.()}
-        <button data-testid="choose-push" onClick={() => emit('change', 'push-child')} />
-        <button data-testid="choose-replace" onClick={() => emit('change', 'replace-child')} />
-        <button data-testid="choose-href" onClick={() => emit('change', 'href-child')} />
       </div>
     );
   },
 });
 
-const TabPanelStub = defineComponent({
+const HeadMenuTabPanelStub = defineComponent({
   name: 'TTabPanel',
   props: { label: null, value: [String, Number] },
   setup(props) {
@@ -55,6 +33,11 @@ const TabPanelStub = defineComponent({
     );
   },
 });
+
+const emitHeadMenuTabChange = async (wrapper: VueWrapper, value: string) => {
+  wrapper.findComponent(HeadMenuTabsStub).vm.$emit('change', value);
+  await nextTick();
+};
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -672,7 +655,7 @@ describe('HeadMenu', () => {
               </Submenu>
             ),
           },
-          global: { stubs: { TTabPanel: TabPanelStub, TTabs: TabsStub } },
+          global: { stubs: { TTabPanel: HeadMenuTabPanelStub, TTabs: HeadMenuTabsStub } },
         });
         await nextTick();
 
@@ -705,16 +688,16 @@ describe('HeadMenu', () => {
               </Submenu>
             ),
           },
-          global: { stubs: { TTabPanel: TabPanelStub, TTabs: TabsStub } },
+          global: { stubs: { TTabPanel: HeadMenuTabPanelStub, TTabs: HeadMenuTabsStub } },
         });
         await nextTick();
 
-        await wrapper.get('[data-testid="choose-push"]').trigger('click');
+        await emitHeadMenuTabChange(wrapper, 'push-child');
         expect(onChange).toHaveBeenCalledWith('push-child');
         expect(pushClick).toHaveBeenCalledWith({ value: 'push-child' });
         expect(push).toHaveBeenCalledWith('/push');
 
-        await wrapper.get('[data-testid="choose-replace"]').trigger('click');
+        await emitHeadMenuTabChange(wrapper, 'replace-child');
         expect(replaceClick).toHaveBeenCalledWith({ value: 'replace-child' });
         expect(replace).toHaveBeenCalledWith('/replace');
       });
@@ -738,15 +721,15 @@ describe('HeadMenu', () => {
           },
           global: {
             mocks: { $router: router },
-            stubs: { TTabPanel: TabPanelStub, TTabs: TabsStub },
+            stubs: { TTabPanel: HeadMenuTabPanelStub, TTabs: HeadMenuTabsStub },
           },
         });
         await nextTick();
 
-        await wrapper.get('[data-testid="choose-push"]').trigger('click');
+        await emitHeadMenuTabChange(wrapper, 'push-child');
         expect(router.push).toHaveBeenCalledWith('/push');
 
-        await wrapper.get('[data-testid="choose-href"]').trigger('click');
+        await emitHeadMenuTabChange(wrapper, 'href-child');
         expect(window.location.href).toBe(currentHref);
       });
 
