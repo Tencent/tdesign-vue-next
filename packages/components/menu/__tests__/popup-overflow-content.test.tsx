@@ -1,22 +1,18 @@
-import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
-import PopupOverflowContent from '../components/popup-overflow-content';
+import { mountPopupOverflowContent } from './mount';
 
 describe('PopupOverflowContent', () => {
   describe('props', () => {
     it(':foldIndex[number]', () => {
-      const wrapper = mount(PopupOverflowContent, {
-        props: { foldIndex: 2 },
-        slots: {
-          default: () => [
-            <div class="t-menu__item">First</div>,
-            <div>
-              <div class="t-submenu">Second</div>
-            </div>,
-            <div class="t-menu__item">Third</div>,
-          ],
-        },
+      const wrapper = mountPopupOverflowContent(2, {
+        default: () => [
+          <div class="t-menu__item">First</div>,
+          <div>
+            <div class="t-submenu">Second</div>
+          </div>,
+          <div class="t-menu__item">Third</div>,
+        ],
       });
       const items = wrapper.findAll('.t-menu__item, .t-submenu');
 
@@ -25,11 +21,8 @@ describe('PopupOverflowContent', () => {
     });
 
     it(':foldIndex[number] (reactive)', async () => {
-      const wrapper = mount(PopupOverflowContent, {
-        props: { foldIndex: 2 },
-        slots: {
-          default: () => [<div class="t-menu__item">First</div>, <div class="t-menu__item">Second</div>],
-        },
+      const wrapper = mountPopupOverflowContent(2, {
+        default: () => [<div class="t-menu__item">First</div>, <div class="t-menu__item">Second</div>],
       });
 
       await wrapper.setProps({ foldIndex: 1 });
@@ -38,28 +31,25 @@ describe('PopupOverflowContent', () => {
     });
 
     it(':default[slot] (non-HTML/depth limit)', () => {
-      const wrapper = mount(PopupOverflowContent, {
-        props: { foldIndex: 2 },
-        slots: {
-          default: () => (
+      const wrapper = mountPopupOverflowContent(2, {
+        default: () => (
+          <div>
+            <svg data-testid="svg">
+              <circle />
+            </svg>
             <div>
-              <svg data-testid="svg">
-                <circle />
-              </svg>
               <div>
                 <div>
                   <div>
-                    <div>
-                      <div class="t-menu__item" data-testid="too-deep">
-                        Too deep
-                      </div>
+                    <div class="t-menu__item" data-testid="too-deep">
+                      Too deep
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          ),
-        },
+          </div>
+        ),
       });
 
       expect(wrapper.get('[data-testid="svg"]').element).toBeInstanceOf(SVGElement);
@@ -67,7 +57,7 @@ describe('PopupOverflowContent', () => {
     });
 
     it(':default[undefined]', () => {
-      const wrapper = mount(PopupOverflowContent, { props: { foldIndex: 0 } });
+      const wrapper = mountPopupOverflowContent(0);
 
       expect(wrapper.element.tagName).toBe('DIV');
       expect(wrapper.element.children).toHaveLength(0);

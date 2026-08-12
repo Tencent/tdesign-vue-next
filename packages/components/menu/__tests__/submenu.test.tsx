@@ -1,84 +1,12 @@
 /* eslint-disable vue/one-component-per-file */
 import { mount } from '@vue/test-utils';
-import { defineComponent, h, inject, nextTick, provide, ref, shallowRef } from 'vue';
+import { defineComponent, inject, nextTick, provide, ref } from 'vue';
 
 import MenuItem from '../menu-item';
 import Submenu from '../submenu';
-import type { TdSubmenuProps } from '../type';
-import type { TdMenuInterface, TdSubMenuInterface } from '../types';
+import type { TdSubMenuInterface } from '../types';
 
-import { createMenuContext as createMenu } from './mount';
-
-const popupStubProps = {
-  overlayClassName: [String, Array],
-  overlayInnerClassName: [String, Array],
-  placement: String,
-  popperOptions: Object,
-  visible: Boolean,
-};
-
-const PopupStub = defineComponent({
-  name: 'TPopup',
-  inheritAttrs: false,
-  props: popupStubProps,
-  setup(props, { slots }) {
-    return () => (
-      <div class="popup-stub" data-placement={props.placement} data-visible={String(props.visible)}>
-        <div class="popup-trigger">{slots.default?.()}</div>
-        <div class="popup-content">{slots.content?.()}</div>
-      </div>
-    );
-  },
-});
-
-type SubmenuTestProps = TdSubmenuProps & { expandType?: string };
-
-const mountSubmenu = (
-  props: SubmenuTestProps = {},
-  options: {
-    menu?: TdMenuInterface;
-    parentName?: 'TMenu' | 'THeadMenu';
-    parentSubmenu?: TdSubMenuInterface;
-    renderPopupContent?: boolean;
-    slots?: Record<string, () => ReturnType<typeof h> | ReturnType<typeof h>[] | string>;
-  } = {},
-) => {
-  const createdContext = createMenu();
-  const context = { ...createdContext, menu: options.menu ?? createdContext.menu };
-  const currentProps = shallowRef<SubmenuTestProps>({ ...props });
-  const popup =
-    options.renderPopupContent === false
-      ? defineComponent({
-          name: 'TPopup',
-          props: popupStubProps,
-          setup(stubProps, { slots }) {
-            return () => (
-              <div class="popup-stub" data-visible={String(stubProps.visible)}>
-                {slots.default?.()}
-              </div>
-            );
-          },
-        })
-      : PopupStub;
-  const Host = defineComponent({
-    name: options.parentName ?? 'TMenu',
-    setup() {
-      provide('TdMenu', context.menu);
-      if (options.parentSubmenu) provide('TdSubmenu', options.parentSubmenu);
-      return () => h(Submenu, currentProps.value, options.slots);
-    },
-  });
-  const wrapper = mount(Host, { global: { stubs: { TPopup: popup } } });
-  return {
-    ...context,
-    async setProps(nextProps: Partial<SubmenuTestProps>) {
-      currentProps.value = { ...currentProps.value, ...nextProps };
-      await nextTick();
-    },
-    submenu: wrapper.findComponent(Submenu),
-    wrapper,
-  };
-};
+import { createMenuContext as createMenu, mountSubmenu, PopupStub } from './mount';
 
 describe('Submenu', () => {
   beforeEach(() => {

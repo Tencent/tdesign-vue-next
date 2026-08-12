@@ -1,52 +1,11 @@
 /* eslint-disable vue/one-component-per-file */
 import { flushPromises, mount } from '@vue/test-utils';
-import { defineComponent, h, nextTick, provide, ref } from 'vue';
+import { defineComponent, nextTick, provide, ref } from 'vue';
 
 import MenuItem from '../menu-item';
 import menuItemProps from '../menu-item-props';
-import type { TdMenuItemProps } from '../type';
-import type { TdMenuInterface, TdSubMenuInterface } from '../types';
 
-import { createMenuContext as createContext } from './mount';
-
-const mountItem = (
-  props: TdMenuItemProps = {},
-  options: {
-    menu?: TdMenuInterface;
-    router?: object;
-    slots?: Record<string, () => ReturnType<typeof h> | string>;
-    submenu?: TdSubMenuInterface | null;
-    tooltipStub?: boolean;
-  } = {},
-) => {
-  const context = options.menu ? { menu: options.menu } : createContext();
-  const global = {
-    mocks: options.router ? { $router: options.router } : {},
-    provide: {
-      TdMenu: context.menu,
-      ...(options.submenu === null ? {} : { TdSubmenu: options.submenu }),
-    },
-    stubs: options.tooltipStub
-      ? {
-          TTooltip: defineComponent({
-            props: {
-              content: Function,
-              placement: String,
-            },
-            setup(stubProps, { slots }) {
-              return () =>
-                h('div', { class: 'tooltip-stub', 'data-placement': stubProps.placement }, [
-                  slots.default?.(),
-                  h('span', { class: 'tooltip-content' }, stubProps.content?.()),
-                ]);
-            },
-          }),
-        }
-      : {},
-  };
-  const wrapper = mount(MenuItem, { props, slots: options.slots, global });
-  return { ...context, wrapper };
-};
+import { createMenuContext as createContext, mountMenuItem as mountItem } from './mount';
 
 describe('MenuItem', () => {
   describe('props', () => {
