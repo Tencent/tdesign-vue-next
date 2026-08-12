@@ -149,12 +149,11 @@ describe('Comment', () => {
     });
 
     it(':actions[prop TNode array]', () => {
+      const createAction = (iconClass: string, text: string) => (createElement: typeof h) =>
+        [createElement('i', { class: iconClass }), createElement('span', text)];
       const wrapper = mount(Comment, {
         props: {
-          actions: [
-            () => [h('i', { class: 'like-icon' }), h('span', '6')],
-            () => [h('i', { class: 'reply-icon' }), h('span', '回复')],
-          ],
+          actions: [createAction('like-icon', '6'), createAction('reply-icon', '回复')],
         },
       });
       const buttons = wrapper.findAll('.t-comment__actions .t-button');
