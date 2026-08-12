@@ -5,6 +5,7 @@ import { expect, vi } from 'vitest';
 import { BaseTable, PrimaryTable } from '@tdesign/components/table';
 import Tooltip from '@tdesign/components/tooltip';
 import type { PrimaryTableCol, TableRowData, SortType, TableSort } from '@tdesign/components/table/type';
+import { sleep } from '@tdesign/internal-utils';
 
 const PrimaryTableEditor = markRaw(
   defineComponent({
@@ -74,11 +75,6 @@ describe('PrimaryTable', () => {
       return Array.from(document.querySelectorAll(selector)) as HTMLElement[];
     }
 
-    async function waitPopup() {
-      await nextTick();
-      await new Promise((resolve) => setTimeout(resolve, 100));
-    }
-
     afterEach(() => {
       document.querySelectorAll('.t-popup').forEach((node) => node.remove());
     });
@@ -105,7 +101,7 @@ describe('PrimaryTable', () => {
 
           it("filter.type='single' renders radio group", async () => {
             const wrapper = mountFilterTable({ columns: getFilterColumns({}, true) });
-            await waitPopup();
+            await sleep(100);
             expect(document.querySelector(`${FILTER_POP} .t-radio-group`)).toBeTruthy();
             expect(document.querySelectorAll(`${FILTER_POP} .t-radio`)).toHaveLength(3);
             wrapper.unmount();
@@ -113,14 +109,14 @@ describe('PrimaryTable', () => {
 
           it("filter.type='multiple' renders checkbox group", async () => {
             const wrapper = mountFilterTable({ columns: getFilterColumns({ type: 'multiple' }, true) });
-            await waitPopup();
+            await sleep(100);
             expect(document.querySelector(`${FILTER_POP} .t-checkbox-group`)).toBeTruthy();
             wrapper.unmount();
           });
 
           it("filter.type='input' renders input", async () => {
             const wrapper = mountFilterTable({ columns: getFilterColumns({ type: 'input', list: undefined }, true) });
-            await waitPopup();
+            await sleep(100);
             expect(document.querySelector(`${FILTER_POP} .t-input`)).toBeTruthy();
             wrapper.unmount();
           });
@@ -128,7 +124,7 @@ describe('PrimaryTable', () => {
           it('invalid filter.type prints error', async () => {
             const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
             const wrapper = mountFilterTable({ columns: getFilterColumns({ type: 'unknown' }, true) });
-            await waitPopup();
+            await sleep(100);
             expect(spy).toHaveBeenCalled();
             spy.mockRestore();
             wrapper.unmount();
@@ -136,14 +132,14 @@ describe('PrimaryTable', () => {
 
           it('filter.showConfirmAndReset renders confirm and reset buttons', async () => {
             const wrapper = mountFilterTable({ columns: getFilterColumns({ showConfirmAndReset: true }, true) });
-            await waitPopup();
+            await sleep(100);
             expect(document.querySelectorAll(BOTTOM_BUTTONS)).toHaveLength(2);
             wrapper.unmount();
           });
 
           it('filter.showConfirmAndReset={false} does not render buttons', async () => {
             const wrapper = mountFilterTable({ columns: getFilterColumns({}, true) });
-            await waitPopup();
+            await sleep(100);
             expect(document.querySelectorAll(BOTTOM_BUTTONS)).toHaveLength(0);
             wrapper.unmount();
           });
@@ -152,7 +148,7 @@ describe('PrimaryTable', () => {
             const wrapper = mountFilterTable({
               columns: getFilterColumns({ type: 'multiple', props: { max: 1 } }, true),
             });
-            await waitPopup();
+            await sleep(100);
             // max=1 时，选中一项后其余选项被禁用
             queryPopupAll(`${FILTER_POP} .t-checkbox input`)[0].click();
             await nextTick();
@@ -175,7 +171,7 @@ describe('PrimaryTable', () => {
                 },
               ],
             });
-            await waitPopup();
+            await sleep(100);
             expect(document.querySelector('.custom-filter-component')).toBeTruthy();
             wrapper.unmount();
           });
@@ -258,7 +254,7 @@ describe('PrimaryTable', () => {
           it('change filter value emits onFilterChange', async () => {
             const onFilterChange = vi.fn();
             const wrapper = mountFilterTable({ columns: getFilterColumns({}, true), onFilterChange });
-            await waitPopup();
+            await sleep(100);
 
             queryPopupAll(`${FILTER_POP} .t-radio`)[1].click();
             await nextTick();
@@ -273,7 +269,7 @@ describe('PrimaryTable', () => {
           it('onChange should be triggered with filter trigger', async () => {
             const onChange = vi.fn();
             const wrapper = mountFilterTable({ columns: getFilterColumns({}, true), onChange });
-            await waitPopup();
+            await sleep(100);
 
             queryPopupAll(`${FILTER_POP} .t-radio`)[0].click();
             await nextTick();
@@ -290,7 +286,7 @@ describe('PrimaryTable', () => {
               columns: getFilterColumns({ showConfirmAndReset: true }, true),
               onFilterChange,
             });
-            await waitPopup();
+            await sleep(100);
 
             queryPopupAll(`${FILTER_POP} .t-radio`)[1].click();
             await nextTick();
@@ -311,7 +307,7 @@ describe('PrimaryTable', () => {
               filterValue: { status: 1 },
               onFilterChange,
             });
-            await waitPopup();
+            await sleep(100);
 
             queryPopupAll(BOTTOM_BUTTONS)[0].click();
             await nextTick();
@@ -330,7 +326,7 @@ describe('PrimaryTable', () => {
               filterValue: { status: [1] },
               onFilterChange,
             });
-            await waitPopup();
+            await sleep(100);
 
             queryPopupAll(BOTTOM_BUTTONS)[0].click();
             await nextTick();
@@ -345,7 +341,7 @@ describe('PrimaryTable', () => {
               filterValue: { status: 1 },
               onFilterChange,
             });
-            await waitPopup();
+            await sleep(100);
 
             queryPopupAll(BOTTOM_BUTTONS)[0].click();
             await nextTick();

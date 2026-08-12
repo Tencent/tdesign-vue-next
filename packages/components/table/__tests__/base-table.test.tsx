@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { BaseTable } from '@tdesign/components/table';
 import type { PrimaryTableCol, TableRowData, TableRowspanAndColspanFunc } from '@tdesign/components/table/type';
+import { sleep } from '@tdesign/internal-utils';
 import { getTableData, SIMPLE_COLUMNS, getNormalTableMount, getEmptyDataTableMount } from './mount';
 import log from '@tdesign/common-js/log/index';
 
@@ -1158,7 +1159,7 @@ describe('BaseTable', () => {
         attachTo: document.body,
       });
       await nextTick();
-      await new Promise((resolve) => setTimeout(resolve, 0));
+      await sleep(0);
 
       expect(warn).toHaveBeenCalled();
       expect(wrapper.find('.t-table__affixed-header-elm').exists()).toBe(true);
