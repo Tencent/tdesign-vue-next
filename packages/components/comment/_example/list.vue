@@ -4,12 +4,12 @@
       <template #content>
         <t-comment :avatar="item.avatar" :author="item.author" :datetime="item.datetime" :content="item.content">
           <template #actions>
-            <t-space key="thumbUp" :size="6">
-              <t-icon name="thumb-up" />
+            <t-space key="thumbUp" :size="6" align="center">
+              <t-icon class="comment-action-icon" name="thumb-up" />
               <span>6</span>
             </t-space>
-            <t-space key="chat" :size="6">
-              <t-icon name="chat" />
+            <t-space key="chat" :size="6" align="center">
+              <t-icon class="comment-action-icon" name="chat" />
               <span>回复</span>
             </t-space>
           </template>
@@ -44,3 +44,9 @@ const commentsData = [
   },
 ];
 </script>
+
+<style scoped>
+.comment-action-icon {
+  display: block;
+}
+</style>
