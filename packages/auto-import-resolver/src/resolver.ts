@@ -33,42 +33,60 @@ export interface TDesignResolverOptions {
   exclude?: FilterPattern;
 }
 
-export function TDesignResolver(options: TDesignResolverOptions = {}): ComponentResolver {
-  return {
-    type: 'component',
-    resolve: (name: string) => {
-      const { library = 'vue', exclude } = options;
-      const importFrom = options.esm ? '/esm' : '';
+export function TDesignResolver(options: TDesignResolverOptions = {}): ComponentResolver[] {
+  return [
+    {
+      type: 'component',
+      resolve: (name: string) => {
+        const { library = 'vue', exclude } = options;
+        const importFrom = options.esm ? '/esm' : '';
 
-      if (isExclude(name, exclude)) return;
+        if (isExclude(name, exclude)) return;
 
-      if (options.resolveIcons && icons.includes(name)) {
-        return {
-          name,
-          from: `${resolveIconPkg(library)}${importFrom}`,
-        };
-      }
-      const componentMap = resolveComponentMap(library);
-
-      let isTDesignComponent = false;
-      const importName = resolveImportName(name);
-
-      if (!importName) return;
-
-      for (const key in componentMap) {
-        if (componentMap[key].includes(importName)) {
-          isTDesignComponent = true;
-          break; // 找到后立即退出循环
+        if (options.resolveIcons && icons.includes(name)) {
+          return {
+            name,
+            from: `${resolveIconPkg(library)}${importFrom}`,
+          };
         }
-      }
-      if (isTDesignComponent) {
-        return {
-          name: importName,
-          from: `${resolveComponentPkg(library)}${importFrom}`,
-        };
-      }
+        const componentMap = resolveComponentMap(library);
+
+        let isTDesignComponent = false;
+        const importName = resolveImportName(name);
+
+        if (!importName) return;
+
+        for (const key in componentMap) {
+          if (componentMap[key].includes(importName)) {
+            isTDesignComponent = true;
+            break; // 找到后立即退出循环
+          }
+        }
+        if (isTDesignComponent) {
+          return {
+            name: importName,
+            from: `${resolveComponentPkg(library)}${importFrom}`,
+          };
+        }
+      },
     },
-  };
+    {
+      type: 'directive',
+      resolve: (name: string) => {
+        const { library = 'vue', exclude } = options;
+        const importFrom = options.esm ? '/esm' : '';
+
+        if (isExclude(name, exclude) || !['vue', 'vue-next'].includes(library)) return;
+
+        if (name === 'Loading') {
+          return {
+            name: 'LoadingDirective',
+            from: `${resolveComponentPkg(library)}${importFrom}`,
+          };
+        }
+      },
+    },
+  ];
 }
 
 function resolveImportName(name: string) {
