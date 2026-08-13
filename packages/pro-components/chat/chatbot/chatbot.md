@@ -1,5 +1,11 @@
 :: BASE_DOC ::
 
+## Vue Proxy 附件边界验证
+
+附件状态可以使用普通 `ref`，无需通过 `markRaw` 或 `shallowRef` 规避深度代理。Web Component 接收 Vue Proxy 后，会在附件进入 ChatEngine 消息状态前创建独立的非 Proxy 快照。
+
+{{ proxy-invariant }}
+
 ## API
 
 ### Chatbot Props

@@ -44,7 +44,7 @@
     "marked-highlight": "catalog:docs",
     "tdesign-icons-vue-next": "catalog:tdesign",
     "tdesign-vue-next": "workspace:^",
-    "tdesign-web-components": "1.3.1-alpha.14",
+    "tdesign-web-components": "https://pkg.pr.new/TDesignOteam/tdesign-web-components/tdesign-web-components@893ae5b6e427181d5b13f712afd26618a5cb2e07",
     "omi-vueify": "^0.0.12"
   },
   "devDependencies": {
