@@ -7,17 +7,13 @@ import Popup from '@tdesign/components/popup';
 import { StickyItem } from '@tdesign/components/sticky-tool';
 import stickyItemProps from '@tdesign/components/sticky-tool/sticky-item-props';
 
+import { getVNodeText } from './mount';
+
 type StickyItemMountProps = Partial<InstanceType<typeof StickyItem>['$props']>;
 
 const getPopupTrigger = (wrapper: VueWrapper) => {
   const popupSlots = wrapper.findComponent(Popup).vm.$slots as Slots;
   return popupSlots.default?.()[0] as VNode;
-};
-
-const getVNodeText = (node: VNode) => {
-  if (typeof node.children === 'string') return node.children;
-  if (!Array.isArray(node.children)) return '';
-  return node.children.map((child) => (typeof child === 'string' ? child : (child as VNode).children)).join('');
 };
 
 describe('StickyItem', () => {
