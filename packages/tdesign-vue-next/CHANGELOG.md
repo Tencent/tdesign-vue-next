@@ -5,6 +5,27 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.6 `2026-08-13`
+
+### 🚀 Features
+
+- `Comment`: actions 支持 Function 类型，并补全 Array 中 TNode 函数节点渲染 @RSS1102 ([#6915](https://github.com/Tencent/tdesign-vue-next/pull/6915))
+
+### 🐞 Bug Fixes
+
+- `Button`: 
+  - 移除组件不合理的默认 `margin:0` 和  `z-index:0` @RylanBot ([common#2636](https://github.com/Tencent/tdesign-common/pull/2636))
+  - 修复自定义 SVG 图标与文字之间缺少间距的问题 @xy200303 ([common#2639](https://github.com/Tencent/tdesign-common/pull/2639))
+  - 修复组件在 loading 状态丢失焦点的问题 @luppyw ([#6912](https://github.com/Tencent/tdesign-vue-next/pull/6912))
+- `Comment`: 修复操作项图标与文字未垂直居中的问题 @RSS1102 ([#6915](https://github.com/Tencent/tdesign-vue-next/pull/6915))
+- `Form`: 修复 `trigger` 为 `all` 的 `rules` 触发无效的问题 @RSS1102 ([#6862](https://github.com/Tencent/tdesign-vue-next/pull/6862))
+- `Icon`: 修复同时使用多个存在 alpha 通道的颜色填充时出现透明度重叠导致渲染不符合预期的问题 @uyarn ([#6878](https://github.com/Tencent/tdesign-vue-next/pull/6878))
+- `Switch`: 
+  - 修复 beforeChange Promise reject 产生未处理异常的问题 @kyui-azusa ([#6875](https://github.com/Tencent/tdesign-vue-next/pull/6875))
+  - 修复事件监听器更新后 change 回调仍调用旧函数的问题 @engvuchen ([#6914](https://github.com/Tencent/tdesign-vue-next/pull/6914))
+- `Table`: 修复 `1.20.4` 版本后，未主动修改 row 时，污染原始数据导致取消编辑功能异常的问题 @uyarn ([#6919](https://github.com/Tencent/tdesign-vue-next/pull/6919))
+- `Tabs`: 修复 `defaultValue` 为 `0` 时无法默认激活选项卡的问题 @kyui-azusa ([#6866](https://github.com/Tencent/tdesign-vue-next/pull/6866))
+
 ## 🌈 1.20.5 `2026-07-23`
 
 ### 🐞 Bug Fixes
