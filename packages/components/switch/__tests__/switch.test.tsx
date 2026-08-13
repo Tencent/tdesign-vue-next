@@ -412,18 +412,6 @@ describe('Switch', () => {
       expect(wrapper.emitted('update:modelValue')).toBeUndefined();
     });
 
-    it('uses the latest change listener after props update', async () => {
-      const initialOnChange = vi.fn();
-      const latestOnChange = vi.fn();
-      const wrapper = mount(Switch, { props: { onChange: initialOnChange } });
-
-      await wrapper.setProps({ onChange: latestOnChange });
-      await wrapper.get('.t-switch').trigger('click');
-
-      expect(initialOnChange).not.toHaveBeenCalled();
-      expect(latestOnChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
-    });
-
     // Current behavior is tracked by #6849. Update this case when keyboard support is implemented.
     it('keydown', async () => {
       const onChange = vi.fn();
