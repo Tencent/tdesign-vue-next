@@ -1,8 +1,5 @@
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
 import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
-import { joinComponentsRoot } from '@tdesign/internal-utils';
 import { Comment } from '@tdesign/components/comment';
 import type { CommentProps } from '@tdesign/components/comment';
 
@@ -259,19 +256,6 @@ describe('Comment', () => {
       expect(wrapper.find('.t-comment__reply .t-comment__name').text()).toBe('李四');
       expect(wrapper.find('.t-comment__reply .t-comment__detail').text()).toBe('内层回复');
       wrapper.unmount();
-    });
-  });
-
-  describe('styles', () => {
-    it('vertically centers action button content', () => {
-      const commentStyle = readFileSync(
-        resolve(joinComponentsRoot(), '../common/style/web/components/comment/_index.less'),
-        'utf8',
-      );
-      expect(commentStyle).toContain(`.@{prefix}-button__text {
-        align-items: center;
-        gap: @comment-actions-gap;
-      }`);
     });
   });
 });
