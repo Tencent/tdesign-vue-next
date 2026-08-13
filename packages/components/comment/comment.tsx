@@ -42,8 +42,9 @@ export default defineComponent({
       );
 
       const renderActions = () => {
-        if (!actions || !actions.length) return null;
-        const flatChildren = getFlatChildren(actions);
+        if (!actions) return null;
+        const flatChildren = getFlatChildren(Array.isArray(actions) ? actions : [actions]);
+        if (!flatChildren.length) return null;
         return (
           <div class={`${COMPONENT_NAME.value}__actions`}>
             {flatChildren.map((action, index) => {

@@ -1,7 +1,10 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
-import { h } from 'vue';
+import { joinComponentsRoot } from '@tdesign/internal-utils';
 import { Comment } from '@tdesign/components/comment';
+import type { CommentProps } from '@tdesign/components/comment';
 
 describe('Comment', () => {
   describe('props', () => {
@@ -130,38 +133,63 @@ describe('Comment', () => {
       wrapper.unmount();
     });
 
-    it(':actions[array]', () => {
-      const wrapper1 = mount(Comment, {
-        slots: {
-          actions: () => [<span key="like">点赞</span>, <span key="reply">回复</span>],
-        },
-      });
-      expect(wrapper1.find('.t-comment__actions').exists()).toBe(true);
-      // actions 会被 Button 包裹
-      const buttons = wrapper1.findAll('.t-comment__actions .t-button');
-      expect(buttons.length).toBe(2);
-      wrapper1.unmount();
-
-      // 不传 actions 不渲染
-      const wrapper2 = mount(<Comment />);
-      expect(wrapper2.find('.t-comment__actions').exists()).toBe(false);
-      wrapper2.unmount();
-    });
-
-    it(':actions[prop TNode array]', () => {
-      const createAction = (iconClass: string, text: string) => (createElement: typeof h) =>
-        [createElement('i', { class: iconClass }), createElement('span', text)];
+    it(':actions[slot]', () => {
       const wrapper = mount(Comment, {
-        props: {
-          actions: [createAction('like-icon', '6'), createAction('reply-icon', '回复')],
+        slots: {
+          actions: () => [
+            <span class="slot-like" key="like">
+              点赞
+            </span>,
+            <span class="slot-reply" key="reply">
+              回复
+            </span>,
+          ],
         },
       });
       const buttons = wrapper.findAll('.t-comment__actions .t-button');
       expect(buttons.length).toBe(2);
-      expect(buttons[0].find('.t-button__text').element.children.length).toBe(2);
-      expect(buttons[0].find('.t-button__text').text()).toBe('6');
-      expect(buttons[1].find('.t-button__text').element.children.length).toBe(2);
-      expect(buttons[1].find('.t-button__text').text()).toBe('回复');
+      expect(buttons[0].find('.slot-like').text()).toBe('点赞');
+      expect(buttons[1].find('.slot-reply').text()).toBe('回复');
+      expect(buttons.every((button) => button.find('.t-button__text').exists())).toBe(true);
+      wrapper.unmount();
+    });
+
+    it(':actions[array]', () => {
+      const actions: CommentProps['actions'] = [
+        (createElement) => [
+          createElement('i', { class: 'like-icon' }),
+          createElement('span', { class: 'like-count' }, '6'),
+        ],
+        (createElement) => [
+          createElement('i', { class: 'reply-icon' }),
+          createElement('span', { class: 'reply-text' }, '回复'),
+        ],
+      ];
+      const wrapper = mount(Comment, { props: { actions } });
+      const buttons = wrapper.findAll('.t-comment__actions .t-button');
+      expect(buttons.length).toBe(2);
+      expect(buttons[0].find('.like-icon').exists()).toBe(true);
+      expect(buttons[0].find('.like-count').text()).toBe('6');
+      expect(buttons[1].find('.reply-icon').exists()).toBe(true);
+      expect(buttons[1].find('.reply-text').text()).toBe('回复');
+      expect(buttons.every((button) => button.find('.t-button__text').exists())).toBe(true);
+      wrapper.unmount();
+    });
+
+    it(':actions[function]', () => {
+      const actions: CommentProps['actions'] = (createElement) =>
+        createElement('span', { class: 'custom-action' }, '自定义操作');
+      const wrapper = mount(Comment, { props: { actions } });
+      const buttons = wrapper.findAll('.t-comment__actions .t-button');
+      expect(buttons.length).toBe(1);
+      expect(buttons[0].find('.custom-action').text()).toBe('自定义操作');
+      expect(buttons[0].find('.t-button__text').exists()).toBe(true);
+      wrapper.unmount();
+    });
+
+    it(':actions[undefined]', () => {
+      const wrapper = mount(<Comment />);
+      expect(wrapper.find('.t-comment__actions').exists()).toBe(false);
       wrapper.unmount();
     });
 
@@ -231,6 +259,19 @@ describe('Comment', () => {
       expect(wrapper.find('.t-comment__reply .t-comment__name').text()).toBe('李四');
       expect(wrapper.find('.t-comment__reply .t-comment__detail').text()).toBe('内层回复');
       wrapper.unmount();
+    });
+  });
+
+  describe('styles', () => {
+    it('vertically centers action button content', () => {
+      const commentStyle = readFileSync(
+        resolve(joinComponentsRoot(), '../common/style/web/components/comment/_index.less'),
+        'utf8',
+      );
+      expect(commentStyle).toContain(`.@{prefix}-button__text {
+        align-items: center;
+        gap: @comment-actions-gap;
+      }`);
     });
   });
 });

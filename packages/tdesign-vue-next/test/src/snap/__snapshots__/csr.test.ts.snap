@@ -41957,6 +41957,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/bas
 exports[`csr snapshot test > csr test ./packages/components/comment/_example/list.vue 1`] = `
 <div
   class="t-list t-size-m t-list--split"
+  data-v-7a6ffe86=""
 >
   
   
@@ -41968,6 +41969,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
     
     <li
       class="t-list-item"
+      data-v-7a6ffe86=""
     >
       <div
         class="t-list-item-main"
@@ -41975,6 +41977,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
         
         <div
           class="t-comment"
+          data-v-7a6ffe86=""
         >
           <div
             class="t-comment__inner"
@@ -42026,7 +42029,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42035,7 +42039,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-thumb-up"
+                          class="t-icon t-icon-thumb-up comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-thumb-up"
@@ -42048,7 +42053,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           6
                         </span>
                       </div>
@@ -42070,7 +42077,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42079,7 +42087,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-chat"
+                          class="t-icon t-icon-chat comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-chat"
@@ -42092,7 +42101,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           回复
                         </span>
                       </div>
@@ -42115,6 +42126,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
     </li>
     <li
       class="t-list-item"
+      data-v-7a6ffe86=""
     >
       <div
         class="t-list-item-main"
@@ -42122,6 +42134,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
         
         <div
           class="t-comment"
+          data-v-7a6ffe86=""
         >
           <div
             class="t-comment__inner"
@@ -42173,7 +42186,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42182,7 +42196,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-thumb-up"
+                          class="t-icon t-icon-thumb-up comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-thumb-up"
@@ -42195,7 +42210,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           6
                         </span>
                       </div>
@@ -42217,7 +42234,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42226,7 +42244,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-chat"
+                          class="t-icon t-icon-chat comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-chat"
@@ -42239,7 +42258,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           回复
                         </span>
                       </div>
@@ -42262,6 +42283,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
     </li>
     <li
       class="t-list-item"
+      data-v-7a6ffe86=""
     >
       <div
         class="t-list-item-main"
@@ -42269,6 +42291,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
         
         <div
           class="t-comment"
+          data-v-7a6ffe86=""
         >
           <div
             class="t-comment__inner"
@@ -42320,7 +42343,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42329,7 +42353,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-thumb-up"
+                          class="t-icon t-icon-thumb-up comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-thumb-up"
@@ -42342,7 +42367,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           6
                         </span>
                       </div>
@@ -42364,7 +42391,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42373,7 +42401,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-chat"
+                          class="t-icon t-icon-chat comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-chat"
@@ -42386,7 +42415,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           回复
                         </span>
                       </div>
@@ -42424,6 +42455,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
 exports[`csr snapshot test > csr test ./packages/components/comment/_example/operation.vue 1`] = `
 <div
   class="t-comment"
+  data-v-f219ee5a=""
 >
   <div
     class="t-comment__inner"
@@ -42475,7 +42507,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
           >
             
             <div
-              class="t-space t-space-horizontal"
+              class="t-space t-space-align-center t-space-horizontal"
+              data-v-f219ee5a=""
               style="gap: 6px;"
             >
               
@@ -42484,7 +42517,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
                 class="t-space-item"
               >
                 <svg
-                  class="t-icon t-icon-thumb-up"
+                  class="t-icon t-icon-thumb-up comment-action-icon"
+                  data-v-f219ee5a=""
                 >
                   <use
                     href="#t-icon-thumb-up"
@@ -42497,7 +42531,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
               <div
                 class="t-space-item"
               >
-                <span>
+                <span
+                  data-v-f219ee5a=""
+                >
                   6
                 </span>
               </div>
@@ -42519,7 +42555,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
           >
             
             <div
-              class="t-space t-space-horizontal"
+              class="t-space t-space-align-center t-space-horizontal"
+              data-v-f219ee5a=""
               style="gap: 6px;"
             >
               
@@ -42528,7 +42565,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
                 class="t-space-item"
               >
                 <svg
-                  class="t-icon t-icon-chat"
+                  class="t-icon t-icon-chat comment-action-icon"
+                  data-v-f219ee5a=""
                 >
                   <use
                     href="#t-icon-chat"
@@ -42541,7 +42579,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
               <div
                 class="t-space-item"
               >
-                <span>
+                <span
+                  data-v-f219ee5a=""
+                >
                   回复
                 </span>
               </div>
@@ -42563,6 +42603,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
 exports[`csr snapshot test > csr test ./packages/components/comment/_example/quote.vue 1`] = `
 <div
   class="t-comment"
+  data-v-528c4df8=""
 >
   <div
     class="t-comment__inner"
@@ -42604,6 +42645,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
         
         <div
           class="t-comment"
+          data-v-528c4df8=""
         >
           <div
             class="t-comment__inner"
@@ -42650,7 +42692,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
           >
             
             <div
-              class="t-space t-space-horizontal"
+              class="t-space t-space-align-center t-space-horizontal"
+              data-v-528c4df8=""
               style="gap: 6px;"
             >
               
@@ -42659,7 +42702,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
                 class="t-space-item"
               >
                 <svg
-                  class="t-icon t-icon-thumb-up"
+                  class="t-icon t-icon-thumb-up comment-action-icon"
+                  data-v-528c4df8=""
                 >
                   <use
                     href="#t-icon-thumb-up"
@@ -42672,7 +42716,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
               <div
                 class="t-space-item"
               >
-                <span>
+                <span
+                  data-v-528c4df8=""
+                >
                   6
                 </span>
               </div>
@@ -42694,7 +42740,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
           >
             
             <div
-              class="t-space t-space-horizontal"
+              class="t-space t-space-align-center t-space-horizontal"
+              data-v-528c4df8=""
               style="gap: 6px;"
             >
               
@@ -42703,7 +42750,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
                 class="t-space-item"
               >
                 <svg
-                  class="t-icon t-icon-chat"
+                  class="t-icon t-icon-chat comment-action-icon"
+                  data-v-528c4df8=""
                 >
                   <use
                     href="#t-icon-chat"
@@ -42716,7 +42764,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
               <div
                 class="t-space-item"
               >
-                <span>
+                <span
+                  data-v-528c4df8=""
+                >
                   回复
                 </span>
               </div>
@@ -42789,7 +42839,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
           >
             
             <div
-              class="t-space t-space-horizontal"
+              class="t-space t-space-align-center t-space-horizontal"
               style="gap: 6px;"
             >
               
@@ -42798,7 +42848,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
                 class="t-space-item"
               >
                 <svg
-                  class="t-icon t-icon-thumb-up"
+                  class="t-icon t-icon-thumb-up comment-action-icon"
                 >
                   <use
                     href="#t-icon-thumb-up"
@@ -42833,7 +42883,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
           >
             
             <div
-              class="t-space t-space-horizontal"
+              class="t-space t-space-align-center t-space-horizontal"
               style="gap: 6px;"
             >
               
@@ -42842,7 +42892,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
                 class="t-space-item"
               >
                 <svg
-                  class="t-icon t-icon-chat"
+                  class="t-icon t-icon-chat comment-action-icon"
                 >
                   <use
                     href="#t-icon-chat"
@@ -42942,7 +42992,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
               >
                 
                 <div
-                  class="t-space t-space-horizontal"
+                  class="t-space t-space-align-center t-space-horizontal"
                   style="gap: 6px;"
                 >
                   
@@ -42951,7 +43001,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
                     class="t-space-item"
                   >
                     <svg
-                      class="t-icon t-icon-thumb-up"
+                      class="t-icon t-icon-thumb-up comment-action-icon"
                     >
                       <use
                         href="#t-icon-thumb-up"
@@ -42986,7 +43036,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
               >
                 
                 <div
-                  class="t-space t-space-horizontal"
+                  class="t-space t-space-align-center t-space-horizontal"
                   style="gap: 6px;"
                 >
                   
@@ -42995,7 +43045,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
                     class="t-space-item"
                   >
                     <svg
-                      class="t-icon t-icon-chat"
+                      class="t-icon t-icon-chat comment-action-icon"
                     >
                       <use
                         href="#t-icon-chat"
@@ -43066,6 +43116,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
             <textarea
               class="t-textarea__inner t-is-default narrow-scrollbar"
               placeholder="请输入内容"
+              value=""
             />
             <!---->
           </div>
