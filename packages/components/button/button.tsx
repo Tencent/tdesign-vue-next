@@ -80,6 +80,7 @@ export default defineComponent({
 
       const tag = renderTag();
       const isNativeButton = tag === 'button';
+      const shouldInterceptClick = props.loading || (!isNativeButton && isDisabled.value);
 
       const buttonAttrs = {
         class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
@@ -97,7 +98,7 @@ export default defineComponent({
           ref: btnRef,
           ...attrs,
           ...buttonAttrs,
-          onClick: isDisabled.value || props.loading ? handleDisabledClick : props.onClick,
+          onClick: shouldInterceptClick ? handleDisabledClick : props.onClick,
         },
         [buttonContent],
       );
