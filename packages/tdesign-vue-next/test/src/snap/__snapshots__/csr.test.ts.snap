@@ -42530,7 +42530,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
                     class="t-space-item"
                   >
                     <svg
-                      class="t-icon t-icon-thumb-up"
+                      class="t-icon t-icon-thumb-up comment-action-icon"
                       data-v-f219ee5a=""
                     >
                       <use
@@ -42578,7 +42578,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
                     class="t-space-item"
                   >
                     <svg
-                      class="t-icon t-icon-chat"
+                      class="t-icon t-icon-chat comment-action-icon"
                       data-v-f219ee5a=""
                     >
                       <use
@@ -42684,7 +42684,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
                     class="t-space-item"
                   >
                     <svg
-                      class="t-icon t-icon-thumb-up"
+                      class="t-icon t-icon-thumb-up comment-action-icon"
                       fill="none"
                       height="1em"
                       style="fill: none;"
@@ -42774,7 +42774,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
                     class="t-space-item"
                   >
                     <svg
-                      class="t-icon t-icon-chat"
+                      class="t-icon t-icon-chat comment-action-icon"
                       fill="none"
                       height="1em"
                       style="fill: none;"
@@ -42923,7 +42923,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
                     class="t-space-item"
                   >
                     <svg
-                      class="t-icon t-icon-thumb-up"
+                      class="t-icon t-icon-thumb-up comment-action-icon"
                       fill="none"
                       height="1em"
                       style="fill: none;"
@@ -43013,7 +43013,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/ope
                     class="t-space-item"
                   >
                     <svg
-                      class="t-icon t-icon-chat"
+                      class="t-icon t-icon-chat comment-action-icon"
                       fill="none"
                       height="1em"
                       style="fill: none;"

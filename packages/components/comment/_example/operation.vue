@@ -5,11 +5,11 @@
       <t-comment v-bind="commentProps">
         <template #actions>
           <t-space :size="6" align="center">
-            <t-icon name="thumb-up" />
+            <t-icon class="comment-action-icon" name="thumb-up" />
             <span>6</span>
           </t-space>
           <t-space :size="6" align="center">
-            <t-icon name="chat" />
+            <t-icon class="comment-action-icon" name="chat" />
             <span>回复</span>
           </t-space>
         </template>
@@ -42,13 +42,13 @@ const commentProps = {
 const actionList: CommentProps['actions'] = [
   () => (
     <Space size={6} align="center">
-      <ThumbUpIcon />
+      <ThumbUpIcon class="comment-action-icon" />
       <span>6</span>
     </Space>
   ),
   () => (
     <Space size={6} align="center">
-      <ChatIcon />
+      <ChatIcon class="comment-action-icon" />
       <span>回复</span>
     </Space>
   ),
@@ -56,11 +56,11 @@ const actionList: CommentProps['actions'] = [
 
 const renderActions: CommentProps['actions'] = () => [
   <Space size={6} align="center" key="thumbUp">
-    <ThumbUpIcon />
+    <ThumbUpIcon class="comment-action-icon" />
     <span>6</span>
   </Space>,
   <Space size={6} align="center" key="chat">
-    <ChatIcon />
+    <ChatIcon class="comment-action-icon" />
     <span>回复</span>
   </Space>,
 ];
@@ -77,5 +77,12 @@ const renderActions: CommentProps['actions'] = () => [
 
 .comment-operation-demo h3 {
   margin: 0 0 8px;
+}
+</style>
+
+<style>
+/* TSX 返回的图标节点不带当前 SFC 的 scoped 属性，通过容器选择器统一消除 SVG 基线空隙。 */
+.comment-operation-demo .comment-action-icon {
+  display: block;
 }
 </style>
