@@ -570,5 +570,21 @@ describe('Textarea', () => {
       exposed.focus();
       expect(focusSpy).toHaveBeenCalledOnce();
     });
+
+    it('onChange should use the latest handler after parent re-render', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <Textarea defaultValue="" onChange={onChange.value} />,
+      });
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      await getTextarea(wrapper).setValue('latest value');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith('latest value', { e: expect.objectContaining({ type: 'input' }) });
+    });
   });
 });

@@ -52,6 +52,23 @@ describe('Radio', () => {
       expect(wrapper.get<HTMLInputElement>(INPUT).element.checked).toBe(true);
     });
 
+    it('onChange should use the latest handler after parent re-render', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <Radio checked={false} onChange={onChange.value} />,
+      });
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      await wrapper.get(RADIO).trigger('click');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
+      wrapper.unmount();
+    });
+
     it(':defaultChecked[boolean]', async () => {
       const wrapper = mount(Radio, {
         props: { allowUncheck: true, defaultChecked: true },

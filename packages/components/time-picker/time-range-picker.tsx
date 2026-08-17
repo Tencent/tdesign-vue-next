@@ -52,7 +52,9 @@ export default defineComponent({
       },
     ]);
     const { value, modelValue, allowInput, format } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange as any);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, (newValue) =>
+      props.onChange?.(newValue),
+    );
 
     const handleShowPopup = (visible: boolean, context: any) => {
       if (isReadOnly.value) return;

@@ -41,7 +41,9 @@ export default defineComponent({
     const isReadonly = useReadonly();
 
     const { value, modelValue } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, (newValue) =>
+      props.onChange?.(newValue),
+    );
 
     const isDisabled = useDisabled() as ComputedRef<boolean>;
     const { allowInput, format } = toRefs(props);

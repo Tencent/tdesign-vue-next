@@ -27,7 +27,7 @@ export default defineComponent({
       checked,
       modelValue,
       props.defaultChecked,
-      props.onChange,
+      (newValue, context) => props.onChange?.(newValue, context),
       'checked',
     );
 

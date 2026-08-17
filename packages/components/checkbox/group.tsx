@@ -17,7 +17,9 @@ export default defineComponent({
 
     const { isArray } = Array;
     const { value, modelValue } = toRefs(props);
-    const [rawValue, setRawValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [rawValue, setRawValue] = useVModel(value, modelValue, props.defaultValue, (newValue, context) =>
+      props.onChange?.(newValue, context),
+    );
     const innerValue = computed(() => (isArray(rawValue.value) ? rawValue.value : []));
 
     const optionList = ref<Array<CheckboxOptionObj>>([]);

@@ -12,7 +12,9 @@ import { TdDatePickerProps, DateMultipleValue, DateValue } from '../type';
 
 export function useSingleValue(props: TdDatePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);
-  const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
+  const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, (newValue, context) =>
+    props.onChange?.(newValue, context),
+  );
 
   const formatRef = computed(() =>
     getDefaultFormat({
