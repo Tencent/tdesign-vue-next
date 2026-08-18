@@ -41957,6 +41957,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/bas
 exports[`csr snapshot test > csr test ./packages/components/comment/_example/list.vue 1`] = `
 <div
   class="t-list t-size-m t-list--split"
+  data-v-7a6ffe86=""
 >
   
   
@@ -41968,6 +41969,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
     
     <li
       class="t-list-item"
+      data-v-7a6ffe86=""
     >
       <div
         class="t-list-item-main"
@@ -41975,6 +41977,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
         
         <div
           class="t-comment"
+          data-v-7a6ffe86=""
         >
           <div
             class="t-comment__inner"
@@ -42026,7 +42029,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42035,7 +42039,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-thumb-up"
+                          class="t-icon t-icon-thumb-up comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-thumb-up"
@@ -42048,7 +42053,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           6
                         </span>
                       </div>
@@ -42070,7 +42077,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42079,7 +42087,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-chat"
+                          class="t-icon t-icon-chat comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-chat"
@@ -42092,7 +42101,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           回复
                         </span>
                       </div>
@@ -42115,6 +42126,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
     </li>
     <li
       class="t-list-item"
+      data-v-7a6ffe86=""
     >
       <div
         class="t-list-item-main"
@@ -42122,6 +42134,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
         
         <div
           class="t-comment"
+          data-v-7a6ffe86=""
         >
           <div
             class="t-comment__inner"
@@ -42173,7 +42186,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42182,7 +42196,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-thumb-up"
+                          class="t-icon t-icon-thumb-up comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-thumb-up"
@@ -42195,7 +42210,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           6
                         </span>
                       </div>
@@ -42217,7 +42234,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42226,7 +42244,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-chat"
+                          class="t-icon t-icon-chat comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-chat"
@@ -42239,7 +42258,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           回复
                         </span>
                       </div>
@@ -42262,6 +42283,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
     </li>
     <li
       class="t-list-item"
+      data-v-7a6ffe86=""
     >
       <div
         class="t-list-item-main"
@@ -42269,6 +42291,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
         
         <div
           class="t-comment"
+          data-v-7a6ffe86=""
         >
           <div
             class="t-comment__inner"
@@ -42320,7 +42343,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42329,7 +42353,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-thumb-up"
+                          class="t-icon t-icon-thumb-up comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-thumb-up"
@@ -42342,7 +42367,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           6
                         </span>
                       </div>
@@ -42364,7 +42391,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                   >
                     
                     <div
-                      class="t-space t-space-horizontal"
+                      class="t-space t-space-align-center t-space-horizontal"
+                      data-v-7a6ffe86=""
                       style="gap: 6px;"
                     >
                       
@@ -42373,7 +42401,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                         class="t-space-item"
                       >
                         <svg
-                          class="t-icon t-icon-chat"
+                          class="t-icon t-icon-chat comment-action-icon"
+                          data-v-7a6ffe86=""
                         >
                           <use
                             href="#t-icon-chat"
@@ -42386,7 +42415,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
                       <div
                         class="t-space-item"
                       >
-                        <span>
+                        <span
+                          data-v-7a6ffe86=""
+                        >
                           回复
                         </span>
                       </div>
@@ -42423,146 +42454,649 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/lis
 
 exports[`csr snapshot test > csr test ./packages/components/comment/_example/operation.vue 1`] = `
 <div
-  class="t-comment"
+  class="comment-operation-demo"
+  data-v-f219ee5a=""
 >
-  <div
-    class="t-comment__inner"
+  <section
+    class="comment-operation-demo__item"
+    data-v-f219ee5a=""
   >
-    <div
-      class="t-comment__avatar"
+    <h3
+      data-v-f219ee5a=""
     >
-      <img
-        alt=""
-        class="t-comment__avatar-image"
-        src="https://tdesign.gtimg.com/site/avatar.jpg"
-      />
-    </div>
+      Slot
+    </h3>
     <div
-      class="t-comment__content"
+      class="t-comment"
+      data-v-f219ee5a=""
     >
       <div
-        class="t-comment__author"
+        class="t-comment__inner"
       >
-        <span
-          class="t-comment__name"
+        <div
+          class="t-comment__avatar"
         >
-          评论作者名
-        </span>
-        <span
-          class="t-comment__time"
+          <img
+            alt=""
+            class="t-comment__avatar-image"
+            src="https://tdesign.gtimg.com/site/avatar.jpg"
+          />
+        </div>
+        <div
+          class="t-comment__content"
         >
-          今天16:38
-        </span>
-      </div>
-      <div
-        class="t-comment__detail"
-      >
-        这里是评论者写的评论内容。
+          <div
+            class="t-comment__author"
+          >
+            <span
+              class="t-comment__name"
+            >
+              评论作者名
+            </span>
+            <span
+              class="t-comment__time"
+            >
+              今天16:38
+            </span>
+          </div>
+          <div
+            class="t-comment__detail"
+          >
+            这里是评论者写的评论内容。
+          </div>
+          <!---->
+          <div
+            class="t-comment__actions"
+          >
+            
+            <button
+              class="t-button t-button--variant-text t-button--theme-default t-button--shape-rectangle t-size-s"
+              href=""
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                <div
+                  class="t-space t-space-align-center t-space-horizontal"
+                  data-v-f219ee5a=""
+                  style="gap: 6px;"
+                >
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <svg
+                      class="t-icon t-icon-thumb-up comment-action-icon"
+                      data-v-f219ee5a=""
+                    >
+                      <use
+                        href="#t-icon-thumb-up"
+                      />
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <span
+                      data-v-f219ee5a=""
+                    >
+                      6
+                    </span>
+                  </div>
+                  <!---->
+                  
+                  
+                </div>
+                
+              </span>
+            </button>
+            <button
+              class="t-button t-button--variant-text t-button--theme-default t-button--shape-rectangle t-size-s"
+              href=""
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                <div
+                  class="t-space t-space-align-center t-space-horizontal"
+                  data-v-f219ee5a=""
+                  style="gap: 6px;"
+                >
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <svg
+                      class="t-icon t-icon-chat comment-action-icon"
+                      data-v-f219ee5a=""
+                    >
+                      <use
+                        href="#t-icon-chat"
+                      />
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <span
+                      data-v-f219ee5a=""
+                    >
+                      回复
+                    </span>
+                  </div>
+                  <!---->
+                  
+                  
+                </div>
+                
+              </span>
+            </button>
+            
+          </div>
+        </div>
       </div>
       <!---->
-      <div
-        class="t-comment__actions"
-      >
-        
-        <button
-          class="t-button t-button--variant-text t-button--theme-default t-button--shape-rectangle t-size-s"
-          href=""
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="t-button__text"
-          >
-            
-            <div
-              class="t-space t-space-horizontal"
-              style="gap: 6px;"
-            >
-              
-              
-              <div
-                class="t-space-item"
-              >
-                <svg
-                  class="t-icon t-icon-thumb-up"
-                >
-                  <use
-                    href="#t-icon-thumb-up"
-                  />
-                </svg>
-              </div>
-              <!---->
-              
-              
-              <div
-                class="t-space-item"
-              >
-                <span>
-                  6
-                </span>
-              </div>
-              <!---->
-              
-              
-            </div>
-            
-          </span>
-        </button>
-        <button
-          class="t-button t-button--variant-text t-button--theme-default t-button--shape-rectangle t-size-s"
-          href=""
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="t-button__text"
-          >
-            
-            <div
-              class="t-space t-space-horizontal"
-              style="gap: 6px;"
-            >
-              
-              
-              <div
-                class="t-space-item"
-              >
-                <svg
-                  class="t-icon t-icon-chat"
-                >
-                  <use
-                    href="#t-icon-chat"
-                  />
-                </svg>
-              </div>
-              <!---->
-              
-              
-              <div
-                class="t-space-item"
-              >
-                <span>
-                  回复
-                </span>
-              </div>
-              <!---->
-              
-              
-            </div>
-            
-          </span>
-        </button>
-        
-      </div>
     </div>
-  </div>
-  <!---->
+  </section>
+  <section
+    class="comment-operation-demo__item"
+    data-v-f219ee5a=""
+  >
+    <h3
+      data-v-f219ee5a=""
+    >
+      Array
+    </h3>
+    <div
+      class="t-comment"
+      data-v-f219ee5a=""
+    >
+      <div
+        class="t-comment__inner"
+      >
+        <div
+          class="t-comment__avatar"
+        >
+          <img
+            alt=""
+            class="t-comment__avatar-image"
+            src="https://tdesign.gtimg.com/site/avatar.jpg"
+          />
+        </div>
+        <div
+          class="t-comment__content"
+        >
+          <div
+            class="t-comment__author"
+          >
+            <span
+              class="t-comment__name"
+            >
+              评论作者名
+            </span>
+            <span
+              class="t-comment__time"
+            >
+              今天16:38
+            </span>
+          </div>
+          <div
+            class="t-comment__detail"
+          >
+            这里是评论者写的评论内容。
+          </div>
+          <!---->
+          <div
+            class="t-comment__actions"
+          >
+            
+            <button
+              class="t-button t-button--variant-text t-button--theme-default t-button--shape-rectangle t-size-s"
+              href=""
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                <div
+                  class="t-space t-space-align-center t-space-horizontal"
+                  style="gap: 6px;"
+                >
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <svg
+                      class="t-icon t-icon-thumb-up comment-action-icon"
+                      fill="none"
+                      height="1em"
+                      style="fill: none;"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <defs>
+                        <mask
+                          height="24"
+                          id="t-icon-thumb-up-instance-v0-overlap-fill1"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <path
+                            d="M3 21V11M8 11V21H19.1529C19.6417 21 20.0589 20.6466 20.1393 20.1644L21.8059 10.1644C21.9075 9.55487 21.4375 9 20.8195 9H14.5V5.54138C14.5 4.07486 13.4398 2.82329 11.9932 2.5822L11.5 2.5L8 11Z"
+                            fill="none"
+                            stroke="#000"
+                            stroke-linecap="square"
+                            stroke-width="2"
+                          />
+                        </mask>
+                      </defs>
+                      <g
+                        id="thumb-up"
+                      >
+                        <path
+                          d="M8 11L11.5 2.5L11.9932 2.5822C13.4398 2.82329 14.5 4.07486 14.5 5.54138V9H20.8195C21.4375 9 21.9075 9.55487 21.8059 10.1644L20.1393 20.1644C20.0589 20.6466 19.6417 21 19.1529 21H8V11Z"
+                          fill="transparent"
+                          id="fill1"
+                          mask="url(#t-icon-thumb-up-instance-v0-overlap-fill1)"
+                        />
+                        <path
+                          d="M3 21V11M8 11V21H19.1529C19.6417 21 20.0589 20.6466 20.1393 20.1644L21.8059 10.1644C21.9075 9.55487 21.4375 9 20.8195 9H14.5V5.54138C14.5 4.07486 13.4398 2.82329 11.9932 2.5822L11.5 2.5L8 11Z"
+                          id="stroke1"
+                          stroke="currentColor"
+                          stroke-linecap="square"
+                          stroke-width="2"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <span>
+                      6
+                    </span>
+                  </div>
+                  <!---->
+                  
+                  
+                </div>
+                
+              </span>
+            </button>
+            <button
+              class="t-button t-button--variant-text t-button--theme-default t-button--shape-rectangle t-size-s"
+              href=""
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                <div
+                  class="t-space t-space-align-center t-space-horizontal"
+                  style="gap: 6px;"
+                >
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <svg
+                      class="t-icon t-icon-chat comment-action-icon"
+                      fill="none"
+                      height="1em"
+                      style="fill: none;"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <defs>
+                        <mask
+                          height="24"
+                          id="t-icon-chat-instance-v1-overlap-fill1"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <path
+                            d="M2.5 4H21.5V19H6.5L2.5 22V4Z"
+                            fill="none"
+                            stroke="#000"
+                            stroke-linecap="square"
+                            stroke-width="2"
+                          />
+                        </mask>
+                      </defs>
+                      <g
+                        id="chat"
+                      >
+                        <path
+                          d="M2.5 4H21.5V19H6.5L2.5 22V4Z"
+                          fill="transparent"
+                          id="fill1"
+                          mask="url(#t-icon-chat-instance-v1-overlap-fill1)"
+                        />
+                        <path
+                          d="M2.5 4H21.5V19H6.5L2.5 22V4Z"
+                          id="stroke1"
+                          stroke="currentColor"
+                          stroke-linecap="square"
+                          stroke-width="2"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <span>
+                      回复
+                    </span>
+                  </div>
+                  <!---->
+                  
+                  
+                </div>
+                
+              </span>
+            </button>
+            
+          </div>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </section>
+  <section
+    class="comment-operation-demo__item"
+    data-v-f219ee5a=""
+  >
+    <h3
+      data-v-f219ee5a=""
+    >
+      Function
+    </h3>
+    <div
+      class="t-comment"
+      data-v-f219ee5a=""
+    >
+      <div
+        class="t-comment__inner"
+      >
+        <div
+          class="t-comment__avatar"
+        >
+          <img
+            alt=""
+            class="t-comment__avatar-image"
+            src="https://tdesign.gtimg.com/site/avatar.jpg"
+          />
+        </div>
+        <div
+          class="t-comment__content"
+        >
+          <div
+            class="t-comment__author"
+          >
+            <span
+              class="t-comment__name"
+            >
+              评论作者名
+            </span>
+            <span
+              class="t-comment__time"
+            >
+              今天16:38
+            </span>
+          </div>
+          <div
+            class="t-comment__detail"
+          >
+            这里是评论者写的评论内容。
+          </div>
+          <!---->
+          <div
+            class="t-comment__actions"
+          >
+            
+            <button
+              class="t-button t-button--variant-text t-button--theme-default t-button--shape-rectangle t-size-s"
+              href=""
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                <div
+                  class="t-space t-space-align-center t-space-horizontal"
+                  style="gap: 6px;"
+                >
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <svg
+                      class="t-icon t-icon-thumb-up comment-action-icon"
+                      fill="none"
+                      height="1em"
+                      style="fill: none;"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <defs>
+                        <mask
+                          height="24"
+                          id="t-icon-thumb-up-instance-v2-overlap-fill1"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <path
+                            d="M3 21V11M8 11V21H19.1529C19.6417 21 20.0589 20.6466 20.1393 20.1644L21.8059 10.1644C21.9075 9.55487 21.4375 9 20.8195 9H14.5V5.54138C14.5 4.07486 13.4398 2.82329 11.9932 2.5822L11.5 2.5L8 11Z"
+                            fill="none"
+                            stroke="#000"
+                            stroke-linecap="square"
+                            stroke-width="2"
+                          />
+                        </mask>
+                      </defs>
+                      <g
+                        id="thumb-up"
+                      >
+                        <path
+                          d="M8 11L11.5 2.5L11.9932 2.5822C13.4398 2.82329 14.5 4.07486 14.5 5.54138V9H20.8195C21.4375 9 21.9075 9.55487 21.8059 10.1644L20.1393 20.1644C20.0589 20.6466 19.6417 21 19.1529 21H8V11Z"
+                          fill="transparent"
+                          id="fill1"
+                          mask="url(#t-icon-thumb-up-instance-v2-overlap-fill1)"
+                        />
+                        <path
+                          d="M3 21V11M8 11V21H19.1529C19.6417 21 20.0589 20.6466 20.1393 20.1644L21.8059 10.1644C21.9075 9.55487 21.4375 9 20.8195 9H14.5V5.54138C14.5 4.07486 13.4398 2.82329 11.9932 2.5822L11.5 2.5L8 11Z"
+                          id="stroke1"
+                          stroke="currentColor"
+                          stroke-linecap="square"
+                          stroke-width="2"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <span>
+                      6
+                    </span>
+                  </div>
+                  <!---->
+                  
+                  
+                </div>
+                
+              </span>
+            </button>
+            <button
+              class="t-button t-button--variant-text t-button--theme-default t-button--shape-rectangle t-size-s"
+              href=""
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                <div
+                  class="t-space t-space-align-center t-space-horizontal"
+                  style="gap: 6px;"
+                >
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <svg
+                      class="t-icon t-icon-chat comment-action-icon"
+                      fill="none"
+                      height="1em"
+                      style="fill: none;"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <defs>
+                        <mask
+                          height="24"
+                          id="t-icon-chat-instance-v3-overlap-fill1"
+                          mask-type="luminance"
+                          maskContentUnits="userSpaceOnUse"
+                          maskUnits="userSpaceOnUse"
+                          width="24"
+                          x="0"
+                          y="0"
+                        >
+                          <rect
+                            fill="#fff"
+                            height="24"
+                            width="24"
+                            x="0"
+                            y="0"
+                          />
+                          <path
+                            d="M2.5 4H21.5V19H6.5L2.5 22V4Z"
+                            fill="none"
+                            stroke="#000"
+                            stroke-linecap="square"
+                            stroke-width="2"
+                          />
+                        </mask>
+                      </defs>
+                      <g
+                        id="chat"
+                      >
+                        <path
+                          d="M2.5 4H21.5V19H6.5L2.5 22V4Z"
+                          fill="transparent"
+                          id="fill1"
+                          mask="url(#t-icon-chat-instance-v3-overlap-fill1)"
+                        />
+                        <path
+                          d="M2.5 4H21.5V19H6.5L2.5 22V4Z"
+                          id="stroke1"
+                          stroke="currentColor"
+                          stroke-linecap="square"
+                          stroke-width="2"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <span>
+                      回复
+                    </span>
+                  </div>
+                  <!---->
+                  
+                  
+                </div>
+                
+              </span>
+            </button>
+            
+          </div>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </section>
 </div>
 `;
 
 exports[`csr snapshot test > csr test ./packages/components/comment/_example/quote.vue 1`] = `
 <div
   class="t-comment"
+  data-v-528c4df8=""
 >
   <div
     class="t-comment__inner"
@@ -42604,6 +43138,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
         
         <div
           class="t-comment"
+          data-v-528c4df8=""
         >
           <div
             class="t-comment__inner"
@@ -42650,7 +43185,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
           >
             
             <div
-              class="t-space t-space-horizontal"
+              class="t-space t-space-align-center t-space-horizontal"
+              data-v-528c4df8=""
               style="gap: 6px;"
             >
               
@@ -42659,7 +43195,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
                 class="t-space-item"
               >
                 <svg
-                  class="t-icon t-icon-thumb-up"
+                  class="t-icon t-icon-thumb-up comment-action-icon"
+                  data-v-528c4df8=""
                 >
                   <use
                     href="#t-icon-thumb-up"
@@ -42672,7 +43209,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
               <div
                 class="t-space-item"
               >
-                <span>
+                <span
+                  data-v-528c4df8=""
+                >
                   6
                 </span>
               </div>
@@ -42694,7 +43233,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
           >
             
             <div
-              class="t-space t-space-horizontal"
+              class="t-space t-space-align-center t-space-horizontal"
+              data-v-528c4df8=""
               style="gap: 6px;"
             >
               
@@ -42703,7 +43243,8 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
                 class="t-space-item"
               >
                 <svg
-                  class="t-icon t-icon-chat"
+                  class="t-icon t-icon-chat comment-action-icon"
+                  data-v-528c4df8=""
                 >
                   <use
                     href="#t-icon-chat"
@@ -42716,7 +43257,9 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/quo
               <div
                 class="t-space-item"
               >
-                <span>
+                <span
+                  data-v-528c4df8=""
+                >
                   回复
                 </span>
               </div>
@@ -42789,7 +43332,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
           >
             
             <div
-              class="t-space t-space-horizontal"
+              class="t-space t-space-align-center t-space-horizontal"
               style="gap: 6px;"
             >
               
@@ -42798,7 +43341,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
                 class="t-space-item"
               >
                 <svg
-                  class="t-icon t-icon-thumb-up"
+                  class="t-icon t-icon-thumb-up comment-action-icon"
                 >
                   <use
                     href="#t-icon-thumb-up"
@@ -42833,7 +43376,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
           >
             
             <div
-              class="t-space t-space-horizontal"
+              class="t-space t-space-align-center t-space-horizontal"
               style="gap: 6px;"
             >
               
@@ -42842,7 +43385,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
                 class="t-space-item"
               >
                 <svg
-                  class="t-icon t-icon-chat"
+                  class="t-icon t-icon-chat comment-action-icon"
                 >
                   <use
                     href="#t-icon-chat"
@@ -42942,7 +43485,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
               >
                 
                 <div
-                  class="t-space t-space-horizontal"
+                  class="t-space t-space-align-center t-space-horizontal"
                   style="gap: 6px;"
                 >
                   
@@ -42951,7 +43494,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
                     class="t-space-item"
                   >
                     <svg
-                      class="t-icon t-icon-thumb-up"
+                      class="t-icon t-icon-thumb-up comment-action-icon"
                     >
                       <use
                         href="#t-icon-thumb-up"
@@ -42986,7 +43529,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
               >
                 
                 <div
-                  class="t-space t-space-horizontal"
+                  class="t-space t-space-align-center t-space-horizontal"
                   style="gap: 6px;"
                 >
                   
@@ -42995,7 +43538,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
                     class="t-space-item"
                   >
                     <svg
-                      class="t-icon t-icon-chat"
+                      class="t-icon t-icon-chat comment-action-icon"
                     >
                       <use
                         href="#t-icon-chat"
@@ -43066,6 +43609,7 @@ exports[`csr snapshot test > csr test ./packages/components/comment/_example/rep
             <textarea
               class="t-textarea__inner t-is-default narrow-scrollbar"
               placeholder="请输入内容"
+              value=""
             />
             <!---->
           </div>

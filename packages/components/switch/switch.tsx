@@ -17,7 +17,9 @@ export default defineComponent({
     const { STATUS, SIZE } = useCommonClassName();
     // values
     const { value, modelValue } = toRefs(props);
-    const [innerValue, setSwitchVal] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [innerValue, setSwitchVal] = useVModel(value, modelValue, props.defaultValue, (newValue, context) =>
+      props.onChange?.(newValue, context),
+    );
 
     const activeValue = computed(() => {
       if (props.customValue && props.customValue.length > 0) {
