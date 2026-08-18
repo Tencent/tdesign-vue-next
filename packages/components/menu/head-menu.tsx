@@ -45,9 +45,9 @@ export default defineComponent({
         log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
       }
     });
-    const { value, modelValue, expanded } = toRefs(props);
-    const [activeValue, setActiveValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-    const [expandValues, setExpanded] = useDefaultValue(expanded, props.defaultExpanded, props.onExpand, 'expanded');
+    const { value, modelValue, expanded, onChange: onChangeRef, onExpand } = toRefs(props);
+    const [activeValue, setActiveValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
+    const [expandValues, setExpanded] = useDefaultValue(expanded, props.defaultExpanded, onExpand, 'expanded');
     const activeValues = ref([]);
     const theme = computed(() => props.theme);
     const menuClass = computed(() => [

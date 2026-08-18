@@ -45,14 +45,14 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
     const { globalConfig, t } = useConfig('select');
-    const { popupVisible, inputValue, modelValue, value } = toRefs(props);
+    const { popupVisible, inputValue, modelValue, value, onInputChange, onChange: onChangeRef } = toRefs(props);
     const [innerInputValue, setInputValue] = useDefaultValue(
       inputValue,
       props.defaultInputValue,
-      props.onInputChange,
+      onInputChange,
       'inputValue',
     );
-    const [orgValue, setOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [orgValue, setOrgValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
     const selectPanelRef = ref(null);
     const selectInputRef = ref(null);
     const keys = computed(() => ({

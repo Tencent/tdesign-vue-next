@@ -1,15 +1,18 @@
-import { ref, Ref, getCurrentInstance } from 'vue';
+import { ref, Ref, getCurrentInstance, unref } from 'vue';
 import { kebabCase } from 'lodash-es';
-import { ChangeHandler } from '../useVModel';
+import { ChangeHandler, ChangeHandlerSource } from '../useVModel';
 
 export function useDefaultValue<T, P extends any[]>(
   value: Ref<T>,
   defaultValue: T,
-  onChange: ChangeHandler<T, P>,
+  onChange: ChangeHandlerSource<T, P>,
   propsName: string,
 ): [Ref<T>, ChangeHandler<T, P>] {
   const { emit, vnode } = getCurrentInstance();
   const internalValue: Ref<T> = ref();
+  const triggerChange: ChangeHandler<T, P> = (newValue, ...args) => {
+    unref(onChange)?.(newValue, ...args);
+  };
 
   const vProps = vnode.props || {};
   const isVMP =
@@ -21,7 +24,7 @@ export function useDefaultValue<T, P extends any[]>(
       value,
       (newValue, ...args) => {
         emit(`update:${propsName}`, newValue);
-        onChange?.(newValue, ...args);
+        triggerChange(newValue, ...args);
       },
     ];
   }
@@ -31,7 +34,7 @@ export function useDefaultValue<T, P extends any[]>(
     internalValue,
     (newValue, ...args) => {
       internalValue.value = newValue;
-      onChange?.(newValue, ...args);
+      triggerChange(newValue, ...args);
     },
   ];
 }

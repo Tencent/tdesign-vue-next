@@ -20,8 +20,8 @@ export default defineComponent({
       return isArray(props.color) ? props.color[1] : 'var(--td-bg-color-component)';
     });
 
-    const { value: inputValue, modelValue } = toRefs(props);
-    const [starValue, setStarValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
+    const { value: inputValue, modelValue, onChange: onChangeRef } = toRefs(props);
+    const [starValue, setStarValue] = useVModel(inputValue, modelValue, props.defaultValue, onChangeRef);
 
     const hoverValue = ref(undefined);
     const root = ref<HTMLTableElement>();
