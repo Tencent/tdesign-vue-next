@@ -86,9 +86,10 @@ export const packageJSONContent = JSON.stringify(
       vite: catalogs.bundle.vite,
       '@vitejs/plugin-vue': catalogs.bundle['@vitejs/plugin-vue'],
       '@vitejs/plugin-vue-jsx': catalogs.bundle['@vitejs/plugin-vue-jsx'],
-      '@tdesign/web-components': 'https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409',
+      '@tdesign/web-components':
+        'https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@46aedf9',
       '@tdesign/web-components-chat':
-        'https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@409',
+        'https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@46aedf9',
       'omi-vueify': '^0.0.12',
       'tvision-charts-vue-next': '^3.3.13',
       'highlight.js': '^11.11.1',
