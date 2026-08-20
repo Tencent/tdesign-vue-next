@@ -1,8 +1,8 @@
 import { defineComponent } from 'vue';
 import type { DefineComponent } from 'vue';
-import type { TdChatThinkContentProps } from 'tdesign-web-components/lib/chat-message/content/thinking-content';
-// 封装tdesign-web-components 的 chat-thinking-content
-import 'tdesign-web-components/lib/chat-message/content/thinking-content';
+import type { TdChatThinkContentProps } from '@tdesign/web-components-chat/chat-message';
+// 封装 @tdesign/web-components-chat 的 chat-thinking-content
+import '@tdesign/web-components-chat/chat-message';
 import { omiVueify } from 'omi-vueify';
 import props from './chat-thinking-props';
 import { useTNodeJSX } from '@tdesign/shared-hooks';

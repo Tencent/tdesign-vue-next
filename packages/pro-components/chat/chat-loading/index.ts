@@ -1,7 +1,7 @@
 // import _ChatLoading from './chat-loading';
 // export default _ChatLoading;
-import { TdChatLoadingProps } from 'tdesign-web-components';
-import 'tdesign-web-components/lib/chat-loading';
+import '@tdesign/web-components-chat/chat-loading';
+import type { TdChatLoadingProps } from '@tdesign/web-components-chat/chat-loading';
 import type { DefineComponent } from 'vue';
 import { omiVueify } from 'omi-vueify';
 // 附件

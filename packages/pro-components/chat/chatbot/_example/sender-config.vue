@@ -27,9 +27,9 @@
 import { computed, ref } from 'vue';
 import { type SSEChunkData, type AIMessageContent, type ChatServiceConfig } from '@tdesign-vue-next/chat';
 import { MessagePlugin } from 'tdesign-vue-next';
-import { type TdChatbotApi } from 'tdesign-web-components/lib/chatbot/type';
-import { type TdChatSenderActionName } from 'tdesign-web-components/lib/chat-sender/type';
-import { type TdAttachmentItem } from 'tdesign-web-components/lib/filecard/type';
+import { type TdAttachmentItem } from '@tdesign/web-components-chat/filecard';
+import { type TdChatSenderActionName } from '@tdesign/web-components-chat/chat-sender';
+import { type TdChatbotApi } from '@tdesign/web-components-chat/chatbot';
 
 /**
  * 输入配置示例

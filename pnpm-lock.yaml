@@ -755,6 +755,12 @@ importers:
       '@babel/runtime':
         specifier: catalog:deps
         version: 7.27.6
+      '@tdesign/web-components':
+        specifier: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409
+        version: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409
+      '@tdesign/web-components-chat':
+        specifier: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@409
+        version: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@409(@tdesign/web-components@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409)(omi@7.7.13)
       '@types/lodash-es':
         specifier: catalog:types
         version: 4.17.12
@@ -782,9 +788,6 @@ importers:
       tdesign-vue-next:
         specifier: workspace:^
         version: link:../tdesign-vue-next
-      tdesign-web-components:
-        specifier: 1.3.1-alpha.14
-        version: 1.3.1-alpha.14
       vue:
         specifier: '>=3.1.0'
         version: 3.5.34(typescript@5.8.3)
@@ -2673,6 +2676,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
+  '@json-render/core@0.19.0':
+    resolution: {integrity: sha512-vvcyZ+10EDZKbEyB1J2kXOGfDaiZR2LurZGSqi2r5STHyKr+Te85DWaBxTwRGgM7U1LtIvNx85BzzjElRKoAIg==}
+    peerDependencies:
+      zod: ^4.0.0
+
   '@kwsites/file-exists@1.1.1':
     resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
 
@@ -4158,11 +4166,27 @@ packages:
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
 
+  '@tdesign/ai-chat-engine@0.0.2':
+    resolution: {integrity: sha512-CS6ubPz2f9c1kstu+a4oHpvIs08TPg5XbNBcYdd58od4bY+pu3q3/zYZsYCSD1i70E9pUimH6KTQ3oJusnalfw==}
+    peerDependencies:
+      immer: ^10.0.0
+
   '@tdesign/site-components@0.19.2':
     resolution: {integrity: sha512-9mT+w5TbSYAqO2L/qV1UYPDYcBJkI8jzcuT49OxaZAxJJpMnM8jgeUJFuUDxjel3jeMvsCRMO4uDacwHNQIEDQ==}
 
   '@tdesign/theme-generator@1.2.4':
     resolution: {integrity: sha512-6K0j9BdVF90dqb11be2CpsgedenhalZRrjZAVaYiMsIXCiH64lAKrytejG3VFoV/OnarDWTdESNqZXLwqDOYog==}
+
+  '@tdesign/web-components-chat@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@409':
+    resolution: {tarball: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@409}
+    version: 1.3.1-alpha.13
+    peerDependencies:
+      '@tdesign/web-components': ^1.3.1-alpha.13
+      omi: ^7.7.13
+
+  '@tdesign/web-components@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409':
+    resolution: {integrity: sha512-mfAQlcXykijHiqI1Z3OzAYBaAovqBb9e/N054T5CsCk+PA/yGVpYeTLDlkY6YR4zLElj58cP8hAa2vgqQUQPUQ==, tarball: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409}
+    version: 1.3.1-alpha.13
 
   '@testing-library/dom@9.3.4':
     resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
@@ -5222,9 +5246,9 @@ packages:
     resolution: {integrity: sha512-OAlb+T7V4Op9OwdkjmguYRqncdlx5JiofwOAUkmTF+jNdHwzTaTs4sRAGpzLF3oOz5xAyDGrPgeIDFQmDOTiJw==}
     engines: {node: '>= 16'}
 
-  cherry-markdown@0.11.5:
-    resolution: {integrity: sha512-VqyY5jxEP7f5NVu9MR5ysdaTqNiXk3g9v78PLG5UwGMC025XPLnc7uZzPphZAut0pAP6BnFC5WgWXK4ZNoTJ7Q==}
-    engines: {node: '>=24'}
+  cherry-markdown@0.11.8:
+    resolution: {integrity: sha512-vIHL+b+eh0rl0RC+14oC8gnCTllZoNZV+ft3damvHZCluaGKFImtDtbCTsmVJqYnFREv7SLqA+v3V86pAhcXhQ==}
+    engines: {node: '>=22'}
 
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
@@ -5253,9 +5277,6 @@ packages:
 
   citty@0.2.2:
     resolution: {integrity: sha512-+6vJA3L98yv+IdfKGZHBNiGW5KHn22e/JwID0Strsz8h4S/csAu/OuICwxrg44k5MRiZHWIo8XXuJgQTriRP4w==}
-
-  class-variance-authority@0.7.1:
-    resolution: {integrity: sha512-Ka+9Trutv7G8M6WT6SeiRWz792K5qEqIGEGzXKhAE6xOWAY6pPH8U+9IY3oCMv6kqTmLsv7Xh/2w2RigkePMsg==}
 
   classnames@2.5.1:
     resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
@@ -5449,9 +5470,6 @@ packages:
 
   copy-anything@2.0.6:
     resolution: {integrity: sha512-1j20GZTsvKNkc4BY3NpMOM8tt///wY3FpIzozTOFO2ffuZcV61nojHXVKIy3WM+7ADCy5FVhdZYHYDdgTU0yJw==}
-
-  copy-to-clipboard@3.3.3:
-    resolution: {integrity: sha512-2KV8NhB5JqC3ky0r9PMCAZKbUHSwtEo4CwCs0KXgruG43gX5PMqDEBbVU4OUzw2MuAWUfsuFmWvEKG5QRfSnJA==}
 
   core-js-compat@3.43.0:
     resolution: {integrity: sha512-2GML2ZsCc5LR7hZYz4AXmjQw8zuy2T//2QntwdnpuYI7jteT6GVYJL7F6C2C57R7gSYrcqVW3lAALefdbhBLDA==}
@@ -6613,6 +6631,9 @@ packages:
     resolution: {integrity: sha512-/kP8CAwxzLVEeFrMm4kMmy4CCDlpipyA7MYLVrdJIkV0fYF0UaigQHRsxHiuY/GEea+bh4KSv3TIlgr+2UL6bw==}
     engines: {node: '>=12.0.0'}
 
+  expr-eval@2.0.2:
+    resolution: {integrity: sha512-4EMSHGOPSwAfBiibw3ndnP0AvjDWLsMvGOvWEZ2F96IGk0bIVdjQisOHxReSkE13mHcfbuCiXw+G4y0zv6N8Eg==}
+
   exsolve@1.0.7:
     resolution: {integrity: sha512-VO5fQUzZtI6C+vx4w/4BWJpg3s/5l+6pRQEHzFRM8WFi4XffSP1Z+4qi7GbjWbvRQEbdIco5mIMq+zX4rPuLrw==}
 
@@ -6647,9 +6668,6 @@ packages:
   fast-glob@3.3.3:
     resolution: {integrity: sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==}
     engines: {node: '>=8.6.0'}
-
-  fast-json-patch@3.1.1:
-    resolution: {integrity: sha512-vf6IHUX2SBcA+5/+4883dsIjpBTqmfBjmYiWK1savxQmFk4JfBMLa7ynTYOs1Rolp/T1betJxHiGD3g1Mn8lUQ==}
 
   fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
@@ -7103,9 +7121,6 @@ packages:
   hosted-git-info@4.1.0:
     resolution: {integrity: sha512-kyCuEOWjJqZuDbRHzL8V93NzQhwIB71oFWSyzVo+KPZI+pnQPPxucdkrOZvkLRnrf5URsQM+IJ09Dw29cRALIA==}
     engines: {node: '>=10'}
-
-  htm@3.1.1:
-    resolution: {integrity: sha512-983Vyg8NwUE7JkZ6NmOqpCZ+sh1bKv2iYTlUkzlWmA5JD2acKoxd4KVxbMmxX/85mtfdnDmTFoNKcg5DGAvxNQ==}
 
   html-encoding-sniffer@3.0.0:
     resolution: {integrity: sha512-oWv4T4yJ52iKrufjnyZPkrN0CH3QnrUqdB6In1g5Fe1mia8GmF36gnfNySxoZtxD5+NmYw1EElVXiBk93UeskA==}
@@ -7876,9 +7891,6 @@ packages:
   markdown-it-emoji@2.0.2:
     resolution: {integrity: sha512-zLftSaNrKuYl0kR5zm4gxXjHaOI3FAOEaloKmRA5hijmJZvSjmxcokOLlzycb/HXlUFWzXqpIEoyEMCE4i9MvQ==}
 
-  markdown-it-fence@0.1.3:
-    resolution: {integrity: sha512-mdZbkwJUyZXhyDX4QzD+WnIhxWBq9oIIJU22E6jCT7MHgIp79oEOJfwXIl/HqmfIxnXEdC47sBGn4h6chM4DKw==}
-
   markdown-it-toc-done-right@4.2.0:
     resolution: {integrity: sha512-UB/IbzjWazwTlNAX0pvWNlJS8NKsOQ4syrXZQ/C72j+jirrsjVRT627lCaylrKJFBQWfRsPmIVQie8x38DEhAQ==}
 
@@ -8119,10 +8131,6 @@ packages:
     resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-
-  nanostores@0.11.4:
-    resolution: {integrity: sha512-k1oiVNN4hDK8NcNERSZLQiMfRzEGtfnvZvdBvey3SQbgn8Dcrk0h1I6vpxApjb10PFUflZrgJ2WEZyJQ+5v7YQ==}
-    engines: {node: ^18.0.0 || >=20.0.0}
 
   nanotar@0.3.0:
     resolution: {integrity: sha512-Kv2JYYiCzt16Kt5QwAc9BFG89xfPNBx+oQL4GQXD9nLqPkZBiNaqaCWtwnbk/q7UVsTYevvM1b0UF8zmEI4pCg==}
@@ -10105,8 +10113,8 @@ packages:
     peerDependencies:
       vue: ^2.6.12
 
-  tdesign-icons-web-components@0.3.3:
-    resolution: {integrity: sha512-qxdPnMJyCcjTy1GqpSpAp4fi+PIm+EkNGr6QQyftdxvSEBvRO2YxbfELXnu0nwIqy2RA5HUa6DSR4ftE31sH+w==}
+  tdesign-icons-web-components@0.3.8:
+    resolution: {integrity: sha512-ITq3mrbzTy8sT7WHO5GZwuM/Y7h5YYpo8m1j6Z0pKcTl/jpSscEO3QhQu0V1OuL62B4MQbKSmiQVSX1W1FEL4w==}
     peerDependencies:
       omi: '>=7.6.17'
 
@@ -10118,9 +10126,6 @@ packages:
     resolution: {integrity: sha512-GfSkK3xyMNowc4wkJ3cTev5VulfUjCqqrYti9f3PC6X5fLRDbumWTxcbozsZHYC4VbwXFaZHi9/p558FKCHsQA==}
     peerDependencies:
       vue: ~2.7.14
-
-  tdesign-web-components@1.3.1-alpha.14:
-    resolution: {integrity: sha512-wU/FfFotTwB2tobvqSKQ2Bmlt6xZPzPHJXb+Jch6J75oH8tTwdoIzzaA6tGcO17ZEQ9/hpW0c0vwwJqIyVdW8w==}
 
   teex@1.0.1:
     resolution: {integrity: sha512-eYE6iEI62Ni1H8oIa7KlDU6uQBtqr4Eajni3wX7rpfXD8ysFx8z0+dri+KWEPWpBsxXfxu58x/0jvTVT1ekOSg==}
@@ -10214,9 +10219,6 @@ packages:
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
-
-  toggle-selection@1.0.6:
-    resolution: {integrity: sha512-BiZS+C1OS8g/q2RRbJmy59xpyghNBqrr6k5L/uKBGRsTfxmu3ffiRnd8mlGPUVayg8pvfi5urfnu8TU7DVOkLQ==}
 
   toidentifier@1.0.1:
     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
@@ -11271,8 +11273,8 @@ packages:
     resolution: {integrity: sha512-zK7YHHz4ZXpW89AHXUPbQVGKI7uvkd3hzusTdotCg1UxyaVtg0zFJSTfW/Dq5f7OBBVnq6cZIaC8Ti4hb6dtCA==}
     engines: {node: '>= 14'}
 
-  zod@3.25.76:
-    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
+  zod@4.4.3:
+    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
 
 snapshots:
 
@@ -13539,6 +13541,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  '@json-render/core@0.19.0(zod@4.4.3)':
+    dependencies:
+      zod: 4.4.3
+
   '@kwsites/file-exists@1.1.1':
     dependencies:
       debug: 4.4.3
@@ -14930,6 +14936,13 @@ snapshots:
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.12
 
+  '@tdesign/ai-chat-engine@0.0.2(immer@10.2.0)':
+    dependencies:
+      '@json-render/core': 0.19.0(zod@4.4.3)
+      expr-eval: 2.0.2
+      immer: 10.2.0
+      zod: 4.4.3
+
   '@tdesign/site-components@0.19.2':
     dependencies:
       '@popperjs/core': 2.11.8
@@ -14948,6 +14961,35 @@ snapshots:
       tdesign-vue: 1.13.1-naruto(vue@2.7.14)
       tvision-color: 1.6.0
       vue: 2.7.14
+
+  '@tdesign/web-components-chat@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@409(@tdesign/web-components@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409)(omi@7.7.13)':
+    dependencies:
+      '@tdesign/ai-chat-engine': 0.0.2(immer@10.2.0)
+      '@tdesign/web-components': https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409
+      cherry-markdown: 0.11.8
+      clsx: 2.1.1
+      immer: 10.2.0
+      lodash-es: 4.18.1
+      omi: 7.7.13
+      raf: 3.4.1
+      tdesign-icons-web-components: 0.3.8(omi@7.7.13)
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - utf-8-validate
+
+  '@tdesign/web-components@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409':
+    dependencies:
+      '@popperjs/core': 2.11.8
+      classnames: 2.5.1
+      clsx: 2.1.1
+      dayjs: 1.11.21
+      lodash-es: 4.18.1
+      omi: 7.7.13
+      omi-transition: 0.1.11
+      raf: 3.4.1
+      tdesign-icons-web-components: 0.3.8(omi@7.7.13)
 
   '@testing-library/dom@9.3.4':
     dependencies:
@@ -16399,7 +16441,7 @@ snapshots:
 
   check-error@2.1.1: {}
 
-  cherry-markdown@0.11.5:
+  cherry-markdown@0.11.8:
     dependencies:
       '@codemirror/autocomplete': 6.20.3
       '@codemirror/commands': 6.10.4
@@ -16454,10 +16496,6 @@ snapshots:
       consola: 3.4.2
 
   citty@0.2.2: {}
-
-  class-variance-authority@0.7.1:
-    dependencies:
-      clsx: 2.1.1
 
   classnames@2.5.1: {}
 
@@ -16659,10 +16697,6 @@ snapshots:
   copy-anything@2.0.6:
     dependencies:
       is-what: 3.14.1
-
-  copy-to-clipboard@3.3.3:
-    dependencies:
-      toggle-selection: 1.0.6
 
   core-js-compat@3.43.0:
     dependencies:
@@ -18164,6 +18198,8 @@ snapshots:
 
   expect-type@1.2.1: {}
 
+  expr-eval@2.0.2: {}
+
   exsolve@1.0.7: {}
 
   exsolve@1.0.8: {}
@@ -18201,8 +18237,6 @@ snapshots:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.8
-
-  fast-json-patch@3.1.1: {}
 
   fast-json-stable-stringify@2.1.0: {}
 
@@ -18688,8 +18722,6 @@ snapshots:
   hosted-git-info@4.1.0:
     dependencies:
       lru-cache: 6.0.0
-
-  htm@3.1.1: {}
 
   html-encoding-sniffer@3.0.0:
     dependencies:
@@ -19485,8 +19517,6 @@ snapshots:
 
   markdown-it-emoji@2.0.2: {}
 
-  markdown-it-fence@0.1.3: {}
-
   markdown-it-toc-done-right@4.2.0: {}
 
   markdown-it@12.3.2:
@@ -19744,8 +19774,6 @@ snapshots:
   mute-stream@0.0.8: {}
 
   nanoid@3.3.11: {}
-
-  nanostores@0.11.4: {}
 
   nanotar@0.3.0: {}
 
@@ -22336,7 +22364,7 @@ snapshots:
       classnames: 2.5.1
       vue: 2.7.14
 
-  tdesign-icons-web-components@0.3.3(omi@7.7.13):
+  tdesign-icons-web-components@0.3.8(omi@7.7.13):
     dependencies:
       '@babel/runtime': 7.27.6
       clsx: 2.1.1
@@ -22368,32 +22396,6 @@ snapshots:
       tinycolor2: 1.6.0
       validator: 13.15.23
       vue: 2.7.14
-
-  tdesign-web-components@1.3.1-alpha.14:
-    dependencies:
-      '@babel/runtime': 7.27.6
-      '@popperjs/core': 2.11.8
-      cherry-markdown: 0.11.5
-      class-variance-authority: 0.7.1
-      clsx: 2.1.1
-      copy-to-clipboard: 3.3.3
-      dayjs: 1.11.21
-      fast-json-patch: 3.1.1
-      htm: 3.1.1
-      immer: 10.2.0
-      lodash-es: 4.18.1
-      markdown-it-fence: 0.1.3
-      nanostores: 0.11.4
-      omi: 7.7.13
-      omi-transition: 0.1.11
-      tailwind-merge: 2.6.1
-      tdesign-icons-web-components: 0.3.3(omi@7.7.13)
-      zod: 3.25.76
-    transitivePeerDependencies:
-      - bufferutil
-      - canvas
-      - supports-color
-      - utf-8-validate
 
   teex@1.0.1:
     dependencies:
@@ -22483,8 +22485,6 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
-
-  toggle-selection@1.0.6: {}
 
   toidentifier@1.0.1: {}
 
@@ -23765,4 +23765,4 @@ snapshots:
       compress-commons: 6.0.2
       readable-stream: 4.7.0
 
-  zod@3.25.76: {}
+  zod@4.4.3: {}

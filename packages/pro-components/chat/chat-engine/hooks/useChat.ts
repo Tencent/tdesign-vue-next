@@ -1,15 +1,25 @@
-import { ref, onMounted, onUnmounted, watch, type Ref } from 'vue';
-import type { ChatMessagesData, ChatStatus, ChatServiceConfig } from 'tdesign-web-components/lib/chat-engine';
-import { TdChatProps } from 'tdesign-web-components';
-import ChatEngine from 'tdesign-web-components/lib/chat-engine';
+import { onMounted, onUnmounted, ref, shallowRef, watch, type Ref } from 'vue';
+import {
+  ChatEngine,
+  type ChatMessagesData,
+  type ChatServiceConfig,
+  type ChatStatus,
+} from '@tdesign/web-components-chat/chat-engine';
+import type { TdChatProps } from '@tdesign/web-components-chat/chatbot';
+
+export interface UseChatReturn {
+  chatEngine: Ref<InstanceType<typeof ChatEngine> | null>;
+  messages: Ref<ChatMessagesData[]>;
+  status: Ref<ChatStatus>;
+}
 
 export const useChat = (options: {
   defaultMessages: TdChatProps['defaultMessages'];
   chatServiceConfig: ChatServiceConfig;
-}) => {
+}): UseChatReturn => {
   const messages: Ref<ChatMessagesData[]> = ref([]);
   const status: Ref<ChatStatus> = ref('idle');
-  const chatEngineRef = ref<ChatEngine | null>(null);
+  const chatEngineRef = shallowRef<InstanceType<typeof ChatEngine> | null>(null);
   const msgSubscribeRef = ref<(() => void) | null>(null);
   const prevInitialMessages = ref<ChatMessagesData[]>([]);
 
