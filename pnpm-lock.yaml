@@ -4185,7 +4185,7 @@ packages:
       omi: ^7.7.13
 
   '@tdesign/web-components@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409':
-    resolution: {integrity: sha512-mfAQlcXykijHiqI1Z3OzAYBaAovqBb9e/N054T5CsCk+PA/yGVpYeTLDlkY6YR4zLElj58cP8hAa2vgqQUQPUQ==, tarball: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409}
+    resolution: {integrity: sha512-ydMX3DXRJBB3smPFN8y5XoxV9KYLDT53JMn9daK/cUOyTVPaCOkeqK+9oSHi/M6H0oAVT9CqzOpjWJE4LDlPSw==, tarball: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@409}
     version: 1.3.1-alpha.13
 
   '@testing-library/dom@9.3.4':
