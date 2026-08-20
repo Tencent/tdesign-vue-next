@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import { joinComponentsRoot, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
+import { joinComponentsRoot, joinPackagesRoot, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
 
 export default defineConfig({
   resolve: {
@@ -16,7 +16,10 @@ export default defineConfig({
     include:
       process.env.NODE_ENV === 'test-snap'
         ? [await joinTdesignVueNextRoot('test/unit/snap/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}')]
-        : [await joinComponentsRoot('**/__tests__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}')],
+        : [
+            await joinComponentsRoot('**/__tests__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'),
+            await joinPackagesRoot('shared/hooks/**/index.test.{ts,tsx}'),
+          ],
     globals: true,
     environment: 'jsdom',
     testTimeout: 5000,
@@ -26,7 +29,7 @@ export default defineConfig({
       reporter: ['text', 'json', 'html'],
       allowExternal: true,
       reportOnFailure: true,
-      include: [await joinComponentsRoot()],
+      include: [await joinComponentsRoot(), await joinPackagesRoot('shared/hooks')],
     },
   },
 });
