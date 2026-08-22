@@ -1,4 +1,4 @@
-import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
+import { defineComponent, computed, CSSProperties, Fragment, isVNode } from 'vue';
 import props from './props';
 import { useTNodeJSX, useChildSlots, usePrefixClass, useFlatChildrenSlots } from '@tdesign/shared-hooks';
 
@@ -56,8 +56,11 @@ export default defineComponent({
       const separatorContent = renderTNodeJSX('separator');
       return children.map((child, index) => {
         const showSeparator = index + 1 !== children.length && separatorContent;
+        // 透传子节点自身的 key，避免包裹层丢失 key 后 Vue 只能按索引对齐，
+        // 在子节点使用 v-if（会被过滤成注释节点导致数组长度变化）时出现节点错配。
+        const key = isVNode(child) && child.key != null ? child.key : index;
         return (
-          <Fragment>
+          <Fragment key={key}>
             <div class={`${COMPONENT_NAME.value}-item`}>{child}</div>
             {showSeparator && <div class={`${COMPONENT_NAME.value}-item-separator`}>{separatorContent}</div>}
           </Fragment>

@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
+import { ref, nextTick } from 'vue';
 import { expect, describe, it, beforeEach } from 'vitest';
 import { Space, Button } from '@tdesign/components';
 
@@ -407,6 +408,56 @@ describe('Space', () => {
 
       const spaceElement = wrapper.find('.t-space').element as HTMLElement;
       expect(spaceElement.style.gap).toBe('50px');
+    });
+  });
+
+  describe('child key', () => {
+    it('forwards the key of each child to its wrapper fragment', () => {
+      const wrapper = mount(
+        <Space>
+          <Button key="a">Button A</Button>
+          <Button key="b">Button B</Button>
+        </Space>,
+      );
+
+      // The root <div class="t-space"> renders one wrapper fragment per child (nested
+      // inside the map's own fragment); each wrapper should carry the corresponding
+      // child key instead of being keyless.
+      const listFragment = (wrapper.vm.$.subTree.children as any[])[0];
+      const fragments = (listFragment.children as any[]).filter(Boolean);
+      expect(fragments.map((fragment) => fragment.key)).toEqual(['a', 'b']);
+    });
+
+    it('keeps keyed children aligned when a v-if child is toggled off', async () => {
+      const showFirst = ref(true);
+      const wrapper = mount({
+        setup() {
+          return () => (
+            <Space>
+              {showFirst.value && <input key="a" class="probe" />}
+              <input key="b" class="probe" />
+              <input key="c" class="probe" />
+            </Space>
+          );
+        },
+      });
+
+      // Stamp uncontrolled DOM state onto each input, matching its logical key.
+      let inputs = wrapper.findAll('input.probe');
+      expect(inputs.length).toBe(3);
+      (inputs[0].element as HTMLInputElement).value = 'a';
+      (inputs[1].element as HTMLInputElement).value = 'b';
+      (inputs[2].element as HTMLInputElement).value = 'c';
+
+      // Remove the first (keyed) child; it collapses to a comment node that Space filters out.
+      showFirst.value = false;
+      await nextTick();
+
+      inputs = wrapper.findAll('input.probe');
+      const values = inputs.map((input) => (input.element as HTMLInputElement).value);
+      // Because the wrapper forwards each child key, Vue aligns by key: 'b' and 'c'
+      // keep their own DOM nodes/state instead of being shifted or recreated.
+      expect(values).toEqual(['b', 'c']);
     });
   });
 });
