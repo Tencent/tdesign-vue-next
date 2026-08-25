@@ -1,11 +1,5 @@
 :: BASE_DOC ::
 
-## AG-UI 思考流回归
-
-该示例使用本地 `data:text/event-stream` 模拟连续的 `THINKING_*` 事件，用于验证思考内容可以流式更新且不会中断渲染。
-
-{{ agui-thinking }}
-
 ## API
 
 ### useChat
