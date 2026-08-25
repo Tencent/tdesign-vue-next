@@ -36,8 +36,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "catalog:deps",
-    "@tdesign/web-components": "https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@46aedf9",
-    "@tdesign/web-components-chat": "https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@46aedf9",
+    "@tdesign/web-components": "https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@94bd84a",
+    "@tdesign/web-components-chat": "https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@94bd84a",
     "@types/lodash-es": "catalog:types",
     "clipboard": "catalog:deps",
     "highlight.js": "catalog:deps",
