@@ -1,6 +1,6 @@
 <template>
   <div style="height: 500px; display: flex; flex-direction: column">
-    <t-chat-list :clear-history="false">
+    <t-chat-list ref="listRef" :clear-history="false">
       <t-chat-message
         v-for="message in messages"
         :key="message.id"
@@ -21,8 +21,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useChat } from '@tdesign-vue-next/chat';
+import { ref, onMounted } from 'vue';
+import { type ChatRequestParams, type TdChatListApi, AGUIAdapter, useChat } from '@tdesign-vue-next/chat';
+import { MessagePlugin } from 'tdesign-vue-next';
 
 /**
  * AG-UI 协议基础示例
@@ -30,36 +31,27 @@ import { useChat } from '@tdesign-vue-next/chat';
  * 学习目标：
  * - 开启 AG-UI 协议支持（protocol: 'agui'）
  * - 理解 AG-UI 协议的自动解析机制
- * - 处理思考消息事件（THINKING_*）
- * - 验证连续的思考文本可以正常流式更新
+ * - 处理文本消息事件（TEXT_MESSAGE_*）
+ * - 初始化加载历史消息方法 AGUIAdapter.convertHistoryMessages
  */
 
 const inputValue = ref<string>('AG-UI协议的作用是什么');
-
-const events = [
-  { type: 'RUN_STARTED', threadId: 'thinking-thread', runId: 'thinking-run' },
-  { type: 'THINKING_START', title: '思考中...' },
-  { type: 'THINKING_TEXT_MESSAGE_START' },
-  { type: 'THINKING_TEXT_MESSAGE_CONTENT', delta: '正在分析 AG-UI 协议的作用。' },
-  { type: 'THINKING_TEXT_MESSAGE_CONTENT', delta: '它可以标准化 AI Agent 与前端之间的实时交互。' },
-  { type: 'THINKING_TEXT_MESSAGE_END' },
-  { type: 'THINKING_END', title: '思考结束' },
-  { type: 'RUN_FINISHED', threadId: 'thinking-thread', runId: 'thinking-run' },
-];
-
-const endpoint = `data:text/event-stream;charset=utf-8,${encodeURIComponent(
-  `${events.map((event) => `data: ${JSON.stringify(event)}`).join('\n\n')}\n\n`,
-)}`;
+const listRef = ref<TdChatListApi | null>(null);
 
 const { chatEngine, messages, status } = useChat({
   defaultMessages: [],
   chatServiceConfig: {
-    endpoint,
+    endpoint: 'https://1257786608-9i9j1kpa67.ap-guangzhou.tencentscf.com/sse/agui-simple',
     // 开启 AG-UI 协议解析支持
     protocol: 'agui',
     stream: true,
-    // 使用本地 SSE 数据，示例不依赖外部服务
-    onRequest: () => ({ method: 'GET' }),
+    // 自定义请求参数
+    onRequest: (params: ChatRequestParams) => ({
+      body: JSON.stringify({
+        uid: 'agui-demo',
+        prompt: params.prompt,
+      }),
+    }),
     // 生命周期回调
     onStart: (chunk) => {
       console.log('AG-UI 流式传输开始:', chunk);
@@ -71,6 +63,24 @@ const { chatEngine, messages, status } = useChat({
       console.error('AG-UI 错误:', err);
     },
   },
+});
+
+// 初始化加载历史消息
+onMounted(async () => {
+  try {
+    const response = await fetch(
+      'https://1257786608-9i9j1kpa67.ap-guangzhou.tencentscf.com/api/conversation/history?type=simple',
+    );
+    const result = await response.json();
+    if (result.success && result.data) {
+      const convertedMessages = AGUIAdapter.convertHistoryMessages(result.data);
+      chatEngine.value?.setMessages(convertedMessages);
+      listRef.value?.scrollToBottom();
+    }
+  } catch (error) {
+    console.error('加载历史消息出错:', error);
+    MessagePlugin.error('加载历史消息出错');
+  }
 });
 
 // 发送消息
