@@ -219,17 +219,11 @@ describe('Slider', () => {
       expect(wrapperShowStep.findAll('.t-slider__stop').length > 0).toBe(true);
     });
 
-    it(':showStep[boolean] + :step[number]', async () => {
-      const step = Math.floor(Math.random() * 100);
-      const stepCount = 100 / step;
-      const result = [];
-      for (let i = 1; i < stepCount; i++) {
-        result.push(i);
-      }
+    it.each([1, 2, 5, 10, 20, 25, 50, 100])(':showStep[boolean] + :step[number] (step: %i)', async (step) => {
       const wrapper = mount(<Slider showStep step={step} />);
       await nextTick();
       const stopElements = wrapper.findAll('.t-slider__stop');
-      expect(stopElements.length === result.length).toBe(true);
+      expect(stopElements).toHaveLength(100 / step - 1);
     });
 
     it(':tooltipProps[object]', async () => {
