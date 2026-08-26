@@ -756,11 +756,11 @@ importers:
         specifier: catalog:deps
         version: 7.27.6
       '@tdesign/web-components':
-        specifier: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@20b3b14350f5b5d5a321342a968d8397ef2f135f
-        version: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@20b3b14350f5b5d5a321342a968d8397ef2f135f
+        specifier: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@a5cf310872cb2828d309db9461d09ac8f00662e2
+        version: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@a5cf310872cb2828d309db9461d09ac8f00662e2
       '@tdesign/web-components-chat':
-        specifier: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@20b3b14350f5b5d5a321342a968d8397ef2f135f
-        version: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@20b3b14350f5b5d5a321342a968d8397ef2f135f(omi@7.7.13)
+        specifier: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@a5cf310872cb2828d309db9461d09ac8f00662e2
+        version: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@a5cf310872cb2828d309db9461d09ac8f00662e2(omi@7.7.13)
       '@types/lodash-es':
         specifier: catalog:types
         version: 4.17.12
@@ -4177,14 +4177,14 @@ packages:
   '@tdesign/theme-generator@1.2.4':
     resolution: {integrity: sha512-6K0j9BdVF90dqb11be2CpsgedenhalZRrjZAVaYiMsIXCiH64lAKrytejG3VFoV/OnarDWTdESNqZXLwqDOYog==}
 
-  '@tdesign/web-components-chat@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@20b3b14350f5b5d5a321342a968d8397ef2f135f':
-    resolution: {integrity: sha512-F0swyIdudftWq75ydbfLVjXpQbNGNCiRyDIr+IExd1ghTSuZRFpPIbQiMjIimX+jkyktYQpeevPZYikhbJhkcQ==, tarball: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@20b3b14350f5b5d5a321342a968d8397ef2f135f}
+  '@tdesign/web-components-chat@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@a5cf310872cb2828d309db9461d09ac8f00662e2':
+    resolution: {integrity: sha512-EPkbYHix56wV2g9hKbY9+FoePor5XF3lEK8xq3a86aSZezz0TUVj3h+i9dmnks5kCM+qithzChpXRCTCChZi/A==, tarball: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@a5cf310872cb2828d309db9461d09ac8f00662e2}
     version: 1.3.1-alpha.13
     peerDependencies:
       omi: ^7.7.13
 
-  '@tdesign/web-components@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@20b3b14350f5b5d5a321342a968d8397ef2f135f':
-    resolution: {integrity: sha512-Jakt8utdqz1h1RQSgFD4ZsQoAjBKycQp29S5cCXe774P1qqJed+cGNDyg/+FN+8yK9Q7ejFtCDq3PepybGwSXg==, tarball: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@20b3b14350f5b5d5a321342a968d8397ef2f135f}
+  '@tdesign/web-components@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@a5cf310872cb2828d309db9461d09ac8f00662e2':
+    resolution: {integrity: sha512-N6d7C9yzFvaKBIr51BRqx/PnlNi4cOqd2Yl/TrHt8xzsaubftVT2bPP1pq1+Z/qQDcR/Rlfipl3qnBz2mL5d9Q==, tarball: https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@a5cf310872cb2828d309db9461d09ac8f00662e2}
     version: 1.3.1-alpha.13
 
   '@testing-library/dom@9.3.4':
@@ -14961,10 +14961,10 @@ snapshots:
       tvision-color: 1.6.0
       vue: 2.7.14
 
-  '@tdesign/web-components-chat@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@20b3b14350f5b5d5a321342a968d8397ef2f135f(omi@7.7.13)':
+  '@tdesign/web-components-chat@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components-chat@a5cf310872cb2828d309db9461d09ac8f00662e2(omi@7.7.13)':
     dependencies:
       '@tdesign/ai-chat-engine': 0.0.2(immer@10.2.0)
-      '@tdesign/web-components': https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@20b3b14350f5b5d5a321342a968d8397ef2f135f
+      '@tdesign/web-components': https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@a5cf310872cb2828d309db9461d09ac8f00662e2
       cherry-markdown: 0.11.8
       clsx: 2.1.1
       immer: 10.2.0
@@ -14978,7 +14978,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@tdesign/web-components@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@20b3b14350f5b5d5a321342a968d8397ef2f135f':
+  '@tdesign/web-components@https://pkg.pr.new/TDesignOteam/tdesign-web-components/@tdesign/web-components@a5cf310872cb2828d309db9461d09ac8f00662e2':
     dependencies:
       '@popperjs/core': 2.11.8
       classnames: 2.5.1
