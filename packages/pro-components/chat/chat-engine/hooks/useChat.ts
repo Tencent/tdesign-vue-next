@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref, shallowRef, watch, type Ref } from 'vue';
+import { onMounted, onUnmounted, ref, watch, type Ref } from 'vue';
 import {
   ChatEngine,
   type ChatMessagesData,
@@ -19,7 +19,8 @@ export const useChat = (options: {
 }): UseChatReturn => {
   const messages: Ref<ChatMessagesData[]> = ref([]);
   const status: Ref<ChatStatus> = ref('idle');
-  const chatEngineRef = shallowRef<InstanceType<typeof ChatEngine> | null>(null);
+  // 若 ChatEngine 内部状态包含冻结对象，可改用 shallowRef，避免 Vue 深层代理实例触发 Proxy invariant 错误。
+  const chatEngineRef: Ref<InstanceType<typeof ChatEngine> | null> = ref(null);
   const msgSubscribeRef = ref<(() => void) | null>(null);
   const prevInitialMessages = ref<ChatMessagesData[]>([]);
 
