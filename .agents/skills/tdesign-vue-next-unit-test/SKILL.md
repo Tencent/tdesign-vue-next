@@ -38,14 +38,14 @@ description: 按 tdesign-vue-next 规范编写、补充、迁移或审查 Vue �
 
 ## 分类示例
 
-以组件的标题和交互能力为例：
+以下示例只说明分类方式，具体 API 名称以目标组件为准：
 
-- 单独验证 `title` Prop 能否正确渲染，放入 `props`。
-- 单独验证 `title` Slot 能否正确渲染，放入 `slots`。
-- 同时传入 `title` Prop 和 Slot，验证优先级或回退规则，放入 `scenarios > content priority`。
-- 验证 `click` 事件的触发次数和参数，放入 `events`。
-- 通过 ref 调用 `focus()` 并验证结果，放入 `instanceFunctions`。
-- 验证禁用状态下点击不会触发事件，涉及 Prop 与 Event 联动，放入 `scenarios > disabled interaction`。
+- 验证某个 Prop 单独使用时对渲染或行为的影响，放入 `props`。
+- 验证某个 Slot 单独使用时的渲染结果和作用域参数，放入 `slots`。
+- 当同一能力同时支持 Prop 和 Slot 时，验证两者的优先级或回退规则，放入 `scenarios` 下对应的具体场景。
+- 验证某个 Event 的触发时机、次数和参数，放入 `events`。
+- 通过 ref 调用组件公开方法并验证结果，放入 `instanceFunctions`。
+- 验证状态类 Prop 与 Event 的联动行为，放入 `scenarios` 下对应的具体场景。
 
 ## 文件边界
 
