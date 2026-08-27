@@ -774,6 +774,21 @@ describe('Input', () => {
       expect(onChangeFn).toHaveBeenCalledTimes(1);
       expect(onChangeFn.mock.calls[0][0]).eq('Hello TDesign');
       expect(onChangeFn.mock.calls[0][1].e.type).eq('input');
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <Input defaultValue="" onChange={currentOnChange.value} />,
+      });
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      simulateInputChange(latestWrapper.find('input').element, 'latest value');
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith('latest value', expect.objectContaining({ trigger: 'input' }));
     });
 
     it('change: trigger=initial when value exceeds limit', async () => {
@@ -1061,23 +1076,6 @@ describe('Input', () => {
       const wrapper = mount(Input);
       // 由于没有设置 placeholder，应该使用全局配置的默认值
       expect(wrapper.find('input').attributes('placeholder')).toBeDefined();
-    });
-
-    it('onChange should use the latest handler after parent re-render', async () => {
-      const initialOnChange = vi.fn();
-      const latestOnChange = vi.fn();
-      const onChange = ref(initialOnChange);
-      const wrapper = mount({
-        setup: () => () => <Input defaultValue="" onChange={onChange.value} />,
-      });
-
-      onChange.value = latestOnChange;
-      await nextTick();
-      simulateInputChange(wrapper.find('input').element, 'latest value');
-      await nextTick();
-
-      expect(initialOnChange).not.toHaveBeenCalled();
-      expect(latestOnChange).toHaveBeenCalledWith('latest value', expect.objectContaining({ trigger: 'input' }));
     });
   });
 });

@@ -708,6 +708,24 @@ describe('Cascader', () => {
       await panel.findAll('.t-cascader__item')[2].trigger('click');
       await nextTick();
       expect(onChange).toHaveBeenCalledWith('a1', expect.objectContaining({ source: 'check' }));
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <Cascader options={options} onChange={currentOnChange.value} popupVisible />,
+      });
+      const latestPanel = mountPanel(latestWrapper);
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await latestPanel.findAll('.t-cascader__item')[0].trigger('click');
+      await nextTick();
+      await latestPanel.findAll('.t-cascader__item')[2].trigger('click');
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith('a1', expect.objectContaining({ source: 'check' }));
     });
 
     it('change in multiple mode', async () => {
@@ -718,26 +736,6 @@ describe('Cascader', () => {
       panel.findComponent(Checkbox).props('onChange')(true, { e: new Event('change') });
       await nextTick();
       expect(onChange).toHaveBeenCalledWith(expect.any(Array), expect.objectContaining({ source: 'check' }));
-    });
-
-    it('onChange should use the latest handler after parent re-render', async () => {
-      const initialOnChange = vi.fn();
-      const latestOnChange = vi.fn();
-      const onChange = ref(initialOnChange);
-      const wrapper = mount({
-        setup: () => () => <Cascader options={options} onChange={onChange.value} popupVisible />,
-      });
-      const panel = mountPanel(wrapper);
-
-      onChange.value = latestOnChange;
-      await nextTick();
-      await panel.findAll('.t-cascader__item')[0].trigger('click');
-      await nextTick();
-      await panel.findAll('.t-cascader__item')[2].trigger('click');
-      await nextTick();
-
-      expect(initialOnChange).not.toHaveBeenCalled();
-      expect(latestOnChange).toHaveBeenCalledWith('a1', expect.objectContaining({ source: 'check' }));
     });
 
     it('change does not emit for the current controlled value', async () => {

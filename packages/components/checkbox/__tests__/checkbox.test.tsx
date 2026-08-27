@@ -53,23 +53,6 @@ describe('Checkbox', () => {
       expect((input.element as HTMLInputElement).checked).toBe(true);
     });
 
-    it('onChange should use the latest handler after parent re-render', async () => {
-      const initialOnChange = vi.fn();
-      const latestOnChange = vi.fn();
-      const onChange = ref(initialOnChange);
-      const wrapper = mount({
-        setup: () => () => <Checkbox checked={false} onChange={onChange.value} />,
-      });
-
-      onChange.value = latestOnChange;
-      await nextTick();
-      await wrapper.get('input').trigger('change');
-
-      expect(initialOnChange).not.toHaveBeenCalled();
-      expect(latestOnChange).toHaveBeenCalledWith(true, { e: expect.any(Event) });
-      wrapper.unmount();
-    });
-
     it(':modelValue[boolean]', async () => {
       const wrapper = mount(Checkbox, { props: { modelValue: true } });
 
@@ -285,6 +268,21 @@ describe('Checkbox', () => {
 
       expect(wrapper.get('label').classes()).not.toContain('t-is-checked');
       expect(onChange).toHaveBeenLastCalledWith(false, { e: expect.any(Event) });
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <Checkbox checked={false} onChange={currentOnChange.value} />,
+      });
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await latestWrapper.get('input').trigger('change');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(true, { e: expect.any(Event) });
+      latestWrapper.unmount();
     });
 
     it('click', async () => {

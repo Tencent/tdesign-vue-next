@@ -180,6 +180,24 @@ describe('RangeInput', () => {
       const onChange = vi.fn();
       const wrapper = mount(<RangeInput onChange={onChange} />);
       expect(wrapper.props('onChange')).toBe(onChange);
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <RangeInput defaultValue={['', '']} onChange={currentOnChange.value} />,
+      });
+      const firstInput = latestWrapper.find('input');
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await firstInput.setValue('latest value');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(
+        ['latest value', ''],
+        expect.objectContaining({ trigger: 'input', position: 'first' }),
+      );
     });
 
     it(':onClear', async () => {
@@ -341,26 +359,6 @@ describe('RangeInput', () => {
         await firstInput.setValue('new value');
         expect(onChange).toHaveBeenCalled();
       }
-    });
-
-    it('onChange should use the latest handler after parent re-render', async () => {
-      const initialOnChange = vi.fn();
-      const latestOnChange = vi.fn();
-      const onChange = ref(initialOnChange);
-      const wrapper = mount({
-        setup: () => () => <RangeInput defaultValue={['', '']} onChange={onChange.value} />,
-      });
-      const firstInput = wrapper.find('input');
-
-      onChange.value = latestOnChange;
-      await nextTick();
-      await firstInput.setValue('latest value');
-
-      expect(initialOnChange).not.toHaveBeenCalled();
-      expect(latestOnChange).toHaveBeenCalledWith(
-        ['latest value', ''],
-        expect.objectContaining({ trigger: 'input', position: 'first' }),
-      );
     });
 
     it('should trigger click event when input is clicked', async () => {

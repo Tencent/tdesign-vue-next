@@ -33,26 +33,6 @@ describe('CheckboxGroup', () => {
       expect(childWithoutProps.get('.t-checkbox__label').text()).toBe('Unconfigured option');
     });
 
-    it('onChange should use the latest handler after parent re-render', async () => {
-      const initialOnChange = vi.fn();
-      const latestOnChange = vi.fn();
-      const onChange = ref(initialOnChange);
-      const wrapper = mount({
-        setup: () => () => <CheckboxGroup value={[]} options={['a']} onChange={onChange.value} />,
-      });
-
-      onChange.value = latestOnChange;
-      await nextTick();
-      await wrapper.get('input').trigger('change');
-
-      expect(initialOnChange).not.toHaveBeenCalled();
-      expect(latestOnChange).toHaveBeenCalledWith(
-        ['a'],
-        expect.objectContaining({ type: 'check', e: expect.any(Event) }),
-      );
-      wrapper.unmount();
-    });
-
     it(':disabled[boolean]', () => {
       const disabled = mount(CheckboxGroup, { props: { options: ['a', 'b'], disabled: true } });
       const childOverride = mount(CheckboxGroup, {
@@ -341,6 +321,24 @@ describe('CheckboxGroup', () => {
         ['b'],
         expect.objectContaining({ e: expect.any(Event), current: 'a', type: 'uncheck' }),
       );
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <CheckboxGroup value={[]} options={['a']} onChange={currentOnChange.value} />,
+      });
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await latestWrapper.get('input').trigger('change');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(
+        ['a'],
+        expect.objectContaining({ type: 'check', e: expect.any(Event) }),
+      );
+      latestWrapper.unmount();
     });
 
     it('change[checkAll]', async () => {

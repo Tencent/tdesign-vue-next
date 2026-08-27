@@ -484,6 +484,22 @@ describe('Textarea', () => {
       const inputPromise = unmountTextarea.trigger('input');
       unmountWrapper.unmount();
       await expect(inputPromise).resolves.toBeUndefined();
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <Textarea defaultValue="" onChange={currentOnChange.value} />,
+      });
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await getTextarea(latestWrapper).setValue('latest value');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith('latest value', {
+        e: expect.objectContaining({ type: 'input' }),
+      });
     });
 
     it('focus', async () => {
@@ -569,22 +585,6 @@ describe('Textarea', () => {
 
       exposed.focus();
       expect(focusSpy).toHaveBeenCalledOnce();
-    });
-
-    it('onChange should use the latest handler after parent re-render', async () => {
-      const initialOnChange = vi.fn();
-      const latestOnChange = vi.fn();
-      const onChange = ref(initialOnChange);
-      const wrapper = mount({
-        setup: () => () => <Textarea defaultValue="" onChange={onChange.value} />,
-      });
-
-      onChange.value = latestOnChange;
-      await nextTick();
-      await getTextarea(wrapper).setValue('latest value');
-
-      expect(initialOnChange).not.toHaveBeenCalled();
-      expect(latestOnChange).toHaveBeenCalledWith('latest value', { e: expect.objectContaining({ type: 'input' }) });
     });
   });
 });

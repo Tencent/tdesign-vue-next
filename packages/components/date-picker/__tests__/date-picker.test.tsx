@@ -719,40 +719,41 @@ describe('DatePicker', () => {
     }
   });
 
-  it('DatePicker onChange should use the latest handler after parent re-render', async () => {
-    const initialOnChange = vi.fn();
-    const latestOnChange = vi.fn();
-    const onChange = ref(initialOnChange);
-    const wrapper = mount({
-      setup: () => () => <DatePicker clearable value="2020-12-10" onChange={onChange.value} />,
+  describe('events', () => {
+    it('change', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <DatePicker clearable value="2020-12-10" onChange={onChange.value} />,
+      });
+      const selectInput = wrapper.findComponent({ name: 'TSelectInput' });
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      selectInput.props('onClear')({ e: new MouseEvent('click') });
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith('', expect.objectContaining({ trigger: 'clear' }));
+
+      const initialRangeOnChange = vi.fn();
+      const latestRangeOnChange = vi.fn();
+      const rangeOnChange = ref(initialRangeOnChange);
+      const rangeWrapper = mount({
+        setup: () => () =>
+          <DateRangePicker clearable value={['2020-12-10', '2020-12-20']} onChange={rangeOnChange.value} />,
+      });
+      const rangeInput = rangeWrapper.findComponent({ name: 'TRangeInput' });
+
+      rangeOnChange.value = latestRangeOnChange;
+      await nextTick();
+      rangeInput.props('onClear')({ e: new MouseEvent('click') });
+      await nextTick();
+
+      expect(initialRangeOnChange).not.toHaveBeenCalled();
+      expect(latestRangeOnChange).toHaveBeenCalledWith([], expect.objectContaining({ trigger: 'clear' }));
     });
-    const selectInput = wrapper.findComponent({ name: 'TSelectInput' });
-
-    onChange.value = latestOnChange;
-    await nextTick();
-    selectInput.props('onClear')({ e: new MouseEvent('click') });
-    await nextTick();
-
-    expect(initialOnChange).not.toHaveBeenCalled();
-    expect(latestOnChange).toHaveBeenCalledWith('', expect.objectContaining({ trigger: 'clear' }));
-  });
-
-  it('DateRangePicker onChange should use the latest handler after parent re-render', async () => {
-    const initialOnChange = vi.fn();
-    const latestOnChange = vi.fn();
-    const onChange = ref(initialOnChange);
-    const wrapper = mount({
-      setup: () => () => <DateRangePicker clearable value={['2020-12-10', '2020-12-20']} onChange={onChange.value} />,
-    });
-    const rangeInput = wrapper.findComponent({ name: 'TRangeInput' });
-
-    onChange.value = latestOnChange;
-    await nextTick();
-    rangeInput.props('onClear')({ e: new MouseEvent('click') });
-    await nextTick();
-
-    expect(initialOnChange).not.toHaveBeenCalled();
-    expect(latestOnChange).toHaveBeenCalledWith([], expect.objectContaining({ trigger: 'clear' }));
   });
 
   it('DatePickerPanel: enableTimePicker applied to dayjsValue (panel select time)', async () => {
