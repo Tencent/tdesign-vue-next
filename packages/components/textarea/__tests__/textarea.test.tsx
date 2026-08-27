@@ -60,10 +60,21 @@ describe('Textarea', () => {
       expect(textarea.element.value).toBe('123');
     });
 
-    it(':maxlength', () => {
-      const wrapper = mount(() => <Textarea maxlength={5} />);
-      const textarea = wrapper.find('textarea');
-      expect(textarea.element.getAttribute('maxlength')).toBe('5');
+    it(':maxlength limits input by Unicode characters without a native maxlength attribute', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Textarea, { props: { defaultValue: '', maxlength: 20, onChange } });
+      const textarea = wrapper.get('textarea');
+      const valueAtLimit = '😊'.repeat(20);
+
+      expect(textarea.attributes('maxlength')).toBeUndefined();
+
+      await textarea.setValue(valueAtLimit);
+      expect(textarea.element.value).toBe(valueAtLimit);
+      expect(wrapper.get('.t-textarea__limit').text()).toBe('20/20');
+
+      await textarea.setValue(`${valueAtLimit}😊`);
+      expect(textarea.element.value).toBe(valueAtLimit);
+      expect(onChange.mock.calls.at(-1)[0]).toBe(valueAtLimit);
     });
 
     it(':autofocus', async () => {
@@ -150,6 +161,24 @@ describe('Textarea', () => {
 
       expect(textarea.element.value).toBe('你');
       expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('applies Unicode maxlength after composition ends', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Textarea, { props: { defaultValue: '', maxlength: 1, onChange } });
+      const textarea = wrapper.get('textarea');
+
+      await textarea.trigger('compositionstart');
+      textarea.element.value = '😊😊';
+      await textarea.trigger('input', { inputType: 'insertCompositionText', isComposing: true });
+
+      expect(textarea.element.value).toBe('😊😊');
+      expect(onChange).not.toHaveBeenCalled();
+
+      await textarea.trigger('compositionend');
+
+      expect(textarea.element.value).toBe('😊');
+      expect(onChange.mock.calls.at(-1)[0]).toBe('😊');
     });
 
     it('uses Unicode length for the maxlength counter', async () => {

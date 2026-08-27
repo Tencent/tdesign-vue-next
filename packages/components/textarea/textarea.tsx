@@ -54,6 +54,16 @@ export default defineComponent({
     const isComposing = ref(false);
     let previousTextareaStyle: Record<string, any> = {};
 
+    const limitParams = computed(() => ({
+      value: [undefined, null].includes(innerValue.value) ? undefined : String(innerValue.value),
+      status: props.status,
+      maxlength: Number(props.maxlength),
+      maxcharacter: props.maxcharacter,
+      allowInputOverMax: props.allowInputOverMax,
+      onValidate: props.onValidate,
+    }));
+    const { tStatus, getValueByLimitNumber } = useLengthLimit(limitParams);
+
     const focus = () => refTextareaElem.value?.focus();
     const blur = () => refTextareaElem.value?.blur();
 
@@ -88,19 +98,18 @@ export default defineComponent({
     };
     const inputValueChangeHandle = (e: InputEvent) => {
       const { target } = e;
-      let val = (target as HTMLInputElement).value;
-      if (props.maxcharacter && props.maxcharacter >= 0) {
-        const stringInfo = getCharacterLength(val, props.maxcharacter);
-        if (!props.allowInputOverMax) {
-          val = typeof stringInfo === 'object' && stringInfo.characters;
-        }
-      }
-      !isComposing.value && setInnerValue(val, { e });
+      const inputValue = (target as HTMLInputElement).value;
+      const val = getValueByLimitNumber(inputValue) ?? inputValue;
+      setInnerValue(val, { e });
       nextTick(() => setInputValue(val));
       adjustTextareaHeight();
     };
 
     const handleInput = (e: InputEvent) => {
+      if (e.inputType === 'insertCompositionText' || isComposing.value) {
+        adjustTextareaHeight();
+        return;
+      }
       inputValueChangeHandle(e);
     };
 
@@ -154,12 +163,12 @@ export default defineComponent({
       ];
     });
     const inputAttrs = computed<Record<string, any>>(() => {
+      // 在 input 事件中处理 maxlength，确保 Unicode 字符的输入限制与计数规则一致。
       return getValidAttrs({
         autofocus: props.autofocus,
         disabled: disabled.value,
         readonly: isReadonly.value,
         placeholder: props.placeholder,
-        maxlength: (!props.allowInputOverMax && props.maxlength) || undefined,
         name: props.name || undefined,
       });
     });
@@ -172,16 +181,6 @@ export default defineComponent({
       }
       return characterInfo;
     });
-
-    const limitParams = computed(() => ({
-      value: [undefined, null].includes(innerValue.value) ? undefined : String(innerValue.value),
-      status: props.status,
-      maxlength: Number(props.maxlength),
-      maxcharacter: props.maxcharacter,
-      allowInputOverMax: props.allowInputOverMax,
-      onValidate: props.onValidate,
-    }));
-    const { tStatus } = useLengthLimit(limitParams);
 
     // watch
     watch(
