@@ -30,7 +30,7 @@ pnpm run test:unit-coverage
 
 ### 组件快照测试 `snap`
 
-Demo 快照测试由 `packages/tdesign-vue-next/test/src/snap/csr.test.ts` 和 `packages/tdesign-vue-next/test/src/snap/ssr.test.ts` 集中维护，不需要为每个组件单独创建 `demo.test.tsx`，也不适用组件单测的五类分组。
+Demo 快照测试集中维护在 `packages/tdesign-vue-next/test/src/snap/`，不适用组件单测的五类分组。
 
 ```bash
 # 快照
