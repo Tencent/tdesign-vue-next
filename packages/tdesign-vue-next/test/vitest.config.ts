@@ -22,6 +22,7 @@ export default defineConfig({
     testTimeout: 5000,
     setupFiles: process.env.TEST_TARGET === 'snap' ? './src/setup.ts' : '',
     css: {
+      // 单测中 getComputedStyle 需要
       include: /menu\/_index\.less$/,
     },
     coverage: {
