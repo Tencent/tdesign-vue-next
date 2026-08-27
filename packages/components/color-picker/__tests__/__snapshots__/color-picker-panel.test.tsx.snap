@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 1`] = `
+exports[`ColorPickerPanel > props > :colorModes[monochrome,linear-gradient] 1`] = `
 <div
   class="t-color-picker__panel t-is-inline"
 >
@@ -904,7 +904,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 1`]
 </div>
 `;
 
-exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 2`] = `
+exports[`ColorPickerPanel > props > :colorModes[monochrome,linear-gradient] 2`] = `
 <div
   class="t-color-picker__panel t-is-inline"
 >
@@ -1279,7 +1279,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 2`]
 </div>
 `;
 
-exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`] = `
+exports[`ColorPickerPanel > props > :colorModes[monochrome,linear-gradient] 3`] = `
 <div
   class="t-color-picker__panel t-is-inline"
 >
@@ -2261,7 +2261,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`]
 </div>
 `;
 
-exports[`ColorPickerPanel > :ui > :mount 1`] = `
+exports[`ColorPickerPanel > scenarios > :mount 1`] = `
 <div
   class="t-color-picker__panel t-is-inline"
 >

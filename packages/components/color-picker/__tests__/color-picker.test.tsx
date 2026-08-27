@@ -10,7 +10,7 @@ import { mountColorPickerAndTriggerPanel } from './mount';
 import { clickAtPosition, simulateInputChange, userEvent } from '@tdesign/internal-tests';
 
 describe('ColorPicker', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it(':borderless[boolean]', async () => {
       const wrapper = mount(<ColorPicker borderless={false}></ColorPicker>);
       expect(wrapper.find('.t-input--borderless').exists()).toBe(false);
@@ -220,7 +220,7 @@ describe('ColorPicker', () => {
     });
   });
 
-  describe(':events', () => {
+  describe('events', () => {
     it('change', async () => {
       const data = ref('rgb(0, 82, 217)');
       const fn = vi.fn();

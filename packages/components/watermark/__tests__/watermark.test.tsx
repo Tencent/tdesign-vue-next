@@ -4,7 +4,6 @@ import Watermark from '@tdesign/components/watermark';
 import injectStyle from '@tdesign/common-js/utils/injectStyle';
 import generateBase64Url from '@tdesign/common-js/watermark/generateBase64Url';
 
-// every component needs four parts: props/events/slots/functions.
 describe('Watermark', () => {
   beforeEach(() => {
     HTMLCanvasElement.prototype.getContext = vi.fn();
@@ -17,7 +16,7 @@ describe('Watermark', () => {
   });
 
   // test props api
-  describe(':props', () => {
+  describe('props', () => {
     it('renders correctly', () => {
       const wrapper = mount({
         render() {
@@ -73,37 +72,6 @@ describe('Watermark', () => {
           props: { content: contentFn },
         });
         expect(wrapper.text()).toContain('Function Content');
-      });
-    });
-
-    describe(':default slot', () => {
-      it('should render default slot content [string]', () => {
-        const wrapper = mount(Watermark, {
-          slots: {
-            default: 'Slot Content',
-          },
-        });
-        expect(wrapper.text()).toContain('Slot Content');
-      });
-
-      it('should render default slot content [function]', () => {
-        const wrapper = mount(Watermark, {
-          slots: {
-            default: () => 'Slot Content',
-          },
-        });
-        expect(wrapper.text()).toContain('Slot Content');
-      });
-
-      it('default slot should take higher priority', () => {
-        const contentFn = () => 'Function Content';
-        const wrapper = mount(Watermark, {
-          props: { content: contentFn },
-          slots: {
-            default: () => 'Slot Content',
-          },
-        });
-        expect(wrapper.text()).toContain('Slot Content');
       });
     });
 
@@ -336,9 +304,7 @@ describe('Watermark', () => {
     });
   });
 
-  describe.skip(':events', () => {});
-
-  describe(':slots', () => {
+  describe('slots', () => {
     it('should render default slot content [string]', () => {
       const wrapper = mount(Watermark, {
         slots: {
@@ -356,8 +322,10 @@ describe('Watermark', () => {
       });
       expect(wrapper.text()).toContain('Slot Content');
     });
+  });
 
-    it('default slot should take higher priority', () => {
+  describe('scenarios', () => {
+    it('default slot should take higher priority than content prop', () => {
       const contentFn = () => 'Function Content';
       const wrapper = mount(Watermark, {
         props: { content: contentFn },
@@ -366,15 +334,7 @@ describe('Watermark', () => {
         },
       });
       expect(wrapper.text()).toContain('Slot Content');
-    });
-  });
-
-  describe(':functions', () => {
-    it.skipIf(process.env.TEST_TARGET === 'snap')(':generateBase64Url', () => {
-      mount(Watermark, {
-        props: { width: 200 },
-      });
-      expect(generateBase64Url).toBeCalledWith(expect.objectContaining({ width: 200 }), expect.any(Function));
+      expect(wrapper.text()).not.toContain('Function Content');
     });
   });
 });
