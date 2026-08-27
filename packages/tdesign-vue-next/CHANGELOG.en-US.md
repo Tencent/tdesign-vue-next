@@ -5,6 +5,24 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.7 `2026-08-27`
+
+### 🐞 Bug Fixes
+
+- `Select`: Fixed the issue where, after the event listener was updated, the change callback still called the old function. @engvuchen @Zn-Dk ([#6931](https://github.com/Tencent/tdesign-vue-next/pull/6931))
+- `Space`: Passed the key of child nodes to the parent layer, resolving the problem of node mismatch when `v-if` child nodes changed.  @jaideeppyne ([#6936](https://github.com/Tencent/tdesign-vue-next/pull/6936))
+- `Steps`:
+  - Fixed issues with misaligned connection lines and inconsistent distances from the upper and lower icons when `layout='vertical'` was used. @RylanBot ([common#2670](https://github.com/Tencent/tdesign-common/pull/2670))
+  - Fixed the problem of inconsistent line thicknesses between the default and selected states. @RylanBot ([common#2670](https://github.com/Tencent/tdesign-common/pull/2670))
+
+### 📝 Documentation
+
+- `Transfer`: Corrected the incorrect description of `target` in the context parameter of the change event’s callback in the documentation. @uyarn ([#6945](https://github.com/Tencent/tdesign-vue-next/pull/6945))
+
+### 🚧 Others
+
+- `Menu`: Changed the inline style of Menu to use the common style, and removed the overly generic --padding-left variable to facilitate customizations. @uyarn ([#6943](https://github.com/Tencent/tdesign-vue-next/pull/6943))
+
 ## 🌈 1.20.6 `2026-08-13`
 
 ### 🚀 Features
