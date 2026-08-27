@@ -30,6 +30,8 @@ pnpm run test:unit-coverage
 
 ### 组件快照测试 `snap`
 
+组件 `_example` 目录下的示例快照测试集中维护在 `packages/tdesign-vue-next/test/src/snap/`，不适用组件单测的五类分组。
+
 ```bash
 # 快照
 pnpm run test:snap

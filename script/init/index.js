@@ -6,9 +6,7 @@
  * Before you run this script, you'd better save your code.
  *
  * @example npm run init table
- *   /tdesign/tdesign-web-vue/test/unit/table/demo.test.js will be created.
  *   /tdesign/tdesign-web-vue/test/e2e/table/table.spec.js will be created.
- *   /tdesign/tdesign-web-vue/test/unit/table/index.test.js will be created.
  *   /tdesign/tdesign-web-vue/examples/table/demos/base.vue will be created.
  *   /tdesign/tdesign-web-vue/src/table/index.ts will be created.
  *   /tdesign/tdesign-web-vue/examples/table/table.md will be created.
@@ -18,8 +16,6 @@
  *   /tdesign/tdesign-web-vue/examples/table/demos/base.vue will be removed.
  *   /tdesign/tdesign-web-vue/examples/table/demos will be removed.
  *   /tdesign/tdesign-web-vue/examples/table/table.md will be removed.
- *   /tdesign/tdesign-web-vue/test/unit/table/demo.test.js will be removed.
- *   /tdesign/tdesign-web-vue/test/unit/table/index.test.js will be removed.
  *   /tdesign/tdesign-web-vue/src/table/index.ts will be removed.
  *   /tdesign/tdesign-web-vue/src/table/table.tsx will be removed.
  *   /tdesign/tdesign-web-vue/test/e2e/table/table.spec.js will be removed.
@@ -47,20 +43,9 @@ function getFirstLetterUpper(a) {
   return a[0].toUpperCase() + a.slice(1);
 }
 
-function getSnapshotFiles(component) {
-  return {
-    [`test/unit/${component}/__snapshots__/`]: {
-      desc: 'snapshot test',
-      files: ['index.test.js.snap', 'demo.test.js.snap'],
-    },
-  };
-}
-
-function deleteComponent(toBeCreatedFiles, component) {
-  const snapShotFiles = getSnapshotFiles(component);
-  const files = Object.assign(toBeCreatedFiles, snapShotFiles);
-  Object.keys(files).forEach((dir) => {
-    const item = files[dir];
+function deleteComponent(toBeCreatedFiles) {
+  Object.keys(toBeCreatedFiles).forEach((dir) => {
+    const item = toBeCreatedFiles[dir];
     if (item.deleteFiles && item.deleteFiles.length) {
       item.deleteFiles.forEach((f) => {
         fs.existsSync(f) && fs.unlinkSync(f);
@@ -161,7 +146,7 @@ function init() {
   const indexPath = path.resolve(cwdPath, 'src/index.ts');
   const toBeCreatedFiles = config.getToBeCreatedFiles(component);
   if (isDeleted === 'del') {
-    deleteComponent(toBeCreatedFiles, component);
+    deleteComponent(toBeCreatedFiles);
     deleteComponentFromIndex(component, indexPath);
   } else {
     addComponent(toBeCreatedFiles, component);
