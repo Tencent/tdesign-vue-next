@@ -52,7 +52,7 @@ description: 按 tdesign-vue-next 规范编写、补充、迁移或审查 Vue �
 - 多子组件分别使用独立的组件测试文件，并各自遵循组件分组规则。
 - hooks 使用 `*.hooks.test.tsx`，utils 使用 `*.utils.test.tsx`；这类非组件测试不强制使用五类分组。
 - 多个测试文件共用的挂载逻辑可提取到 `mount.tsx`；其中只放 mount factory、测试数据、查询方法和清理逻辑，不直接编写测试用例，也不使用五类分组。仅被单个测试文件使用的辅助逻辑保留在原测试文件中。
-- 不修改自动生成的 Demo 测试，除非任务明确要求。
+- Demo 快照由 `packages/tdesign-vue-next/test/src/snap/` 集中收集，不为单个组件创建 `demo.test.tsx`，也不使用五类分组。除非任务明确要求，否则不更新快照。
 
 ## 验证
 
