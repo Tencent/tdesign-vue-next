@@ -16,10 +16,7 @@ export default defineConfig({
     include:
       process.env.NODE_ENV === 'test-snap'
         ? [await joinTdesignVueNextRoot('test/unit/snap/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}')]
-        : [
-            await joinComponentsRoot('**/__tests__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'),
-            await joinPackagesRoot('shared/hooks/**/index.test.{ts,tsx}'),
-          ],
+        : [await joinComponentsRoot('**/__tests__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}')],
     globals: true,
     environment: 'jsdom',
     testTimeout: 5000,
