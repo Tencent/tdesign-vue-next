@@ -17,7 +17,7 @@ describe('DatePicker', () => {
     } catch (e) {}
   });
 
-  describe(':props', () => {
+  describe('props', () => {
     it('', () => {
       const wrapper = mount({
         render() {
