@@ -513,6 +513,27 @@ describe('Select', () => {
       wrapper.unmount();
     });
 
+    it('onChange should use the latest handler after parent re-render', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <Select value="" onChange={onChange.value} options={options} />,
+      });
+
+      await openPopup(wrapper);
+      onChange.value = latestOnChange;
+      await nextTick();
+
+      const panelNode = document.querySelector('.t-select__list');
+      (panelNode?.querySelectorAll('.t-select-option')[0] as HTMLElement).click();
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(options[0].value, expect.any(Object));
+      wrapper.unmount();
+    });
+
     it('onClear', async () => {
       const triggerClear = async (wrapper: ReturnType<typeof mount>) => {
         const input = wrapper.find('.t-input');

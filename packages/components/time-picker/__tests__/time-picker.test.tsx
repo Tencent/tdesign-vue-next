@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { TimePicker } from '@tdesign/components/time-picker';
+import { nextTick, ref } from 'vue';
+import { TimePicker, TimeRangePicker } from '@tdesign/components/time-picker';
 
 describe('TimePicker', () => {
   describe(':props', () => {
@@ -150,6 +151,40 @@ describe('TimePicker', () => {
       expect(minuteCells[0].innerHTML).toBe('00');
       expect(minuteCells[1].innerHTML).toBe('06');
       panelNode.parentNode.removeChild(panelNode);
+    });
+
+    it('TimePicker onChange should use the latest handler after parent re-render', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <TimePicker clearable value="10:00:00" onChange={onChange.value} />,
+      });
+      const selectInput = wrapper.findComponent({ name: 'TSelectInput' });
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      selectInput.props('onClear')({ e: new MouseEvent('click') });
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(null);
+    });
+
+    it('TimeRangePicker onChange should use the latest handler after parent re-render', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <TimeRangePicker clearable value={['10:00:00', '11:00:00']} onChange={onChange.value} />,
+      });
+      const rangeInput = wrapper.findComponent({ name: 'TRangeInput' });
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      rangeInput.props('onClear')({ e: new MouseEvent('click') });
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(null);
     });
 
     it('hideDisabledTime works fine', async () => {

@@ -575,6 +575,24 @@ describe('InputNumber', () => {
       expect(onChange).toHaveBeenCalledWith(0, expect.objectContaining({ type: 'input' }));
     });
 
+    it('onChange should use the latest handler after parent re-render', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <InputNumber defaultValue={0} onChange={onChange.value} />,
+      });
+      const input = wrapper.find('.t-input input');
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      await input.setValue('2');
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(2, expect.objectContaining({ type: 'input' }));
+    });
+
     it(':onEnter', async () => {
       const value = ref(100);
       const fn = vi.fn();

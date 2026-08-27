@@ -1,5 +1,5 @@
 import { flushPromises, mount } from '@vue/test-utils';
-import { h, ref } from 'vue';
+import { h, nextTick, ref } from 'vue';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import Switch, { type SwitchProps, type SwitchValue } from '@tdesign/components/switch';
@@ -46,6 +46,23 @@ describe('Switch', () => {
 
       errorWrapper.element.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       expect(errorHandler.mock.calls[0][0]).toBe(error);
+    });
+
+    it('onChange should use the latest handler after parent re-render', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <Switch value={false} onChange={onChange.value} />,
+      });
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      await wrapper.get('.t-switch').trigger('click');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
+      wrapper.unmount();
     });
 
     it(':beforeChange[Promise]', async () => {
@@ -410,18 +427,6 @@ describe('Switch', () => {
       expect(onChange).toHaveBeenLastCalledWith(false, { e: expect.any(MouseEvent) });
       expect(wrapper.emitted('update:value')).toBeUndefined();
       expect(wrapper.emitted('update:modelValue')).toBeUndefined();
-    });
-
-    it('uses the latest change listener after props update', async () => {
-      const initialOnChange = vi.fn();
-      const latestOnChange = vi.fn();
-      const wrapper = mount(Switch, { props: { onChange: initialOnChange } });
-
-      await wrapper.setProps({ onChange: latestOnChange });
-      await wrapper.get('.t-switch').trigger('click');
-
-      expect(initialOnChange).not.toHaveBeenCalled();
-      expect(latestOnChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
     });
 
     // Current behavior is tracked by #6849. Update this case when keyboard support is implemented.

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { ref } from 'vue';
+import { nextTick, ref } from 'vue';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import Checkbox from '..';
@@ -51,6 +51,23 @@ describe('Checkbox', () => {
 
       expect(root.classes()).toContain('t-is-checked');
       expect((input.element as HTMLInputElement).checked).toBe(true);
+    });
+
+    it('onChange should use the latest handler after parent re-render', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <Checkbox checked={false} onChange={onChange.value} />,
+      });
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      await wrapper.get('input').trigger('change');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(true, { e: expect.any(Event) });
+      wrapper.unmount();
     });
 
     it(':modelValue[boolean]', async () => {

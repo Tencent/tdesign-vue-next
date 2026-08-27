@@ -720,6 +720,26 @@ describe('Cascader', () => {
       expect(onChange).toHaveBeenCalledWith(expect.any(Array), expect.objectContaining({ source: 'check' }));
     });
 
+    it('onChange should use the latest handler after parent re-render', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <Cascader options={options} onChange={onChange.value} popupVisible />,
+      });
+      const panel = mountPanel(wrapper);
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      await panel.findAll('.t-cascader__item')[0].trigger('click');
+      await nextTick();
+      await panel.findAll('.t-cascader__item')[2].trigger('click');
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith('a1', expect.objectContaining({ source: 'check' }));
+    });
+
     it('change does not emit for the current controlled value', async () => {
       const onChange = vi.fn();
       const wrapper = renderCascader({ modelValue: 'a1', onChange, popupVisible: true });

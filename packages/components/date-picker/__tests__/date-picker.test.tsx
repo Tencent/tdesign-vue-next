@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
+import { nextTick, ref } from 'vue';
 import MockDate from 'mockdate';
 import DatePicker, { DateRangePicker, DatePickerPanel, DateRangePickerPanel } from '@tdesign/components/date-picker';
 import dayjs from 'dayjs';
@@ -717,6 +717,42 @@ describe('DatePicker', () => {
       const textsR = viewersR.map((v) => v.textContent?.trim()).join(' ');
       expect(textsR).toContain('18:45:20');
     }
+  });
+
+  it('DatePicker onChange should use the latest handler after parent re-render', async () => {
+    const initialOnChange = vi.fn();
+    const latestOnChange = vi.fn();
+    const onChange = ref(initialOnChange);
+    const wrapper = mount({
+      setup: () => () => <DatePicker clearable value="2020-12-10" onChange={onChange.value} />,
+    });
+    const selectInput = wrapper.findComponent({ name: 'TSelectInput' });
+
+    onChange.value = latestOnChange;
+    await nextTick();
+    selectInput.props('onClear')({ e: new MouseEvent('click') });
+    await nextTick();
+
+    expect(initialOnChange).not.toHaveBeenCalled();
+    expect(latestOnChange).toHaveBeenCalledWith('', expect.objectContaining({ trigger: 'clear' }));
+  });
+
+  it('DateRangePicker onChange should use the latest handler after parent re-render', async () => {
+    const initialOnChange = vi.fn();
+    const latestOnChange = vi.fn();
+    const onChange = ref(initialOnChange);
+    const wrapper = mount({
+      setup: () => () => <DateRangePicker clearable value={['2020-12-10', '2020-12-20']} onChange={onChange.value} />,
+    });
+    const rangeInput = wrapper.findComponent({ name: 'TRangeInput' });
+
+    onChange.value = latestOnChange;
+    await nextTick();
+    rangeInput.props('onClear')({ e: new MouseEvent('click') });
+    await nextTick();
+
+    expect(initialOnChange).not.toHaveBeenCalled();
+    expect(latestOnChange).toHaveBeenCalledWith([], expect.objectContaining({ trigger: 'clear' }));
   });
 
   it('DatePickerPanel: enableTimePicker applied to dayjsValue (panel select time)', async () => {

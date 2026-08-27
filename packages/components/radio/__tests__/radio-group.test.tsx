@@ -99,6 +99,23 @@ describe('RadioGroup', () => {
       expect(checkedChange).not.toHaveBeenCalled();
     });
 
+    it('onChange should use the latest handler after parent re-render', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <RadioGroup value={1} options={[1, 2]} onChange={onChange.value} />,
+      });
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      await wrapper.findAll(RADIO)[1].trigger('click');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(2, { e: expect.any(MouseEvent), name: '' });
+      wrapper.unmount();
+    });
+
     it(':direction[horizontal/vertical]', async () => {
       const validateDirection = radioGroupProps.direction.validator as (value?: string) => boolean;
       expect(validateDirection()).toBe(true);
