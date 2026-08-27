@@ -21,9 +21,18 @@ export type ValidateParams = Parameters<TdUploadProps['onValidate']>[0];
 export default function useUpload(props: TdUploadProps): any {
   const inputRef = ref<HTMLInputElement>();
   // TODO: Form 表单控制上传组件是否禁用
-  const { disabled, autoUpload, isBatchUpload, multiple, files, modelValue, defaultFiles } = toRefs(props);
+  const {
+    disabled,
+    autoUpload,
+    isBatchUpload,
+    multiple,
+    files,
+    modelValue,
+    defaultFiles,
+    onChange: onChangeRef,
+  } = toRefs(props);
   const { globalConfig, t, classPrefix } = useConfig('upload');
-  const [rawValue, setRawValue] = useVModel(files, modelValue, defaultFiles.value, props.onChange, 'files');
+  const [rawValue, setRawValue] = useVModel(files, modelValue, defaultFiles.value, onChangeRef, 'files');
   const uploadValue = computed(() => (Array.isArray(rawValue.value) ? rawValue.value : []));
   const xhrReq = ref<{ files: UploadFile[]; xhrReq: XMLHttpRequest }[]>([]);
   const toUploadFiles = ref<UploadFile[]>([]);

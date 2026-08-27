@@ -13,13 +13,13 @@ export default defineComponent({
     const role = computed(() => injectedRole?.value || '');
     provide('role', role);
     const renderTNodeJSX = useTNodeJSX();
-    const { collapsed, modelValue } = toRefs(props);
+    const { collapsed, modelValue, onExpandChange } = toRefs(props);
     // Use useVModel for collapsed
     const [innerCollapsed, setInnerCollapsed] = useVModel(
       collapsed,
       modelValue,
       props.defaultCollapsed,
-      props.onExpandChange,
+      onExpandChange,
       'collapsed',
     );
     const layoutClass = computed(() =>

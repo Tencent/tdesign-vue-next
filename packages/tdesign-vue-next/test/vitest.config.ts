@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import { joinComponentsRoot, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
+import { joinComponentsRoot, joinPackagesRoot, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
 
 export default defineConfig({
   resolve: {
@@ -30,7 +30,7 @@ export default defineConfig({
       reporter: ['text', 'json', 'html'],
       allowExternal: true,
       reportOnFailure: true,
-      include: [await joinComponentsRoot()],
+      include: [await joinComponentsRoot(), await joinPackagesRoot('shared/hooks')],
     },
   },
 });

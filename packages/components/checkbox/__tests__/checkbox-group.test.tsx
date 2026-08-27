@@ -1,5 +1,5 @@
 import { mount, shallowMount } from '@vue/test-utils';
-import { ref } from 'vue';
+import { nextTick, ref } from 'vue';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { Checkbox, CheckboxGroup } from '..';
@@ -321,6 +321,24 @@ describe('CheckboxGroup', () => {
         ['b'],
         expect.objectContaining({ e: expect.any(Event), current: 'a', type: 'uncheck' }),
       );
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <CheckboxGroup value={[]} options={['a']} onChange={currentOnChange.value} />,
+      });
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await latestWrapper.get('input').trigger('change');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(
+        ['a'],
+        expect.objectContaining({ type: 'check', e: expect.any(Event) }),
+      );
+      latestWrapper.unmount();
     });
 
     it('change[checkAll]', async () => {

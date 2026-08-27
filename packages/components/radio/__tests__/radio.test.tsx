@@ -215,6 +215,21 @@ describe('Radio', () => {
       const inputWrapper = mount(Radio, { props: { onChange: inputChange } });
       await inputWrapper.get(INPUT).trigger('click');
       expect(inputChange).not.toHaveBeenCalled();
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <Radio checked={false} onChange={currentOnChange.value} />,
+      });
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await latestWrapper.get(RADIO).trigger('click');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
+      latestWrapper.unmount();
     });
 
     it('click', async () => {

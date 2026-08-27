@@ -18,7 +18,7 @@ export interface ExtendsTdInputProps extends TdInputProps {
 }
 
 export function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<string, any>) => void) {
-  const { value, modelValue } = toRefs(props);
+  const { value, modelValue, onChange: onChangeRef } = toRefs(props);
   const inputValue = ref<InputValue>();
   const isComposition = ref(false);
   const compositionValue = ref<InputValue>();
@@ -26,7 +26,7 @@ export function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<st
   const innerClickElement = ref();
   const disabled = useDisabled();
   const readonly = useReadonly();
-  const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+  const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
 
   const isHover = ref(false);
   const focused = ref(false);

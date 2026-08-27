@@ -32,12 +32,12 @@ export default defineComponent({
     }
     const { STATUS } = useCommonClassName();
 
-    const { checked, modelValue, lazyLoad } = toRefs(props);
+    const { checked, modelValue, lazyLoad, onChange: onChangeRef } = toRefs(props);
     const [innerChecked, setInnerChecked] = useVModel(
       checked,
       modelValue,
       props.defaultChecked,
-      props.onChange,
+      onChangeRef,
       'checked',
     );
 

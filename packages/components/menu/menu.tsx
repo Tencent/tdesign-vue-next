@@ -40,9 +40,9 @@ export default defineComponent({
       width: props.collapsed ? expandWidth.value[1] : expandWidth.value[0],
     }));
 
-    const { value, modelValue, expanded } = toRefs(props);
-    const [activeValue, setActiveValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-    const [expandValues, setExpand] = useDefaultValue(expanded, props.defaultExpanded, props.onExpand, 'expanded');
+    const { value, modelValue, expanded, onChange: onChangeRef, onExpand } = toRefs(props);
+    const [activeValue, setActiveValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
+    const [expandValues, setExpand] = useDefaultValue(expanded, props.defaultExpanded, onExpand, 'expanded');
     const activeValues = ref([]);
 
     watchEffect(() => {

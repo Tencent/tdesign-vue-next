@@ -1,17 +1,24 @@
-import { ref, Ref, getCurrentInstance } from 'vue';
+import { ref, Ref, getCurrentInstance, unref } from 'vue';
 import { kebabCase } from 'lodash-es';
 
 export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
+export type ChangeHandlerSource<T, P extends any[]> =
+  | ChangeHandler<T, P>
+  | Readonly<Ref<ChangeHandler<T, P> | undefined>>
+  | undefined;
 
 export function useVModel<T, P extends any[]>(
   value: Ref<T>,
   modelValue: Ref<T>,
   defaultValue: T,
-  onChange: ChangeHandler<T, P>,
+  onChange: ChangeHandlerSource<T, P>,
   propName = 'value',
 ): [Ref<T>, ChangeHandler<T, P>] {
   const { emit, vnode } = getCurrentInstance();
   const internalValue: Ref<T> = ref();
+  const triggerChange: ChangeHandler<T, P> = (newValue, ...args) => {
+    unref(onChange)?.(newValue, ...args);
+  };
 
   const vProps = vnode.props || {};
   const isVM =
@@ -26,7 +33,7 @@ export function useVModel<T, P extends any[]>(
       modelValue,
       (newValue, ...args) => {
         emit('update:modelValue', newValue);
-        onChange?.(newValue, ...args);
+        triggerChange(newValue, ...args);
       },
     ];
   }
@@ -36,7 +43,7 @@ export function useVModel<T, P extends any[]>(
       value,
       (newValue, ...args) => {
         emit(`update:${propName}`, newValue);
-        onChange?.(newValue, ...args);
+        triggerChange(newValue, ...args);
       },
     ];
   }
@@ -46,7 +53,7 @@ export function useVModel<T, P extends any[]>(
     internalValue,
     (newValue, ...args) => {
       internalValue.value = newValue;
-      onChange?.(newValue, ...args);
+      triggerChange(newValue, ...args);
     },
   ];
 }

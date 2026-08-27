@@ -49,11 +49,12 @@ export default defineComponent({
     const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
 
-    const { inputValue, inputProps, borderless, size, tips, status, suffix, autoWidth, onPaste } = toRefs(props);
+    const { inputValue, inputProps, borderless, size, tips, status, suffix, autoWidth, onPaste, onInputChange } =
+      toRefs(props);
     const [tInputValue, setTInputValue] = useDefaultValue(
       inputValue,
       props.defaultInputValue,
-      props.onInputChange,
+      onInputChange,
       'inputValue',
     );
     const { excessTagsDisplayType, clearable, placeholder } = toRefs(props);
