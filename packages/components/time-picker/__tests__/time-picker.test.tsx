@@ -1,8 +1,8 @@
-import { nextTick, type VNode } from 'vue';
+import { nextTick, ref, type VNode } from 'vue';
 import { mount, type VueWrapper } from '@vue/test-utils';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { TimeIcon } from 'tdesign-icons-vue-next';
-import { TimePicker } from '@tdesign/components/time-picker';
+import { TimePicker, TimeRangePicker } from '@tdesign/components/time-picker';
 import TimePickerPanel from '@tdesign/components/time-picker/panel/time-picker-panel';
 import { SelectInput } from '@tdesign/components/select-input';
 import timePickerProps from '@tdesign/components/time-picker/props';
