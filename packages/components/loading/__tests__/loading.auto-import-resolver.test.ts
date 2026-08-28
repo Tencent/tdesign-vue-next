@@ -18,10 +18,12 @@ describe('TDesignResolver', () => {
 
   it('should resolve loading directive for vue-next', async () => {
     const resolvers = TDesignResolver({ library: 'vue-next' });
-    const directiveResolver = resolvers.find((resolver) => resolver.type === 'directive');
+    const directiveResolver = resolvers.find(
+      (resolver) => typeof resolver !== 'function' && resolver.type === 'directive',
+    );
 
     expect(directiveResolver).toBeTruthy();
-    if (!directiveResolver) throw new Error('directive resolver not found');
+    if (!directiveResolver || typeof directiveResolver === 'function') throw new Error('directive resolver not found');
     expect(directiveResolver.resolve('Loading')).toEqual({
       name: 'LoadingDirective',
       from: 'tdesign-vue-next',
@@ -30,10 +32,12 @@ describe('TDesignResolver', () => {
 
   it('should keep component resolution working with directive support', async () => {
     const resolvers = TDesignResolver({ library: 'vue-next' });
-    const componentResolver = resolvers.find((resolver) => resolver.type === 'component');
+    const componentResolver = resolvers.find(
+      (resolver) => typeof resolver !== 'function' && resolver.type === 'component',
+    );
 
     expect(componentResolver).toBeTruthy();
-    if (!componentResolver) throw new Error('component resolver not found');
+    if (!componentResolver || typeof componentResolver === 'function') throw new Error('component resolver not found');
     expect(componentResolver.resolve('TButton')).toEqual({
       name: 'Button',
       from: 'tdesign-vue-next',
