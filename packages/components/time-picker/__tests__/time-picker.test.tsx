@@ -452,4 +452,39 @@ describe('TimePicker', () => {
       expect(order.slice(1)).toContain('forwarded');
     });
   });
+
+  describe(':events', () => {
+    it(':onChange', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <TimePicker clearable value="10:00:00" onChange={onChange.value} />,
+      });
+      const selectInput = wrapper.findComponent({ name: 'TSelectInput' });
+
+      onChange.value = latestOnChange;
+      await nextTick();
+      selectInput.props('onClear')({ e: new MouseEvent('click') });
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(null);
+
+      const initialRangeOnChange = vi.fn();
+      const latestRangeOnChange = vi.fn();
+      const rangeOnChange = ref(initialRangeOnChange);
+      const rangeWrapper = mount({
+        setup: () => () =>
+          <TimeRangePicker clearable value={['10:00:00', '11:00:00']} onChange={rangeOnChange.value} />,
+      });
+      const rangeInput = rangeWrapper.findComponent({ name: 'TRangeInput' });
+
+      rangeOnChange.value = latestRangeOnChange;
+      await nextTick();
+      rangeInput.props('onClear')({ e: new MouseEvent('click') });
+
+      expect(initialRangeOnChange).not.toHaveBeenCalled();
+      expect(latestRangeOnChange).toHaveBeenCalledWith(null);
+    });
+  });
 });

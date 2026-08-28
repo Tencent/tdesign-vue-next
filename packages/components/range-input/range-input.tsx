@@ -30,7 +30,7 @@ export default defineComponent({
   inheritAttrs: false,
   props,
   setup(props, { expose, attrs }) {
-    const { value, modelValue } = toRefs(props);
+    const { value, modelValue, onChange: onChangeRef } = toRefs(props);
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('range-input');
@@ -44,7 +44,7 @@ export default defineComponent({
     const format = computed(() => calcArrayValue(props.format));
     const inputProps = computed(() => calcArrayValue(props.inputProps));
     const placeholder = computed(() => calcArrayValue(props.placeholder));
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
 
     const inputValue = computed(() => String((innerValue.value?.[0] || innerValue.value?.[1]) ?? ''));
 

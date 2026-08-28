@@ -1,839 +1,820 @@
-import { defineComponent, nextTick, ref, watch } from 'vue';
+/* eslint-disable vue/one-component-per-file */
+import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
-import { describe, it, expect, afterEach } from 'vitest';
-import Cascader from '@tdesign/components/cascader';
-import type { TreeOptionData } from '@tdesign/components/common';
+import type { VueWrapper } from '@vue/test-utils';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { Cascader } from '@tdesign/components/cascader';
+import cascaderProps from '@tdesign/components/cascader/props';
+import type { CascaderOption } from '@tdesign/components/cascader/types';
+import { Checkbox } from '@tdesign/components/checkbox';
+import { SelectInput } from '@tdesign/components/select-input';
 
-// ─── Types ──────────────────────────────────────────────────────────────────
-
-type FilterValue = string | ((node: TreeOptionData, panelIndex: number) => boolean);
-
-interface ColumnHeaderSlotParams {
-  panelIndex: number;
-  options: TreeOptionData[];
-  filteredOptions: TreeOptionData[];
-  onFilter: (filter: FilterValue) => void;
-}
-
-interface ColumnFooterSlotParams {
-  panelIndex: number;
-  options: TreeOptionData[];
-  filteredOptions: TreeOptionData[];
-  onFilter: (filter: FilterValue) => void;
-}
-
-// ─── Test Data ──────────────────────────────────────────────────────────────
-
-const options: TreeOptionData[] = [
+const options: CascaderOption[] = [
   {
-    label: '选项一',
-    value: '1',
+    label: 'Parent A',
+    value: 'a',
     children: [
-      { label: '子选项一', value: '1.1' },
-      { label: '子选项二', value: '1.2' },
-      { label: '子选项三', value: '1.3' },
+      { label: 'Child A1', value: 'a1' },
+      { label: 'Child A2', value: 'a2' },
     ],
   },
   {
-    label: '选项二',
-    value: '2',
-    children: [
-      { label: '子选项一', value: '2.1' },
-      { label: '子选项二', value: '2.2' },
-    ],
+    label: 'Parent B',
+    value: 'b',
+    children: [{ label: 'Child B1', value: 'b1', disabled: true }],
   },
 ];
 
-// ─── Helpers ────────────────────────────────────────────────────────────────
-
-const cleanupPanel = () => {
-  document.querySelectorAll('.t-cascader__panel, .t-cascader__panel--content').forEach((node) => {
-    node.parentNode?.removeChild(node);
-  });
-};
-
-const setPopupVisible = async (wrapper: ReturnType<typeof mount>) =>
-  wrapper.setProps({ popupProps: { visible: true } });
-
-/**
- * 模拟用户在 slot 内的真实搜索框交互。
- *
- * 原来的模式是在 slot 渲染函数里 "偷" onFilter 引用到外部闭包，
- * 然后在测试里命令式调用 filterFn!('xxx')，这有几个问题：
- * 1. 不模拟用户行为 — 绕过了真实交互路径
- * 2. 依赖渲染时机 — filterFn 只有在 slot 被渲染后才非 null
- * 3. 18 个 no-non-null-assertion warning 全来自 filterFn!()
- *
- * 新的方案：构建一个真实的 FilterSlot 组件，渲染 <input> + 可选 <button>。
- * - 字符串过滤：用户输入 → watch → 调用 onFilter。测试通过 input 事件驱动。
- * - 函数过滤：点击 <button> → 调用 onFilter(fn)。测试通过 button.click() 驱动。
- *
- * 通过 props 控制模式，避免在每个测试中创建内联 defineComponent。
- */
-const FilterSlot = defineComponent({
-  name: 'FilterSlot',
-  props: {
-    onFilter: { type: Function, required: true },
-    /** 函数过滤器，非空时渲染 button 触发此函数过滤 */
-    fnFilter: { type: Function, default: undefined },
+const keyedOptions: CascaderOption[] = [
+  {
+    name: 'Custom parent',
+    id: 'custom',
+    items: [{ name: 'Custom child', id: 'custom-child' }],
   },
-  setup(props) {
-    const keyword = ref('');
-    watch(keyword, (val) => {
-      props.onFilter(val);
-    });
-    const handleBtnClick = () => {
-      if (props.fnFilter) {
-        props.onFilter(props.fnFilter);
-      }
-    };
-    return () => (
-      <div class="filter-slot">
-        <input
-          class="panel-filter-input"
-          value={keyword.value}
-          onInput={(e: Event) => {
-            keyword.value = (e.target as HTMLInputElement).value;
-          }}
-        />
-        {props.fnFilter && (
-          <button class="fn-filter-btn" onClick={handleBtnClick}>
-            Apply
-          </button>
-        )}
-      </div>
-    );
-  },
-});
-
-/** 模拟用户在 slot 搜索框中输入关键词 */
-const typeInFilterInput = async (value: string, index = 0) => {
-  const inputs = document.querySelectorAll('.panel-filter-input');
-  const input = inputs[index] as HTMLInputElement | undefined;
-  if (!input) throw new Error(`Filter input at index ${index} not found`);
-  const nativeInputValueSetter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set;
-  nativeInputValueSetter?.call(input, value);
-  input.dispatchEvent(new Event('input', { bubbles: true }));
-  await nextTick();
-};
-
-/** 模拟用户点击函数过滤按钮 */
-const clickFnFilterButton = async (index = 0) => {
-  const btns = document.querySelectorAll('.fn-filter-btn');
-  const btn = btns[index] as HTMLButtonElement | undefined;
-  if (!btn) throw new Error(`Function filter button at index ${index} not found`);
-  btn.click();
-  await nextTick();
-};
-
-/** 获取指定面板（从 0 开始）的选项列表 */
-const getPanelItems = (panelIndex = 0) => {
-  const menus = document.querySelectorAll('.t-cascader__menu');
-  return Array.from(menus[panelIndex]?.querySelectorAll('.t-cascader__item') ?? []);
-};
-
-/** 获取所有面板的选项总数 */
-const getAllItemCount = () => document.querySelectorAll('.t-cascader__item').length;
-
-/** 获取所有面板数量 */
-const getMenuCount = () => document.querySelectorAll('.t-cascader__menu').length;
-
-// ─── Tests ──────────────────────────────────────────────────────────────────
+];
 
 describe('Cascader', () => {
+  const wrappers: VueWrapper[] = [];
+
+  const renderCascader = (
+    props: Record<string, unknown> = {},
+    slots: Record<string, (...args: unknown[]) => unknown> = {},
+  ) => {
+    const wrapper = mount(Cascader, {
+      attachTo: document.body,
+      props: { options, ...props },
+      slots,
+    });
+    wrappers.push(wrapper);
+    return wrapper;
+  };
+
+  const getSelectInput = (wrapper: VueWrapper) => wrapper.findComponent(SelectInput);
+
+  const mountPanel = (wrapper: VueWrapper) => {
+    const panel = getSelectInput(wrapper).vm.$slots.panel;
+    const panelWrapper = mount({
+      name: 'CascaderPanelHost',
+      render: () => panel?.(),
+    });
+    wrappers.push(panelWrapper);
+    return panelWrapper;
+  };
+
   afterEach(() => {
-    cleanupPanel();
+    wrappers.splice(0).forEach((wrapper) => wrapper.unmount());
+    document.querySelectorAll('.t-popup, .t-cascader__panel').forEach((element) => element.remove());
+    vi.clearAllTimers();
+    vi.useRealTimers();
+    vi.restoreAllMocks();
   });
 
-  describe(':props', () => {
-    describe(':base', () => {
-      it('should render correctly in single mode', async () => {
-        const wrapper = mount({
-          render: () => <Cascader options={options} />,
-        });
-        await setPopupVisible(wrapper);
+  describe('props', () => {
+    it('renders the single-select root', () => {
+      const wrapper = renderCascader();
 
-        expect(getMenuCount()).toBe(1);
-        expect(getAllItemCount()).toBe(2);
-        wrapper.unmount();
-      });
-
-      it('should render correctly in multiple mode', async () => {
-        const wrapper = mount({
-          render: () => <Cascader options={options} multiple />,
-        });
-        await setPopupVisible(wrapper);
-
-        expect(getMenuCount()).toBe(1);
-        expect(document.querySelectorAll('.t-checkbox').length).toBe(2);
-        wrapper.unmount();
-      });
-
-      it('should render disabled state correctly', () => {
-        const wrapper = mount({
-          render: () => <Cascader disabled options={options} />,
-        });
-        expect(wrapper.find('.t-is-disabled').exists()).toBe(true);
-        wrapper.unmount();
-      });
+      expect(wrapper.classes()).toContain('t-cascader');
+      expect(wrapper.classes()).toContain('t-cascader--single');
+      expect(getSelectInput(wrapper).exists()).toBe(true);
     });
 
-    describe(':value[string]', () => {
-      it('should render correctly with single value', async () => {
-        const wrapper = mount({
-          render: () => <Cascader value="1.1" options={options} />,
-        });
-        await setPopupVisible(wrapper);
+    it(':autofocus[boolean] is currently not forwarded to the input', () => {
+      const wrapper = renderCascader({ autofocus: true });
 
-        expect(getMenuCount()).toBe(2);
-        expect(getAllItemCount()).toBe(5);
-        wrapper.unmount();
-      });
+      expect(wrapper.find('input').attributes('autofocus')).toBeUndefined();
     });
 
-    describe(':value[array]', () => {
-      it('should render correctly with multiple values', async () => {
-        const wrapper = mount({
-          render: () => <Cascader value={['1.1']} multiple options={options} />,
-        });
-        await setPopupVisible(wrapper);
+    it(':borderless[boolean]', () => {
+      const wrapper = renderCascader({ borderless: true });
 
-        expect(getMenuCount()).toBe(2);
-        expect(getAllItemCount()).toBe(5);
-        expect(document.querySelectorAll('.t-checkbox').length).toBe(5);
-        wrapper.unmount();
-      });
+      expect(getSelectInput(wrapper).props('borderless')).toBe(true);
     });
 
-    describe(':size[string]', () => {
-      const sizeMap: Record<string, string> = { small: 's', large: 'l' };
+    it(':checkProps[object]', async () => {
+      const wrapper = renderCascader({ checkProps: { readonly: true }, multiple: true, popupVisible: true });
+      const panel = mountPanel(wrapper);
+      await nextTick();
 
-      (['small', 'large'] as const).forEach((item) => {
-        it(`should render correctly with size ${item}`, async () => {
-          const wrapper = mount({
-            render: () => <Cascader options={options} size={item} />,
-          });
-          await setPopupVisible(wrapper);
+      expect(panel.findComponent(Checkbox).props('readonly')).toBe(true);
+    });
 
-          expect(document.querySelectorAll(`.t-size-${sizeMap[item]}`).length).toBe(2);
-          wrapper.unmount();
-        });
+    it(':checkStrictly[boolean]', async () => {
+      const onChange = vi.fn();
+      const wrapper = renderCascader({ checkStrictly: true, onChange, popupVisible: true });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      await panel.find('.t-cascader__item').trigger('click');
+      await nextTick();
+      expect(onChange).toHaveBeenCalledWith('a', expect.objectContaining({ source: 'check' }));
+    });
+
+    it(':clearable[boolean]', () => {
+      const wrapper = renderCascader({ clearable: true });
+
+      expect(getSelectInput(wrapper).props('clearable')).toBe(true);
+    });
+
+    it(':collapsedItems[function]', () => {
+      const collapsedItems = vi.fn(() => <span class="function-collapsed">Collapsed</span>);
+      const wrapper = renderCascader({ collapsedItems, minCollapsedNum: 1, multiple: true, value: ['a1', 'a2'] });
+
+      expect(getSelectInput(wrapper).props('collapsedItems')).toBe(collapsedItems);
+    });
+
+    it(':collapsedItems[slot]', () => {
+      const wrapper = renderCascader(
+        { minCollapsedNum: 1, multiple: true, value: ['a1', 'a2'] },
+        { collapsedItems: () => <span class="slot-collapsed">Collapsed slot</span> },
+      );
+
+      expect(getSelectInput(wrapper).vm.$slots.collapsedItems).toBeDefined();
+    });
+
+    it(':columnHeader[string/function] and :columnFooter[string/function] are currently not forwarded', async () => {
+      const wrapper = renderCascader({
+        columnFooter: () => <span class="function-footer">Footer</span>,
+        columnHeader: 'Header',
+        popupVisible: true,
       });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.find('.function-footer').exists()).toBe(false);
+      expect(panel.text()).not.toContain('Header');
+    });
+
+    it(':columnHeader[slot] and :columnFooter[slot]', async () => {
+      const wrapper = renderCascader(
+        { popupVisible: true, value: 'a1' },
+        {
+          columnFooter: ({ panelIndex }) => <span class="slot-footer">Footer {String(panelIndex)}</span>,
+          columnHeader: ({ panelIndex }) => <span class="slot-header">Header {String(panelIndex)}</span>,
+        },
+      );
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.findAll('.slot-header')).toHaveLength(2);
+      expect(panel.findAll('.slot-footer')).toHaveLength(2);
+    });
+
+    it(':disabled[boolean]', () => {
+      const wrapper = renderCascader({ disabled: true });
+
+      expect(getSelectInput(wrapper).props('disabled')).toBe(true);
+      expect(wrapper.find('.t-is-disabled').exists()).toBe(true);
+    });
+
+    it(':empty[string]', async () => {
+      const wrapper = renderCascader({ empty: 'Nothing here', options: [], popupVisible: true });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.text()).toBe('Nothing here');
+    });
+
+    it(':empty[function]', async () => {
+      const wrapper = renderCascader({
+        empty: () => <span class="function-empty">Nothing</span>,
+        options: [],
+        popupVisible: true,
+      });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.find('.function-empty').exists()).toBe(true);
+    });
+
+    it(':empty[slot]', async () => {
+      const wrapper = renderCascader(
+        { options: [], popupVisible: true },
+        { empty: () => <span class="slot-empty">Nothing</span> },
+      );
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.find('.slot-empty').exists()).toBe(true);
+    });
+
+    it(':filter[function]', async () => {
+      const filter = vi.fn((keyword: string, node) => String(node.label).includes(keyword));
+      const wrapper = renderCascader({ filter, popupVisible: true });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+      const selectInput = getSelectInput(wrapper);
+
+      selectInput.props('onInputChange')('A1', { e: new InputEvent('input'), trigger: 'input' });
+      await nextTick();
+      expect(filter).toHaveBeenCalled();
+      expect(panel.findAll('.t-cascader__item')).toHaveLength(1);
+    });
+
+    it(':filterable[boolean]', () => {
+      const wrapper = renderCascader({ filterable: true });
+
+      expect(getSelectInput(wrapper).props('allowInput')).toBe(true);
+    });
+
+    it(':inputProps[object]', () => {
+      const wrapper = renderCascader({ inputProps: { autocomplete: 'off', size: 'large' }, size: 'small' });
+
+      expect(getSelectInput(wrapper).props('inputProps')).toEqual(
+        expect.objectContaining({ autocomplete: 'off', size: 'large' }),
+      );
+    });
+
+    it(':keys[object]', async () => {
+      const wrapper = renderCascader({
+        keys: { children: 'items', label: 'name', value: 'id' },
+        options: keyedOptions,
+        popupVisible: true,
+      });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.find('.t-cascader__item').text()).toContain('Custom parent');
+      expect(getSelectInput(wrapper).props('keys')).toEqual({ children: 'items', label: 'name', value: 'id' });
+    });
+
+    it(':label[string]', () => {
+      const wrapper = renderCascader({ label: 'Prefix' });
+
+      expect(wrapper.text()).toContain('Prefix');
+      expect(wrapper.find('.t-tag-input__prefix').exists()).toBe(true);
+    });
+
+    it(':label[function]', () => {
+      const wrapper = renderCascader({ label: () => <span class="function-label">Prefix</span> });
+
+      expect(wrapper.find('.function-label').exists()).toBe(true);
+    });
+
+    it(':label[slot]', () => {
+      const wrapper = renderCascader({}, { label: () => <span class="slot-label">Prefix</span> });
+
+      expect(wrapper.find('.slot-label').exists()).toBe(true);
+    });
+
+    it(':label[slot] is not wrapped in multiple mode', () => {
+      const wrapper = renderCascader({ multiple: true }, { label: () => <span class="multiple-label">Prefix</span> });
+
+      expect(wrapper.find('.multiple-label').exists()).toBe(true);
+    });
+
+    it(':lazy[boolean] and :load[function]', async () => {
+      const load = vi.fn(async () => [{ label: 'Lazy child', value: 'lazy-child' }]);
+      const wrapper = renderCascader({
+        lazy: true,
+        load,
+        options: [{ label: 'Lazy parent', value: 'lazy', children: true }],
+        popupVisible: true,
+      });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      await panel.find('.t-cascader__item').trigger('click');
+      await nextTick();
+      expect(load).toHaveBeenCalled();
+    });
+
+    it(':loading[boolean]', async () => {
+      const wrapper = renderCascader({ loading: true, popupVisible: true });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(getSelectInput(wrapper).props('loading')).toBe(true);
+      expect(panel.find('.t-cascader__panel').classes()).not.toContain('t-cascader--normal');
+    });
+
+    it(':loadingText[string/function/slot]', async () => {
+      const stringWrapper = renderCascader({ loading: true, loadingText: 'Loading string', popupVisible: true });
+      const stringPanel = mountPanel(stringWrapper);
+      await nextTick();
+      expect(stringPanel.text()).toContain('Loading string');
+
+      const functionWrapper = renderCascader({
+        loading: true,
+        loadingText: () => <span class="function-loading">Loading</span>,
+        popupVisible: true,
+      });
+      const functionPanel = mountPanel(functionWrapper);
+      await nextTick();
+      expect(functionPanel.find('.function-loading').exists()).toBe(true);
+
+      const slotWrapper = renderCascader(
+        { loading: true, popupVisible: true },
+        { loadingText: () => <span class="slot-loading">Loading slot</span> },
+      );
+      const slotPanel = mountPanel(slotWrapper);
+      await nextTick();
+      expect(slotPanel.find('.slot-loading').exists()).toBe(true);
+    });
+
+    it(':max[number]', async () => {
+      const wrapper = renderCascader({ max: 1, multiple: true, popupVisible: true, value: ['a1'] });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.findAll('.t-checkbox').every((checkbox) => checkbox.classes().includes('t-is-disabled'))).toBe(true);
+    });
+
+    it(':minCollapsedNum[number]', () => {
+      const wrapper = renderCascader({ minCollapsedNum: 1, multiple: true });
+
+      expect(getSelectInput(wrapper).props('minCollapsedNum')).toBe(1);
+    });
+
+    it(':multiple[boolean]', async () => {
+      const wrapper = renderCascader({ multiple: true });
+      const panel = mountPanel(wrapper);
+
+      expect(wrapper.classes()).toContain('t-cascader--multiple');
+      expect(getSelectInput(wrapper).props('multiple')).toBe(true);
+      await panel.find('.t-cascader__item').trigger('click');
+      await nextTick();
+      expect(panel.findAll('.t-cascader__menu')).toHaveLength(2);
+    });
+
+    it(':option[function]', async () => {
+      const wrapper = renderCascader({
+        option: (_h: unknown, { item }: { item: CascaderOption }) => (
+          <span class="function-option">{String(item.label)}</span>
+        ),
+        popupVisible: true,
+      });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.findAll('.function-option')).toHaveLength(2);
+    });
+
+    it(':option[slot]', async () => {
+      const wrapper = renderCascader(
+        { popupVisible: true },
+        { option: ({ item }) => <span class="slot-option">{String(item.label)}</span> },
+      );
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.findAll('.slot-option')).toHaveLength(2);
+    });
+
+    it(':options[array]', async () => {
+      const wrapper = renderCascader({ popupVisible: true });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.findAll('.t-cascader__item')).toHaveLength(2);
+    });
+
+    it(':panelTopContent[string] and :panelBottomContent[string]', async () => {
+      const wrapper = renderCascader({
+        panelBottomContent: 'Panel bottom',
+        panelTopContent: 'Panel top',
+        popupVisible: true,
+      });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.text()).toContain('Panel top');
+      expect(panel.text()).toContain('Panel bottom');
+    });
+
+    it(':panelTopContent[function] and :panelBottomContent[slot]', async () => {
+      const wrapper = renderCascader(
+        { panelTopContent: () => <span class="function-panel-top">Top</span>, popupVisible: true },
+        { panelBottomContent: () => <span class="slot-panel-bottom">Bottom</span> },
+      );
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(panel.find('.function-panel-top').exists()).toBe(true);
+      expect(panel.find('.slot-panel-bottom').exists()).toBe(true);
+    });
+
+    it(':placeholder[string]', async () => {
+      const wrapper = renderCascader({ placeholder: 'Choose one' });
+      expect(getSelectInput(wrapper).props('placeholder')).toBe('Choose one');
+
+      const selected = renderCascader({ popupVisible: true, value: 'a1' });
+      await nextTick();
+      expect(getSelectInput(selected).props('placeholder')).toBe('Parent A / Child A1');
+    });
+
+    it(':popupProps[object]', async () => {
+      const wrapper = renderCascader({
+        popupProps: { overlayClassName: 'custom-overlay', overlayStyle: { width: '320px' } },
+        popupVisible: true,
+      });
+      await nextTick();
+      const popupProps = getSelectInput(wrapper).props('popupProps');
+
+      expect(popupProps.overlayClassName).toEqual(['t-cascader__popup', 'custom-overlay']);
+      expect(popupProps.overlayInnerStyle).toEqual({ width: 'auto' });
+      expect(popupProps.overlayStyle).toEqual({ width: '320px' });
+    });
+
+    it(':popupProps[object] does not force panel width while loading or empty', () => {
+      const loading = renderCascader({ loading: true });
+      expect(getSelectInput(loading).props('popupProps').overlayInnerStyle).toBeUndefined();
+
+      const empty = renderCascader({ options: [] });
+      expect(getSelectInput(empty).props('popupProps').overlayInnerStyle).toBeUndefined();
+    });
+
+    it(':popupVisible[boolean]', async () => {
+      const wrapper = renderCascader({ popupVisible: true });
+      const panel = mountPanel(wrapper);
+      await nextTick();
+
+      expect(getSelectInput(wrapper).props('popupVisible')).toBe(true);
+      expect(panel.find('.t-cascader__panel').exists()).toBe(true);
+    });
+
+    it(':defaultPopupVisible[boolean] is currently ineffective', () => {
+      const wrapper = mount(Cascader, {
+        attrs: { defaultPopupVisible: true },
+        props: { options },
+      });
+      wrappers.push(wrapper);
+
+      expect(getSelectInput(wrapper).props('popupVisible')).toBe(false);
+    });
+
+    it(':prefixIcon[function]', () => {
+      const wrapper = renderCascader({ prefixIcon: () => <span class="prefix-icon">P</span> });
+
+      expect(wrapper.find('.prefix-icon').exists()).toBe(true);
+    });
+
+    it(':prefixIcon[slot]', () => {
+      const wrapper = renderCascader({}, { prefixIcon: () => <span class="slot-prefix-icon">P</span> });
+
+      expect(wrapper.find('.slot-prefix-icon').exists()).toBe(true);
+    });
+
+    it(':readonly[boolean]', () => {
+      const wrapper = renderCascader({ readonly: true });
+
+      expect(getSelectInput(wrapper).props('readonly')).toBe(true);
+    });
+
+    it(':reserveKeyword[boolean]', () => {
+      const wrapper = renderCascader({ reserveKeyword: false });
+
+      expect(cascaderProps.reserveKeyword.default).toBe(true);
+      expect(wrapper.props('reserveKeyword')).toBe(false);
+    });
+
+    it(':selectInputProps[object]', () => {
+      const onPaste = vi.fn();
+      const wrapper = renderCascader({ selectInputProps: { allowInput: false, onPaste } });
+      const selectInput = getSelectInput(wrapper);
+
+      expect(selectInput.props('onPaste')).toBe(onPaste);
+      expect(selectInput.props('allowInput')).toBe(false);
+    });
+
+    it(':showAllLevels[boolean]', () => {
+      const full = renderCascader({ showAllLevels: true, value: 'a1' });
+      expect(getSelectInput(full).props('value')).toBe('Parent A / Child A1');
+
+      const leaf = renderCascader({ showAllLevels: false, value: 'a1' });
+      expect(getSelectInput(leaf).props('value')).toBe('Child A1');
+    });
+
+    it.each(['small', 'medium', 'large'] as const)(':size[string] supports %s', (size) => {
+      const wrapper = renderCascader({ size });
+
+      expect(getSelectInput(wrapper).props('inputProps')).toEqual(expect.objectContaining({ size }));
+      expect(getSelectInput(wrapper).props('tagInputProps')).toEqual(expect.objectContaining({ size }));
+    });
+
+    it(':size[string] validates supported values', () => {
+      expect(cascaderProps.size.validator(undefined)).toBe(true);
+      expect(cascaderProps.size.validator('small')).toBe(true);
+      // @ts-expect-error verify runtime validation
+      expect(cascaderProps.size.validator('invalid')).toBe(false);
+    });
+
+    it.each(['default', 'success', 'warning', 'error'] as const)(':status[string] supports %s', (status) => {
+      const wrapper = renderCascader({ status });
+
+      expect(getSelectInput(wrapper).props('status')).toBe(status);
+    });
+
+    it(':status[string] validates supported values', () => {
+      expect(cascaderProps.status.validator(undefined)).toBe(true);
+      expect(cascaderProps.status.validator('warning')).toBe(true);
+      // @ts-expect-error verify runtime validation
+      expect(cascaderProps.status.validator('invalid')).toBe(false);
+    });
+
+    it(':suffix[string]', () => {
+      const wrapper = renderCascader({ suffix: 'items' });
+
+      expect(wrapper.text()).toContain('items');
+    });
+
+    it(':suffix[function]', () => {
+      const wrapper = renderCascader({ suffix: () => <span class="function-suffix">items</span> });
+
+      expect(wrapper.find('.function-suffix').exists()).toBe(true);
+    });
+
+    it(':suffix[slot]', () => {
+      const wrapper = renderCascader({}, { suffix: () => <span class="slot-suffix">items</span> });
+
+      expect(wrapper.find('.slot-suffix').exists()).toBe(true);
+    });
+
+    it(':suffixIcon[function]', () => {
+      const wrapper = renderCascader({ suffixIcon: () => <span class="function-suffix-icon">S</span> });
+
+      expect(wrapper.find('.function-suffix-icon').exists()).toBe(true);
+      expect(wrapper.find('.t-fake-arrow').exists()).toBe(false);
+    });
+
+    it(':suffixIcon[slot]', () => {
+      const wrapper = renderCascader({}, { suffixIcon: () => <span class="slot-suffix-icon">S</span> });
+
+      expect(wrapper.find('.slot-suffix-icon').exists()).toBe(true);
+    });
+
+    it(':suffixIcon[default] renders the active fake arrow', async () => {
+      const wrapper = renderCascader({ popupVisible: true });
+      await nextTick();
+
+      expect(wrapper.find('.t-fake-arrow').classes()).toContain('t-fake-arrow--active');
+    });
+
+    it(':tagInputProps[object]', () => {
+      const wrapper = renderCascader({ tagInputProps: { autoWidth: true, size: 'large' }, size: 'small' });
+
+      expect(getSelectInput(wrapper).props('tagInputProps')).toEqual(
+        expect.objectContaining({ autoWidth: true, size: 'large' }),
+      );
+    });
+
+    it(':tagProps[object]', () => {
+      const wrapper = renderCascader({ tagProps: { closable: false, theme: 'primary' } });
+
+      expect(getSelectInput(wrapper).props('tagProps')).toEqual(
+        expect.objectContaining({ closable: false, theme: 'primary' }),
+      );
+    });
+
+    it(':tips[string]', () => {
+      const wrapper = renderCascader({ tips: 'Helpful tip' });
+
+      expect(getSelectInput(wrapper).props('tips')).toBe('Helpful tip');
+    });
+
+    it(':tips[function]', () => {
+      const wrapper = renderCascader({ tips: () => <span class="function-tips">Helpful</span> });
+
+      expect(wrapper.find('.function-tips').exists()).toBe(true);
+    });
+
+    it(':tips[slot] is currently not forwarded', () => {
+      const wrapper = renderCascader({}, { tips: () => <span class="slot-tips">Helpful</span> });
+
+      expect(wrapper.find('.slot-tips').exists()).toBe(false);
+    });
+
+    it(':trigger[string] supports click and hover', () => {
+      expect(cascaderProps.trigger.validator(undefined)).toBe(true);
+      expect(cascaderProps.trigger.validator('click')).toBe(true);
+      expect(cascaderProps.trigger.validator('hover')).toBe(true);
+      // @ts-expect-error verify runtime validation
+      expect(cascaderProps.trigger.validator('invalid')).toBe(false);
+    });
+
+    it(':value[string/number/array] and v-model', async () => {
+      const wrapper = renderCascader({ modelValue: 'a1' });
+      expect(getSelectInput(wrapper).props('value')).toBe('Parent A / Child A1');
+
+      await wrapper.setProps({ modelValue: 0, options: [{ label: 'Zero', value: 0 }] });
+      expect(getSelectInput(wrapper).props('value')).toBe('Zero');
+
+      await wrapper.setProps({ modelValue: ['a1'], multiple: true, options });
+      expect(getSelectInput(wrapper).props('value')).toEqual(['Parent A/Child A1']);
+    });
+
+    it(':defaultValue[string] controls uncontrolled initial state', () => {
+      const wrapper = renderCascader({ defaultValue: 'a1' });
+
+      expect(getSelectInput(wrapper).props('value')).toBe('Parent A / Child A1');
+    });
+
+    it(':valueDisplay[string]', () => {
+      const wrapper = renderCascader({ value: 'a1', valueDisplay: 'Selected value' });
+
+      expect(wrapper.text()).toContain('Selected value');
+    });
+
+    it(':valueDisplay[function]', async () => {
+      const valueDisplay = vi.fn((h, params) => (
+        <button class="function-value" onClick={() => params.onClose(0)}>
+          {`${String(params.value)}:${params.selectedOptions.length}`}
+        </button>
+      ));
+      const onRemove = vi.fn();
+      const wrapper = renderCascader({ multiple: true, onRemove, value: ['a1'], valueDisplay });
+
+      expect(wrapper.find('.function-value').text()).toBe('a1:1');
+      await wrapper.find('.function-value').trigger('click');
+      expect(onRemove).toHaveBeenCalledOnce();
+    });
+
+    it(':valueDisplay[slot]', () => {
+      const wrapper = renderCascader(
+        { value: 'a1' },
+        { valueDisplay: ({ value }) => <span class="slot-value">{String(value)}</span> },
+      );
+
+      expect(wrapper.find('.slot-value').text()).toBe('a1');
+    });
+
+    it(':valueMode[string] validates supported values', () => {
+      expect(cascaderProps.valueMode.validator(undefined)).toBe(true);
+      expect(cascaderProps.valueMode.validator('onlyLeaf')).toBe(true);
+      expect(cascaderProps.valueMode.validator('parentFirst')).toBe(true);
+      expect(cascaderProps.valueMode.validator('all')).toBe(true);
+      // @ts-expect-error verify runtime validation
+      expect(cascaderProps.valueMode.validator('invalid')).toBe(false);
+    });
+
+    it(':valueType[string] supports full paths and validates values', () => {
+      const wrapper = renderCascader({ value: ['a', 'a1'], valueType: 'full' });
+      expect(getSelectInput(wrapper).props('value')).toBe('Parent A / Child A1');
+
+      expect(cascaderProps.valueType.validator(undefined)).toBe(true);
+      expect(cascaderProps.valueType.validator('single')).toBe(true);
+      expect(cascaderProps.valueType.validator('full')).toBe(true);
+      // @ts-expect-error verify runtime validation
+      expect(cascaderProps.valueType.validator('invalid')).toBe(false);
     });
   });
 
-  // ─── Slot Rendering Tests ─────────────────────────────────────────────────
+  describe('events', () => {
+    it('blur', () => {
+      const onBlur = vi.fn();
+      const wrapper = renderCascader({ onBlur, value: 'a1' });
+      const event = new FocusEvent('blur');
 
-  describe(':slots', () => {
-    describe('columnHeader', () => {
-      it('should render columnHeader slot for each panel', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              value="1.1"
-              v-slots={{
-                columnHeader: ({ panelIndex }: ColumnHeaderSlotParams) => (
-                  <div class="custom-header">Header {panelIndex}</div>
-                ),
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
+      getSelectInput(wrapper).props('onBlur')('', { e: event, inputValue: 'query' });
+      expect(onBlur).toHaveBeenCalledWith({ e: event, inputValue: 'query', value: 'a1' });
 
-        const headers = document.querySelectorAll('.custom-header');
-        expect(headers.length).toBe(2);
-        expect(headers[0].textContent).toBe('Header 0');
-        expect(headers[1].textContent).toBe('Header 1');
-        wrapper.unmount();
-      });
-
-      it('should render columnHeader with filter input and apply filter via user input', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-        expect(getAllItemCount()).toBe(2);
-
-        await typeInFilterInput('选项一');
-
-        const items = document.querySelectorAll('.t-cascader__item');
-        expect(items.length).toBe(1);
-        expect(items[0].textContent).toContain('选项一');
-        wrapper.unmount();
-      });
-
-      it('should provide filteredOptions that update after user input', async () => {
-        let capturedOptionsLength = 0;
-        let capturedFilteredLength = 0;
-
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ options: opts, filteredOptions, onFilter }: ColumnHeaderSlotParams) => {
-                  capturedOptionsLength = opts.length;
-                  capturedFilteredLength = filteredOptions.length;
-                  return <FilterSlot onFilter={onFilter} />;
-                },
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        expect(capturedOptionsLength).toBe(2);
-        expect(capturedFilteredLength).toBe(2);
-
-        await typeInFilterInput('选项一');
-
-        expect(capturedOptionsLength).toBe(2);
-        expect(capturedFilteredLength).toBe(1);
-        wrapper.unmount();
-      });
+      getSelectInput(wrapper).props('onBlur')('', { e: event, inputValue: undefined as unknown as string });
+      expect(onBlur).toHaveBeenLastCalledWith({ e: event, inputValue: '', value: 'a1' });
     });
 
-    describe('columnFooter', () => {
-      it('should render columnFooter slot for each panel', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              value="1.1"
-              v-slots={{
-                columnFooter: ({ panelIndex }: ColumnFooterSlotParams) => (
-                  <div class="custom-footer">Footer {panelIndex}</div>
-                ),
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
+    it('focus', () => {
+      const onFocus = vi.fn();
+      const wrapper = renderCascader({ onFocus, value: 'a1' });
+      const event = new FocusEvent('focus');
 
-        const footers = document.querySelectorAll('.custom-footer');
-        expect(footers.length).toBe(2);
-        expect(footers[0].textContent).toBe('Footer 0');
-        expect(footers[1].textContent).toBe('Footer 1');
-        wrapper.unmount();
-      });
-
-      it('should render columnFooter with panel options context', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              value="1.1"
-              v-slots={{
-                columnFooter: ({ panelIndex, options: opts }: ColumnFooterSlotParams) => (
-                  <div class="custom-footer">
-                    Footer {panelIndex} - {opts.length} items
-                  </div>
-                ),
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        const footers = document.querySelectorAll('.custom-footer');
-        expect(footers.length).toBe(2);
-        expect(footers[0].textContent).toContain('Footer 0 - 2 items');
-        expect(footers[1].textContent).toContain('Footer 1 - 3 items');
-        wrapper.unmount();
-      });
-
-      it('should provide filteredOptions equal to options when no filter is applied', async () => {
-        let capturedOptions: TreeOptionData[] = [];
-        let capturedFilteredOptions: TreeOptionData[] = [];
-
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnFooter: ({ options: opts, filteredOptions }: ColumnFooterSlotParams) => {
-                  capturedOptions = opts;
-                  capturedFilteredOptions = filteredOptions;
-                  return (
-                    <div class="custom-footer">
-                      Options: {opts.length}, Filtered: {filteredOptions.length}
-                    </div>
-                  );
-                },
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        expect(capturedOptions.length).toBe(2);
-        expect(capturedFilteredOptions.length).toBe(2);
-        expect(capturedFilteredOptions.map((o) => o.value)).toEqual(capturedOptions.map((o) => o.value));
-        wrapper.unmount();
-      });
-
-      it('should provide correct filteredOptions when filter is applied via columnHeader input', async () => {
-        let capturedOptionsLength = 0;
-        let capturedFilteredLength = 0;
-        let capturedFilteredLabels: string[] = [];
-
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-                columnFooter: ({ options: opts, filteredOptions }: ColumnFooterSlotParams) => {
-                  capturedOptionsLength = opts.length;
-                  capturedFilteredLength = filteredOptions.length;
-                  capturedFilteredLabels = filteredOptions.map((o) => String(o.label));
-                  return <div class="custom-footer">Filtered: {filteredOptions.length}</div>;
-                },
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        expect(capturedOptionsLength).toBe(2);
-        expect(capturedFilteredLength).toBe(2);
-
-        await typeInFilterInput('选项一');
-
-        expect(capturedOptionsLength).toBe(2);
-        expect(capturedFilteredLength).toBe(1);
-        expect(capturedFilteredLabels).toContain('选项一');
-        expect(capturedFilteredLabels).not.toContain('选项二');
-        wrapper.unmount();
-      });
-
-      it('should reset filteredOptions when filter input is cleared', async () => {
-        let capturedFilteredLength = 0;
-
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-                columnFooter: ({ filteredOptions }: ColumnFooterSlotParams) => {
-                  capturedFilteredLength = filteredOptions.length;
-                  return <div class="custom-footer">Filtered: {filteredOptions.length}</div>;
-                },
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        await typeInFilterInput('选项一');
-        expect(capturedFilteredLength).toBe(1);
-
-        await typeInFilterInput('');
-        expect(capturedFilteredLength).toBe(2);
-        wrapper.unmount();
-      });
+      getSelectInput(wrapper).props('onFocus')('', { e: event, inputValue: '' });
+      expect(onFocus).toHaveBeenCalledWith({ e: event, value: 'a1' });
     });
 
-    it('should render both columnHeader and columnFooter slots', async () => {
-      const wrapper = mount({
-        render: () => (
-          <Cascader
-            options={options}
-            value="1.1"
-            v-slots={{
-              columnHeader: ({ panelIndex }: ColumnHeaderSlotParams) => (
-                <div class="custom-header">Header {panelIndex}</div>
-              ),
-              columnFooter: ({ panelIndex }: ColumnFooterSlotParams) => (
-                <div class="custom-footer">Footer {panelIndex}</div>
-              ),
-            }}
-          />
-        ),
-      });
-      await setPopupVisible(wrapper);
+    it('popup-visible-change', async () => {
+      const onPopupVisibleChange = vi.fn();
+      const wrapper = renderCascader({ onPopupVisibleChange });
 
-      expect(document.querySelectorAll('.custom-header').length).toBe(2);
-      expect(document.querySelectorAll('.custom-footer').length).toBe(2);
-      wrapper.unmount();
+      getSelectInput(wrapper).props('onPopupVisibleChange')(true, { trigger: 'trigger-element-click' });
+      await nextTick();
+      expect(onPopupVisibleChange).toHaveBeenCalledWith(true, { trigger: 'trigger-element-click' });
     });
 
-    it('should render slots when filterable prop is set', async () => {
-      const wrapper = mount({
-        render: () => (
-          <Cascader
-            options={options}
-            filterable
-            v-slots={{
-              columnHeader: ({ panelIndex }: ColumnHeaderSlotParams) => (
-                <div class="custom-header">Header {panelIndex}</div>
-              ),
-              columnFooter: ({ panelIndex }: ColumnFooterSlotParams) => (
-                <div class="custom-footer">Footer {panelIndex}</div>
-              ),
-            }}
-          />
-        ),
-      });
-      await setPopupVisible(wrapper);
+    it('popup-visible-change is ignored while disabled', () => {
+      const onPopupVisibleChange = vi.fn();
+      const wrapper = renderCascader({ disabled: true, onPopupVisibleChange });
 
-      expect(document.querySelectorAll('.custom-header').length).toBeGreaterThan(0);
-      expect(document.querySelectorAll('.custom-footer').length).toBeGreaterThan(0);
-      expect(getMenuCount()).toBeGreaterThan(0);
-      wrapper.unmount();
+      getSelectInput(wrapper).props('onPopupVisibleChange')(true, { trigger: 'trigger-element-click' });
+      expect(onPopupVisibleChange).not.toHaveBeenCalled();
     });
 
-    it('should render slots without filterable prop', async () => {
-      const wrapper = mount({
-        render: () => (
-          <Cascader
-            options={options}
-            v-slots={{
-              columnHeader: ({ panelIndex }: ColumnHeaderSlotParams) => (
-                <div class="custom-header">Header {panelIndex}</div>
-              ),
-              columnFooter: ({ panelIndex }: ColumnFooterSlotParams) => (
-                <div class="custom-footer">Footer {panelIndex}</div>
-              ),
-            }}
-          />
-        ),
-      });
-      await setPopupVisible(wrapper);
+    it('change', async () => {
+      const onChange = vi.fn();
+      const wrapper = renderCascader({ onChange, popupVisible: true });
+      const panel = mountPanel(wrapper);
+      await nextTick();
 
-      expect(document.querySelectorAll('.custom-header').length).toBeGreaterThan(0);
-      expect(document.querySelectorAll('.custom-footer').length).toBeGreaterThan(0);
-      wrapper.unmount();
+      await panel.findAll('.t-cascader__item')[0].trigger('click');
+      await nextTick();
+      await panel.findAll('.t-cascader__item')[2].trigger('click');
+      await nextTick();
+      expect(onChange).toHaveBeenCalledWith('a1', expect.objectContaining({ source: 'check' }));
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <Cascader options={options} onChange={currentOnChange.value} popupVisible />,
+      });
+      const latestPanel = mountPanel(latestWrapper);
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await latestPanel.findAll('.t-cascader__item')[0].trigger('click');
+      await nextTick();
+      await latestPanel.findAll('.t-cascader__item')[2].trigger('click');
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith('a1', expect.objectContaining({ source: 'check' }));
+    });
+
+    it('change in multiple mode', async () => {
+      const onChange = vi.fn();
+      const wrapper = renderCascader({ multiple: true, onChange, popupVisible: true });
+      const panel = mountPanel(wrapper);
+
+      panel.findComponent(Checkbox).props('onChange')(true, { e: new Event('change') });
+      await nextTick();
+      expect(onChange).toHaveBeenCalledWith(expect.any(Array), expect.objectContaining({ source: 'check' }));
+    });
+
+    it('change does not emit for the current controlled value', async () => {
+      const onChange = vi.fn();
+      const wrapper = renderCascader({ modelValue: 'a1', onChange, popupVisible: true });
+      const panel = mountPanel(wrapper);
+
+      await panel.findAll('.t-cascader__item')[2].trigger('click');
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('remove ignores Enter tag changes and handles a removed tag', () => {
+      const onRemove = vi.fn();
+      const wrapper = renderCascader({ multiple: true, onRemove, value: ['a1'] });
+      const onTagChange = getSelectInput(wrapper).props('onTagChange');
+
+      onTagChange([], { index: 0, trigger: 'enter' });
+      expect(onRemove).not.toHaveBeenCalled();
+      onTagChange([], { index: 0, trigger: 'tag-remove' });
+      expect(onRemove).toHaveBeenCalledOnce();
+    });
+
+    it('clear', () => {
+      const onChange = vi.fn();
+      const wrapper = renderCascader({ onChange, value: 'a1' });
+
+      getSelectInput(wrapper).props('onClear')({ e: new MouseEvent('click') });
+      expect(onChange).toHaveBeenCalledWith('', expect.objectContaining({ source: 'clear' }));
+    });
+
+    it('input-change only updates filterable input and forwards selectInputProps callbacks', async () => {
+      const userInputChange = vi.fn();
+      const plain = renderCascader({ selectInputProps: { onInputChange: userInputChange } });
+      getSelectInput(plain).props('onInputChange')('ignored', { e: new InputEvent('input'), trigger: 'input' });
+      await nextTick();
+      expect(getSelectInput(plain).props('inputValue')).toBe('');
+      expect(userInputChange).toHaveBeenCalled();
+
+      const filterable = renderCascader({ filterable: true, popupVisible: true });
+      getSelectInput(filterable).props('onInputChange')('query', { e: new InputEvent('input'), trigger: 'input' });
+      await nextTick();
+      expect(getSelectInput(filterable).props('inputValue')).toBe('query');
     });
   });
 
-  // ─── Filter Behavior Tests ────────────────────────────────────────────────
+  describe('lifecycle', () => {
+    it('normalizes an invalid controlled value shape', async () => {
+      const onMultipleChange = vi.fn();
+      renderCascader({ modelValue: 'invalid', multiple: true, onChange: onMultipleChange });
+      await nextTick();
 
-  describe(':behavior', () => {
-    describe('filter in basic mode', () => {
-      it('should filter nodes with string input', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
+      expect(onMultipleChange).toHaveBeenCalledWith([], expect.objectContaining({ source: 'invalid-value' }));
 
-        await typeInFilterInput('选项一');
-
-        const items = document.querySelectorAll('.t-cascader__item');
-        expect(items.length).toBeGreaterThan(0);
-        expect(Array.from(items).some((item) => item.textContent?.includes('选项一'))).toBe(true);
-        wrapper.unmount();
-      });
-
-      it('should filter nodes with function filter via button click', async () => {
-        const matchByValue = (node: TreeOptionData) => node.value === '1';
-
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => (
-                  <FilterSlot onFilter={onFilter} fnFilter={matchByValue} />
-                ),
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        await clickFnFilterButton();
-
-        const items = document.querySelectorAll('.t-cascader__item');
-        expect(items.length).toBeGreaterThan(0);
-        wrapper.unmount();
-      });
-
-      it('should clear filter when input is emptied', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        const initialCount = getAllItemCount();
-        await typeInFilterInput('选项一');
-        expect(getAllItemCount()).toBeLessThan(initialCount);
-
-        await typeInFilterInput('');
-        expect(getAllItemCount()).toBeGreaterThanOrEqual(initialCount);
-        wrapper.unmount();
-      });
-
-      it('should treat whitespace-only input as no filter', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        const initialCount = getAllItemCount();
-        await typeInFilterInput('   ');
-
-        expect(getAllItemCount()).toBeGreaterThanOrEqual(initialCount);
-        wrapper.unmount();
-      });
-
-      it('should show zero items when function filter rejects all', async () => {
-        const rejectAll = () => false;
-
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => (
-                  <FilterSlot onFilter={onFilter} fnFilter={rejectAll} />
-                ),
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        await clickFnFilterButton();
-
-        expect(getPanelItems(0).length).toBe(0);
-        wrapper.unmount();
-      });
-
-      it('should keep all items when function filter accepts all', async () => {
-        const acceptAll = () => true;
-
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => (
-                  <FilterSlot onFilter={onFilter} fnFilter={acceptAll} />
-                ),
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        await clickFnFilterButton();
-
-        expect(getPanelItems(0).length).toBeGreaterThan(0);
-        wrapper.unmount();
-      });
-
-      it('should not match options with empty labels', async () => {
-        const optionsWithEmptyLabels: TreeOptionData[] = [
-          { label: '选项一', value: '1' },
-          { label: '', value: '2' },
-          { label: '选项三', value: '3' },
-        ];
-
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={optionsWithEmptyLabels}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        await typeInFilterInput('选项');
-
-        const items = document.querySelectorAll('.t-cascader__item');
-        const itemTexts = Array.from(items).map((item) => item.textContent);
-        expect(itemTexts.some((text) => text?.includes('选项一'))).toBe(true);
-        expect(itemTexts.some((text) => text?.includes('选项三'))).toBe(true);
-        wrapper.unmount();
-      });
+      const onSingleChange = vi.fn();
+      renderCascader({ modelValue: ['a', 'a1'], onChange: onSingleChange, showAllLevels: false, valueType: 'single' });
+      await nextTick();
+      expect(onSingleChange).toHaveBeenCalledWith('', expect.objectContaining({ source: 'invalid-value' }));
     });
 
-    describe('filter in cascade mode', () => {
-      it('should support cascade filtering with string input', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        await typeInFilterInput('选项一');
-
-        const items = document.querySelectorAll('.t-cascader__item');
-        expect(items.length).toBeGreaterThan(0);
-        expect(items[0].textContent).toContain('选项一');
-        wrapper.unmount();
+    it('resets filter input whenever a filterable popup opens', async () => {
+      const popupVisible = ref(true);
+      const wrapper = mount({
+        setup() {
+          return () => <Cascader options={options} filterable popupVisible={popupVisible.value} />;
+        },
       });
+      wrappers.push(wrapper);
+      const cascader = wrapper.findComponent(Cascader);
+      const selectInput = cascader.findComponent(SelectInput);
 
-      it('should support cascade filtering with function filter', async () => {
-        const matchByLabel = (node: TreeOptionData) => String(node.label).includes('选项');
+      selectInput.props('onInputChange')('query', { e: new InputEvent('input'), trigger: 'input' });
+      await nextTick();
+      expect(selectInput.props('inputValue')).toBe('query');
 
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => (
-                  <FilterSlot onFilter={onFilter} fnFilter={matchByLabel} />
-                ),
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        await clickFnFilterButton();
-
-        expect(getAllItemCount()).toBeGreaterThan(0);
-        wrapper.unmount();
-      });
-
-      it('should show child panel when expanding node in cascade mode', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        await typeInFilterInput('选项');
-
-        expect(getAllItemCount()).toBeGreaterThan(0);
-
-        const firstItem = document.querySelector('.t-cascader__item') as HTMLElement | null;
-        firstItem?.click();
-        await nextTick();
-
-        expect(getMenuCount()).toBeGreaterThan(0);
-        wrapper.unmount();
-      });
-
-      it('should hide child panels when no matches in parent cascade filter', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        await typeInFilterInput('不存在的选项');
-
-        expect(getAllItemCount()).toBe(0);
-        wrapper.unmount();
-      });
-
-      it('should clear filter when input is emptied in cascade mode', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        const initialCount = getAllItemCount();
-
-        await typeInFilterInput('选项一');
-        const filteredCount = getAllItemCount();
-        expect(filteredCount).toBeLessThan(initialCount);
-
-        await typeInFilterInput('');
-        expect(getAllItemCount()).toBeGreaterThanOrEqual(filteredCount);
-        wrapper.unmount();
-      });
-
-      it('should handle independent filters on different panels', async () => {
-        const wrapper = mount({
-          render: () => (
-            <Cascader
-              options={options}
-              v-slots={{
-                columnHeader: ({ onFilter }: ColumnHeaderSlotParams) => <FilterSlot onFilter={onFilter} />,
-              }}
-            />
-          ),
-        });
-        await setPopupVisible(wrapper);
-
-        // 在第一列过滤
-        await typeInFilterInput('选项一', 0);
-
-        const parentItems = getPanelItems(0);
-        expect(parentItems.length).toBeGreaterThan(0);
-        expect(parentItems[0].textContent).toContain('选项一');
-
-        // 清除过滤后，点击展开子面板
-        await typeInFilterInput('', 0);
-
-        const firstItem = document.querySelector('.t-cascader__item') as HTMLElement | null;
-        firstItem?.click();
-        await nextTick();
-
-        // 验证第二列出现后，在第二列搜索
-        const secondInputs = document.querySelectorAll('.panel-filter-input');
-        expect(secondInputs.length).toBeGreaterThanOrEqual(2);
-
-        await typeInFilterInput('子选项一', 1);
-
-        const childItems = getPanelItems(1);
-        expect(childItems.length).toBeGreaterThan(0);
-        expect(childItems[0].textContent).toContain('子选项一');
-        wrapper.unmount();
-      });
+      popupVisible.value = false;
+      await nextTick();
+      popupVisible.value = true;
+      await nextTick();
+      expect(cascader.findComponent(SelectInput).props('inputValue')).toBe('');
     });
   });
 });

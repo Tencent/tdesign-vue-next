@@ -559,6 +559,22 @@ describe('InputNumber', () => {
       simulateEvent('2', 'input');
       await nextTick();
       expect(value.value).toBe(2);
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <InputNumber defaultValue={0} onChange={currentOnChange.value} />,
+      });
+      const latestInput = latestWrapper.find('.t-input input');
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await latestInput.setValue('2');
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(2, expect.objectContaining({ type: 'input' }));
     });
 
     it(':onChange from empty string to zero', async () => {

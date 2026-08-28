@@ -21,8 +21,8 @@ export default defineComponent({
   name: 'TAutoComplete',
   props,
   setup(props: TdAutoCompleteProps, { slots }) {
-    const { value, modelValue } = toRefs(props);
-    const [tValue, setTValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const { value, modelValue, onChange: onChangeRef } = toRefs(props);
+    const [tValue, setTValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
     const { classPrefix, SIZE } = useCommonClassName();

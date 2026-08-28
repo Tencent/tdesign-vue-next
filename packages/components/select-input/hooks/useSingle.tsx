@@ -56,14 +56,14 @@ export function useSingle(
   context: SetupContext,
   popupRef: Ref<PopupInstanceFunctions>,
 ) {
-  const { value, keys, inputValue: propsInputValue } = toRefs(props);
+  const { value, keys, inputValue: propsInputValue, onInputChange } = toRefs(props);
   const classPrefix = usePrefixClass();
   const isSingleFocus = ref(props.autofocus);
   const inputRef = ref();
   const [inputValue, setInputValue] = useDefaultValue(
     propsInputValue,
     props.defaultInputValue ?? '',
-    props.onInputChange,
+    onInputChange,
     'inputValue',
   );
   const renderTNode = useTNodeJSX();

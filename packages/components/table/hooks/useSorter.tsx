@@ -7,10 +7,10 @@ import { useDefaultValue } from '@tdesign/shared-hooks';
 export type SortMap = Record<string, SortInfo & { index: number }>;
 
 export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupContext) {
-  const { sort, data } = toRefs(props);
+  const { sort, data, onSortChange, onDataChange } = toRefs(props);
   const originalData = ref();
-  const [tSortInfo, setTSortInfo] = useDefaultValue(sort, props.defaultSort, props.onSortChange, 'sort');
-  const [tData, setTData] = useDefaultValue(data, [], props.onDataChange, 'data');
+  const [tSortInfo, setTSortInfo] = useDefaultValue(sort, props.defaultSort, onSortChange, 'sort');
+  const [tData, setTData] = useDefaultValue(data, [], onDataChange, 'data');
   // 本地数据排序：用于记录哪些字段是自定义排序函数
   const sorterFuncMap = computed(() => getSorterFuncMap(props.columns));
   const innerSort = ref<SortInfo | SortInfo[]>();

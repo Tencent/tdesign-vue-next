@@ -1,10 +1,10 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, h } from 'vue';
 import props from './props';
 
 import { useTNodeJSX, usePrefixClass, useFlatChildrenSlots } from '@tdesign/shared-hooks';
 
 import Button from '../button';
-import { isString } from 'lodash-es';
+import { isFunction, isString } from 'lodash-es';
 
 export default defineComponent({
   name: 'TComment',
@@ -42,15 +42,19 @@ export default defineComponent({
       );
 
       const renderActions = () => {
-        if (!actions || !actions.length) return null;
-        const flatChildren = getFlatChildren(actions);
+        if (!actions) return null;
+        const flatChildren = getFlatChildren(Array.isArray(actions) ? actions : [actions]);
+        if (!flatChildren.length) return null;
         return (
           <div class={`${COMPONENT_NAME.value}__actions`}>
-            {flatChildren.map((action, index) => (
-              <Button key={`action-${index}`} size="small" variant="text">
-                {action}
-              </Button>
-            ))}
+            {flatChildren.map((action, index) => {
+              const actionContent = isFunction(action) ? action(h) : action;
+              return (
+                <Button key={`action-${index}`} size="small" variant="text">
+                  {actionContent}
+                </Button>
+              );
+            })}
           </div>
         );
       };

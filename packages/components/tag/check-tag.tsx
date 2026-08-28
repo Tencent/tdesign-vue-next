@@ -14,12 +14,12 @@ export default defineComponent({
     const { SIZE } = useCommonClassName();
     const renderContent = useContent();
 
-    const { checked, modelValue } = toRefs(props);
+    const { checked, modelValue, onChange: onChangeRef } = toRefs(props);
     const [innerChecked, setInnerChecked] = useVModel(
       checked,
       modelValue,
       props.defaultChecked,
-      props.onChange,
+      onChangeRef,
       'checked',
     );
 
