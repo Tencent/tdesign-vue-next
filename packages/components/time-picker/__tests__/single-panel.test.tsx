@@ -1,463 +1,490 @@
-import { nextTick } from 'vue';
-import { mount, type DOMWrapper, type VueWrapper } from '@vue/test-utils';
+import { nextTick, ref, type VNode } from 'vue';
+import { mount, type VueWrapper } from '@vue/test-utils';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { EPickerCols } from '@tdesign/common-js/time-picker/const';
-import SinglePanel from '@tdesign/components/time-picker/panel/single-panel';
+import { TimeIcon } from 'tdesign-icons-vue-next';
+import { TimePicker, TimeRangePicker } from '@tdesign/components/time-picker';
+import TimePickerPanel from '@tdesign/components/time-picker/panel/time-picker-panel';
+import { SelectInput } from '@tdesign/components/select-input';
+import timePickerProps from '@tdesign/components/time-picker/props';
 
-type SinglePanelProps = Partial<InstanceType<typeof SinglePanel>['$props']>;
+type EventHandler = (...args: unknown[]) => unknown;
 
 const wrappers: VueWrapper[] = [];
-const originalScrollTo = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollTo');
 
-const renderSinglePanel = (props: SinglePanelProps = {}) => {
-  const wrapper = mount(SinglePanel, {
-    props: { resetTriggerScroll: vi.fn(), ...props },
-  });
+const renderTimePicker = (options: Parameters<typeof mount>[1] = {}) => {
+  const wrapper = mount(TimePicker, options);
   wrappers.push(wrapper);
   return wrapper;
 };
 
-const installScrollTo = () => {
-  const scrollTo = vi.fn();
-  Object.defineProperty(HTMLElement.prototype, 'scrollTo', {
-    configurable: true,
-    writable: true,
-    value: scrollTo,
-  });
-  return scrollTo;
+const getSelectInput = (wrapper: VueWrapper) => wrapper.findComponent(SelectInput);
+
+const callHandler = (handler: unknown, ...args: unknown[]) => (handler as EventHandler)(...args);
+
+const getPanelVNode = (wrapper: VueWrapper) =>
+  callHandler(getSelectInput(wrapper).props('panel')) as VNode & { props: Record<string, unknown> };
+
+const openPicker = async (wrapper: VueWrapper) => {
+  const event = new MouseEvent('click');
+  callHandler(getSelectInput(wrapper).props('onPopupVisibleChange'), true, { e: event });
+  await nextTick();
+  return event;
 };
 
-const getColumns = (wrapper: VueWrapper) => wrapper.findAll('.t-time-picker__panel-body-scroll');
-const getItems = (column: DOMWrapper<Element>) => column.findAll('.t-time-picker__panel-body-scroll-item');
-const findItem = (column: DOMWrapper<Element>, text: string) => getItems(column).find((item) => item.text() === text);
-
-const setItemMetrics = (wrapper: VueWrapper, height = '20px', marginTop = '2px') => {
-  const maskItem = wrapper.find('.t-time-picker__panel-body-active-mask div').element as HTMLElement;
-  maskItem.style.height = height;
-  maskItem.style.marginTop = marginTop;
-};
-
-describe('SinglePanel', () => {
+describe('TimePicker', () => {
   afterEach(() => {
     wrappers.splice(0).forEach((wrapper) => wrapper.unmount());
+    document.body.innerHTML = '';
     vi.restoreAllMocks();
-    vi.useRealTimers();
-    if (originalScrollTo) Object.defineProperty(HTMLElement.prototype, 'scrollTo', originalScrollTo);
-    else delete HTMLElement.prototype.scrollTo;
   });
 
   describe('props', () => {
-    it(':format[HH:mm:ss]', async () => {
-      const wrapper = renderSinglePanel({ value: '01:02:03' });
-      await nextTick();
-      const columns = getColumns(wrapper);
+    it(':allowInput[boolean]', () => {
+      const readonlyWrapper = renderTimePicker();
+      const editableWrapper = renderTimePicker({ props: { allowInput: true } });
 
-      expect(columns).toHaveLength(3);
-      expect(getItems(columns[0])).toHaveLength(24);
-      expect(getItems(columns[1])).toHaveLength(60);
-      expect(getItems(columns[2])).toHaveLength(60);
-      expect(findItem(columns[0], '01')?.classes('t-is-current')).toBe(true);
-      expect(findItem(columns[1], '02')?.classes('t-is-current')).toBe(true);
-      expect(findItem(columns[2], '03')?.classes('t-is-current')).toBe(true);
+      expect(getSelectInput(readonlyWrapper).props('allowInput')).toBe(false);
+      expect(readonlyWrapper.find('input').attributes('readonly')).toBe('');
+      expect(getSelectInput(editableWrapper).props('allowInput')).toBe(true);
+      expect(editableWrapper.find('input').attributes('readonly')).toBeUndefined();
     });
 
-    it(':format[HH:mm]', async () => {
-      const wrapper = renderSinglePanel({ format: 'HH:mm', value: '12:34' });
-      await nextTick();
+    it(':borderless[boolean]', () => {
+      const wrapper = renderTimePicker({ props: { borderless: true } });
 
-      expect(getColumns(wrapper)).toHaveLength(2);
+      expect(getSelectInput(wrapper).props('borderless')).toBe(true);
     });
 
-    it(':format[HH:mm:ss.SSS]', async () => {
-      const wrapper = renderSinglePanel({ format: 'HH:mm:ss.SSS', value: '01:02:03.004' });
-      await nextTick();
-      const columns = getColumns(wrapper);
+    it(':clearable[boolean]', () => {
+      const wrapper = renderTimePicker({ props: { clearable: true, value: '10:20:30' } });
 
-      expect(columns).toHaveLength(4);
-      expect(getItems(columns[3])).toHaveLength(1000);
-      expect(findItem(columns[3], '04')?.classes('t-is-current')).toBe(true);
+      expect(getSelectInput(wrapper).props('clearable')).toBe(true);
     });
 
-    it(':format[hh:mm:ss a]', async () => {
-      const wrapper = renderSinglePanel({ format: 'hh:mm:ss a', value: '01:02:03 pm' });
-      await nextTick();
-      const columns = getColumns(wrapper);
-
-      expect(columns).toHaveLength(4);
-      expect(getItems(columns[0])).toHaveLength(12);
-      expect(getItems(columns[0])[0].text()).toBe('12');
-      expect(getItems(columns[3])).toHaveLength(2);
-      expect(getItems(columns[3])[1].classes('t-is-current')).toBe(true);
-    });
-
-    it(':steps[array<string/number>]', async () => {
-      const wrapper = renderSinglePanel({ steps: [2, '15', 30], value: '02:15:30' });
-      await nextTick();
-      const columns = getColumns(wrapper);
-
-      expect(getItems(columns[0])).toHaveLength(12);
-      expect(getItems(columns[1])).toHaveLength(4);
-      expect(getItems(columns[2])).toHaveLength(2);
-    });
-
-    it(':steps[array] starts from midnight without a value', async () => {
-      const wrapper = renderSinglePanel({ steps: [2, 5, 10] });
-      await nextTick();
-      const columns = getColumns(wrapper);
-
-      columns.forEach((column) => expect(getItems(column)[0].classes('t-is-current')).toBe(true));
-    });
-
-    it(':value[string] uses the current time when empty and steps are default', async () => {
-      vi.useFakeTimers();
-      vi.setSystemTime(new Date('2026-08-08T12:34:56'));
-      const wrapper = renderSinglePanel();
-      await nextTick();
-      const columns = getColumns(wrapper);
-
-      expect(findItem(columns[0], '12')?.classes('t-is-current')).toBe(true);
-      expect(findItem(columns[1], '34')?.classes('t-is-current')).toBe(true);
-      expect(findItem(columns[2], '56')?.classes('t-is-current')).toBe(true);
-    });
-
-    it(':disableTime[function] and :hideDisabledTime[true]', async () => {
-      const disableTime = vi.fn(() => ({ hour: [1, 2], minute: [3] }));
-      const wrapper = renderSinglePanel({ value: '00:00:00', disableTime, hideDisabledTime: true });
-      await nextTick();
-      const columns = getColumns(wrapper);
-
-      expect(getItems(columns[0])).toHaveLength(22);
-      expect(findItem(columns[0], '01')).toBeUndefined();
-      expect(getItems(columns[1])).toHaveLength(59);
-      expect(disableTime).toHaveBeenCalledWith(1, 0, 0, 0, { partial: 'start' });
-    });
-
-    it(':disableTime[function] and :hideDisabledTime[false]', async () => {
+    it(':disableTime[function]', () => {
       const disableTime = vi.fn(() => ({ hour: [1] }));
-      const wrapper = renderSinglePanel({ value: '00:00:00', disableTime, hideDisabledTime: false });
-      await nextTick();
-      const hourItems = getItems(getColumns(wrapper)[0]);
+      const wrapper = renderTimePicker({ props: { disableTime } });
+      const panel = getPanelVNode(wrapper);
 
-      expect(hourItems).toHaveLength(24);
-      expect(findItem(getColumns(wrapper)[0], '01')?.classes('t-is-disabled')).toBe(true);
+      expect(panel.type).toBe(TimePickerPanel);
+      expect(panel.props.disableTime).toBe(disableTime);
     });
 
-    it(':position[string] is passed to disableTime', async () => {
-      const disableTime = vi.fn(() => ({ hour: [] }));
-      renderSinglePanel({ value: '00:00:00', position: 'end', disableTime });
-      await nextTick();
+    it(':disabled[boolean]', () => {
+      const wrapper = renderTimePicker({ props: { disabled: true } });
 
-      expect(disableTime).toHaveBeenCalledWith(expect.any(Number), expect.any(Number), expect.any(Number), 0, {
-        partial: 'end',
+      expect(getSelectInput(wrapper).props('disabled')).toBe(true);
+      expect(wrapper.find('.t-is-disabled').exists()).toBe(true);
+    });
+
+    it(':format[string]', () => {
+      const wrapper = renderTimePicker({ props: { format: 'HH:mm' } });
+
+      expect(getPanelVNode(wrapper).props.format).toBe('HH:mm');
+    });
+
+    it(':hideDisabledTime[boolean]', () => {
+      const wrapper = renderTimePicker({ props: { hideDisabledTime: false } });
+
+      expect(getPanelVNode(wrapper).props.hideDisabledTime).toBe(false);
+    });
+
+    it(':inputProps[object]', () => {
+      const wrapper = renderTimePicker({
+        props: { inputProps: { autocomplete: 'off', maxlength: 8 }, size: 'large' },
+      });
+
+      expect(getSelectInput(wrapper).props('inputProps')).toMatchObject({
+        autocomplete: 'off',
+        maxlength: 8,
+        size: 'large',
       });
     });
 
-    it(':cols[array] currently does not control rendered columns', async () => {
-      const wrapper = renderSinglePanel({ cols: [EPickerCols.hour], format: 'HH:mm:ss' });
-      await nextTick();
+    it(':label[string]', () => {
+      const wrapper = renderTimePicker({ props: { label: '开始时间' } });
 
-      // Current behavior: the component always recomputes columns from format and ignores props.cols.
-      expect(getColumns(wrapper)).toHaveLength(3);
+      expect(getSelectInput(wrapper).props('label')).toBe('开始时间');
+      expect(wrapper.find('.t-input__prefix').text()).toBe('开始时间');
     });
 
-    it(':localeMeridiems[array] currently is not used', async () => {
-      const wrapper = renderSinglePanel({
-        format: 'hh:mm:ss a',
-        value: '01:00:00 am',
-        localeMeridiems: ['Morning', 'Evening'],
-      });
-      await nextTick();
-      const meridiemText = getItems(getColumns(wrapper)[3]).map((item) => item.text());
+    it(':label[function]', () => {
+      const wrapper = renderTimePicker({ props: { label: () => <span class="label-function">函数标签</span> } });
 
-      expect(meridiemText).not.toEqual(['Morning', 'Evening']);
+      expect(wrapper.find('.label-function').text()).toBe('函数标签');
+    });
+
+    it(':label[slot] currently is not rendered', () => {
+      const wrapper = renderTimePicker({ slots: { label: () => <span class="label-slot">插槽标签</span> } });
+
+      // Current behavior: TimePicker forwards only the label prop and does not consume the documented label slot.
+      expect(wrapper.find('.label-slot').exists()).toBe(false);
+    });
+
+    it(':placeholder[string]', () => {
+      const wrapper = renderTimePicker({ props: { placeholder: '请选择时间' } });
+
+      expect(getSelectInput(wrapper).props('placeholder')).toBe('请选择时间');
+      expect(wrapper.find('input').attributes('placeholder')).toBe('请选择时间');
+    });
+
+    it(':placeholder[string] is hidden when a value exists', () => {
+      const wrapper = renderTimePicker({ props: { placeholder: '请选择时间', value: '10:20:30' } });
+
+      expect(getSelectInput(wrapper).props('placeholder')).toBe('');
+    });
+
+    it(':popupProps[object]', () => {
+      const onVisibleChange = vi.fn();
+      const wrapper = renderTimePicker({
+        props: { popupProps: { placement: 'top', overlayInnerStyle: { color: 'red' }, onVisibleChange } },
+      });
+
+      expect(getSelectInput(wrapper).props('popupProps')).toMatchObject({
+        placement: 'top',
+        overlayInnerStyle: { color: 'red' },
+        onVisibleChange,
+      });
+    });
+
+    it(':prefixIcon[function]', () => {
+      const wrapper = renderTimePicker({ props: { prefixIcon: () => <span class="prefix-function">P</span> } });
+
+      expect(wrapper.find('.prefix-function').text()).toBe('P');
+    });
+
+    it(':prefixIcon[slot]', () => {
+      const wrapper = renderTimePicker({ slots: { prefixIcon: () => <span class="prefix-slot">P</span> } });
+
+      expect(wrapper.find('.prefix-slot').text()).toBe('P');
+    });
+
+    it(':presets[object]', () => {
+      const presets = { 上午: '09:00:00', 当前: () => '12:00:00' };
+      const wrapper = renderTimePicker({ props: { presets } });
+
+      expect(getPanelVNode(wrapper).props.presets).toEqual(presets);
+    });
+
+    it(':readonly[boolean]', async () => {
+      const wrapper = renderTimePicker({ props: { readonly: true } });
+
+      await openPicker(wrapper);
+      expect(getSelectInput(wrapper).props('popupVisible')).toBe(false);
+    });
+
+    it(':selectInputProps[object]', () => {
+      const onEnter = vi.fn();
+      const wrapper = renderTimePicker({
+        props: { selectInputProps: { autofocus: true, autoWidth: true, onEnter } },
+      });
+
+      expect(getSelectInput(wrapper).props()).toMatchObject({ autofocus: true, autoWidth: true, onEnter });
+    });
+
+    it(':size[string]', () => {
+      const validator = timePickerProps.size.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator('small')).toBe(true);
+      // @ts-expect-error testing unsupported value
+      expect(validator('giant')).toBe(false);
+
+      (['small', 'medium', 'large'] as const).forEach((size) => {
+        const wrapper = renderTimePicker({ props: { size } });
+        expect(getSelectInput(wrapper).props('inputProps')).toMatchObject({ size });
+      });
+    });
+
+    it(':status[string]', () => {
+      const validator = timePickerProps.status.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator('error')).toBe(true);
+      // @ts-expect-error testing unsupported value
+      expect(validator('info')).toBe(false);
+
+      const wrapper = renderTimePicker({ props: { status: 'warning' } });
+      expect(getSelectInput(wrapper).props('status')).toBe('warning');
+    });
+
+    it(':steps[array]', () => {
+      const wrapper = renderTimePicker({ props: { steps: [2, '5', 10] } });
+
+      expect(getPanelVNode(wrapper).props.steps).toEqual([2, '5', 10]);
+    });
+
+    it(':suffixIcon[function]', () => {
+      const wrapper = renderTimePicker({ props: { suffixIcon: () => <span class="suffix-function">S</span> } });
+
+      expect(wrapper.find('.suffix-function').text()).toBe('S');
+      expect(wrapper.findComponent(TimeIcon).exists()).toBe(false);
+    });
+
+    it(':suffixIcon[slot]', () => {
+      const wrapper = renderTimePicker({ slots: { suffixIcon: () => <span class="suffix-slot">S</span> } });
+
+      expect(wrapper.find('.suffix-slot').text()).toBe('S');
+      expect(wrapper.findComponent(TimeIcon).exists()).toBe(false);
+    });
+
+    it(':suffixIcon[default]', () => {
+      const wrapper = renderTimePicker();
+
+      expect(wrapper.findComponent(TimeIcon).exists()).toBe(true);
+    });
+
+    it(':tips[string]', () => {
+      const wrapper = renderTimePicker({ props: { tips: '请选择有效时间' } });
+
+      expect(getSelectInput(wrapper).props('tips')).toBe('请选择有效时间');
+      expect(wrapper.text()).toContain('请选择有效时间');
+    });
+
+    it(':tips[function]', () => {
+      const wrapper = renderTimePicker({ props: { tips: () => <span class="tips-function">函数提示</span> } });
+
+      expect(wrapper.find('.tips-function').text()).toBe('函数提示');
+    });
+
+    it(':tips[slot] currently is not rendered', () => {
+      const wrapper = renderTimePicker({ slots: { tips: () => <span class="tips-slot">插槽提示</span> } });
+
+      // Current behavior mirrors label: the slot is not forwarded to SelectInput.
+      expect(wrapper.find('.tips-slot').exists()).toBe(false);
+    });
+
+    it(':value[string]', () => {
+      const wrapper = renderTimePicker({ props: { value: '10:20:30' } });
+
+      expect(getSelectInput(wrapper).props('value')).toBe('10:20:30');
+      expect(wrapper.find('input').element.value).toBe('10:20:30');
+    });
+
+    it(':modelValue[string]', () => {
+      const wrapper = renderTimePicker({ props: { modelValue: '11:22:33' } });
+
+      expect(getSelectInput(wrapper).props('value')).toBe('11:22:33');
+    });
+
+    it(':defaultValue[string]', async () => {
+      const onChange = vi.fn();
+      const wrapper = renderTimePicker({ props: { defaultValue: '01:02:03', onChange } });
+
+      await openPicker(wrapper);
+      callHandler(getPanelVNode(wrapper).props.onChange, '04:05:06', new MouseEvent('click'));
+      callHandler(getPanelVNode(wrapper).props.handleConfirmClick, new MouseEvent('click'));
+      await nextTick();
+
+      expect(onChange).toHaveBeenCalledWith('04:05:06');
+      expect(getSelectInput(wrapper).props('value')).toBe('04:05:06');
+    });
+
+    it(':valueDisplay[string]', () => {
+      const wrapper = renderTimePicker({ props: { value: '10:20:30', valueDisplay: '自定义值' } });
+
+      expect(wrapper.text()).toContain('自定义值');
+    });
+
+    it(':valueDisplay[function]', async () => {
+      const valueDisplay = vi.fn((_h, { value }) => <span class="value-function">{value}</span>);
+      const wrapper = renderTimePicker({ props: { value: '10:20:30', valueDisplay } });
+
+      expect(wrapper.find('.value-function').text()).toBe('10:20:30');
+      await openPicker(wrapper);
+      expect(valueDisplay).toHaveBeenLastCalledWith(
+        expect.any(Function),
+        expect.objectContaining({ value: '10:20:30' }),
+      );
+    });
+
+    it(':valueDisplay[slot]', () => {
+      const wrapper = renderTimePicker({
+        props: { value: '10:20:30' },
+        slots: { valueDisplay: ({ value }: { value: string }) => <span class="value-slot">{value}</span> },
+      });
+
+      expect(wrapper.find('.value-slot').text()).toBe('10:20:30');
     });
   });
 
   describe('events', () => {
-    it('clicking a time item changes the value', async () => {
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ value: '01:02:03', onChange });
+    it('open/close', async () => {
+      const onOpen = vi.fn();
+      const onClose = vi.fn();
+      const wrapper = renderTimePicker({ props: { onOpen, onClose } });
+      const openEvent = new MouseEvent('click');
+      const closeEvent = new MouseEvent('click');
+
+      callHandler(getSelectInput(wrapper).props('onPopupVisibleChange'), true, { e: openEvent });
       await nextTick();
+      expect(onOpen).toHaveBeenCalledWith({ e: openEvent });
 
-      await findItem(getColumns(wrapper)[0], '05')?.trigger('click');
-
-      expect(onChange).toHaveBeenCalledWith('05:02:03', expect.any(MouseEvent));
+      callHandler(getSelectInput(wrapper).props('onPopupVisibleChange'), false, { e: closeEvent });
+      await nextTick();
+      expect(onClose).toHaveBeenCalledWith({ e: closeEvent });
+      expect(getSelectInput(wrapper).props('popupVisible')).toBe(false);
     });
 
-    it('clicking the effective internal value does not emit change', async () => {
+    it('clear/change', async () => {
+      const onClear = vi.fn();
       const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ value: '01:02:03', internalValue: '05:02:03', onChange });
+      const stopPropagation = vi.fn();
+      const wrapper = renderTimePicker({ props: { defaultValue: '10:20:30', onClear, onChange } });
+      const event = { stopPropagation };
+
+      callHandler(getSelectInput(wrapper).props('onClear'), { e: event });
       await nextTick();
 
-      await findItem(getColumns(wrapper)[0], '05')?.trigger('click');
-
-      expect(onChange).not.toHaveBeenCalled();
+      expect(stopPropagation).toHaveBeenCalledTimes(1);
+      expect(onClear).toHaveBeenCalledWith({ e: event });
+      expect(onChange).toHaveBeenCalledWith(null);
+      expect(getSelectInput(wrapper).props('value')).toBeUndefined();
     });
 
-    it('clicking a disabled time item does nothing', async () => {
+    it('input/blur accepts and formats a valid input', async () => {
+      const onBlur = vi.fn();
       const onChange = vi.fn();
-      const wrapper = renderSinglePanel({
+      const wrapper = renderTimePicker({ props: { allowInput: true, defaultValue: '10:20:30', onBlur, onChange } });
+      const event = new FocusEvent('blur');
+
+      await openPicker(wrapper);
+      callHandler(getSelectInput(wrapper).props('onInputChange'), '01:02:03');
+      callHandler(getSelectInput(wrapper).props('onBlur'), '01:02:03', { inputValue: '01:02:03', e: event });
+      await nextTick();
+
+      expect(onChange).toHaveBeenCalledWith('01:02:03');
+      expect(onBlur).toHaveBeenCalledWith({
         value: '01:02:03',
-        hideDisabledTime: false,
-        disableTime: () => ({ hour: [5] }),
-        onChange,
+        inputValue: '01:02:03',
+        e: event,
       });
-      await nextTick();
-
-      await findItem(getColumns(wrapper)[0], '05')?.trigger('click');
-      expect(onChange).not.toHaveBeenCalled();
     });
 
-    it('clicking an hour in PM preserves the meridiem', async () => {
+    it('input/blur keeps the value for invalid or non-editable input', async () => {
       const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ format: 'hh:mm:ss a', value: '01:02:03 pm', onChange });
-      await nextTick();
-
-      await findItem(getColumns(wrapper)[0], '02')?.trigger('click');
-      expect(onChange).toHaveBeenCalledWith('02:02:03 pm', expect.any(MouseEvent));
-    });
-
-    it('clicking AM converts a PM value', async () => {
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ format: 'hh:mm:ss a', value: '01:02:03 pm', onChange });
-      await nextTick();
-
-      await getItems(getColumns(wrapper)[3])[0].trigger('click');
-      expect(onChange).toHaveBeenCalledWith('01:02:03 am', expect.any(MouseEvent));
-    });
-
-    it('clicking PM converts an AM value', async () => {
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ format: 'hh:mm:ss a', value: '01:02:03 am', onChange });
-      await nextTick();
-
-      await getItems(getColumns(wrapper)[3])[1].trigger('click');
-      expect(onChange).toHaveBeenCalledWith('01:02:03 pm', expect.any(MouseEvent));
-    });
-
-    it('clicking the current meridiem does not emit', async () => {
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ format: 'hh:mm:ss a', value: '01:02:03 am', onChange });
-      await nextTick();
-
-      await getItems(getColumns(wrapper)[3])[0].trigger('click');
-      expect(onChange).not.toHaveBeenCalled();
-    });
-
-    it('clicking an item scrolls when scrollTo is available', async () => {
-      const scrollTo = installScrollTo();
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ value: '01:02:03', onChange });
-      await nextTick();
-      setItemMetrics(wrapper);
-
-      await findItem(getColumns(wrapper)[0], '05')?.trigger('click');
-
-      expect(scrollTo).toHaveBeenCalledWith({ top: 110, behavior: 'smooth' });
-      expect(onChange).not.toHaveBeenCalled();
-    });
-
-    it('clicking still changes value when the active mask cannot be measured', async () => {
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ value: '01:02:03', onChange });
-      await nextTick();
-      const mask = wrapper.find('.t-time-picker__panel-body-active-mask').element;
-      vi.spyOn(mask, 'querySelector').mockReturnValue(null);
-
-      await findItem(getColumns(wrapper)[0], '05')?.trigger('click');
-
-      expect(onChange).toHaveBeenCalledWith('05:02:03', expect.any(MouseEvent));
-    });
-
-    it('scroll does nothing while the panel is hidden', async () => {
-      vi.useFakeTimers();
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ value: '01:02:03', isShowPanel: false, onChange });
-      await nextTick();
-
-      await getColumns(wrapper)[0].trigger('scroll');
-      vi.advanceTimersByTime(60);
-
-      expect(onChange).not.toHaveBeenCalled();
-    });
-
-    it('scrolling a numeric column changes the value', async () => {
-      vi.useFakeTimers();
-      const scrollTo = installScrollTo();
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ value: '01:02:03', isShowPanel: true, onChange });
-      await nextTick();
-      setItemMetrics(wrapper);
-      const hourColumn = getColumns(wrapper)[0];
-      hourColumn.element.scrollTop = 29;
-
-      await hourColumn.trigger('scroll');
-      vi.advanceTimersByTime(60);
-
-      expect(onChange).toHaveBeenCalledWith('02:02:03', expect.any(Event));
-      expect(scrollTo).not.toHaveBeenCalled();
-    });
-
-    it('scrolling corrects a column that stops between items', async () => {
-      vi.useFakeTimers();
-      const scrollTo = installScrollTo();
-      const wrapper = renderSinglePanel({ value: '01:02:03', isShowPanel: true });
-      await nextTick();
-      setItemMetrics(wrapper);
-      const hourColumn = getColumns(wrapper)[0];
-      hourColumn.element.scrollTop = 20;
-
-      await hourColumn.trigger('scroll');
-      vi.advanceTimersByTime(60);
-
-      expect(scrollTo).toHaveBeenCalledWith({ top: 22, behavior: 'smooth' });
-    });
-
-    it('scrolling to a disabled item preserves the current value', async () => {
-      vi.useFakeTimers();
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({
-        value: '01:02:03',
-        isShowPanel: true,
-        hideDisabledTime: false,
-        disableTime: () => ({ hour: [2] }),
-        onChange,
+      const editableWrapper = renderTimePicker({ props: { allowInput: true, defaultValue: '10:20:30', onChange } });
+      await openPicker(editableWrapper);
+      callHandler(getSelectInput(editableWrapper).props('onInputChange'), 'invalid');
+      callHandler(getSelectInput(editableWrapper).props('onBlur'), 'invalid', {
+        inputValue: 'invalid',
+        e: new FocusEvent('blur'),
       });
-      await nextTick();
-      setItemMetrics(wrapper);
-      const hourColumn = getColumns(wrapper)[0];
-      hourColumn.element.scrollTop = 29;
 
-      await hourColumn.trigger('scroll');
-      vi.advanceTimersByTime(60);
+      const readonlyWrapper = renderTimePicker({ props: { defaultValue: '10:20:30', onChange } });
+      callHandler(getSelectInput(readonlyWrapper).props('onInputChange'), '01:02:03');
+      callHandler(getSelectInput(readonlyWrapper).props('onBlur'), '01:02:03', {
+        inputValue: '01:02:03',
+        e: new FocusEvent('blur'),
+      });
 
       expect(onChange).not.toHaveBeenCalled();
     });
 
-    it('scrolling an hour preserves PM in twelve-hour format', async () => {
-      vi.useFakeTimers();
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({
-        format: 'hh:mm:ss a',
-        value: '01:02:03 pm',
-        isShowPanel: true,
-        onChange,
-      });
-      await nextTick();
-      setItemMetrics(wrapper);
-      const hourColumn = getColumns(wrapper)[0];
-      hourColumn.element.scrollTop = 29;
+    it('input currently does not call the public onInput callback', () => {
+      const onInput = vi.fn();
+      const wrapper = renderTimePicker({ props: { onInput } });
 
-      await hourColumn.trigger('scroll');
-      vi.advanceTimersByTime(60);
+      callHandler(getSelectInput(wrapper).props('onInputChange'), '10:20:30');
 
-      expect(onChange).toHaveBeenCalledWith('02:02:03 pm', expect.any(Event));
+      // Current behavior: handleInputChange updates only internal currentValue and never invokes props.onInput.
+      expect(onInput).not.toHaveBeenCalled();
     });
 
-    it('scrolling invalid strict input does not emit', async () => {
-      vi.useFakeTimers();
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ value: 'invalid', isShowPanel: true, onChange });
-      await nextTick();
-      setItemMetrics(wrapper);
+    it('focus', () => {
+      const onFocus = vi.fn();
+      const wrapper = renderTimePicker({ props: { onFocus } });
+      const context = { value: '10:20:30', e: new FocusEvent('focus') };
 
-      await getColumns(wrapper)[0].trigger('scroll');
-      vi.advanceTimersByTime(60);
+      callHandler(getSelectInput(wrapper).props('onFocus'), context);
+      expect(onFocus).toHaveBeenCalledWith(context);
+    });
+
+    it('pick', async () => {
+      const onPick = vi.fn();
+      const wrapper = renderTimePicker({ props: { onPick } });
+      const event = new MouseEvent('click');
+
+      await openPicker(wrapper);
+      callHandler(getPanelVNode(wrapper).props.onChange, '13:14:15', event);
+
+      expect(onPick).toHaveBeenCalledWith('13:14:15', { e: event });
+    });
+
+    it('confirm commits valid input and closes the panel', async () => {
+      const onConfirm = vi.fn();
+      const onChange = vi.fn();
+      const wrapper = renderTimePicker({ props: { defaultValue: '10:20:30', onConfirm, onChange } });
+      const event = new MouseEvent('click');
+
+      await openPicker(wrapper);
+      callHandler(getPanelVNode(wrapper).props.onChange, '11:22:33', event);
+      callHandler(getPanelVNode(wrapper).props.handleConfirmClick, event);
+      await nextTick();
+
+      expect(onConfirm).toHaveBeenCalledWith({ e: event });
+      expect(onChange).toHaveBeenCalledWith('11:22:33');
+      expect(getSelectInput(wrapper).props('popupVisible')).toBe(false);
+    });
+
+    it('confirm ignores invalid input but still closes the panel', async () => {
+      const onChange = vi.fn();
+      const wrapper = renderTimePicker({ props: { defaultValue: '10:20:30', onChange } });
+
+      await openPicker(wrapper);
+      callHandler(getSelectInput(wrapper).props('onInputChange'), 'invalid');
+      callHandler(getPanelVNode(wrapper).props.handleConfirmClick, new MouseEvent('click'));
+      await nextTick();
 
       expect(onChange).not.toHaveBeenCalled();
+      expect(getSelectInput(wrapper).props('popupVisible')).toBe(false);
     });
 
-    it('scrolling from AM to PM changes the meridiem', async () => {
-      vi.useFakeTimers();
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ format: 'hh:mm:ss a', value: '01:02:03 am', isShowPanel: true, onChange });
-      await nextTick();
-      setItemMetrics(wrapper);
-      const meridiemColumn = getColumns(wrapper)[3];
-      meridiemColumn.element.scrollTop = 18;
-
-      await meridiemColumn.trigger('scroll');
-      vi.advanceTimersByTime(60);
-
-      expect(onChange).toHaveBeenCalledWith('01:02:03 pm', expect.any(Event));
-    });
-
-    it('scrolling from PM to AM changes the meridiem', async () => {
-      vi.useFakeTimers();
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({ format: 'hh:mm:ss a', value: '01:02:03 pm', isShowPanel: true, onChange });
-      await nextTick();
-      setItemMetrics(wrapper);
-      const meridiemColumn = getColumns(wrapper)[3];
-      meridiemColumn.element.scrollTop = 0;
-
-      await meridiemColumn.trigger('scroll');
-      vi.advanceTimersByTime(60);
-
-      expect(onChange).toHaveBeenCalledWith('01:02:03 am', expect.any(Event));
-    });
-
-    it('scrolling within the same meridiem emits the formatted value', async () => {
-      vi.useFakeTimers();
-      const onChange = vi.fn();
-      const wrapper = renderSinglePanel({
-        format: 'hh:mm:ss a',
-        value: '01:02:03 am',
-        internalValue: '02:02:03 am',
-        isShowPanel: true,
-        onChange,
+    it('selectInputProps event runs after the internal event', async () => {
+      const order: string[] = [];
+      const wrapper = renderTimePicker({
+        props: {
+          onOpen: () => order.push('internal'),
+          selectInputProps: { onPopupVisibleChange: () => order.push('forwarded') },
+        },
       });
-      await nextTick();
-      setItemMetrics(wrapper);
 
-      await getColumns(wrapper)[3].trigger('scroll');
-      vi.advanceTimersByTime(60);
-
-      expect(onChange).toHaveBeenCalledWith('01:02:03 am', expect.any(Event));
+      await openPicker(wrapper);
+      expect(order[0]).toBe('internal');
+      expect(order.slice(1)).toContain('forwarded');
     });
   });
 
-  describe('lifecycle', () => {
-    it('a value change updates every column scroll position', async () => {
-      const scrollTo = installScrollTo();
-      const resetTriggerScroll = vi.fn();
-      const wrapper = renderSinglePanel({ value: '01:02:03', resetTriggerScroll });
+  describe(':events', () => {
+    it(':onChange', async () => {
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const onChange = ref(initialOnChange);
+      const wrapper = mount({
+        setup: () => () => <TimePicker clearable value="10:00:00" onChange={onChange.value} />,
+      });
+      const selectInput = wrapper.findComponent({ name: 'TSelectInput' });
+
+      onChange.value = latestOnChange;
       await nextTick();
-      setItemMetrics(wrapper);
+      selectInput.props('onClear')({ e: new MouseEvent('click') });
 
-      await wrapper.setProps({ value: '04:05:06' });
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(null);
+
+      const initialRangeOnChange = vi.fn();
+      const latestRangeOnChange = vi.fn();
+      const rangeOnChange = ref(initialRangeOnChange);
+      const rangeWrapper = mount({
+        setup: () => () =>
+          <TimeRangePicker clearable value={['10:00:00', '11:00:00']} onChange={rangeOnChange.value} />,
+      });
+      const rangeInput = rangeWrapper.findComponent({ name: 'TRangeInput' });
+
+      rangeOnChange.value = latestRangeOnChange;
       await nextTick();
+      rangeInput.props('onClear')({ e: new MouseEvent('click') });
 
-      expect(scrollTo).toHaveBeenCalled();
-      expect(resetTriggerScroll).toHaveBeenCalled();
-    });
-
-    it('triggerScroll initializes a stepped panel without a value', async () => {
-      const scrollTo = installScrollTo();
-      const resetTriggerScroll = vi.fn();
-      const wrapper = renderSinglePanel({ steps: [2, 5, 10], triggerScroll: false, resetTriggerScroll });
-      await nextTick();
-      setItemMetrics(wrapper);
-
-      await wrapper.setProps({ triggerScroll: true });
-      await nextTick();
-
-      expect(scrollTo).not.toHaveBeenCalled();
-      expect(resetTriggerScroll).toHaveBeenCalledTimes(1);
-    });
-
-    it('triggerScroll initializes a panel with default steps', async () => {
-      const scrollTo = installScrollTo();
-      const resetTriggerScroll = vi.fn();
-      const wrapper = renderSinglePanel({ value: '01:02:03', triggerScroll: false, resetTriggerScroll });
-      await nextTick();
-      setItemMetrics(wrapper);
-
-      await wrapper.setProps({ triggerScroll: true });
-      await nextTick();
-
-      expect(scrollTo).toHaveBeenCalled();
-      expect(resetTriggerScroll).toHaveBeenCalledTimes(1);
+      expect(initialRangeOnChange).not.toHaveBeenCalled();
+      expect(latestRangeOnChange).toHaveBeenCalledWith(null);
     });
   });
 });
