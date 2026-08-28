@@ -106,7 +106,7 @@ export default {
     type: Array as PropType<TdTransferProps['defaultValue']>,
     default: (): TdTransferProps['defaultValue'] => [],
   },
-  /** 数据列表发生变化时触发，`type` 值为 `source`，表示源列表移动到目标列表，值为 `target` 表示目标列表移动到源列表，movedValue 则表示被移动的选项 */
+  /** 数据列表发生变化时触发，`type` 表示移动的目标列表，值为 `target` 表示源列表移动到目标列表，值为 `source` 表示目标列表移动到源列表，movedValue 则表示被移动的选项 */
   onChange: Function as PropType<TdTransferProps['onChange']>,
   /** 源数据列表或目标数据列表的选中项发生变化时触发，`context.type` 可以区分触发来源是目标列表，还是源列表 */
   onCheckedChange: Function as PropType<TdTransferProps['onCheckedChange']>,

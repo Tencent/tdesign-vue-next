@@ -16,8 +16,8 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
 
     const { isArray } = Array;
-    const { value, modelValue } = toRefs(props);
-    const [rawValue, setRawValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const { value, modelValue, onChange: onChangeRef } = toRefs(props);
+    const [rawValue, setRawValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
     const innerValue = computed(() => (isArray(rawValue.value) ? rawValue.value : []));
 
     const optionList = ref<Array<CheckboxOptionObj>>([]);

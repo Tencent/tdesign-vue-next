@@ -94,14 +94,8 @@ export default defineComponent({
     },
   },
   setup(props, { expose }) {
-    const { visible: propVisible, modelValue } = toRefs(props);
-    const [visible, setVisible] = useVModel(
-      propVisible,
-      modelValue,
-      props.defaultVisible,
-      props.onVisibleChange,
-      'visible',
-    );
+    const { visible: propVisible, modelValue, onVisibleChange } = toRefs(props);
+    const [visible, setVisible] = useVModel(propVisible, modelValue, props.defaultVisible, onVisibleChange, 'visible');
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
 

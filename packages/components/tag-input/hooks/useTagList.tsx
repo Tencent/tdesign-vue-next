@@ -18,9 +18,19 @@ export type ChangeParams = [TagInputChangeContext];
 export function useTagList(props: TagInputProps) {
   const renderTNode = useTNodeJSX();
   const classPrefix = usePrefixClass();
-  const { value, modelValue, onRemove, max, minCollapsedNum, size, tagProps, getDragProps } = toRefs(props);
+  const {
+    value,
+    modelValue,
+    onRemove,
+    max,
+    minCollapsedNum,
+    size,
+    tagProps,
+    getDragProps,
+    onChange: onChangeRef,
+  } = toRefs(props);
   // handle controlled property and uncontrolled property
-  const [_tagValue, setTagValue] = useVModel(value, modelValue, props.defaultValue || [], props.onChange);
+  const [_tagValue, setTagValue] = useVModel(value, modelValue, props.defaultValue || [], onChangeRef);
   const tagValue = computed(() => _tagValue.value || []);
   const oldInputValue = ref<InputValue>();
 

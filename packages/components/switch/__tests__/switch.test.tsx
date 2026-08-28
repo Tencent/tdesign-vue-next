@@ -1,5 +1,5 @@
 import { flushPromises, mount } from '@vue/test-utils';
-import { h, ref } from 'vue';
+import { h, nextTick, ref } from 'vue';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import Switch, { type SwitchProps, type SwitchValue } from '@tdesign/components/switch';
@@ -410,6 +410,21 @@ describe('Switch', () => {
       expect(onChange).toHaveBeenLastCalledWith(false, { e: expect.any(MouseEvent) });
       expect(wrapper.emitted('update:value')).toBeUndefined();
       expect(wrapper.emitted('update:modelValue')).toBeUndefined();
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <Switch value={false} onChange={currentOnChange.value} />,
+      });
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await latestWrapper.get('.t-switch').trigger('click');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
+      latestWrapper.unmount();
     });
 
     // Current behavior is tracked by #6849. Update this case when keyboard support is implemented.

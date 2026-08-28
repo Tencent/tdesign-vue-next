@@ -18,12 +18,12 @@ export default defineComponent({
     const timer = ref(null);
     const popupRef = ref(null);
 
-    const { visible, modelValue } = toRefs(props);
+    const { visible, modelValue, onVisibleChange } = toRefs(props);
     const [innerVisible, setInnerVisible] = useVModel(
       visible,
       modelValue,
       props.defaultVisible,
-      props.onVisibleChange,
+      onVisibleChange,
       'visible',
     );
     const vm = getCurrentInstance();
