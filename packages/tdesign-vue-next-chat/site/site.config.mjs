@@ -49,6 +49,13 @@ const componentDocs = [
     component: () => import('@tdesign/pro-components-chat/chat-thinking/chat-thinking.md'),
   },
   {
+    title: 'ChatThoughtChain 思维链',
+    titleEn: 'ChatThoughtChain',
+    name: 'ChatThoughtChain',
+    path: '/vue-next-chat/components/chat-thought-chain',
+    component: () => import('@tdesign/pro-components-chat/chat-thought-chain/chat-thought-chain.md'),
+  },
+  {
     title: 'ChatLoading 对话加载',
     titleEn: 'ChatLoading',
     name: 'ChatLoading',

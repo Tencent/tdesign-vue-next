@@ -1,0 +1,133 @@
+// 临时样式：待 UI 样式沉淀到 tdesign-common 子仓库后迁移并删除该文件
+.t-chat__thought-chain {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: var(--td-text-color-primary);
+
+  &-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--td-component-border);
+    box-sizing: border-box;
+  }
+
+  &-item {
+    display: flex;
+    gap: 8px;
+
+    &__node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 20px;
+      flex-shrink: 0;
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 22px;
+      font-size: 16px;
+      color: var(--td-text-color-placeholder);
+    }
+
+    &__line {
+      flex: 1;
+      width: 1px;
+      background: var(--td-component-stroke);
+      margin: 2px 0;
+    }
+
+    &__detail {
+      flex: 1;
+      min-width: 0;
+      padding-bottom: 16px;
+    }
+
+    &:last-child &__detail {
+      padding-bottom: 0;
+    }
+
+    &__header {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 22px;
+      line-height: 22px;
+
+      &--collapsible {
+        cursor: pointer;
+      }
+    }
+
+    &__title {
+      font-weight: 500;
+    }
+
+    &__arrow {
+      font-size: 16px;
+      color: var(--td-text-color-placeholder);
+      transition: transform 0.2s;
+    }
+
+    &--expanded &__arrow {
+      transform: rotate(180deg);
+    }
+
+    &__content {
+      margin-top: 4px;
+      font-size: 13px;
+      line-height: 22px;
+      color: var(--td-text-color-secondary);
+    }
+
+    &--success &__icon {
+      color: var(--td-success-color);
+    }
+
+    &--error &__icon {
+      color: var(--td-error-color);
+    }
+
+    &--processing &__icon {
+      color: var(--td-brand-color);
+
+      .t-icon-loading {
+        animation: t-chat-thought-chain-spin 1s linear infinite;
+      }
+    }
+
+    &--processing &__title {
+      background: linear-gradient(90deg, var(--td-text-color-primary) 25%, var(--td-brand-color) 50%, var(--td-text-color-primary) 75%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: t-chat-thought-chain-flow 2s linear infinite;
+    }
+  }
+}
+
+@keyframes t-chat-thought-chain-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes t-chat-thought-chain-flow {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}

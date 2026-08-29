@@ -487,6 +487,71 @@ export interface UploadActionConfig {
   action: (params: { files: File[]; name: UploadActionType; e?: Event }) => void;
 }
 
+export type ThoughtChainItemStatus = 'pending' | 'processing' | 'success' | 'error';
+
+export interface TdThoughtChainItem {
+  /**
+   * 节点唯一标识，缺省时使用节点索引
+   */
+  key?: string | number;
+  /**
+   * 节点标题
+   */
+  title?: string | TNode;
+  /**
+   * 节点描述内容，为空时该节点不可展开
+   */
+  content?: string | TNode;
+  /**
+   * 节点状态，可选项：pending/processing/success/error
+   * @default pending
+   */
+  status?: ThoughtChainItemStatus;
+  /**
+   * 自定义节点图标，优先级高于 status 对应的默认图标
+   */
+  icon?: TNode;
+}
+
+export interface TdChatThoughtChainProps {
+  /**
+   * 是否支持折叠每个思考节点的内容
+   * @default true
+   */
+  collapsible?: boolean;
+  /**
+   * 思维链节点列表
+   */
+  items?: TdThoughtChainItem[];
+  /**
+   * 展开的节点。支持语法糖 v-model:expandedValue
+   */
+  expandedValue?: Array<string | number>;
+  /**
+   * 展开的节点。非受控属性
+   */
+  defaultExpandedValue?: Array<string | number>;
+  /**
+   * 自定义节点内容
+   */
+  content?: TNode<{ item: TdThoughtChainItem; index: number }>;
+  /**
+   * 自定义节点图标
+   */
+  icon?: TNode<{ item: TdThoughtChainItem; index: number }>;
+  /**
+   * 自定义节点标题
+   */
+  title?: TNode<{ item: TdThoughtChainItem; index: number }>;
+  /**
+   * 节点展开/收起时触发
+   */
+  onExpandChange?: (
+    value: Array<string | number>,
+    context: { item: TdThoughtChainItem; index: number; expanded: boolean },
+  ) => void;
+}
+
 export type * from 'tdesign-web-components/lib/chat-sender/type';
 export type * from 'tdesign-web-components/lib/filecard/type';
 export type * from 'tdesign-web-components/lib/chat-message/index';
