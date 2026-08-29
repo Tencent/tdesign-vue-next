@@ -713,12 +713,12 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
    * 展开的树形节点。非必须。在需要自由控制展开的树形节点时使用。其他场景无需设置，表格组件有内置展开逻辑
    * @default []
    */
-  expandedTreeNodes?: Array<string | number>;
+  expandedTreeNodes?: Array<T>;
   /**
    * 展开的树形节点。非必须。在需要自由控制展开的树形节点时使用。其他场景无需设置，表格组件有内置展开逻辑，非受控属性
    * @default []
    */
-  defaultExpandedTreeNodes?: Array<string | number>;
+  defaultExpandedTreeNodes?: Array<T>;
   /**
    * 树形结构相关配置。具体属性文档查看 `TableTreeConfig` 相关描述
    */
@@ -735,7 +735,7 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
    * 树形结构，展开的树节点发生变化时触发，泛型 T 指表格数据类型
    */
   onExpandedTreeNodesChange?: (
-    expandedTreeNodes: Array<string | number>,
+    expandedTreeNodes: Array<T>,
     options: TableTreeNodeExpandOptions<T>,
   ) => void;
   /**
