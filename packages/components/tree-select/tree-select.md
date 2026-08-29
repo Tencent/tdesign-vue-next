@@ -17,8 +17,8 @@ empty | String / Slot / Function | - | 当下拉列表为空时显示的内容�
 filter | Function | - | 过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据。TS 类型：`(filterWords: string, option: DataOption) => boolean` | N
 filterable | Boolean | false | 是否可搜索 | N
 inputProps | Object | - | 透传给 输入框 Input 组件的全部属性。TS 类型：`InputProps`，[Input API Documents](./input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts) | N
-inputValue | String / Number | - | 输入框的值。支持语法糖 `v-model:inputValue`。TS 类型：`string`，[Input API Documents](./input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts) | N
-defaultInputValue | String / Number | - | 输入框的值。非受控属性。TS 类型：`string`，[Input API Documents](./input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts) | N
+inputValue | String / Number | - | 输入框的值。支持语法糖 `v-model:inputValue`。TS 类型：`string` | N
+defaultInputValue | String / Number | - | 输入框的值。非受控属性。TS 类型：`string` | N
 keys | Object | - | 用来定义 `value / label / disabled / children` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label: 'name', children: 'list' }`。TS 类型：`TreeKeysType`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 label | String / Slot / Function | - | 左侧文本。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 loading | Boolean | false | 是否正在加载数据 | N
@@ -29,7 +29,7 @@ multiple | Boolean | false | 是否允许多选 | N
 panelBottomContent | String / Slot / Function | - | 面板内的底部内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 panelTopContent | String / Slot / Function | - | 面板内的顶部内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 placeholder | String | undefined | 占位符 | N
-popupProps | Object | - | 透传给 popup 组件的全部属性。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts) | N
+popupProps | Object | - | 透传 Popup 组件全部属性。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts) | N
 popupVisible | Boolean | undefined | 是否显示下拉框。支持语法糖 `v-model:popupVisible` | N
 defaultPopupVisible | Boolean | undefined | 是否显示下拉框。非受控属性 | N
 prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
@@ -53,7 +53,7 @@ onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>�
 onEnter | Function |  | TS 类型：`(context: { inputValue: string; e: KeyboardEvent; value: TreeValueType }) => void`<br/>回车键按下时触发。`inputValue` 表示输入框的值，`value` 表示选中值。泛型 `TreeValueType` 继承 `TreeSelectValue` | N
 onFocus | Function |  | TS 类型：`(context: { value: TreeSelectValue; e: FocusEvent }) => void`<br/>输入框获得焦点时触发 | N
 onInputChange | Function |  | TS 类型：`(value: string, context: SelectInputValueChangeContext) => void`<br/>输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、失去焦点等 | N
-onPopupVisibleChange | Function |  | TS 类型：`(visible: boolean, context: TreeSelectPopupVisibleContext<DataOption>) => void`<br/>下拉框显示或隐藏时触发。单选场景，选中某个选项时触发关闭，此时需要添加参数 `node`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts)。<br/>`import { PopupVisibleChangeContext, PopupTriggerEvent, PopupTriggerSource } from '@Popup'`<br/><br/>`interface TreeSelectPopupVisibleContext<T> {   e?: PopupTriggerEvent \| Event;   node?: TreeNodeModel<T>;   trigger?: PopupTriggerSource \| 'clear'; }`<br/> | N
+onPopupVisibleChange | Function |  | TS 类型：`(visible: boolean, context: TreeSelectPopupVisibleContext<DataOption>) => void`<br/>下拉框显示或隐藏时触发。单选场景，选中某个选项时触发关闭，此时需要添加参数 `node`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts)。<br/>`import { PopupVisibleChangeContext, PopupTriggerEvent, PopupTriggerSource } from '@Popup'`<br/><br/>`interface TreeSelectPopupVisibleContext<T> {   e?: PopupTriggerEvent;   node?: TreeNodeModel<T>;   trigger?: PopupTriggerSource \| 'clear'; }`<br/> | N
 onRemove | Function |  | TS 类型：`(options: RemoveOptions<DataOption, TreeValueType>) => void`<br/>多选模式下，选中数据被移除时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts)。<br/>`export interface RemoveOptions<T extends TreeOptionData = TreeOptionData, N extends TreeSelectValue = TreeSelectValue> {   value: N;   data: T;  index: number; node: TreeNodeModel<T>;   e?: MouseEvent \| KeyboardEvent;   trigger: 'tag-remove' \| 'backspace'; }`<br/> | N
 onSearch | Function |  | TS 类型：`(filterWords: string, context: { e: KeyboardEvent \| SelectInputValueChangeContext['e'] }) => void`<br/>输入值变化时，触发搜索事件。主要用于远程搜索新数据。设置 `filterable=true` 开启此功能。优先级高于本地数据搜索 `filter`，即一旦存在这个远程搜索事件 `filter` 失效 | N
 
@@ -67,6 +67,6 @@ clear | `(context: { e: MouseEvent })` | 点击清除按钮时触发
 enter | `(context: { inputValue: string; e: KeyboardEvent; value: TreeValueType })` | 回车键按下时触发。`inputValue` 表示输入框的值，`value` 表示选中值。泛型 `TreeValueType` 继承 `TreeSelectValue`
 focus | `(context: { value: TreeSelectValue; e: FocusEvent })` | 输入框获得焦点时触发
 input-change | `(value: string, context: SelectInputValueChangeContext)` | 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、失去焦点等
-popup-visible-change | `(visible: boolean, context: TreeSelectPopupVisibleContext<DataOption>)` | 下拉框显示或隐藏时触发。单选场景，选中某个选项时触发关闭，此时需要添加参数 `node`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts)。<br/>`import { PopupVisibleChangeContext, PopupTriggerEvent, PopupTriggerSource } from '@Popup'`<br/><br/>`interface TreeSelectPopupVisibleContext<T> {   e?: PopupTriggerEvent \| Event;   node?: TreeNodeModel<T>;   trigger?: PopupTriggerSource \| 'clear'; }`<br/>
+popup-visible-change | `(visible: boolean, context: TreeSelectPopupVisibleContext<DataOption>)` | 下拉框显示或隐藏时触发。单选场景，选中某个选项时触发关闭，此时需要添加参数 `node`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts)。<br/>`import { PopupVisibleChangeContext, PopupTriggerEvent, PopupTriggerSource } from '@Popup'`<br/><br/>`interface TreeSelectPopupVisibleContext<T> {   e?: PopupTriggerEvent;   node?: TreeNodeModel<T>;   trigger?: PopupTriggerSource \| 'clear'; }`<br/>
 remove | `(options: RemoveOptions<DataOption, TreeValueType>)` | 多选模式下，选中数据被移除时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree-select/type.ts)。<br/>`export interface RemoveOptions<T extends TreeOptionData = TreeOptionData, N extends TreeSelectValue = TreeSelectValue> {   value: N;   data: T;  index: number; node: TreeNodeModel<T>;   e?: MouseEvent \| KeyboardEvent;   trigger: 'tag-remove' \| 'backspace'; }`<br/>
 search | `(filterWords: string, context: { e: KeyboardEvent \| SelectInputValueChangeContext['e'] })` | 输入值变化时，触发搜索事件。主要用于远程搜索新数据。设置 `filterable=true` 开启此功能。优先级高于本地数据搜索 `filter`，即一旦存在这个远程搜索事件 `filter` 失效
