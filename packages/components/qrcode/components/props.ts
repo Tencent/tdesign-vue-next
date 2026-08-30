@@ -102,7 +102,7 @@ export const QRCodeSubComponentProps = {
    */
   pixelStyle: {
     type: Object as PropType<QRCodeSubComponent['pixelStyle']>,
-    default: () => undefined,
+    default: () => ({} as QRCodeSubComponent['pixelStyle']),
   },
 };
 
