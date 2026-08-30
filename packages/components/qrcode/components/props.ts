@@ -97,6 +97,13 @@ export const QRCodeSubComponentProps = {
     type: Number,
     default: 1,
   },
+  /**
+   * The pixel style applied to data modules.
+   */
+  pixelStyle: {
+    type: Object as PropType<QRCodeSubComponent['pixelStyle']>,
+    default: undefined,
+  },
 };
 
 export const QRCodeStatusProps = {

@@ -66,6 +66,11 @@ export default {
       return ['canvas', 'svg'].includes(val);
     },
   },
+  /** 数据点像素风格 */
+  pixelStyle: {
+    type: Object as PropType<TdQRCodeProps['pixelStyle']>,
+    default: undefined,
+  },
   /** 扫描后的文本 */
   value: {
     type: String,

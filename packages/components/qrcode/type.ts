@@ -56,6 +56,7 @@ export interface TdQRCodeProps {
    * @default canvas
    */
   type?: 'canvas' | 'svg';
+  pixelStyle?: QRCodePixelStyle;
   /**
    * 扫描后的文本
    * @default ''
@@ -66,6 +67,13 @@ export interface TdQRCodeProps {
    */
   onRefresh?: () => void;
 }
+
+export type QRCodePixelShape = 'square' | 'mini-square' | 'rounded' | 'dot';
+
+export type QRCodePixelStyle = {
+  shape?: QRCodePixelShape;
+  scale?: number;
+};
 
 export type QRStatus = 'active' | 'expired' | 'loading' | 'scanned';
 
