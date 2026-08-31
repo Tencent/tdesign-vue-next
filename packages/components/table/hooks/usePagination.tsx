@@ -74,14 +74,17 @@ export default function usePagination(
             updateDataSourceAndPaginate(pageInfo.current, pageInfo.pageSize);
             props.onPageChange?.(pageInfo, dataSource.value);
 
-            // 当切换分页时，内容区域滚动到顶部
-            const ref = tableContentRef.value;
-            if (ref.scrollTo) {
-              ref.scrollTo({ top: 0, left: 0 });
-            } else {
-              // 兼容测试环境或旧浏览器
-              ref.scrollTop = 0;
-              ref.scrollLeft = 0;
+            // 当切换分页时，默认将内容区域滚动到顶部。
+            // 若开启 enableLockScrollbar，则跳过重置，由 BaseTable 在数据渲染完成后恢复滚动位置。
+            if (!props.enableLockScrollbar && tableContentRef.value) {
+              const ref = tableContentRef.value;
+              if (ref.scrollTo) {
+                ref.scrollTo({ top: 0, left: 0 });
+              } else {
+                // 兼容测试环境或旧浏览器
+                ref.scrollTop = 0;
+                ref.scrollLeft = 0;
+              }
             }
           }}
           v-slots={{ totalContent: context.slots.totalContent }}

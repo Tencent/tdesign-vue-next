@@ -64,6 +64,8 @@ export default {
     type: [String, Function] as PropType<TdBaseTableProps['empty']>,
     default: '' as TdBaseTableProps['empty'],
   },
+  /** 切换分页时是否锁定滚动条。开启后，切换分页时不会重置滚动条位置。 */
+  enableLockScrollbar: Boolean,
   /** 首行内容，横跨所有列 */
   firstFullRow: {
     type: [String, Function] as PropType<TdBaseTableProps['firstFullRow']>,
