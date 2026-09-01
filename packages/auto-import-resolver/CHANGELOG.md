@@ -1,3 +1,9 @@
+## 🌈 0.1.8 `2026-09-01`
+
+### 🐞 Bug Fixes
+
+- 修复 v-loading 等指令方式不生效的问题 @Wesley-0808 ([#6918](https://github.com/Tencent/tdesign-vue-next/pull/6918))
+
 ## 🌈 0.1.7 `2026-06-09`
 
 ### 🚀 Features
