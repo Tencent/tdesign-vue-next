@@ -24,6 +24,9 @@ export const treeItemProps = {
   treeScope: {
     type: Object as TypePropType<TypeTreeItemProps['treeScope']>,
   },
+  hasLayerAnyChild: {
+    type: Boolean as TypePropType<TypeTreeItemProps['hasLayerAnyChild']>,
+  },
 };
 
 export default defineComponent({
