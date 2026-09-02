@@ -7,7 +7,7 @@
 import { ImageViewerProps } from '../image-viewer';
 import { UploadConfig } from '../config-provider/type';
 import { ButtonProps } from '../button';
-import { PlainObject, TNode, UploadDisplayDragEvents } from '../common';
+import type { PlainObject, TNode, UploadDisplayDragEvents } from '../common';
 
 export interface TdUploadProps<T extends UploadFile = UploadFile> {
   /**
@@ -58,7 +58,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   default?: string | TNode;
   /**
-   * 是否禁用
+   * 是否禁用组件
    */
   disabled?: boolean;
   /**
@@ -66,7 +66,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   dragContent?: TNode | TNode<TriggerContext>;
   /**
-   * 是否启用拖拽上传，不同的组件风格默认值不同。`theme=file` 或 `theme=image` 时有效
+   * 是否启用拖拽上传。`theme` 非 `file-input` 时有效。`theme=file-flow`/`theme=image-flow` 时默认值为 `true`；`theme=file`/`theme=image`/`theme=custom` 时默认值为 `false`
    */
   draggable?: boolean;
   /**
@@ -401,7 +401,14 @@ export interface UploadChangeContext {
   files?: UploadFile[];
 }
 
-export type UploadChangeTrigger = 'add' | 'remove' | 'abort' | 'progress-success' | 'progress' | 'progress-fail';
+export type UploadChangeTrigger =
+  | 'add'
+  | 'remove'
+  | 'abort'
+  | 'progress-success'
+  | 'progress'
+  | 'progress-fail'
+  | 'sort';
 
 export interface UploadFailContext {
   e?: ProgressEvent;

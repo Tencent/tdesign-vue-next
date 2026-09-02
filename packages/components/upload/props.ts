@@ -43,13 +43,13 @@ export default {
   },
   /** 上传请求所需的额外字段，默认字段有 `file`，表示文件信息。可以添加额外的文件名字段，如：`{file_name: "custom-file-name.txt"}`。`autoUpload=true` 时有效。也可以使用 `formatRequest` 完全自定义上传请求的字段 */
   data: {
-    type: [Object, Function] as PropType<TdUploadProps['data']>,
+    type: Object as PropType<TdUploadProps['data']>,
   },
   /** 非拖拽场景，指触发上传的元素，如：“选择文件”。如果是拖拽场景，则是指拖拽区域 */
   default: {
     type: [String, Function] as PropType<TdUploadProps['default']>,
   },
-  /** 是否禁用 */
+  /** 是否禁用组件 */
   disabled: {
     type: Boolean,
     default: undefined,
@@ -58,7 +58,7 @@ export default {
   dragContent: {
     type: [String, Function] as PropType<TdUploadProps['dragContent']>,
   },
-  /** 是否启用拖拽上传，不同的组件风格默认值不同。`theme=file` 或 `theme=image` 时有效 */
+  /** 是否启用拖拽上传。`theme` 非 `file-input` 时有效。`theme=file-flow`/`theme=image-flow` 时默认值为 `true`；`theme=file`/`theme=image`/`theme=custom` 时默认值为 `false` */
   draggable: {
     type: Boolean,
     default: undefined,
@@ -118,7 +118,7 @@ export default {
     default: 'POST' as TdUploadProps['method'],
     validator(val: TdUploadProps['method']): boolean {
       if (!val) return true;
-      return ['POST', 'GET', 'PUT', 'OPTION', 'PATCH', 'post', 'get', 'put', 'option', 'patch'].includes(val);
+      return ['POST', 'GET', 'PUT', 'OPTIONS', 'PATCH', 'post', 'get', 'put', 'options', 'patch'].includes(val);
     },
   },
   /** 模拟进度间隔时间，单位：毫秒，默认：300。由于原始的上传请求，小文件上传进度只有 0 和 100，故而新增模拟进度，每间隔 `mockProgressDuration` 毫秒刷新一次模拟进度。小文件设置小一点，大文件设置大一点。注意：当 `useMockProgress` 为真时，当前设置有效 */
@@ -178,7 +178,7 @@ export default {
   tips: {
     type: [String, Function] as PropType<TdUploadProps['tips']>,
   },
-  /** 触发上传的元素，`files` 指本次显示的全部文件 */
+  /** 触发上传的元素，`files` 指本次显示的全部文件; `triggerUpload` 用于触发上传文件的选择，在图片上传风格中有效 */
   trigger: {
     type: Function as PropType<TdUploadProps['trigger']>,
   },
