@@ -30,7 +30,7 @@ export default {
   /** 当前轮播在哪一项（下标） */
   current: {
     type: Number,
-    default: 0,
+    default: undefined,
   },
   /** 当前轮播在哪一项（下标），非受控属性 */
   defaultCurrent: {
