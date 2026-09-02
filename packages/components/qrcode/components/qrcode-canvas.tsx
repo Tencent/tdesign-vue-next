@@ -74,7 +74,7 @@ export default defineComponent({
 
       ctx.fillStyle = props.fgColor;
       if (isSupportPath2d) {
-        ctx.fill(new Path2D(generatePath(cellsToDraw.value, margin.value)));
+        ctx.fill(new Path2D(generatePath(cellsToDraw.value, margin.value, props.pixelStyle)));
       } else {
         cells.value.forEach((row, rdx) => {
           row.forEach((cell, cdx) => {

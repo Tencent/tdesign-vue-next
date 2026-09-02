@@ -4,7 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TNode } from '../common';
+import type { TNode } from '../common';
 
 export interface TdQRCodeProps {
   /**
@@ -38,6 +38,10 @@ export interface TdQRCodeProps {
    */
   level?: 'L' | 'M' | 'Q' | 'H';
   /**
+   * 二维码风格。`shape`默认值为`square`，可选值：`square`、`mini-square`、`rounded`、`dot`。`scale`仅在 `shape`为 `mini-square` 或 `dot` 时生效。`scale`值有效范围为`[0, 100]`
+   */
+  pixelStyle?: QRCodePixelStyle;
+  /**
    * 二维码大小
    * @default 160
    */
@@ -50,7 +54,7 @@ export interface TdQRCodeProps {
   /**
    * 自定义状态渲染器
    */
-  statusRender?: TNode<StatusRenderInfo>;
+  statusRender?: (info: StatusRenderInfo) => TNode;
   /**
    * 渲染类型
    * @default canvas
@@ -66,6 +70,10 @@ export interface TdQRCodeProps {
    */
   onRefresh?: () => void;
 }
+
+export type QRCodePixelStyle = { shape?: QRCodePixelShape; scale?: number };
+
+export type QRCodePixelShape = 'square' | 'mini-square' | 'rounded' | 'dot';
 
 export type QRStatus = 'active' | 'expired' | 'loading' | 'scanned';
 
