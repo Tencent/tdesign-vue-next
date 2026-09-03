@@ -103,9 +103,9 @@ export function useVModel(
   const { modelValue } = refsProps;
   let vm;
   if (propName === 'value') {
-    vm = tdUseVModel(refsProps[propName], modelValue, props[defaultPropName], props[eventPropName], propName);
+    vm = tdUseVModel(refsProps[propName], modelValue, props[defaultPropName], refsProps[eventPropName], propName);
   } else {
-    vm = tdUseDefaultValue(refsProps[propName], props[defaultPropName], props[eventPropName], propName);
+    vm = tdUseDefaultValue(refsProps[propName], props[defaultPropName], refsProps[eventPropName], propName);
   }
   return vm;
 }

@@ -22,14 +22,14 @@ const DEFAULT_KEYS = {
 };
 
 export function useMultiple(props: TdSelectInputProps, context: SetupContext, popupRef: Ref<PopupInstanceFunctions>) {
-  const { inputValue } = toRefs(props);
+  const { inputValue, onInputChange: onInputChangeRef } = toRefs(props);
   const classPrefix = usePrefixClass();
   const tagInputRef = ref();
   const isMultipleFocus = ref(props.autofocus);
   const [tInputValue, setTInputValue] = useDefaultValue(
     inputValue,
     props.defaultInputValue,
-    props.onInputChange,
+    onInputChangeRef,
     'inputValue',
   );
   const disable = useDisabled();

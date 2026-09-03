@@ -110,7 +110,7 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    */
   modelValue?: Array<TransferValue>;
   /**
-   * 数据列表发生变化时触发，`type` 值为 `source`，表示源列表移动到目标列表，值为 `target` 表示目标列表移动到源列表，movedValue 则表示被移动的选项
+   * 数据列表发生变化时触发，`type` 表示移动的目标列表，值为 `target` 表示源列表移动到目标列表，值为 `source` 表示目标列表移动到源列表，movedValue 则表示被移动的选项
    */
   onChange?: (targetValue: Array<TransferValue>, context: TargetParams) => void;
   /**

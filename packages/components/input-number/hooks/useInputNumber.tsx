@@ -23,9 +23,9 @@ import { StrInputProps } from '../../input';
  */
 export default function useInputNumber(props: TdInputNumberProps) {
   const { classPrefix, SIZE, STATUS } = useCommonClassName();
-  const { value, modelValue, max, min } = toRefs(props);
+  const { value, modelValue, max, min, onChange: onChangeRef } = toRefs(props);
   // 统一处理受控、非受控、语法糖 v-model 等
-  const [tValue, setTValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+  const [tValue, setTValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
   const inputRef = ref();
   const userInput = ref('');
 
