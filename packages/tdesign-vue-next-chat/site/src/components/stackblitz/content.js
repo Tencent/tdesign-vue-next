@@ -1,4 +1,4 @@
-import { tdesignVueNextChatPackageJson, tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
+import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
 import { catalogs } from '@tdesign/internal-utils/catalogs';
 
 export const htmlContent = `
@@ -78,7 +78,9 @@ export const packageJSONContent = JSON.stringify(
       marked: catalogs.deps.marked,
       'tdesign-vue-next': tdesignVueNextPackageJson.version,
       'tdesign-icons-vue-next': catalogs.tdesign['tdesign-icons-vue-next'],
-      '@tdesign-vue-next/chat': tdesignVueNextChatPackageJson.version,
+      // TODO: Switch back to the package version after the split-package migration is released.
+      '@tdesign-vue-next/chat':
+        'https://pkg.pr.new/Tencent/tdesign-vue-next/@tdesign-vue-next/chat@92e6296fb9d1f954ab2292e9d268921336a6e0ac',
       'highlight.js': catalogs.deps['highlight.js'],
       'marked-highlight': catalogs.docs['marked-highlight'],
     },
