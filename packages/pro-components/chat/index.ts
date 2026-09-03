@@ -32,10 +32,9 @@ import {
 } from './type';
 
 import './style';
-import 'tdesign-web-components/lib/style/index.css';
-import 'tdesign-web-components/lib/chat-message/content/search-content';
-import 'tdesign-web-components/lib/chat-message/content/suggestion-content';
-import { TdMarkdownEngine } from 'tdesign-web-components/lib/chat-message';
+import '@tdesign/web-components-chat/style/index.css';
+import '@tdesign/web-components-chat/chat-message';
+import { TdMarkdownEngine } from '@tdesign/web-components-chat/chat-message';
 
 export * from './type';
 
@@ -104,7 +103,7 @@ export {
   getMessageContentForCopy,
   isAIMessage,
   isToolCallContent,
-} from 'tdesign-web-components/lib/chat-engine';
+} from '@tdesign/web-components-chat/chat-engine';
 
 export type {
   SSEChunkData,
@@ -112,4 +111,4 @@ export type {
   ChatRequestParams,
   ChatMessagesData,
   ChatServiceConfig,
-} from 'tdesign-web-components/lib/chat-engine';
+} from '@tdesign/web-components-chat/chat-engine';

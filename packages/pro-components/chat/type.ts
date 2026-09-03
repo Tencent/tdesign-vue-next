@@ -8,7 +8,13 @@ import { AvatarProps } from 'tdesign-vue-next';
 import { TextareaProps } from 'tdesign-vue-next';
 import { CollapsePanelProps } from 'tdesign-vue-next';
 import { TNode } from 'tdesign-vue-next';
-import { AIMessageContent, ChatMessageRole, ChatMessageStatus, UserMessageContent } from 'tdesign-web-components';
+import type {
+  AIMessageContent,
+  ChatMessageRole,
+  ChatMessageStatus,
+  UserMessageContent,
+} from '@tdesign/web-components-chat/chat-engine';
+import type { UploadActionType } from '@tdesign/web-components-chat/chat-sender';
 
 export interface TdChatProps {
   /**
@@ -457,8 +463,6 @@ export interface TdChatReasoning {
   collapsed?: boolean;
 }
 
-export type UploadActionType = 'uploadAttachment' | 'uploadImage';
-
 export interface UploadActionConfig {
   /**
    * 动作名称，标识上传类型
@@ -487,8 +491,49 @@ export interface UploadActionConfig {
   action: (params: { files: File[]; name: UploadActionType; e?: Event }) => void;
 }
 
-export type * from 'tdesign-web-components/lib/chat-sender/type';
-export type * from 'tdesign-web-components/lib/filecard/type';
-export type * from 'tdesign-web-components/lib/chat-message/index';
-export type * from 'tdesign-web-components/lib/chatbot/type';
-export type * from 'tdesign-web-components/lib/chat-action/type';
+export type {
+  TdChatSenderAction,
+  TdChatSenderActionName,
+  TdChatSenderApi,
+  TdChatSenderParams,
+  TdChatSenderUploadProps,
+  UploadActionType,
+} from '@tdesign/web-components-chat/chat-sender';
+export type { TdAttachmentItem, TdFileCardProps } from '@tdesign/web-components-chat/filecard';
+export type {
+  TdChatAttachmentContentProps,
+  TdChatContentMDOptions,
+  TdChatContentMDPluginConfig,
+  TdChatContentMDPresetConfig,
+  TdChatContentMDPresetPlugin,
+  TdChatMarkdownContentProps,
+  TdChatMessageAction,
+  TdChatMessageActionData,
+  TdChatMessageActionDataMap,
+  TdChatMessageActionHandlers,
+  TdChatMessageActionName,
+  TdChatMessageProps,
+  TdChatMessageVariant,
+  TdChatSearchContentProps,
+  TdChatSuggestionContentProps,
+  TdChatThinkContentProps,
+} from '@tdesign/web-components-chat/chat-message';
+export type {
+  BackBottomParams,
+  FetchSSEOptions,
+  Layout,
+  MetaData,
+  ModelRoleEnum,
+  ScrollPosition,
+  SSEEvent,
+  TdChatbotApi,
+  TdChatCodeProps,
+  TdChatInjectCSS,
+  TdChatListApi,
+  TdChatListProps,
+  TdChatListScrollToOptions,
+  TdChatMessageActionEvent,
+  TdChatMessageConfig,
+  TdChatMessageConfigItem,
+} from '@tdesign/web-components-chat/chatbot';
+export type { TdChatActionData, TdChatActionItem, TdChatActionsName } from '@tdesign/web-components-chat/chat-action';
