@@ -360,12 +360,18 @@ export default defineComponent({
       setValidateMessage,
     });
 
+    const formItemRef = ref<HTMLElement>(null);
+    let unregisterFormItem: () => void;
+
     onMounted(() => {
       initialValue.value = cloneDeep(value.value);
       form?.children.push(context);
+      // 无 name 的表单项（如提交/重置按钮容器）不参与末位判定
+      unregisterFormItem = !props.name ? undefined : form?.registerFormItem(formItemRef.value);
     });
 
     onBeforeUnmount(() => {
+      unregisterFormItem?.();
       if (form) form.children = form?.children.filter((ctx) => ctx !== context);
     });
 
@@ -391,12 +397,18 @@ export default defineComponent({
       return form?.showErrorMessage;
     });
 
+    const isLastFormItem = computed(() => {
+      const el = formItemRef.value;
+      return !!el && !!form?.lastFormItemElements.has(el);
+    });
+
     const classes = computed(() => [
       CLASS_NAMES.value.formItem,
       getFormItemClassName(formItemClassPrefix.value, props.name),
       {
         [CLASS_NAMES.value.formItemWithHelp]: helpNode.value,
         [CLASS_NAMES.value.formItemWithExtra]: extraNode.value,
+        [`${CLASS_NAMES.value.formItem}--last`]: isLastFormItem.value,
       },
     ]);
     const helpNode = computed<VNode>(() => {
@@ -435,7 +447,7 @@ export default defineComponent({
     });
 
     return () => (
-      <div class={classes.value}>
+      <div ref={formItemRef} class={classes.value}>
         {renderLabel()}
         <div class={contentClasses.value} style={contentStyle.value}>
           <div class={CLASS_NAMES.value.controlsContent}>
