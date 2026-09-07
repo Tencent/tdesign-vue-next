@@ -74,11 +74,12 @@
 <script setup lang="ts">
 import { ref, onBeforeUnmount } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
-import ChatEngine, {
+import {
+  ChatEngine,
   ChatEngineEventType,
   type SSEChunkData,
   type AIMessageContent,
-} from 'tdesign-web-components/lib/chat-engine';
+} from '@tdesign/web-components-chat/chat-engine';
 
 /**
  * Headless 事件总线示例

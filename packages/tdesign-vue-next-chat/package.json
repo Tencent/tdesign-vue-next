@@ -36,20 +36,21 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "catalog:deps",
+    "@tdesign/web-components": "^1.3.2",
+    "@tdesign/web-components-chat": "^1.3.3",
     "@types/lodash-es": "catalog:types",
     "clipboard": "catalog:deps",
     "highlight.js": "catalog:deps",
     "lodash-es": "catalog:deps",
     "marked": "catalog:deps",
     "marked-highlight": "catalog:docs",
+    "omi-vueify": "^0.0.12",
     "tdesign-icons-vue-next": "catalog:tdesign",
-    "tdesign-vue-next": "workspace:^",
-    "tdesign-web-components": "1.3.1-alpha.14",
-    "omi-vueify": "^0.0.12"
+    "tdesign-vue-next": "workspace:^"
   },
   "devDependencies": {
-    "tvision-charts-vue-next": "^3.3.13",
-    "highlight.js": "^11.11.1"
+    "highlight.js": "^11.11.1",
+    "tvision-charts-vue-next": "^3.3.13"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"

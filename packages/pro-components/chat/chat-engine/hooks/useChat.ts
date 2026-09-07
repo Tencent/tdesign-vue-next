@@ -1,15 +1,27 @@
-import { ref, onMounted, onUnmounted, watch, type Ref } from 'vue';
-import type { ChatMessagesData, ChatStatus, ChatServiceConfig } from 'tdesign-web-components/lib/chat-engine';
-import { TdChatProps } from 'tdesign-web-components';
-import ChatEngine from 'tdesign-web-components/lib/chat-engine';
+import { ref, shallowRef, onMounted, onUnmounted, watch, type Ref } from 'vue';
+import { ChatEngine } from '@tdesign/web-components-chat/chat-engine';
+import type {
+  ChatMessagesData,
+  ChatStatus,
+  ChatServiceConfigSetter,
+  IChatEngine,
+} from '@tdesign/web-components-chat/chat-engine';
+import type { TdChatProps } from '@tdesign/web-components-chat';
+
+export interface UseChatReturn {
+  chatEngine: Ref<IChatEngine | null>;
+  messages: Ref<ChatMessagesData[]>;
+  status: Ref<ChatStatus>;
+}
 
 export const useChat = (options: {
   defaultMessages: TdChatProps['defaultMessages'];
-  chatServiceConfig: ChatServiceConfig;
-}) => {
+  chatServiceConfig: ChatServiceConfigSetter;
+}): UseChatReturn => {
   const messages: Ref<ChatMessagesData[]> = ref([]);
   const status: Ref<ChatStatus> = ref('idle');
-  const chatEngineRef = ref<ChatEngine | null>(null);
+  // ChatEngine 内含类实例和私有状态，使用 shallowRef 避免 Vue 深层解包破坏其类型。
+  const chatEngineRef = shallowRef<IChatEngine | null>(null);
   const msgSubscribeRef = ref<(() => void) | null>(null);
   const prevInitialMessages = ref<ChatMessagesData[]>([]);
 
@@ -41,6 +53,8 @@ export const useChat = (options: {
     if (msgSubscribeRef.value) {
       msgSubscribeRef.value();
     }
+    chatEngineRef.value?.destroy();
+    chatEngineRef.value = null;
   });
 
   // 监听 defaultMessages 变化
