@@ -66,6 +66,7 @@ export default defineComponent({
         fgColor: finalFgColor.value,
         imageSettings: props.icon ? imageSettings.value : undefined,
         level: props.level,
+        pixelStyle: props.pixelStyle,
       };
 
       return (

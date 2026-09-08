@@ -39,6 +39,10 @@ export default {
       return ['L', 'M', 'Q', 'H'].includes(val);
     },
   },
+  /** 二维码风格。`shape`默认值为`square`，可选值：`square`、`mini-square`、`rounded`、`dot`。`scale`仅在 `shape`为 `mini-square` 或 `dot` 时生效。`scale`值有效范围为`[0, 100]` */
+  pixelStyle: {
+    type: Object as PropType<TdQRCodeProps['pixelStyle']>,
+  },
   /** 二维码大小 */
   size: {
     type: Number,

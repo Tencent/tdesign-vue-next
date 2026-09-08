@@ -50,7 +50,7 @@ export default defineComponent({
 
     return () => {
       const { margin, numCells } = qrCodeData.value;
-      const fgPath = generatePath(cellsToDraw.value, margin.value);
+      const fgPath = generatePath(cellsToDraw.value, margin.value, props.pixelStyle);
       return (
         <svg
           height={props.size}

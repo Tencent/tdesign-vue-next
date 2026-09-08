@@ -1,7 +1,7 @@
 import { CanvasHTMLAttributes, CSSProperties, SVGAttributes } from 'vue';
 import type { ErrorCorrectionLevel, ImageSettings } from '@tdesign/common-js/qrcode/types';
 import { QRCodeConfig } from '@tdesign/components/config-provider/type';
-import { StatusRenderInfo, TdQRCodeProps } from '../type';
+import { QRCodePixelStyle, StatusRenderInfo, TdQRCodeProps } from '../type';
 
 export interface QRCodeSubComponent {
   /**
@@ -66,6 +66,12 @@ export interface QRCodeSubComponent {
    * @defaultValue 1
    */
   minVersion?: number;
+  /**
+   * The pixel style applied to data modules. Function modules (finder /
+   * alignment / timing / format / version) stay as the traditional solid
+   * square and ignore this.
+   */
+  pixelStyle?: QRCodePixelStyle;
 }
 
 export type QRCodeCanvas = QRCodeSubComponent & CanvasHTMLAttributes;
