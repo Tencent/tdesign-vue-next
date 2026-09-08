@@ -1,5 +1,5 @@
 import { glob } from 'glob';
-import { readFile, writeFile, remove, mkdir } from 'fs-extra';
+import { readFile, writeFile, remove, mkdir, ensureDir } from 'fs-extra';
 import { rollup, Plugin } from 'rollup';
 import url from '@rollup/plugin-url';
 import copy from 'rollup-plugin-copy';
@@ -42,6 +42,16 @@ const banner = `/**
 `;
 
 const input = joinProComponentsChatRoot('index-lib.ts');
+const webComponentsStyle = joinProComponentsChatRoot('style/web-components.css');
+
+const copyWebComponentsStyle = async (outputDir: 'es' | 'esm') => {
+  const styleDir = joinTdesignVueNextChatRoot(`${outputDir}/style`);
+  await ensureDir(styleDir);
+  await writeFile(
+    joinTdesignVueNextChatRoot(`${outputDir}/style/web-components.css`),
+    await readFile(webComponentsStyle),
+  );
+};
 
 const inputList = [
   joinProComponentsChatRoot('**/*.ts'),
@@ -199,6 +209,7 @@ export const buildEs = async () => {
   };
   await buildCss();
   await buildComp();
+  await copyWebComponentsStyle('es');
 };
 
 export const buildEsm = async () => {
@@ -235,6 +246,7 @@ export const buildEsm = async () => {
     `import 'tdesign-vue-next/esm/style/index.js';`, // 直接复用 vue-next 的 style
     'utf8',
   );
+  await copyWebComponentsStyle('esm');
 };
 
 export const buildLib = async () => {
