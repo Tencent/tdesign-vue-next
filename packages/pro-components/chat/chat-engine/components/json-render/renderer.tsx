@@ -1,5 +1,5 @@
 /* eslint-disable vue/one-component-per-file */
-import { defineComponent, h, shallowRef, watch, type Component, type PropType, type VNode } from 'vue';
+import { defineComponent, h, shallowRef, toRaw, watch, type Component, type PropType, type VNode } from 'vue';
 import { evaluateVisibility, type ActionBinding, type UIElement } from '@json-render/core';
 import type { JsonRenderSchema } from '@tdesign/web-components-chat/chat-engine';
 import {
@@ -37,7 +37,7 @@ const ElementRenderer: Component = defineComponent({
       });
       if (!visible) return null;
 
-      const component = props.registry[element.type] || props.fallback;
+      const component = toRaw(props.registry[element.type] || props.fallback);
       if (!component) {
         console.warn(`[json-render] Unknown component type: ${element.type}`);
         return null;

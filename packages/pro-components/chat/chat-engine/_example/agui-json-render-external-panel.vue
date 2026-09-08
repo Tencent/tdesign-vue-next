@@ -17,12 +17,12 @@
           <summary>查看原始 Schema</summary>
           <pre>{{ JSON.stringify(externalActivity, null, 2) }}</pre>
         </details>
-        <ActivityRenderer
-          :activity="{
-            activityType: 'json-render-main-card',
-            content: externalActivity,
-            messageId: 'external-panel',
-          }"
+        <JsonRenderActivityRenderer
+          activity-type="json-render-main-card"
+          :content="externalActivity"
+          message-id="external-panel"
+          :registry="registry"
+          :action-handlers="actionHandlers"
         />
       </template>
       <t-empty v-else description="等待 AGUI_ACTIVITY 事件" />
@@ -34,11 +34,9 @@
 import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 import {
-  ActivityRenderer,
   ChatEngineEventType,
+  JsonRenderActivityRenderer,
   createCustomRegistry,
-  createJsonRenderActivityConfig,
-  useAgentActivity,
   useChat,
   type ChatRequestParams,
   type JsonRenderSchema,
@@ -68,17 +66,11 @@ const { chatEngine, status } = useChat({
 });
 
 const registry = createCustomRegistry({ StatusCard, ProgressBar });
-useAgentActivity(
-  createJsonRenderActivityConfig({
-    activityType: 'json-render-main-card',
-    registry,
-    actionHandlers: {
-      submit: () => MessagePlugin.success('提交成功'),
-      refresh: () => MessagePlugin.info('数据已刷新'),
-      export: () => MessagePlugin.success('导出成功'),
-    },
-  }),
-);
+const actionHandlers = {
+  submit: () => MessagePlugin.success('提交成功'),
+  refresh: () => MessagePlugin.info('数据已刷新'),
+  export: () => MessagePlugin.success('导出成功'),
+};
 
 watch(
   chatEngine,

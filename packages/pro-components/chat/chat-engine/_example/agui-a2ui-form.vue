@@ -11,11 +11,14 @@
         :message="message"
         :placement="message.role === 'user' ? 'right' : 'left'"
         :variant="message.role === 'user' ? 'base' : 'text'"
+        allow-content-segment-custom
       >
-        <template v-if="Array.isArray(message.content)">
-          <template v-for="(item, index) in message.content" :key="`${message.id}-${index}`">
-            <ActivityRenderer v-if="isActivityContent(item)" :activity="item.data" />
-          </template>
+        <template
+          v-for="{ item, index } in getActivityContents(message)"
+          :key="`${message.id}-${index}`"
+          #[`${item.type}-${index}`]
+        >
+          <ActivityRenderer :activity="item.data" />
         </template>
       </t-chat-message>
     </t-chat-list>
@@ -40,6 +43,7 @@ import {
   isActivityContent,
   useAgentActivity,
   useChat,
+  type ChatMessagesData,
   type ChatRequestParams,
 } from '@tdesign-vue-next/chat';
 import { BookingSummary } from './components/JsonRenderCustomComponents';
@@ -109,6 +113,11 @@ useAgentActivity(
     },
   }),
 );
+
+const getActivityContents = (message: ChatMessagesData) =>
+  Array.isArray(message.content)
+    ? message.content.map((item, index) => ({ item, index })).filter(({ item }) => isActivityContent(item))
+    : [];
 
 const handleSend = async (value: string) => {
   if (!value.trim()) return;

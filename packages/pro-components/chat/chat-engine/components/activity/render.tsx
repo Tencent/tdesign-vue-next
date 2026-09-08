@@ -1,4 +1,5 @@
-import { computed, defineComponent, h } from 'vue';
+import { computed, defineComponent, h, shallowRef, watch } from 'vue';
+import { cloneDeep } from 'lodash-es';
 import type { ActivityData } from '@tdesign/web-components-chat/chat-engine';
 import type { ActivityComponentProps } from './types';
 import { activityRegistry, ACTIVITY_REGISTERED_EVENT, ACTIVITY_EVENT_DETAIL_KEY } from './registry';
@@ -44,16 +45,24 @@ export default defineComponent({
       getRenderFunction: activityRegistry.getRenderFunction,
     });
 
-    // 缓存组件 props
-    const componentProps = computed<ActivityComponentProps>(() => ({
-      activityType: props.activity.activityType,
-      content: props.activity.content,
-      messageId: props.activity.messageId || '',
-    }));
+    // Activity Delta 只修改 content 的深层字段，content 引用可能保持不变。
+    // 使用深度监听创建新快照，确保注册组件收到新的 props 并重新渲染。
+    const componentProps = shallowRef<ActivityComponentProps>();
+    watch(
+      () => props.activity,
+      (activity) => {
+        componentProps.value = {
+          activityType: activity.activityType,
+          content: cloneDeep(activity.content),
+          messageId: activity.messageId || '',
+        };
+      },
+      { deep: true, immediate: true },
+    );
 
     return () => (
       <ComponentErrorBoundary componentName={props.activity.activityType} logPrefix="ActivityRenderer">
-        {MemoizedComponent.value ? (
+        {MemoizedComponent.value && componentProps.value ? (
           h(MemoizedComponent.value, componentProps.value)
         ) : (
           <DefaultActivityRenderer activity={props.activity} />

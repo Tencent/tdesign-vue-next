@@ -1,33 +1,60 @@
 /* eslint-disable vue/one-component-per-file */
 import { defineComponent, type PropType } from 'vue';
-import { Card, Progress, Tag } from 'tdesign-vue-next';
-import type { UIElement } from '@json-render/core';
-import { useDataValue } from '@tdesign-vue-next/chat';
+import type { ActionBinding, UIElement } from '@json-render/core';
+import { useDataValue } from '../../components/json-render';
 
 const componentProps = {
   element: { type: Object as PropType<UIElement>, required: true },
   children: { type: null as unknown as PropType<any>, default: undefined as any },
+  onAction: {
+    type: Function as PropType<(action: ActionBinding) => void>,
+    default: undefined as any,
+  },
+  loading: Boolean,
 } as const;
 
 export const StatusCard = defineComponent({
   name: 'JsonRenderStatusCard',
   props: componentProps,
   setup: (props) => () => {
-    const { title, status = 'info', description } = (props.element.props || {}) as Record<string, any>;
-    const themeMap = {
-      success: 'success',
-      warning: 'warning',
-      error: 'danger',
-      info: 'primary',
-    } as const;
+    const { title, status = 'info', description, icon } = (props.element.props || {}) as Record<string, any>;
+    const colors = {
+      success: '#52c41a',
+      warning: '#faad14',
+      error: '#f5222d',
+      info: '#1890ff',
+    };
+    const icons = { success: '✓', warning: '⚠', error: '✗', info: 'ℹ' };
+    const color = colors[status as keyof typeof colors] || colors.info;
     return (
-      <Card bordered>
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
-          <strong>{title}</strong>
-          <Tag theme={themeMap[status as keyof typeof themeMap] || 'default'}>{status}</Tag>
+      <div
+        style={{
+          display: 'flex',
+          gap: '12px',
+          alignItems: 'flex-start',
+          padding: '16px',
+          border: `2px solid ${color}`,
+          borderRadius: '8px',
+          backgroundColor: `${color}10`,
+        }}
+      >
+        <div style={{ fontSize: '24px', color }}>{icon || icons[status as keyof typeof icons]}</div>
+        <div style={{ flex: 1 }}>
+          <div
+            style={{
+              marginBottom: description ? '4px' : 0,
+              fontSize: '16px',
+              fontWeight: 600,
+              color,
+            }}
+          >
+            {title}
+          </div>
+          {description ? (
+            <div style={{ fontSize: '14px', color: 'var(--td-text-color-secondary)' }}>{description}</div>
+          ) : null}
         </div>
-        {description ? <p style="margin: 8px 0 0; color: var(--td-text-color-secondary)">{description}</p> : null}
-      </Card>
+      </div>
     );
   },
 });
@@ -37,10 +64,33 @@ export const ProgressBar = defineComponent({
   props: componentProps,
   setup: (props) => () => {
     const { label, percentage = 0, showInfo = true } = (props.element.props || {}) as Record<string, any>;
+    const color = percentage < 30 ? '#f5222d' : percentage < 70 ? '#faad14' : '#52c41a';
     return (
-      <div>
-        {label ? <div style="margin-bottom: 8px">{label}</div> : null}
-        <Progress percentage={percentage} label={showInfo} />
+      <div style={{ width: '100%' }}>
+        {label ? <div style={{ marginBottom: '8px', fontSize: '14px', fontWeight: 500 }}>{label}</div> : null}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div
+            style={{
+              flex: 1,
+              height: '20px',
+              overflow: 'hidden',
+              backgroundColor: 'var(--td-bg-color-component)',
+              borderRadius: '10px',
+            }}
+          >
+            <div
+              style={{
+                width: `${percentage}%`,
+                height: '100%',
+                backgroundColor: color,
+                transition: 'width 0.3s ease',
+              }}
+            />
+          </div>
+          {showInfo ? (
+            <span style={{ minWidth: '45px', fontSize: '14px', fontWeight: 600, color }}>{percentage}%</span>
+          ) : null}
+        </div>
       </div>
     );
   },
@@ -53,24 +103,59 @@ export const NestedPanel = defineComponent({
     const {
       title,
       level = 1,
-      borderColor = 'var(--td-component-border)',
-      backgroundColor = 'var(--td-bg-color-container)',
+      collapsed = false,
+      borderColor = '#e0e0e0',
+      backgroundColor = '#fafafa',
     } = (props.element.props || {}) as Record<string, any>;
+    const levelColors = [
+      { border: '#1890ff', bg: '#e6f7ff' },
+      { border: '#52c41a', bg: '#f6ffed' },
+      { border: '#faad14', bg: '#fffbe6' },
+      { border: '#f5222d', bg: '#fff2f0' },
+    ];
+    const colorScheme = levelColors[(level - 1) % levelColors.length];
+    const panelBorder = borderColor || colorScheme.border;
+    const panelBackground = backgroundColor || colorScheme.bg;
     return (
-      <section
+      <div
         style={{
-          padding: '12px',
-          border: `1px solid ${borderColor}`,
-          borderRadius: '6px',
-          backgroundColor,
+          marginTop: '8px',
+          marginBottom: '8px',
+          marginLeft: `${(level - 1) * 16}px`,
+          overflow: 'hidden',
+          backgroundColor: panelBackground,
+          border: `2px solid ${panelBorder}`,
+          borderRadius: '8px',
         }}
       >
-        <strong>
-          {title} <small style="color: var(--td-text-color-placeholder)">L{level}</small>
-        </strong>
-        <div style="margin-top: 10px">{props.children}</div>
-      </section>
+        <div
+          style={{
+            display: 'flex',
+            gap: '8px',
+            alignItems: 'center',
+            padding: '8px 12px',
+            fontSize: `${Math.max(16 - level * 2, 12)}px`,
+            fontWeight: 600,
+            color: '#fff',
+            backgroundColor: panelBorder,
+          }}
+        >
+          <span style={{ opacity: 0.8 }}>L{level}</span>
+          <span>{title}</span>
+          {collapsed ? <span style={{ fontSize: '12px', opacity: 0.7 }}>(已折叠)</span> : null}
+        </div>
+        {!collapsed ? <div style={{ padding: '12px' }}>{props.children}</div> : null}
+      </div>
     );
+  },
+});
+
+export const JsonRenderDiv = defineComponent({
+  name: 'JsonRenderDiv',
+  props: componentProps,
+  setup: (props) => () => {
+    const { children, ...elementProps } = (props.element.props || {}) as Record<string, any>;
+    return <div {...elementProps}>{children || props.children}</div>;
   },
 });
 

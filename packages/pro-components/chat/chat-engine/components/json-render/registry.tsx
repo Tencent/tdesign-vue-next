@@ -1,5 +1,5 @@
 /* eslint-disable vue/one-component-per-file */
-import { computed, defineComponent, h, type Component, type PropType } from 'vue';
+import { computed, defineComponent, h, markRaw, type Component, type PropType } from 'vue';
 import { Button, Card, Col, Divider, Input, Row, Slider, Space, Switch } from 'tdesign-vue-next';
 import { normalizeActionBinding, resolveActionParams } from '@tdesign/web-components-chat/chat-engine';
 import type { ActionBinding, UIElement } from '@json-render/core';
@@ -185,7 +185,7 @@ const createBoundControl = (name: string, component: Component) =>
 export const A2UISlider = createBoundControl('A2UISlider', Slider);
 export const A2UISwitch = createBoundControl('A2UISwitch', Switch);
 
-export const tdesignRegistry: ComponentRegistry = {
+export const tdesignRegistry: ComponentRegistry = markRaw({
   Button: JsonRenderButton,
   Input: JsonRenderInput,
   TextField: JsonRenderTextField,
@@ -196,19 +196,19 @@ export const tdesignRegistry: ComponentRegistry = {
   Space: JsonRenderSpace,
   Column: JsonRenderColumn,
   Divider: JsonRenderDivider,
-};
+});
 
 Object.entries({ ...tdesignRegistry }).forEach(([name, component]) => {
   tdesignRegistry[name.toLowerCase()] = component;
 });
 
-export const a2uiRegistry: ComponentRegistry = {
+export const a2uiRegistry: ComponentRegistry = markRaw({
   ...tdesignRegistry,
   TextField: A2UITextField,
   Button: A2UIButton,
   Slider: A2UISlider,
   Switch: A2UISwitch,
-};
+});
 
 export interface CreateCustomRegistryOptions {
   enableStableProps?: boolean;
@@ -220,20 +220,22 @@ export const withStableProps = <T extends ComponentRenderer>(component: T): T =>
 export const createCustomRegistry = (
   customComponents: ComponentRegistry,
   options: CreateCustomRegistryOptions = {},
-): ComponentRegistry => ({
-  ...tdesignRegistry,
-  ...Object.fromEntries(
-    Object.entries(customComponents).map(([name, component]) => [
-      name,
-      options.enableStableProps ? withStableProps(component) : component,
-    ]),
-  ),
-});
+): ComponentRegistry =>
+  markRaw({
+    ...tdesignRegistry,
+    ...Object.fromEntries(
+      Object.entries(customComponents).map(([name, component]) => [
+        name,
+        markRaw(options.enableStableProps ? withStableProps(component) : component),
+      ]),
+    ),
+  });
 
-export const createA2UIRegistry = (customComponents: ComponentRegistry): ComponentRegistry => ({
-  ...a2uiRegistry,
-  ...customComponents,
-});
+export const createA2UIRegistry = (customComponents: ComponentRegistry): ComponentRegistry =>
+  markRaw({
+    ...a2uiRegistry,
+    ...Object.fromEntries(Object.entries(customComponents).map(([name, component]) => [name, markRaw(component)])),
+  });
 
 export interface A2UIBindingConfig {
   valueField?: string;

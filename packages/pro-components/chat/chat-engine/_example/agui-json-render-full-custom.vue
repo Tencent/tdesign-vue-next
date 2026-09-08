@@ -1,25 +1,27 @@
 <template>
   <div class="json-render-demo">
     <div class="json-render-demo__header">
-      <strong>完整自定义组件 + json-render</strong>
-      <span>Catalog 约束 AI 输出，Registry 决定 Vue 组件实现</span>
-      <t-tag v-if="currentStage" theme="primary" variant="light">{{ currentStage }}</t-tag>
+      <h3>完整自定义组件 + json-render 演示</h3>
+      <p>AI 生成符合 Catalog 约束的 JSON → json-render 引擎解析 → Registry 查找组件实现 → 渲染真实 UI</p>
+      <div v-if="currentStage" class="json-render-demo__status">当前状态: {{ currentStage }}</div>
     </div>
 
     <t-chat-list ref="listRef" class="json-render-demo__list">
-      <t-chat-message
-        v-for="message in messages"
-        :key="message.id"
-        :message="message"
-        :placement="message.role === 'user' ? 'right' : 'left'"
-        :variant="message.role === 'user' ? 'base' : 'text'"
-      >
-        <template v-if="Array.isArray(message.content)">
-          <template v-for="(item, index) in message.content" :key="`${message.id}-${index}`">
-            <ActivityRenderer v-if="isActivityContent(item)" :activity="item.data" />
-          </template>
-        </template>
-      </t-chat-message>
+      <template v-for="message in messages" :key="message.id">
+        <t-chat-message
+          :message="getTextMessage(message)"
+          :placement="message.role === 'user' ? 'right' : 'left'"
+          :variant="message.role === 'user' ? 'base' : 'text'"
+        >
+        </t-chat-message>
+        <div
+          v-for="{ item, index } in getActivityContents(message)"
+          :key="`${message.id}-activity-${index}`"
+          class="json-render-demo__activity"
+        >
+          <ActivityRenderer :activity="item.data" />
+        </div>
+      </template>
     </t-chat-list>
 
     <t-chat-sender
@@ -45,8 +47,9 @@ import {
   useAgentActivity,
   useChat,
   type ChatRequestParams,
+  type ChatMessagesData,
 } from '@tdesign-vue-next/chat';
-import { NestedPanel, ProgressBar, StatusCard } from './components/JsonRenderCustomComponents';
+import { JsonRenderDiv, NestedPanel, ProgressBar, StatusCard } from './components/JsonRenderCustomComponents';
 
 const MOCK_SERVER = 'https://1257786608-9i9j1kpa67.ap-guangzhou.tencentscf.com';
 const inputValue = ref('测试深层嵌套更新');
@@ -61,6 +64,7 @@ const systemPrompt = generateCatalogPrompt({
         title: z.string(),
         status: z.enum(['success', 'warning', 'error', 'info']),
         description: z.string().optional(),
+        icon: z.string().optional(),
       }),
       description: '状态信息卡片',
     },
@@ -76,6 +80,7 @@ const systemPrompt = generateCatalogPrompt({
       props: z.object({
         title: z.string(),
         level: z.number().min(1).max(10).optional(),
+        collapsed: z.boolean().optional(),
         borderColor: z.string().optional(),
         backgroundColor: z.string().optional(),
       }),
@@ -97,7 +102,7 @@ const { chatEngine, messages, status } = useChat({
     stream: true,
     onRequest: (params: ChatRequestParams) => ({
       body: JSON.stringify({
-        uid: 'agui-json-render-vue-demo',
+        uid: 'agui-json-render-full-custom-demo',
         prompt: params.prompt,
         demoMode: true,
         systemPrompt,
@@ -105,14 +110,15 @@ const { chatEngine, messages, status } = useChat({
       }),
     }),
     onStart: () => {
-      currentStage.value = '开始流式传输';
+      currentStage.value = '🚀 开始流式传输';
     },
     onComplete: () => {
-      currentStage.value = '传输完成';
+      currentStage.value = '✅ 传输完成';
     },
     onError: (error) => {
-      currentStage.value = '请求失败';
-      MessagePlugin.error(error instanceof Error ? error.message : '请求失败');
+      const message = error instanceof Error ? error.message : '请求失败';
+      currentStage.value = `❌ 错误: ${message}`;
+      MessagePlugin.error(message);
     },
   },
 });
@@ -121,6 +127,7 @@ const registry = createCustomRegistry({
   StatusCard,
   ProgressBar,
   NestedPanel,
+  Div: JsonRenderDiv,
 });
 
 useAgentActivity(
@@ -149,6 +156,18 @@ useAgentActivity(
   }),
 );
 
+const getActivityContents = (message: ChatMessagesData) =>
+  Array.isArray(message.content)
+    ? message.content.map((item, index) => ({ item, index })).filter(({ item }) => isActivityContent(item))
+    : [];
+
+const getTextMessage = (message: ChatMessagesData): ChatMessagesData => ({
+  ...message,
+  content: Array.isArray(message.content)
+    ? message.content.filter((item) => !isActivityContent(item))
+    : message.content,
+});
+
 const handleSend = async (value: string) => {
   if (!value.trim()) return;
   currentStage.value = '';
@@ -166,25 +185,40 @@ const handleStop = () => {
 .json-render-demo {
   display: flex;
   flex-direction: column;
-  height: 680px;
+  height: 600px;
 }
 
 .json-render-demo__header {
-  display: flex;
-  gap: 12px;
-  align-items: center;
   padding: 12px;
-  margin-bottom: 12px;
-  background: var(--td-bg-color-secondarycontainer);
-  border-radius: var(--td-radius-medium);
+  margin-bottom: 16px;
+  background: #f5f5f5;
+  border-radius: 4px;
 }
 
-.json-render-demo__header span {
+.json-render-demo__header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.json-render-demo__header p {
+  margin: 4px 0 0;
+  font-size: 12px;
   color: var(--td-text-color-secondary);
+}
+
+.json-render-demo__status {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--td-text-color-primary);
 }
 
 .json-render-demo__list {
   flex: 1;
   overflow: auto;
+}
+
+.json-render-demo__activity {
+  width: 100%;
+  margin-bottom: var(--td-comp-margin-xxl);
 }
 </style>

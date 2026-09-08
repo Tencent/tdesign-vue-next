@@ -17,11 +17,14 @@
           :key="message.id"
           v-bind="messageProps[message.role]"
           :message="message"
+          allow-content-segment-custom
         >
-          <template v-if="Array.isArray(message.content)">
-            <template v-for="(item, index) in message.content" :key="`content-${index}`">
-              <ActivityRenderer v-if="isActivityContent(item)" :activity="item.data" />
-            </template>
+          <template
+            v-for="{ item, index } in getActivityContents(message)"
+            :key="`content-${index}`"
+            #[`${item.type}-${index}`]
+          >
+            <ActivityRenderer :activity="item.data" />
           </template>
         </t-chat-message>
       </t-chat-list>
@@ -42,6 +45,7 @@ import { ref, computed } from 'vue';
 import { Space as TSpace, Card, Tag, Progress } from 'tdesign-vue-next';
 import { CheckCircleFilledIcon, TimeFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { useChat, useAgentActivity, isActivityContent, ActivityRenderer } from '@tdesign-vue-next/chat';
+import type { ChatMessagesData } from '@tdesign-vue-next/chat';
 import type { ActivityComponentProps } from '../components/activity/types';
 
 /**
@@ -313,6 +317,11 @@ const { chatEngine, messages, status } = useChat({
 });
 
 const senderLoading = computed(() => status.value === 'pending' || status.value === 'streaming');
+
+const getActivityContents = (message: ChatMessagesData) =>
+  Array.isArray(message.content)
+    ? message.content.map((item, index) => ({ item, index })).filter(({ item }) => isActivityContent(item))
+    : [];
 
 // 消息配置
 const messageProps = {
