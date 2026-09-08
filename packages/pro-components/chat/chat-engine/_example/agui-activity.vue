@@ -45,8 +45,7 @@ import { ref, computed } from 'vue';
 import { Space as TSpace, Card, Tag, Progress } from 'tdesign-vue-next';
 import { CheckCircleFilledIcon, TimeFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { useChat, useAgentActivity, isActivityContent, ActivityRenderer } from '@tdesign-vue-next/chat';
-import type { ChatMessagesData } from '@tdesign-vue-next/chat';
-import type { ActivityComponentProps } from '../components/activity/types';
+import type { ActivityComponentProps, ChatMessagesData } from '@tdesign-vue-next/chat';
 
 /**
  * Activity 示例 - 规划步骤（Plan TodoList）

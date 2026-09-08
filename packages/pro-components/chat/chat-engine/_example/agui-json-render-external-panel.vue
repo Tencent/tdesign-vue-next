@@ -41,7 +41,8 @@ import {
   type ChatRequestParams,
   type JsonRenderSchema,
 } from '@tdesign-vue-next/chat';
-import { ProgressBar, StatusCard } from './components/JsonRenderCustomComponents';
+import ProgressBar from './components/progress-bar.vue';
+import StatusCard from './components/status-card.vue';
 
 const MOCK_SERVER = 'https://1257786608-9i9j1kpa67.ap-guangzhou.tencentscf.com';
 const inputValue = ref('创建一个任务进度表单，包含状态卡片和进度条');

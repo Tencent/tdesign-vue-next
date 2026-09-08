@@ -49,7 +49,10 @@ import {
   type ChatRequestParams,
   type ChatMessagesData,
 } from '@tdesign-vue-next/chat';
-import { JsonRenderDiv, NestedPanel, ProgressBar, StatusCard } from './components/JsonRenderCustomComponents';
+import JsonRenderDiv from './components/json-render-div.vue';
+import NestedPanel from './components/nested-panel.vue';
+import ProgressBar from './components/progress-bar.vue';
+import StatusCard from './components/status-card.vue';
 
 const MOCK_SERVER = 'https://1257786608-9i9j1kpa67.ap-guangzhou.tencentscf.com';
 const inputValue = ref('测试深层嵌套更新');

@@ -56,7 +56,7 @@ import {
   isToolCallContent,
   ToolCallRenderer,
 } from '@tdesign-vue-next/chat';
-import ImageGenProgress from './components/ImageGenProgress.vue';
+import ImageGenProgress from './components/image-gen-progress.vue';
 
 /**
  * AG-UI 工具调用示例
