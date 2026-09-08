@@ -25,7 +25,13 @@ const elementProps = computed(() => (props.element.props || {}) as Record<string
 const label = computed(() => elementProps.value.label as string | undefined);
 const percentage = computed(() => Number(elementProps.value.percentage || 0));
 const showInfo = computed(() => elementProps.value.showInfo !== false);
-const color = computed(() => (percentage.value < 30 ? '#f5222d' : percentage.value < 70 ? '#faad14' : '#52c41a'));
+const color = computed(() =>
+  percentage.value < 30
+    ? 'var(--td-error-color)'
+    : percentage.value < 70
+    ? 'var(--td-warning-color)'
+    : 'var(--td-success-color)',
+);
 </script>
 
 <style scoped>

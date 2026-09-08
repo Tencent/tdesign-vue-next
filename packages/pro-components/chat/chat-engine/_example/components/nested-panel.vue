@@ -33,10 +33,10 @@ const props = defineProps<{
 }>();
 
 const levelColors = [
-  { border: '#1890ff', background: '#e6f7ff' },
-  { border: '#52c41a', background: '#f6ffed' },
-  { border: '#faad14', background: '#fffbe6' },
-  { border: '#f5222d', background: '#fff2f0' },
+  { border: 'var(--td-brand-color)', background: 'var(--td-brand-color-light)' },
+  { border: 'var(--td-success-color)', background: 'var(--td-success-color-light)' },
+  { border: 'var(--td-warning-color)', background: 'var(--td-warning-color-light)' },
+  { border: 'var(--td-error-color)', background: 'var(--td-error-color-light)' },
 ];
 const elementProps = computed(() => (props.element.props || {}) as Record<string, unknown>);
 const title = computed(() => elementProps.value.title as string);
@@ -62,7 +62,7 @@ const panelBackground = computed(() => (elementProps.value.backgroundColor as st
   align-items: center;
   padding: 8px 12px;
   font-weight: 600;
-  color: #fff;
+  color: var(--td-text-color-anti);
 }
 
 .nested-panel__level {

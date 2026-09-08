@@ -194,7 +194,9 @@ const handleStop = () => {
 .json-render-demo__header {
   padding: 12px;
   margin-bottom: 16px;
-  background: #f5f5f5;
+  color: var(--td-text-color-primary);
+  background: var(--td-bg-color-secondarycontainer);
+  border: 1px solid var(--td-component-border);
   border-radius: 4px;
 }
 
