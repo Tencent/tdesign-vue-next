@@ -32,7 +32,6 @@ import {
 } from './type';
 
 import './style';
-import '@tdesign/web-components-chat/style/index.css';
 import '@tdesign/web-components-chat/chat-message';
 import { TdMarkdownEngine } from '@tdesign/web-components-chat/chat-message';
 
