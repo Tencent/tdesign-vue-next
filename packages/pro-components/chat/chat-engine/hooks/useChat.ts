@@ -24,6 +24,7 @@ export const useChat = (options: {
   const chatEngineRef = shallowRef<IChatEngine | null>(null);
   const msgSubscribeRef = ref<(() => void) | null>(null);
   const prevInitialMessages = ref<ChatMessagesData[]>([]);
+  let mounted = false;
 
   const syncState = (state: ChatMessagesData[]) => {
     messages.value = state;
@@ -33,23 +34,27 @@ export const useChat = (options: {
   const subscribeToChat = () => {
     if (!chatEngineRef.value) return;
 
+    msgSubscribeRef.value?.();
     msgSubscribeRef.value = chatEngineRef.value.messageStore.subscribe((state) => {
       syncState(state.messages);
     });
   };
 
-  const initChat = () => {
+  const initChat = async () => {
     chatEngineRef.value = new ChatEngine();
-    chatEngineRef.value.init(options.chatServiceConfig, options.defaultMessages);
+    await chatEngineRef.value.init(options.chatServiceConfig, options.defaultMessages);
+    if (!mounted) return;
     syncState(options.defaultMessages || []);
     subscribeToChat();
   };
 
   onMounted(() => {
+    mounted = true;
     initChat();
   });
 
   onUnmounted(() => {
+    mounted = false;
     if (msgSubscribeRef.value) {
       msgSubscribeRef.value();
     }

@@ -10,7 +10,9 @@
     "tdesign-icons-vue-next": "catalog:tdesign"
   },
   "devDependencies": {
-    "@types/lodash-es": "catalog:types"
+    "@json-render/core": "^0.19.0",
+    "@types/lodash-es": "catalog:types",
+    "zod": "^4.3.6"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"
