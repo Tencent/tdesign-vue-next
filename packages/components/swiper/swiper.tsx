@@ -1,4 +1,4 @@
-import { cloneVNode, computed, defineComponent, isVNode, onMounted, ref, watch } from 'vue';
+import { cloneVNode, computed, defineComponent, isVNode, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import {
@@ -33,12 +33,12 @@ export default defineComponent({
       ChevronRightIcon: TdChevronRightIcon,
     });
     let swiperTimer: ReturnType<typeof setTimeout> | null = null;
-    let swiperSwitchingTimer = 0;
+    let swiperSwitchingTimer: ReturnType<typeof setTimeout> | null = null;
     let isBeginToEnd = false;
     let isEndToBegin = false;
 
-    const currentIndex = ref(props.current || props.defaultCurrent);
-    const navActiveIndex = ref(props.current || props.defaultCurrent);
+    const currentIndex = ref(props.current ?? props.defaultCurrent);
+    const navActiveIndex = ref(props.current ?? props.defaultCurrent);
     const isHovering = ref(false);
     const isSwitching = ref(false);
     const showArrow = ref(false);
@@ -170,9 +170,15 @@ export default defineComponent({
       currentIndex.value = targetIndex;
     };
     const clearTimer = () => {
-      if (swiperTimer) {
+      if (swiperTimer !== null) {
         clearTimeout(swiperTimer);
         swiperTimer = null;
+      }
+    };
+    const clearSwitchingTimer = () => {
+      if (swiperSwitchingTimer !== null) {
+        clearTimeout(swiperSwitchingTimer);
+        swiperSwitchingTimer = null;
       }
     };
     const setTimer = () => {
@@ -258,7 +264,9 @@ export default defineComponent({
     const renderNavigation = () => {
       if (isVNode(props.navigation)) return props.navigation;
       const navigationSlot = renderTNodeJSX('navigation');
-      if (navigationSlot && isVNode(navigationSlot?.[0])) return navigationSlot;
+      if (typeof props.navigation === 'function' || (navigationSlot && isVNode(navigationSlot?.[0]))) {
+        return navigationSlot;
+      }
 
       if (navigationConfig.value.type === 'fraction') {
         return (
@@ -311,27 +319,34 @@ export default defineComponent({
       () => isSwitching.value,
       () => {
         if (isSwitching.value) {
-          if (swiperSwitchingTimer) clearTimeout(swiperSwitchingTimer);
+          clearSwitchingTimer();
           swiperSwitchingTimer = setTimeout(() => {
             isSwitching.value = false;
-            swiperSwitchingTimer = 0;
+            swiperSwitchingTimer = null;
             if (isEnd.value) {
               clearTimer();
             }
-          }, props.duration + 50) as unknown as number;
+          }, props.duration + 50);
         }
       },
     );
     watch(
       () => props.current,
-      () => {
-        swiperTo(props.current, { source: 'autoplay' });
+      (current) => {
+        if (current !== undefined) {
+          swiperTo(current, { source: 'autoplay' });
+        }
       },
     );
 
     onMounted(() => {
       setTimer();
       showArrow.value = navigationConfig.value.showSlideBtn === 'always';
+    });
+
+    onBeforeUnmount(() => {
+      clearTimer();
+      clearSwitchingTimer();
     });
 
     useResizeObserver(swiperWrap, () => {
