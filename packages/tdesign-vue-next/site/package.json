@@ -9,7 +9,8 @@
     "prebuild": "pnpm run generate-js-examples",
     "build": "vite build --configLoader runner",
     "prepreview": "pnpm run generate-js-examples",
-    "preview": "vite build --mode preview --configLoader runner && cp dist/index.html dist/404.html"
+    "preview": "vite build --mode preview --configLoader runner && cp dist/index.html dist/404.html",
+    "generate-llms-md": "tsx ../../../script/generate-llms-md.ts"
   },
   "author": "tdesign",
   "license": "MIT",
