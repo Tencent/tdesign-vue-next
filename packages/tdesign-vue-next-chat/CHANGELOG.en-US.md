@@ -5,6 +5,27 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.7.0 `2026-09-09`
+
+### 🚨 Breaking Changes
+
+- The underlying Web Components dependencies were migrated to `@tdesign/web-components-chat`; tdesign-vue-next was set as a peerDependency to resolve issues such as style overrides @RSS1102 @LzhengH ([#6957](https://github.com/Tencent/tdesign-vue-next/pull/6957))
+
+### 🚀 Features
+
+- `ChatEngine`: Added generative UI capabilities, including native A2UI protocol support, Catalog, Registry, custom components, Action execution, and two-way data binding. Supports rendering and streaming updates of JSON-render schemas through AG-UI Activity.
+
+### 🐞 Bug Fixes
+
+- Fixed the issue where theme configurations were overridden by default settings @uyarn ([#6957](https://github.com/Tencent/tdesign-vue-next/pull/6957))
+- `Chat`: Resolved the problem where the old callback continued to be invoked after the chat component was updated @engvuchen ([#6931](https://github.com/Tencent/tdesign-vue-next/pull/6931))
+- `ChatMarkdown`: Fixed the issue with indentation styles in reference scenarios not matching expectations @RSS1102 ([#6957](https://github.com/Tencent/tdesign-vue-next/pull/6957))
+- `ChatSender`: Improved component compatibility @uyarn ([#6839](https://github.com/Tencent/tdesign-vue-next/pull/6839))
+
+### 📝 Documentation
+
+- Added usage guides for generative UI, along with examples for json-render, A2UI, and external panels @uyarn ([#6957](https://github.com/Tencent/tdesign-vue-next/pull/6957))
+
 ## 🌈 0.6.0 `2026-07-16`
 
 ###  🚀 Features
