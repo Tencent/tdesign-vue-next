@@ -5,7 +5,7 @@ import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 
 import props from './chat-item-props';
 import { isString, isObject } from 'lodash-es';
-import { Skeleton } from '../tdesign';
+import { Skeleton } from 'tdesign-vue-next';
 import Text from '../chat-content/chat-content';
 import { CheckCircleIcon } from 'tdesign-icons-vue-next';
 import ChatLoading from '../chat-loading';

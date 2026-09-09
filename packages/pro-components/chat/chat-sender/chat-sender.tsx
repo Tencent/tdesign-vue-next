@@ -1,6 +1,6 @@
 import { defineComponent, ref, computed, toRefs, reactive, Fragment, onMounted, onBeforeUnmount } from 'vue';
 import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue-next';
-import { Button, Textarea, Tooltip } from '../tdesign';
+import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
 import Attachments from '../attachments';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { usePrefixClass, useTNodeJSX, useVModel } from '@tdesign/shared-hooks';

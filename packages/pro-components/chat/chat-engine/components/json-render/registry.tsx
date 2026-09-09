@@ -1,6 +1,6 @@
 /* eslint-disable vue/one-component-per-file */
 import { computed, defineComponent, h, markRaw, type Component, type PropType } from 'vue';
-import { Button, Card, Col, Divider, Input, Row, Slider, Space, Switch } from '../../../tdesign';
+import { Button, Card, Col, Divider, Input, Row, Slider, Space, Switch } from 'tdesign-vue-next';
 import { normalizeActionBinding, resolveActionParams } from '@tdesign/web-components-chat/chat-engine';
 import type { ActionBinding, UIElement } from '@json-render/core';
 import { useDataBinding, useDataStore, useDataValue } from './context';

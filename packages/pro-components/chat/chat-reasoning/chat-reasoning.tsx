@@ -1,7 +1,7 @@
 import { defineComponent, computed, provide, inject, ComputedRef, toRefs } from 'vue';
 import { usePrefixClass, useTNodeJSX, useVModel } from '@tdesign/shared-hooks';
 import props from './chat-reasoning-props';
-import { Collapse, CollapsePanel } from '../tdesign';
+import { Collapse, CollapsePanel } from 'tdesign-vue-next';
 
 export default defineComponent({
   name: 'TChatReasoning',

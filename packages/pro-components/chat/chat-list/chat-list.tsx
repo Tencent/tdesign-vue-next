@@ -4,7 +4,7 @@ import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { isArray, throttle, debounce } from 'lodash-es';
 
 import props from './props';
-import { Divider, Popconfirm, Button } from '../tdesign';
+import { Divider, Popconfirm, Button } from 'tdesign-vue-next';
 import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 import ChatMessage from '../chat-message';
 import { TdChatItemMeta, ScrollToBottomParams } from '../type';
