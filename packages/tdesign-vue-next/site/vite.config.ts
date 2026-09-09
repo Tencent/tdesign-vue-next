@@ -10,7 +10,7 @@ import pwaConfig from './configs/pwa';
 
 import changelog2Json from './plugins/changelog-to-json';
 import tdDocToVue from './plugins/td-doc-to-vue';
-import llmsMd from './plugins/llms-md';
+import llmsMd from '../../../script/generate-llms-md';
 
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = dirname(fileURLToPath(import.meta.url));

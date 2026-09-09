@@ -2,16 +2,21 @@
  * 为每个组件生成 LLM 友好的 Markdown 文档（对齐 Ant Design button-cn.md 模式）。
  * 数据均来自仓库已有文档，零新增维护成本。
  *
+ * 以 vite 插件形式提供（默认导出）：
+ *   dev：拦截 /llms/* 请求，实时返回生成的 Markdown / 索引
+ *   build：closeBundle 阶段把全部 llms 文档写入 site/dist/llms
+ *
  * 用法:
  *   tsx script/generate-llms-md.ts                 # 全量生成到 site/dist/llms
  *   tsx script/generate-llms-md.ts --only button   # 只生成指定组件
  *
- * 也可作为模块被 vite 插件引用，导出 generateLlmsMd / generateComponentLlms。
+ * 也可作为核心生成模块被引用，导出 generateLlmsMd / generateComponentLlms 等。
  */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import matter from 'gray-matter';
+import type { ViteDevServer } from 'vite';
 
 // 兼容 tsx / vite(ESM) 执行
 /* eslint-disable no-underscore-dangle */
@@ -30,6 +35,13 @@ const DESIGN_DOCS_DIR = path.join(COMMON_ROOT, 'docs', 'web', 'design');
 
 // 默认输出目录：packages/tdesign-vue-next/site/dist/llms
 const DEFAULT_OUTPUT_DIR = path.join(PACKAGES_ROOT, 'tdesign-vue-next', 'site', 'dist', 'llms');
+
+/**
+ * llms 输出目录（vite 插件 dev 中间件与 build 写盘共用）。
+ */
+export function getLlmsDir() {
+  return DEFAULT_OUTPUT_DIR;
+}
 
 // ---------- spline -> category 映射 ----------
 const SPLINE_TO_CATEGORY: Record<string, string> = {
@@ -306,6 +318,59 @@ export function generateEnglishMarkdown(meta: LlmsComponent): string {
   };
 
   return generateComponentMarkdown(enMeta);
+}
+
+// ---------- vite 插件 ----------
+/**
+ * 将 llms 生成能力封装为 vite 插件（默认导出）：
+ *  - dev：拦截 /llms/* 请求，实时返回生成的 Markdown / 索引
+ *  - build：closeBundle 阶段把全部 llms 文档写入 site/dist/llms
+ *
+ * 在 vite.config.ts 中直接引入即可：
+ *   import llmsMd from '../../../script/generate-llms-md';
+ *   plugins: [..., llmsMd()]
+ */
+export default function llmsMd() {
+  return {
+    name: 'llms-md',
+    configureServer(server: ViteDevServer) {
+      server.middlewares.use('/llms', async (req, res) => {
+        try {
+          res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+          const urlPath = (req.url || '').split('?')[0];
+          const fileName = urlPath.replace(/^\/+/, '');
+
+          if (fileName === 'llms.txt') {
+            res.end(buildIndexText(listComponents()));
+            return;
+          }
+
+          const name = fileName.replace(/\.en-US\.md$/, '').replace(/\.md$/, '');
+          const isEn = fileName.endsWith('.en-US.md');
+          const meta = getComponentMeta(name);
+          if (!meta) {
+            res.statusCode = 404;
+            res.end(`# ${name} not found`);
+            return;
+          }
+          const md = isEn ? generateEnglishMarkdown(meta) : generateComponentMarkdown(meta);
+          res.end(md);
+        } catch (err) {
+          res.statusCode = 500;
+          res.end(`# Error\n${(err as Error).message}`);
+        }
+      });
+    },
+    async closeBundle(error?: Error) {
+      // 构建失败时跳过
+      if (error) return;
+      // 生产构建时写入物理文件
+      if (process.env.NODE_ENV !== 'production') return;
+
+      // 内部会自动创建输出目录并写盘
+      generateLlmsMd({ outputDir: getLlmsDir() });
+    },
+  };
 }
 
 // ---------- CLI ----------
