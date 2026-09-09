@@ -7,8 +7,8 @@
  *   build：closeBundle 阶段把全部 llms 文档写入 site/dist/llms
  *
  * 用法:
- *   tsx script/generate-llms-md.ts                 # 全量生成到 site/dist/llms
- *   tsx script/generate-llms-md.ts --only button   # 只生成指定组件
+ *   tsx plugins/llms-md/index.ts                 # 全量生成到 site/dist/llms
+ *   tsx plugins/llms-md/index.ts --only button     # 只生成指定组件
  *
  * 也可作为核心生成模块被引用，导出 generateLlmsMd / generateComponentLlms 等。
  */
@@ -25,7 +25,7 @@ const __dirname = path.dirname(__filename);
 /* eslint-enable no-underscore-dangle */
 
 // ---------- 路径工具 ----------
-const WORKSPACE_ROOT = path.resolve(__dirname, '..');
+const WORKSPACE_ROOT = path.resolve(__dirname, '../../../../../');
 const PACKAGES_ROOT = path.join(WORKSPACE_ROOT, 'packages');
 const COMPONENTS_ROOT = path.join(PACKAGES_ROOT, 'components');
 const PRO_CHAT_ROOT = path.join(PACKAGES_ROOT, 'pro-components', 'chat');
@@ -327,7 +327,7 @@ export function generateEnglishMarkdown(meta: LlmsComponent): string {
  *  - build：closeBundle 阶段把全部 llms 文档写入 site/dist/llms
  *
  * 在 vite.config.ts 中直接引入即可：
- *   import llmsMd from '../../../script/generate-llms-md';
+ *   import llmsMd from './plugins/llms-md';
  *   plugins: [..., llmsMd()]
  */
 export interface LlmsMdPluginOptions {
