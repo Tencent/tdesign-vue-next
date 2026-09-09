@@ -59,11 +59,15 @@ export default function generateLlmsPlugin() {
       // 产物输出目录：从 config.build.outDir 推导，避免硬编码 dist
       const outputDir = config.build.outDir || path.join(siteRoot, 'dist');
 
-      // 组件文档读取器：读取 common 子仓扁平目录 <slug>.md
-      const readComponentDoc = async (_componentDir: string, slug: string): Promise<string | null> => {
+      // 组件文档读取器：common 子仓扁平目录 <slug>.md（用法示例），
+      // 并追加组件目录 <slug>.md 的 API 部分（站点构建时由 :: BASE_DOC :: 注入，此处手动拼接）
+      const readComponentDoc = async (componentDir: string, slug: string): Promise<string | null> => {
         const docPath = path.join(docsRoot, 'web/api', `${slug}.md`);
         try {
-          return await promises.readFile(docPath, 'utf-8');
+          const raw = await promises.readFile(docPath, 'utf-8');
+          const apiDoc = await promises.readFile(path.join(componentDir, `${slug}.md`), 'utf-8').catch(() => '');
+          const apiBody = apiDoc.replace(/^[^\S\n]*::\s*BASE_DOC\s*::[^\S\n]*\n?/m, '').trim();
+          return apiBody ? `${raw}\n\n${apiBody}\n` : raw;
         } catch {
           return null;
         }
