@@ -38,7 +38,7 @@
         <t-space direction="vertical" style="width: 100%">
           <div style="display: flex; align-items: center; gap: 8px; color: #52c41a">
             <check-circle-filled-icon style="color: var(--td-success-color)" size="20px" />
-            <span style="color: black; font-size: 14px">已完成</span>
+            <span style="color: var(--td-text-color-primary); font-size: 14px">已完成</span>
           </div>
           <t-image
             v-if="genState.imageUrl"
