@@ -46,10 +46,10 @@ import {
   isToolCallContent,
   ToolCallRenderer,
 } from '@tdesign-vue-next/chat';
-import WeatherCard from './components/WeatherCard.vue';
-import PlanningSteps from './components/PlanningSteps.vue';
-import UserPreferencesForm from './components/UserPreferencesForm.vue';
-import ProgressPanel from './components/ProgressPanel.vue';
+import PlanningSteps from './components/planning-steps.vue';
+import ProgressPanel from './components/progress-panel.vue';
+import UserPreferencesForm from './components/user-preferences-form.vue';
+import WeatherCard from './components/weather-card.vue';
 
 /**
  * AG-UI 综合示例

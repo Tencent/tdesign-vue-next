@@ -78,7 +78,7 @@ import {
 } from '@tdesign-vue-next/chat';
 import { MessagePlugin } from 'tdesign-vue-next';
 import { AiEditIcon, Robot2Icon } from 'tdesign-icons-vue-next';
-import CustomToolCallRenderer from './components/Toolcall.vue';
+import CustomToolCallRenderer from './components/toolcall.vue';
 
 const listRef = ref<TdChatListApi | null>(null);
 const inputRef = ref<TdChatSenderApi | null>(null);

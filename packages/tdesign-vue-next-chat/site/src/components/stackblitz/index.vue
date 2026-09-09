@@ -10,29 +10,12 @@
       <input type="hidden" name="project[files][src/demo.vue]" :value="code" />
       <input type="hidden" name="project[files][src/index.css]" :value="styleContent" />
       <input type="hidden" name="project[files][src/main.js]" :value="mainJsContent" />
-      <input type="hidden" name="project[files][src/mock-data/sseRequest.ts]" :value="mockDataContent" />
       <input
+        v-for="(content, filePath) in files"
+        :key="filePath"
         type="hidden"
-        name="project[files][src/mock-data/sseRequest-reasoning.ts]"
-        :value="mockDataReasoningContent"
-      />
-      <input type="hidden" name="project[files][src/components/Toolcall.vue]" :value="componentToolcallDemoContent" />
-      <input type="hidden" name="project[files][src/components/Login.vue]" :value="componentLoginDemoContent" />
-      <input type="hidden" name="project[files][src/components/WeatherCard.vue]" :value="componentWeatherCardContent" />
-      <input
-        type="hidden"
-        name="project[files][src/components/PlanningSteps.vue]"
-        :value="componentPlanningStepsContent"
-      />
-      <input
-        type="hidden"
-        name="project[files][src/components/UserPreferencesForm.vue]"
-        :value="componentUserPreferencesFormContent"
-      />
-      <input
-        type="hidden"
-        name="project[files][src/components/ProgressPanel.vue]"
-        :value="componentProgressPanelContent"
+        :name="`project[files][${filePath}]`"
+        :value="content"
       />
 
       <input type="hidden" name="project[files][index.html]" :value="htmlContent" />
@@ -62,14 +45,6 @@ import {
   packageJSONContent,
   stackblitzRc,
   viteConfigContent,
-  mockDataContent,
-  mockDataReasoningContent,
-  componentLoginDemoContent,
-  componentToolcallDemoContent,
-  componentWeatherCardContent,
-  componentPlanningStepsContent,
-  componentUserPreferencesFormContent,
-  componentProgressPanelContent,
 } from './content';
 
 export default defineComponent({
@@ -77,6 +52,10 @@ export default defineComponent({
   props: {
     demoName: String,
     componentName: String,
+    files: {
+      type: Object,
+      default: () => ({}),
+    },
   },
 
   setup(props) {
@@ -87,14 +66,6 @@ export default defineComponent({
       stackblitzRc,
       viteConfigContent,
       packageJSONContent,
-      mockDataContent,
-      mockDataReasoningContent,
-      componentLoginDemoContent,
-      componentToolcallDemoContent,
-      componentWeatherCardContent,
-      componentPlanningStepsContent,
-      componentUserPreferencesFormContent,
-      componentProgressPanelContent,
     };
     const match = window.location.hostname.match(/preview-pr-(\d+)-tdesign-vue-next-chat.surge.sh/);
     if (match) {

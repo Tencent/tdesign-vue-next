@@ -210,3 +210,99 @@ export const sanitizeSvg = (svgText: string): string => {
     return '';
   }
 };
+
+// ---------------------------------------------------------------------------
+// Props 对象清洗（用于把服务端 / LLM 下发的 JSON props 展开到 DOM 前的 XSS 兜底）
+// ---------------------------------------------------------------------------
+
+/**
+ * 禁止透传到 DOM 的 XSS 通道字段。
+ *
+ * - `innerHTML` / `outerHTML` / `textContent` / `srcdoc`：Vue 3 `patchDOMProp`
+ *   对原生元素上命中 DOM property 的键会直接赋值，可执行任意脚本。
+ * - `dangerouslySetInnerHTML`：跨端（React）schema 兼容兜底。
+ */
+const BLOCKED_PROP_KEYS = new Set<string>([
+  'innerhtml',
+  'outerhtml',
+  'textcontent',
+  'srcdoc',
+  'dangerouslysetinnerhtml',
+]);
+
+/** 禁止参与结果对象构造的原型相关字段 */
+const BLOCKED_OBJECT_KEYS = new Set<string>(['__proto__', 'prototype', 'constructor']);
+
+/**
+ * 需要做协议校验的 URL 类属性键（覆盖 Vue JSX camelCase / kebab-case / SVG xlink）。
+ */
+const URL_PROP_KEYS = new Set<string>([
+  'href',
+  'src',
+  'action',
+  'formaction',
+  'poster',
+  'background',
+  'ping',
+  'longdesc',
+  'cite',
+  'data',
+  'xlink:href',
+  'xlinkhref',
+]);
+
+/** 事件处理器字段命名规则（Vue JSX 规范：onXxx；同时兼容小写 onclick 之类） */
+const EVENT_HANDLER_PROP_RE = /^on[a-z]/i;
+
+/**
+ * 过滤服务端 / LLM 下发的组件 props 对象，避免 XSS 通道。
+ *
+ * 适用场景：JSON-driven UI（如 a2ui / json-render）把 `element.props` 通过
+ * `{...props}` 展开到 TDesign 组件或原生 DOM 元素时的兜底净化。
+ *
+ * 处理规则：
+ * 1. 命中 `BLOCKED_PROP_KEYS` 的字段直接丢弃
+ * 2. URL 类属性通过 `isDangerousUrl` 判定为危险协议时丢弃该字段
+ * 3. `style` 字符串通过 `isDangerousStyle` 判定含 expression / javascript: / @import 时丢弃
+ * 4. `onXxx` 事件处理器若不是函数类型（例如字符串），丢弃该字段
+ *
+ * @example
+ * ```tsx
+ * const safeProps = sanitizeProps(element.props);
+ * return <span {...safeProps}>{text}</span>;
+ * ```
+ */
+export function sanitizeProps<T extends Record<string, unknown>>(props: T | null | undefined): Partial<T> {
+  if (!props || typeof props !== 'object') {
+    return {} as Partial<T>;
+  }
+
+  const result: Record<string, unknown> = {};
+
+  for (const key of Object.keys(props)) {
+    const value = props[key];
+    const normalizedKey = key.toLowerCase();
+
+    // 1. 黑名单 key 与原型相关字段（统一按小写判断，避免 camelCase / 大小写绕过）
+    if (BLOCKED_PROP_KEYS.has(normalizedKey) || BLOCKED_OBJECT_KEYS.has(normalizedKey)) continue;
+
+    // 2. URL 协议校验（复用 isDangerousUrl，自动剥离控制字符）
+    if (URL_PROP_KEYS.has(normalizedKey) && typeof value === 'string' && isDangerousUrl(value)) {
+      continue;
+    }
+
+    // 3. style 表达式校验
+    if (normalizedKey === 'style' && typeof value === 'string' && isDangerousStyle(value)) {
+      continue;
+    }
+
+    // 4. 事件处理器必须是函数
+    if (EVENT_HANDLER_PROP_RE.test(key) && typeof value !== 'function') {
+      continue;
+    }
+
+    result[key] = value;
+  }
+
+  return result as Partial<T>;
+}

@@ -68,6 +68,10 @@ export default async function mdToVue(options) {
       import { defineComponent } from 'vue';
       import Prismjs from 'prismjs';
       import 'prismjs/components/prism-bash.js';
+      import 'prismjs/components/prism-json.js';
+      import 'prismjs/components/prism-typescript.js';
+      import 'prismjs/components/prism-jsx.js';
+      import 'prismjs/components/prism-tsx.js';
       ${demoDefsStr}
       ${demoCodesDefsStr}
       ${mdSegment.usage.importStr}
