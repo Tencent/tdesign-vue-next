@@ -1,4 +1,4 @@
-import { MessagePlugin } from 'tdesign-vue-next';
+import { MessagePlugin } from '../tdesign';
 
 // 单例模式解决复制成功提示只显示一次
 export class MessagePluginSingleton {

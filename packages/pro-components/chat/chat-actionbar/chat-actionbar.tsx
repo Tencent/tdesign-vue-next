@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
-import { Button, Space, Tooltip } from 'tdesign-vue-next';
+import { Button, Space, Tooltip } from '../tdesign';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import {
   ThumbUpIcon,

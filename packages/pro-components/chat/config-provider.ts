@@ -1,1 +1,1 @@
-export { ConfigProvider } from 'tdesign-vue-next';
+export { ConfigProvider } from './tdesign';
