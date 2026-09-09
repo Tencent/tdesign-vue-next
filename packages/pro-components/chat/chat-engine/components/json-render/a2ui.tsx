@@ -26,15 +26,18 @@ interface FrameState {
   surfaceId: string | null;
   /** 已识别到的 catalogId */
   catalogId: string | undefined;
-  /** Surface 是否已注册到 surfaceStateManager */
-  registered: boolean;
+  /** 当前 Surface 生命周期阶段 */
+  phase: 'idle' | 'pending' | 'registered' | 'deleted';
+  /** 当前生命周期中、注册前收到的消息 */
+  pendingMessages: A2UIMessage[];
 }
 
 const createInitialFrameState = (): FrameState => ({
   lastProcessedIndex: 0,
   surfaceId: null,
   catalogId: undefined,
-  registered: false,
+  phase: 'idle',
+  pendingMessages: [],
 });
 
 /**
@@ -50,20 +53,18 @@ const createInitialFrameState = (): FrameState => ({
  *
  * @param slice        本次新增的消息（未曾处理过）
  * @param state        分帧状态（会被 mutate）
- * @param fullMessages 完整消息数组（用于"从头补 root"场景）
  * @param bumpRender   触发外层重新读取 schema 的回调
  * @param debug        调试开关
  */
 function processIncrementalSlice(
   slice: A2UIMessage[],
   state: FrameState,
-  fullMessages: A2UIMessage[],
   bumpRender: () => void,
   debug: boolean,
 ): void {
   // 已注册期用于合并 updateComponents 的快照 & 脏标记
   let mergedSchema: JsonRenderSchema | null =
-    state.registered && state.surfaceId ? surfaceStateManager.getSchema(state.surfaceId) : null;
+    state.phase === 'registered' && state.surfaceId ? surfaceStateManager.getSchema(state.surfaceId) : null;
   let schemaDirty = false;
 
   const flushSchemaDirty = () => {
@@ -73,14 +74,15 @@ function processIncrementalSlice(
     }
   };
 
-  // 尝试从 fullMessages 建 schema（用于"未注册期 update 到齐 root"或"delete 后同 id 重建"）
-  const tryBuildAndRegisterFromFull = () => {
+  // 仅使用当前生命周期的 pending 消息建 schema，避免 delete 前的历史消息参与重建。
+  const tryBuildAndRegisterFromPending = () => {
     if (!state.surfaceId) return;
     if (surfaceStateManager.hasSurface(state.surfaceId)) return;
-    const schema = convertA2UIMessagesToJsonRender(fullMessages);
+    const schema = convertA2UIMessagesToJsonRender(state.pendingMessages);
     if (schema) {
       surfaceStateManager.registerSurface(state.surfaceId, schema, state.catalogId);
-      state.registered = true;
+      state.phase = 'registered';
+      state.pendingMessages = [];
       mergedSchema = schema;
       bumpRender();
       if (debug) {
@@ -93,7 +95,7 @@ function processIncrementalSlice(
       }
     } else if (debug) {
       console.log('[A2UI Adapter] Surface 尚未凑齐 root 组件，等待后续切片:', state.surfaceId, {
-        fullMessagesCount: fullMessages.length,
+        pendingMessagesCount: state.pendingMessages.length,
       });
     }
   };
@@ -103,13 +105,14 @@ function processIncrementalSlice(
     if (msg.deleteSurface) {
       const { surfaceId: delId } = msg.deleteSurface;
       // 先把已注册期未落盘的组件更新 flush 出去（触发订阅副作用后再删除）
-      if (state.registered && state.surfaceId === delId) {
+      if (state.phase === 'registered' && state.surfaceId === delId) {
         flushSchemaDirty();
       }
       surfaceStateManager.deleteSurface(delId);
       if (state.surfaceId === delId) {
         // 本 renderer 关注的 surface 被删：复位状态，允许同 slice 内后续 createSurface 重开
-        state.registered = false;
+        state.phase = 'deleted';
+        state.pendingMessages = [];
         mergedSchema = null;
         schemaDirty = false;
         // 触发一次外层重渲染，让 UI 卸载
@@ -123,13 +126,20 @@ function processIncrementalSlice(
     if (msg.createSurface) {
       const { surfaceId: newId, catalogId } = msg.createSurface;
       // 仅在本 renderer 尚未绑定 surface 或前一个已被 delete 时接受新 surface
-      if (!state.surfaceId || !state.registered) {
+      if (!state.surfaceId || state.phase !== 'registered') {
         state.surfaceId = newId;
         state.catalogId = catalogId;
+        state.phase = 'pending';
+        state.pendingMessages = [msg];
         if (debug) console.log('[A2UI Adapter] 识别 Surface:', state.surfaceId);
-        // 尝试立刻从 fullMessages 建 schema（若 root 已在累积消息中）
-        tryBuildAndRegisterFromFull();
+        tryBuildAndRegisterFromPending();
       }
+      continue;
+    }
+
+    // 单个 renderer 内，delete 后必须由新的 createSurface 开启下一生命周期。
+    if (state.phase === 'deleted') {
+      if (debug) console.log('[A2UI Adapter] Surface 已删除，忽略 createSurface 之前的更新:', msg);
       continue;
     }
 
@@ -144,16 +154,23 @@ function processIncrementalSlice(
     }
 
     // Attach 到已存在的 Surface（A2UI 规范：surfaceId 全局唯一，跨会话 attach）
-    if (!state.registered && surfaceStateManager.hasSurface(state.surfaceId)) {
-      state.registered = true;
+    if (state.phase !== 'registered' && surfaceStateManager.hasSurface(state.surfaceId)) {
+      state.phase = 'registered';
+      state.pendingMessages = [];
       mergedSchema = surfaceStateManager.getSchema(state.surfaceId);
       bumpRender();
       if (debug) console.log('[A2UI Adapter] Attach 到已存在的 Surface:', state.surfaceId);
     }
 
+    // 没有 createSurface，且全局也不存在可 attach 的 Surface：该更新不构成新生命周期。
+    if (state.phase === 'idle') {
+      if (debug) console.log('[A2UI Adapter] Surface 尚未创建，忽略更新:', msg);
+      continue;
+    }
+
     // ---------- updateComponents ----------
     if (msg.updateComponents) {
-      if (state.registered) {
+      if (state.phase === 'registered') {
         if (!mergedSchema) mergedSchema = surfaceStateManager.getSchema(state.surfaceId);
         if (mergedSchema) {
           mergedSchema = applyA2UIUpdates(mergedSchema, msg.updateComponents.components as any[]);
@@ -168,22 +185,22 @@ function processIncrementalSlice(
           }
         }
       } else {
-        // 未注册 → 尝试从 fullMessages 建 schema（root 可能刚好到位）
-        tryBuildAndRegisterFromFull();
+        state.pendingMessages.push(msg);
+        tryBuildAndRegisterFromPending();
       }
       continue;
     }
 
     // ---------- updateDataModel ----------
     if (msg.updateDataModel) {
-      if (state.registered) {
+      if (state.phase === 'registered') {
         // 保序：先把组件更新落盘再更新数据
         flushSchemaDirty();
         const { path, op, value } = msg.updateDataModel;
         surfaceStateManager.updateData(state.surfaceId, path, op || 'replace', value);
       } else {
-        // 未注册 → 数据先随 fullMessages 累积，convertA2UIMessagesToJsonRender 内部会处理
-        tryBuildAndRegisterFromFull();
+        state.pendingMessages.push(msg);
+        tryBuildAndRegisterFromPending();
       }
       continue;
     }
@@ -210,9 +227,8 @@ export interface UseA2UISurfaceOptions {
 
 export const useA2UISurface = (options: UseA2UISurfaceOptions = {}): A2UISurfaceController => {
   const surfaceIds = ref<string[]>([]);
-  // 每个 surfaceId 维护一份独立的分帧状态与消息累积
+  // 每个 surfaceId 维护一份独立的生命周期状态。
   const stateMap = new Map<string, FrameState>();
-  const fullMessagesMap = new Map<string, A2UIMessage[]>();
 
   const addSurface = (surfaceId: string) => {
     if (!surfaceIds.value.includes(surfaceId)) surfaceIds.value = [...surfaceIds.value, surfaceId];
@@ -224,10 +240,8 @@ export const useA2UISurface = (options: UseA2UISurfaceOptions = {}): A2UISurface
   const processMessages = (messages: A2UIMessage[]) => {
     if (!messages?.length) return;
 
-    // 按 slice 顺序逐条分派到各 surface 的 FrameState —— 保持严格按序独立处理语义
-    // 用 Map<surfaceId, {slice, fullMessages}> 累积本次调用中每个 surface 的增量
-    const perSurface = new Map<string, { slice: A2UIMessage[]; fullMessages: A2UIMessage[] }>();
-
+    // 严格按照输入的原始顺序逐条处理，避免按 Surface 分桶后改变跨 Surface 的事件顺序。
+    const touchedSurfaceIds = new Set<string>();
     for (const msg of messages) {
       const id =
         msg.createSurface?.surfaceId ||
@@ -235,46 +249,26 @@ export const useA2UISurface = (options: UseA2UISurfaceOptions = {}): A2UISurface
         msg.updateDataModel?.surfaceId ||
         msg.deleteSurface?.surfaceId;
       if (!id) continue;
+      touchedSurfaceIds.add(id);
 
-      let full = fullMessagesMap.get(id);
-      if (!full) {
-        full = [];
-        fullMessagesMap.set(id, full);
-      }
       if (!stateMap.has(id)) stateMap.set(id, createInitialFrameState());
-      full.push(msg);
-
-      let bucket = perSurface.get(id);
-      if (!bucket) {
-        bucket = { slice: [], fullMessages: full };
-        perSurface.set(id, bucket);
-      }
-      bucket.slice.push(msg);
+      const state = stateMap.get(id);
+      if (!state) continue;
+      processIncrementalSlice([msg], state, () => {}, options.debug || false);
+      if (state.phase === 'deleted') stateMap.delete(id);
     }
 
-    perSurface.forEach(({ slice, fullMessages }, id) => {
-      const state = stateMap.get(id);
-      if (!state) return;
-      processIncrementalSlice(slice, state, fullMessages, () => {}, options.debug || false);
-      if (state.registered) {
-        addSurface(id);
-      } else if (!surfaceStateManager.hasSurface(id)) {
-        // 尚未注册且不存在：不加入 surfaceIds
-      }
-      // 若被 delete，state.registered 已置 false 且 surfaceStateManager 中已删除
-      if (!surfaceStateManager.hasSurface(id)) {
-        removeSurface(id);
-        stateMap.delete(id);
-        fullMessagesMap.delete(id);
-      }
-    });
+    // 只暴露整批消息处理完成后的最终状态，避免同步 watcher 观察到 delete → recreate 的中间态。
+    for (const id of touchedSurfaceIds) {
+      if (stateMap.get(id)?.phase === 'registered') addSurface(id);
+      else removeSurface(id);
+    }
   };
 
   const clearAllSurfaces = () => {
     surfaceIds.value.forEach((surfaceId) => surfaceStateManager.deleteSurface(surfaceId));
     surfaceIds.value = [];
     stateMap.clear();
-    fullMessagesMap.clear();
   };
 
   onBeforeUnmount(clearAllSurfaces);
@@ -436,13 +430,13 @@ export const A2UIJsonRenderActivityRenderer = defineComponent({
           });
         }
 
-        processIncrementalSlice(slice, frameState, messages, bumpRender, props.debug || false);
+        processIncrementalSlice(slice, frameState, bumpRender, props.debug || false);
 
         // 更新游标
         frameState.lastProcessedIndex = messages.length;
 
         // 认领 ownership（"先到先得"）
-        if (frameState.registered && frameState.surfaceId) {
+        if (frameState.phase === 'registered' && frameState.surfaceId) {
           subscribeSurface(frameState.surfaceId);
           if (!isOwner.value) {
             isOwner.value = surfaceStateManager.claimOwnership(frameState.surfaceId, ownerToken);
@@ -457,7 +451,7 @@ export const A2UIJsonRenderActivityRenderer = defineComponent({
     watch(
       [renderVersion, isOwner],
       () => {
-        if (!frameState.registered || !frameState.surfaceId || !isOwner.value) {
+        if (frameState.phase !== 'registered' || !frameState.surfaceId || !isOwner.value) {
           schema.value = null;
           return;
         }
