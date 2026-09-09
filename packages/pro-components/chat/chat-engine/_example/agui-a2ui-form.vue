@@ -11,10 +11,13 @@
         :message="message"
         :placement="message.role === 'user' ? 'right' : 'left'"
         :variant="message.role === 'user' ? 'base' : 'text'"
+        allow-content-segment-custom
       >
         <template v-if="Array.isArray(message.content)">
           <template v-for="(item, index) in message.content" :key="`${message.id}-${index}`">
-            <ActivityRenderer v-if="isActivityContent(item)" :activity="item.data" />
+            <div v-if="isActivityContent(item as any)" :slot="`${item.type}-${index}`">
+              <ActivityRenderer :activity="(item as any).data" />
+            </div>
           </template>
         </template>
       </t-chat-message>
