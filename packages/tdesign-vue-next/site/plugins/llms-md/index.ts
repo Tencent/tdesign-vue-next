@@ -21,11 +21,14 @@ export default function generateLlmsPlugin() {
       // 基于 config.root 推导路径，避免依赖 __dirname 多层回溯
       const siteRoot = config.root;
       const componentsRoot = path.resolve(siteRoot, '../../components');
+      // common 子仓扁平文档目录（组件文档为 <slug>.md，如 packages/common/docs/web/api/affix.md）
+      const docsRoot = path.resolve(siteRoot, '../../common/docs/web/api');
       // 产物输出目录：从 config.build.outDir 推导，避免硬编码 dist
       const outputDir = config.build.outDir || path.join(siteRoot, 'dist');
 
       await generateLlmsDocs({
         componentsRoot,
+        docsRoot,
         outputDir,
         platform: 'web',
         // 组件文档为 <slug>.md（如 button.md），非小程序仓库的 README.md
