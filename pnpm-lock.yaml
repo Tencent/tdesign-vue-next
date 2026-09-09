@@ -139,6 +139,9 @@ catalogs:
     '@babel/runtime':
       specifier: ^7.22.6
       version: 7.27.6
+    '@json-render/core':
+      specifier: ^0.19.0
+      version: 0.19.0
     '@popperjs/core':
       specifier: ^2.11.8
       version: 2.11.8
@@ -650,6 +653,9 @@ importers:
 
   packages/pro-components/chat:
     dependencies:
+      '@json-render/core':
+        specifier: catalog:deps
+        version: 0.19.0(zod@4.5.4)
       clipboard:
         specifier: catalog:deps
         version: 2.0.11
@@ -663,9 +669,6 @@ importers:
         specifier: '>=3.1.0'
         version: 3.5.34(typescript@5.8.3)
     devDependencies:
-      '@json-render/core':
-        specifier: ^0.19.0
-        version: 0.19.0(zod@4.5.4)
       '@types/lodash-es':
         specifier: catalog:types
         version: 4.17.12

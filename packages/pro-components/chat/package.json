@@ -7,10 +7,10 @@
   "dependencies": {
     "clipboard": "catalog:deps",
     "lodash-es": "catalog:deps",
+    "@json-render/core": "catalog:deps",
     "tdesign-icons-vue-next": "catalog:tdesign"
   },
   "devDependencies": {
-    "@json-render/core": "^0.19.0",
     "@types/lodash-es": "catalog:types",
     "zod": "^4.3.6"
   },

@@ -4,7 +4,6 @@ import {
   applyA2UIUpdates,
   convertA2UIMessagesToJsonRender,
   extractSurfaceId,
-  groupMessagesBySurface,
   surfaceStateManager,
   type A2UIMessage,
   type JsonRenderSchema,
@@ -12,22 +11,191 @@ import {
 import { JsonRenderActivityRenderer } from './renderer';
 import type { ActionHandlers, ComponentRegistry, JsonRenderActivityProps } from './types';
 
-const updateExistingSurface = (surfaceId: string, messages: A2UIMessage[]) => {
-  let schema = surfaceStateManager.getSchema(surfaceId);
+/* ------------------------------------------------------------------ */
+/* 分帧处理状态 & 纯函数式核心处理器（与 React 侧完全对齐）             */
+/* ------------------------------------------------------------------ */
+
+/**
+ * 单个 renderer 实例内部的分帧处理状态
+ * 每个实例持有独立的一份，跨 watch 回调持久化
+ */
+interface FrameState {
+  /** 已处理到 messages 数组的哪个 index（切片起点） */
+  lastProcessedIndex: number;
+  /** 已识别到的 surfaceId（createSurface / extractSurfaceId 后确定） */
+  surfaceId: string | null;
+  /** 已识别到的 catalogId */
+  catalogId: string | undefined;
+  /** Surface 是否已注册到 surfaceStateManager */
+  registered: boolean;
+}
+
+const createInitialFrameState = (): FrameState => ({
+  lastProcessedIndex: 0,
+  surfaceId: null,
+  catalogId: undefined,
+  registered: false,
+});
+
+/**
+ * 处理一批新增消息切片
+ *
+ * ⚠️ 关键语义：A2UI 协议本身是"消息独立且按序处理"，但被外层 AG-UI 协议 batch 后，
+ *   一个 slice 内可能出现"生命周期粘连"的合法组合，例如：
+ *     1) update → delete → create（同 id 重开）
+ *     2) delete 目标是另一个 surface（不是本 renderer 关注的）
+ *   因此这里**必须按 slice 出现顺序，逐条消息处理**，让 create/update/delete 都是独立的
+ *   原子动作，而不是"发现 delete 就整批 return"（那会误伤 delete 之后的 create/update
+ *   以及跨 surface 的其他消息）。
+ *
+ * @param slice        本次新增的消息（未曾处理过）
+ * @param state        分帧状态（会被 mutate）
+ * @param fullMessages 完整消息数组（用于"从头补 root"场景）
+ * @param bumpRender   触发外层重新读取 schema 的回调
+ * @param debug        调试开关
+ */
+function processIncrementalSlice(
+  slice: A2UIMessage[],
+  state: FrameState,
+  fullMessages: A2UIMessage[],
+  bumpRender: () => void,
+  debug: boolean,
+): void {
+  // 已注册期用于合并 updateComponents 的快照 & 脏标记
+  let mergedSchema: JsonRenderSchema | null =
+    state.registered && state.surfaceId ? surfaceStateManager.getSchema(state.surfaceId) : null;
   let schemaDirty = false;
 
-  messages.forEach((message) => {
-    if (message.updateComponents && schema) {
-      schema = applyA2UIUpdates(schema, message.updateComponents.components);
-      schemaDirty = true;
-    } else if (message.updateDataModel) {
-      const { path, op, value } = message.updateDataModel;
-      surfaceStateManager.updateData(surfaceId, path, op || 'replace', value);
+  const flushSchemaDirty = () => {
+    if (schemaDirty && mergedSchema && state.surfaceId) {
+      surfaceStateManager.updateSchema(state.surfaceId, mergedSchema);
+      schemaDirty = false;
     }
-  });
+  };
 
-  if (schemaDirty && schema) surfaceStateManager.updateSchema(surfaceId, schema);
-};
+  // 尝试从 fullMessages 建 schema（用于"未注册期 update 到齐 root"或"delete 后同 id 重建"）
+  const tryBuildAndRegisterFromFull = () => {
+    if (!state.surfaceId) return;
+    if (surfaceStateManager.hasSurface(state.surfaceId)) return;
+    const schema = convertA2UIMessagesToJsonRender(fullMessages);
+    if (schema) {
+      surfaceStateManager.registerSurface(state.surfaceId, schema, state.catalogId);
+      state.registered = true;
+      mergedSchema = schema;
+      bumpRender();
+      if (debug) {
+        console.log('[A2UI Adapter] Surface 注册成功:', {
+          surfaceId: state.surfaceId,
+          elementsCount: Object.keys(schema.elements).length,
+          allElementIds: Object.keys(schema.elements),
+          dataKeys: Object.keys(schema.data || {}),
+        });
+      }
+    } else if (debug) {
+      console.log('[A2UI Adapter] Surface 尚未凑齐 root 组件，等待后续切片:', state.surfaceId, {
+        fullMessagesCount: fullMessages.length,
+      });
+    }
+  };
+
+  for (const msg of slice) {
+    // ---------- deleteSurface ----------
+    if (msg.deleteSurface) {
+      const { surfaceId: delId } = msg.deleteSurface;
+      // 先把已注册期未落盘的组件更新 flush 出去（触发订阅副作用后再删除）
+      if (state.registered && state.surfaceId === delId) {
+        flushSchemaDirty();
+      }
+      surfaceStateManager.deleteSurface(delId);
+      if (state.surfaceId === delId) {
+        // 本 renderer 关注的 surface 被删：复位状态，允许同 slice 内后续 createSurface 重开
+        state.registered = false;
+        mergedSchema = null;
+        schemaDirty = false;
+        // 触发一次外层重渲染，让 UI 卸载
+        bumpRender();
+      }
+      if (debug) console.log('[A2UI Adapter] 删除 Surface:', delId);
+      continue;
+    }
+
+    // ---------- createSurface ----------
+    if (msg.createSurface) {
+      const { surfaceId: newId, catalogId } = msg.createSurface;
+      // 仅在本 renderer 尚未绑定 surface 或前一个已被 delete 时接受新 surface
+      if (!state.surfaceId || !state.registered) {
+        state.surfaceId = newId;
+        state.catalogId = catalogId;
+        if (debug) console.log('[A2UI Adapter] 识别 Surface:', state.surfaceId);
+        // 尝试立刻从 fullMessages 建 schema（若 root 已在累积消息中）
+        tryBuildAndRegisterFromFull();
+      }
+      continue;
+    }
+
+    // ---------- updateComponents / updateDataModel 前置：确定 surfaceId ----------
+    if (!state.surfaceId) {
+      // 兼容极端场景：切片内没有 createSurface 直接 updateComponents
+      state.surfaceId = extractSurfaceId([msg]) || extractSurfaceId(slice) || null;
+      if (!state.surfaceId) {
+        if (debug) console.log('[A2UI Adapter] 消息无 surfaceId，跳过:', msg);
+        continue;
+      }
+    }
+
+    // Attach 到已存在的 Surface（A2UI 规范：surfaceId 全局唯一，跨会话 attach）
+    if (!state.registered && surfaceStateManager.hasSurface(state.surfaceId)) {
+      state.registered = true;
+      mergedSchema = surfaceStateManager.getSchema(state.surfaceId);
+      bumpRender();
+      if (debug) console.log('[A2UI Adapter] Attach 到已存在的 Surface:', state.surfaceId);
+    }
+
+    // ---------- updateComponents ----------
+    if (msg.updateComponents) {
+      if (state.registered) {
+        if (!mergedSchema) mergedSchema = surfaceStateManager.getSchema(state.surfaceId);
+        if (mergedSchema) {
+          mergedSchema = applyA2UIUpdates(mergedSchema, msg.updateComponents.components as any[]);
+          schemaDirty = true;
+          if (debug) {
+            console.log('[A2UI Adapter] 增量合并组件:', {
+              surfaceId: state.surfaceId,
+              componentsCount: msg.updateComponents.components?.length,
+              incomingIds: msg.updateComponents.components?.map((c: any) => c.id),
+              allElementIds: Object.keys(mergedSchema.elements),
+            });
+          }
+        }
+      } else {
+        // 未注册 → 尝试从 fullMessages 建 schema（root 可能刚好到位）
+        tryBuildAndRegisterFromFull();
+      }
+      continue;
+    }
+
+    // ---------- updateDataModel ----------
+    if (msg.updateDataModel) {
+      if (state.registered) {
+        // 保序：先把组件更新落盘再更新数据
+        flushSchemaDirty();
+        const { path, op, value } = msg.updateDataModel;
+        surfaceStateManager.updateData(state.surfaceId, path, op || 'replace', value);
+      } else {
+        // 未注册 → 数据先随 fullMessages 累积，convertA2UIMessagesToJsonRender 内部会处理
+        tryBuildAndRegisterFromFull();
+      }
+      continue;
+    }
+  }
+
+  // 循环结束后统一 flush 组件树变化
+  flushSchemaDirty();
+}
+
+/* ------------------------------------------------------------------ */
+/* useA2UISurface：多 Surface Hook（升级为按序独立处理）                 */
+/* ------------------------------------------------------------------ */
 
 export interface A2UISurfaceController {
   surfaceIds: Ref<string[]>;
@@ -42,48 +210,71 @@ export interface UseA2UISurfaceOptions {
 
 export const useA2UISurface = (options: UseA2UISurfaceOptions = {}): A2UISurfaceController => {
   const surfaceIds = ref<string[]>([]);
-  const pendingMessages = new Map<string, A2UIMessage[]>();
+  // 每个 surfaceId 维护一份独立的分帧状态与消息累积
+  const stateMap = new Map<string, FrameState>();
+  const fullMessagesMap = new Map<string, A2UIMessage[]>();
 
   const addSurface = (surfaceId: string) => {
     if (!surfaceIds.value.includes(surfaceId)) surfaceIds.value = [...surfaceIds.value, surfaceId];
+  };
+  const removeSurface = (surfaceId: string) => {
+    surfaceIds.value = surfaceIds.value.filter((id) => id !== surfaceId);
   };
 
   const processMessages = (messages: A2UIMessage[]) => {
     if (!messages?.length) return;
 
-    groupMessagesBySurface(messages).forEach((surfaceMessages, surfaceId) => {
-      if (surfaceMessages.some((message) => message.deleteSurface)) {
-        surfaceStateManager.deleteSurface(surfaceId);
-        pendingMessages.delete(surfaceId);
-        surfaceIds.value = surfaceIds.value.filter((id) => id !== surfaceId);
-        return;
-      }
+    // 按 slice 顺序逐条分派到各 surface 的 FrameState —— 保持严格按序独立处理语义
+    // 用 Map<surfaceId, {slice, fullMessages}> 累积本次调用中每个 surface 的增量
+    const perSurface = new Map<string, { slice: A2UIMessage[]; fullMessages: A2UIMessage[] }>();
 
-      if (surfaceStateManager.hasSurface(surfaceId)) {
-        updateExistingSurface(surfaceId, surfaceMessages);
-        addSurface(surfaceId);
-        return;
-      }
+    for (const msg of messages) {
+      const id =
+        msg.createSurface?.surfaceId ||
+        msg.updateComponents?.surfaceId ||
+        msg.updateDataModel?.surfaceId ||
+        msg.deleteSurface?.surfaceId;
+      if (!id) continue;
 
-      const pending = [...(pendingMessages.get(surfaceId) || []), ...surfaceMessages];
-      const schema = convertA2UIMessagesToJsonRender(pending);
-      if (!schema) {
-        pendingMessages.set(surfaceId, pending);
-        return;
+      let full = fullMessagesMap.get(id);
+      if (!full) {
+        full = [];
+        fullMessagesMap.set(id, full);
       }
+      if (!stateMap.has(id)) stateMap.set(id, createInitialFrameState());
+      full.push(msg);
 
-      const catalogId = pending.find((message) => message.createSurface)?.createSurface?.catalogId;
-      surfaceStateManager.registerSurface(surfaceId, schema, catalogId);
-      pendingMessages.delete(surfaceId);
-      addSurface(surfaceId);
-      if (options.debug) console.log('[useA2UISurface] registered:', surfaceId);
+      let bucket = perSurface.get(id);
+      if (!bucket) {
+        bucket = { slice: [], fullMessages: full };
+        perSurface.set(id, bucket);
+      }
+      bucket.slice.push(msg);
+    }
+
+    perSurface.forEach(({ slice, fullMessages }, id) => {
+      const state = stateMap.get(id);
+      if (!state) return;
+      processIncrementalSlice(slice, state, fullMessages, () => {}, options.debug || false);
+      if (state.registered) {
+        addSurface(id);
+      } else if (!surfaceStateManager.hasSurface(id)) {
+        // 尚未注册且不存在：不加入 surfaceIds
+      }
+      // 若被 delete，state.registered 已置 false 且 surfaceStateManager 中已删除
+      if (!surfaceStateManager.hasSurface(id)) {
+        removeSurface(id);
+        stateMap.delete(id);
+        fullMessagesMap.delete(id);
+      }
     });
   };
 
   const clearAllSurfaces = () => {
     surfaceIds.value.forEach((surfaceId) => surfaceStateManager.deleteSurface(surfaceId));
     surfaceIds.value = [];
-    pendingMessages.clear();
+    stateMap.clear();
+    fullMessagesMap.clear();
   };
 
   onBeforeUnmount(clearAllSurfaces);
@@ -95,6 +286,10 @@ export const useA2UISurface = (options: UseA2UISurfaceOptions = {}): A2UISurface
     hasSurface: (surfaceId) => surfaceStateManager.hasSurface(surfaceId),
   };
 };
+
+/* ------------------------------------------------------------------ */
+/* A2UISurfaceRenderer：按 surfaceId 挂载 UI                            */
+/* ------------------------------------------------------------------ */
 
 export const A2UISurfaceRenderer = defineComponent({
   name: 'A2UISurfaceRenderer',
@@ -136,6 +331,10 @@ export const A2UISurfaceRenderer = defineComponent({
   },
 });
 
+/* ------------------------------------------------------------------ */
+/* A2UIJsonRenderActivityRenderer：单 activity 块内的增量分帧渲染器       */
+/* ------------------------------------------------------------------ */
+
 export interface A2UIJsonRenderActivityRendererProps extends Omit<JsonRenderActivityProps, 'content'> {
   content: {
     messages?: A2UIMessage[];
@@ -159,74 +358,118 @@ export const A2UIJsonRenderActivityRenderer = defineComponent({
     debug: Boolean,
   },
   setup(props) {
+    // 分帧状态（跨 watch 回调持久化，等价于 React 的 useRef）
+    let frameState: FrameState = createInitialFrameState();
+
+    // Ownership token（本 renderer 实例的唯一身份）
+    const ownerToken = Symbol(`A2UIRenderer:${props.messageId || 'anon'}`);
+
     const schema = shallowRef<JsonRenderSchema | null>(null);
     const isOwner = ref(false);
-    const ownerToken = Symbol(`A2UIRenderer:${props.messageId || 'anonymous'}`);
-    const processedCount = ref(0);
-    const pending = ref<A2UIMessage[]>([]);
-    const surfaceId = ref<string>();
-    let unsubscribeSurface: (() => void) | undefined;
-    let unsubscribeOwnership: (() => void) | undefined;
-
-    const subscribeSurface = (id: string) => {
-      unsubscribeSurface?.();
-      unsubscribeOwnership?.();
-      unsubscribeSurface = surfaceStateManager.subscribe(id, () => {
-        schema.value = surfaceStateManager.getSchema(id);
-      });
-      unsubscribeOwnership = surfaceStateManager.subscribeOwnership(id, ownerToken, (owned) => {
-        isOwner.value = owned;
-        if (!owned) schema.value = null;
-      });
+    // 用于触发 schema 重新读取的版本号（processIncrementalSlice 完成 / 订阅回调都会 bump）
+    const renderVersion = ref(0);
+    const bumpRender = () => {
+      renderVersion.value += 1;
     };
 
+    let unsubscribeSchema: (() => void) | undefined;
+    let unsubscribeOwnership: (() => void) | undefined;
+    let subscribedSurfaceId: string | null = null;
+
+    const subscribeSurface = (id: string) => {
+      if (subscribedSurfaceId === id) return;
+      unsubscribeSchema?.();
+      unsubscribeOwnership?.();
+
+      if (props.debug) console.log('[A2UI Adapter] 订阅 Surface 状态 + Ownership:', id);
+
+      unsubscribeSchema = surfaceStateManager.subscribe(id, () => {
+        if (props.debug) console.log('[A2UI Adapter] 收到 surface 状态更新通知，触发重渲染');
+        bumpRender();
+      });
+      unsubscribeOwnership = surfaceStateManager.subscribeOwnership(id, ownerToken, (nowIsOwner) => {
+        if (props.debug) console.log('[A2UI Adapter] Ownership 变化:', { surfaceId: id, isOwner: nowIsOwner });
+        isOwner.value = nowIsOwner;
+      });
+      // 主动同步一次
+      isOwner.value = surfaceStateManager.isOwner?.(id, ownerToken) ?? isOwner.value;
+      subscribedSurfaceId = id;
+    };
+
+    // messageId 变化时重置状态（activity 块换了实例）
+    watch(
+      () => props.messageId,
+      () => {
+        frameState = createInitialFrameState();
+        isOwner.value = false;
+        schema.value = null;
+        subscribedSurfaceId = null;
+      },
+    );
+
+    // 核心：增量处理 content.messages
     watch(
       () => props.content.messages || [],
       (messages) => {
-        if (messages.length < processedCount.value) {
-          processedCount.value = 0;
-          pending.value = [];
-        }
-        const slice = messages.slice(processedCount.value);
-        processedCount.value = messages.length;
-        if (!slice.length) return;
+        if (!Array.isArray(messages) || messages.length === 0) return;
 
-        surfaceId.value ||= extractSurfaceId(messages) || undefined;
-        const id = surfaceId.value;
-        if (!id) return;
-
-        if (slice.some((message) => message.deleteSurface)) {
-          surfaceStateManager.deleteSurface(id);
-          schema.value = null;
-          isOwner.value = false;
-          return;
+        // 长度回退：重置分帧状态从头处理
+        if (messages.length < frameState.lastProcessedIndex) {
+          if (props.debug) console.log('[A2UI Adapter] messages 长度回退，重置分帧状态');
+          frameState = createInitialFrameState();
         }
 
-        if (surfaceStateManager.hasSurface(id)) {
-          updateExistingSurface(id, slice);
-        } else {
-          pending.value.push(...slice);
-          const nextSchema = convertA2UIMessagesToJsonRender(pending.value);
-          if (nextSchema) {
-            const catalogId = pending.value.find((message) => message.createSurface)?.createSurface?.catalogId;
-            surfaceStateManager.registerSurface(id, nextSchema, catalogId);
-            pending.value = [];
+        const slice = messages.slice(frameState.lastProcessedIndex);
+        if (slice.length === 0) return;
+
+        if (props.debug) {
+          console.log('[A2UI Adapter] 增量处理切片:', {
+            messageId: props.messageId,
+            fromIndex: frameState.lastProcessedIndex,
+            sliceLength: slice.length,
+            sliceTypes: slice.map(
+              (m) =>
+                Object.keys(m).filter((k) =>
+                  ['createSurface', 'updateComponents', 'updateDataModel', 'deleteSurface'].includes(k),
+                )[0],
+            ),
+          });
+        }
+
+        processIncrementalSlice(slice, frameState, messages, bumpRender, props.debug || false);
+
+        // 更新游标
+        frameState.lastProcessedIndex = messages.length;
+
+        // 认领 ownership（"先到先得"）
+        if (frameState.registered && frameState.surfaceId) {
+          subscribeSurface(frameState.surfaceId);
+          if (!isOwner.value) {
+            isOwner.value = surfaceStateManager.claimOwnership(frameState.surfaceId, ownerToken);
           }
-        }
-
-        if (surfaceStateManager.hasSurface(id)) {
-          if (!unsubscribeSurface) subscribeSurface(id);
-          if (!isOwner.value) isOwner.value = surfaceStateManager.claimOwnership(id, ownerToken);
-          schema.value = surfaceStateManager.getSchema(id);
+          bumpRender();
         }
       },
       { immediate: true, deep: true },
     );
 
+    // 派生 schema：renderVersion / isOwner 变化时重新读取
+    watch(
+      [renderVersion, isOwner],
+      () => {
+        if (!frameState.registered || !frameState.surfaceId || !isOwner.value) {
+          schema.value = null;
+          return;
+        }
+        schema.value = surfaceStateManager.getSchema(frameState.surfaceId);
+      },
+      { immediate: true },
+    );
+
     onBeforeUnmount(() => {
-      unsubscribeSurface?.();
+      unsubscribeSchema?.();
       unsubscribeOwnership?.();
-      if (surfaceId.value) surfaceStateManager.releaseOwnership(surfaceId.value, ownerToken);
+      if (frameState.surfaceId) surfaceStateManager.releaseOwnership(frameState.surfaceId, ownerToken);
     });
 
     return () =>
@@ -238,12 +481,16 @@ export const A2UIJsonRenderActivityRenderer = defineComponent({
           registry={props.registry}
           actionHandlers={props.actionHandlers}
           onDataChange={(path, value) => {
-            if (surfaceId.value) surfaceStateManager.updateData(surfaceId.value, path, 'replace', value);
+            if (frameState.surfaceId) surfaceStateManager.updateData(frameState.surfaceId, path, 'replace', value);
           }}
         />
       ) : null;
   },
 });
+
+/* ------------------------------------------------------------------ */
+/* createA2UISurfaceRenderer：便利工厂                                  */
+/* ------------------------------------------------------------------ */
 
 export const createA2UISurfaceRenderer = (registry: ComponentRegistry, actionHandlers: ActionHandlers = {}) =>
   defineComponent({
