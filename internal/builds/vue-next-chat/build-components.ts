@@ -1,5 +1,6 @@
 import { glob } from 'glob';
-import { readFile, writeFile, remove, mkdir, ensureDir } from 'fs-extra';
+import { readFile, writeFile, remove, ensureDir } from 'fs-extra';
+import { createRequire } from 'module';
 import { rollup, Plugin } from 'rollup';
 import url from '@rollup/plugin-url';
 import copy from 'rollup-plugin-copy';
@@ -42,14 +43,52 @@ const banner = `/**
 `;
 
 const input = joinProComponentsChatRoot('index-lib.ts');
-const webComponentsStyle = joinProComponentsChatRoot('style/web-components.css');
+const require = createRequire(import.meta.url);
+const webComponentsStyle = require.resolve('@tdesign/web-components/style/index.css');
+
+const RAW_CSS_SUFFIX = '.css?raw';
+
+// Match :root / :root[theme-mode] / :root.dark so user :root theme tokens win
+// even after a bundler unwraps @layer.
+const lowerRootSpecificity = (css: string) => css.replace(/(^|[,(\s])(:root(?:\[[^\]]+\]|\.[\w-]+)*)/g, '$1:where($2)');
+
+const wrapWebComponentsStyle = (css: string) => `@layer tdesign-web-components {\n${lowerRootSpecificity(css)}\n}\n`;
+
+const isRawCssId = (id: string) => id.endsWith(RAW_CSS_SUFFIX);
+
+const rawCssPlugin = (): Plugin => ({
+  name: 'resolve-raw-css',
+  resolveId(source) {
+    if (isRawCssId(source)) {
+      return `\0${source}`;
+    }
+    return null;
+  },
+  async load(id) {
+    if (!id.startsWith('\0') || !isRawCssId(id)) {
+      return null;
+    }
+    const specifier = id.slice(1, -'?raw'.length);
+    const filePath = require.resolve(specifier);
+    const css = await readFile(filePath, 'utf8');
+    return `export default ${JSON.stringify(css)};`;
+  },
+});
+
+const isExternalId = (id: string, deps: Array<string | RegExp>) => {
+  if (isRawCssId(id)) {
+    return false;
+  }
+  return deps.some((dep) => (typeof dep === 'string' ? id === dep || id.startsWith(`${dep}/`) : dep.test(id)));
+};
 
 const copyWebComponentsStyle = async (outputDir: 'es' | 'esm') => {
   const styleDir = joinTdesignVueNextChatRoot(`${outputDir}/style`);
   await ensureDir(styleDir);
+  const defaultStyle = await readFile(webComponentsStyle, 'utf8');
   await writeFile(
     joinTdesignVueNextChatRoot(`${outputDir}/style/web-components.css`),
-    await readFile(webComponentsStyle),
+    wrapWebComponentsStyle(defaultStyle),
   );
 };
 
@@ -75,6 +114,7 @@ const getPlugins = ({
   isProd?: boolean;
 } = {}) => {
   const plugins = [
+    rawCssPlugin(),
     nodeResolve({
       extensions: ['.mjs', '.js', '.json', '.node', '.ts', '.tsx'],
     }) as unknown as Plugin,
@@ -120,6 +160,7 @@ const getPlugins = ({
       }),
       ignoreImport({
         include: [joinProComponentsChatRoot('**/style/*')],
+        exclude: ['node_modules/**', joinProComponentsChatRoot('**/style/web-components.ts')],
         body: 'import "./style/css.mjs";',
       }),
       copy({
@@ -190,7 +231,7 @@ export const buildEs = async () => {
       input: [...inputList, `!${joinProComponentsChatRoot('index-lib.ts')}`],
       // 为了保留 style/css.js
       treeshake: false,
-      external: (id) => esExternal.some((dep) => id === dep || id.startsWith(`${dep}/`) || id.endsWith('.css')),
+      external: (id) => isExternalId(id, esExternal) || (!isRawCssId(id) && id.endsWith('.css')),
       plugins: [multiInput({ relative: joinProComponentsChatRoot() }), ...getPlugins({ cssBuildType: 'multi' })],
     });
     bundle.write({
@@ -213,11 +254,11 @@ export const buildEs = async () => {
 };
 
 export const buildEsm = async () => {
-  const externalDeps = [...esExternalDeps, externalPeerDeps, /@tdesign\/common-style/];
+  const esmExternalDeps = [...esExternalDeps, ...externalPeerDeps, /@tdesign\/common-style/];
   const bundle = await rollup({
     input: [...inputList, `!${joinProComponentsChatRoot('index-lib.ts')}`],
     external: (id) =>
-      externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`) || id.endsWith('.css') || id.endsWith('.less')),
+      isExternalId(id, esmExternalDeps) || (!isRawCssId(id) && (id.endsWith('.css') || id.endsWith('.less'))),
     plugins: [multiInput({ relative: joinProComponentsChatRoot() }), ...getPlugins({ cssBuildType: 'source' })],
   });
   await bundle.write({
@@ -240,7 +281,7 @@ export const buildEsm = async () => {
   await Promise.all(rewrite);
 
   // 写 style，用于开发者引入全局的样式资源
-  await mkdir(joinTdesignVueNextChatRoot('esm/style'));
+  await ensureDir(joinTdesignVueNextChatRoot('esm/style'));
   await writeFile(
     joinTdesignVueNextChatRoot('esm/style/index.js'),
     `import 'tdesign-vue-next/esm/style/index.js';`, // 直接复用 vue-next 的 style
