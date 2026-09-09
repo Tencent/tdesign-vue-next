@@ -62,7 +62,11 @@ export default function generateLlmsPlugin() {
       // 组件文档读取器：读取 common 子仓扁平目录 <slug>.md
       const readComponentDoc = async (_componentDir: string, slug: string): Promise<string | null> => {
         const docPath = path.join(docsRoot, 'web/api', `${slug}.md`);
-        return promises.readFile(docPath, 'utf-8').catch(() => null);
+        try {
+          return await promises.readFile(docPath, 'utf-8');
+        } catch {
+          return null;
+        }
       };
 
       // 通用文档解析管道：读取 frontmatter -> 替换 demo -> 清理正文
