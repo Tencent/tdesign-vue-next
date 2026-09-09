@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import tDocPlugin from './plugins/tdoc-plugin';
 import changelog2Json from './plugins/changelog-to-json';
+import generateLlms from './plugins/generate-llms';
 
 import {
   joinPosix,
@@ -38,7 +39,7 @@ export default defineConfig(({ mode }) => {
         allow: [searchForWorkspaceRoot(process.cwd())],
       },
     },
-    plugins: [vue(), vueJsx(), tDocPlugin(), changelog2Json()],
+    plugins: [vue(), vueJsx(), tDocPlugin(), changelog2Json(), generateLlms()],
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
       exclude: [

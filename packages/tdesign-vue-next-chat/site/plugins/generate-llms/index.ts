@@ -36,11 +36,11 @@ function isDemoSlot(componentDir: string, demoName: string): boolean {
 }
 
 /**
- * vite 插件：站点构建时，基于组件清单映射生成组件的 LLM Markdown 文档。
+ * vite 插件：chat 站点构建时，基于 CHAT_COMPONENT_MAP 生成组件的 LLM Markdown 文档。
  * 核心逻辑为纯 JS 方法 generateLlmsDocs（来自 common 的 docs/plugins/generate-llms），
- * 此处仅负责 vite 构建钩子分发，并按 vue-next 仓库约定注入组件文档与 demo 源码读取器。
+ * 此处仅负责 vite 构建钩子分发，并按 vue-chat 仓库约定注入组件文档与 demo 源码读取器。
  */
-export default function generateLlmsPlugin() {
+export default function generateChatLlmsPlugin() {
   let config: any;
   return {
     name: 'generate-llms',
@@ -53,8 +53,8 @@ export default function generateLlmsPlugin() {
 
       // 基于 config.root 推导路径，避免依赖 __dirname 多层回溯
       const siteRoot = config.root;
-      const componentsRoot = path.resolve(siteRoot, '../../components');
-      // common 子仓文档根目录（组件文档为 <slug>.md，如 packages/common/docs/web/api/affix.md）
+      const componentsRoot = path.resolve(siteRoot, '../../pro-components/chat');
+      // common 子仓文档根目录（组件文档为 <slug>.md，如 packages/common/docs/web/api/chat-actionbar.md）
       const docsRoot = path.resolve(siteRoot, '../../common/docs');
       // 产物输出目录：从 config.build.outDir 推导，避免硬编码 dist
       const outputDir = config.build.outDir || path.join(siteRoot, 'dist');
@@ -76,10 +76,10 @@ export default function generateLlmsPlugin() {
       await generateLlmsDocs({
         componentsRoot,
         outputDir,
-        platform: 'web',
+        platform: 'chat',
         parseComponentDoc,
-        siteTitle: 'TDesign Vue Next',
-        siteDescription: 'TDesign Vue Next 组件库的 LLM 友好文档索引。',
+        siteTitle: 'TDesign Vue Chat',
+        siteDescription: 'TDesign 聊天组件库的 LLM 友好文档索引。',
       });
     },
   };
