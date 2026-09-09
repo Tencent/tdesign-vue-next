@@ -36,9 +36,9 @@
       <!-- 完成阶段 -->
       <template v-else-if="genState.status === 'completed'">
         <t-space direction="vertical" style="width: 100%">
-          <div style="display: flex; align-items: center; gap: 8px; color: #52c41a">
+          <div style="display: flex; align-items: center; gap: 8px; color: var(--td-success-color)">
             <check-circle-filled-icon style="color: var(--td-success-color)" size="20px" />
-            <span style="color: black; font-size: 14px">已完成</span>
+            <span style="color: var(--td-text-color-primary); font-size: 14px">已完成</span>
           </div>
           <t-image
             v-if="genState.imageUrl"
@@ -52,11 +52,11 @@
       <!-- 失败阶段 -->
       <template v-else-if="genState.status === 'failed'">
         <t-space direction="vertical" style="width: 100%">
-          <div style="display: flex; align-items: center; gap: 8px; color: #ff4d4f">
+          <div style="display: flex; align-items: center; gap: 8px; color: var(--td-error-color)">
             <close-circle-filled-icon />
             <span>图片生成失败</span>
           </div>
-          <div style="color: #ff4d4f; font-size: 12px">{{ genState.error || '未知错误' }}</div>
+          <div style="color: var(--td-error-color); font-size: 12px">{{ genState.error || '未知错误' }}</div>
         </t-space>
       </template>
     </template>

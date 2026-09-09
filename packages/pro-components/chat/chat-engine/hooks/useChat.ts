@@ -1,46 +1,84 @@
-import { ref, onMounted, onUnmounted, watch, type Ref } from 'vue';
-import type { ChatMessagesData, ChatStatus, ChatServiceConfig } from 'tdesign-web-components/lib/chat-engine';
-import { TdChatProps } from 'tdesign-web-components';
-import ChatEngine from 'tdesign-web-components/lib/chat-engine';
+import { ref, shallowRef, onMounted, onUnmounted, watch, type Ref } from 'vue';
+import { cloneDeep } from 'lodash-es';
+import { ChatEngine, isActivityContent } from '@tdesign/web-components-chat/chat-engine';
+import type {
+  ChatMessagesData,
+  ChatStatus,
+  ChatServiceConfigSetter,
+  IChatEngine,
+} from '@tdesign/web-components-chat/chat-engine';
+import type { TdChatProps } from '@tdesign/web-components-chat';
+
+export interface UseChatReturn {
+  chatEngine: Ref<IChatEngine | null>;
+  messages: Ref<ChatMessagesData[]>;
+  status: Ref<ChatStatus>;
+}
+
+export const createReactiveMessagesSnapshot = (state: ChatMessagesData[]): ChatMessagesData[] =>
+  state.map((message) => ({
+    ...message,
+    content: Array.isArray(message.content)
+      ? message.content.map((content) =>
+          isActivityContent(content as any)
+            ? {
+                ...content,
+                data: cloneDeep(content.data),
+              }
+            : { ...content },
+        )
+      : message.content,
+  })) as ChatMessagesData[];
 
 export const useChat = (options: {
   defaultMessages: TdChatProps['defaultMessages'];
-  chatServiceConfig: ChatServiceConfig;
-}) => {
+  chatServiceConfig: ChatServiceConfigSetter;
+}): UseChatReturn => {
   const messages: Ref<ChatMessagesData[]> = ref([]);
   const status: Ref<ChatStatus> = ref('idle');
-  const chatEngineRef = ref<ChatEngine | null>(null);
+  // ChatEngine 内含类实例和私有状态，使用 shallowRef 避免 Vue 深层解包破坏其类型。
+  const chatEngineRef = shallowRef<IChatEngine | null>(null);
   const msgSubscribeRef = ref<(() => void) | null>(null);
   const prevInitialMessages = ref<ChatMessagesData[]>([]);
+  let mounted = false;
 
   const syncState = (state: ChatMessagesData[]) => {
-    messages.value = state;
-    status.value = state[state.length - 1]?.status || 'idle';
+    // ChatEngine 的 Activity Delta 会在 Vue 响应式系统之外更新深层 Schema。
+    // 为每次 store 通知创建新消息快照，并深拷贝 Activity 数据，确保嵌套 JSON Patch
+    // 可以触发 ActivityRenderer 及其递归子组件更新。
+    messages.value = createReactiveMessagesSnapshot(state);
+    status.value = messages.value[messages.value.length - 1]?.status || 'idle';
   };
 
   const subscribeToChat = () => {
     if (!chatEngineRef.value) return;
 
+    msgSubscribeRef.value?.();
     msgSubscribeRef.value = chatEngineRef.value.messageStore.subscribe((state) => {
       syncState(state.messages);
     });
   };
 
-  const initChat = () => {
+  const initChat = async () => {
     chatEngineRef.value = new ChatEngine();
-    chatEngineRef.value.init(options.chatServiceConfig, options.defaultMessages);
+    await chatEngineRef.value.init(options.chatServiceConfig, options.defaultMessages);
+    if (!mounted) return;
     syncState(options.defaultMessages || []);
     subscribeToChat();
   };
 
   onMounted(() => {
+    mounted = true;
     initChat();
   });
 
   onUnmounted(() => {
+    mounted = false;
     if (msgSubscribeRef.value) {
       msgSubscribeRef.value();
     }
+    chatEngineRef.value?.destroy();
+    chatEngineRef.value = null;
   });
 
   // 监听 defaultMessages 变化

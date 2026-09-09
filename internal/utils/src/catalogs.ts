@@ -61,6 +61,7 @@ export const catalogs = {
     validator: '^13.15.23',
     vue: '^3.5.0',
     'vue-router': '^4.2.4',
+    '@json-render/core': '^0.19.0',
   },
   docs: {
     'gray-matter': '^4.0.3',
