@@ -28,7 +28,7 @@ export const JsonRenderText = defineComponent({
   setup(props) {
     const elementProps = computed(() => (props.element.props || {}) as Record<string, any>);
     const contentPath = computed(() => elementProps.value.contentPath as string | undefined);
-    const boundValue = useDataValue(contentPath.value);
+    const boundValue = useDataValue(contentPath);
     return () => {
       const { content, contentPath: _contentPath, style, className, ...rest } = elementProps.value;
       const text = contentPath.value ? boundValue.value : content ?? props.children;
@@ -82,8 +82,8 @@ const createTextField = (a2ui = false) =>
       const elementProps = computed(() => (props.element.props || {}) as Record<string, any>);
       const valuePath = computed(() => elementProps.value.valuePath as string | undefined);
       const disabledPath = computed(() => elementProps.value.disabledPath as string | undefined);
-      const [value, setValue] = useDataBinding<any>(valuePath.value);
-      const disabledValue = useDataValue(disabledPath.value);
+      const [value, setValue] = useDataBinding<any>(valuePath);
+      const disabledValue = useDataValue(disabledPath);
 
       return () => {
         const { label, valuePath: _valuePath, disabledPath: _disabledPath, ...inputProps } = elementProps.value;
@@ -160,8 +160,8 @@ const createBoundControl = (name: string, component: Component) =>
       const elementProps = computed(() => (props.element.props || {}) as Record<string, any>);
       const valuePath = computed(() => elementProps.value.valuePath as string | undefined);
       const disabledPath = computed(() => elementProps.value.disabledPath as string | undefined);
-      const [value, setValue] = useDataBinding<any>(valuePath.value);
-      const disabled = useDataValue(disabledPath.value);
+      const [value, setValue] = useDataBinding<any>(valuePath);
+      const disabled = useDataValue(disabledPath);
       return () => {
         const { label, valuePath: _valuePath, disabledPath: _disabledPath, ...controlProps } = elementProps.value;
         const control = h(component, {
@@ -260,8 +260,8 @@ export const withA2UIBinding = (WrappedComponent: Component, config: A2UIBinding
       const elementProps = computed(() => (props.element.props || {}) as Record<string, any>);
       const valuePath = computed(() => elementProps.value.valuePath as string | undefined);
       const disabledPath = computed(() => elementProps.value.disabledPath as string | undefined);
-      const [value, setValue] = useDataBinding<any>(valuePath.value);
-      const disabled = useDataValue(disabledPath.value);
+      const [value, setValue] = useDataBinding<any>(valuePath);
+      const disabled = useDataValue(disabledPath);
 
       return () => {
         const { valuePath: _valuePath, disabledPath: _disabledPath, action, ...componentProps } = elementProps.value;

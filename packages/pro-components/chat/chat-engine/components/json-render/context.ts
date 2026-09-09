@@ -5,6 +5,7 @@ import {
   provide,
   ref,
   shallowRef,
+  unref,
   type ComputedRef,
   type InjectionKey,
   type PropType,
@@ -78,14 +79,24 @@ export const useDataStore = () => {
   return store;
 };
 
-export const useDataValue = <T = unknown>(path?: string): ComputedRef<T | undefined> => {
+export type DataPath = string | undefined | Ref<string | undefined> | (() => string | undefined);
+
+const resolveDataPath = (path: DataPath) => (typeof path === 'function' ? path() : unref(path));
+
+export const useDataValue = <T = unknown>(path?: DataPath): ComputedRef<T | undefined> => {
   const store = useDataStore();
-  return computed(() => store.getByPath(path) as T | undefined);
+  return computed(() => store.getByPath(resolveDataPath(path)) as T | undefined);
 };
 
-export const useDataBinding = <T = unknown>(path?: string): [ComputedRef<T | undefined>, (value: T) => void] => {
+export const useDataBinding = <T = unknown>(path?: DataPath): [ComputedRef<T | undefined>, (value: T) => void] => {
   const store = useDataStore();
-  return [useDataValue<T>(path), (value: T) => path && store.setByPath(path, value)];
+  return [
+    useDataValue<T>(path),
+    (value: T) => {
+      const resolvedPath = resolveDataPath(path);
+      if (resolvedPath) store.setByPath(resolvedPath, value);
+    },
+  ];
 };
 
 export const useDataState = () => {
