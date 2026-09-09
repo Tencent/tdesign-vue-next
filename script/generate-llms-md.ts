@@ -330,17 +330,25 @@ export function generateEnglishMarkdown(meta: LlmsComponent): string {
  *   import llmsMd from '../../../script/generate-llms-md';
  *   plugins: [..., llmsMd()]
  */
-export default function llmsMd() {
+export interface LlmsMdPluginOptions {
+  /** 输出目录，默认 site/dist/llms */
+  outputDir?: string;
+}
+
+export default function llmsMd(options: LlmsMdPluginOptions = {}) {
+  const outputDir = options.outputDir || getLlmsDir();
+
   return {
     name: 'llms-md',
     configureServer(server: ViteDevServer) {
+      // 拦截 /llms/* 请求：url 中保留子路径（不含 /llms 前缀由 express 自动剥离）
       server.middlewares.use('/llms', async (req, res) => {
         try {
           res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
           const urlPath = (req.url || '').split('?')[0];
           const fileName = urlPath.replace(/^\/+/, '');
 
-          if (fileName === 'llms.txt') {
+          if (fileName === '' || fileName === 'llms.txt') {
             res.end(buildIndexText(listComponents()));
             return;
           }
@@ -361,14 +369,13 @@ export default function llmsMd() {
         }
       });
     },
+    /**
+     * closeBundle 只在 vite build 时触发（dev 服务器不会调用），
+     * 因此无需判断环境变量，构建成功即写入物理文件。
+     */
     async closeBundle(error?: Error) {
-      // 构建失败时跳过
       if (error) return;
-      // 生产构建时写入物理文件
-      if (process.env.NODE_ENV !== 'production') return;
-
-      // 内部会自动创建输出目录并写盘
-      generateLlmsMd({ outputDir: getLlmsDir() });
+      generateLlmsMd({ outputDir });
     },
   };
 }
