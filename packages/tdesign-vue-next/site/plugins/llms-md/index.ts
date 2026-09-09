@@ -28,6 +28,8 @@ export default function generateLlmsPlugin() {
         componentsRoot,
         outputDir,
         platform: 'web',
+        // 组件文档为 <slug>.md（如 button.md），非小程序仓库的 README.md
+        docFilename: '{slug}.md',
         siteTitle: 'TDesign Vue Next',
         siteDescription: 'TDesign Vue Next 组件库的 LLM 友好文档索引。',
       });
