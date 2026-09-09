@@ -1,7 +1,7 @@
 import path from 'path';
-import { promises, readFileSync } from 'fs';
+import { promises, readFileSync, existsSync } from 'fs';
 
-import generateLlmsDocs from '../../../../common/docs/plugins/generate-llms';
+import generateLlmsDocs, { createComponentDocParser } from '../../../../common/docs/plugins/generate-llms';
 
 /**
  * vite 插件：站点构建时，基于组件清单映射生成组件的 LLM Markdown 文档。
@@ -22,40 +22,56 @@ export default function generateLlmsPlugin() {
       // 基于 config.root 推导路径，避免依赖 __dirname 多层回溯
       const siteRoot = config.root;
       const componentsRoot = path.resolve(siteRoot, '../../components');
-      // common 子仓扁平文档目录（组件文档为 <slug>.md，如 packages/common/docs/web/api/affix.md）
-      const docsRoot = path.resolve(siteRoot, '../../common/docs/web/api');
+      // common 子仓文档根目录（组件文档为 <slug>.md，如 packages/common/docs/web/api/affix.md）
+      const docsRoot = path.resolve(siteRoot, '../../common/docs');
       // 产物输出目录：从 config.build.outDir 推导，避免硬编码 dist
       const outputDir = config.build.outDir || path.join(siteRoot, 'dist');
 
-      // 组件文档读取器：优先读 common 子仓扁平目录 <slug>.md，回退组件目录内 README.md / <slug>.md
-      const readComponentDoc = async (componentDir: string, slug: string): Promise<string | null> => {
-        const docPaths = [
-          path.join(docsRoot, `${slug}.md`),
-          path.join(componentDir, 'README.md'),
-          path.join(componentDir, `${slug}.md`),
-        ];
-        const contents = await Promise.all(
-          docPaths.map((docPath) => promises.readFile(docPath, 'utf-8').catch(() => null)),
-        );
-        return contents.find((content) => content !== null) ?? null;
+      // 组件文档读取器：读取 common 子仓扁平目录 <slug>.md
+      const readComponentDoc = async (_componentDir: string, slug: string): Promise<string | null> => {
+        const docPath = path.join(docsRoot, 'web/api', `${slug}.md`);
+        return promises.readFile(docPath, 'utf-8').catch(() => null);
       };
 
       // demo 源码读取器：读取 _example/<demoName>.vue，输出 Vue SFC 代码块
-      const readDemoCode = (componentDir: string, demoName: string): string => {
-        try {
-          const content = readFileSync(path.join(componentDir, '_example', `${demoName}.vue`), 'utf-8');
-          return content.trim() ? `\`\`\`vue\n${content}\n\`\`\`` : '';
-        } catch {
-          return '';
+      const readVueDemo = (componentDir: string, demoName: string): string => {
+        const candidates = [
+          path.join(componentDir, '_example', `${demoName}.vue`),
+          path.join(componentDir, '_example', demoName, 'index.vue'),
+        ];
+        for (const candidate of candidates) {
+          try {
+            const content = readFileSync(candidate, 'utf-8');
+            if (content.trim()) return `\`\`\`vue\n${content}\n\`\`\``;
+          } catch {
+            // 继续尝试下一个候选路径
+          }
         }
+        return '';
       };
+
+      // demo 占位符判断：匹配 _example/<demoName>.vue 或 _example/<demoName>/index.vue
+      const isDemoSlot = (componentDir: string, demoName: string): boolean => {
+        const candidates = [
+          path.join(componentDir, '_example', `${demoName}.vue`),
+          path.join(componentDir, '_example', demoName, 'index.vue'),
+        ];
+        return candidates.some((candidate) => existsSync(candidate));
+      };
+
+      // 通用文档解析管道：读取 frontmatter -> 替换 demo -> 清理正文
+      const parseComponentDoc = createComponentDocParser({
+        readComponentDoc,
+        readDemoCode: readVueDemo,
+        isDemoSlot,
+        transformers: [],
+      });
 
       await generateLlmsDocs({
         componentsRoot,
         outputDir,
         platform: 'web',
-        readComponentDoc,
-        readDemoCode,
+        parseComponentDoc,
         siteTitle: 'TDesign Vue Next',
         siteDescription: 'TDesign Vue Next 组件库的 LLM 友好文档索引。',
       });
