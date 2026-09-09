@@ -5,6 +5,7 @@ import { normalizeActionBinding, resolveActionParams } from '@tdesign/web-compon
 import type { ActionBinding, UIElement } from '@json-render/core';
 import { useDataBinding, useDataStore, useDataValue } from './context';
 import type { ComponentRegistry, ComponentRenderer } from './types';
+import { sanitizeProps } from './utils/sanitize-props';
 
 const rendererProps = {
   element: {
@@ -33,7 +34,7 @@ export const JsonRenderText = defineComponent({
       const { content, contentPath: _contentPath, style, className, ...rest } = elementProps.value;
       const text = contentPath.value ? boundValue.value : content ?? props.children;
       return (
-        <span style={style} class={className} {...rest}>
+        <span style={style} class={className} {...sanitizeProps(rest)}>
           {text == null ? '' : String(text)}
         </span>
       );
@@ -46,7 +47,7 @@ export const JsonRenderCard = defineComponent({
   props: rendererProps,
   setup: (props) => () => {
     const { children: _children, ...cardProps } = (props.element.props || {}) as Record<string, any>;
-    return <Card {...cardProps}>{props.children}</Card>;
+    return <Card {...sanitizeProps(cardProps)}>{props.children}</Card>;
   },
 });
 
@@ -55,7 +56,7 @@ const createLayoutRenderer = (name: string, component: Component, defaults: Reco
     name,
     props: rendererProps,
     setup: (props) => () =>
-      h(component, { ...defaults, ...(props.element.props || {}) }, { default: () => props.children }),
+      h(component, { ...defaults, ...sanitizeProps(props.element.props || {}) }, { default: () => props.children }),
   });
 
 export const JsonRenderRow = createLayoutRenderer('JsonRenderRow', Row);
@@ -71,7 +72,7 @@ export const JsonRenderDivider = createLayoutRenderer('JsonRenderDivider', Divid
 export const JsonRenderInput = defineComponent({
   name: 'JsonRenderInput',
   props: rendererProps,
-  setup: (props) => () => <Input {...((props.element.props || {}) as Record<string, any>)} />,
+  setup: (props) => () => <Input {...sanitizeProps((props.element.props || {}) as Record<string, any>)} />,
 });
 
 const createTextField = (a2ui = false) =>
@@ -87,11 +88,12 @@ const createTextField = (a2ui = false) =>
 
       return () => {
         const { label, valuePath: _valuePath, disabledPath: _disabledPath, ...inputProps } = elementProps.value;
+        const safeInputProps = sanitizeProps(inputProps);
         const input = (
           <Input
-            {...inputProps}
+            {...safeInputProps}
             value={value.value ?? ''}
-            disabled={disabledPath.value ? Boolean(disabledValue.value) : inputProps.disabled}
+            disabled={disabledPath.value ? Boolean(disabledValue.value) : safeInputProps.disabled}
             onChange={setValue}
           />
         );
@@ -124,10 +126,11 @@ const createButton = (a2ui = false) =>
           onClick,
           ...buttonProps
         } = (props.element.props || {}) as Record<string, any>;
+        const safeButtonProps = sanitizeProps(buttonProps);
         return (
           <Button
-            {...buttonProps}
-            loading={buttonProps.loading || props.loading}
+            {...safeButtonProps}
+            loading={safeButtonProps.loading || props.loading}
             onClick={(event) => {
               onClick?.(event);
               if (!action || !props.onAction) return;
@@ -164,10 +167,11 @@ const createBoundControl = (name: string, component: Component) =>
       const disabled = useDataValue(disabledPath.value);
       return () => {
         const { label, valuePath: _valuePath, disabledPath: _disabledPath, ...controlProps } = elementProps.value;
+        const safeControlProps = sanitizeProps(controlProps);
         const control = h(component, {
-          ...controlProps,
+          ...safeControlProps,
           value: value.value,
-          disabled: disabledPath.value ? Boolean(disabled.value) : controlProps.disabled,
+          disabled: disabledPath.value ? Boolean(disabled.value) : safeControlProps.disabled,
           onChange: setValue,
         });
         return label ? (
@@ -265,9 +269,10 @@ export const withA2UIBinding = (WrappedComponent: Component, config: A2UIBinding
 
       return () => {
         const { valuePath: _valuePath, disabledPath: _disabledPath, action, ...componentProps } = elementProps.value;
+        const safeComponentProps = sanitizeProps(componentProps);
         const finalProps: Record<string, any> = {
-          ...componentProps,
-          disabled: disabledPath.value ? Boolean(disabled.value) : componentProps.disabled,
+          ...safeComponentProps,
+          disabled: disabledPath.value ? Boolean(disabled.value) : safeComponentProps.disabled,
         };
         if (valuePath.value) {
           finalProps[valueField] = value.value;
@@ -275,7 +280,7 @@ export const withA2UIBinding = (WrappedComponent: Component, config: A2UIBinding
         }
         if (supportsAction && action) {
           finalProps[actionTrigger] = (...args: any[]) => {
-            componentProps[actionTrigger]?.(...args);
+            safeComponentProps[actionTrigger]?.(...args);
             const normalized = normalizeActionBinding(action);
             if (normalized && props.onAction) {
               props.onAction({
