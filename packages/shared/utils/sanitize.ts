@@ -223,12 +223,15 @@ export const sanitizeSvg = (svgText: string): string => {
  * - `dangerouslySetInnerHTML`：跨端（React）schema 兼容兜底。
  */
 const BLOCKED_PROP_KEYS = new Set<string>([
-  'innerHTML',
-  'outerHTML',
-  'textContent',
+  'innerhtml',
+  'outerhtml',
+  'textcontent',
   'srcdoc',
-  'dangerouslySetInnerHTML',
+  'dangerouslysetinnerhtml',
 ]);
+
+/** 禁止参与结果对象构造的原型相关字段 */
+const BLOCKED_OBJECT_KEYS = new Set<string>(['__proto__', 'prototype', 'constructor']);
 
 /**
  * 需要做协议校验的 URL 类属性键（覆盖 Vue JSX camelCase / kebab-case / SVG xlink）。
@@ -238,7 +241,6 @@ const URL_PROP_KEYS = new Set<string>([
   'src',
   'action',
   'formaction',
-  'formAction',
   'poster',
   'background',
   'ping',
@@ -246,11 +248,11 @@ const URL_PROP_KEYS = new Set<string>([
   'cite',
   'data',
   'xlink:href',
-  'xlinkHref',
+  'xlinkhref',
 ]);
 
 /** 事件处理器字段命名规则（Vue JSX 规范：onXxx；同时兼容小写 onclick 之类） */
-const EVENT_HANDLER_PROP_RE = /^on[a-zA-Z]/;
+const EVENT_HANDLER_PROP_RE = /^on[a-z]/i;
 
 /**
  * 过滤服务端 / LLM 下发的组件 props 对象，避免 XSS 通道。
@@ -279,17 +281,18 @@ export function sanitizeProps<T extends Record<string, unknown>>(props: T | null
 
   for (const key of Object.keys(props)) {
     const value = props[key];
+    const normalizedKey = key.toLowerCase();
 
-    // 1. 黑名单 key
-    if (BLOCKED_PROP_KEYS.has(key)) continue;
+    // 1. 黑名单 key 与原型相关字段（统一按小写判断，避免 camelCase / 大小写绕过）
+    if (BLOCKED_PROP_KEYS.has(normalizedKey) || BLOCKED_OBJECT_KEYS.has(normalizedKey)) continue;
 
     // 2. URL 协议校验（复用 isDangerousUrl，自动剥离控制字符）
-    if (URL_PROP_KEYS.has(key) && typeof value === 'string' && isDangerousUrl(value)) {
+    if (URL_PROP_KEYS.has(normalizedKey) && typeof value === 'string' && isDangerousUrl(value)) {
       continue;
     }
 
     // 3. style 表达式校验
-    if (key === 'style' && typeof value === 'string' && isDangerousStyle(value)) {
+    if (normalizedKey === 'style' && typeof value === 'string' && isDangerousStyle(value)) {
       continue;
     }
 

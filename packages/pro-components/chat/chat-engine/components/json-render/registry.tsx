@@ -119,20 +119,14 @@ const createButton = (a2ui = false) =>
     setup(props) {
       const store = useDataStore();
       return () => {
-        const {
-          label,
-          action,
-          children: _children,
-          onClick,
-          ...buttonProps
-        } = (props.element.props || {}) as Record<string, any>;
-        const safeButtonProps = sanitizeProps(buttonProps);
+        const safeProps = sanitizeProps((props.element.props || {}) as Record<string, any>);
+        const { label, action, children: _children, onClick, ...buttonProps } = safeProps;
         return (
           <Button
-            {...safeButtonProps}
-            loading={safeButtonProps.loading || props.loading}
+            {...buttonProps}
+            loading={buttonProps.loading || props.loading}
             onClick={(event) => {
-              onClick?.(event);
+              if (typeof onClick === 'function') onClick(event);
               if (!action || !props.onAction) return;
               const normalized = normalizeActionBinding(action);
               if (!normalized) return;
@@ -280,7 +274,8 @@ export const withA2UIBinding = (WrappedComponent: Component, config: A2UIBinding
         }
         if (supportsAction && action) {
           finalProps[actionTrigger] = (...args: any[]) => {
-            safeComponentProps[actionTrigger]?.(...args);
+            const originalHandler = safeComponentProps[actionTrigger];
+            if (typeof originalHandler === 'function') originalHandler(...args);
             const normalized = normalizeActionBinding(action);
             if (normalized && props.onAction) {
               props.onAction({
