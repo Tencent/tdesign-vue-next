@@ -131,7 +131,7 @@ const createButton = (a2ui = false) =>
           <Button
             {...safeButtonProps}
             loading={safeButtonProps.loading || props.loading}
-            onClick={(event: MouseEvent) => {
+            onClick={(event) => {
               onClick?.(event);
               if (!action || !props.onAction) return;
               const normalized = normalizeActionBinding(action);
