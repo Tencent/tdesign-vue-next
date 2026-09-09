@@ -47,14 +47,15 @@
     "marked-highlight": "catalog:docs",
     "omi-vueify": "^0.0.12",
     "tdesign-icons-vue-next": "catalog:tdesign",
-    "tdesign-vue-next": "workspace:^",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "highlight.js": "^11.11.1",
+    "tdesign-vue-next": "workspace:^",
     "tvision-charts-vue-next": "^3.3.13"
   },
   "peerDependencies": {
+    "tdesign-vue-next": ">=1",
     "vue": ">=3.1.0"
   }
 }
