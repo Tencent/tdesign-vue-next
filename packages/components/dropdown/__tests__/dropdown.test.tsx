@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { Dropdown, DropdownMenu, DropdownItem, Button } from '@tdesign/components';
-import { DropdownOption } from '@tdesign/components/dropdown/type';
+import type { DropdownOption, TdDropdownProps } from '@tdesign/components/dropdown/type';
 import DropdownProps from '@tdesign/components/dropdown/props';
 import { sleep } from '@tdesign/internal-utils';
 
@@ -263,7 +263,9 @@ describe('Dropdown', () => {
 
   describe('events', () => {
     it(':onClick', async () => {
-      const onClick = vi.fn();
+      const onClick = vi.fn<NonNullable<TdDropdownProps['onClick']>>((dropdownItem) => {
+        expect(dropdownItem.content).toBe('Option 1');
+      });
       const options = [
         { content: 'Option 1', value: '1' },
         { content: 'Option 2', value: '2' },
@@ -287,7 +289,7 @@ describe('Dropdown', () => {
         await nextTick();
 
         expect(onClick).toHaveBeenCalled();
-        expect(onClick.mock.calls[0][0]).toMatchObject({ value: '1' });
+        expect(onClick.mock.calls[0][0]).toMatchObject({ content: 'Option 1', value: '1' });
         expect(onClick.mock.calls[0][1]).toHaveProperty('e');
       }
     });
