@@ -88,6 +88,7 @@ export default function generateLlmsPlugin() {
         parseComponentDoc,
         siteTitle: 'TDesign Vue Next',
         siteDescription: 'TDesign Vue Next 组件库的 LLM 友好文档索引。',
+        siteBaseUrl: config.base,
       });
     },
   };

@@ -88,6 +88,7 @@ export default function generateChatLlmsPlugin() {
         parseComponentDoc,
         siteTitle: 'TDesign Vue Chat',
         siteDescription: 'TDesign 聊天组件库的 LLM 友好文档索引。',
+        siteBaseUrl: config.base,
       });
     },
   };
