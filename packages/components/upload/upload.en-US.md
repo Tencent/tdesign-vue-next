@@ -54,7 +54,7 @@ value | Array | [] | file list。`v-model` and `v-model:value` is supported。Ty
 defaultValue | Array | [] | file list。uncontrolled property。Typescript: `Array<T>` | N
 withCredentials | Boolean | false | uploading request with cookie | N
 onCancelUpload | Function |  | Typescript: `() => void`<br/>trigger on cancel button click | N
-onChange | Function |  | Typescript: `(value: Array<T>, context: UploadChangeContext) => void`<br/>trigger on uploaded files change。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent \| ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile; files?: UploadFile[] }`<br/><br/>`type UploadChangeTrigger = 'add' \| 'remove' \| 'abort' \| 'progress-success' \| 'progress' \| 'progress-fail' \| 'sort'`<br/> | N
+onChange | Function |  | Typescript: `(value: Array<T>, context: UploadChangeContext) => void`<br/>trigger on uploaded files change。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent \| ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile; files?: UploadFile[] }`<br/><br/>`type UploadChangeTrigger = 'add' \| 'remove' \| 'abort' \| 'progress-success' \| 'progress' \| 'progress-fail'`<br/> | N
 onDragenter | Function |  | Typescript: `(context: { e: DragEvent }) => void`<br/>trigger on file dragged into drag elements | N
 onDragleave | Function |  | Typescript: `(context: { e: DragEvent }) => void`<br/>trigger on file dragged leave drag elements | N
 onDrop | Function |  | Typescript: `(context: { e: DragEvent }) => void`<br/>trigger on file dropped | N
@@ -74,7 +74,7 @@ onWaitingUploadFilesChange | Function |  | Typescript: `(context: { files: Array
 name | params | description
 -- | -- | --
 cancel-upload | \- | trigger on cancel button click
-change | `(value: Array<T>, context: UploadChangeContext)` | trigger on uploaded files change。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent \| ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile; files?: UploadFile[] }`<br/><br/>`type UploadChangeTrigger = 'add' \| 'remove' \| 'abort' \| 'progress-success' \| 'progress' \| 'progress-fail' \| 'sort'`<br/>
+change | `(value: Array<T>, context: UploadChangeContext)` | trigger on uploaded files change。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent \| ProgressEvent; response?: any; trigger: UploadChangeTrigger; index?: number; file?: UploadFile; files?: UploadFile[] }`<br/><br/>`type UploadChangeTrigger = 'add' \| 'remove' \| 'abort' \| 'progress-success' \| 'progress' \| 'progress-fail'`<br/>
 dragenter | `(context: { e: DragEvent })` | trigger on file dragged into drag elements
 dragleave | `(context: { e: DragEvent })` | trigger on file dragged leave drag elements
 drop | `(context: { e: DragEvent })` | trigger on file dropped
