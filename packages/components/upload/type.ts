@@ -401,14 +401,7 @@ export interface UploadChangeContext {
   files?: UploadFile[];
 }
 
-export type UploadChangeTrigger =
-  | 'add'
-  | 'remove'
-  | 'abort'
-  | 'progress-success'
-  | 'progress'
-  | 'progress-fail'
-  | 'sort';
+export type UploadChangeTrigger = 'add' | 'remove' | 'abort' | 'progress-success' | 'progress' | 'progress-fail';
 
 export interface UploadFailContext {
   e?: ProgressEvent;
