@@ -8,6 +8,7 @@ import {
   resolveTDesignIcons,
 } from './resolvers';
 
+import type { Nuxt } from '@nuxt/schema';
 import type { ModuleOptions } from './interface';
 
 const isNonEmptyDirectory = (path: string) => {
@@ -15,6 +16,15 @@ const isNonEmptyDirectory = (path: string) => {
     return readdirSync(path).length > 0;
   } catch {
     return false;
+  }
+};
+
+const addOptimizeDeps = (nuxt: Nuxt, deps: string[]) => {
+  nuxt.options.vite ||= {};
+  nuxt.options.vite.optimizeDeps ||= {};
+  const include = (nuxt.options.vite.optimizeDeps.include ||= []);
+  for (const dep of deps) {
+    if (!include.includes(dep)) include.push(dep);
   }
 };
 
@@ -57,6 +67,8 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.build.transpile.push('tdesign-vue-next');
     nuxt.options.build.transpile.push('tdesign-icons-vue-next');
 
+    addOptimizeDeps(nuxt, ['tdesign-icons-vue-next']);
+
     if (localTDesignSource) {
       Object.assign(nuxt.options.alias, {
         'tdesign-vue-next/es': localTDesignSource.componentsPath,
@@ -68,6 +80,9 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.options.build.transpile.push('@tdesign/shared-hooks');
       nuxt.options.build.transpile.push('@tdesign/shared-utils');
       nuxt.options.build.transpile.push('@tdesign/common-js/components');
+    } else {
+      // 使用已发布的 tdesign-vue-next（预构建 ESM）：预打包它本身以及其内部依赖 lodash-es。
+      addOptimizeDeps(nuxt, ['tdesign-vue-next', 'lodash-es']);
     }
 
     if (options.esm) {
