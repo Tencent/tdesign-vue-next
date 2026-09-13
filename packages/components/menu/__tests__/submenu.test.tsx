@@ -192,6 +192,25 @@ describe('Submenu', () => {
       wrapper.unmount();
     });
 
+    it('renders when a submenu is returned from a functional wrapper', () => {
+      // Functional components do not expose a proxy. This mirrors recursive TSX menu
+      // builders that return TSubmenu nodes from a plain function.
+      const FunctionalSubmenu = () => (
+        <Submenu title="Parent" value="parent">
+          <MenuItem value="leaf">Leaf</MenuItem>
+        </Submenu>
+      );
+
+      const wrapper = mount(
+        <Menu>
+          <FunctionalSubmenu />
+        </Menu>,
+      );
+
+      expect(wrapper.find('.t-submenu').exists()).toBe(true);
+      wrapper.unmount();
+    });
+
     it('mount/unmount', () => {
       const { add, menu, remove } = createMenu();
       const parentSubmenu = { addMenuItem: vi.fn(), value: 'parent' };
