@@ -1,7 +1,9 @@
 // @ts-nocheck
-import { mount } from '@vue/test-utils';
+import { flushPromises, mount } from '@vue/test-utils';
+import { ref } from 'vue';
 import { vi } from 'vitest';
 import { Upload } from '@tdesign/components/upload';
+import type { RequestMethodResponse, UploadFile } from '@tdesign/components/upload';
 import { sleep } from '@tdesign/internal-utils';
 import { simulateFileChange, getFakeFileList, simulateDragFileChange } from '@tdesign/internal-tests/utils';
 import { getUploadServer } from './request';
@@ -19,6 +21,189 @@ describe('Upload Component', () => {
 
   afterAll(() => {
     server.close();
+  });
+
+  describe('upload completion preserves the current file list', () => {
+    const oldFile = () => ({ name: 'old-contract.pdf', url: '/old-contract.pdf', status: 'success' as const });
+
+    function setupUpload({ binding = 'files', ...props } = {}) {
+      const files = ref<UploadFile[]>([oldFile()]);
+      const pending: Array<(result: RequestMethodResponse) => void> = [];
+      const onChange = vi.fn((value: UploadFile[]) => {
+        files.value = value;
+      });
+      const onSuccess = vi.fn();
+      const requestMethod = vi.fn(() => new Promise<RequestMethodResponse>((resolve) => pending.push(resolve)));
+      const wrapper = mount(() => (
+        <Upload
+          theme="file-flow"
+          multiple
+          {...props}
+          {...(binding === 'defaultFiles' ? { defaultFiles: [oldFile()] } : { [binding]: files.value })}
+          onChange={onChange}
+          onSuccess={onSuccess}
+          requestMethod={requestMethod}
+        />
+      ));
+      const selectFile = async () => {
+        const input = wrapper.find('input[type="file"]');
+        Object.defineProperty(input.element, 'files', {
+          configurable: true,
+          value: [new File(['contract'], 'new-contract.pdf', { type: 'application/pdf' })],
+        });
+        await input.trigger('change');
+        await flushPromises();
+      };
+      const complete = async (
+        result: RequestMethodResponse = { status: 'success', response: { url: '/new-contract.pdf' } },
+      ) => {
+        pending.shift()(result);
+        await flushPromises();
+      };
+      return { wrapper, files, onChange, onSuccess, requestMethod, selectFile, complete };
+    }
+
+    for (const uploadAllFilesInOneRequest of [false, true]) {
+      describe(`uploadAllFilesInOneRequest=${uploadAllFilesInOneRequest}`, () => {
+        for (const binding of ['files', 'modelValue', 'defaultFiles']) {
+          it(`${binding}: does not restore an existing file removed during upload`, async () => {
+            const { wrapper, files, onChange, onSuccess, requestMethod, selectFile, complete } = setupUpload({
+              binding,
+              uploadAllFilesInOneRequest,
+            });
+            try {
+              await selectFile();
+              expect(requestMethod).toHaveBeenCalledTimes(1);
+              await wrapper.find('.t-upload__delete').trigger('click');
+              await flushPromises();
+              expect(files.value).toEqual([]);
+              expect(wrapper.text()).not.toContain('old-contract.pdf');
+              await complete();
+              expect(files.value.map((file) => file.name)).toEqual(['new-contract.pdf']);
+              expect(wrapper.text()).not.toContain('old-contract.pdf');
+              expect(onChange.mock.calls.at(-1)[0]).toEqual(files.value);
+              expect(onSuccess.mock.calls[0][0].fileList).toEqual(files.value);
+              expect(onSuccess.mock.calls[0][0].currentFiles.map((file) => file.name)).toEqual(['new-contract.pdf']);
+            } finally {
+              wrapper.unmount();
+            }
+          });
+        }
+
+        it('keeps existing files and their metadata when appending a successful upload', async () => {
+          const { wrapper, files, onSuccess, selectFile, complete } = setupUpload({ uploadAllFilesInOneRequest });
+          try {
+            await selectFile();
+            files.value = [{ ...files.value[0], url: '/updated-contract.pdf' }];
+            await flushPromises();
+            await complete();
+            expect(files.value.map((file) => file.name)).toEqual(['old-contract.pdf', 'new-contract.pdf']);
+            expect(files.value[0].url).toBe('/updated-contract.pdf');
+            expect(onSuccess.mock.calls[0][0].fileList).toEqual(files.value);
+          } finally {
+            wrapper.unmount();
+          }
+        });
+
+        it('keeps files added to the controlled list while an upload is pending', async () => {
+          const { wrapper, files, selectFile, complete } = setupUpload({ uploadAllFilesInOneRequest });
+          try {
+            await selectFile();
+            files.value = [...files.value, { name: 'appendix.pdf', url: '/appendix.pdf', status: 'success' }];
+            await flushPromises();
+            await complete();
+            expect(files.value.map((file) => file.name)).toEqual([
+              'old-contract.pdf',
+              'appendix.pdf',
+              'new-contract.pdf',
+            ]);
+          } finally {
+            wrapper.unmount();
+          }
+        });
+
+        it('preserves deletion when a failed upload is retried', async () => {
+          const { wrapper, files, onSuccess, selectFile, complete } = setupUpload({ uploadAllFilesInOneRequest });
+          try {
+            await selectFile();
+            await complete({ status: 'fail', response: { error: 'Please retry' } });
+            expect(files.value.map((file) => file.name)).toEqual(['old-contract.pdf']);
+            await selectFile();
+            await wrapper.find('.t-upload__delete').trigger('click');
+            await flushPromises();
+            await complete();
+            expect(files.value.map((file) => file.name)).toEqual(['new-contract.pdf']);
+            expect(onSuccess).toHaveBeenCalledTimes(1);
+          } finally {
+            wrapper.unmount();
+          }
+        });
+
+        it('preserves a server-provided files response', async () => {
+          const { wrapper, files, selectFile, complete } = setupUpload({ uploadAllFilesInOneRequest });
+          try {
+            await selectFile();
+            await wrapper.find('.t-upload__delete').trigger('click');
+            await flushPromises();
+            await complete({
+              status: 'success',
+              response: { files: [{ name: 'new-contract.pdf', url: '/stored.pdf', id: 42 }] },
+            });
+            expect(files.value).toEqual([
+              expect.objectContaining({ name: 'new-contract.pdf', url: '/stored.pdf', id: 42, status: 'success' }),
+            ]);
+          } finally {
+            wrapper.unmount();
+          }
+        });
+
+        it('keeps batch uploads as replacements', async () => {
+          const { wrapper, files, selectFile, complete } = setupUpload({
+            uploadAllFilesInOneRequest,
+            isBatchUpload: true,
+          });
+          try {
+            await selectFile();
+            await complete();
+            expect(files.value.map((file) => file.name)).toEqual(['new-contract.pdf']);
+          } finally {
+            wrapper.unmount();
+          }
+        });
+
+        it('keeps manual uploads in their existing file list', async () => {
+          const { wrapper, files, selectFile, complete } = setupUpload({
+            uploadAllFilesInOneRequest,
+            autoUpload: false,
+          });
+          try {
+            await selectFile();
+            wrapper.findComponent(Upload).vm.$.exposed.uploadFiles();
+            await complete({
+              status: 'success',
+              response: uploadAllFilesInOneRequest
+                ? { files: [{ name: 'new-contract.pdf', url: '/new-contract.pdf' }] }
+                : { url: '/new-contract.pdf' },
+            });
+            expect(files.value.map((file) => file.name)).toEqual(['old-contract.pdf', 'new-contract.pdf']);
+            expect(files.value.every((file) => file.status === 'success')).toBe(true);
+          } finally {
+            wrapper.unmount();
+          }
+        });
+      });
+    }
+
+    it('keeps single-file uploads as replacements', async () => {
+      const { wrapper, files, selectFile, complete } = setupUpload({ theme: 'file', multiple: false });
+      try {
+        await selectFile();
+        await complete();
+        expect(files.value.map((file) => file.name)).toEqual(['new-contract.pdf']);
+      } finally {
+        wrapper.unmount();
+      }
+    });
   });
 
   it('props.abridgeName: props.abridgeName works fine if theme=file-input', () => {
