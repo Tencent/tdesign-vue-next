@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { TimePicker } from '@tdesign/components/time-picker';
 
 describe('TimePicker', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it('popupProps works fine', async () => {
       const wrapper = mount(TimePicker, {
         props: {

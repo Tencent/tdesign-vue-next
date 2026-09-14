@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import Icon from '@tdesign/components/icon';
 
 describe('Icon', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it('', () => {
       const wrapper = mount(() => <Icon name="app" />);
       expect(wrapper.classes()).toContain('t-icon');
