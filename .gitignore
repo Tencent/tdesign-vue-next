@@ -33,4 +33,4 @@ robotMsg.json
 .gitlogmap
 .eslintcache
 .tico
-.claude
+.agents/settings.local.json
