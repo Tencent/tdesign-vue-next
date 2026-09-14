@@ -1,4 +1,4 @@
-import { nextTick } from 'vue';
+import { nextTick, ref } from 'vue';
 import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
@@ -774,6 +774,21 @@ describe('Input', () => {
       expect(onChangeFn).toHaveBeenCalledTimes(1);
       expect(onChangeFn.mock.calls[0][0]).eq('Hello TDesign');
       expect(onChangeFn.mock.calls[0][1].e.type).eq('input');
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <Input defaultValue="" onChange={currentOnChange.value} />,
+      });
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      simulateInputChange(latestWrapper.find('input').element, 'latest value');
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith('latest value', expect.objectContaining({ trigger: 'input' }));
     });
 
     it('change: trigger=initial when value exceeds limit', async () => {

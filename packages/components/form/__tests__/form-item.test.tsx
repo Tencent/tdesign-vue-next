@@ -1,4 +1,5 @@
-import { mount } from '@vue/test-utils';
+import { flushPromises, mount, VueWrapper } from '@vue/test-utils';
+import { defineComponent } from 'vue';
 import { expect } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { FormItem, Form, Input } from '@tdesign/components';
@@ -321,6 +322,102 @@ describe('FormItem', () => {
       );
       expect(slotWrapper.find('.t-form-item-tips').text()).toBe(tips);
       expect(functionWrapper.find('.t-form-item-tips').findComponent(CheckCircleFilledIcon).exists()).toBe(true);
+    });
+  });
+
+  describe('scenarios', () => {
+    describe('--last', () => {
+      // 借 `t-form-item__{name}` 反解出被标记为末位的表单项，避免断言依赖 DOM 顺序
+      const getLastItemNames = (wrapper: VueWrapper<any>) =>
+        wrapper.findAll('.t-form__item--last').map((item) =>
+          item
+            .classes()
+            .find((name) => name.startsWith('t-form-item__'))
+            ?.slice('t-form-item__'.length),
+        );
+
+      it('标记直接子元素中的末位表单项', async () => {
+        const wrapper = mount(
+          <Form>
+            <FormItem name="a" />
+            <FormItem name="b" />
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['b']);
+      });
+
+      it('按父容器分组，各自标记末位表单项', async () => {
+        const wrapper = mount(
+          <Form>
+            <div>
+              <FormItem name="a" />
+              <FormItem name="b" />
+            </div>
+            <div>
+              <FormItem name="c" />
+              <FormItem name="d" />
+            </div>
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['b', 'd']);
+      });
+
+      it('未设置 name 的表单项不参与末位判定', async () => {
+        const wrapper = mount(
+          <Form>
+            <FormItem name="a" />
+            <FormItem name="b" />
+            <FormItem>
+              <button type="submit">提交</button>
+            </FormItem>
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['b']);
+      });
+
+      it('inline 布局下不标记末位表单项', async () => {
+        const wrapper = mount(
+          <Form layout="inline">
+            <FormItem name="a" />
+            <FormItem name="b" />
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual([]);
+      });
+
+      it('末位表单项被移除后重新标记', async () => {
+        const wrapper = mount(
+          defineComponent({
+            data() {
+              return { names: ['a', 'b'] };
+            },
+            render() {
+              return (
+                <Form>
+                  {this.names.map((name) => (
+                    <FormItem key={name} name={name} />
+                  ))}
+                </Form>
+              );
+            },
+          }),
+        );
+        await flushPromises();
+        expect(getLastItemNames(wrapper)).toEqual(['b']);
+
+        wrapper.vm.names = ['a'];
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['a']);
+      });
     });
   });
 });

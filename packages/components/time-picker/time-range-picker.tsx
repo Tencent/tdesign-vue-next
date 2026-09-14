@@ -51,8 +51,8 @@ export default defineComponent({
         [STATUS.value.focused]: isShowPanel.value,
       },
     ]);
-    const { value, modelValue, allowInput, format } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange as any);
+    const { value, modelValue, allowInput, format, onChange: onChangeRef } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef as any);
 
     const handleShowPopup = (visible: boolean, context: any) => {
       if (isReadOnly.value) return;

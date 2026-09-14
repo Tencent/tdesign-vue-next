@@ -26,6 +26,14 @@ yarn add @tdesign-vue-next/chat
 pnpm add @tdesign-vue-next/chat
 ```
 
+`tdesign-vue-next` 是 peer dependency。npm 7 及以上会自动安装；**npm 7 以下**需要自行安装：
+
+```shell
+npm i tdesign-vue-next
+```
+
+项目里已经安装过 `tdesign-vue-next` 时，无需再装。
+
 ## 使用
 
 ### 基础使用
@@ -58,6 +66,7 @@ const app = createApp(App);
 app.use(TDesign).use(TDesignChat);
 ```
 
+
 ### 按需引入使用
 
 如果您对产物大小有严格的要求，可以通过 按需引入具体组件 的方式来使用。
@@ -72,21 +81,15 @@ import {
 } from '@tdesign-vue-next/chat';
 ```
 
-<div style="background: #fff5e4; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
-   ⚠️ 如果按需使用的同时，需要通过主题生成器导出主题覆盖全局样式，建议请在 `main.ts` 按需注册使用 `createApp(App).use(TChatAction)`
-</div>
-
 ### 通过插件按需引用使用
 
 除此之外，部分组件也可以使用 `unplugin-vue-components` 和 `unplugin-auto-import` 来实现自动导入
 
 > `TDesignResolver` 支持的配置，可以点击此[链接](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/auto-import-resolver/README.md#%E9%80%89%E9%A1%B9)。
 
-您仍需在项目引入组件库的少量全局样式变量
 
 ```js
 import { createApp } from 'vue';
-// 引入组件库的少量全局样式变量
 import 'tdesign-vue-next/es/style/index.css';
 
 const app = createApp(App);

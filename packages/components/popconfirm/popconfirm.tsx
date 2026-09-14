@@ -32,12 +32,12 @@ export default defineComponent({
       ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
     });
 
-    const { visible, modelValue } = toRefs(props);
+    const { visible, modelValue, onVisibleChange } = toRefs(props);
     const [innerVisible, setInnerVisible] = useVModel(
       visible,
       modelValue,
       props.defaultVisible,
-      props.onVisibleChange,
+      onVisibleChange,
       'visible',
     );
 

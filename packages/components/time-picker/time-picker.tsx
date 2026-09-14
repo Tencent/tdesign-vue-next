@@ -40,8 +40,8 @@ export default defineComponent({
     const isShowPanel = ref(false);
     const isReadonly = useReadonly();
 
-    const { value, modelValue } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const { value, modelValue, onChange: onChangeRef } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
 
     const isDisabled = useDisabled() as ComputedRef<boolean>;
     const { allowInput, format } = toRefs(props);

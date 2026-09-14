@@ -36,7 +36,7 @@ interface CheckboxGroupOptionsType {
 export default function useColumnController(props: TdPrimaryTableProps, context: SetupContext) {
   const { classPrefix, globalConfig } = useConfig('table', props.locale);
   const { SettingIcon } = useGlobalIcon({ SettingIcon: TdSettingIcon });
-  const { columns, columnController, displayColumns, columnControllerVisible } = toRefs(props);
+  const { columns, columnController, displayColumns, columnControllerVisible, onDisplayColumnsChange } = toRefs(props);
   const dialogInstance = ref<DialogInstance>(null);
   const renderTNodeJSX = useTNodeJSX();
 
@@ -51,7 +51,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   const [tDisplayColumns, setTDisplayColumns] = useDefaultValue(
     displayColumns,
     props.defaultDisplayColumns || keys,
-    props.onDisplayColumnsChange,
+    onDisplayColumnsChange,
     'displayColumns',
   );
   // 弹框内的多选

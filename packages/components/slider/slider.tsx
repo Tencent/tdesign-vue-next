@@ -38,8 +38,8 @@ export default defineComponent({
     const isDisabled = useDisabled() as ComputedRef<boolean>;
     const COMPONENT_NAME = usePrefixClass('slider');
     const { STATUS } = useCommonClassName();
-    const { value, modelValue } = toRefs(props) as any;
-    const [sliderValue, setSliderValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const { value, modelValue, onChange: onChangeRef } = toRefs(props) as any;
+    const [sliderValue, setSliderValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
 
     const sliderContainerRef = ref<HTMLDivElement>();
     const sliderRef = ref<HTMLDivElement>();

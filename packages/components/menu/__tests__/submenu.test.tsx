@@ -3,11 +3,13 @@ import type { VueWrapper } from '@vue/test-utils';
 import { defineComponent, inject, nextTick, provide, ref } from 'vue';
 
 import { Popup } from '../../popup';
+import Menu from '../menu';
 import MenuItem from '../menu-item';
 import Submenu from '../submenu';
 import type { TdSubMenuInterface } from '../types';
 
 import { cleanupMenuMounts, createMenuContext as createMenu, mountSubmenu } from './mount';
+import '../style';
 
 const openSubmenu = async (wrapper: VueWrapper) => {
   await wrapper.get('li').trigger('mouseenter');
@@ -47,7 +49,6 @@ describe('Submenu', () => {
       expect(wrapper.get('li.t-submenu').classes()).not.toContain('t-is-opened');
       expect(wrapper.find('.menu-icon').exists()).toBe(true);
       expect(wrapper.get('.t-menu__content').text()).toBe('Settings');
-      expect(wrapper.get('.t-menu__sub').attributes('style')).toContain('--padding-left: 44px');
       expect(wrapper.get('.t-menu__sub').isVisible()).toBe(false);
       expect(wrapper.find('.t-fake-arrow').exists()).toBe(true);
       expect(wrapper.get('.child').text()).toBe('Child');
@@ -175,26 +176,20 @@ describe('Submenu', () => {
     });
 
     it(':value[string] (nested indentation)', () => {
-      const { menu } = createMenu();
-      // eslint-disable-next-line vue/one-component-per-file -- Local host verifies nested indentation through real injections.
-      const Host = defineComponent({
-        name: 'TMenu',
-        setup() {
-          provide('TdMenu', menu);
-          return () => (
-            <Submenu title="Parent" value="parent">
-              <Submenu title="Child" value="child">
-                <span>Leaf</span>
-              </Submenu>
+      const wrapper = mount(
+        <Menu>
+          <Submenu title="Parent" value="parent">
+            <Submenu title="Child" value="child">
+              <MenuItem value="leaf">Leaf</MenuItem>
             </Submenu>
-          );
-        },
-      });
-      const wrapper = mount(Host);
-      const lists = wrapper.findAll('.t-menu__sub');
+          </Submenu>
+        </Menu>,
+      );
+      const items = wrapper.findAll('.t-menu__item');
 
-      expect(lists[0].attributes('style')).toContain('--padding-left: 44px');
-      expect(lists[1].attributes('style')).toContain('--padding-left: 60px');
+      expect(getComputedStyle(items[1].element).paddingLeft).toBe('44px');
+      expect(getComputedStyle(items[2].element).paddingLeft).toBe('60px');
+      wrapper.unmount();
     });
 
     it('mount/unmount', () => {
