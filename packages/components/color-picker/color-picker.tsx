@@ -62,6 +62,7 @@ export default defineComponent({
                 color={innerValue.value}
                 disabled={props.disabled}
                 clearable={props.clearable}
+                enableAlpha={props.enableAlpha}
                 input-props={props.inputProps}
                 onTriggerChange={setInnerValue}
                 onTriggerClear={handleClear}
