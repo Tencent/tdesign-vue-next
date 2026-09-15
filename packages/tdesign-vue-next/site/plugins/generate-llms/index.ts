@@ -67,7 +67,7 @@ export default function generateLlmsPlugin() {
           const raw = await promises.readFile(docPath, 'utf-8');
           const apiDoc = await promises.readFile(path.join(componentDir, `${slug}.md`), 'utf-8').catch(() => '');
           const apiBody = apiDoc.replace(/^[^\S\n]*::\s*BASE_DOC\s*::[^\S\n]*\n?/m, '').trim();
-          return apiBody ? `##代码演示\n\n${raw}\n\n${apiBody}\n` : raw;
+          return apiBody ? `${raw}\n\n${apiBody}\n` : raw;
         } catch {
           return null;
         }
