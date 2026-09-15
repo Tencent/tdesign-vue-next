@@ -58,13 +58,21 @@ describe('ColorPicker', () => {
 
     it(':enableAlpha[boolean]', async () => {
       const value = '#0052d9';
-      const { panel: panel1 } = await mountColorPickerAndTriggerPanel({ props: { value } });
+      const { wrapper: wrapper1, panel: panel1 } = await mountColorPickerAndTriggerPanel({ props: { value } });
       const alpha1 = panel1.find('.t-color-picker__alpha');
       expect(alpha1.exists()).toBeFalsy();
+      const triggerColor1 = wrapper1.find('.color-inner');
+      expect(triggerColor1.classes()).not.toContain('t-color-picker--bg-alpha');
+      expect(triggerColor1.find('span').exists()).toBeFalsy();
 
-      const { panel: panel2 } = await mountColorPickerAndTriggerPanel({ props: { value, enableAlpha: true } });
+      const { wrapper: wrapper2, panel: panel2 } = await mountColorPickerAndTriggerPanel({
+        props: { value, enableAlpha: true },
+      });
       const alpha2 = panel2.find('.t-color-picker__alpha');
       expect(alpha2.exists()).toBeTruthy();
+      const triggerColor2 = wrapper2.find('.color-inner');
+      expect(triggerColor2.classes()).toContain('t-color-picker--bg-alpha');
+      expect(triggerColor2.find('span').exists()).toBeTruthy();
     });
 
     it(':enableMultipleGradient[boolean]', async () => {
