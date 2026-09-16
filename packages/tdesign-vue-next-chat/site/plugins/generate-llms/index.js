@@ -7,7 +7,7 @@ import generateLlmsDocs, { createComponentDocParser } from '@tdesign/common-docs
  * 读取组件目录下的 demo 源码：_example/<demoName>.vue，回退 <demoName>/index.vue。
  * 输出 Vue SFC 代码块。
  */
-function readVueDemo(componentDir: string, demoName: string): string {
+function readVueDemo(componentDir, demoName) {
   const candidates = [
     path.join(componentDir, '_example', `${demoName}.vue`),
     path.join(componentDir, '_example', demoName, 'index.vue'),
@@ -27,7 +27,7 @@ function readVueDemo(componentDir: string, demoName: string): string {
  * 判断是否为 demo 占位符：匹配 _example/<demoName>.vue 或 _example/<demoName>/index.vue。
  * 本仓库 demo 为扁平 .vue 文件（非目录），默认目录判断不命中，需自定义以正确替换 {{ demo }}。
  */
-function isDemoSlot(componentDir: string, demoName: string): boolean {
+function isDemoSlot(componentDir, demoName) {
   const candidates = [
     path.join(componentDir, '_example', `${demoName}.vue`),
     path.join(componentDir, '_example', demoName, 'index.vue'),
@@ -41,13 +41,13 @@ function isDemoSlot(componentDir: string, demoName: string): boolean {
  * 此处仅负责 vite 构建钩子分发，并按 vue-chat 仓库约定注入组件文档与 demo 源码读取器。
  */
 export default function generateChatLlmsPlugin() {
-  let config: any;
+  let config;
   return {
     name: 'generate-llms',
-    configResolved(resolvedConfig: any) {
+    configResolved(resolvedConfig) {
       config = resolvedConfig;
     },
-    async closeBundle(error?: Error) {
+    async closeBundle(error) {
       if (error) return;
       if (!config.env.PROD && config.env.MODE !== 'preview') return;
 
@@ -61,7 +61,7 @@ export default function generateChatLlmsPlugin() {
 
       // 组件文档读取器：common 子仓扁平目录 <slug>.md（用法示例），
       // 并追加组件目录 <slug>.md 的 API 部分（站点构建时由 :: BASE_DOC :: 注入，此处手动拼接）
-      const readComponentDoc = async (componentDir: string, slug: string): Promise<string | null> => {
+      const readComponentDoc = async (componentDir, slug) => {
         const docPath = path.join(docsRoot, 'web/api', `${slug}.md`);
         try {
           const raw = await promises.readFile(docPath, 'utf-8');
