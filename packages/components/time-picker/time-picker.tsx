@@ -72,7 +72,7 @@ export default defineComponent({
 
     const handleInputBlur = (value: string, context: SelectInputBlurContext) => {
       if (allowInput.value) {
-        const isValidTime = validateInputValue(currentValue.value, format.value);
+        const isValidTime = validateInputValue(currentValue.value, format.value, props.disableTime);
         if (isValidTime) {
           setInnerValue(formatInputValue(currentValue.value, format.value));
         }
@@ -82,7 +82,7 @@ export default defineComponent({
 
     const handleClickConfirm = (e: MouseEvent) => {
       props?.onConfirm?.({ e });
-      const isValidTime = validateInputValue(currentValue.value, format.value);
+      const isValidTime = validateInputValue(currentValue.value, format.value, props.disableTime);
       if (isValidTime) setInnerValue(currentValue.value);
       isShowPanel.value = false;
     };
