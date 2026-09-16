@@ -1,7 +1,7 @@
 import { promises, readFileSync, existsSync } from 'fs';
 import path from 'path';
 
-import generateLlmsDocs, { createComponentDocParser } from '../../../../common/docs/plugins/generate-llms';
+import generateLlmsDocs, { createComponentDocParser } from '@tdesign/common-docs/plugins/generate-llms';
 
 /**
  * 读取组件目录下的 demo 源码：_example/<demoName>.vue，回退 <demoName>/index.vue。
