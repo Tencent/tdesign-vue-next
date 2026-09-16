@@ -1,86 +1,74 @@
 <template>
   <t-space align="center">
-    <t-button theme="primary" @click="visibleModelessDrag = true">AI助手可拖拽</t-button>
+    <t-button theme="primary" @click="visible = true">AI助手悬窗展示</t-button>
   </t-space>
-  <t-dialog
-    v-model:visible="visibleModelessDrag"
-    :footer="false"
-    header="AI助手"
-    mode="modeless"
-    draggable
-    :on-confirm="() => (visibleModelessDrag = false)"
-  >
-    <template #body>
-      <t-chat
-        layout="single"
-        style="height: 600px"
-        :clear-history="chatList.length > 0 && !isStreamLoad"
-        @clear="clearConfirm"
-      >
-        <template v-for="(item, index) in chatList" :key="index">
-          <t-chat-item
-            :avatar="item.avatar"
-            :name="item.name"
-            :role="item.role"
-            :datetime="item.datetime"
-            :text-loading="index === chatList.length - 1 && loading"
-            :content="item.content"
-            :reasoning="{
-              expandIconPlacement: 'right',
-              onExpandChange: handleChange(value, { index }),
-              collapsePanelProps: {
-                header: renderHeader(index === chatList.length - 1 && isStreamLoad && !item.content, item),
-
-                content: renderReasoningContent(item.reasoning),
-              },
-            }"
-          >
-          </t-chat-item>
-        </template>
-        <template #footer>
-          <t-chat-sender
-            v-model="inputValue"
-            :loading="isStreamLoad"
-            :textarea-props="{
-              placeholder: '请输入消息...',
-            }"
-            @stop="onStop"
-            @send="inputEnter"
-          >
-            <template #footer-prefix>
-              <div class="model-select">
-                <t-tooltip v-model:visible="allowToolTip" content="切换模型" trigger="hover">
-                  <t-select
-                    v-model="selectValue"
-                    :options="selectOptions"
-                    value-type="object"
-                    @focus="allowToolTip = false"
-                  ></t-select>
-                </t-tooltip>
-                <t-button class="check-box" :class="{ 'is-active': isChecked }" variant="text" @click="checkClick">
-                  <SystemSumIcon />
-                  <span>深度思考</span>
-                </t-button>
-              </div>
-            </template>
-          </t-chat-sender>
-        </template>
-      </t-chat>
+  <t-drawer v-model:visible="visible" :footer="false" size="480px" :close-btn="true" class="drawer-box">
+    <template #header>
+      <t-avatar size="32px" shape="circle" image="https://tdesign.gtimg.com/site/chat-avatar.png"></t-avatar>
+      <span class="title">Hi, &nbsp;我是AI</span>
     </template>
-  </t-dialog>
+    <t-chat layout="both" :clear-history="chatList.length > 0 && !isStreamLoad" @clear="clearConfirm">
+      <template v-for="(item, index) in chatList" :key="index">
+        <t-chat-item
+          :role="item.role"
+          :text-loading="index === chatList.length - 1 && loading"
+          :content="item.content"
+          :variant="getStyle(item.role)"
+          :reasoning="{
+            expandIconPlacement: 'right',
+            onExpandChange: handleChange(value, { index }),
+            collapsePanelProps: {
+              header: renderHeader(index === chatList.length - 1 && isStreamLoad && !item.content, item),
+
+              content: renderReasoningContent(item.reasoning),
+            },
+          }"
+        >
+        </t-chat-item>
+      </template>
+      <template #footer>
+        <t-chat-sender
+          v-model="inputValue"
+          :loading="isStreamLoad"
+          :textarea-props="{
+            placeholder: '请输入消息...',
+          }"
+          @stop="onStop"
+          @send="inputEnter"
+        >
+          <template #footer-prefix>
+            <div class="model-select">
+              <t-tooltip v-model:visible="allowToolTip" content="切换模型" trigger="hover">
+                <t-select
+                  v-model="selectValue"
+                  :options="selectOptions"
+                  value-type="object"
+                  @focus="allowToolTip = false"
+                ></t-select>
+              </t-tooltip>
+              <t-button class="check-box" :class="{ 'is-active': isChecked }" variant="text" @click="checkClick">
+                <SystemSumIcon />
+                <span>深度思考</span>
+              </t-button>
+            </div>
+          </template>
+        </t-chat-sender>
+      </template>
+    </t-chat>
+  </t-drawer>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
-import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
+import { MockSSEResponse } from './mock-data/sse-request-reasoning';
 import { SystemSumIcon } from 'tdesign-icons-vue-next';
 import { CheckCircleIcon } from 'tdesign-icons-vue-next';
 
 const fetchCancel = ref(null);
 const loading = ref(false);
+const inputValue = ref('');
 // 流式数据加载中
 const isStreamLoad = ref(false);
-const visibleModelessDrag = ref(false);
-const inputValue = ref('');
+const visible = ref(false);
 
 const selectOptions = [
   {
@@ -100,6 +88,18 @@ const selectValue = ref({
   label: '默认模型',
   value: 'default',
 });
+const getStyle = (role) => {
+  if (role === 'assistant') {
+    return 'outline';
+  }
+  if (role === 'user') {
+    return 'base';
+  }
+  if (role === 'error') {
+    return 'text';
+  }
+  return 'text';
+};
 const allowToolTip = ref(false);
 const isChecked = ref(false);
 const checkClick = () => {
@@ -191,6 +191,7 @@ const onStop = function () {
     isStreamLoad.value = false;
   }
 };
+
 const inputEnter = function () {
   if (isStreamLoad.value) {
     return;
@@ -291,6 +292,32 @@ const handleData = async () => {
 };
 </script>
 <style lang="less">
+.title {
+  margin-left: 16px;
+  font-size: 20px;
+  color: var(--td-text-color-primary);
+  font-weight: 600;
+  line-height: 28px;
+}
+.drawer-box {
+  .t-drawer__header {
+    padding: 32px;
+  }
+  .t-drawer__body {
+    padding: 0px 32px 30px 32px;
+  }
+  .t-drawer__close-btn {
+    right: 32px;
+    top: 32px;
+    background-color: var(--td-bg-color-secondarycontainer);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    .t-icon {
+      font-size: 20px;
+    }
+  }
+}
 .model-select {
   display: flex;
   align-items: center;
@@ -331,3 +358,4 @@ const handleData = async () => {
   }
 }
 </style>
+../_example-mock/sse-request-reasoning

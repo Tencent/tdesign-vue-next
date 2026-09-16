@@ -5,6 +5,27 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.7.0 `2026-09-09`
+
+### 🚨 Breaking Changes
+
+- 底层 Web Components 依赖迁移至 `@tdesign/web-components-chat`，调整 tdesign-vue-next 为 peerDependency，解决覆盖样式等问题  @RSS1102 @LzhengH ([#6957](https://github.com/Tencent/tdesign-vue-next/pull/6957))
+
+### 🚀 Features
+
+- `ChatEngine`: 新增生成式 UI 能力，内置支持 A2UI 协议，支持 Catalog、Registry、自定义组件、Action 执行及数据双向绑定，支持通过 AG-UI Activity 渲染和流式更新 json-render Schema @RSS1102 @LzhengH @uyarn ([#6957](https://github.com/Tencent/tdesign-vue-next/pull/6957))
+
+### 🐞 Bug Fixes
+
+- 修复主题配置被默认配置覆盖的问题 @uyarn ([#6957](https://github.com/Tencent/tdesign-vue-next/pull/6957))
+- `Chat`: 修复聊天组件更新回调后仍调用旧回调的问题 @engvuchen ([#6931](https://github.com/Tencent/tdesign-vue-next/pull/6931))
+- `ChatMarkdown`: 修复引用场景下的缩进样式不符合预期的问题 @RSS1102 ([#6957](https://github.com/Tencent/tdesign-vue-next/pull/6957))
+- `ChatSender`: 优化组件兼容性问题 @uyarn ([#6839](https://github.com/Tencent/tdesign-vue-next/pull/6839))
+
+### 📝 Documentation
+
+- 新增生成式 UI 使用指南及 json-render、A2UI、外部面板等示例 @uyarn ([#6957](https://github.com/Tencent/tdesign-vue-next/pull/6957))
+
 ## 🌈 0.6.0 `2026-07-16`
 
 ###  🚀 Features

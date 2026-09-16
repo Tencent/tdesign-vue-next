@@ -98,8 +98,9 @@ export function createRegistryManager<TConfig extends BaseConfig>(
         // 创建包装组件，Vue3 会自动处理组件的缓存和优化
         cachedComponent = defineComponent({
           name: `Cached_${key}`,
-          setup(props) {
-            return () => h(config.component, props);
+          inheritAttrs: false,
+          setup(_props, { attrs, slots }) {
+            return () => h(config.component, attrs, slots);
           },
         });
 

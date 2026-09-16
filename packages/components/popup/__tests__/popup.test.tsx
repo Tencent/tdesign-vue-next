@@ -1055,7 +1055,7 @@ describe('Popup', () => {
     });
   });
 
-  describe('props validators', () => {
+  describe('props', () => {
     it(':trigger[string]', () => {
       const validator = popupProps.trigger.validator;
       expect(validator(undefined)).toBe(true);

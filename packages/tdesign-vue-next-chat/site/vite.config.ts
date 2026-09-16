@@ -24,6 +24,7 @@ export default defineConfig(({ mode }) => {
         '@': joinPosix(__dirname, './'),
         '@tdesign/vue-next': joinTdesignVueNextRoot(),
         '@tdesign/components': joinComponentsRoot(),
+        '@tdesign/pro-components-chat': getProComponentsChatRoot(),
         '@tdesign-vue-next/chat': getProComponentsChatRoot(),
         // TODO: paopao 为什么还需要 alias，因为在 example 中的写法只能是 tdesign-vue-next，虽然有这个子应用，但没有 build 是没用的，同时即便是 prebuild 了，hmr 也是问题
         'tdesign-vue-next/es': joinComponentsRoot(),
@@ -40,7 +41,14 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [vue(), vueJsx(), tDocPlugin(), changelog2Json()],
     optimizeDeps: {
-      include: ['prismjs', 'prismjs/components/prism-bash.js'],
+      include: [
+        'prismjs',
+        'prismjs/components/prism-bash.js',
+        'prismjs/components/prism-json.js',
+        'prismjs/components/prism-typescript.js',
+        'prismjs/components/prism-jsx.js',
+        'prismjs/components/prism-tsx.js',
+      ],
       exclude: [
         '@tdesign/pro-components-chat',
         '@tdesign-vue-next/chat',

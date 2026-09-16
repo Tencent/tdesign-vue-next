@@ -4,7 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 import { TdChatItemProps } from '../type';
-import type { TdChatMessageProps } from 'tdesign-web-components';
+import type { TdChatMessageProps } from '@tdesign/web-components-chat';
 import { PropType } from 'vue';
 import type { TNode } from 'tdesign-vue-next';
 

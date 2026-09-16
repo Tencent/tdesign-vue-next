@@ -8,14 +8,14 @@ import coloPickerPaneProps from '@tdesign/components/color-picker/color-picker-p
  * 因为在 color-picker 中已经测试过基本的 props 了，因此这里只是做额外的测试
  */
 describe('ColorPickerPanel', () => {
-  describe(':ui', () => {
+  describe('scenarios', () => {
     it(':mount', () => {
       const wrapper = mount(() => <ColorPickerPanel />);
       expect(wrapper.element).toMatchSnapshot();
     });
   });
 
-  describe(':props', () => {
+  describe('props', () => {
     it(':format', () => {
       const validator = coloPickerPaneProps.format.validator;
       expect(validator(undefined)).toBe(true);
@@ -49,7 +49,7 @@ describe('ColorPickerPanel', () => {
     });
   });
 
-  describe(':event', () => {
+  describe('events', () => {
     it(':change', async () => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const fn1 = vi.fn((value: string, context: { color: ColorObject; trigger: ColorPickerChangeTrigger }) => {});
