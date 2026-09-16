@@ -12,7 +12,7 @@ const layout = {
 };
 
 describe('Descriptions', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it(':bordered', () => {
       const wrapper = getDescriptionsMount({ props: { bordered: true } });
       expect(wrapper.find('.t-descriptions__body.t-descriptions__body--border').exists()).toBeTruthy();
@@ -358,9 +358,36 @@ describe('Descriptions', () => {
         expect(tableLayoutProp.validator(null)).toBe(true);
       });
     });
+
+    it(':items[TNode]', () => {
+      const label = 'Name';
+      const items = [
+        { label: () => label, content: 'TDesign' },
+        { label: CustomComp, content: 'TDesign' },
+        { label: [1, 2], content: 'TDesign' },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Descriptions items={items} />;
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      const secondTr = tbody.findAll('tr')[1];
+
+      const firstTd = firstTr.findAll('td')[0];
+      expect(firstTd.text()).toBe(label);
+
+      const thirdTd = firstTr.findAll('td')[2];
+      expect(thirdTd.text()).toBe('custom-comp');
+
+      const secondTrFirstTd = secondTr.findAll('td')[0];
+      expect(secondTrFirstTd.text()).toBe('12');
+    });
   });
 
-  describe(':slots', () => {
+  describe('slots', () => {
     it(':title', () => {
       const titleSlotsClassName = 'titleSlotsClassName';
       const titleContent = 'titleContent';
@@ -428,35 +455,8 @@ describe('Descriptions', () => {
     });
   });
 
-  describe(':functions', () => {
-    it(':renderCustomNode', () => {
-      const label = 'Name';
-      const items = [
-        { label: () => label, content: 'TDesign' },
-        { label: CustomComp, content: 'TDesign' },
-        { label: [1, 2], content: 'TDesign' },
-      ];
-      const wrapper = mount({
-        render() {
-          return <Descriptions items={items} />;
-        },
-      });
-
-      const tbody = wrapper.find('tbody');
-      const firstTr = tbody.findAll('tr')[0];
-      const secondTr = tbody.findAll('tr')[1];
-
-      const firstTd = firstTr.findAll('td')[0];
-      expect(firstTd.text()).toBe(label);
-
-      const thirdTd = firstTr.findAll('td')[2];
-      expect(thirdTd.text()).toBe('custom-comp');
-
-      const secondTrFirstTd = secondTr.findAll('td')[0];
-      expect(secondTrFirstTd.text()).toBe('12');
-    });
-
-    it(':renderVNodeTNode', () => {
+  describe('scenarios', () => {
+    it('renders an empty item', () => {
       const wrapper = mount({
         render() {
           return (

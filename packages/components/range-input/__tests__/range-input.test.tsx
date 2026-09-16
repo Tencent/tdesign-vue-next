@@ -237,7 +237,7 @@ describe('RangeInput', () => {
     });
   });
 
-  describe('instance methods', () => {
+  describe('instanceFunctions', () => {
     it('should have instance methods', async () => {
       const wrapper = mount(<RangeInput />);
       const instance = wrapper.vm as unknown as RangeInputInstanceFunctions;

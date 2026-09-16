@@ -11,7 +11,7 @@ afterEach(() => {
 });
 
 describe('SelectInput', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it(':value[string]', () => {
       const wrapper = mount(SelectInput, {
         props: {
@@ -375,7 +375,7 @@ describe('SelectInput', () => {
     });
   });
 
-  describe(':event', () => {
+  describe('events', () => {
     it('@focus[object] @blur[object]', async () => {
       const onFocus = vi.fn();
       const onBlur = vi.fn();
