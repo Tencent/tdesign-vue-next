@@ -10,6 +10,7 @@ import pwaConfig from './configs/pwa';
 
 import changelog2Json from './plugins/changelog-to-json';
 import tdDocToVue from './plugins/td-doc-to-vue';
+import generateLlms from './plugins/generate-llms';
 
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -36,6 +37,6 @@ export default defineConfig(({ mode }) => {
         'tdesign-vue-next': joinComponentsRoot(),
       },
     },
-    plugins: [vue(), vueJsx(), tdDocToVue(), changelog2Json(), VitePWA(pwaConfig)],
+    plugins: [vue(), vueJsx(), tdDocToVue(), changelog2Json(), generateLlms(), VitePWA(pwaConfig)],
   };
 });

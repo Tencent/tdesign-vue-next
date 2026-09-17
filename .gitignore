@@ -1,4 +1,5 @@
 node_modules
+.pnpm-store
 .DS_Store
 
 # build files
@@ -33,3 +34,4 @@ robotMsg.json
 .gitlogmap
 .eslintcache
 .tico
+.claude
