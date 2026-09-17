@@ -193,14 +193,6 @@ describe('Swiper', () => {
       wrapper.unmount();
     });
 
-    it(':current[number] takes precedence over :defaultCurrent[number] for zero', () => {
-      const wrapper = mountSwiper({ current: 0, defaultCurrent: 2 });
-
-      expect(getActiveNavigationIndex(wrapper)).toBe(0);
-
-      wrapper.unmount();
-    });
-
     it(':defaultCurrent[number]', () => {
       const wrapper = mountSwiper({ defaultCurrent: 2 });
 
@@ -314,6 +306,7 @@ describe('Swiper', () => {
       wrapper.unmount();
     });
 
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6883
     it(':navigation[function]', () => {
       const wrapper = mountSwiper({ navigation: () => h('div', { class: 'function-navigation' }, 'Function') });
 
@@ -590,27 +583,48 @@ describe('Swiper', () => {
 
       wrapper.unmount();
     });
+  });
 
-    it(':autoplay[true] clears its timer after unmount', () => {
-      const onChange = vi.fn();
-      const wrapper = mountSwiper({ autoplay: true, interval: 1000, duration: 100, onChange });
+  describe('scenarios', () => {
+    describe('controlled current', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6883
+      it('keeps current=0 instead of falling back to defaultCurrent', () => {
+        const wrapper = mountSwiper({ current: 0, defaultCurrent: 2 });
 
-      expect(vi.getTimerCount()).toBeGreaterThan(0);
-      wrapper.unmount();
-      expect(vi.getTimerCount()).toBe(0);
-      vi.advanceTimersByTime(1000);
-      expect(onChange).not.toHaveBeenCalled();
+        expect(getActiveNavigationIndex(wrapper)).toBe(0);
+
+        wrapper.unmount();
+      });
     });
 
-    it('clears its switching timer after unmount', async () => {
-      const wrapper = mountSwiper({ duration: 100 });
+    describe('unmount cleanup', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6883
+      it('does not keep autoplay running after unmount', () => {
+        const onChange = vi.fn();
+        const wrapper = mountSwiper({ autoplay: true, interval: 1000, duration: 100, onChange });
 
-      await nextTick();
-      await wrapper.find('.t-swiper__arrow-right').trigger('click');
-      expect(vi.getTimerCount()).toBeGreaterThan(0);
+        expect(vi.getTimerCount()).toBeGreaterThan(0);
+        wrapper.unmount();
+        expect(vi.getTimerCount()).toBe(0);
+        vi.advanceTimersByTime(1000);
+        expect(onChange).not.toHaveBeenCalled();
+      });
 
-      wrapper.unmount();
-      expect(vi.getTimerCount()).toBe(0);
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6883
+      it('does not keep the switching timer after unmount', async () => {
+        const onChange = vi.fn();
+        const wrapper = mountSwiper({ duration: 100, onChange });
+
+        await nextTick();
+        await wrapper.find('.t-swiper__arrow-right').trigger('click');
+        expect(onChange).toHaveBeenCalledTimes(1);
+        expect(vi.getTimerCount()).toBeGreaterThan(0);
+
+        wrapper.unmount();
+        expect(vi.getTimerCount()).toBe(0);
+        vi.advanceTimersByTime(200);
+        expect(onChange).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });
