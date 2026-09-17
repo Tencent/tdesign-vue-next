@@ -219,19 +219,6 @@ describe('Slider', () => {
       expect(wrapperShowStep.findAll('.t-slider__stop').length > 0).toBe(true);
     });
 
-    it(':showStep[boolean] + :step[number]', async () => {
-      const step = Math.floor(Math.random() * 100);
-      const stepCount = 100 / step;
-      const result = [];
-      for (let i = 1; i < stepCount; i++) {
-        result.push(i);
-      }
-      const wrapper = mount(<Slider showStep step={step} />);
-      await nextTick();
-      const stopElements = wrapper.findAll('.t-slider__stop');
-      expect(stopElements.length === result.length).toBe(true);
-    });
-
     it(':tooltipProps[object]', async () => {
       const tooltipProps = { placement: 'bottom' as const, theme: 'light' as const };
       const wrapper = mount(<Slider modelValue={50} tooltipProps={tooltipProps} />);
@@ -448,6 +435,16 @@ describe('Slider', () => {
       await markText.trigger('click');
       await nextTick();
       expect(onChangeEnd).toHaveBeenCalled();
+    });
+  });
+
+  describe('scenarios', () => {
+    describe('showStep with step', () => {
+      it.each([1, 2, 5, 10, 20, 25, 50, 100])('renders the expected tick count when step is %i', async (step) => {
+        const wrapper = mount(<Slider showStep step={step} />);
+        await nextTick();
+        expect(wrapper.findAll('.t-slider__stop')).toHaveLength(100 / step - 1);
+      });
     });
   });
 });
