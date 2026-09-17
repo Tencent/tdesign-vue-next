@@ -223,6 +223,49 @@ describe('Submenu', () => {
     });
   });
 
+  describe('scenarios', () => {
+    it('renders and updates the arrow through a functional wrapper in a side menu', async () => {
+      const FunctionalSubmenu = () => (
+        <Submenu title="Parent" value="parent">
+          <MenuItem value="leaf">Leaf</MenuItem>
+        </Submenu>
+      );
+      const wrapper = mount(
+        <Menu collapsed>
+          <FunctionalSubmenu />
+        </Menu>,
+      );
+
+      await openSubmenu(wrapper);
+
+      expect(wrapper.get('.t-fake-arrow').classes()).toContain('t-fake-arrow--active');
+      wrapper.unmount();
+    });
+
+    it('renders and updates the arrow through a functional wrapper in a head menu', async () => {
+      const { menu } = createMenu({ isHead: true, mode: ref('popup') });
+      const FunctionalSubmenu = () => (
+        <Submenu title="Parent" value="parent">
+          <MenuItem value="leaf">Leaf</MenuItem>
+        </Submenu>
+      );
+      // eslint-disable-next-line vue/one-component-per-file -- Local host reproduces a functional HeadMenu child.
+      const Host = defineComponent({
+        name: 'THeadMenu',
+        setup() {
+          provide('TdMenu', menu);
+          return () => <FunctionalSubmenu />;
+        },
+      });
+      const wrapper = mount(Host);
+
+      await openSubmenu(wrapper);
+
+      expect(wrapper.get('.t-fake-arrow').classes()).toContain('t-fake-arrow--active');
+      wrapper.unmount();
+    });
+  });
+
   describe('events', () => {
     it(':popupProps[object] + popup (side menu)', async () => {
       const customModifier = { name: 'custom' };
