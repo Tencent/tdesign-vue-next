@@ -80,7 +80,7 @@ export interface TdDropdownProps {
   /**
    * 下拉操作项点击时触发
    */
-  onClick?: (dropdownItem: TdDropdownItemProps['value'], context: { e: MouseEvent }) => void;
+  onClick?: (dropdownItem: DropdownOption, context: { e: MouseEvent }) => void;
 }
 
 export interface TdDropdownItemProps {
