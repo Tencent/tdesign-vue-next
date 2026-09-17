@@ -5,6 +5,26 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.8 `2026-09-17`
+
+### 🚀 Features
+
+- `Form`: 末尾表单项增加 `--last` 标识，保证 `margin` 样式正常生效 @Zn-Dk ([#6952](https://github.com/Tencent/tdesign-vue-next/pull/6952))
+
+### 🐞 Bug Fixes
+
+- `Breadcrumb`: 修复长文本情况下，`icon`被挤压的问题。 @dvd233 ([common #2687](https://github.com/Tencent/tdesign-common/pull/2687)） ([#6963](https://github.com/Tencent/tdesign-vue-next/pull/6963))
+- `ColorPicker`: 优化开启 alpha 通道后的输入框效果展示 @uyarn ([#6970](https://github.com/Tencent/tdesign-vue-next/pull/6970))
+- `Dropdown`: 修复 `onClick` 回调参数类型与运行时不一致的问题 @dvd233 ([#6959](https://github.com/Tencent/tdesign-vue-next/pull/6959))
+- `Icon`: 修复 usb 原始图标的图层 ID 错误,在深色模式下渲染错误 @uyarn ([icons#298](https://github.com/Tencent/tdesign-icons/pull/298)) ([#6947](https://github.com/Tencent/tdesign-vue-next/pull/6947))
+- `Menu`: 修复`1.20.7` 版本迭代导致的部分场景子菜单渲染失败报错的问题 @dvd233 ([#6967](https://github.com/Tencent/tdesign-vue-next/pull/6967))
+- `Swiper`: 
+  - 修复 `current` 为 `0` 时被 `defaultCurrent` 覆盖的问题 @zhangpaopao0609 ([#6889](https://github.com/Tencent/tdesign-vue-next/pull/6889))
+  - 修复 `navigation` 传入函数时未渲染自定义导航的问题 @zhangpaopao0609 ([#6889](https://github.com/Tencent/tdesign-vue-next/pull/6889))
+- `Upload`: 
+  - 修复 `useMockProgress=false` 时真实上传进度不回调的问题 @anlyyao ([common#2690](https://github.com/Tencent/tdesign-common/pull/2690))
+  - 修复自动上传完成后覆盖已有附件列表变更，导致已删除附件重新出现的问题 @yunfeizhu ([#6969](https://github.com/Tencent/tdesign-vue-next/pull/6969))
+
 ## 🌈 1.20.7 `2026-08-27`
 
 ### 🐞 Bug Fixes
