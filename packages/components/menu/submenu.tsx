@@ -373,15 +373,7 @@ export default defineComponent({
       const hasContent = slots.content || slots.default;
       const icon = renderTNodeJSX('icon');
       const child = renderContent('default', 'content');
-      let parent = instance.parent;
-      let paddingLeft = 44;
-
-      while (parent && parent.type.name !== 'TMenu') {
-        if (parent.type.name === 'TSubmenu') {
-          paddingLeft += 16;
-        }
-        parent = parent.parent;
-      }
+      const parent = instance.parent;
 
       const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
 
@@ -407,7 +399,7 @@ export default defineComponent({
           onLeave={leave}
           onAfterLeave={afterLeave}
         >
-          <ul v-show={isOpen.value} class={subClass.value} style={{ '--padding-left': `${paddingLeft}px` }}>
+          <ul v-show={isOpen.value} class={subClass.value}>
             {child}
           </ul>
         </Transition>,

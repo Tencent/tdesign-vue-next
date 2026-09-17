@@ -545,6 +545,21 @@ describe('RadioGroup', () => {
 
       await wrapper.findAll(RADIO)[2].trigger('keydown', { code: 'Space' });
       expect(onChange).not.toHaveBeenCalled();
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <RadioGroup value={1} options={[1, 2]} onChange={currentOnChange.value} />,
+      });
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await latestWrapper.findAll(RADIO)[1].trigger('click');
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(2, { e: expect.any(MouseEvent), name: '' });
+      latestWrapper.unmount();
     });
   });
 });

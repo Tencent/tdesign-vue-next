@@ -25,6 +25,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    enableAlpha: {
+      type: Boolean,
+      default: false,
+    },
     inputProps: {
       type: Object as PropType<TdColorPickerProps['inputProps']>,
       default: () => {
@@ -80,18 +84,30 @@ export default defineComponent({
       const inputSlots = {
         label: () => {
           return (
-            <div class={[`${baseClassName.value}__trigger--default__color`, `${baseClassName.value}--bg-alpha`]}>
+            <div class={`${baseClassName.value}__trigger--default__color`}>
               <span
                 class={[
                   'color-inner',
                   {
+                    [`${baseClassName.value}--bg-alpha`]: props.enableAlpha,
+                  },
+                  {
                     [sizeClassNames.value[props.size]]: props.size !== 'medium',
                   },
                 ]}
-                style={{
-                  background: value.value,
-                }}
-              ></span>
+                style={props.enableAlpha ? { borderColor: value.value } : { background: value.value }}
+              >
+                {props.enableAlpha ? (
+                  <span
+                    style={{
+                      display: 'block',
+                      width: '100%',
+                      height: '100%',
+                      background: value.value,
+                    }}
+                  />
+                ) : null}
+              </span>
             </div>
           );
         },

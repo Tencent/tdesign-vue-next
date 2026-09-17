@@ -13,12 +13,12 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('steps');
 
-    const { current, modelValue } = toRefs(props);
+    const { current, modelValue, onChange: onChangeRef } = toRefs(props);
     const [innerCurrent, setInnerCurrent] = useVModel(
       current,
       modelValue,
       props.defaultCurrent,
-      props.onChange,
+      onChangeRef,
       'current',
     );
 

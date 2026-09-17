@@ -117,6 +117,8 @@ export const FormInjectionKey: InjectionKey<{
   resetType: TdFormProps['resetType'];
   children: FormItemContext[];
   renderContent: ReturnType<typeof useTNodeJSX>;
+  registerFormItem: (node: HTMLElement) => () => void;
+  lastFormItemElements: Set<HTMLElement>;
 }> = Symbol('FormProvide');
 
 export const FormItemInjectionKey: InjectionKey<{

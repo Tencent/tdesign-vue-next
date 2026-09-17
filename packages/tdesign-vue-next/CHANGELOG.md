@@ -5,6 +5,24 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.7 `2026-08-27`
+
+### 🐞 Bug Fixes
+
+- `Select`: 修复事件监听器更新后 change 回调仍调用旧函数的问题 @engvuchen @Zn-Dk ([#6931](https://github.com/Tencent/tdesign-vue-next/pull/6931))
+- `Space`: 透传子节点 key 到包裹层，修复 `v-if` 子节点切换时的节点错误的问题 @jaideeppyne ([#6936](https://github.com/Tencent/tdesign-vue-next/pull/6936))
+- `Steps`: 
+  - 修复 `layout='vertical'` 时，连接线不对齐和与上下图标距离不一致的问题 @RylanBot ([common#2670](https://github.com/Tencent/tdesign-common/pull/2670))
+  - 修复默认和选中态的连接线粗细不一致的问题 @RylanBot ([common#2670](https://github.com/Tencent/tdesign-common/pull/2670))
+
+### 📝 Documentation
+
+- `Transfer`: 修复文档中 change 事件的回调参数 context 中的 `target` 描述错误的问题 @uyarn ([#6945](https://github.com/Tencent/tdesign-vue-next/pull/6945))
+
+### 🚧 Others
+
+- `Menu`: 修改内联的 Menu 样式为 common，移除过于宽泛的 `--padding-left` 变量，方便覆盖修改 @uyarn ([#6943](https://github.com/Tencent/tdesign-vue-next/pull/6943))
+
 ## 🌈 1.20.6 `2026-08-13`
 
 ### 🚀 Features

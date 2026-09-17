@@ -18,7 +18,8 @@ import {
  * 行高亮功能，支持键盘操作
  */
 export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElement>) {
-  const { data, activeRowType, activeRowKeys, defaultActiveRowKeys, disableSpaceInactiveRow } = toRefs(props);
+  const { data, activeRowType, activeRowKeys, defaultActiveRowKeys, disableSpaceInactiveRow, onActiveChange } =
+    toRefs(props);
   const currentOperationRowIndex = ref(-1);
   const isShiftPressed = ref(false);
   const shiftSelectionState = ref(false);
@@ -27,7 +28,7 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
   const [tActiveRow, setTActiveRow] = useDefaultValue(
     activeRowKeys,
     defaultActiveRowKeys.value,
-    props.onActiveChange,
+    onActiveChange,
     'activeRowKeys',
   );
 

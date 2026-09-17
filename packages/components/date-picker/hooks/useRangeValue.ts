@@ -12,9 +12,9 @@ import {
 } from '@tdesign/common-js/date-picker/format';
 
 export function useRangeValue(props: TdDateRangePickerProps) {
-  const { value: valueFromProps, modelValue } = toRefs(props);
+  const { value: valueFromProps, modelValue, onChange: onChangeRef } = toRefs(props);
 
-  const [rawValue, onRawChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
+  const [rawValue, onRawChange] = useVModel(valueFromProps, modelValue, props.defaultValue, onChangeRef);
   const value = computed(() => (Array.isArray(rawValue.value) ? rawValue.value : []));
 
   const formatRef = computed(() =>

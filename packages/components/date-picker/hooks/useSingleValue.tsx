@@ -11,8 +11,8 @@ import { useVModel } from '@tdesign/shared-hooks';
 import { TdDatePickerProps, DateMultipleValue, DateValue } from '../type';
 
 export function useSingleValue(props: TdDatePickerProps) {
-  const { value: valueFromProps, modelValue } = toRefs(props);
-  const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
+  const { value: valueFromProps, modelValue, onChange: onChangeRef } = toRefs(props);
+  const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, onChangeRef);
 
   const formatRef = computed(() =>
     getDefaultFormat({

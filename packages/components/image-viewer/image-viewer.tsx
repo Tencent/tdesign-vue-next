@@ -37,8 +37,8 @@ export default defineComponent({
     const isExpand = ref(true);
     const showOverlayValue = computed(() => getOverlay(props));
 
-    const { index, visible, modelValue, imageReferrerpolicy } = toRefs(props);
-    const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, props.onIndexChange, 'index');
+    const { index, visible, modelValue, imageReferrerpolicy, onIndexChange } = toRefs(props);
+    const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, onIndexChange, 'index');
     const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
     const animationEnd = ref(true);
     const animationTimer = ref();

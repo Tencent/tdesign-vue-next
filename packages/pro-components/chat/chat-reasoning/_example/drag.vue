@@ -1,68 +1,77 @@
 <template>
-  <div class="chat-box">
-    <t-chat
-      ref="chatRef"
-      layout="single"
-      style="height: 800px"
-      :clear-history="chatList.length > 0 && !isStreamLoad"
-      @scroll="handleChatScroll"
-      @clear="clearConfirm"
-    >
-      <template v-for="(item, index) in chatList" :key="index">
-        <t-chat-item
-          :avatar="item.avatar"
-          :name="item.name"
-          :role="item.role"
-          :datetime="item.datetime"
-          :text-loading="index === chatList.length - 1 && loading"
-          :content="item.content"
-          :reasoning="{
-            collapsed: index === chatList.length - 1 && !isStreamLoad,
-            expandIconPlacement: 'right',
-            onExpandChange: handleChange(value, { index }),
-            collapsePanelProps: {
-              header: renderHeader(index === chatList.length - 1 && isStreamLoad && !item.content, item),
+  <t-space align="center">
+    <t-button theme="primary" @click="visibleModelessDrag = true">AI助手可拖拽</t-button>
+  </t-space>
+  <t-dialog
+    v-model:visible="visibleModelessDrag"
+    :footer="false"
+    header="AI助手"
+    mode="modeless"
+    draggable
+    :on-confirm="() => (visibleModelessDrag = false)"
+  >
+    <template #body>
+      <t-chat
+        layout="single"
+        style="height: 600px"
+        :clear-history="chatList.length > 0 && !isStreamLoad"
+        @clear="clearConfirm"
+      >
+        <template v-for="(item, index) in chatList" :key="index">
+          <t-chat-item
+            :avatar="item.avatar"
+            :name="item.name"
+            :role="item.role"
+            :datetime="item.datetime"
+            :text-loading="index === chatList.length - 1 && loading"
+            :content="item.content"
+            :reasoning="{
+              expandIconPlacement: 'right',
+              onExpandChange: handleChange(value, { index }),
+              collapsePanelProps: {
+                header: renderHeader(index === chatList.length - 1 && isStreamLoad && !item.content, item),
 
-              content: renderReasoningContent(item.reasoning),
-            },
-          }"
-        >
-        </t-chat-item>
-      </template>
-      <template #footer>
-        <t-chat-sender
-          v-model="inputValue"
-          :loading="isStreamLoad"
-          :textarea-props="{
-            placeholder: '请输入消息...',
-          }"
-          @stop="onStop"
-          @send="inputEnter"
-        >
-          <template #footer-prefix>
-            <div class="model-select">
-              <t-tooltip v-model:visible="allowToolTip" content="切换模型" trigger="hover">
-                <t-select
-                  v-model="selectValue"
-                  :options="selectOptions"
-                  value-type="object"
-                  @focus="allowToolTip = false"
-                ></t-select>
-              </t-tooltip>
-              <t-button class="check-box" :class="{ 'is-active': isChecked }" variant="text" @click="checkClick">
-                <SystemSumIcon />
-                <span>深度思考</span>
-              </t-button>
-            </div>
-          </template>
-        </t-chat-sender>
-      </template>
-    </t-chat>
-  </div>
+                content: renderReasoningContent(item.reasoning),
+              },
+            }"
+          >
+          </t-chat-item>
+        </template>
+        <template #footer>
+          <t-chat-sender
+            v-model="inputValue"
+            :loading="isStreamLoad"
+            :textarea-props="{
+              placeholder: '请输入消息...',
+            }"
+            @stop="onStop"
+            @send="inputEnter"
+          >
+            <template #footer-prefix>
+              <div class="model-select">
+                <t-tooltip v-model:visible="allowToolTip" content="切换模型" trigger="hover">
+                  <t-select
+                    v-model="selectValue"
+                    :options="selectOptions"
+                    value-type="object"
+                    @focus="allowToolTip = false"
+                  ></t-select>
+                </t-tooltip>
+                <t-button class="check-box" :class="{ 'is-active': isChecked }" variant="text" @click="checkClick">
+                  <SystemSumIcon />
+                  <span>深度思考</span>
+                </t-button>
+              </div>
+            </template>
+          </t-chat-sender>
+        </template>
+      </t-chat>
+    </template>
+  </t-dialog>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
-import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
+import { MockSSEResponse } from './mock-data/sse-request-reasoning';
 import { SystemSumIcon } from 'tdesign-icons-vue-next';
 import { CheckCircleIcon } from 'tdesign-icons-vue-next';
 
@@ -70,8 +79,8 @@ const fetchCancel = ref(null);
 const loading = ref(false);
 // 流式数据加载中
 const isStreamLoad = ref(false);
+const visibleModelessDrag = ref(false);
 const inputValue = ref('');
-const chatRef = ref(null);
 
 const selectOptions = [
   {
@@ -79,7 +88,7 @@ const selectOptions = [
     value: 'default',
   },
   {
-    label: 'deepseek-r1',
+    label: '深度思考',
     value: 'deepseek-r1',
   },
   {
@@ -140,7 +149,7 @@ const chatList = ref([
     datetime: '今天16:38',
     reasoning: `嗯，用户问牛顿第一定律是不是适用于所有参考系。首先，我得先回忆一下牛顿第一定律的内容。牛顿第一定律，也就是惯性定律，说物体在没有外力作用时会保持静止或匀速直线运动。也就是说，保持原来的运动状态。
 
-`,
+那问题来了，这个定律是否适用于所有参考系呢？记得以前学过的参考系分惯性系和非惯性系。惯性系里，牛顿定律成立；非惯性系里，可能需要引入惯性力之类的修正。所以牛顿第一定律应该只在惯性参考系中成立，而在非惯性系中不适用，比如加速的电梯或者旋转的参考系，这时候物体会有看似无外力下的加速度，所以必须引入假想的力来解释。`,
     content: `牛顿第一定律（惯性定律）**并不适用于所有参考系**，它只在**惯性参考系**中成立。以下是关键点：
 
 ---
@@ -150,7 +159,18 @@ const chatList = ref([
 - **本质**：定义了惯性系的存在——即存在一类参考系，在其中惯性定律成立。
 
 ---
-`,
+
+### **2. 惯性系 vs 非惯性系**
+- **惯性参考系**：牛顿定律直接成立的参考系。
+  - **例子**：相对于遥远恒星静止或匀速直线运动的参考系；地面参考系（近似惯性系，忽略地球自转）。
+  - **特点**：物体加速度仅由真实力（如重力、摩擦力）引起。
+
+- **非惯性参考系**：牛顿定律不直接成立的参考系（如有加速度或旋转的参考系）。
+  - **例子**：加速行驶的汽车、旋转的圆盘。
+  - **现象**：物体会表现出“虚假”加速度（如急刹车时乘客前倾），看似无外力却改变运动状态。
+  - **修正方法**：引入**惯性力**（如离心力、科里奥利力），使牛顿定律形式上成立。
+
+---`,
     role: 'assistant',
     duration: 10,
   },
@@ -171,13 +191,7 @@ const onStop = function () {
     isStreamLoad.value = false;
   }
 };
-// 是否显示回到底部按钮
-const handleChatScroll = function ({ e }) {
-  console.log('handleChatScroll', e);
-};
-
 const inputEnter = function () {
-  console.log('inputEnter', inputValue.value);
   if (isStreamLoad.value) {
     return;
   }
@@ -238,9 +252,14 @@ const handleData = async () => {
   const mockedData = {
     reasoning: `嗯，用户问牛顿第一定律是不是适用于所有参考系。首先，我得先回忆一下牛顿第一定律的内容。牛顿第一定律，也就是惯性定律，说物体在没有外力作用时会保持静止或匀速直线运动。也就是说，保持原来的运动状态。
 
-`,
+那问题来了，这个定律是否适用于所有参考系呢？记得以前学过的参考系分惯性系和非惯性系。惯性系里，牛顿定律成立；非惯性系里，可能需要引入惯性力之类的修正。所以牛顿第一定律应该只在惯性参考系中成立，而在非惯性系中不适用，比如加速的电梯或者旋转的参考系，这时候物体会有看似无外力下的加速度，所以必须引入假想的力来解释。`,
     content: `牛顿第一定律（惯性定律）**并不适用于所有参考系**，它只在**惯性参考系**中成立。以下是关键点：
-`,
+
+---
+
+### **1. 牛顿第一定律的核心**
+- **内容**：物体在不受外力（或合力为零）时，将保持静止或匀速直线运动状态。
+- **本质**：定义了惯性系的存在——即存在一类参考系，在其中惯性定律成立。`,
   };
   const mockResponse = new MockSSEResponse(mockedData);
   fetchCancel.value = mockResponse;
@@ -272,17 +291,6 @@ const handleData = async () => {
 };
 </script>
 <style lang="less">
-/* 应用滚动条样式 */
-::-webkit-scrollbar-thumb {
-  background-color: var(--td-scrollbar-color);
-}
-::-webkit-scrollbar-thumb:horizontal:hover {
-  background-color: var(--td-scrollbar-hover-color);
-}
-::-webkit-scrollbar-track {
-  background-color: var(--td-scroll-track-color);
-}
-
 .model-select {
   display: flex;
   align-items: center;

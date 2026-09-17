@@ -11,7 +11,7 @@
 | 参数名            | 类型               | 说明                                                                                     | 必传 |
 | ----------------- | ------------------ | ---------------------------------------------------------------------------------------- | ---- |
 | defaultMessages   | ChatMessagesData[] | 初始化消息列，[详细类型定义](/chat/components/chat-message?tab=api) 表                                                                           | N    |
-| chatServiceConfig | ChatServiceConfig  | 对话服务配置，[详细类型定义](/chat/components/chatbot?tab=api#chatserviceconfig-类型说明) | Y    |
+| chatServiceConfig | ChatServiceConfigSetter | 对话服务配置对象或返回配置的函数，[详细类型定义](/chat/components/chatbot?tab=api#chatserviceconfig-类型说明) | Y    |
 
 #### 返回值
 

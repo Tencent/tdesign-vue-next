@@ -43,8 +43,8 @@ export default defineComponent({
     const TEXTAREA_TIPS_CLASS = computed(() => `${name.value}__tips`);
     const TEXTAREA_LIMIT = computed(() => `${name.value}__limit`);
 
-    const { value, modelValue } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const { value, modelValue, onChange: onChangeRef } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
     const disabled = useDisabled();
     const isReadonly = useReadonly();
     const textareaStyle = ref<CSSProperties>({});

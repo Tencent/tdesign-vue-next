@@ -708,6 +708,24 @@ describe('Cascader', () => {
       await panel.findAll('.t-cascader__item')[2].trigger('click');
       await nextTick();
       expect(onChange).toHaveBeenCalledWith('a1', expect.objectContaining({ source: 'check' }));
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <Cascader options={options} onChange={currentOnChange.value} popupVisible />,
+      });
+      const latestPanel = mountPanel(latestWrapper);
+
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+      await latestPanel.findAll('.t-cascader__item')[0].trigger('click');
+      await nextTick();
+      await latestPanel.findAll('.t-cascader__item')[2].trigger('click');
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith('a1', expect.objectContaining({ source: 'check' }));
     });
 
     it('change in multiple mode', async () => {

@@ -10,8 +10,8 @@ export default defineComponent({
     const componentName = usePrefixClass('collapse');
     const borderlessClass = usePrefixClass('-border-less');
     const renderTNodeJSX = useTNodeJSX();
-    const { value, expandMutex, borderless, modelValue } = toRefs(props);
-    const [collapseValue, setCollapseValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const { value, expandMutex, borderless, modelValue, onChange: onChangeRef } = toRefs(props);
+    const [collapseValue, setCollapseValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
     const updateCollapseValue = (value: CollapsePanelValue) => {
       let newValue: CollapseValue = [].concat(collapseValue.value || []);
       const index = newValue.indexOf(value);

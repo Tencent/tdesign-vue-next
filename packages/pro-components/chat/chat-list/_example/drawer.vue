@@ -44,7 +44,7 @@
 <script setup>
 import { ref } from 'vue';
 const visible = ref(false);
-import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
+import { MockSSEResponse } from './mock-data/sse-request-reasoning';
 
 const fetchCancel = ref(null);
 const loading = ref(false);
@@ -270,4 +270,4 @@ const handleData = async () => {
   }
 }
 </style>
-../_example-mock/sseRequest
+../_example-mock/sse-request

@@ -10,11 +10,11 @@ export default defineComponent({
   name: 'TCheckTagGroup',
   props,
   setup(props, context) {
-    const { value, modelValue, options } = toRefs(props);
+    const { value, modelValue, options, onChange: onChangeRef } = toRefs(props);
     const componentName = usePrefixClass('check-tag-group');
     const checkTagGroupClasses = computed(() => [componentName.value]);
 
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
 
     const onCheckTagChange: TdCheckTagProps['onChange'] = (checked, ctx) => {
       const value = ctx.value;
