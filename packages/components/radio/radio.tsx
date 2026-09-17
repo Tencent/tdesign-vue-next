@@ -22,12 +22,12 @@ export default defineComponent({
   props,
   setup(props, { attrs }) {
     const inputRef = ref();
-    const { checked, modelValue } = toRefs(props);
+    const { checked, modelValue, onChange: onChangeRef } = toRefs(props);
     const [innerChecked, setInnerChecked] = useVModel(
       checked,
       modelValue,
       props.defaultChecked,
-      props.onChange,
+      onChangeRef,
       'checked',
     );
 

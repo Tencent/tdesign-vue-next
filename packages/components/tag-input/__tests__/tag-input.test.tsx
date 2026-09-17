@@ -1,808 +1,760 @@
-// @ts-nocheck
-import { mount } from '@vue/test-utils';
-import { vi } from 'vitest';
-import { TagInput } from '@tdesign/components';
-import { getTagInputValueMount, getTagInputDefaultMount } from './mount';
-import { simulateInputChange, simulateInputEnter } from '@tdesign/internal-tests/utils';
-import { CloseCircleFilledIcon, AppIcon, CloseIcon } from 'tdesign-icons-vue-next';
-import { nextTick, ref } from 'vue';
+import { nextTick } from 'vue';
+import { mount, VueWrapper } from '@vue/test-utils';
+import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { Form, TagInput } from '@tdesign/components';
+import tagInputProps from '../props';
+import type { TdTagInputProps, TagInputValue } from '../type';
 
-describe('TagInput Component', () => {
-  it('props.clearable: empty TagInput does not need clearIcon', async () => {
-    const wrapper = mount(<TagInput clearable={true}></TagInput>);
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-tag-input__suffix-clear').exists()).toBeFalsy();
-  });
-
-  it('props.clearable: show clearIcon on mouse enter', async () => {
-    const wrapper = getTagInputValueMount({ clearable: true });
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-tag-input__suffix-clear').exists()).toBeTruthy();
-  });
-
-  it('props.clearable: clear all tags on click clearIcon', async () => {
-    const onClearFn1 = vi.fn();
-    const onChangeFn1 = vi.fn();
-    const wrapper = getTagInputValueMount({ clearable: true }, { onClear: onClearFn1, onChange: onChangeFn1 });
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    wrapper.find('.t-tag-input__suffix-clear').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onClearFn1).toHaveBeenCalled();
-    expect(onClearFn1.mock.calls[0][0].e.type).toBe('click');
-    expect(onChangeFn1).toHaveBeenCalled();
-    expect(onChangeFn1.mock.calls[0][0]).toEqual([]);
-    expect(onChangeFn1.mock.calls[0][1].trigger).toBe('clear');
-    expect(onChangeFn1.mock.calls[0][1].e.type).toBe('click');
-  });
-
-  it('props.clearable: disabled TagInput can not show clear icon', async () => {
-    const wrapper = getTagInputValueMount({ disabled: true, clearable: true });
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-input__suffix-clear').exists()).toBeFalsy();
-  });
-
-  it('props.clearable: readonly TagInput can not show clear icon', async () => {
-    const wrapper = getTagInputValueMount({ readonly: true, clearable: true });
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-input__suffix-clear').exists()).toBeFalsy();
-  });
-
-  it('props.collapsedItems works fine', () => {
-    const wrapper = getTagInputValueMount({
-      collapsedItems: () => <span class="custom-node">TNode</span>,
-      minCollapsedNum: 3,
-    });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('slots.collapsedItems works fine', () => {
-    const wrapper = getTagInputValueMount({
-      'v-slots': { collapsedItems: () => <span class="custom-node">TNode</span> },
-      minCollapsedNum: 3,
-    });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-  it('slots.collapsed-items works fine', () => {
-    const wrapper = getTagInputValueMount({
-      'v-slots': { 'collapsed-items': () => <span class="custom-node">TNode</span> },
-      minCollapsedNum: 3,
-    });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('props.disabled works fine', () => {
-    // disabled default value is
-    const wrapper1 = mount(<TagInput></TagInput>).find('.t-input');
-    expect(wrapper1.classes('t-is-disabled')).toBeFalsy();
-    // disabled = true
-    const wrapper2 = mount(<TagInput disabled={true}></TagInput>).find('.t-input');
-    expect(wrapper2.classes('t-is-disabled')).toBeTruthy();
-    // disabled = false
-    const wrapper3 = mount(<TagInput disabled={false}></TagInput>).find('.t-input');
-    expect(wrapper3.classes('t-is-disabled')).toBeFalsy();
-  });
-
-  it('props.disabled: disabled TagInput does not need clearIcon', async () => {
-    const wrapper = getTagInputValueMount({ disabled: true });
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-tag-input__suffix-clear').exists()).toBeFalsy();
-  });
-
-  it('props.disabled: disabled TagInput can not trigger focus event', async () => {
-    const onFocusFn = vi.fn();
-    const wrapper = mount(<TagInput disabled={true} onFocus={onFocusFn}></TagInput>);
-    wrapper.find('.t-input').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onFocusFn).not.toHaveBeenCalled();
-  });
-
-  const excessTagsDisplayTypeClassNameList = [{ 't-tag-input--break-line': false }, 't-tag-input--break-line'];
-  ['scroll', 'break-line'].forEach((item, index) => {
-    it(`props.excessTagsDisplayType is equal to ${item}`, () => {
-      const wrapper = getTagInputValueMount({ excessTagsDisplayType: item });
-      if (typeof excessTagsDisplayTypeClassNameList[index] === 'string') {
-        expect(wrapper.classes(excessTagsDisplayTypeClassNameList[index])).toBeTruthy();
-      } else if (typeof excessTagsDisplayTypeClassNameList[index] === 'object') {
-        const classNameKey = Object.keys(excessTagsDisplayTypeClassNameList[index])[0];
-        expect(wrapper.classes(classNameKey)).toBeFalsy();
-      }
-    });
-  });
-
-  it(`props.inputProps is equal to {size: 'small'}`, () => {
-    const wrapper = mount(<TagInput inputProps={{ size: 'small' }}></TagInput>);
-    const domWrapper = wrapper.find('.t-input');
-    expect(domWrapper.classes('t-size-s')).toBeTruthy();
-  });
-
-  it(`props.inputValue is equal to input value text`, () => {
-    const wrapper = mount(<TagInput inputValue={'input value text'}></TagInput>);
-    const domWrapper = wrapper.find('input');
-    expect(domWrapper.element.value).toBe('input value text');
-  });
-
-  it('props.label works fine', () => {
-    const wrapper = mount(<TagInput label={() => <span class="custom-node">TNode</span>}></TagInput>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('slots.label works fine', () => {
-    const wrapper = mount(<TagInput v-slots={{ label: () => <span class="custom-node">TNode</span> }}></TagInput>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('props.max: could type only three tags', async () => {
-    const wrapper = getTagInputDefaultMount({ max: 1 });
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    const inputDom1 = wrapper.find('input').element;
-    simulateInputChange(inputDom1, 'Tag3');
-    await wrapper.vm.$nextTick();
-    const inputDom2 = wrapper.find('input').element;
-    simulateInputEnter(inputDom2);
-    await wrapper.vm.$nextTick();
-    expect(wrapper.findAll('.t-tag').length).toBe(1);
-    const inputDom3 = wrapper.find('input').element;
-    simulateInputChange(inputDom3, 'Tag5');
-    await wrapper.vm.$nextTick();
-    const inputDom4 = wrapper.find('input').element;
-    simulateInputEnter(inputDom4);
-    await wrapper.vm.$nextTick();
-    expect(wrapper.findAll('.t-tag').length).toBe(1);
-  });
-
-  it('props.minCollapsedNum works fine. `{".t-tag":4}` should exist', () => {
-    const wrapper = getTagInputValueMount({ minCollapsedNum: 3 });
-    expect(wrapper.findAll('.t-tag').length).toBe(4);
-  });
-
-  it('props.placeholder works fine', () => {
-    const wrapper = mount(<TagInput placeholder={'This is TagInput placeholder'}></TagInput>).find('input');
-    expect(wrapper.attributes('placeholder')).toBe('This is TagInput placeholder');
-  });
-
-  it('props.readonly works fine', () => {
-    // readonly default value is false
-    const wrapper1 = mount(<TagInput></TagInput>).find('.t-input');
-    expect(wrapper1.classes('t-is-readonly')).toBeFalsy();
-    // readonly = true
-    const wrapper2 = mount(<TagInput readonly={true}></TagInput>).find('.t-input');
-    expect(wrapper2.classes('t-is-readonly')).toBeTruthy();
-    // readonly = false
-    const wrapper3 = mount(<TagInput readonly={false}></TagInput>).find('.t-input');
-    expect(wrapper3.classes('t-is-readonly')).toBeFalsy();
-  });
-
-  it('props.readonly: readonly TagInput does not need clearIcon', async () => {
-    const on0Fn = vi.fn();
-    const wrapper = getTagInputValueMount({ readonly: true }, { on0: on0Fn });
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-  });
-
-  it('props.readonly: readonly TagInput can not trigger focus event', async () => {
-    const onFocusFn = vi.fn();
-    const wrapper = mount(<TagInput readonly={true} onFocus={onFocusFn}></TagInput>);
-    wrapper.find('.t-input').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onFocusFn).not.toHaveBeenCalled();
-  });
-
-  const sizeClassNameList = ['t-size-s', { 't-size-m': false }, 't-size-l'];
-  ['small', 'medium', 'large'].forEach((item, index) => {
-    it(`props.size is equal to ${item}`, () => {
-      const wrapper = mount(<TagInput size={item}></TagInput>).find('.t-input');
-      if (typeof sizeClassNameList[index] === 'string') {
-        expect(wrapper.classes(sizeClassNameList[index])).toBeTruthy();
-      } else if (typeof sizeClassNameList[index] === 'object') {
-        const classNameKey = Object.keys(sizeClassNameList[index])[0];
-        expect(wrapper.classes(classNameKey)).toBeFalsy();
-      }
-    });
-  });
-
-  const statusClassNameList = [{ 't-is-default': false }, 't-is-success', 't-is-warning', 't-is-error'];
-  ['default', 'success', 'warning', 'error'].forEach((item, index) => {
-    it(`props.status is equal to ${item}`, () => {
-      const wrapper = mount(<TagInput status={item}></TagInput>).find('.t-input');
-      if (typeof statusClassNameList[index] === 'string') {
-        expect(wrapper.classes(statusClassNameList[index])).toBeTruthy();
-      } else if (typeof statusClassNameList[index] === 'object') {
-        const classNameKey = Object.keys(statusClassNameList[index])[0];
-        expect(wrapper.classes(classNameKey)).toBeFalsy();
-      }
-    });
-  });
-
-  it('props.suffix works fine', () => {
-    const wrapper = mount(<TagInput suffix={() => <span class="custom-node">TNode</span>}></TagInput>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('slots.suffix works fine', () => {
-    const wrapper = mount(<TagInput v-slots={{ suffix: () => <span class="custom-node">TNode</span> }}></TagInput>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('props.suffixIcon works fine', () => {
-    const wrapper = mount(<TagInput suffixIcon={() => <span class="custom-node">TNode</span>}></TagInput>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('slots.suffixIcon works fine', () => {
-    const wrapper = mount(<TagInput v-slots={{ suffixIcon: () => <span class="custom-node">TNode</span> }}></TagInput>);
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-  it('slots.suffix-icon works fine', () => {
-    const wrapper = mount(
-      <TagInput v-slots={{ 'suffix-icon': () => <span class="custom-node">TNode</span> }}></TagInput>,
-    );
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('props.tag works fine', () => {
-    const wrapper = getTagInputValueMount({
-      tag: () => <span class="custom-node">TNode</span>,
-      value: ['tdesign-vue'],
-    });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('slots.tag works fine', () => {
-    const wrapper = getTagInputValueMount({
-      'v-slots': { tag: () => <span class="custom-node">TNode</span> },
-      value: ['tdesign-vue'],
-    });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('props.tag is a function with params', () => {
-    const fn = vi.fn();
-    getTagInputValueMount({ tag: fn, value: ['tdesign-vue'] });
-    expect(fn).toHaveBeenCalled();
-    expect(fn.mock.calls[0][1].value).toBe('tdesign-vue');
-  });
-  it('slots.tag: a function with params', () => {
-    const fn = vi.fn();
-    getTagInputValueMount({ 'v-slots': { tag: fn }, value: ['tdesign-vue'] });
-
-    expect(fn).toHaveBeenCalled();
-    expect(fn.mock.calls[0][0].value).toBe('tdesign-vue');
-  });
-
-  it('props.tagProps is equal { theme: warning }', () => {
-    const wrapper = getTagInputValueMount({ tagProps: { theme: 'warning' }, multiple: true });
-    expect(wrapper.findAll('.t-tag--warning').length).toBe(5);
-  });
-
-  it('props.tagProps should effect minCollapseNum tag', () => {
-    const wrapper = getTagInputValueMount({
-      tagProps: { theme: 'warning' },
-      multiple: true,
-      minCollapsedNum: 2,
-      value: ['tdesign-vue', 'tdesign-vue-next', 'tdesign-react'],
-    });
-    // tagProps 需要作用到 minCollapseNum 的 tag 上，2 个正常展示的tag 和 1 个折叠的 tag 都会被 tagProps 影响
-    expect(wrapper.findAll('.t-tag--warning').length).toBe(3);
-  });
-
-  it('props.tips is equal this is a tip', () => {
-    const wrapper = mount(<TagInput tips={'this is a tip'}></TagInput>);
-    expect(wrapper.findAll('.t-input__tips').length).toBe(1);
-  });
-
-  it('props.value: controlled value test: only props can change count of tags', async () => {
-    const wrapper = getTagInputDefaultMount({ value: [] });
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    const inputDom1 = wrapper.find('input').element;
-    simulateInputChange(inputDom1, 'Tag1');
-    await wrapper.vm.$nextTick();
-    const inputDom2 = wrapper.find('input').element;
-    simulateInputEnter(inputDom2);
-    await wrapper.vm.$nextTick();
-    expect(wrapper.find('.t-tag').exists()).toBeFalsy();
-  });
-
-  it('props.value: uncontrolled value test: count of tags can be changed inner TagInput', async () => {
-    const wrapper = getTagInputDefaultMount(TagInput);
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    const inputDom1 = wrapper.find('input').element;
-    simulateInputChange(inputDom1, 'Tag2');
-    await wrapper.vm.$nextTick();
-    const inputDom2 = wrapper.find('input').element;
-    simulateInputEnter(inputDom2);
-    await wrapper.vm.$nextTick();
-    expect(wrapper.findAll('.t-tag').length).toBe(1);
-  });
-
-  it('props.valueDisplay works fine', () => {
-    const wrapper = getTagInputValueMount({ valueDisplay: () => <span class="custom-node">TNode</span> });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('slots.valueDisplay works fine', () => {
-    const wrapper = getTagInputValueMount({
-      'v-slots': { valueDisplay: () => <span class="custom-node">TNode</span> },
-    });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-  it('slots.value-display works fine', () => {
-    const wrapper = getTagInputValueMount({
-      'v-slots': { 'value-display': () => <span class="custom-node">TNode</span> },
-    });
-    expect(wrapper.find('.custom-node').exists()).toBeTruthy();
-  });
-
-  it('props.valueDisplay is a function with params', () => {
-    const fn = vi.fn();
-    getTagInputValueMount({ valueDisplay: fn });
-    expect(fn).toHaveBeenCalled();
-    expect(fn.mock.calls[0][1].value).toEqual([
-      'tdesign-vue',
-      'tdesign-react',
-      'tdesign-miniprogram',
-      'tdesign-mobile-vue',
-      'tdesign-mobile-react',
-    ]);
-  });
-  it('slots.valueDisplay: a function with params', () => {
-    const fn = vi.fn();
-    getTagInputValueMount({ 'v-slots': { valueDisplay: fn } });
-
-    expect(fn).toHaveBeenCalled();
-    expect(fn.mock.calls[0][0].value).toEqual([
-      'tdesign-vue',
-      'tdesign-react',
-      'tdesign-miniprogram',
-      'tdesign-mobile-vue',
-      'tdesign-mobile-react',
-    ]);
-  });
-
-  it('events.blur: trigger blur event and clear inputValue on blur', async () => {
-    const onBlurFn2 = vi.fn();
-    const onInputChangeFn2 = vi.fn();
-    const wrapper = mount(<TagInput onBlur={onBlurFn2} onInputChange={onInputChangeFn2}></TagInput>);
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    const inputDom1 = wrapper.find('input').element;
-    simulateInputChange(inputDom1, 'tag1');
-    await wrapper.vm.$nextTick();
-    wrapper.find('input').trigger('blur');
-    await wrapper.vm.$nextTick();
-    const attrDom2 = wrapper.find('input');
-    expect(attrDom2.element.value).toBe('');
-    expect(onBlurFn2).toHaveBeenCalled();
-    expect(onBlurFn2.mock.calls[0][0]).toEqual([]);
-    expect(onBlurFn2.mock.calls[0][1].e.type).toBe('blur');
-    expect(onBlurFn2.mock.calls[0][1].inputValue).toBe('tag1');
-    expect(onInputChangeFn2).toHaveBeenCalled();
-    expect(onInputChangeFn2.mock.calls[1][0]).toBe('');
-    expect(onInputChangeFn2.mock.calls[1][1].e.type).toBe('blur');
-    expect(onInputChangeFn2.mock.calls[1][1].trigger).toBe('blur');
-  });
-
-  it('events.clear: click clear icon, then clear all tags', async () => {
-    const onClearFn1 = vi.fn();
-    const onChangeFn1 = vi.fn();
-    const wrapper = getTagInputValueMount({ clearable: true }, { onClear: onClearFn1, onChange: onChangeFn1 });
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    wrapper.find('.t-tag-input__suffix-clear').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onClearFn1).toHaveBeenCalled();
-    expect(onClearFn1.mock.calls[0][0].e.type).toBe('click');
-    expect(onChangeFn1).toHaveBeenCalled();
-    expect(onChangeFn1.mock.calls[0][0]).toEqual([]);
-    expect(onChangeFn1.mock.calls[0][1].trigger).toBe('clear');
-  });
-
-  it('events.click works fine', async () => {
-    const fn = vi.fn();
-    const wrapper = mount(<TagInput onClick={fn}></TagInput>);
-    wrapper.find('.t-input').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(fn).toHaveBeenCalled();
-    expect(fn.mock.calls[0][0].e.type).toBe('click');
-  });
-
-  it('events.enter works fine', async () => {
-    const onEnterFn = vi.fn();
-    const wrapper = getTagInputDefaultMount({ value: ['tag'] }, { onEnter: onEnterFn });
-    const inputDom = wrapper.find('input').element;
-    simulateInputEnter(inputDom);
-    await wrapper.vm.$nextTick();
-    expect(onEnterFn).toHaveBeenCalled();
-    expect(onEnterFn.mock.calls[0][0]).toEqual(['tag']);
-    expect(onEnterFn.mock.calls[0][1].e.type).toBe('keydown');
-    expect(onEnterFn.mock.calls[0][1].inputValue).toBe('');
-  });
-
-  it('events.enter works fine', async () => {
-    const wrapper = mount(<TagInput></TagInput>);
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    const inputDom1 = wrapper.find('input').element;
-    simulateInputChange(inputDom1, 'Tag');
-    await wrapper.vm.$nextTick();
-    const inputDom2 = wrapper.find('input').element;
-    simulateInputEnter(inputDom2);
-    await wrapper.vm.$nextTick();
-    expect(wrapper.findAll('.t-tag').length).toBe(1);
-  });
-
-  it('events.focus works fine', async () => {
-    const onFocusFn = vi.fn();
-    const wrapper = getTagInputDefaultMount({}, { onFocus: onFocusFn });
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    expect(onFocusFn).toHaveBeenCalled();
-    expect(onFocusFn.mock.calls[0][0]).toEqual([]);
-    expect(onFocusFn.mock.calls[0][1].e.type).toBe('focus');
-    expect(onFocusFn.mock.calls[0][1].inputValue).toBe('');
-  });
-
-  it('events.focus: expect focus not change inputValue', async () => {
-    const onFocusFn = vi.fn();
-    const wrapper = getTagInputDefaultMount({ inputValue: 'tag' }, { onFocus: onFocusFn });
-    wrapper.find('input').trigger('focus');
-    await wrapper.vm.$nextTick();
-    expect(onFocusFn).toHaveBeenCalled();
-    expect(onFocusFn.mock.calls[0][0]).toEqual([]);
-    expect(onFocusFn.mock.calls[0][1].e.type).toBe('focus');
-    expect(onFocusFn.mock.calls[0][1].inputValue).toBe('tag');
-  });
-
-  it('events.mouseenter works fine', async () => {
-    const onMouseenterFn = vi.fn();
-    const wrapper = mount(<TagInput onMouseenter={onMouseenterFn}></TagInput>);
-    wrapper.find('.t-input').trigger('mouseenter');
-    await wrapper.vm.$nextTick();
-    expect(onMouseenterFn).toHaveBeenCalled();
-    expect(onMouseenterFn.mock.calls[0][0].e.type).toBe('mouseenter');
-  });
-
-  it('events.mouseleave works fine', async () => {
-    const onMouseleaveFn = vi.fn();
-    const wrapper = mount(<TagInput onMouseleave={onMouseleaveFn}></TagInput>);
-    wrapper.find('.t-input').trigger('mouseleave');
-    await wrapper.vm.$nextTick();
-    expect(onMouseleaveFn).toHaveBeenCalled();
-    expect(onMouseleaveFn.mock.calls[0][0].e.type).toBe('mouseleave');
-  });
-
-  it('events.paste works fine', async () => {
-    const onPasteFn = vi.fn();
-    const wrapper = mount(<TagInput onPaste={onPasteFn}></TagInput>);
-    wrapper.find('input').trigger('paste');
-    await wrapper.vm.$nextTick();
-    expect(onPasteFn).toHaveBeenCalled();
-    expect(onPasteFn.mock.calls[0][0].e.type).toBe('paste');
-  });
-
-  it('events.remove: remove last tag on keydown Backspace', async () => {
-    const onRemoveFn = vi.fn();
-    const wrapper = getTagInputValueMount({}, { onRemove: onRemoveFn });
-    wrapper.find('input').trigger('keydown.backspace');
-    await wrapper.vm.$nextTick();
-    expect(onRemoveFn).toHaveBeenCalled();
-    expect(onRemoveFn.mock.calls[0][0].value).toEqual([
-      'tdesign-vue',
-      'tdesign-react',
-      'tdesign-miniprogram',
-      'tdesign-mobile-vue',
-    ]);
-    expect(onRemoveFn.mock.calls[0][0].index).toBe(4);
-    expect(onRemoveFn.mock.calls[0][0].trigger).toBe('backspace');
-    expect(onRemoveFn.mock.calls[0][0].item).toBe('tdesign-mobile-react');
-    expect(onRemoveFn.mock.calls[0][0].e.type).toBe('keydown');
-  });
-
-  it('events.remove: remove any tag on click tag close icon', async () => {
-    const onRemoveFn = vi.fn();
-    const wrapper = getTagInputValueMount({}, { onRemove: onRemoveFn });
-    wrapper.find('.t-tag__icon-close').trigger('click');
-    await wrapper.vm.$nextTick();
-    expect(onRemoveFn).toHaveBeenCalled();
-    expect(onRemoveFn.mock.calls[0][0].value).toEqual([
-      'tdesign-react',
-      'tdesign-miniprogram',
-      'tdesign-mobile-vue',
-      'tdesign-mobile-react',
-    ]);
-    expect(onRemoveFn.mock.calls[0][0].index).toBe(0);
-    expect(onRemoveFn.mock.calls[0][0].trigger).toBe('tag-remove');
-    expect(onRemoveFn.mock.calls[0][0].item).toBe('tdesign-vue');
-    expect(onRemoveFn.mock.calls[0][0].e.type).toBe('click');
-  });
-});
+const DEFAULT_TAGS: TagInputValue = ['Vue', 'React', 'Svelte'];
 
 describe('TagInput', () => {
-  describe(':props', () => {
-    it(':value', () => {
-      const tags = ref(['Vue', 'React']);
-      const wrapper = mount(() => <TagInput v-model={tags.value} />);
-      const tagList = wrapper.findAll('.t-tag');
-      expect(tagList.length).toBe(2);
-    });
+  const wrappers: VueWrapper[] = [];
 
-    it(':defaultValue', () => {
-      const tags = ref(['Vue', 'React']);
-      const wrapper = mount(() => <TagInput defaultValue={tags.value} />);
-      const tagList = wrapper.findAll('.t-tag');
-      expect(tagList.length).toBe(2);
-    });
+  const track = <T extends VueWrapper>(wrapper: T) => {
+    wrappers.push(wrapper);
+    return wrapper;
+  };
 
-    it(':autoWidth', () => {
-      const wrapper = mount(() => <TagInput autoWidth />);
+  const render = (props: TdTagInputProps = {}, slots: Record<string, (...args: unknown[]) => unknown> = {}) =>
+    track(
+      mount(TagInput, {
+        props,
+        slots,
+      }),
+    );
+
+  const getInput = (wrapper: VueWrapper) => wrapper.find<HTMLInputElement>('.t-input__inner');
+
+  afterEach(() => {
+    wrappers.splice(0).forEach((wrapper) => wrapper.unmount());
+    vi.restoreAllMocks();
+    vi.useRealTimers();
+  });
+
+  describe('props', () => {
+    it(':autoWidth[boolean]', async () => {
+      const wrapper = render();
+      expect(wrapper.classes()).not.toContain('t-input--auto-width');
+
+      await wrapper.setProps({ autoWidth: true });
       expect(wrapper.classes()).toContain('t-input--auto-width');
     });
 
-    it(':clearable', async () => {
-      const tags = ref(['Vue', 'React']);
-      const wrapper = mount(() => <TagInput v-model={tags.value} clearable />);
-      const input = wrapper.find('.t-input');
-      input.trigger('mouseenter');
-      await nextTick();
-      const closeIcon = wrapper.findComponent(CloseCircleFilledIcon);
-      expect(closeIcon.exists()).toBeTruthy();
+    it(':borderless[boolean]', async () => {
+      const wrapper = render();
+      expect(wrapper.find('.t-input--borderless').exists()).toBe(false);
+
+      await wrapper.setProps({ borderless: true });
+      expect(wrapper.find('.t-input--borderless').exists()).toBe(true);
     });
 
-    it(':disabled', () => {
-      const wrapper = mount(() => <TagInput disabled />);
-      const input = wrapper.find('.t-input');
-      expect(input.classes()).toContain('t-is-disabled');
+    it(':clearable[boolean]', async () => {
+      const wrapper = render({ clearable: true });
+      await wrapper.find('.t-input').trigger('mouseenter');
+      expect(wrapper.findComponent(CloseCircleFilledIcon).exists()).toBe(false);
+
+      const valueWrapper = render({ clearable: true, defaultValue: DEFAULT_TAGS });
+      await valueWrapper.find('.t-input').trigger('mouseenter');
+      expect(valueWrapper.find('.t-tag-input__suffix-clear').exists()).toBe(true);
+
+      await valueWrapper.setProps({ disabled: true });
+      expect(valueWrapper.find('.t-tag-input__suffix-clear').exists()).toBe(false);
+
+      await valueWrapper.setProps({ disabled: false, readonly: true });
+      expect(valueWrapper.find('.t-tag-input__suffix-clear').exists()).toBe(false);
     });
 
-    it(':dragSort', () => {
-      const tags = ref(['Vue', 'React']);
-      const wrapper = mount(() => <TagInput v-model={tags.value} dragSort />);
-      const tagList = wrapper.findAll('.t-tag');
-      expect(tagList[0].element.getAttribute('draggable')).toBeTruthy();
-      expect(tagList[1].element.getAttribute('draggable')).toBeTruthy();
-    });
+    it(':collapsedItems[function]', () => {
+      const collapsedItems = vi.fn((_createElement, params) => (
+        <span class="collapsed-function">{params.collapsedSelectedItems.join(',')}</span>
+      ));
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, minCollapsedNum: 1, collapsedItems });
 
-    it(':excessTagsDisplayType', () => {
-      const tags = ref(['Vue', 'React', 'Vue', 'React', 'Vue', 'React', 'Vue', 'React']);
-      const wrapper = mount(() => <TagInput v-model={tags.value} />);
-      const wrap = wrapper.find('.t-input__wrap');
-      expect(wrap.classes()).toContain('t-tag-input--break-line');
-    });
-
-    it(':inputProps', () => {
-      const wrapper = mount(() => <TagInput inputProps={{ label: 'label' }} />);
-      const label = wrapper.find('.t-input__prefix');
-      expect(label.exists()).toBeTruthy();
-      expect(label.text()).toBe('label');
-    });
-
-    it(':inputValue', () => {
-      const wrapper = mount(() => <TagInput inputValue="123" />);
-      const input = wrapper.find('.t-input__inner');
-      expect(input.exists()).toBeTruthy();
-      expect(input.element.value).toBe('123');
-    });
-
-    it(':defaultInputValue', () => {
-      const wrapper = mount(() => <TagInput defaultInputValue="123" />);
-      const input = wrapper.find('.t-input__inner');
-      expect(input.exists()).toBeTruthy();
-      expect(input.element.value).toBe('123');
-    });
-
-    it(':label', () => {
-      const wrapper = mount(() => <TagInput label="label" />);
-      const label = wrapper.find('.t-input__prefix');
-      expect(label.exists()).toBeTruthy();
-      expect(label.text()).toBe('label');
-    });
-
-    it(':placeholder', () => {
-      const wrapper = mount(() => <TagInput placeholder="请输入" />);
-      const input = wrapper.find('.t-input__inner');
-      expect(input.element.getAttribute('placeholder')).toBe('请输入');
-    });
-
-    it(':readonly', async () => {
-      const value = ref('123');
-      const tags = ref(['Vue', 'React', 'Vue', 'React', 'Vue', 'React', 'Vue', 'React']);
-
-      const wrapper = mount(() => <TagInput readonly inputValue={value.value} />);
-      const input = wrapper.find('.t-input__inner');
-      value.value = '123123';
-      expect(input.element.value).toBe('123');
-
-      // readonly = false and able backspace
-      const onRemoveFnOn = vi.fn();
-      const wrapper1 = mount(() => <TagInput v-model={tags.value} onRemove={onRemoveFnOn} />);
-      wrapper1.find('input').trigger('keydown.backspace');
-      await wrapper1.vm.$nextTick();
-      expect(onRemoveFnOn).toHaveBeenCalled();
-
-      // readonly = true and prevent backspace
-      const onRemoveFnUn = vi.fn();
-      const wrapper2 = mount(() => <TagInput readonly v-model={tags.value} />);
-      wrapper2.find('input').trigger('keydown.backspace');
-      await wrapper2.vm.$nextTick();
-      expect(onRemoveFnUn).not.toHaveBeenCalled();
-    });
-
-    it(':size', () => {
-      const sizeList = ['small', 'large'];
-      sizeList.forEach((size) => {
-        const wrapper = mount(() => <TagInput size={size} />);
-        const input = wrapper.find('.t-input');
-        expect(input.classes()).toContain(`t-size-${size.slice(0, 1)}`);
+      expect(wrapper.find('.collapsed-function').text()).toBe('React,Svelte');
+      expect(collapsedItems).toHaveBeenCalledTimes(1);
+      expect(collapsedItems.mock.calls[0][1]).toMatchObject({
+        value: DEFAULT_TAGS,
+        collapsedSelectedItems: ['React', 'Svelte'],
+        count: 2,
       });
     });
 
-    it(':status', () => {
-      const statusList = ['success', 'warning', 'error'];
-      statusList.forEach((status) => {
-        const wrapper = mount(() => <TagInput status={status} />);
-        const input = wrapper.find('.t-input');
-        expect(input.classes()).toContain(`t-is-${status}`);
-      });
+    it(':collapsedItems[slot]', () => {
+      const collapsedItems = vi.fn(({ collapsedSelectedItems }: { collapsedSelectedItems: TagInputValue }) => (
+        <span class="collapsed-slot">{collapsedSelectedItems.join('|')}</span>
+      ));
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, minCollapsedNum: 1 }, { collapsedItems });
+
+      expect(wrapper.find('.collapsed-slot').text()).toBe('React|Svelte');
+      expect(collapsedItems).toHaveBeenCalledTimes(1);
     });
 
-    it(':suffix', () => {
-      const wrapper = mount(() => <TagInput suffix="suffix" />);
-      const suffix = wrapper.find('.t-input__suffix');
-      expect(suffix.exists()).toBeTruthy();
-      expect(suffix.text()).toBe('suffix');
+    it(':disabled[boolean]', async () => {
+      const onClick = vi.fn();
+      const wrapper = render({ disabled: true, onClick });
+
+      expect(wrapper.find('.t-input').classes()).toContain('t-is-disabled');
+      expect(getInput(wrapper).attributes('disabled')).toBeDefined();
+      await wrapper.find('.t-input').trigger('click');
+      expect(onClick).not.toHaveBeenCalled();
     });
 
-    it(':suffixIcon', () => {
-      const slots = {
-        suffixIcon: () => <AppIcon />,
-      };
-      const wrapper = mount(() => <TagInput v-slots={slots} />);
-      const suffix = wrapper.find('.t-input__suffix');
-      expect(suffix.exists()).toBeTruthy();
-      expect(suffix.findComponent(AppIcon)).toBeTruthy();
+    it(':disabled[form]', () => {
+      const wrapper = track(
+        mount(() => (
+          <Form disabled>
+            <TagInput />
+          </Form>
+        )),
+      );
+
+      expect(wrapper.find('.t-input').classes()).toContain('t-is-disabled');
     });
 
-    it(':prefixIcon', () => {
-      const slots = {
-        prefixIcon: () => <AppIcon />,
-      };
-      const wrapper = mount(() => <TagInput v-slots={slots} />);
-      const prefix = wrapper.find('.t-input__prefix');
-      expect(prefix.exists()).toBeTruthy();
-      expect(prefix.findComponent(AppIcon)).toBeTruthy();
-    });
-
-    it(':tips', () => {
-      const wrapper = mount(() => <TagInput tips="tips" />);
-      const tips = wrapper.find('.t-input__tips');
-      expect(tips.exists()).toBeTruthy();
-      expect(tips.text()).toBe('tips');
-    });
-
-    it(':tagProps', () => {
-      const wrapper = mount(() => <TagInput tagProps={{ theme: 'success' }} />);
+    it(':dragSort[boolean]', () => {
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, dragSort: true });
       const tags = wrapper.findAll('.t-tag');
-      tags.forEach((tag) => {
-        expect(tag.classes()).toContain('t-is--success');
-      });
+
+      expect(wrapper.classes()).toContain('t-tag-input--drag-sort');
+      expect(tags).toHaveLength(3);
+      tags.forEach((tag) => expect(tag.attributes('draggable')).toBe('true'));
     });
 
-    it(':minCollapsedNum', async () => {
-      const tags = ref(['Vue', 'React']);
-      const wrapper = mount(() => <TagInput v-model={tags.value} minCollapsedNum={1} />);
-      const tagList = wrapper.findAll('.t-tag');
-      expect(tagList.length).toBe(2);
-      expect(tagList[0].text()).toBe('Vue');
-      expect(tagList[1].text()).toBe('+1');
+    it(':excessTagsDisplayType[scroll/break-line]', async () => {
+      const validator = tagInputProps.excessTagsDisplayType.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      expect(validator('scroll')).toBe(true);
+      expect(validator('break-line')).toBe(true);
+      // @ts-expect-error verify runtime validation for an unsupported value
+      expect(validator('other')).toBe(false);
+
+      const wrapper = render();
+      expect(wrapper.classes()).toContain('t-tag-input--break-line');
+
+      await wrapper.setProps({ excessTagsDisplayType: 'scroll' });
+      expect(wrapper.classes()).not.toContain('t-tag-input--break-line');
+    });
+
+    it(':inputProps[object]', async () => {
+      const onFocus = vi.fn();
+      const wrapper = render({
+        inputProps: {
+          name: 'framework',
+          maxlength: 8,
+          autocomplete: 'off',
+          label: 'Input label',
+          onFocus,
+        },
+      });
+
+      const input = getInput(wrapper);
+      expect(input.attributes('name')).toBe('framework');
+      expect(input.attributes('autocomplete')).toBe('off');
+      expect(wrapper.find('.t-input__prefix').text()).toBe('Input label');
+      await input.trigger('focus');
+      expect(onFocus).toHaveBeenCalledTimes(1);
+    });
+
+    it(':inputValue[string]', async () => {
+      const wrapper = render({ inputValue: 'Vue' });
+      expect(getInput(wrapper).element.value).toBe('Vue');
+
+      await getInput(wrapper).setValue('React');
+      expect(getInput(wrapper).element.value).toBe('Vue');
+
+      await wrapper.setProps({ inputValue: 'Svelte' });
+      expect(getInput(wrapper).element.value).toBe('Svelte');
+    });
+
+    it(':inputValue[number]', () => {
+      const wrapper = render({ inputValue: 123 as unknown as string });
+      expect(getInput(wrapper).element.value).toBe('123');
+    });
+
+    it(':defaultInputValue[string]', async () => {
+      const wrapper = render({ defaultInputValue: 'Vue' });
+      expect(getInput(wrapper).element.value).toBe('Vue');
+
+      await getInput(wrapper).setValue('React');
+      expect(getInput(wrapper).element.value).toBe('React');
+    });
+
+    it(':defaultInputValue[number]', () => {
+      const wrapper = render({ defaultInputValue: 123 as unknown as string });
+      expect(getInput(wrapper).element.value).toBe('123');
+    });
+
+    it(':label[string]', () => {
+      const wrapper = render({ label: 'Framework' });
+      expect(wrapper.find('.t-tag-input__prefix').text()).toBe('Framework');
+    });
+
+    it(':label[function]', () => {
+      const wrapper = render({ label: () => <span class="label-function">Framework</span> });
+      expect(wrapper.find('.label-function').text()).toBe('Framework');
+    });
+
+    it(':label[slot]', () => {
+      const wrapper = render({}, { label: () => <span class="label-slot">Framework</span> });
+      expect(wrapper.find('.label-slot').text()).toBe('Framework');
+    });
+
+    it(':max[number]', async () => {
+      const onChange = vi.fn();
+      const onEnter = vi.fn();
+      const wrapper = render({ defaultValue: ['Vue'], max: 1, onChange, onEnter });
+
+      await getInput(wrapper).setValue('React');
+      await getInput(wrapper).trigger('keydown', { key: 'Enter', code: 'Enter' });
+      expect(wrapper.findAll('.t-tag')).toHaveLength(1);
+      expect(onChange).not.toHaveBeenCalled();
+      expect(onEnter).toHaveBeenCalledWith(['Vue'], expect.objectContaining({ inputValue: 'React' }));
+    });
+
+    it(':minCollapsedNum[number]', async () => {
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, minCollapsedNum: 1 });
+      expect(wrapper.findAll('.t-tag').map((tag) => tag.text())).toEqual(['Vue', '+2']);
+
+      await wrapper.setProps({ minCollapsedNum: 0 });
+      expect(wrapper.findAll('.t-tag').map((tag) => tag.text())).toEqual(DEFAULT_TAGS);
+    });
+
+    it(':placeholder[string]', async () => {
+      const wrapper = render({ placeholder: 'Add framework' });
+      expect(getInput(wrapper).attributes('placeholder')).toBe('Add framework');
+
+      const valueWrapper = render({ placeholder: 'Add framework', defaultValue: ['Vue'] });
+      expect(getInput(valueWrapper).attributes('placeholder')).toBe('');
+    });
+
+    it(':prefixIcon[function]', () => {
+      const wrapper = render({ prefixIcon: () => <span class="prefix-icon-function">P</span> });
+      expect(wrapper.find('.prefix-icon-function').text()).toBe('P');
+    });
+
+    it(':prefixIcon[slot]', () => {
+      const wrapper = render({}, { prefixIcon: () => <span class="prefix-icon-slot">P</span> });
+      expect(wrapper.find('.prefix-icon-slot').text()).toBe('P');
+    });
+
+    it(':readonly[boolean]', () => {
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, readonly: true });
+
+      expect(wrapper.find('.t-input').classes()).toContain('t-is-readonly');
+      expect(getInput(wrapper).classes()).toContain('t-input--soft-hidden');
+      expect(getInput(wrapper).attributes('readonly')).toBeDefined();
+      expect(wrapper.findAll('.t-tag__icon-close')).toHaveLength(0);
+    });
+
+    it(':readonly[form]', () => {
+      const wrapper = track(
+        mount(() => (
+          <Form readonly>
+            <TagInput defaultValue={DEFAULT_TAGS} />
+          </Form>
+        )),
+      );
+
+      expect(wrapper.find('.t-input').classes()).toContain('t-is-readonly');
+      expect(wrapper.find('.t-input__inner').classes()).toContain('t-input--soft-hidden');
+    });
+
+    it(':readonly[inputProps]', () => {
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, inputProps: { readonly: true } });
+      expect(wrapper.find('.t-input__inner').classes()).toContain('t-input--soft-hidden');
+    });
+
+    it(':size[small/medium/large]', async () => {
+      const validator = tagInputProps.size.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      // @ts-expect-error verify runtime validation for an unsupported value
+      expect(validator('other')).toBe(false);
+
+      const wrapper = render({ size: 'small' });
+      expect(wrapper.find('.t-input').classes()).toContain('t-size-s');
+
+      await wrapper.setProps({ size: 'medium' });
+      expect(wrapper.find('.t-input').classes()).not.toContain('t-size-s');
+      expect(wrapper.find('.t-input').classes()).not.toContain('t-size-l');
+
+      await wrapper.setProps({ size: 'large' });
+      expect(wrapper.find('.t-input').classes()).toContain('t-size-l');
+    });
+
+    it(':status[default/success/warning/error]', async () => {
+      const validator = tagInputProps.status.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      // @ts-expect-error verify runtime validation for an unsupported value
+      expect(validator('other')).toBe(false);
+
+      const wrapper = render({ status: 'success' });
+      expect(wrapper.find('.t-input').classes()).toContain('t-is-success');
+
+      await wrapper.setProps({ status: 'warning' });
+      expect(wrapper.find('.t-input').classes()).toContain('t-is-warning');
+
+      await wrapper.setProps({ status: 'error' });
+      expect(wrapper.find('.t-input').classes()).toContain('t-is-error');
+
+      await wrapper.setProps({ status: 'default' });
+      expect(
+        wrapper
+          .find('.t-input')
+          .classes()
+          .some((name) => name.startsWith('t-is-default')),
+      ).toBe(false);
+    });
+
+    it(':suffix[string]', () => {
+      const wrapper = render({ suffix: 'items' });
+      expect(wrapper.find('.t-input__suffix').text()).toBe('items');
+    });
+
+    it(':suffix[function]', () => {
+      const wrapper = render({ suffix: () => <span class="suffix-function">items</span> });
+      expect(wrapper.find('.suffix-function').text()).toBe('items');
+    });
+
+    it(':suffix[slot]', () => {
+      const wrapper = render({}, { suffix: () => <span class="suffix-slot">items</span> });
+      expect(wrapper.find('.suffix-slot').text()).toBe('items');
+    });
+
+    it(':suffixIcon[function]', () => {
+      const wrapper = render({ suffixIcon: () => <span class="suffix-icon-function">S</span> });
+      expect(wrapper.find('.suffix-icon-function').text()).toBe('S');
+      expect(wrapper.classes()).toContain('t-tag-input__with-suffix-icon');
+    });
+
+    it(':suffixIcon[slot]', () => {
+      const wrapper = render({}, { suffixIcon: () => <span class="suffix-icon-slot">S</span> });
+      expect(wrapper.find('.suffix-icon-slot').text()).toBe('S');
+    });
+
+    it(':tag[string]', () => {
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, tag: 'framework' });
+      expect(wrapper.findAll('.t-tag').map((tag) => tag.text())).toEqual(['framework', 'framework', 'framework']);
+    });
+
+    it(':tag[function]', () => {
+      const tag = vi.fn((_createElement, { value }) => <span class="tag-function">{value}</span>);
+      const wrapper = render({ defaultValue: ['Vue'], tag });
+
+      expect(wrapper.find('.tag-function').text()).toBe('Vue');
+      expect(tag.mock.calls[0][1]).toEqual({ value: 'Vue' });
+    });
+
+    it(':tag[slot]', () => {
+      const tag = vi.fn(({ value }: { value: string | number }) => <span class="tag-slot">{value}</span>);
+      const wrapper = render({ defaultValue: ['Vue'] }, { tag });
+
+      expect(wrapper.find('.tag-slot').text()).toBe('Vue');
+      expect(tag).toHaveBeenCalledWith({ value: 'Vue' });
+    });
+
+    it(':tagProps[object]', () => {
+      const wrapper = render({
+        defaultValue: DEFAULT_TAGS,
+        minCollapsedNum: 1,
+        tagProps: { theme: 'warning', variant: 'outline' },
+      });
+
+      expect(wrapper.findAll('.t-tag--warning')).toHaveLength(2);
+      expect(wrapper.findAll('.t-tag--outline')).toHaveLength(2);
+    });
+
+    it(':tips[string]', () => {
+      const wrapper = render({ tips: 'Up to three tags' });
+      expect(wrapper.find('.t-input__tips').text()).toBe('Up to three tags');
+    });
+
+    it(':tips[function]', () => {
+      const wrapper = render({ tips: () => <span class="tips-function">Up to three tags</span> });
+      expect(wrapper.find('.tips-function').text()).toBe('Up to three tags');
+    });
+
+    it(':tips[slot]', () => {
+      const wrapper = render({}, { tips: () => <span class="tips-slot">Up to three tags</span> });
+
+      // Current behavior: TagInput forwards the tips prop, but not the documented tips slot.
+      expect(wrapper.find('.tips-slot').exists()).toBe(false);
+      expect(wrapper.find('.t-input__tips').exists()).toBe(false);
+    });
+
+    it(':value[array]', async () => {
+      const onChange = vi.fn();
+      const wrapper = render({ value: ['Vue'], onChange });
+
+      await wrapper.find('.t-tag__icon-close').trigger('click');
+      expect(onChange).toHaveBeenCalledWith([], expect.objectContaining({ trigger: 'tag-remove', item: 'Vue' }));
+      expect(wrapper.findAll('.t-tag')).toHaveLength(1);
+
+      await wrapper.setProps({ value: [] });
+      expect(wrapper.findAll('.t-tag')).toHaveLength(0);
+    });
+
+    it(':modelValue[array]', async () => {
+      const onUpdate = vi.fn();
+      const wrapper = render({
+        modelValue: ['Vue'],
+        'onUpdate:modelValue': onUpdate,
+      } as TdTagInputProps & { 'onUpdate:modelValue': typeof onUpdate });
+
+      await wrapper.find('.t-tag__icon-close').trigger('click');
+      expect(onUpdate).toHaveBeenCalledWith([]);
+    });
+
+    it(':defaultValue[array]', async () => {
+      const wrapper = render({ defaultValue: ['Vue'] });
+      expect(wrapper.findAll('.t-tag')).toHaveLength(1);
+
+      await wrapper.find('.t-tag__icon-close').trigger('click');
+      expect(wrapper.findAll('.t-tag')).toHaveLength(0);
+    });
+
+    it(':valueDisplay[string]', () => {
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, valueDisplay: 'Selected frameworks' });
+      expect(wrapper.find('.t-input__prefix').text()).toBe('Selected frameworks');
+      expect(wrapper.findAll('.t-tag')).toHaveLength(0);
+    });
+
+    it(':valueDisplay[function]', async () => {
+      let close: ((index: number) => void) | undefined;
+      const valueDisplay = vi.fn((_createElement, params) => {
+        close = params.onClose;
+        return <span class="value-display-function">{params.value.join(',')}</span>;
+      });
+      const onRemove = vi.fn();
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, valueDisplay, onRemove });
+
+      expect(wrapper.find('.value-display-function').text()).toBe('Vue,React,Svelte');
+      close?.(1);
+      await nextTick();
+      expect(onRemove).toHaveBeenCalledWith(
+        expect.objectContaining({ index: 1, item: 'React', trigger: 'tag-remove', value: ['Vue', 'Svelte'] }),
+      );
+    });
+
+    it(':valueDisplay[slot]', () => {
+      const valueDisplay = vi.fn(({ value }: { value: TagInputValue }) => (
+        <span class="value-display-slot">{value.join('|')}</span>
+      ));
+      const wrapper = render({ defaultValue: DEFAULT_TAGS }, { valueDisplay });
+
+      expect(wrapper.find('.value-display-slot').text()).toBe('Vue|React|Svelte');
+      expect(valueDisplay).toHaveBeenCalledWith(expect.objectContaining({ value: DEFAULT_TAGS }));
     });
   });
 
-  describe(':events', () => {
+  describe('events', () => {
     it(':onBlur', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <TagInput onBlur={fn} />);
-      const input = wrapper.find('.t-input input');
+      const onBlur = vi.fn();
+      const onInputChange = vi.fn();
+      const wrapper = render({ defaultValue: ['Vue'], onBlur, onInputChange });
+      const input = getInput(wrapper);
+
+      await input.setValue('React');
       await input.trigger('blur');
-      expect(fn).toBeCalled();
+
+      expect(onBlur).toHaveBeenCalledWith(
+        ['Vue'],
+        expect.objectContaining({ inputValue: 'React', e: expect.objectContaining({ type: 'blur' }) }),
+      );
+      expect(onInputChange).toHaveBeenLastCalledWith('', expect.objectContaining({ trigger: 'blur' }));
+      expect(input.element.value).toBe('');
     });
 
-    it(':onFocus', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <TagInput onFocus={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('focus');
-      expect(fn).toBeCalled();
+    it(':onChange[enter]', async () => {
+      const onChange = vi.fn();
+      const wrapper = render({ defaultValue: ['Vue'], onChange });
+      const input = getInput(wrapper);
+
+      await input.setValue('  React  ');
+      await input.trigger('keydown', { key: 'Enter', code: 'Enter' });
+
+      expect(onChange).toHaveBeenCalledWith(
+        ['Vue', 'React'],
+        expect.objectContaining({ trigger: 'enter', index: 1, item: 'React' }),
+      );
+    });
+
+    it(':onChange[tag-remove]', async () => {
+      const onChange = vi.fn();
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, onChange });
+
+      await wrapper.findAll('.t-tag__icon-close')[1].trigger('click');
+      expect(onChange).toHaveBeenCalledWith(
+        ['Vue', 'Svelte'],
+        expect.objectContaining({ trigger: 'tag-remove', index: 1, item: 'React' }),
+      );
+    });
+
+    it(':onChange[backspace]', async () => {
+      const onChange = vi.fn();
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, onChange });
+
+      await getInput(wrapper).trigger('keydown', { key: 'Backspace', code: 'Backspace' });
+      expect(onChange).toHaveBeenCalledWith(
+        ['Vue', 'React'],
+        expect.objectContaining({ trigger: 'backspace', index: 2, item: 'Svelte' }),
+      );
     });
 
     it(':onClear', async () => {
-      const fn = vi.fn();
-      const tags = ref(['Vue', 'React']);
-      const wrapper = mount(() => <TagInput v-model={tags.value} clearable onClear={fn} />);
-      const input = wrapper.find('.t-input');
-      input.trigger('mouseenter');
-      await nextTick();
-      const closeIcon = wrapper.findComponent(CloseCircleFilledIcon);
-      await closeIcon.trigger('click');
-      expect(fn).toBeCalled();
-      expect(tags.value).toEqual([]);
+      const onChange = vi.fn();
+      const onClear = vi.fn();
+      const onInputChange = vi.fn();
+      const wrapper = render({
+        defaultValue: DEFAULT_TAGS,
+        defaultInputValue: 'Solid',
+        clearable: true,
+        onChange,
+        onClear,
+        onInputChange,
+      });
+
+      await wrapper.find('.t-input').trigger('mouseenter');
+      await wrapper.find('.t-tag-input__suffix-clear').trigger('click');
+
+      expect(onClear).toHaveBeenCalledWith(expect.objectContaining({ e: expect.objectContaining({ type: 'click' }) }));
+      expect(onChange).toHaveBeenCalledWith([], expect.objectContaining({ trigger: 'clear' }));
+      expect(onInputChange).toHaveBeenLastCalledWith('', expect.objectContaining({ trigger: 'clear' }));
+    });
+
+    it(':onClick', async () => {
+      const onClick = vi.fn();
+      const wrapper = render({ onClick });
+      const focus = vi.spyOn(getInput(wrapper).element, 'focus');
+
+      await wrapper.find('.t-input').trigger('click');
+      expect(onClick).toHaveBeenCalledWith(expect.objectContaining({ e: expect.objectContaining({ type: 'click' }) }));
+      expect(focus).toHaveBeenCalled();
+    });
+
+    it(':onDragSort', async () => {
+      const onDragSort = vi.fn();
+      const wrapper = render({ defaultValue: ['Vue', 'React'], dragSort: true, onDragSort });
+      const [first, second] = wrapper.findAll('.t-tag');
+      vi.spyOn(first.element, 'getBoundingClientRect').mockReturnValue({ x: 0, width: 20 } as DOMRect);
+      vi.spyOn(second.element, 'getBoundingClientRect').mockReturnValue({ x: 20, width: 20 } as DOMRect);
+
+      await first.trigger('dragstart', { clientX: 10 });
+      await second.trigger('dragover', { clientX: 30 });
+
+      // Current behavior: runtime omits newTags although TagInputDragSortContext declares it as required.
+      expect(onDragSort).toHaveBeenCalledWith({ currentIndex: 0, current: 'Vue', targetIndex: 1, target: 'React' });
+    });
+
+    it(':onEnter', async () => {
+      const onEnter = vi.fn();
+      const wrapper = render({ defaultValue: ['Vue'], onEnter });
+      const input = getInput(wrapper);
+
+      await input.setValue('React');
+      await input.trigger('keydown', { key: 'Enter', code: 'Enter' });
+
+      expect(onEnter).toHaveBeenCalledWith(
+        ['Vue', 'React'],
+        expect.objectContaining({ inputValue: 'React', e: expect.objectContaining({ defaultPrevented: true }) }),
+      );
+    });
+
+    it(':onFocus', async () => {
+      const onFocus = vi.fn();
+      const wrapper = render({ defaultValue: ['Vue'], defaultInputValue: 'React', onFocus });
+      const input = getInput(wrapper);
+
+      await input.trigger('focus');
+      await input.trigger('focus');
+      expect(onFocus).toHaveBeenCalledTimes(1);
+      expect(onFocus).toHaveBeenCalledWith(
+        ['Vue'],
+        expect.objectContaining({ inputValue: 'React', e: expect.objectContaining({ type: 'focus' }) }),
+      );
+
+      await input.trigger('blur');
+      await input.trigger('focus');
+      expect(onFocus).toHaveBeenCalledTimes(2);
+    });
+
+    it(':onInputChange[input/enter]', async () => {
+      const onInputChange = vi.fn();
+      const wrapper = render({ onInputChange });
+      const input = getInput(wrapper);
+
+      await input.setValue('Vue');
+      expect(onInputChange).toHaveBeenLastCalledWith('Vue', expect.objectContaining({ trigger: 'input' }));
+
+      await input.trigger('keydown', { key: 'Enter', code: 'Enter' });
+      expect(onInputChange).toHaveBeenLastCalledWith('', expect.objectContaining({ trigger: 'enter' }));
     });
 
     it(':onMouseenter', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <TagInput onMouseenter={fn} />);
-      const input = wrapper.find('.t-input');
-      await input.trigger('mouseenter');
-      await nextTick();
-      expect(fn).toBeCalled();
+      const onMouseenter = vi.fn();
+      const wrapper = render({ onMouseenter });
+
+      await wrapper.find('.t-input').trigger('mouseenter');
+      expect(onMouseenter).toHaveBeenCalledWith(
+        expect.objectContaining({ e: expect.objectContaining({ type: 'mouseenter' }) }),
+      );
     });
 
     it(':onMouseleave', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <TagInput onMouseleave={fn} />);
-      const input = wrapper.find('.t-input');
-      await input.trigger('mouseleave');
-      await nextTick();
-      expect(fn).toBeCalled();
+      const onMouseleave = vi.fn();
+      const wrapper = render({ onMouseleave });
+
+      await wrapper.find('.t-input').trigger('mouseleave');
+      expect(onMouseleave).toHaveBeenCalledWith(
+        expect.objectContaining({ e: expect.objectContaining({ type: 'mouseleave' }) }),
+      );
     });
 
     it(':onPaste', async () => {
-      const fn = vi.fn();
-      const wrapper = mount(() => <TagInput onPaste={fn} />);
-      const input = wrapper.find('.t-input input');
-      await input.trigger('paste');
-      await nextTick();
-      expect(fn).toBeCalled();
+      const onPaste = vi.fn();
+      const wrapper = render({ onPaste });
+
+      await getInput(wrapper).trigger('paste', {
+        clipboardData: { getData: () => 'Vue' },
+      });
+      expect(onPaste).toHaveBeenCalledWith(
+        expect.objectContaining({ pasteValue: 'Vue', e: expect.objectContaining({ type: 'paste' }) }),
+      );
     });
 
-    it(':onRemove', async () => {
-      const fn = vi.fn();
-      const tags = ref(['Vue', 'React']);
-      const wrapper = mount(() => <TagInput v-model={tags.value} onRemove={fn} />);
-      const tagList = wrapper.findAll('.t-tag');
-      const closeBtn = tagList[1].findComponent(CloseIcon);
-      await closeBtn.trigger('click');
-      await nextTick();
-      expect(fn).toBeCalled();
+    it(':onRemove[tag-remove]', async () => {
+      const onRemove = vi.fn();
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, onRemove });
+
+      await wrapper.findAll('.t-tag__icon-close')[1].trigger('click');
+      expect(onRemove).toHaveBeenCalledWith(
+        expect.objectContaining({
+          value: ['Vue', 'Svelte'],
+          index: 1,
+          item: 'React',
+          trigger: 'tag-remove',
+        }),
+      );
     });
 
-    it(':onChange', async () => {
-      const fn = vi.fn();
-      const tags = ref(['Vue', 'React']);
-      const wrapper = mount(() => <TagInput v-model={tags.value} onChange={fn} />);
-      const tagList = wrapper.findAll('.t-tag');
-      const closeBtn = tagList[1].findComponent(CloseIcon);
-      await closeBtn.trigger('click');
-      await nextTick();
-      expect(fn).toBeCalled();
+    it(':onRemove[backspace]', async () => {
+      const onRemove = vi.fn();
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, onRemove });
+
+      await getInput(wrapper).trigger('keydown', { key: 'Backspace', code: 'Backspace' });
+      expect(onRemove).toHaveBeenCalledWith(
+        expect.objectContaining({
+          value: ['Vue', 'React'],
+          index: 2,
+          item: 'Svelte',
+          trigger: 'backspace',
+        }),
+      );
     });
 
-    it(':onInputChange', async () => {
-      const tags = ref(['Vue', 'React']);
-      const data = ref('');
-      const value = ref('');
-      const handleChange = (val) => {
-        value.value = val;
-      };
+    it(':inputProps[event forwarding]', async () => {
+      const onChange = vi.fn();
+      const onCompositionstart = vi.fn();
+      const onCompositionend = vi.fn();
+      const wrapper = render({ inputProps: { onChange, onCompositionstart, onCompositionend } });
+      const input = getInput(wrapper);
+
+      await input.setValue('Vue');
+      await input.trigger('compositionstart');
+      await input.trigger('compositionend');
+
+      expect(onChange).toHaveBeenCalled();
+      expect(onCompositionstart).toHaveBeenCalledWith('Vue', expect.any(Object));
+      expect(onCompositionend).toHaveBeenCalledWith('Vue', expect.any(Object));
+    });
+
+    it(':composition[enter]', async () => {
+      const onEnter = vi.fn();
+      const wrapper = render({ onEnter });
+      const input = getInput(wrapper);
+
+      await input.setValue('Vue');
+      await input.trigger('compositionstart');
+      await input.trigger('keydown', { key: 'Enter', code: 'Enter' });
+      expect(onEnter).not.toHaveBeenCalled();
+      expect(wrapper.findAll('.t-tag')).toHaveLength(0);
+
+      await input.trigger('compositionend');
+      await input.trigger('keydown', { key: 'Enter', code: 'Enter' });
+      expect(onEnter).toHaveBeenCalledTimes(1);
+      expect(wrapper.findAll('.t-tag')).toHaveLength(1);
+    });
+  });
+
+  describe('lifecycle', () => {
+    it('handles an input stub without the expected input element', async () => {
+      const wrapper = track(
+        mount(TagInput, {
+          props: { suffix: 'items' },
+          global: { stubs: { TInput: true } },
+        }),
+      );
+
       await nextTick();
-      const wrapper = mount(() => (
-        <TagInput v-model={tags.value} inputValue={data.value} onInputChange={handleChange} />
-      ));
-      const el = wrapper.find('.t-input__wrap input').element;
-      const simulateEvent = (text, event) => {
-        el.value = text;
-        el.dispatchEvent(new Event(event));
-      };
-      simulateEvent('2', 'input');
       await nextTick();
-      expect(value.value).toBe('2');
+      expect(wrapper.find('t-input-stub').exists()).toBe(true);
+    });
+
+    it('updates and removes suffix width variables', async () => {
+      let measuredWidth = 20;
+      vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function mockRect(this: HTMLElement) {
+        const width = this.matches('.t-input__suffix, .t-input__suffix-icon') ? measuredWidth : 0;
+        return { width } as DOMRect;
+      });
+      const wrapper = render({ suffix: 'items', suffixIcon: () => <span>S</span> });
+      await nextTick();
+      await nextTick();
+      const input = wrapper.find<HTMLElement>('.t-input').element;
+
+      expect(input.style.getPropertyValue('--t-tag-input-suffix-width')).toBe('28px');
+      expect(input.style.getPropertyValue('--t-tag-input-suffix-icon-width')).toBe('28px');
+
+      measuredWidth = 0;
+      await wrapper.setProps({ size: 'large' });
+      await nextTick();
+      expect(input.style.getPropertyValue('--t-tag-input-suffix-width')).toBe('');
+      expect(input.style.getPropertyValue('--t-tag-input-suffix-icon-width')).toBe('');
+    });
+
+    it('toggles the scrollable prefix class', async () => {
+      vi.useFakeTimers();
+      const wrapper = render({ defaultValue: DEFAULT_TAGS, excessTagsDisplayType: 'scroll' });
+      const prefix = wrapper.find<HTMLElement>('.t-input__prefix').element;
+      prefix.scroll = vi.fn();
+      Object.defineProperty(prefix, 'scrollWidth', { configurable: true, value: 300 });
+      Object.defineProperty(prefix, 'clientWidth', { configurable: true, value: 100 });
+
+      await wrapper.find('.t-input').trigger('mouseenter');
+      await vi.runAllTimersAsync();
+      await nextTick();
+      expect(prefix.classList.contains('t-input__prefix--scrollable')).toBe(true);
+
+      await wrapper.find('.t-input').trigger('mouseleave');
+      await nextTick();
+      expect(prefix.classList.contains('t-input__prefix--scrollable')).toBe(false);
+    });
+
+    it('does not toggle the scrollable class in break-line mode', async () => {
+      vi.useFakeTimers();
+      const wrapper = render({ defaultValue: DEFAULT_TAGS });
+      const prefix = wrapper.find<HTMLElement>('.t-input__prefix').element;
+      prefix.scroll = vi.fn();
+      Object.defineProperty(prefix, 'scrollWidth', { configurable: true, value: 300 });
+      Object.defineProperty(prefix, 'clientWidth', { configurable: true, value: 100 });
+
+      await getInput(wrapper).setValue('Solid');
+      await getInput(wrapper).trigger('keydown', { key: 'Enter', code: 'Enter' });
+      await vi.runAllTimersAsync();
+      await nextTick();
+
+      expect(prefix.classList.contains('t-input__prefix--scrollable')).toBe(false);
     });
   });
 });

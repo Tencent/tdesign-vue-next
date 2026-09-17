@@ -1,5 +1,5 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
-import { get, omit } from 'lodash-es';
+import { cloneDeep, get, isEqual, omit, set } from 'lodash-es';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
@@ -225,15 +225,19 @@ export default defineComponent({
     const onEditableCellChange: EditableCellProps['onChange'] = (params) => {
       const rowKey = props.rowKey || 'id';
       const sourceRowValue = get(params.row, rowKey);
+      const colKey = params.col.colKey;
+      const valueBeforeRowEdit = cloneDeep(get(params.row, colKey));
       props.onRowEdit?.(params);
       const sourceRow = props.data.find((row) => get(row, rowKey) === sourceRowValue);
-      // TODO: 当前为兼容 rowEdit 中直接修改 row 的行为，后续应通过受控数据更新机制替代对 props.data 的直接修改。
-      if (sourceRow && sourceRow !== params.row) {
-        Object.assign(sourceRow, params.row);
+      const valueAfterRowEdit = get(params.row, colKey);
+      // 未主动修改 row 时，仅保留内部编辑态数据，避免取消编辑后原始数据被污染。
+      // TODO: 受控更新机制替代对 row 的直接修改
+      if (sourceRow && sourceRow !== params.row && !isEqual(valueBeforeRowEdit, valueAfterRowEdit)) {
+        set(sourceRow, colKey, valueAfterRowEdit);
       }
       const rowValue = get(params.editedRow, rowKey);
       onUpdateEditedCell(rowValue, params.row, {
-        [params.col.colKey]: params.value,
+        [colKey]: params.value,
       });
     };
 

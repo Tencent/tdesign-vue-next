@@ -61,6 +61,7 @@ export const catalogs = {
     validator: '^13.15.23',
     vue: '^3.5.0',
     'vue-router': '^4.2.4',
+    '@json-render/core': '^0.19.0',
   },
   docs: {
     'gray-matter': '^4.0.3',
@@ -90,7 +91,7 @@ export const catalogs = {
   tdesign: {
     '@tdesign/site-components': '^0.19.2',
     '@tdesign/theme-generator': '^1.2.4',
-    'tdesign-icons-vue-next': '^0.4.9',
+    'tdesign-icons-vue-next': '^0.4.11',
     'tdesign-publish-cli': '^0.0.12',
   },
   test: {

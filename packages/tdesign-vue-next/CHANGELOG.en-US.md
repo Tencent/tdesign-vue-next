@@ -5,6 +5,45 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.7 `2026-08-27`
+
+### 🐞 Bug Fixes
+
+- `Select`: Fixed the issue where, after the event listener was updated, the change callback still called the old function. @engvuchen @Zn-Dk ([#6931](https://github.com/Tencent/tdesign-vue-next/pull/6931))
+- `Space`: Passed the key of child nodes to the parent layer, resolving the problem of node mismatch when `v-if` child nodes changed.  @jaideeppyne ([#6936](https://github.com/Tencent/tdesign-vue-next/pull/6936))
+- `Steps`:
+  - Fixed issues with misaligned connection lines and inconsistent distances from the upper and lower icons when `layout='vertical'` was used. @RylanBot ([common#2670](https://github.com/Tencent/tdesign-common/pull/2670))
+  - Fixed the problem of inconsistent line thicknesses between the default and selected states. @RylanBot ([common#2670](https://github.com/Tencent/tdesign-common/pull/2670))
+
+### 📝 Documentation
+
+- `Transfer`: Corrected the incorrect description of `target` in the context parameter of the change event’s callback in the documentation. @uyarn ([#6945](https://github.com/Tencent/tdesign-vue-next/pull/6945))
+
+### 🚧 Others
+
+- `Menu`: Changed the inline style of Menu to use the common style, and removed the overly generic --padding-left variable to facilitate customizations. @uyarn ([#6943](https://github.com/Tencent/tdesign-vue-next/pull/6943))
+
+## 🌈 1.20.6 `2026-08-13`
+
+### 🚀 Features
+
+- `Comment`: Actions now support functions, and the rendering of TNode function nodes within arrays has been improved @RSS1102 ([#6915](https://github.com/Tencent/tdesign-vue-next/pull/6915))
+
+### 🐞 Bug Fixes
+
+- `Button`: 
+  - The default `margin:0` and `z-index:0` values of this component have been removed @RylanBot ([common#2636](https://github.com/Tencent/tdesign-common/pull/2636))
+  - The issue of insufficient spacing between custom SVG icons and text has been resolved @xy200303 ([common#2639](https://github.com/Tencent/tdesign-common/pull/2639))
+  - The problem of the component losing focus when in the loading state has been fixed @luppyw ([#6912](https://github.com/Tencent/tdesign-vue-next/pull/6912))
+- `Comment`: The issue of icons and text related to actions not being vertically centered has been resolved @RSS1102 ([#6915](https://github.com/Tencent/tdesign-vue-next/pull/6915))
+- `Form`: The problem of rules with a `trigger` value of `all` not functioning properly has been fixed @RSS1102 ([#6862](https://github.com/Tencent/tdesign-vue-next/pull/6862))
+- `Icon`: The issue of unexpected rendering due to overlapping transparency when multiple colors with alpha channels are used simultaneously has been resolved @uyarn ([#6878](https://github.com/Tencent/tdesign-vue-next/pull/6878))
+- `Switch`: 
+  - The problem of unhandled exceptions occurring when the beforeChange Promise is rejected has been fixed @kyui-azusa ([#6875](https://github.com/Tencent/tdesign-vue-next/pull/6875))
+  - The issue of the change callback still invoking the old function after event listeners are updated has been resolved @engvuchen ([#6914](https://github.com/Tencent/tdesign-vue-next/pull/6914))
+- `Table`: The problem that occurred after version `1.20.4`, where failing to modify rows explicitly led to corruption of the original data and thus impaired the editing functionality, has been fixed @uyarn ([#6919](https://github.com/Tencent/tdesign-vue-next/pull/6919))
+- `Tabs`: The issue of tabs not being activated by default when `defaultValue` is set to `0` has been resolved @kyui-azusa ([#6866](https://github.com/Tencent/tdesign-vue-next/pull/6866))
+
 ## 🌈 1.20.5 `2026-07-23`
 
 ### 🐞 Bug Fixes

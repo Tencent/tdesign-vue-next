@@ -103,6 +103,8 @@ describe('Button', () => {
       // true
       const wrapper2 = mount(<Button loading={true}>Text</Button>);
       expect(wrapper2.classes('t-is-loading')).toBeTruthy();
+      expect(wrapper2.attributes('disabled')).toBeUndefined();
+      expect(wrapper2.attributes('aria-disabled')).toBe('true');
       expect(wrapper2.element).toMatchSnapshot();
 
       // false

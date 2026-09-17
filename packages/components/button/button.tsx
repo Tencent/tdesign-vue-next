@@ -26,6 +26,11 @@ export default defineComponent({
 
     const isDisabled = useDisabled();
 
+    const handleDisabledClick = (event: MouseEvent) => {
+      event.preventDefault();
+      event.stopPropagation();
+    };
+
     const mergeTheme = computed(() => {
       const { theme, variant } = props;
       if (theme) return theme;
@@ -73,22 +78,27 @@ export default defineComponent({
         return props.tag || 'button';
       };
 
+      const tag = renderTag();
+      const isNativeButton = tag === 'button';
+      const shouldInterceptClick = props.loading || (!isNativeButton && isDisabled.value);
+
       const buttonAttrs = {
         class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
         type: props.type,
-        disabled: isDisabled.value || props.loading,
+        disabled: isNativeButton ? isDisabled.value : undefined,
+        'aria-disabled': props.loading || (!isNativeButton && isDisabled.value) || undefined,
         href: props.href,
-        tabindex: isDisabled.value ? undefined : '0',
+        tabindex: isDisabled.value ? (isNativeButton ? undefined : '-1') : '0',
         form: props.form, // 原生属性，声明后需要显式透传
       };
 
       return h(
-        renderTag(),
+        tag,
         {
           ref: btnRef,
           ...attrs,
           ...buttonAttrs,
-          onClick: props.onClick,
+          onClick: shouldInterceptClick ? handleDisabledClick : props.onClick,
         },
         [buttonContent],
       );

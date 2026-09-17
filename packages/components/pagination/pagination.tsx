@@ -35,20 +35,20 @@ export default defineComponent({
   props,
 
   setup(props: TdPaginationProps) {
-    const { modelValue, pageSize, current } = toRefs(props);
+    const { modelValue, pageSize, current, onCurrentChange, onPageSizeChange } = toRefs(props);
     const renderTNodeJSX = useTNodeJSX();
     const [innerCurrent, setInnerCurrent] = useVModel(
       current,
       modelValue,
       props.defaultCurrent,
-      props.onCurrentChange,
+      onCurrentChange,
       'current',
     );
 
     const [innerPageSize, setInnerPageSize] = useDefaultValue(
       pageSize,
       props.defaultPageSize,
-      props.onPageSizeChange,
+      onPageSizeChange,
       'pageSize',
     );
 

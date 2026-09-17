@@ -142,6 +142,13 @@ export const docs = [
         path: '/vue-next-chat/agui',
         component: () => import('./docs/agui.md'),
       },
+      {
+        title: '生成式 UI 支持',
+        titleEn: 'Generative UI',
+        name: 'genui',
+        path: '/vue-next-chat/genui',
+        component: () => import('./docs/genui.md'),
+      },
     ],
   },
   {

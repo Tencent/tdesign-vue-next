@@ -511,6 +511,25 @@ describe('Select', () => {
       expect(onChangeFn.mock.calls[0][0]).toEqual(options[0].value);
       expect(onChangeFn.mock.calls[0][1]?.option).toEqual(expect.objectContaining(options[0]));
       wrapper.unmount();
+
+      const initialOnChange = vi.fn();
+      const latestOnChange = vi.fn();
+      const currentOnChange = ref(initialOnChange);
+      const latestWrapper = mount({
+        setup: () => () => <Select value="" onChange={currentOnChange.value} options={options} />,
+      });
+
+      await openPopup(latestWrapper);
+      currentOnChange.value = latestOnChange;
+      await nextTick();
+
+      const latestPanelNode = document.querySelector('.t-select__list');
+      (latestPanelNode?.querySelectorAll('.t-select-option')[0] as HTMLElement).click();
+      await nextTick();
+
+      expect(initialOnChange).not.toHaveBeenCalled();
+      expect(latestOnChange).toHaveBeenCalledWith(options[0].value, expect.any(Object));
+      latestWrapper.unmount();
     });
 
     it('onClear', async () => {

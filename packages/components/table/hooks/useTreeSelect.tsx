@@ -100,14 +100,14 @@ export function getRowDataByKeys(p: GetRowDataParams) {
 type SelectChangeParams = Parameters<TdPrimaryTableProps['onSelectChange']>;
 
 export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: Ref<TableTreeDataMap>) {
-  const { selectedRowKeys, tree, data, indeterminateSelectedRowKeys } = toRefs(props);
+  const { selectedRowKeys, tree, data, indeterminateSelectedRowKeys, onSelectChange } = toRefs(props);
   // 半选状态的节点：子节点选中至少一个，且没有全部选中
   const tIndeterminateSelectedRowKeys = ref<(string | number)[]>([]);
 
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
     selectedRowKeys,
     props.defaultSelectedRowKeys || [],
-    props.onSelectChange,
+    onSelectChange,
     'selectedRowKeys',
   );
   const rowDataKeys = computed(() => ({

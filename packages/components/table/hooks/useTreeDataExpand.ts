@@ -13,14 +13,14 @@ export function useTreeDataExpand(
   },
 ) {
   const { store, dataSource, rowDataKeys } = params;
-  const { data, expandedTreeNodes, tree } = toRefs(props);
+  const { data, expandedTreeNodes, tree, onExpandedTreeNodesChange } = toRefs(props);
 
   const isDefaultExpandAllExecute = ref(false);
   const isDefaultExpandedTreeNodesExecute = ref(false);
   const [tExpandedTreeNode, setTExpandedTreeNode] = useDefaultValue(
     expandedTreeNodes,
     props.defaultExpandedTreeNodes,
-    props.onExpandedTreeNodesChange,
+    onExpandedTreeNodesChange,
     'expandedTreeNodes',
   );
 

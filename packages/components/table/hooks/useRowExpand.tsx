@@ -15,7 +15,7 @@ import useClassName from './useClassName';
 import { useConfig, useTNodeJSX, useGlobalIcon, useDefaultValue } from '@tdesign/shared-hooks';
 
 export default function useRowExpand(props: TdPrimaryTableProps, context: SetupContext) {
-  const { expandedRowKeys } = toRefs(props);
+  const { expandedRowKeys, onExpandChange } = toRefs(props);
   const renderTNode = useTNodeJSX();
   const { t, globalConfig } = useConfig('table', props.locale);
   const { ChevronRightCircleIcon } = useGlobalIcon({ ChevronRightCircleIcon: TdChevronRightCircleIcon });
@@ -24,7 +24,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
   const [tExpandedRowKeys, setTExpandedRowKeys] = useDefaultValue(
     expandedRowKeys,
     props.defaultExpandedRowKeys || [],
-    props.onExpandChange,
+    onExpandChange,
     'expandedRowKeys',
   );
 

@@ -21,9 +21,18 @@ export type ValidateParams = Parameters<TdUploadProps['onValidate']>[0];
 export default function useUpload(props: TdUploadProps): any {
   const inputRef = ref<HTMLInputElement>();
   // TODO: Form 表单控制上传组件是否禁用
-  const { disabled, autoUpload, isBatchUpload, multiple, files, modelValue, defaultFiles } = toRefs(props);
+  const {
+    disabled,
+    autoUpload,
+    isBatchUpload,
+    multiple,
+    files,
+    modelValue,
+    defaultFiles,
+    onChange: onChangeRef,
+  } = toRefs(props);
   const { globalConfig, t, classPrefix } = useConfig('upload');
-  const [rawValue, setRawValue] = useVModel(files, modelValue, defaultFiles.value, props.onChange, 'files');
+  const [rawValue, setRawValue] = useVModel(files, modelValue, defaultFiles.value, onChangeRef, 'files');
   const uploadValue = computed(() => (Array.isArray(rawValue.value) ? rawValue.value : []));
   const xhrReq = ref<{ files: UploadFile[]; xhrReq: XMLHttpRequest }[]>([]);
   const toUploadFiles = ref<UploadFile[]>([]);
@@ -227,6 +236,7 @@ export default function useUpload(props: TdUploadProps): any {
     const notUploadedFiles = uploadValue.value.filter((t) => t.status !== 'success');
     const files = autoUpload.value ? toFiles || toUploadFiles.value : notUploadedFiles;
     if (!files || !files.length) return;
+    const isAutoUploadAppend = props.autoUpload && props.multiple && !props.isBatchUpload;
     uploading.value = true;
     xhrReq.value = [];
     upload({
@@ -235,7 +245,7 @@ export default function useUpload(props: TdUploadProps): any {
       method: props.method,
       name: props.name,
       withCredentials: props.withCredentials,
-      uploadedFiles: uploadValue.value,
+      uploadedFiles: isAutoUploadAppend ? [] : uploadValue.value,
       toUploadFiles: files,
       multiple: props.multiple,
       isBatchUpload: isBatchUpload.value,
@@ -259,6 +269,10 @@ export default function useUpload(props: TdUploadProps): any {
       ({ status, data, list, failedFiles }) => {
         uploading.value = false;
         if (status === 'success') {
+          // 自动追加模式在完成时合并当前列表，保留上传期间对已有附件的修改。
+          if (isAutoUploadAppend) {
+            data.files = uploadValue.value.concat(data.files);
+          }
           setRawValue([...data.files], {
             trigger: 'add',
             file: data.files[0],

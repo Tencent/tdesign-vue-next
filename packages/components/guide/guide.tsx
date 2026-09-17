@@ -20,12 +20,21 @@ export default defineComponent({
     const LOCK_CLASS = usePrefixClass('guide--lock');
     const { globalConfig } = useConfig('guide');
 
-    const { current, modelValue, hideCounter, hidePrev, hideSkip, steps, zIndex } = toRefs(props);
+    const {
+      current,
+      modelValue,
+      hideCounter,
+      hidePrev,
+      hideSkip,
+      steps,
+      zIndex,
+      onChange: onChangeRef,
+    } = toRefs(props);
     const [innerCurrent, setInnerCurrent] = useVModel(
       current,
       modelValue,
       props.defaultCurrent,
-      props.onChange,
+      onChangeRef,
       'current',
     );
 

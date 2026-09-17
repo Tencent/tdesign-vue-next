@@ -14,12 +14,12 @@ export default defineComponent({
     const baseClassName = useBaseClassName();
     const renderTNodeJSXDefault = useTNodeDefault();
 
-    const { value: inputValue, modelValue, recentColors } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
+    const { value: inputValue, modelValue, recentColors, onChange: onChangeRef, onRecentColorsChange } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, onChangeRef);
     const [innerRecentColors, setInnerRecentColors] = useDefaultValue(
       recentColors,
       props.defaultRecentColors,
-      props.onRecentColorsChange,
+      onRecentColorsChange,
       'recentColors',
     );
 
@@ -62,6 +62,7 @@ export default defineComponent({
                 color={innerValue.value}
                 disabled={props.disabled}
                 clearable={props.clearable}
+                enableAlpha={props.enableAlpha}
                 input-props={props.inputProps}
                 onTriggerChange={setInnerValue}
                 onTriggerClear={handleClear}

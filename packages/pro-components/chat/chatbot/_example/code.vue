@@ -48,7 +48,7 @@ import {
   ChatRequestParams,
   ChatServiceConfig,
 } from '@tdesign-vue-next/chat';
-import Login from './components/Login.vue';
+import Login from './components/login.vue';
 
 // 默认初始化消息
 const mockData = [
