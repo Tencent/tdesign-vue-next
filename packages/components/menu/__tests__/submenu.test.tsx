@@ -192,25 +192,6 @@ describe('Submenu', () => {
       wrapper.unmount();
     });
 
-    it('renders when a submenu is returned from a functional wrapper', () => {
-      // Functional components do not expose a proxy. This mirrors recursive TSX menu
-      // builders that return TSubmenu nodes from a plain function.
-      const FunctionalSubmenu = () => (
-        <Submenu title="Parent" value="parent">
-          <MenuItem value="leaf">Leaf</MenuItem>
-        </Submenu>
-      );
-
-      const wrapper = mount(
-        <Menu>
-          <FunctionalSubmenu />
-        </Menu>,
-      );
-
-      expect(wrapper.find('.t-submenu').exists()).toBe(true);
-      wrapper.unmount();
-    });
-
     it('mount/unmount', () => {
       const { add, menu, remove } = createMenu();
       const parentSubmenu = { addMenuItem: vi.fn(), value: 'parent' };
@@ -239,6 +220,49 @@ describe('Submenu', () => {
       childContext?.addMenuItem?.({ label: 'Leaf', value: 'leaf' });
 
       expect(parentSubmenu.addMenuItem).toHaveBeenCalledWith({ label: 'Leaf', value: 'leaf' });
+    });
+  });
+
+  describe('scenarios', () => {
+    it('renders and updates the arrow through a functional wrapper in a side menu', async () => {
+      const FunctionalSubmenu = () => (
+        <Submenu title="Parent" value="parent">
+          <MenuItem value="leaf">Leaf</MenuItem>
+        </Submenu>
+      );
+      const wrapper = mount(
+        <Menu collapsed>
+          <FunctionalSubmenu />
+        </Menu>,
+      );
+
+      await openSubmenu(wrapper);
+
+      expect(wrapper.get('.t-fake-arrow').classes()).toContain('t-fake-arrow--active');
+      wrapper.unmount();
+    });
+
+    it('renders and updates the arrow through a functional wrapper in a head menu', async () => {
+      const { menu } = createMenu({ isHead: true, mode: ref('popup') });
+      const FunctionalSubmenu = () => (
+        <Submenu title="Parent" value="parent">
+          <MenuItem value="leaf">Leaf</MenuItem>
+        </Submenu>
+      );
+      // eslint-disable-next-line vue/one-component-per-file -- Local host reproduces a functional HeadMenu child.
+      const Host = defineComponent({
+        name: 'THeadMenu',
+        setup() {
+          provide('TdMenu', menu);
+          return () => <FunctionalSubmenu />;
+        },
+      });
+      const wrapper = mount(Host);
+
+      await openSubmenu(wrapper);
+
+      expect(wrapper.get('.t-fake-arrow').classes()).toContain('t-fake-arrow--active');
+      wrapper.unmount();
     });
   });
 
