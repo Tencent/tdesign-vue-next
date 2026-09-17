@@ -193,15 +193,6 @@ describe('Swiper', () => {
       wrapper.unmount();
     });
 
-    it(':current[number] with :defaultCurrent[number] keeps current behavior for zero', () => {
-      const wrapper = mountSwiper({ current: 0, defaultCurrent: 2 });
-
-      // `props.current || props.defaultCurrent` currently treats the controlled zero as absent.
-      expect(getActiveNavigationIndex(wrapper)).toBe(2);
-
-      wrapper.unmount();
-    });
-
     it(':defaultCurrent[number]', () => {
       const wrapper = mountSwiper({ defaultCurrent: 2 });
 
@@ -315,12 +306,12 @@ describe('Swiper', () => {
       wrapper.unmount();
     });
 
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6883
     it(':navigation[function]', () => {
       const wrapper = mountSwiper({ navigation: () => h('div', { class: 'function-navigation' }, 'Function') });
 
-      // The public TNode type accepts a function, but the current implementation falls back to the default navigation.
-      expect(wrapper.find('.function-navigation').exists()).toBe(false);
-      expect(wrapper.find('.t-swiper__navigation-bars').exists()).toBe(true);
+      expect(wrapper.find('.function-navigation').text()).toBe('Function');
+      expect(wrapper.find('.t-swiper__navigation-bars').exists()).toBe(false);
 
       wrapper.unmount();
     });
@@ -592,14 +583,48 @@ describe('Swiper', () => {
 
       wrapper.unmount();
     });
+  });
 
-    it(':autoplay[true] keeps its timer after unmount in the current implementation', () => {
-      const wrapper = mountSwiper({ autoplay: true, interval: 1000 });
+  describe('scenarios', () => {
+    describe('controlled current', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6883
+      it('keeps current=0 instead of falling back to defaultCurrent', () => {
+        const wrapper = mountSwiper({ current: 0, defaultCurrent: 2 });
 
-      expect(vi.getTimerCount()).toBeGreaterThan(0);
-      wrapper.unmount();
-      // The source currently has no unmount hook that clears the autoplay timer.
-      expect(vi.getTimerCount()).toBeGreaterThan(0);
+        expect(getActiveNavigationIndex(wrapper)).toBe(0);
+
+        wrapper.unmount();
+      });
+    });
+
+    describe('unmount cleanup', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6883
+      it('does not keep autoplay running after unmount', () => {
+        const onChange = vi.fn();
+        const wrapper = mountSwiper({ autoplay: true, interval: 1000, duration: 100, onChange });
+
+        expect(vi.getTimerCount()).toBeGreaterThan(0);
+        wrapper.unmount();
+        expect(vi.getTimerCount()).toBe(0);
+        vi.advanceTimersByTime(1000);
+        expect(onChange).not.toHaveBeenCalled();
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6883
+      it('does not keep the switching timer after unmount', async () => {
+        const onChange = vi.fn();
+        const wrapper = mountSwiper({ duration: 100, onChange });
+
+        await nextTick();
+        await wrapper.find('.t-swiper__arrow-right').trigger('click');
+        expect(onChange).toHaveBeenCalledTimes(1);
+        expect(vi.getTimerCount()).toBeGreaterThan(0);
+
+        wrapper.unmount();
+        expect(vi.getTimerCount()).toBe(0);
+        vi.advanceTimersByTime(200);
+        expect(onChange).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });

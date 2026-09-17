@@ -236,6 +236,7 @@ export default function useUpload(props: TdUploadProps): any {
     const notUploadedFiles = uploadValue.value.filter((t) => t.status !== 'success');
     const files = autoUpload.value ? toFiles || toUploadFiles.value : notUploadedFiles;
     if (!files || !files.length) return;
+    const isAutoUploadAppend = props.autoUpload && props.multiple && !props.isBatchUpload;
     uploading.value = true;
     xhrReq.value = [];
     upload({
@@ -244,7 +245,7 @@ export default function useUpload(props: TdUploadProps): any {
       method: props.method,
       name: props.name,
       withCredentials: props.withCredentials,
-      uploadedFiles: uploadValue.value,
+      uploadedFiles: isAutoUploadAppend ? [] : uploadValue.value,
       toUploadFiles: files,
       multiple: props.multiple,
       isBatchUpload: isBatchUpload.value,
@@ -268,6 +269,10 @@ export default function useUpload(props: TdUploadProps): any {
       ({ status, data, list, failedFiles }) => {
         uploading.value = false;
         if (status === 'success') {
+          // 自动追加模式在完成时合并当前列表，保留上传期间对已有附件的修改。
+          if (isAutoUploadAppend) {
+            data.files = uploadValue.value.concat(data.files);
+          }
           setRawValue([...data.files], {
             trigger: 'add',
             file: data.files[0],
