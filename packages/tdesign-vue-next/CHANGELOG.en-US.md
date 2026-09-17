@@ -5,6 +5,26 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.8 `2026-09-17`
+
+### 🚀 Features
+
+- `Form`: A `--last` identifier is added to the last form field, ensuring that the `margin` style is applied correctly @Zn-Dk ([#6952](https://github.com/Tencent/tdesign-vue-next/pull/6952))
+
+### 🐞 Bug Fixes
+
+- `Breadcrumb`: Fixed the issue where the `icon` was compressed when long text was used. @dvd233 ([common #2687](https://github.com/Tencent/tdesign-common/pull/2687)） ([#6963](https://github.com/Tencent/tdesign-vue-next/pull/6963))
+- `ColorPicker`: Improved the appearance of the input field when the alpha channel is enabled. @uyarn ([#6970](https://github.com/Tencent/tdesign-vue-next/pull/6970))
+- `Dropdown`: Fixed the issue where the type of parameters passed to the `onClick` callback did not match what was actually used at runtime. @dvd233 ([#6959](https://github.com/Tencent/tdesign-vue-next/pull/6959))
+- `Icon`: Corrected the layer ID error for the USB icon, which caused rendering issues in dark mode. @uyarn ([icons#298](https://github.com/Tencent/tdesign-icons/pull/298)) ([#6947](https://github.com/Tencent/tdesign-vue-next/pull/6947))
+- `Menu`: Fixed errors related to the failure to render sub-menus in certain scenarios that occurred after the `1.20.7` version update. @dvd233 ([#6967](https://github.com/Tencent/tdesign-vue-next/pull/6967))
+- `Swiper`: 
+  - Fixed the issue where the `current` value of `0` was overridden by `defaultCurrent`. @zhangpaopao0609 ([#6889](https://github.com/Tencent/tdesign-vue-next/pull/6889))
+  - Fixed the issue where custom navigation elements were not displayed when a function was passed as the `navigation` parameter. @zhangpaopao0609 ([#6889](https://github.com/Tencent/tdesign-vue-next/pull/6889))
+- `Upload`: 
+  - Fixed the issue where no progress updates were sent when `useMockProgress=false`. @anlyyao ([common#2690](https://github.com/Tencent/tdesign-common/pull/2690))
+  - Fixed the issue where changes to the list of attached files were overwritten after automatic uploading, causing previously deleted files to reappear. @yunfeizhu ([#6969](https://github.com/Tencent/tdesign-vue-next/pull/6969))
+
 ## 🌈 1.20.7 `2026-08-27`
 
 ### 🐞 Bug Fixes
