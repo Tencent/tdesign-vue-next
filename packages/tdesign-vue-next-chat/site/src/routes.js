@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { createLlmsRedirectRoutes } from '@tdesign/common-docs/plugins/generate-llms/route';
 import config from '../site.config';
 import TdesignComponents from './components/components.jsx';
 
@@ -31,6 +32,8 @@ function getDocsRoutes(docs, type) {
 }
 
 const routes = [
+  // llms.txt 规范产物：主域名被 SPA 兜底时跳转到静态资源域名（vite base）下的真实文件
+  ...createLlmsRedirectRoutes({ prefix: '/vue-next-chat' }),
   {
     path: '/vue-next-chat/',
     redirect: '/vue-next-chat/getting-started',

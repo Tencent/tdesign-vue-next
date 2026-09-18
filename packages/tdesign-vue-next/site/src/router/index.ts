@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
+import { createLlmsRedirectRoutes } from '@tdesign/common-docs/plugins/generate-llms/route';
 import config from './site.config';
 import TdesignComponents from '../components/components.jsx';
 // @ts-ignore
@@ -34,6 +35,8 @@ function getDocsRoutes(docs: any[], type?: any) {
 }
 
 const routes: RouteRecordRaw[] = [
+  // llms.txt 规范产物：主域名被 SPA 兜底时跳转到静态资源域名（vite base）下的真实文件
+  ...(createLlmsRedirectRoutes({ prefix: '/vue-next' }) as unknown as RouteRecordRaw[]),
   {
     path: '/vue-next/',
     redirect: '/vue-next/overview',
