@@ -299,12 +299,18 @@ export default defineComponent({
 
     const renderTitle = () => {
       const titleContent = renderTNodeJSX('title');
+      const indexText = `${indexValue.value + 1}/${images.value.length}`;
 
-      return (
-        <div class={`${COMPONENT_NAME.value}__modal-index`}>
-          {titleContent ? titleContent : `${indexValue.value + 1}/${images.value.length}`}
-        </div>
-      );
+      if (titleContent) {
+        return (
+          <div class={`${COMPONENT_NAME.value}__modal-index`}>
+            <span>{titleContent}</span>
+            {indexText}
+          </div>
+        );
+      }
+
+      return <div class={`${COMPONENT_NAME.value}__modal-index`}>{indexText}</div>;
     };
 
     const renderNavigationArrow = (type: 'prev' | 'next') => {
