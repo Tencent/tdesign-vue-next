@@ -19,6 +19,7 @@ export default defineComponent({
     return () => {
       const renderTNodeJSX = useTNodeJSX();
       const vSlots = {
+        ...(slots.icon ? { icon: slots.icon } : {}),
         content: () => {
           const content = (renderTNodeJSX('content', { slotFirst: true }) && slots.content?.()) || slots.default?.();
           return content ? <div>{content}</div> : null;
