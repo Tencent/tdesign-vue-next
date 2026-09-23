@@ -870,6 +870,56 @@ describe('Popup', () => {
       expect(onChildVisibleChange).not.toHaveBeenCalled();
     });
 
+    it('keeps a shadow-root parent popup open for a nested popup attached to body', async () => {
+      vi.useFakeTimers();
+      const host = document.createElement('div');
+      document.body.appendChild(host);
+      const shadowRoot = host.attachShadow({ mode: 'open' });
+      const attach = document.createElement('div');
+      shadowRoot.appendChild(attach);
+      const onParentVisibleChange = vi.fn();
+      const onChildVisibleChange = vi.fn();
+      const wrapper = mount(Popup, {
+        attachTo: shadowRoot as unknown as Element,
+        props: { attach: () => attach, defaultVisible: true, delay: 0, onVisibleChange: onParentVisibleChange },
+        slots: {
+          default: () => <button class="shadow-parent-trigger">trigger</button>,
+          content: () => (
+            <Popup content="nested content" defaultVisible delay={0} onVisibleChange={onChildVisibleChange}>
+              <button class="shadow-nested-trigger">nested trigger</button>
+            </Popup>
+          ),
+        },
+      }) as PopupWrapper;
+      wrappers.push(wrapper);
+      await nextTick();
+
+      const parentPopup = [...shadowRoot.querySelectorAll<HTMLElement>('.t-popup')].find(
+        (popup) => !popup.hasAttribute('data-td-popup-parent'),
+      );
+      const childPopup = [...document.querySelectorAll<HTMLElement>('.t-popup')].find((popup) =>
+        popup.hasAttribute('data-td-popup-parent'),
+      );
+      expect(parentPopup).toBeDefined();
+      expect(childPopup).toBeDefined();
+      expect(childPopup.getRootNode()).toBe(document);
+
+      setRect(childPopup, { height: 10, width: 10, x: 0, y: 0 });
+      const mouseleave = new MouseEvent('mouseleave');
+      Object.defineProperties(mouseleave, {
+        x: { value: 5 },
+        y: { value: 5 },
+      });
+      parentPopup.dispatchEvent(mouseleave);
+      await vi.runOnlyPendingTimersAsync();
+      expect(onParentVisibleChange).not.toHaveBeenCalled();
+
+      childPopup.querySelector('.t-popup__content').dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+      await vi.runOnlyPendingTimersAsync();
+      expect(onParentVisibleChange).not.toHaveBeenCalled();
+      expect(onChildVisibleChange).not.toHaveBeenCalled();
+    });
+
     it.each([
       ['key', { key: 'Escape' }],
       ['code', { key: 'Enter', code: 'Escape' }],

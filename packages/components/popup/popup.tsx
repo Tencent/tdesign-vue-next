@@ -48,7 +48,8 @@ function getPopperTree(id: number | string, upwards?: boolean, root: Document | 
   return list;
 
   function recurse(id: number | string) {
-    const children = root.querySelectorAll(`[${selectors[0]}="${id}"]`);
+    const selector = `[${selectors[0]}="${id}"]`;
+    const children = Array.from(new Set([...root.querySelectorAll(selector), ...document.querySelectorAll(selector)]));
     children.forEach((el) => {
       list.push(el);
       const childId = el.getAttribute(selectors[1]);
