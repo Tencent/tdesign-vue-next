@@ -15,7 +15,14 @@ import {
   Transition,
   watch,
 } from 'vue';
-import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
+import {
+  useAttach,
+  useVModel,
+  useContent,
+  useTNodeJSX,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
 
 import { off, on, once, isServer } from '@tdesign/shared-utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
@@ -98,6 +105,7 @@ export default defineComponent({
     const [visible, setVisible] = useVModel(propVisible, modelValue, props.defaultVisible, onVisibleChange, 'visible');
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
+    const attach = useAttach('popup', () => props.attach, 'body');
 
     /** popperjs instance */
     let popper: ReturnType<typeof createPopper>;
@@ -555,7 +563,7 @@ export default defineComponent({
             }
           }}
           visible={visible.value}
-          attach={props.attach}
+          attach={attach.value}
         >
           {{
             content: () => (
