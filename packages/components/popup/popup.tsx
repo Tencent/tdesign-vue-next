@@ -34,7 +34,7 @@ function isEscapeKey(ev: KeyboardEvent) {
  * @param id
  * @param upwards query upwards poppers
  */
-function getPopperTree(id: number | string, upwards?: boolean): Element[] {
+function getPopperTree(id: number | string, upwards?: boolean, root: Document | ShadowRoot = document): Element[] {
   const list = [] as any;
   const selectors = [POPUP_PARENT_ATTR_NAME, POPUP_ATTR_NAME];
 
@@ -48,7 +48,7 @@ function getPopperTree(id: number | string, upwards?: boolean): Element[] {
   return list;
 
   function recurse(id: number | string) {
-    const children = document.querySelectorAll(`[${selectors[0]}="${id}"]`);
+    const children = root.querySelectorAll(`[${selectors[0]}="${id}"]`);
     children.forEach((el) => {
       list.push(el);
       const childId = el.getAttribute(selectors[1]);
@@ -57,6 +57,11 @@ function getPopperTree(id: number | string, upwards?: boolean): Element[] {
       }
     });
   }
+}
+
+function isEventInside(element: Element | undefined, ev: Event) {
+  if (!element) return false;
+  return ev.composedPath().includes(element) || element.contains(ev.target as Node);
 }
 
 const parentKey = Symbol() as InjectionKey<{
@@ -430,21 +435,25 @@ export default defineComponent({
     }
 
     function onDocumentMouseDown(ev: MouseEvent) {
+      const root = (popperEl.value?.getRootNode() || triggerEl.value?.getRootNode()) as Document | ShadowRoot;
+
       // click content
-      if (popperEl.value?.contains(ev.target as Node)) {
+      if (isEventInside(popperEl.value, ev)) {
         return;
       }
 
       // click trigger element
-      if (triggerEl.value?.contains(ev.target as Node)) {
+      if (isEventInside(triggerEl.value, ev)) {
         return;
       }
 
       // ignore upwards
-      const activedPopper = getPopperTree(id).find((el) => el.contains(ev.target as Node));
+      const activedPopper = getPopperTree(id, false, root).find((el) => isEventInside(el, ev));
       if (
         activedPopper &&
-        getPopperTree(activedPopper.getAttribute(POPUP_PARENT_ATTR_NAME), true).some((el) => el === popperEl.value)
+        getPopperTree(activedPopper.getAttribute(POPUP_PARENT_ATTR_NAME), true, root).some(
+          (el) => el === popperEl.value,
+        )
       ) {
         return;
       }
@@ -456,7 +465,8 @@ export default defineComponent({
       isOverlayHover.value = false;
       if (props.trigger !== 'hover' || triggerEl.value.contains(ev.target as Node)) return;
 
-      const isCursorOverlaps = getPopperTree(id).some((el) => {
+      const root = (popperEl.value?.getRootNode() || triggerEl.value?.getRootNode()) as Document | ShadowRoot;
+      const isCursorOverlaps = getPopperTree(id, false, root).some((el) => {
         const rect = el.getBoundingClientRect();
 
         return ev.x > rect.x && ev.x < rect.x + rect.width && ev.y > rect.y && ev.y < rect.y + rect.height;
