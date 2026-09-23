@@ -8,6 +8,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Check spelling
-      uses: crate-ci/typos@master
+      uses: crate-ci/typos@v1.50.2
       with: 
         config: .github/workflows/typos-config.toml
