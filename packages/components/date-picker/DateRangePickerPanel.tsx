@@ -105,7 +105,7 @@ export default defineComponent({
       // 有时间选择器走 confirm 逻辑
       if (props.enableTimePicker) return;
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
+      // 首次点击不提交 value，两端都有有效值且无时间选择器时第二次点击触发 onChange
       if (nextValue.length === 2 && isFirstValueSelected.value) {
         onRawChange?.(
           formatDate(nextValue, {
@@ -218,7 +218,7 @@ export default defineComponent({
     function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = [...(cacheValue.value as string[])];
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
+      // 首次点击不提交 value，两端都有有效值且无时间选择器时第二次点击触发 onChange
       if (nextValue.length === 2 && isFirstValueSelected.value) {
         onRawChange?.(
           formatDate(nextValue, {
