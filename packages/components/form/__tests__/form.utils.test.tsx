@@ -139,6 +139,12 @@ describe('Form utils', () => {
         expect((await validateOneRule('15个字符的字符串', rule)).result).toBe(true);
       });
 
+      it('pattern with global flag', async () => {
+        const rule = { pattern: /^\d+$/g, message: 'digits only' };
+        expect((await validateOneRule('123', rule)).result).toBe(true);
+        expect((await validateOneRule('123', rule)).result).toBe(true);
+      });
+
       it('custom validator', async () => {
         const customValidatorBoolean = (val: any) => val === 'custom';
         const rule1 = { validator: customValidatorBoolean, message: '自定义校验失败' };
