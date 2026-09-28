@@ -4,7 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TdColorPickerPanelProps } from './type';
+import { TdColorPickerPanelProps } from '../color-picker/type';
 import { PropType } from 'vue';
 
 export default {
@@ -33,12 +33,12 @@ export default {
   },
   /** 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色” */
   recentColors: {
-    type: Array as PropType<TdColorPickerPanelProps['recentColors']>,
+    type: [Boolean, Array] as PropType<TdColorPickerPanelProps['recentColors']>,
     default: undefined as TdColorPickerPanelProps['recentColors'],
   },
   /** 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”，非受控属性 */
   defaultRecentColors: {
-    type: Array as PropType<TdColorPickerPanelProps['defaultRecentColors']>,
+    type: [Boolean, Array] as PropType<TdColorPickerPanelProps['defaultRecentColors']>,
     default: (): TdColorPickerPanelProps['defaultRecentColors'] => [],
   },
   /** 透传 SelectInput 筛选器输入框组件的全部属性 */
