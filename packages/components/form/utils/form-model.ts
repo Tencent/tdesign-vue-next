@@ -46,6 +46,8 @@ const VALIDATE_MAP = {
   telnumber: (val: ValueType): boolean => /^1[3-9]\d{9}$/.test(val),
   pattern: (val: ValueType, regexp: RegExp | string): boolean => {
     const reg = typeof regexp === 'string' ? new RegExp(regexp) : regexp;
+    // a regexp with the g or y flag keeps lastIndex between test() calls
+    reg.lastIndex = 0;
     return reg.test(String(val));
   },
   // 自定义校验规则，可能是异步校验
