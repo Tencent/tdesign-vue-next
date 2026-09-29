@@ -9,10 +9,11 @@ const createDrawer: DrawerMethod = (props, context) => {
   const wrapper = document.createElement('div');
   const visible = ref(false);
   const { style } = options;
+  const customStyle = ref(style);
 
   const updateStyle = (style: DrawerOptions['style']) => {
     if (style) {
-      (wrapper.firstElementChild as HTMLElement).style.cssText += style;
+      customStyle.value = `${customStyle.value || ''};${style}`;
     }
   };
 
@@ -29,9 +30,6 @@ const createDrawer: DrawerMethod = (props, context) => {
           visible.value = true;
         });
         (document.activeElement as HTMLElement).blur();
-        nextTick(() => {
-          updateStyle(style);
-        });
       });
       const update = (newOptions: DrawerOptions) => {
         drawerOptions.value = {
@@ -62,6 +60,8 @@ const createDrawer: DrawerMethod = (props, context) => {
           visible: visible.value,
           drawerClassName: drawerOptions.value?.className,
           ...omit(drawerOptions.value, 'className', 'style'),
+          // 样式绑定到组件根节点，避免 Teleport 后落在空的插件容器上。
+          style: customStyle.value,
         });
       };
     },

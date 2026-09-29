@@ -12,7 +12,14 @@ import {
 } from 'vue';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
-import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/shared-hooks';
+import {
+  useAttach,
+  useConfig,
+  useTeleport,
+  usePrefixClass,
+  usePopupManager,
+  useDestroyOnClose,
+} from '@tdesign/shared-hooks';
 import { useSameTarget } from './hooks';
 
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
@@ -55,7 +62,8 @@ export default defineComponent({
       emitCloseEvent({ e: context.e, trigger: 'cancel' });
     };
     // teleport容器
-    const teleportElement = useTeleport(() => props.attach);
+    const attach = useAttach('dialog', () => props.attach);
+    const teleportElement = useTeleport(attach);
     useDestroyOnClose();
     const timer = ref();
     const styleEl = ref();
@@ -308,7 +316,7 @@ export default defineComponent({
       ];
 
       return (
-        <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
+        <Teleport disabled={!attach.value || !teleportElement.value} to={teleportElement.value}>
           <Transition
             duration={300}
             name={`${COMPONENT_NAME.value}-zoom__vue`}

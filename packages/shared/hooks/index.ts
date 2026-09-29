@@ -2,6 +2,7 @@ export * from './icon';
 export * from './slot';
 export * from './tnode';
 export * from './useCollapseAnimation';
+export * from './useAttach';
 export * from './useCommonClassName';
 export * from './useConfig';
 export * from './useDefaultValue';
