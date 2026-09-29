@@ -12,7 +12,14 @@ export function useInputWidth(props: TdInputProps, inputRef: Ref<HTMLInputElemen
   const updateInputWidth = () => {
     if (!inputPreRef.value || !inputRef.value) return;
     // 使用 getComputedStyle 规避 transform 带来的影响
-    inputRef.value.style.width = getComputedStyle(inputPreRef.value).width;
+    const computedWidth = getComputedStyle(inputPreRef.value).width;
+    // 当计算宽度为 auto 或空字符串时，设置为 0px 以避免在多选等场景下换行
+    // 正常情况下 getComputedStyle 应该返回具体的像素值
+    if (computedWidth === 'auto' || computedWidth === '') {
+      inputRef.value.style.width = '0px';
+    } else {
+      inputRef.value.style.width = computedWidth;
+    }
   };
 
   useResizeObserver(inputPreRef, () => {
