@@ -66,7 +66,7 @@ export const createYearCellsData = (props: TdCalendarProps, state: CalendarState
     const date = new Date(year, num - 1);
     const isCurrent = multiple
       ? !!curDateList.find((item) => item.year() === year && parseInt(item.format('M'), 10) === num)
-      : curDate.year() === year && parseInt(curDate.format('M'), 10) === num;
+      : !!curDate && curDate.year() === year && parseInt(curDate.format('M'), 10) === num;
     monthsArr.push({
       mode: 'year',
       isCurrent,
@@ -122,7 +122,9 @@ export const createMonthCellsData = (props: TdCalendarProps, state: CalendarStat
   };
 
   const judgeIsCurrent = (date: Date) => {
-    const isCurrent = multiple ? !!curDateList.find((item) => item.isSame(dayjs(date))) : curDate.isSame(dayjs(date));
+    const isCurrent = multiple
+      ? !!curDateList.find((item) => item.isSame(dayjs(date)))
+      : !!curDate && curDate.isSame(dayjs(date));
     return isCurrent;
   };
 
