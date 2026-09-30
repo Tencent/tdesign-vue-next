@@ -8,6 +8,12 @@ An explicit component `attach` prop takes precedence over the global configurati
 
 {{ attach }}
 
+### Global Animation
+
+Use `include` or `exclude` in `globalConfig.animation` to globally retain or disable ripple, expand, and fade animations.
+
+{{ animation }}
+
 ### Global Component Classprefix
 
 the classprefix of TDesign component is `t`. In some situations, it is necessary to change the component prefix to meet the usage needs.

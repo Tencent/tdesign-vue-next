@@ -8,6 +8,12 @@
 
 {{ attach }}
 
+### 全局动画配置
+
+通过 `globalConfig.animation` 的 `include` 或 `exclude` 配置全局保留或关闭水波纹、展开和渐变动画。
+
+{{ animation }}
+
 ### 全局组件前缀
 
 TDesign 的组件前缀统一为`t`，在一些业务场景中，有需要改变组件前缀来满足业务的使用场景。

@@ -2,7 +2,7 @@ import { defineComponent, ref, computed, inject, Ref, toRefs, Transition } from 
 import props from './collapse-panel-props';
 import FakeArrow from '../common-components/fake-arrow';
 import { CollapseValue, TdCollapsePanelProps } from './type';
-import { useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/shared-hooks';
+import { useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation, useKeepAnimation } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TCollapsePanel',
@@ -29,6 +29,7 @@ export default defineComponent({
     if (defaultExpandAll.value) {
       updateCollapseValue(innerValue);
     }
+    const { keepExpand } = useKeepAnimation();
     const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
     const iconRef = ref<HTMLElement>();
     const isDisabled = computed(() => disabled.value || disableAll.value);
@@ -118,12 +119,13 @@ export default defineComponent({
             {renderHeader()}
             <Transition
               name={transitionClass.value}
-              onBeforeEnter={beforeEnter}
-              onEnter={enter}
-              onAfterEnter={afterEnter}
-              onBeforeLeave={beforeLeave}
-              onLeave={leave}
-              onAfterLeave={afterLeave}
+              css={keepExpand.value}
+              onBeforeEnter={keepExpand.value ? beforeEnter : undefined}
+              onEnter={keepExpand.value ? enter : undefined}
+              onAfterEnter={keepExpand.value ? afterEnter : undefined}
+              onBeforeLeave={keepExpand.value ? beforeLeave : undefined}
+              onLeave={keepExpand.value ? leave : undefined}
+              onAfterLeave={keepExpand.value ? afterLeave : undefined}
             >
               {renderBody()}
             </Transition>

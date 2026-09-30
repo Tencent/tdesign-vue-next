@@ -15,7 +15,14 @@ import {
   Transition,
 } from 'vue';
 import { isFunction } from 'lodash-es';
-import { useRipple, useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/shared-hooks';
+import {
+  useRipple,
+  useContent,
+  useTNodeJSX,
+  usePrefixClass,
+  useCollapseAnimation,
+  useKeepAnimation,
+} from '@tdesign/shared-hooks';
 
 import props from './submenu-props';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
@@ -68,6 +75,8 @@ export default defineComponent({
     const subPopupRef = ref<HTMLElement>();
     const submenuRef = ref<HTMLElement>();
     const transitionClass = usePrefixClass('slide-down');
+    const { keepExpand } = useKeepAnimation();
+    const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
     useRipple(submenuRef, rippleColor);
 
     // 存储 setTimeout 的 timer ID，用于清除定时器
@@ -387,8 +396,6 @@ export default defineComponent({
       const icon = renderTNodeJSX('icon');
       const child = renderContent('default', 'content');
 
-      const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
-
       const needRotate = mode.value === 'popup' && isNested.value;
 
       const normalSubmenu = [
@@ -404,12 +411,13 @@ export default defineComponent({
         </div>,
         <Transition
           name={transitionClass.value}
-          onBeforeEnter={beforeEnter}
-          onEnter={enter}
-          onAfterEnter={afterEnter}
-          onBeforeLeave={beforeLeave}
-          onLeave={leave}
-          onAfterLeave={afterLeave}
+          css={keepExpand.value}
+          onBeforeEnter={keepExpand.value ? beforeEnter : undefined}
+          onEnter={keepExpand.value ? enter : undefined}
+          onAfterEnter={keepExpand.value ? afterEnter : undefined}
+          onBeforeLeave={keepExpand.value ? beforeLeave : undefined}
+          onLeave={keepExpand.value ? leave : undefined}
+          onAfterLeave={keepExpand.value ? afterLeave : undefined}
         >
           <ul v-show={isOpen.value} class={subClass.value}>
             {child}
