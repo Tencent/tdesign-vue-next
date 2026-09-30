@@ -9,4 +9,4 @@ export function usePrefixClass(componentName?: string) {
   });
 }
 
-export { useConfig };
+export { useConfig, useGlobalConfig } from '../../../components/config-provider/hooks/useConfig';

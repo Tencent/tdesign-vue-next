@@ -16,6 +16,7 @@ import {
   watch,
 } from 'vue';
 import {
+  useAttach,
   useVModel,
   useContent,
   useTNodeJSX,
@@ -111,6 +112,7 @@ export default defineComponent({
     const [visible, setVisible] = useVModel(propVisible, modelValue, props.defaultVisible, onVisibleChange, 'visible');
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
+    const attach = useAttach('popup', () => props.attach, 'body');
 
     /** popperjs instance */
     let popper: ReturnType<typeof createPopper>;
@@ -575,7 +577,7 @@ export default defineComponent({
             }
           }}
           visible={visible.value}
-          attach={props.attach}
+          attach={attach.value}
         >
           {{
             content: () => (

@@ -13,6 +13,7 @@ import {
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import {
+  useAttach,
   useConfig,
   useTeleport,
   usePrefixClass,
@@ -63,7 +64,8 @@ export default defineComponent({
       emitCloseEvent({ e: context.e, trigger: 'cancel' });
     };
     // teleport容器
-    const teleportElement = useTeleport(() => props.attach);
+    const attach = useAttach('dialog', () => props.attach);
+    const teleportElement = useTeleport(attach);
     useDestroyOnClose();
     const timer = ref();
     const styleEl = ref();
@@ -316,7 +318,7 @@ export default defineComponent({
       ];
 
       return (
-        <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
+        <Teleport disabled={!attach.value || !teleportElement.value} to={teleportElement.value}>
           <Transition
             duration={keepFade.value ? 300 : 0}
             name={`${COMPONENT_NAME.value}-zoom__vue`}

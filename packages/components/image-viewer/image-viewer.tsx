@@ -10,6 +10,7 @@ import {
   useDefaultValue,
   usePopupManager,
   useConfig,
+  useAttach,
 } from '@tdesign/shared-hooks';
 import { isPropsUsed } from '@tdesign/shared-utils';
 import { downloadImage, formatImages } from '@tdesign/common-js/image-viewer/utils';
@@ -43,7 +44,8 @@ export default defineComponent({
     const animationEnd = ref(true);
     const animationTimer = ref();
     // teleport容器
-    const teleportElement = useTeleport(() => props.attach);
+    const attach = useAttach('imageViewer', () => props.attach, 'body');
+    const teleportElement = useTeleport(attach);
 
     const wrapClass = computed(() => [
       COMPONENT_NAME.value,
@@ -390,7 +392,7 @@ export default defineComponent({
           {isPropsUsed('trigger')
             ? renderTNodeJSX('trigger', { params: { open: openHandler } })
             : renderDefaultTrigger()}
-          <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
+          <Teleport disabled={!attach.value || !teleportElement.value} to={teleportElement.value}>
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
                 <div

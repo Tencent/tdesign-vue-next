@@ -11,7 +11,7 @@ import { FormErrorMessage } from '../form';
 import { ImageProps } from '../image';
 import { LoadingProps } from '../loading';
 import { MessageOptions } from '../message';
-import { TNode, SizeEnum } from '../common';
+import { TNode, SizeEnum, AttachNode } from '../common';
 
 export interface TdConfigProviderProps {
   /**
@@ -33,6 +33,10 @@ export interface GlobalConfigProvider {
    * 动画效果控制，`ripple` 指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。默认为 `{ include: ['ripple','expand','fade'], exclude: [] }`
    */
   animation?: Partial<Record<'include' | 'exclude', Array<AnimationType>>>;
+  /**
+   * 浮层挂载节点，可统一设置或按 imageViewer、popup、dialog、drawer 分别设置。组件的 attach 属性优先于全局配置；未配置时保持各组件原有的默认挂载行为
+   */
+  attach?: AttachNode | { imageViewer?: AttachNode; popup?: AttachNode; dialog?: AttachNode; drawer?: AttachNode };
   /**
    * 自动填充组件全局配置
    */
