@@ -1,0 +1,8 @@
+name: pr-spell-check
+on: [pull_request]
+
+jobs:
+    call-spell-check:
+        uses: TDesignOteam/workflows/.github/workflows/reusable-spell-check.yml@main
+        with:
+            config: .github/workflows/typos-config.toml
