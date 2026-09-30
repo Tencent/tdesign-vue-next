@@ -12,7 +12,14 @@ import {
 } from 'vue';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
-import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/shared-hooks';
+import {
+  useConfig,
+  useTeleport,
+  usePrefixClass,
+  usePopupManager,
+  useDestroyOnClose,
+  useKeepAnimation,
+} from '@tdesign/shared-hooks';
 import { useSameTarget } from './hooks';
 
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
@@ -47,6 +54,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const dialogCardRef = ref<ComponentPublicInstance<{ resetPosition: () => void }>>(null);
     const { globalConfig } = useConfig('dialog');
+    const { keepFade } = useKeepAnimation();
     const confirmBtnAction: TdDialogProps['onConfirm'] = (context) => {
       props.onConfirm?.(context);
     };
@@ -310,8 +318,9 @@ export default defineComponent({
       return (
         <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
           <Transition
-            duration={300}
+            duration={keepFade.value ? 300 : 0}
             name={`${COMPONENT_NAME.value}-zoom__vue`}
+            css={keepFade.value}
             onBeforeEnter={beforeEnter}
             onAfterEnter={afterEnter}
             onBeforeLeave={beforeLeave}

@@ -15,7 +15,14 @@ import {
   Transition,
   watch,
 } from 'vue';
-import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
+import {
+  useVModel,
+  useContent,
+  useTNodeJSX,
+  usePrefixClass,
+  useCommonClassName,
+  useKeepAnimation,
+} from '@tdesign/shared-hooks';
 
 import { off, on, once, isServer } from '@tdesign/shared-utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
@@ -129,6 +136,8 @@ export default defineComponent({
 
     const prefixCls = usePrefixClass('popup');
     const { STATUS: commonCls } = useCommonClassName();
+    const { keepExpand, keepFade } = useKeepAnimation();
+    const keepPopupAnimation = computed(() => (props.expandAnimation ? keepExpand.value : keepFade.value));
     const delay = computed(() => {
       const delay = props.trigger !== 'hover' ? [0, 0] : [].concat(props.delay ?? [250, 150]);
       return {
@@ -573,6 +582,7 @@ export default defineComponent({
               <Transition
                 name={`${prefixCls.value}--animation${props.expandAnimation ? '-expand' : ''}`}
                 appear
+                css={keepPopupAnimation.value}
                 onEnter={updatePopper}
                 onAfterLeave={destroyPopper}
               >
