@@ -1,5 +1,5 @@
 import { defineComponent, PropType, computed, CSSProperties } from 'vue';
-import { usePrefixClass } from '@tdesign/shared-hooks';
+import { useKeepAnimation, usePrefixClass } from '@tdesign/shared-hooks';
 import { isSafari } from '@tdesign/common-js/utils/helper';
 
 // 统一使用的翻转箭头组件
@@ -20,6 +20,7 @@ export default defineComponent({
 
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('fake-arrow');
+    const { keepExpand } = useKeepAnimation();
     const classes = computed(() => [
       COMPONENT_NAME.value,
       {
@@ -37,9 +38,15 @@ export default defineComponent({
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={props.overlayStyle}
+        style={[props.overlayStyle, keepExpand.value ? null : { transition: 'none' }]}
       >
-        <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3" />
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+          style={{ transition: keepExpand.value ? undefined : 'none' }}
+        />
       </svg>
     );
   },

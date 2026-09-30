@@ -7,6 +7,9 @@ import Drawer from '@tdesign/components/drawer';
 import Popup from '@tdesign/components/popup';
 import ImageViewer from '@tdesign/components/image-viewer';
 import Button from '@tdesign/components/button';
+import { Collapse, CollapsePanel } from '@tdesign/components/collapse';
+import { Menu, MenuItem, Submenu } from '@tdesign/components/menu';
+import Tree from '@tdesign/components/tree';
 import type { GlobalConfigProvider } from '@tdesign/components/config-provider/type';
 import type { AttachNode } from '@tdesign/components/common';
 import { DialogPlugin } from '@tdesign/components/dialog/plugin';
@@ -77,6 +80,24 @@ function mountAnimation(animation: GlobalConfigProvider['animation']) {
           <button>expand trigger</button>
         </Popup>
         <Dialog visible body="dialog" />
+        <Collapse defaultValue={['collapse']}>
+          <CollapsePanel value="collapse" header="collapse" default="collapse content" />
+        </Collapse>
+        <Menu defaultExpanded={['submenu']}>
+          <Submenu value="submenu" title="submenu">
+            <MenuItem value="menu-item">menu item</MenuItem>
+          </Submenu>
+        </Menu>
+        <Tree
+          data={[
+            {
+              value: 'parent',
+              label: 'parent',
+              children: [{ value: 'child', label: 'child' }],
+            },
+          ]}
+          defaultExpanded={['parent']}
+        />
       </ConfigProvider>
     ),
     { attachTo: targets[0] },
@@ -161,6 +182,12 @@ describe('ConfigProvider', () => {
         expect(fadePopup.findComponent({ name: 'Transition' }).props('css')).toBe(false);
         expect(expandPopup.findComponent({ name: 'Transition' }).props('css')).toBe(false);
         expect(wrapper.findComponent(Dialog).findComponent({ name: 'Transition' }).props('css')).toBe(false);
+        expect(wrapper.findComponent(CollapsePanel).findComponent({ name: 'Transition' }).props('css')).toBe(false);
+        expect(wrapper.findComponent(Submenu).findComponent({ name: 'Transition' }).props('css')).toBe(false);
+        expect(wrapper.findComponent(Tree).findComponent({ name: 'TransitionGroup' }).exists()).toBe(false);
+        const arrows = wrapper.findAll('.t-fake-arrow path');
+        expect(arrows.length).toBeGreaterThan(0);
+        expect(arrows.every((arrow) => arrow.attributes('style') === 'transition: none;')).toBe(true);
       });
 
       // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5487
@@ -176,6 +203,9 @@ describe('ConfigProvider', () => {
         expect(fadePopup.findComponent({ name: 'Transition' }).props('css')).toBe(true);
         expect(expandPopup.findComponent({ name: 'Transition' }).props('css')).toBe(false);
         expect(wrapper.findComponent(Dialog).findComponent({ name: 'Transition' }).props('css')).toBe(true);
+        expect(wrapper.findComponent(CollapsePanel).findComponent({ name: 'Transition' }).props('css')).toBe(false);
+        expect(wrapper.findComponent(Submenu).findComponent({ name: 'Transition' }).props('css')).toBe(false);
+        expect(wrapper.findComponent(Tree).findComponent({ name: 'TransitionGroup' }).exists()).toBe(false);
       });
     });
   });
