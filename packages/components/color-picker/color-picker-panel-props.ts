@@ -39,11 +39,7 @@ export default {
   /** 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”，非受控属性 */
   defaultRecentColors: {
     type: [Boolean, Array] as PropType<TdColorPickerPanelProps['defaultRecentColors']>,
-    default: (): TdColorPickerPanelProps['defaultRecentColors'] => [],
-  },
-  /** 透传 SelectInput 筛选器输入框组件的全部属性 */
-  selectInputProps: {
-    type: Object as PropType<TdColorPickerPanelProps['selectInputProps']>,
+    default: (): TdColorPickerPanelProps['defaultRecentColors'] => [] as TdColorPickerPanelProps['defaultRecentColors'],
   },
   /** 是否展示颜色选择条右侧的颜色预览区域 */
   showPrimaryColorPreview: {
