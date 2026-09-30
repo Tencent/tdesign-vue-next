@@ -5,6 +5,21 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.9 `2026-09-30`
+
+### 🚀 Features
+
+- `Calendar`: The `value` property now supports setting a null value @uyarn ([#6986](https://github.com/Tencent/tdesign-vue-next/pull/6986))
+- `ConfigProvider`: A new `attach` property has been added to enable unified configuration of the mounting nodes for Dialog, Drawer, Popup, and ImageViewer; component properties take precedence while the original default behaviors are retained @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+
+### 🐞 Bug Fixes
+
+- `ColorPicker`: Fixed issues related to the boolean data type of `recentColors` as well as related warnings @liweijie0812 ([#6984](https://github.com/Tencent/tdesign-vue-next/pull/6984))
+- `Dialog`: Fixed the problem where custom styles were not applied to the actual nodes after the plugin’s overlay was mounted @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+- `Drawer`: Fixed the problem where custom styles were not applied to the actual nodes after the plugin’s overlay was mounted @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+- `Form`: Fixed an issue where consecutive validation attempts failed when using regex patterns with `g` or `y` flags in the `pattern` setting @kwy404 ([#6982](https://github.com/Tencent/tdesign-vue-next/pull/6982))
+- `Popup`: Fixed the problem where the popup closed accidentally when clicking on its content or when a nested popup was displayed within it in Shadow DOM environments @liweijie0812 ([#6980](https://github.com/Tencent/tdesign-vue-next/pull/6980))
+
 ## 🌈 1.20.8 `2026-09-17`
 
 ### 🚀 Features
