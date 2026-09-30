@@ -41,7 +41,7 @@ export default {
     type: [Boolean, Array] as PropType<TdColorPickerPanelProps['defaultRecentColors']>,
     default: (): TdColorPickerPanelProps['defaultRecentColors'] => [] as TdColorPickerPanelProps['defaultRecentColors'],
   },
-  /** 透传 SelectInput 筛选器输入框组件的全部属性 */
+  /** 透传 SelectInputProps 筛选器输入框组件全部属性 */
   selectInputProps: {
     type: Object as PropType<TdColorPickerPanelProps['selectInputProps']>,
   },

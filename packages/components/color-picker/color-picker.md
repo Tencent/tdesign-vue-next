@@ -49,6 +49,7 @@ enableMultipleGradient | Boolean | true | 是否允许开启通过点击渐变�
 format | String | RGB | 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效。可选项：HEX/HEX8/RGB/RGBA/HSL/HSLA/HSV/HSVA/CMYK/CSS | N
 recentColors | Boolean / Array | [] | 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”。支持语法糖 `v-model:recentColors`。TS 类型：`Array<string> \| boolean \| null` | N
 defaultRecentColors | Boolean / Array | [] | 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”。非受控属性。TS 类型：`Array<string> \| boolean \| null` | N
+selectInputProps | Object | - | 透传 SelectInputProps 筛选器输入框组件全部属性。TS 类型：`SelectInputProps`，[SelectInput API Documents](./select-input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/color-picker/type.ts) | N
 showPrimaryColorPreview | Boolean | true | 是否展示颜色选择条右侧的颜色预览区域 | N
 swatchColors | Array | - | 系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色。TS 类型：`Array<string> \| null \| undefined` | N
 value | String | - | 色值。支持语法糖 `v-model` 或 `v-model:value` | N
