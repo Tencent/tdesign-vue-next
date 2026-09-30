@@ -5,6 +5,21 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.9 `2026-09-30`
+
+### 🚀 Features
+
+- `Calendar`: value 属性支持配置空值 @uyarn ([#6986](https://github.com/Tencent/tdesign-vue-next/pull/6986))
+- `ConfigProvider`: 新增`attach` 属性，用于支持统一配置 Dialog、Drawer、Popup、ImageViewer 的挂载节点，组件属性优先并保留原有默认行为 @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+
+### 🐞 Bug Fixes
+
+- `ColorPicker`: 修复`recentColors` 的布尔值类型相关定义和告警问题 @liweijie0812 ([#6984](https://github.com/Tencent/tdesign-vue-next/pull/6984))
+- `Dialog`: 修复插件浮层挂载后自定义样式未应用到实际节点的问题 @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+- `Drawer`: 修复插件浮层挂载后自定义样式未应用到实际节点的问题 @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+- `Form`: 修复 `pattern` 规则使用带 `g` 或 `y` 标志的正则时，连续校验隔次失败的问题 @kwy404 ([#6982](https://github.com/Tencent/tdesign-vue-next/pull/6982))
+- `Popup`: 修复 Shadow DOM 下点击弹层内容和移入嵌套弹层时弹层误关闭的问题 @liweijie0812 ([#6980](https://github.com/Tencent/tdesign-vue-next/pull/6980))
+
 ## 🌈 1.20.8 `2026-09-17`
 
 ### 🚀 Features
