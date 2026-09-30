@@ -62,10 +62,10 @@ export default defineComponent({
      * @returns void
      */
     const addRecentlyUsedColor = () => {
-      if (innerRecentColors.value === null || innerRecentColors.value === false) {
+      if (isNull(innerRecentColors.value) || innerRecentColors.value === false) {
         return;
       }
-      const colors = cloneDeep(innerRecentColors.value as string[]) || [];
+      const colors = Array.isArray(innerRecentColors.value) ? cloneDeep(innerRecentColors.value) : [];
       const currentColor = color.value.isGradient ? color.value.linearGradient : color.value.rgba;
       const index = colors.indexOf(currentColor);
       if (index > -1) {
@@ -243,7 +243,7 @@ export default defineComponent({
       if (onlySupportGradient && Array.isArray(recentColors)) {
         recentColors = recentColors.filter((color) => Color.isGradientColor(color));
       }
-      const showUsedColors = !!Array.isArray(recentColors);
+      const showUsedColors = Array.isArray(recentColors) || recentColors === true;
 
       // 系统预设颜色
       let systemColors = props.swatchColors;
@@ -268,7 +268,7 @@ export default defineComponent({
                   {...baseProps}
                   title={t(globalConfig.value.recentColorTitle)}
                   editable
-                  colors={recentColors as string[]}
+                  colors={Array.isArray(recentColors) ? recentColors : []}
                   handleAddColor={addRecentlyUsedColor}
                   onSetColor={(color: string) => handleSetColor(color, 'recent')}
                   onChange={handleRecentlyUsedColorsChange}
