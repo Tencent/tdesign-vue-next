@@ -7,7 +7,7 @@
 import { InputProps } from '../input';
 import { PopupProps } from '../popup';
 import { SelectInputProps } from '../select-input';
-import { SizeEnum } from '../common';
+import type { SizeEnum } from '../common';
 
 export interface TdColorPickerProps {
   /**
