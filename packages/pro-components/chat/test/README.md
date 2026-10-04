@@ -8,6 +8,7 @@
 pnpm test:chat                  # 日常回归
 pnpm test:chat:update           # 仅更新 DOM / 方法清单快照，人工审查 diff
 pnpm test:chat:migration-done   # 回归 + 源码及发布包 webc 依赖清零
+pnpm build:chat && pnpm test:chat:package # 发布产物必须排除测试代码与声明
 
 # 等价替换与破坏性变更演练（串行运行，不要同时运行其他测试或编辑目标源码）
 bash packages/pro-components/chat/test/drill/migration-drill.sh
@@ -47,6 +48,8 @@ API JSON 基线来自原有契约快照。新增可选 prop、事件、导出和
 ### 环境与清理
 
 jsdom 缺失的 observer、scrollTo、constructable stylesheet 等能力集中补齐在 `test/setup.ts`。所有 wrapper 在每条测试后自动卸载，随后清理挂起的定时器，避免文档节点、事件订阅和延时任务跨用例残留。
+
+构建入口排除 `test` 与 `__tests__`，类型声明复制也排除这两类目录。CI 构建 chat 后运行 `test:chat:package`，验证 ES / ESM 入口代码和类型声明存在，且产物没有测试目录。
 
 ## 演练与验收
 
