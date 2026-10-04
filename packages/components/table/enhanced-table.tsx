@@ -111,7 +111,7 @@ export default defineComponent({
     const scrollToElement = (params: ComponentScrollToElementParams) => {
       let { index } = params;
       if (!index && index !== 0) {
-        if (!params.key) {
+        if (params.key === undefined || params.key === null) {
           log.error('Table', 'scrollToElement: one of `index` or `key` must exist.');
           return;
         }
@@ -119,6 +119,7 @@ export default defineComponent({
         index = getScrollRowIndex(rowStateData, params.key);
         if (index < 0 || index === undefined) {
           log.error('Table', `${params.key} does not exist in data, check \`rowKey\` or \`data\` please.`);
+          return;
         }
       }
       primaryTableRef.value.scrollToElement({ ...params, index });
