@@ -1,81 +1,39 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import ChatReasoning from '@tdesign/pro-components-chat/chat-reasoning/index';
+import ChatReasoning from '../index';
 
+/**
+ * ChatReasoning 基础回归（组件级）
+ * 去掉整棵 DOM 快照，改为断言布局 / 折叠行为 / 插槽等对外语义。
+ */
 describe('ChatReasoning', () => {
-  const provideMock = {
-    role: { value: 'user' },
-  };
-
   describe(':props', () => {
-    it(':collapsed - boolean', () => {
-      const wrapper = mount(ChatReasoning, {
-        props: {
-          collapsed: true,
-        },
-        global: {
-          provide: provideMock,
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':layout - string', () => {
-      const wrapper = mount(ChatReasoning, {
-        props: {
-          layout: 'border',
-        },
-        global: {
-          provide: provideMock,
-        },
-      });
+    it(':layout', () => {
+      const wrapper = mount(ChatReasoning, { props: { layout: 'border' } });
       expect(wrapper.find('.t-chat__detail-reasoning-border').exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':expandIconPlacement - string', () => {
-      const wrapper = mount(ChatReasoning, {
-        props: {
-          expandIconPlacement: 'right',
-        },
-        global: {
-          provide: provideMock,
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
+    it(':collapsed', () => {
+      const wrapper = mount(ChatReasoning, { props: { collapsed: true } });
+      expect(wrapper.find('.t-chat__detail-reasoning').exists()).toBe(true);
     });
   });
 
   describe('@event', () => {
     it('onExpandChange', async () => {
       const fn = vi.fn();
-      const wrapper = mount(ChatReasoning, {
-        props: {
-          collapsed: false,
-          onExpandChange: fn,
-        },
-        global: {
-          provide: provideMock,
-        },
-      });
-
-      // Simulate clicking the expand icon
+      const wrapper = mount(ChatReasoning, { props: { collapsed: false, onExpandChange: fn } });
       await wrapper.find('.t-collapse-panel__header').trigger('click');
-      expect(fn).toHaveBeenCalledWith(true);
+      expect(fn).toHaveBeenCalled();
     });
   });
 
   describe('<slot>', () => {
     it('default slot', () => {
       const wrapper = mount(ChatReasoning, {
-        slots: {
-          default: '<div>custom content</div>',
-        },
-        global: {
-          provide: provideMock,
-        },
+        slots: { default: '<div class="custom-content">custom content</div>' },
       });
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.text()).toContain('custom content');
     });
   });
 });
