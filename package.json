@@ -25,6 +25,7 @@
     "test:vue:update": "pnpm -C packages/tdesign-vue-next/test test:update",
     "test:chat": "vitest run --project chat",
     "test:chat:migration-done": "cross-env CHAT_MIGRATION_DONE=1 pnpm test:chat",
+    "test:chat:package": "node script/check-chat-package.mjs",
     "test:chat:update": "vitest run -u --project chat",
     "build:vue": "pnpm -C internal/builds build:vue-next",
     "dev:chat": "pnpm -C packages/tdesign-vue-next-chat/site dev",

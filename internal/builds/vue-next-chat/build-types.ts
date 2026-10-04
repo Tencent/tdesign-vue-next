@@ -1,4 +1,5 @@
 import { glob } from 'glob';
+import path from 'node:path';
 import { readFile, copy, writeFile, remove } from 'fs-extra';
 import { run, joinPosix, joinWorkspaceRoot, joinTdesignVueNextChatRoot } from '@tdesign/internal-utils';
 
@@ -29,7 +30,14 @@ const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
   const targetDir = joinTdesignVueNextChatRoot(`${target}`);
 
   // should be use correct tsconfig.json to generate correct types
-  await copy(joinPosix(typesRoot, `packages/pro-components/chat`), targetDir);
+  const sourceDir = joinPosix(typesRoot, 'packages/pro-components/chat');
+  await copy(sourceDir, targetDir, {
+    filter: (srcPath) =>
+      !path
+        .relative(sourceDir, srcPath)
+        .split(path.sep)
+        .some((segment) => ['test', '__tests__'].includes(segment)),
+  });
 
   // 2. 替换 @tdesign/common-js 为 tdesign-vue-next/common/js
   const dtsPaths = await glob(`${joinPosix(targetDir, '**/*.d.ts')}`);
