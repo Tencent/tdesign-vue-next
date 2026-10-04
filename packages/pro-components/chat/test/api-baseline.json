@@ -1,0 +1,620 @@
+{
+  "exports": [
+    "ACTIVITY_EVENT_DETAIL_KEY",
+    "ACTIVITY_REGISTERED_EVENT",
+    "AGUIAdapter",
+    "AGUIError",
+    "AGUIEventType",
+    "AGUIMessageSchema",
+    "ActivityDeltaEventSchema",
+    "ActivityManagerImpl",
+    "ActivityRenderer",
+    "ActivitySnapshotEventSchema",
+    "Attachments",
+    "Chat",
+    "ChatAction",
+    "ChatActionbar",
+    "ChatContent",
+    "ChatEngineEventType",
+    "ChatEventBus",
+    "ChatInput",
+    "ChatItem",
+    "ChatList",
+    "ChatLoading",
+    "ChatMarkdown",
+    "ChatMessage",
+    "ChatReasoning",
+    "ChatSearchContent",
+    "ChatSender",
+    "ChatSuggestionContent",
+    "ChatThinking",
+    "Chatbot",
+    "ContextSchema",
+    "CustomEventSchema",
+    "EventSchemas",
+    "FunctionCallSchema",
+    "HistoryMessageSchema",
+    "MarkdownEngine",
+    "MessagesSnapshotEventSchema",
+    "RawEventSchema",
+    "RoleSchema",
+    "RunAgentInputSchema",
+    "RunErrorEventSchema",
+    "RunFinishedEventSchema",
+    "RunStartedEventSchema",
+    "StateDeltaEventSchema",
+    "StateManagerImpl",
+    "StateSchema",
+    "StateSnapshotEventSchema",
+    "StepFinishedEventSchema",
+    "StepStartedEventSchema",
+    "TOOLCALL_EVENT_DETAIL_KEY",
+    "TOOLCALL_REGISTERED_EVENT",
+    "TextMessageChunkEventSchema",
+    "TextMessageContentEventSchema",
+    "TextMessageEndEventSchema",
+    "TextMessageStartEventSchema",
+    "ThinkingEndEventSchema",
+    "ThinkingStartEventSchema",
+    "ThinkingTextMessageContentEventSchema",
+    "ThinkingTextMessageEndEventSchema",
+    "ThinkingTextMessageStartEventSchema",
+    "ToolCallArgsEventSchema",
+    "ToolCallChunkEventSchema",
+    "ToolCallEndEventSchema",
+    "ToolCallRenderer",
+    "ToolCallResultEventSchema",
+    "ToolCallSchema",
+    "ToolCallStartEventSchema",
+    "ToolSchema",
+    "activityManager",
+    "activityRegistry",
+    "agentToolcallRegistry",
+    "applyJsonPatch",
+    "createEventBus",
+    "findTargetElement",
+    "getMessageContentForCopy",
+    "isAIMessage",
+    "isActivityContent",
+    "isActivityEvent",
+    "isAttachmentContent",
+    "isImageContent",
+    "isMarkdownContent",
+    "isNonInteractive",
+    "isNonInteractiveConfig",
+    "isReasoningContent",
+    "isSearchContent",
+    "isStateEvent",
+    "isSuggestionContent",
+    "isTextContent",
+    "isTextMessageEvent",
+    "isThinkingContent",
+    "isThinkingEvent",
+    "isToolCallContent",
+    "isToolCallEvent",
+    "isUserMessage",
+    "safeParseJSON",
+    "stateManager",
+    "useAgentActivity",
+    "useAgentState",
+    "useAgentToolcall",
+    "useChat",
+    "withAgentStateToolcall",
+    "withAgentStateToolcall1"
+  ],
+  "globalComponents": [
+    "t-attachments",
+    "t-chat",
+    "t-chat-action",
+    "t-chat-actionbar",
+    "t-chat-content",
+    "t-chat-input",
+    "t-chat-item",
+    "t-chat-list",
+    "t-chat-loading",
+    "t-chat-markdown",
+    "t-chat-message",
+    "t-chat-reasoning",
+    "t-chat-search-content",
+    "t-chat-sender",
+    "t-chat-suggestion-content",
+    "t-chat-thinking",
+    "t-chatbot"
+  ],
+  "props": {
+    "ChatActionbar": {
+      "actionBar": {
+        "default": ["replay", "copy", "good", "bad", "share"],
+        "required": false,
+        "type": "Array"
+      },
+      "comment": {
+        "default": "",
+        "required": false,
+        "type": "String"
+      },
+      "content": {
+        "default": "",
+        "required": false,
+        "type": "String"
+      },
+      "disabled": {
+        "required": false,
+        "type": "Boolean"
+      },
+      "isBad": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "isGood": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "onActions": {
+        "required": false,
+        "type": "Function"
+      },
+      "onOperation": {
+        "required": false,
+        "type": "Function"
+      },
+      "operationBtn": {
+        "default": ["replay", "copy", "good", "bad", "share"],
+        "required": false,
+        "type": "Array"
+      }
+    },
+    "ChatContent": {
+      "content": {
+        "default": "",
+        "required": false,
+        "type": "[String, Object]"
+      },
+      "markdownProps": {
+        "default": {
+          "engine": "cherry-markdown",
+          "options": {}
+        },
+        "required": false,
+        "type": "Object"
+      },
+      "role": {
+        "required": false,
+        "type": "String"
+      },
+      "status": {
+        "default": "",
+        "required": false,
+        "type": "String"
+      }
+    },
+    "ChatInput": {
+      "autofocus": {
+        "required": false,
+        "type": "Boolean"
+      },
+      "autosize": {
+        "default": {
+          "maxRows": 5,
+          "minRows": 1
+        },
+        "required": false,
+        "type": "[Boolean, Object]"
+      },
+      "defaultValue": {
+        "required": false,
+        "type": "[String, Number]"
+      },
+      "disabled": {
+        "required": false,
+        "type": "Boolean"
+      },
+      "modelValue": {
+        "required": false,
+        "type": "[String, Number]"
+      },
+      "onBlur": {
+        "required": false,
+        "type": "Function"
+      },
+      "onChange": {
+        "required": false,
+        "type": "Function"
+      },
+      "onFocus": {
+        "required": false,
+        "type": "Function"
+      },
+      "onSend": {
+        "required": false,
+        "type": "Function"
+      },
+      "onStop": {
+        "required": false,
+        "type": "Function"
+      },
+      "placeholder": {
+        "default": "",
+        "required": false,
+        "type": "String"
+      },
+      "stopDisabled": {
+        "required": false,
+        "type": "Boolean"
+      },
+      "suffixIcon": {
+        "required": false,
+        "type": "Function"
+      },
+      "value": {
+        "required": false,
+        "type": "[String, Number]"
+      }
+    },
+    "ChatItem": {
+      "actions": {
+        "required": false,
+        "type": "[String, Function]"
+      },
+      "animation": {
+        "default": "skeleton",
+        "required": false,
+        "type": "String"
+      },
+      "avatar": {
+        "required": false,
+        "type": "[String, Object, Function]"
+      },
+      "content": {
+        "required": false,
+        "type": "[String, Function]"
+      },
+      "datetime": {
+        "required": false,
+        "type": "[String, Function]"
+      },
+      "name": {
+        "required": false,
+        "type": "[String, Function]"
+      },
+      "reasoning": {
+        "default": false,
+        "required": false,
+        "type": "[String, Object, Boolean]"
+      },
+      "reasoningLoading": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "role": {
+        "required": false,
+        "type": "String"
+      },
+      "status": {
+        "default": "",
+        "required": false,
+        "type": "String"
+      },
+      "textLoading": {
+        "required": false,
+        "type": "Boolean"
+      },
+      "variant": {
+        "default": "text",
+        "required": false,
+        "type": "String"
+      }
+    },
+    "ChatList": {
+      "actionbar": {
+        "required": false,
+        "type": "Function"
+      },
+      "actions": {
+        "required": false,
+        "type": "Function"
+      },
+      "animation": {
+        "default": "skeleton",
+        "required": false,
+        "type": "String"
+      },
+      "autoScroll": {
+        "default": true,
+        "required": false,
+        "type": "Boolean"
+      },
+      "avatar": {
+        "required": false,
+        "type": "Function"
+      },
+      "clearHistory": {
+        "default": true,
+        "required": false,
+        "type": "Boolean"
+      },
+      "content": {
+        "required": false,
+        "type": "Function"
+      },
+      "data": {
+        "required": false,
+        "type": "Array"
+      },
+      "datetime": {
+        "required": false,
+        "type": "Function"
+      },
+      "defaultScrollTo": {
+        "default": "bottom",
+        "required": false,
+        "type": "String"
+      },
+      "isStreamLoad": {
+        "required": false,
+        "type": "Boolean"
+      },
+      "layout": {
+        "default": "both",
+        "required": false,
+        "type": "String"
+      },
+      "name": {
+        "required": false,
+        "type": "Function"
+      },
+      "onClear": {
+        "required": false,
+        "type": "Function"
+      },
+      "onScroll": {
+        "required": false,
+        "type": "Function"
+      },
+      "reasoning": {
+        "required": false,
+        "type": "Function"
+      },
+      "reverse": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "showScrollButton": {
+        "default": true,
+        "required": false,
+        "type": "Boolean"
+      },
+      "textLoading": {
+        "required": false,
+        "type": "Boolean"
+      }
+    },
+    "ChatMessage": {
+      "allowContentSegmentCustom": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "animation": {
+        "default": "circle",
+        "required": false,
+        "type": "String"
+      },
+      "avatar": {
+        "required": false,
+        "type": "[String, Object, Function]"
+      },
+      "chatContentProps": {
+        "required": false,
+        "type": "Object"
+      },
+      "content": {
+        "required": false,
+        "type": "[Array, Function]"
+      },
+      "datetime": {
+        "required": false,
+        "type": "[String, Function]"
+      },
+      "message": {
+        "required": false,
+        "type": "Object"
+      },
+      "name": {
+        "required": false,
+        "type": "[String, Function]"
+      },
+      "placement": {
+        "default": "left",
+        "required": false,
+        "type": "String"
+      },
+      "role": {
+        "required": false,
+        "type": "String"
+      },
+      "status": {
+        "required": false,
+        "type": "String"
+      },
+      "variant": {
+        "default": "text",
+        "required": false,
+        "type": "String"
+      }
+    },
+    "ChatReasoning": {
+      "collapsePanelProps": {
+        "default": {
+          "destroyOnCollapse": false
+        },
+        "required": false,
+        "type": "Object"
+      },
+      "collapsed": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "defaultCollapsed": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "expandIcon": {
+        "required": false,
+        "type": "Function"
+      },
+      "expandIconPlacement": {
+        "default": "right",
+        "required": false,
+        "type": "String"
+      },
+      "header": {
+        "required": false,
+        "type": "Function"
+      },
+      "headerRightContent": {
+        "required": false,
+        "type": "Function"
+      },
+      "layout": {
+        "default": "block",
+        "required": false,
+        "type": "String"
+      },
+      "modelValue": {
+        "required": false,
+        "type": "Boolean"
+      },
+      "onExpandChange": {
+        "default": "<fn>",
+        "required": false,
+        "type": "Function"
+      }
+    },
+    "ChatSender": {
+      "attachmentsProps": {
+        "default": {
+          "items": [],
+          "overflow": "scrollX"
+        },
+        "required": false,
+        "type": "Object"
+      },
+      "defaultValue": {
+        "required": false,
+        "type": "[String, Number]"
+      },
+      "disabled": {
+        "required": false,
+        "type": "Boolean"
+      },
+      "footerPrefix": {
+        "required": false,
+        "type": "[String, Function]"
+      },
+      "loading": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "modelValue": {
+        "required": false,
+        "type": "[String, Number]"
+      },
+      "onBlur": {
+        "required": false,
+        "type": "Function"
+      },
+      "onChange": {
+        "required": false,
+        "type": "Function"
+      },
+      "onFocus": {
+        "required": false,
+        "type": "Function"
+      },
+      "onSend": {
+        "required": false,
+        "type": "Function"
+      },
+      "onStop": {
+        "required": false,
+        "type": "Function"
+      },
+      "placeholder": {
+        "default": "",
+        "required": false,
+        "type": "String"
+      },
+      "sendBtnDisabled": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "stopDisabled": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "suffix": {
+        "required": false,
+        "type": "[String, Function]"
+      },
+      "textareaProps": {
+        "required": false,
+        "type": "Object"
+      },
+      "value": {
+        "required": false,
+        "type": "[String, Number]"
+      }
+    },
+    "ChatThinking": {
+      "animation": {
+        "default": "moving",
+        "required": false,
+        "type": "String"
+      },
+      "collapsed": {
+        "default": false,
+        "required": false,
+        "type": "Boolean"
+      },
+      "content": {
+        "required": false,
+        "type": "[Object, Function]"
+      },
+      "layout": {
+        "default": "block",
+        "required": false,
+        "type": "String"
+      },
+      "maxHeight": {
+        "required": false,
+        "type": "Number"
+      },
+      "status": {
+        "default": "pending",
+        "required": false,
+        "type": "String"
+      }
+    }
+  },
+  "emits": {
+    "ChatActionbar": ["actions", "operation"],
+    "ChatContent": [],
+    "ChatInput": ["blur", "focus", "send", "stop", "update:modelValue"],
+    "ChatItem": [],
+    "ChatList": ["clear", "scroll"],
+    "ChatMessage": [],
+    "ChatReasoning": ["update:collapsed"],
+    "ChatSender": ["blur", "fileClick", "fileSelect", "focus", "remove", "send", "stop", "update:modelValue"],
+    "ChatThinking": []
+  }
+}

@@ -3,7 +3,7 @@
  *
  * 目标：锁定 chat 组件对外暴露的组件清单、组件名、props（名称/类型/默认值/必填）、emits。
  * 这一层**完全不依赖渲染结果**，只读取组件定义，因此：
- * - 迁移前（webc 桥接）与迁移后（纯 Vue）都应得到完全一致的结果；
+ * - 迁移前（webc 桥接）与迁移后（纯 Vue）既有契约应当保持一致，新增能力允许通过；
  * - 任何 prop 改名、删除、默认值变化、事件变化都会被这里拦截；
  * - 不会因 DOM 结构变化而失败，不会阻塞重构。
  */
@@ -26,6 +26,7 @@ import Attachments from '../attachments';
 import Chatbot from '../chatbot';
 
 import { contractOf, propNamesOf } from '../test/helpers';
+import baseline from '../test/api-baseline.json';
 
 /**
  * 将组件注册名归一为模板标签名（TChatList -> t-chat-list）。
@@ -39,7 +40,7 @@ const toKebabTagName = (name: string) =>
     .toLowerCase();
 
 /** 由 Vue 层实现、props 定义在仓库内的组件 */
-const vueLayerComponents: Array<[string, any]> = [
+const vueLayerComponents: Array<[keyof typeof baseline.props, any]> = [
   ['ChatList', ChatList],
   ['ChatItem', ChatItem],
   ['ChatSender', ChatSender],
@@ -65,7 +66,7 @@ describe('chat :api', () => {
       const exported = Object.keys(ChatEntry)
         .filter((key) => key !== 'default')
         .sort();
-      expect(exported).toMatchSnapshot('exports');
+      expect(exported).toEqual(expect.arrayContaining(baseline.exports));
     });
 
     it('核心组件与工具均被导出', () => {
@@ -133,11 +134,18 @@ describe('chat :api', () => {
 
   describe(':props', () => {
     it.each(vueLayerComponents)('%s props 契约', (name, component) => {
-      expect(contractOf(component).props).toMatchSnapshot(`${name}-props`);
+      const actual = contractOf(component).props;
+      Object.entries(baseline.props[name]).forEach(([prop, expected]: [string, any]) => {
+        expect(actual[prop], `${name}.${prop} 契约发生变化`).toEqual({
+          type: expected.type,
+          default: expected.default,
+          required: expected.required,
+        });
+      });
     });
 
     it.each(vueLayerComponents)('%s emits 契约', (name, component) => {
-      expect(contractOf(component).emits).toMatchSnapshot(`${name}-emits`);
+      expect(contractOf(component).emits).toEqual(expect.arrayContaining(baseline.emits[name]));
     });
 
     it('全局注册名（模板中使用的标签名）保持稳定', () => {
@@ -147,8 +155,7 @@ describe('chat :api', () => {
       const registered = Object.keys((app as any)._context.components || {})
         .map(toKebabTagName)
         .sort();
-      expect(registered).toMatchSnapshot('global-components');
-      app.unmount();
+      expect(registered).toEqual(expect.arrayContaining(baseline.globalComponents));
     });
 
     it.each(bridgedComponents)('%s 为可挂载组件', (name, component) => {

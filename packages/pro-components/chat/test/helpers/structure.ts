@@ -63,21 +63,14 @@ const serializeAttrs = (el: Element) => {
 };
 
 export interface StructureOptions {
-  /**
-   * 跳过自定义元素（标签名含 `-`）及其子树。
-   * webc 桥接期，消息项由 `<t-chat-item>` 之类的自定义元素承载、内容位于 shadow DOM，
-   * 测试环境不可见；迁移为纯 Vue 后这部分 DOM 会真实出现。
-   * 开启该选项可以让「列表容器层」的指纹在迁移前后保持可比。
-   */
-  ignoreCustomElements?: boolean;
+  /** 排除已单独测试的子组件根节点，不依赖其底层标签或实现。 */
+  omitRoots?: Element[];
 }
-
-const isCustomElement = (tag: string) => tag.includes('-');
 
 const serializeNode = (node: Element, depth: number, lines: string[], options: StructureOptions) => {
   const tag = node.tagName.toLowerCase();
 
-  if (options.ignoreCustomElements && isCustomElement(tag)) return;
+  if (options.omitRoots?.includes(node)) return;
 
   // 图标类元素折叠，避免 icon 实现变化带来的噪音
   if (tag === 'svg' || node.classList.contains('t-icon')) {

@@ -10,6 +10,7 @@
 import { describe, expect, it } from 'vitest';
 import { defineComponent } from 'vue';
 import ChatList from '../chat-list';
+import ChatMessage from '../chat-message';
 import ChatItem from '../chat-item';
 import ChatSender from '../chat-sender';
 import ChatActionbar from '../chat-actionbar';
@@ -19,13 +20,21 @@ import { chatItemMetaList, mountChat, structureOf } from '../test/helpers';
 describe('chat :ui', () => {
   it('ChatList 容器层结构指纹', () => {
     const wrapper = mountChat(ChatList, { props: { data: chatItemMetaList } });
-    // 消息项由底层实现承载（当前为 webc 自定义元素 + shadow DOM），容器层指纹与实现解耦
-    expect(structureOf(wrapper.element, { ignoreCustomElements: true })).toMatchSnapshot('chat-list');
+    // 消息项独立验证；按 Vue 组件边界排除，webc 与纯 Vue 使用同一份容器基线
+    expect(
+      structureOf(wrapper.element, {
+        omitRoots: wrapper.findAllComponents(ChatMessage).map((message) => message.element),
+      }),
+    ).toMatchSnapshot('chat-list');
   });
 
   it('ChatList reverse 容器层结构指纹', () => {
     const wrapper = mountChat(ChatList, { props: { data: chatItemMetaList, reverse: true } });
-    expect(structureOf(wrapper.element, { ignoreCustomElements: true })).toMatchSnapshot('chat-list-reverse');
+    expect(
+      structureOf(wrapper.element, {
+        omitRoots: wrapper.findAllComponents(ChatMessage).map((message) => message.element),
+      }),
+    ).toMatchSnapshot('chat-list-reverse');
   });
 
   it('ChatItem 结构指纹（含头像 / 昵称 / 时间）', () => {
@@ -72,7 +81,11 @@ describe('chat :ui', () => {
       },
     });
     const wrapper = mountChat(ChatScene);
-    expect(structureOf(wrapper.element, { ignoreCustomElements: true })).toMatchSnapshot('chat-scene');
+    expect(
+      structureOf(wrapper.element, {
+        omitRoots: wrapper.findAllComponents(ChatMessage).map((message) => message.element),
+      }),
+    ).toMatchSnapshot('chat-scene');
   });
 
   it('公开布局 class 在组合场景中齐全', () => {

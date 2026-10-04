@@ -1,5 +1,5 @@
-import { mount, type MountingOptions } from '@vue/test-utils';
-import type { Component } from 'vue';
+import { mount, flushPromises, type MountingOptions } from '@vue/test-utils';
+import { nextTick, type Component } from 'vue';
 
 /**
  * chat 组件统一挂载入口。
@@ -22,7 +22,8 @@ export const mountChat = <T extends Component>(component: T, options: MountingOp
 /** 等待一个 tick（含微任务 + 可能的异步渲染） */
 export const flush = async (times = 2) => {
   for (let i = 0; i < times; i += 1) {
-    await Promise.resolve();
+    await nextTick();
+    await flushPromises();
   }
 };
 

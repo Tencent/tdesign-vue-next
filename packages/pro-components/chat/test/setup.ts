@@ -1,3 +1,7 @@
+import { enableAutoUnmount } from '@vue/test-utils';
+
+enableAutoUnmount(afterEach);
+
 /**
  * chat 组件测试通用前置环境。
  *
@@ -48,7 +52,7 @@ globalThis.clearTimeout = ((id: any) => {
   pendingTimers.delete(id);
   return nativeClearTimeout(id);
 }) as typeof globalThis.clearTimeout;
-afterAll(() => {
+afterEach(() => {
   pendingTimers.forEach((id) => nativeClearTimeout(id));
   pendingTimers.clear();
 });

@@ -2,7 +2,7 @@ name: MAIN_PULL_REQUEST
 
 on:
   pull_request:
-    branches: [develop, main, compositionAPI]
+    branches: [develop, main, compositionAPI, chore/fix/esm]
     # opened：当 PR 创建时触发
     # synchronize：当 PR 的源分支有新的提交时触发
     # reopened：当关闭的 PR 重新打开时触发
