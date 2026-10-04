@@ -23,13 +23,13 @@ export function getSingleContent(cascaderContext: CascaderContextType): string {
   if (isArray(value)) return '';
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
   if (!(node && node.length)) {
-    return value as string;
+    return String(value);
   }
   const path = node && node[0].getPath();
   if (path && path.length) {
     return showAllLevels ? path.map((node: TreeNode) => node.label).join(' / ') : path.at(-1).label;
   }
-  return value as string;
+  return String(value);
 }
 
 /**
