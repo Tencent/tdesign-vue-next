@@ -120,6 +120,9 @@ jobs:
       # 运行测试
       - run: pnpm run test:vue
 
+      # 运行 chat 组件测试（webc -> vue3 迁移回归网）
+      - run: pnpm run test:chat
+
   build-vue-next:
     # 在最新版本的 Ubuntu 环境中运行
     runs-on: ubuntu-latest
