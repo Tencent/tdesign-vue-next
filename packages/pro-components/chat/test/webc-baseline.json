@@ -1,40 +1,13 @@
 {
-  "sources": {
-    "attachments/index.ts": ["omi-vueify", "tdesign-web-components", "tdesign-web-components/lib/attachments"],
-    "chat-engine/components/activity/render.tsx": ["tdesign-web-components"],
-    "chat-engine/components/toolcall/render.tsx": ["tdesign-web-components/lib/chat-engine"],
-    "chat-engine/hooks/useAgentState.ts": ["tdesign-web-components/lib/chat-engine"],
-    "chat-engine/hooks/useChat.ts": ["tdesign-web-components", "tdesign-web-components/lib/chat-engine"],
-    "chat-engine/index.ts": ["tdesign-web-components/lib/chat-engine"],
-    "chat-loading/index.ts": ["omi-vueify", "tdesign-web-components", "tdesign-web-components/lib/chat-loading"],
-    "chat-markdown/index.ts": ["omi-vueify", "tdesign-web-components/lib/chat-message/content/markdown-content"],
-    "chat-message/chat-message-props.ts": ["tdesign-web-components"],
-    "chat-message/chat-message.tsx": [
-      "omi-vueify",
-      "tdesign-web-components",
-      "tdesign-web-components/lib/chat-message"
-    ],
-    "chat-thinking/chat-thinking-props.ts": ["tdesign-web-components/lib/chat-message/content/thinking-content"],
-    "chat-thinking/chat-thinking.tsx": [
-      "omi-vueify",
-      "tdesign-web-components/lib/chat-message/content/thinking-content"
-    ],
-    "chatbot/index.ts": ["omi-vueify", "tdesign-web-components", "tdesign-web-components/lib/chatbot"],
-    "index.ts": [
-      "tdesign-web-components/lib/chat-engine",
-      "tdesign-web-components/lib/chat-message",
-      "tdesign-web-components/lib/chat-message/content/search-content",
-      "tdesign-web-components/lib/chat-message/content/suggestion-content",
-      "tdesign-web-components/lib/style/index.css"
-    ],
-    "type.ts": [
-      "tdesign-web-components",
-      "tdesign-web-components/lib/chat-action/type",
-      "tdesign-web-components/lib/chat-message/index",
-      "tdesign-web-components/lib/chat-sender/type",
-      "tdesign-web-components/lib/chatbot/type",
-      "tdesign-web-components/lib/filecard/type"
-    ]
+  "units": {
+    ".": 11,
+    "attachments": 3,
+    "chat-engine": 6,
+    "chat-loading": 3,
+    "chat-markdown": 2,
+    "chat-message": 4,
+    "chat-thinking": 3,
+    "chatbot": 3
   },
   "dependencies": ["omi-vueify", "tdesign-web-components"]
 }

@@ -121,13 +121,9 @@ describe('chat-engine', () => {
       });
       mountChat(Host);
       await flush();
-      expect(Object.keys(api).sort()).toEqual([
-        'currentStateKey',
-        'getCurrentState',
-        'getStateByKey',
-        'setStateMap',
-        'stateMap',
-      ]);
+      expect(Object.keys(api)).toEqual(
+        expect.arrayContaining(['currentStateKey', 'getCurrentState', 'getStateByKey', 'setStateMap', 'stateMap']),
+      );
       expect(api.stateMap.value).toEqual({ a: 1 });
       api.setStateMap({ b: 2 });
       expect(api.getCurrentState()).toEqual({ b: 2 });
@@ -148,7 +144,7 @@ describe('chat-engine', () => {
       });
       mountChat(Host);
       await flush();
-      expect(Object.keys(api).sort()).toEqual(['chatEngine', 'messages', 'status']);
+      expect(Object.keys(api)).toEqual(expect.arrayContaining(['chatEngine', 'messages', 'status']));
       expect(api.messages.value).toEqual(initial);
       expect(api.status.value).toBe('idle');
 

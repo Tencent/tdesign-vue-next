@@ -25,7 +25,7 @@ import ChatMarkdown from '../chat-markdown';
 import Attachments from '../attachments';
 import Chatbot from '../chatbot';
 
-import { contractOf, propNamesOf } from '../test/helpers';
+import { acceptsExistingPropTypes, contractOf, propNamesOf } from '../test/helpers';
 import baseline from '../test/api-baseline.json';
 
 /**
@@ -120,7 +120,7 @@ describe('chat :api', () => {
         'Attachments',
       ].forEach((name) => {
         const component = (ChatEntry as any)[name];
-        expect(typeof component, `${name} 不是组件`).toBe('object');
+        expect(['object', 'function'], `${name} 不是组件`).toContain(typeof component);
         expect(typeof component.install, `${name} 缺少 install`).toBe('function');
       });
     });
@@ -136,12 +136,19 @@ describe('chat :api', () => {
     it.each(vueLayerComponents)('%s props 契约', (name, component) => {
       const actual = contractOf(component).props;
       Object.entries(baseline.props[name]).forEach(([prop, expected]: [string, any]) => {
-        expect(actual[prop], `${name}.${prop} 契约发生变化`).toEqual({
-          type: expected.type,
-          default: expected.default,
-          required: expected.required,
-        });
+        const message = `${name}.${prop} 既有契约发生变化`;
+        expect(actual[prop], message).toBeDefined();
+        expect(acceptsExistingPropTypes(actual[prop].type, expected.type), message).toBe(true);
+        expect(actual[prop].default, message).toEqual(expected.default);
+        expect(actual[prop].required && !expected.required, message).toBe(false);
       });
+    });
+
+    it('类型扩展不误报，旧类型缩窄或 Boolean 转换变化仍被拦截', () => {
+      expect(acceptsExistingPropTypes('[String, Number]', 'String')).toBe(true);
+      expect(acceptsExistingPropTypes('[Number, String]', '[String, Number]')).toBe(true);
+      expect(acceptsExistingPropTypes('String', '[String, Number]')).toBe(false);
+      expect(acceptsExistingPropTypes('[String, Boolean]', '[Boolean, String]')).toBe(false);
     });
 
     it.each(vueLayerComponents)('%s emits 契约', (name, component) => {
