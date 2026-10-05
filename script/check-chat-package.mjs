@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import ts from 'typescript';
 
 const packageRoot = fileURLToPath(new URL('../packages/tdesign-vue-next-chat/', import.meta.url));
 const artifacts = ['es', 'esm'];
@@ -17,5 +18,32 @@ for (const artifact of artifacts) {
     }
   };
   walk(root);
+
+  // 不读取根 tsconfig，避免源码 paths alias 掩盖发布声明的兼容性问题。
+  const consumer = fileURLToPath(
+    new URL('../packages/pro-components/chat/test/consumer/public-api.tsx', import.meta.url),
+  );
+  const program = ts.createProgram([consumer], {
+    noEmit: true,
+    strict: true,
+    skipLibCheck: true,
+    target: ts.ScriptTarget.ESNext,
+    module: ts.ModuleKind.ESNext,
+    moduleResolution: ts.ModuleResolutionKind.Bundler,
+    jsx: ts.JsxEmit.Preserve,
+    jsxImportSource: 'vue',
+    types: [],
+    paths: { '@tdesign-vue-next/chat': [path.join(root, 'index.d.ts')] },
+  });
+  const diagnostics = ts.getPreEmitDiagnostics(program);
+  assert.equal(
+    diagnostics.length,
+    0,
+    `${artifact} 公开类型使用方检查失败：\n${ts.formatDiagnosticsWithColorAndContext(diagnostics, {
+      getCanonicalFileName: (file) => file,
+      getCurrentDirectory: () => process.cwd(),
+      getNewLine: () => '\n',
+    })}`,
+  );
 }
-console.info('chat 发布产物检查通过：es / esm 均不包含测试代码或声明');
+console.info('chat 发布产物检查通过：es / esm 无测试文件，公开类型使用方编译通过');

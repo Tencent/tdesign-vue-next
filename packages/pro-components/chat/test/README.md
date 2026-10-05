@@ -8,12 +8,14 @@
 pnpm test:chat                  # 日常回归
 pnpm test:chat:update           # 仅更新 DOM / 方法清单快照，人工审查 diff
 pnpm test:chat:migration-done   # 回归 + 源码及发布包 webc 依赖清零
-pnpm build:chat && pnpm test:chat:package # 发布产物必须排除测试代码与声明
+pnpm build:chat && pnpm test:chat:package # 排除测试文件，并编译公开类型使用方
 
 # 等价替换与破坏性变更演练（串行运行，不要同时运行其他测试或编辑目标源码）
 bash packages/pro-components/chat/test/drill/migration-drill.sh
 bash packages/pro-components/chat/test/drill/migration-drill.sh vue
 bash packages/pro-components/chat/test/drill/migration-drill.sh 7
+bash packages/pro-components/chat/test/drill/migration-drill.sh hooks
+bash packages/pro-components/chat/test/drill/migration-drill.sh types # 先 build:chat
 ```
 
 根 `vitest.config.ts` 注册独立 `chat` project，收集本组件目录中的 `__tests__`。`pull-request.yml` 在 `develop`、`main`、`compositionAPI` 和本 PR 的目标分支 `chore/fix/esm` 上运行 `test:chat`。
@@ -51,6 +53,14 @@ jsdom 缺失的 observer、scrollTo、constructable stylesheet 等能力集中�
 
 构建入口排除 `test` 与 `__tests__`，类型声明复制也排除这两类目录。CI 构建 chat 后运行 `test:chat:package`，验证 ES / ESM 入口代码和类型声明存在，且产物没有测试目录。
 
+### 低维护成本的补充门禁
+
+`test/consumer/public-api.tsx` 只保留少量公开调用示例：Sender 的输入 / 发送回调与双向绑定、List 布局、滚动接口，以及 useChat 的消息类型和方法。`test:chat:package` 分别以 ES / ESM 构建声明为入口编译同一份示例，不加载根 tsconfig 的源码 alias；错误类型示例必须报错，避免声明退化为 `any` 后假通过。编译开启 strict，跳过依赖声明的库内检查；这不是全部公开类型的穷举，也不验证 Vue SFC 模板或独立安装环境。
+
+`chat-engine.test.tsx` 通过 useChat 返回的公开引擎方法验证消息与状态同步、清空恢复 idle、卸载后停止同步，以及新实例正常工作。无需网络、底层 store mock、订阅次数断言或定时等待。原来的两条宽松用例已替换，测试数量不增加。
+
+维护时优先修正这些示例反映的实际使用方回归；新增可选能力不要求扩充基线。不要生成整份声明快照，或把内部引擎类、Shadow DOM 和包装节点作为类型门禁。
+
 ## 演练与验收
 
 演练脚本先确认基线通过，再逐项备份、注入、运行、恢复；退出或收到 INT / TERM 信号时也恢复当前文件。用例未被拦截、测试环境启动失败或恢复后基线失败，脚本都会以非零状态退出。
@@ -62,6 +72,9 @@ jsdom 缺失的 observer、scrollTo、constructable stylesheet 等能力集中�
 | ChatMessage 根节点替换为普通 HTML，保留 props / 正文 / 插槽                                    | 通过                   |
 | 重命名 Sender prop、修改 Actionbar 默认值 / class、删除导出、重命名 Chatbot 方法或 Sender 事件 | 被拦截                 |
 | Chatbot.setMessages 仍暴露为函数，但变为空实现                                                 | 被消息内容行为测试拦截 |
+| useChat 不同步状态 / 卸载未取消订阅                                                           | 被公开状态行为测试拦截 |
+| 发布声明新增可选字段                                                                         | 通过                   |
+| 发布声明删除 Sender 导出、退化为 any、缩窄 List 布局                                           | 被类型使用方门禁拦截   |
 
 演练替身用于验证回归测试能否接受实现替换，不代表生产组件的完整实现或视觉等价。
 

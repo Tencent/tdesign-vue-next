@@ -9,9 +9,11 @@
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh vue # 等价 Vue 替换
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh 7   # 方法空实现
+#   bash packages/pro-components/chat/test/drill/migration-drill.sh hooks # 消息状态与卸载
+#   bash packages/pro-components/chat/test/drill/migration-drill.sh types # 先 build:chat
 #
-# 期望结果：等价 Vue 替换 exit=0，破坏性变更 exit=1，最后基线 exit=0。
-# 若某一项 exit=0，说明回归网存在盲区，需要补用例。
+# 期望结果：兼容替换的测试 exit=0，破坏性变更的测试 exit=1，恢复后基线 exit=0。
+# 全部符合期望时本脚本 exit=0，否则 exit=1。
 # ---------------------------------------------------------------------------
 set -eu
 set -o pipefail
@@ -32,7 +34,14 @@ trap cleanup EXIT
 trap 'exit 130' INT
 trap 'exit 143' TERM
 
-run_tests() { pnpm exec vitest run --project chat > "$LOG" 2>&1; }
+run_tests() {
+  if [ "$MODE" = types ]; then
+    pnpm test:chat:package > "$LOG" 2>&1
+  else
+    pnpm exec vitest run --project chat > "$LOG" 2>&1
+  fi
+}
+MODE="${1:-all}"
 if ! run_tests; then
   cat "$LOG"
   echo "基线失败，无法将环境错误当成破坏被拦截。"
@@ -61,7 +70,7 @@ PY
   echo "[$name] exit=${code}，期望=${expected}"
   if [ "$expected" = pass ]; then
     if [ "$code" -ne 0 ]; then FAILED=1; cat "$LOG"; fi
-  elif [ "$code" -ne 1 ] || ! grep -Eq 'Test Files.*failed' "$LOG"; then
+  elif [ "$code" -ne 1 ] || ! grep -Eq 'Test Files.*failed|公开类型使用方检查失败' "$LOG"; then
     echo "演练无效：未被测试拦截，或测试运行环境失败。"
     FAILED=1
     cat "$LOG"
@@ -119,6 +128,36 @@ new_dependency() {
 export default {"
 }
 
+hook_state() {
+  drill "⑨ useChat 消息更新后未同步状态" \
+    packages/pro-components/chat/chat-engine/hooks/useChat.ts \
+    "status.value = state[state.length - 1]?.status || 'idle';" \
+    "status.value = 'idle';"
+}
+
+hook_cleanup() {
+  drill "⑩ useChat 卸载时未取消订阅" \
+    packages/pro-components/chat/chat-engine/hooks/useChat.ts \
+    'msgSubscribeRef.value();' '/* 故障注入：不取消订阅 */'
+}
+
+public_types() {
+  drill "公开类型新增可选字段" \
+    packages/tdesign-vue-next-chat/es/type.d.ts \
+    'export interface TdChatSenderProps {' \
+    'export interface TdChatSenderProps { migrationOption?: boolean;' pass
+  drill "发布声明删除 ChatSender 导出" \
+    packages/tdesign-vue-next-chat/es/index.d.ts \
+    'export declare const ChatSender:' 'declare const ChatSender:'
+  drill "发布声明将 ChatSender 退化为 any" \
+    packages/tdesign-vue-next-chat/es/index.d.ts \
+    'export declare const ChatSender:' \
+    'export declare const ChatSender: any; declare const OriginalChatSender:'
+  drill "发布声明缩窄公开 layout" \
+    packages/tdesign-vue-next-chat/es/type.d.ts \
+    "layout?: 'both' | 'single';" "layout?: 'single';"
+}
+
 vue_replacements() {
   drill "ChatLoading 等价 Vue 替换" \
     packages/pro-components/chat/chat-loading/index.ts \
@@ -134,15 +173,19 @@ vue_replacements() {
     "$(sed 's#../../chat-message/chat-message-props#./chat-message-props#' "$SCRIPT_DIR/native-chat-message.ts")" pass
 }
 
-case "${1:-all}" in
+case "$MODE" in
   7) no_op ;;
   8) new_dependency ;;
+  9) hook_state ;;
+  10) hook_cleanup ;;
+  hooks) hook_state; hook_cleanup ;;
+  types) public_types ;;
   vue) vue_replacements ;;
-  all) vue_replacements; run_all; no_op; new_dependency ;;
-  *) echo "用法：$0 [all|vue|7|8]"; exit 2 ;;
+  all) vue_replacements; run_all; no_op; new_dependency; hook_state; hook_cleanup ;;
+  *) echo "用法：$0 [all|vue|7|8|9|10|hooks|types]（types 需先 build:chat）"; exit 2 ;;
 esac
 
 if ! run_tests; then cat "$LOG"; exit 1; fi
 echo "源码已还原，基线通过："
-grep -E "^ +Tests +" "$LOG"
+grep -E "^ +Tests +|chat 发布产物检查通过" "$LOG"
 exit "$FAILED"
