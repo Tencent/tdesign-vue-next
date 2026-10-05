@@ -19,6 +19,7 @@ import {
   isToolCallContent,
   useAgentState,
   useChat,
+  type ChatMessagesData,
 } from '../index';
 import { createRegistryManager } from '../chat-engine/components/shared/createRegistry';
 import { flush, mountChat } from '../test/helpers';
@@ -133,13 +134,14 @@ describe('chat-engine', () => {
       expect(api.getStateByKey('b')).toBe(2);
     });
 
-    it('useChat 返回 chatEngine / messages / status', async () => {
-      let api: any;
+    it('useChat 同步初始消息、引擎更新与清空后的状态', async () => {
+      let api: ReturnType<typeof useChat>;
+      const initial: ChatMessagesData[] = [{ id: '1', role: 'user', content: [{ type: 'text', data: 'hi' }] }];
       const Host = defineComponent({
         setup() {
           api = useChat({
-            defaultMessages: [{ id: '1', role: 'user', content: [{ type: 'text', data: 'hi' }] }] as any,
-            chatServiceConfig: { endpoint: 'https://example.com/chat' } as any,
+            defaultMessages: initial,
+            chatServiceConfig: { endpoint: '/chat' },
           });
           return () => h('div');
         },
@@ -147,21 +149,56 @@ describe('chat-engine', () => {
       mountChat(Host);
       await flush();
       expect(Object.keys(api).sort()).toEqual(['chatEngine', 'messages', 'status']);
-      expect(Array.isArray(api.messages.value)).toBe(true);
-      expect(api.messages.value).toHaveLength(1);
-      expect(['idle', 'pending', 'complete', 'error', 'stop']).toContain(api.status.value);
+      expect(api.messages.value).toEqual(initial);
+      expect(api.status.value).toBe('idle');
+
+      const updated: ChatMessagesData[] = [
+        { id: '2', role: 'assistant', status: 'complete', content: [{ type: 'text', data: '回答' }] },
+      ];
+      api.chatEngine.value.setMessages(updated, 'replace');
+      await flush();
+      expect(api.messages.value).toEqual(updated);
+      expect(api.status.value).toBe('complete');
+
+      api.chatEngine.value.clearMessages();
+      await flush();
+      expect(api.messages.value).toEqual([]);
+      expect(api.status.value).toBe('idle');
     });
 
-    it('useChat 在卸载后释放订阅不抛错', async () => {
+    it('useChat 卸载后不再同步引擎消息；重新挂载的实例独立工作', async () => {
+      const instances: ReturnType<typeof useChat>[] = [];
       const Host = defineComponent({
         setup() {
-          useChat({ defaultMessages: [] as any, chatServiceConfig: { endpoint: '' } as any });
+          instances.push(useChat({ defaultMessages: [], chatServiceConfig: { endpoint: '/chat' } }));
           return () => h('div');
         },
       });
       const wrapper = mountChat(Host);
       await flush();
-      expect(() => wrapper.unmount()).not.toThrow();
+      const first = instances[0];
+      const firstEngine = first.chatEngine.value;
+      const update: ChatMessagesData[] = [
+        { id: 'answer', role: 'assistant', status: 'complete', content: [{ type: 'text', data: '回答' }] },
+      ];
+      firstEngine.setMessages(update, 'replace');
+      await flush();
+      expect(first.messages.value).toEqual(update);
+      wrapper.unmount();
+
+      mountChat(Host);
+      await flush();
+      const second = instances[1];
+      expect(second.messages.value).toEqual([]);
+      expect(second.status.value).toBe('idle');
+      second.chatEngine.value.setMessages(update, 'replace');
+      firstEngine.clearMessages();
+      await flush();
+
+      expect(first.messages.value).toEqual(update);
+      expect(first.status.value).toBe('complete');
+      expect(second.messages.value).toEqual(update);
+      expect(second.status.value).toBe('complete');
     });
   });
 

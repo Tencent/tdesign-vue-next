@@ -181,7 +181,7 @@ jobs:
       - name: Build
         run: pnpm run build:chat
 
-      - name: Check chat package excludes tests
+      - name: Check chat package and public types
         run: pnpm run test:chat:package
 
       - run: pnpm -F @tdesign-vue-next/chat publish --no-git-checks --dry-run
