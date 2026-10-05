@@ -10,6 +10,7 @@
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh vue # 等价 Vue 替换
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh 7   # 方法空实现
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh hooks # 消息状态与实例隔离
+#   bash packages/pro-components/chat/test/drill/migration-drill.sh compatible # 不应误拦的兼容变更
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh types # 先 build:chat
 #
 # 期望结果：兼容替换的测试 exit=0，破坏性变更的测试 exit=1，恢复后基线 exit=0。
@@ -25,9 +26,11 @@ LOG="$BACKUP_DIR/run.log"
 
 cd "$REPO_ROOT" || exit 1
 ACTIVE_FILE=""
+ACTIVE_EXTRA_FILE=""
 FAILED=0
 cleanup() {
   if [ -n "$ACTIVE_FILE" ]; then cp "$BACKUP_DIR/backup" "$ACTIVE_FILE"; fi
+  if [ -n "$ACTIVE_EXTRA_FILE" ]; then rm -f "$ACTIVE_EXTRA_FILE"; fi
   rm -rf "$BACKUP_DIR"
 }
 trap cleanup EXIT
@@ -174,6 +177,37 @@ vue_replacements() {
     "$(sed 's#../../chat-message/chat-message-props#./chat-message-props#' "$SCRIPT_DIR/native-chat-message.ts")" pass
 }
 
+compatibility_changes() {
+  drill "运行时 String 类型扩展为 String / Number，旧调用不变" \
+    packages/pro-components/chat/chat-sender/chat-sender-props.ts \
+    "type: String,
+    default: ''," \
+    "type: [String, Number] as PropType<TdChatSenderProps['placeholder']>,
+    default: ''," pass
+  drill "useChat 新增返回字段" \
+    packages/pro-components/chat/chat-engine/hooks/useChat.ts \
+    'chatEngine: chatEngineRef,' 'migrationReady: true, chatEngine: chatEngineRef,' pass
+  drill "操作栏增加包装层，保留按钮及公开容器 class" \
+    packages/pro-components/chat/chat-actionbar/chat-actionbar.tsx \
+    'return buttonComponents[btnKey];' "return <div style={{ display: 'contents' }}>{buttonComponents[btnKey]}</div>;" pass
+
+  local source=packages/pro-components/chat/chat-loading/index.ts
+  local target=packages/pro-components/chat/chat-loading/compatibility-drill.vue
+  if [ -e "$target" ]; then echo "演练文件已存在，不能覆盖：$target"; exit 3; fi
+  ACTIVE_EXTRA_FILE="$target"
+  python3 - "$source" "$target" <<'PY'
+import sys
+from pathlib import Path
+source, target = map(Path, sys.argv[1:])
+target.write_text('<script lang="ts">\n' + source.read_text() + '\n</script>\n')
+PY
+  drill "同一组件内将桥接引用从 TS 搬到 Vue SFC，预算不增" \
+    "$source" "$(cat "$source")" \
+    "export { default, ChatLoading } from './compatibility-drill.vue';" pass
+  rm -f "$target"
+  ACTIVE_EXTRA_FILE=""
+}
+
 case "$MODE" in
   7) no_op ;;
   8) new_dependency ;;
@@ -181,9 +215,10 @@ case "$MODE" in
   10) hook_isolation ;;
   hooks) hook_state; hook_isolation ;;
   types) public_types ;;
+  compatible) compatibility_changes ;;
   vue) vue_replacements ;;
-  all) vue_replacements; run_all; no_op; new_dependency; hook_state; hook_isolation ;;
-  *) echo "用法：$0 [all|vue|7|8|9|10|hooks|types]（types 需先 build:chat）"; exit 2 ;;
+  all) vue_replacements; compatibility_changes; run_all; no_op; new_dependency; hook_state; hook_isolation ;;
+  *) echo "用法：$0 [all|vue|compatible|7|8|9|10|hooks|types]（types 需先 build:chat）"; exit 2 ;;
 esac
 
 if ! run_tests; then cat "$LOG"; exit 1; fi

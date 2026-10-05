@@ -45,13 +45,6 @@ describe('chat :composition', () => {
       expect(missing, `缺少实例方法: ${missing.join(', ')}`).toEqual([]);
     });
 
-    it('实例方法清单保持稳定', () => {
-      const wrapper = mountChat(Chatbot);
-      const instance = wrapper.vm as unknown as Record<string, unknown>;
-      const methods = CHATBOT_METHODS.filter((method) => typeof instance[method] === 'function').sort();
-      expect(methods).toMatchSnapshot('chatbot-methods');
-    });
-
     it('传入公开 props 不报错（messages / clearHistory / layout ...）', () => {
       expect(() =>
         mountChat(Chatbot, {

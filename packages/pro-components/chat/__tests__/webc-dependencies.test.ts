@@ -2,9 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import baseline from '../test/webc-baseline.json';
-import { isWebcModule, webcModules } from '../test/helpers/webc';
+import { exceededWebcBudget, isWebcModule, webcModules } from '../test/helpers/webc';
 
-const sourceBaseline: Record<string, string[]> = baseline.sources;
 const chatRoot = path.resolve(__dirname, '..');
 const chatPackage = path.resolve(__dirname, '../../../tdesign-vue-next-chat/package.json');
 
@@ -33,11 +32,15 @@ const packageReferences = (): string[] => {
 };
 
 describe('webc 依赖收敛', () => {
-  it('源码不得新增 webc 模块引用，允许迁移中删除引用', () => {
-    const added = Object.entries(sourceReferences()).flatMap(([file, modules]) =>
-      modules.filter((module) => !sourceBaseline[file]?.includes(module)).map((module) => `${file}: ${module}`),
+  it('组件内允许搬迁引用，但引用预算不得增长或引入新的 webc 包', () => {
+    const references = sourceReferences();
+    const added = Object.entries(references).flatMap(([file, modules]) =>
+      modules
+        .filter((module) => !baseline.dependencies.some((pkg) => module === pkg || module.startsWith(`${pkg}/`)))
+        .map((module) => `${file}: ${module}`),
     );
-    expect(added, '新增 webc 依赖；迁移过程只允许收缩基线').toEqual([]);
+    expect(added, '源码引用了新的 webc 包').toEqual([]);
+    expect(exceededWebcBudget(references, baseline.units), '组件 webc 引用预算增长').toEqual([]);
   });
 
   it('发布包不得新增 webc 依赖', () => {

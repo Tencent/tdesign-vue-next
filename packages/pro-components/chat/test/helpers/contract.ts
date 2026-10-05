@@ -29,6 +29,24 @@ const typeName = (type: any): string => {
   return String(type);
 };
 
+/** 保留原有运行时类型成员，允许扩展；Boolean 的转换顺序必须保持。 */
+export const acceptsExistingPropTypes = (actual: string, previous: string): boolean => {
+  const members = (type: string) =>
+    type
+      .replace(/^\[|\]$/g, '')
+      .split(',')
+      .map((name) => name.trim());
+  const before = members(previous);
+  const after = members(actual);
+  if (before.includes('Boolean') || after.includes('Boolean')) {
+    if (before.includes('Boolean') !== after.includes('Boolean')) return false;
+    const castsString = (types: string[]) =>
+      !types.includes('String') || types.indexOf('Boolean') < types.indexOf('String');
+    if (castsString(before) !== castsString(after)) return false;
+  }
+  return actual === 'null' || before.every((type) => after.includes(type));
+};
+
 const normalizeDefault = (prop: AnyRecord): unknown => {
   if (!('default' in prop)) return undefined;
   const def = prop.default;
