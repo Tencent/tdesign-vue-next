@@ -57,7 +57,7 @@ jsdom 缺失的 observer、scrollTo、constructable stylesheet 等能力集中�
 
 `test/consumer/public-api.tsx` 只保留少量公开调用示例：Sender 的输入 / 发送回调与双向绑定、List 布局、滚动接口，以及 useChat 的消息类型和方法。`test:chat:package` 分别以 ES / ESM 构建声明为入口编译同一份示例，不加载根 tsconfig 的源码 alias；错误类型示例必须报错，避免声明退化为 `any` 后假通过。编译开启 strict，跳过依赖声明的库内检查；这不是全部公开类型的穷举，也不验证 Vue SFC 模板或独立安装环境。
 
-`chat-engine.test.tsx` 通过 useChat 返回的公开引擎方法验证消息与状态同步、清空恢复 idle、卸载后停止同步，以及新实例正常工作。无需网络、底层 store mock、订阅次数断言或定时等待。原来的两条宽松用例已替换，测试数量不增加。
+`chat-engine.test.tsx` 通过 useChat 返回的公开引擎方法验证消息与状态同步、清空恢复 idle、多实例消息隔离，以及卸载一个实例后其他实例继续工作。不要求已卸载实例保留状态或引擎仍然可调用，允许未来实现清空 / 销毁资源。无需网络、底层 store mock、订阅次数断言或定时等待。原来的两条宽松用例已替换，测试数量不增加。
 
 维护时优先修正这些示例反映的实际使用方回归；新增可选能力不要求扩充基线。不要生成整份声明快照，或把内部引擎类、Shadow DOM 和包装节点作为类型门禁。
 
@@ -72,7 +72,7 @@ jsdom 缺失的 observer、scrollTo、constructable stylesheet 等能力集中�
 | ChatMessage 根节点替换为普通 HTML，保留 props / 正文 / 插槽                                    | 通过                   |
 | 重命名 Sender prop、修改 Actionbar 默认值 / class、删除导出、重命名 Chatbot 方法或 Sender 事件 | 被拦截                 |
 | Chatbot.setMessages 仍暴露为函数，但变为空实现                                                 | 被消息内容行为测试拦截 |
-| useChat 不同步状态 / 卸载未取消订阅                                                           | 被公开状态行为测试拦截 |
+| useChat 不同步状态 / 多实例误用同一个引擎                                                     | 被公开状态行为测试拦截 |
 | 发布声明新增可选字段                                                                         | 通过                   |
 | 发布声明删除 Sender 导出、退化为 any、缩窄 List 布局                                           | 被类型使用方门禁拦截   |
 

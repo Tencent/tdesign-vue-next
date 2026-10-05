@@ -166,7 +166,7 @@ describe('chat-engine', () => {
       expect(api.status.value).toBe('idle');
     });
 
-    it('useChat 卸载后不再同步引擎消息；重新挂载的实例独立工作', async () => {
+    it('useChat 多实例消息隔离；卸载一个实例不影响其他实例', async () => {
       const instances: ReturnType<typeof useChat>[] = [];
       const Host = defineComponent({
         setup() {
@@ -175,30 +175,33 @@ describe('chat-engine', () => {
         },
       });
       const wrapper = mountChat(Host);
+      mountChat(Host);
       await flush();
       const first = instances[0];
-      const firstEngine = first.chatEngine.value;
+      const second = instances[1];
       const update: ChatMessagesData[] = [
         { id: 'answer', role: 'assistant', status: 'complete', content: [{ type: 'text', data: '回答' }] },
       ];
-      firstEngine.setMessages(update, 'replace');
+      first.chatEngine.value.setMessages(update, 'replace');
       await flush();
       expect(first.messages.value).toEqual(update);
-      wrapper.unmount();
-
-      mountChat(Host);
-      await flush();
-      const second = instances[1];
       expect(second.messages.value).toEqual([]);
       expect(second.status.value).toBe('idle');
-      second.chatEngine.value.setMessages(update, 'replace');
-      firstEngine.clearMessages();
+      const other: ChatMessagesData[] = [
+        { id: 'other', role: 'assistant', status: 'pending', content: [{ type: 'text', data: '另一个回答' }] },
+      ];
+      second.chatEngine.value.setMessages(other, 'replace');
       await flush();
-
       expect(first.messages.value).toEqual(update);
       expect(first.status.value).toBe('complete');
-      expect(second.messages.value).toEqual(update);
-      expect(second.status.value).toBe('complete');
+      expect(second.messages.value).toEqual(other);
+      expect(second.status.value).toBe('pending');
+
+      wrapper.unmount();
+      second.chatEngine.value.clearMessages();
+      await flush();
+      expect(second.messages.value).toEqual([]);
+      expect(second.status.value).toBe('idle');
     });
   });
 

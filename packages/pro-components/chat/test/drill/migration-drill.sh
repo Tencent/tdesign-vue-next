@@ -9,7 +9,7 @@
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh vue # 等价 Vue 替换
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh 7   # 方法空实现
-#   bash packages/pro-components/chat/test/drill/migration-drill.sh hooks # 消息状态与卸载
+#   bash packages/pro-components/chat/test/drill/migration-drill.sh hooks # 消息状态与实例隔离
 #   bash packages/pro-components/chat/test/drill/migration-drill.sh types # 先 build:chat
 #
 # 期望结果：兼容替换的测试 exit=0，破坏性变更的测试 exit=1，恢复后基线 exit=0。
@@ -135,10 +135,11 @@ hook_state() {
     "status.value = 'idle';"
 }
 
-hook_cleanup() {
-  drill "⑩ useChat 卸载时未取消订阅" \
+hook_isolation() {
+  drill "⑩ useChat 所有实例误用同一个引擎" \
     packages/pro-components/chat/chat-engine/hooks/useChat.ts \
-    'msgSubscribeRef.value();' '/* 故障注入：不取消订阅 */'
+    'chatEngineRef.value = new ChatEngine();' \
+    'chatEngineRef.value = ((window as any).__chatDrillEngine ||= new ChatEngine());'
 }
 
 public_types() {
@@ -177,11 +178,11 @@ case "$MODE" in
   7) no_op ;;
   8) new_dependency ;;
   9) hook_state ;;
-  10) hook_cleanup ;;
-  hooks) hook_state; hook_cleanup ;;
+  10) hook_isolation ;;
+  hooks) hook_state; hook_isolation ;;
   types) public_types ;;
   vue) vue_replacements ;;
-  all) vue_replacements; run_all; no_op; new_dependency; hook_state; hook_cleanup ;;
+  all) vue_replacements; run_all; no_op; new_dependency; hook_state; hook_isolation ;;
   *) echo "用法：$0 [all|vue|7|8|9|10|hooks|types]（types 需先 build:chat）"; exit 2 ;;
 esac
 
