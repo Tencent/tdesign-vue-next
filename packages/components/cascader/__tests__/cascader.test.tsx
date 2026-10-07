@@ -70,6 +70,16 @@ describe('Cascader', () => {
   });
 
   describe('props', () => {
+    it.each([0, 1596595651])('renders missing numeric value %i as text without a placeholder type warning', (value) => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const wrapper = renderCascader({ value, popupVisible: true });
+
+      expect(getSelectInput(wrapper).props('value')).toBe(String(value));
+      expect(getSelectInput(wrapper).props('placeholder')).toBe(String(value));
+      expect(wrapper.find('input').attributes('placeholder')).toBe(String(value));
+      expect(warn.mock.calls.some((args) => String(args[0]).includes('Invalid prop'))).toBe(false);
+    });
+
     it('renders the single-select root', () => {
       const wrapper = renderCascader();
 
