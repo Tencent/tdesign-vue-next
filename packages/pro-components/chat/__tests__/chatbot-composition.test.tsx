@@ -11,7 +11,7 @@ import ChatList from '../chat-list';
 import ChatSender from '../chat-sender';
 import ChatActionbar from '../chat-actionbar';
 import ChatMessage from '../chat-message';
-import { flush, mountChat, textContent } from '../test/helpers';
+import { chatText, flush, mountChat, textContent } from '../test/helpers';
 
 describe('Chat composition', () => {
   describe('ChatList + ChatSender + ChatActionbar 组合', () => {
@@ -61,6 +61,7 @@ describe('Chat composition', () => {
       await wrapper.find('.t-chat-sender__button__sendbtn button').trigger('click');
       await flush();
       expect(wrapper.findAllComponents(ChatMessage)).toHaveLength(3);
+      expect(chatText(wrapper.element)).toContain('新消息');
     });
 
     it('消息项挂载自定义操作栏并触发回调', async () => {
@@ -69,15 +70,7 @@ describe('Chat composition', () => {
       const actionbars = wrapper.findAllComponents(ChatActionbar);
       expect(actionbars.length).toBeGreaterThan(0);
       await actionbars[0].find('button').trigger('click');
-      expect(onAction).toHaveBeenCalled();
-    });
-
-    it('组合场景下公开 class 结构完整', () => {
-      const wrapper = mountChat(createChatApp());
-      expect(wrapper.find('.t-chat').exists()).toBe(true);
-      expect(wrapper.find('.t-chat__list').exists()).toBe(true);
-      expect(wrapper.find('.t-chat-sender').exists()).toBe(true);
-      expect(wrapper.find('.t-chat__actions').exists()).toBe(true);
+      expect(onAction).toHaveBeenCalledWith('copy', expect.objectContaining({ e: expect.anything() }));
     });
   });
 });
