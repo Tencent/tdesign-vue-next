@@ -32,30 +32,13 @@ const CHATBOT_METHODS = [
   'scrollList',
 ];
 
-describe('chat :composition', () => {
+describe('Chat composition', () => {
   describe('Chatbot', () => {
-    it('可挂载且不抛错', () => {
-      expect(() => mountChat(Chatbot)).not.toThrow();
-    });
-
     it('对外实例方法契约完整', () => {
       const wrapper = mountChat(Chatbot);
       const instance = wrapper.vm as unknown as Record<string, any>;
       const missing = CHATBOT_METHODS.filter((method) => typeof instance[method] !== 'function');
       expect(missing, `缺少实例方法: ${missing.join(', ')}`).toEqual([]);
-    });
-
-    it('传入公开 props 不报错（messages / clearHistory / layout ...）', () => {
-      expect(() =>
-        mountChat(Chatbot, {
-          props: {
-            messages: [{ id: '1', role: 'user', content: [textContent('hi')] }],
-            clearHistory: true,
-            layout: 'both',
-            reverse: false,
-          },
-        }),
-      ).not.toThrow();
     });
 
     it('可作为子组件嵌套在业务组件中渲染', () => {

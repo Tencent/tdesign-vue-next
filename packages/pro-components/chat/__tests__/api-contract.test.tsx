@@ -60,8 +60,8 @@ const bridgedComponents: Array<[string, any]> = [
   ['Attachments', Attachments],
 ];
 
-describe('chat :api', () => {
-  describe(':exports', () => {
+describe('Chat public API', () => {
+  describe('exports', () => {
     it('对外导出清单保持稳定', () => {
       const exported = Object.keys(ChatEntry)
         .filter((key) => key !== 'default')
@@ -132,7 +132,7 @@ describe('chat :api', () => {
     });
   });
 
-  describe(':props', () => {
+  describe('props', () => {
     it.each(vueLayerComponents)('%s props 契约', (name, component) => {
       const actual = contractOf(component).props;
       Object.entries(baseline.props[name]).forEach(([prop, expected]: [string, any]) => {
@@ -171,7 +171,7 @@ describe('chat :api', () => {
     });
   });
 
-  describe(':backward-compat', () => {
+  describe('legacy props', () => {
     it('Chat 与 ChatList 指向同一实现，ChatAction 与 ChatActionbar 指向同一实现', () => {
       expect(ChatEntry.Chat).toBe(ChatEntry.ChatList);
       expect(ChatEntry.ChatAction).toBe(ChatEntry.ChatActionbar);

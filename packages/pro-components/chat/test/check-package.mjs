@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
-const packageRoot = fileURLToPath(new URL('../packages/tdesign-vue-next-chat/', import.meta.url));
+const packageRoot = fileURLToPath(new URL('../../../tdesign-vue-next-chat/', import.meta.url));
 const artifacts = ['es', 'esm'];
 for (const artifact of artifacts) {
   const root = path.join(packageRoot, artifact);
@@ -20,9 +20,7 @@ for (const artifact of artifacts) {
   walk(root);
 
   // 不读取根 tsconfig，避免源码 paths alias 掩盖发布声明的兼容性问题。
-  const consumer = fileURLToPath(
-    new URL('../packages/pro-components/chat/test/consumer/public-api.tsx', import.meta.url),
-  );
+  const consumer = fileURLToPath(new URL('./consumer/public-api.tsx', import.meta.url));
   const program = ts.createProgram([consumer], {
     noEmit: true,
     strict: true,

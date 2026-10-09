@@ -10,7 +10,7 @@ import ChatReasoning from '../chat-reasoning';
 import { flush, mountChat } from '../test/helpers';
 
 describe('ChatReasoning', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it('渲染思维链容器', () => {
       const wrapper = mountChat(ChatReasoning);
       expect(wrapper.find('.t-chat__detail-reasoning').exists()).toBe(true);
@@ -51,7 +51,7 @@ describe('ChatReasoning', () => {
     });
   });
 
-  describe('@event', () => {
+  describe('events', () => {
     it('展开/收起触发 update:collapsed 与 onExpandChange', async () => {
       const onExpandChange = vi.fn();
       const wrapper = mountChat(ChatReasoning, { props: { collapsed: false, onExpandChange } });
@@ -69,7 +69,7 @@ describe('ChatReasoning', () => {
     });
   });
 
-  describe('<slot>', () => {
+  describe('slots', () => {
     it('header 插槽渲染', () => {
       const wrapper = mountChat(ChatReasoning, {
         slots: { header: '<div class="slot-header">已深度思考</div>' },

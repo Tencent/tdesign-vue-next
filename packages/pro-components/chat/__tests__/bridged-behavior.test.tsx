@@ -7,7 +7,7 @@ import Attachments from '../attachments';
 import { chatText, findInChat, flush, mountChat, textContent } from '../test/helpers';
 
 // 观察对外结果，不访问 custom element、Omi 实例或 chatEngine 私有状态。
-describe('桥接组件公开行为', () => {
+describe('Chat integrated components', () => {
   it('ChatLoading 默认动画保持当前运行时 moving 行为', async () => {
     const wrapper = mountChat(ChatLoading);
     await flush();

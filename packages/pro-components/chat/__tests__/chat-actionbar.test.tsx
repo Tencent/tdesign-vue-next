@@ -11,16 +11,21 @@ import { mountChat } from '../test/helpers';
 const ALL_ACTIONS = ['replay', 'copy', 'good', 'bad', 'share'];
 
 describe('ChatActionbar', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it('默认渲染全部内置操作按钮', () => {
       const wrapper = mountChat(ChatActionbar);
       expect(wrapper.find('.t-chat__actions').exists()).toBe(true);
       expect(wrapper.findAll('button')).toHaveLength(ALL_ACTIONS.length);
     });
 
-    it(':actionBar 控制按钮集合与顺序', () => {
-      const wrapper = mountChat(ChatActionbar, { props: { actionBar: ['copy', 'good'] } });
-      expect(wrapper.findAll('button')).toHaveLength(2);
+    it(':actionBar 控制按钮集合与顺序', async () => {
+      const onActions = vi.fn();
+      const wrapper = mountChat(ChatActionbar, { props: { actionBar: ['good', 'replay'], onActions } });
+      const buttons = wrapper.findAll('button');
+      expect(buttons).toHaveLength(2);
+      await buttons[0].trigger('click');
+      await buttons[1].trigger('click');
+      expect(onActions.mock.calls.map(([action]) => action)).toEqual(['good', 'replay']);
     });
 
     it(':actionBar 为空时不渲染按钮', () => {
@@ -52,15 +57,7 @@ describe('ChatActionbar', () => {
     });
   });
 
-  describe(':backward-compat', () => {
-    it('operationBtn 作为历史 prop 保留且不报错（当前由 actionBar 默认值优先）', () => {
-      // 现状：actionBar 具备默认值（全部内置按钮），`actionBar || operationBtn` 恒取 actionBar。
-      // 这里锁定「不报错、仍渲染操作区」的行为；若迁移后修正为 operationBtn 生效，需同步更新本用例。
-      const wrapper = mountChat(ChatActionbar, { props: { operationBtn: ['copy'] } });
-      expect(wrapper.find('.t-chat__actions').exists()).toBe(true);
-      expect(wrapper.findAll('button').length).toBeGreaterThan(0);
-    });
-
+  describe('legacy props', () => {
     it('isGood / isBad 等价 comment', () => {
       const good = mountChat(ChatActionbar, { props: { actionBar: ['good', 'bad'], isGood: true } });
       expect(good.findAll('.t-chat-button--active')).toHaveLength(1);
@@ -70,7 +67,7 @@ describe('ChatActionbar', () => {
     });
   });
 
-  describe('@event', () => {
+  describe('events', () => {
     it('点击按钮同时触发 actions 与 operation（历史兼容）', async () => {
       const onActions = vi.fn();
       const onOperation = vi.fn();

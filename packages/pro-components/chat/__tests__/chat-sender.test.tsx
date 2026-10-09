@@ -11,7 +11,7 @@ import { flush, mountChat } from '../test/helpers';
 const SEND_BTN = '.t-chat-sender__button__sendbtn button';
 
 describe('ChatSender', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it('渲染完整输入区结构', () => {
       const wrapper = mountChat(ChatSender);
       expect(wrapper.find('.t-chat-sender').exists()).toBe(true);
@@ -68,7 +68,7 @@ describe('ChatSender', () => {
     });
   });
 
-  describe('@event', () => {
+  describe('events', () => {
     it('点击发送按钮触发 send，回传输入值', async () => {
       const onSend = vi.fn();
       const wrapper = mountChat(ChatSender, { props: { defaultValue: '你好', onSend } });
@@ -131,7 +131,7 @@ describe('ChatSender', () => {
     });
   });
 
-  describe('<slot>', () => {
+  describe('slots', () => {
     it('header / inner-header / footer-prefix / input-prefix 插槽均渲染', () => {
       const wrapper = mountChat(ChatSender, {
         slots: {
