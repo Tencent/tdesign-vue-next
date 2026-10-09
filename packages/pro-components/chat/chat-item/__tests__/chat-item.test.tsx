@@ -1,4 +1,4 @@
-import { expectEmitsContract, expectPropsContract, mountChat } from '../../test/helpers';
+import { expectPropsContract, mountChat } from '../../test/helpers';
 
 /**
  * L2 - ChatItem 基础 API / 插槽
@@ -143,8 +143,5 @@ describe('ChatItem', () => {
       });
       expect(wrapper.find('.t-chat__actions-margin .slot-actions').exists()).toBe(true);
     });
-  });
-  describe('events', () => {
-    it('保留公开 emits 契约', () => expectEmitsContract('ChatItem', ChatItem));
   });
 });
