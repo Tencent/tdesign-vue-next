@@ -245,7 +245,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       decimalPlaces,
       largeNumber,
     });
-    userInput.value = getUserInput(newValue);
+    userInput.value = getUserInput(value === '' ? tValue.value : newValue);
 
     if (newValue !== tValue.value) {
       setTValue(newValue, { type: 'blur', e: ctx.e });

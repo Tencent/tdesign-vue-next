@@ -439,6 +439,42 @@ describe('Slider', () => {
   });
 
   describe('scenarios', () => {
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5832
+    it.each([0, 50])('restores slider value %i after empty input on blur', async (value) => {
+      const onChange = vi.fn();
+      const onBlur = vi.fn();
+      const wrapper = mount(<Slider defaultValue={value} inputNumberProps={{ onBlur }} onChange={onChange} />);
+      await nextTick();
+      const input = wrapper.find('input');
+      await input.trigger('focus');
+      await input.setValue('');
+      await input.trigger('blur');
+      expect((input.element as HTMLInputElement).value).toBe(String(value));
+      expect(onBlur).toHaveBeenCalledExactlyOnceWith(undefined, { e: expect.any(FocusEvent) });
+      expect(onChange).not.toHaveBeenCalled();
+      wrapper.unmount();
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5832
+    it.each([
+      [0, 50],
+      [50, 50],
+    ])('restores each range input after empty input on blur (%i, %i)', async (first, second) => {
+      const values = [first, second];
+      const onChange = vi.fn();
+      const wrapper = mount(<Slider range modelValue={values} inputNumberProps onChange={onChange} />);
+      await nextTick();
+      const inputs = wrapper.findAll('input');
+      for (const input of inputs) {
+        await input.trigger('focus');
+        await input.setValue('');
+        await input.trigger('blur');
+        expect(inputs.map(({ element }) => (element as HTMLInputElement).value)).toEqual(values.map(String));
+      }
+      expect(onChange).not.toHaveBeenCalled();
+      wrapper.unmount();
+    });
+
     describe('showStep with step', () => {
       it.each([1, 2, 5, 10, 20, 25, 50, 100])('renders the expected tick count when step is %i', async (step) => {
         const wrapper = mount(<Slider showStep step={step} />);
