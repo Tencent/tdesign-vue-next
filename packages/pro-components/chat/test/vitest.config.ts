@@ -55,7 +55,7 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   test: {
     name: 'chat',
-    include: [joinProComponentsChatRoot('__tests__/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}')],
+    include: [joinProComponentsChatRoot('**/__tests__/*.{test,spec}.{ts,tsx}')],
     exclude: [joinWorkspaceRoot('**/node_modules/**'), joinWorkspaceRoot('**/_example/**')],
     globals: true,
     environment: 'jsdom',

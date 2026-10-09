@@ -1,3 +1,5 @@
+import { expectEmitsContract, expectPropsContract, flush, mountChat } from '../../test/helpers';
+
 /**
  * L2 - ChatReasoning 基础 API / 事件 / 插槽（思维链折叠面板）
  *
@@ -6,11 +8,12 @@
  */
 import { describe, expect, it, vi } from 'vitest';
 import { h } from 'vue';
-import ChatReasoning from '../chat-reasoning';
-import { flush, mountChat } from '../test/helpers';
+import ChatReasoning from '..';
 
 describe('ChatReasoning', () => {
   describe('props', () => {
+    it('保留公开 props 契约', () => expectPropsContract('ChatReasoning', ChatReasoning));
+
     it('渲染思维链容器', () => {
       const wrapper = mountChat(ChatReasoning);
       expect(wrapper.find('.t-chat__detail-reasoning').exists()).toBe(true);
@@ -52,6 +55,8 @@ describe('ChatReasoning', () => {
   });
 
   describe('events', () => {
+    it('保留公开 emits 契约', () => expectEmitsContract('ChatReasoning', ChatReasoning));
+
     it('展开/收起触发 update:collapsed 与 onExpandChange', async () => {
       const onExpandChange = vi.fn();
       const wrapper = mountChat(ChatReasoning, { props: { collapsed: false, onExpandChange } });

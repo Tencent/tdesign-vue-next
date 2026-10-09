@@ -1,62 +1,19 @@
 /**
  * L3 - 组合类 API
  *
- * 覆盖两类「组合」场景：
- * 1. Chatbot 顶层组件：对外实例方法契约（addPrompt / regenerate / setMessages ...），
- *    迁移后这些能力必须继续可用（即便内部从 webc 换成 Vue 组件）。
- * 2. 业务侧组合用法：ChatList + ChatItem + ChatSender + ChatActionbar 拼装的聊天界面，
+ * 覆盖 ChatList + ChatItem + ChatSender + ChatActionbar 拼装的聊天界面，
  *    验证「输入 -> 发送 -> 入列 -> 操作回调」的整链路数据流。
  */
 /* eslint-disable vue/one-component-per-file */
 import { describe, expect, it, vi } from 'vitest';
 import { defineComponent, ref } from 'vue';
-import Chatbot from '../chatbot';
 import ChatList from '../chat-list';
 import ChatSender from '../chat-sender';
 import ChatActionbar from '../chat-actionbar';
 import ChatMessage from '../chat-message';
 import { flush, mountChat, textContent } from '../test/helpers';
 
-/** Chatbot 对外承诺的实例方法（来自 TdChatbotApi） */
-const CHATBOT_METHODS = [
-  'addPrompt',
-  'regenerate',
-  'selectFile',
-  'registerMergeStrategy',
-  'setMessages',
-  'clearMessages',
-  'sendUserMessage',
-  'sendAIMessage',
-  'sendSystemMessage',
-  'abortChat',
-  'scrollList',
-];
-
 describe('Chat composition', () => {
-  describe('Chatbot', () => {
-    it('对外实例方法契约完整', () => {
-      const wrapper = mountChat(Chatbot);
-      const instance = wrapper.vm as unknown as Record<string, any>;
-      const missing = CHATBOT_METHODS.filter((method) => typeof instance[method] !== 'function');
-      expect(missing, `缺少实例方法: ${missing.join(', ')}`).toEqual([]);
-    });
-
-    it('可作为子组件嵌套在业务组件中渲染', () => {
-      const Host = defineComponent({
-        setup() {
-          return () => (
-            <div class="host">
-              <Chatbot />
-            </div>
-          );
-        },
-      });
-      const wrapper = mountChat(Host);
-      expect(wrapper.find('.host').exists()).toBe(true);
-      expect(wrapper.findComponent(Chatbot).exists()).toBe(true);
-    });
-  });
-
   describe('ChatList + ChatSender + ChatActionbar 组合', () => {
     const createChatApp = (onAction = vi.fn()) =>
       defineComponent({

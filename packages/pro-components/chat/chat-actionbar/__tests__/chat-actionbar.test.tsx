@@ -1,3 +1,5 @@
+import { expectEmitsContract, expectPropsContract, mountChat } from '../../test/helpers';
+
 /**
  * L2 - ChatActionbar 基础 API / 事件（含历史 API 向后兼容）
  *
@@ -5,13 +7,14 @@
  * 以及 actions / operation 双事件的历史兼容行为都需要被锁定。
  */
 import { describe, expect, it, vi } from 'vitest';
-import ChatActionbar from '../chat-actionbar';
-import { mountChat } from '../test/helpers';
+import ChatActionbar from '..';
 
 const ALL_ACTIONS = ['replay', 'copy', 'good', 'bad', 'share'];
 
 describe('ChatActionbar', () => {
   describe('props', () => {
+    it('保留公开 props 契约', () => expectPropsContract('ChatActionbar', ChatActionbar));
+
     it('默认渲染全部内置操作按钮', () => {
       const wrapper = mountChat(ChatActionbar);
       expect(wrapper.find('.t-chat__actions').exists()).toBe(true);
@@ -68,6 +71,8 @@ describe('ChatActionbar', () => {
   });
 
   describe('events', () => {
+    it('保留公开 emits 契约', () => expectEmitsContract('ChatActionbar', ChatActionbar));
+
     it('点击按钮同时触发 actions 与 operation（历史兼容）', async () => {
       const onActions = vi.fn();
       const onOperation = vi.fn();

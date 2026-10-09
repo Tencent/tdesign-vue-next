@@ -1,3 +1,5 @@
+import { expectEmitsContract, expectPropsContract, mountChat } from '../../test/helpers';
+
 /**
  * L2 - ChatItem 基础 API / 插槽
  *
@@ -5,13 +7,14 @@
  * 这里只断言「角色/变体/头像/昵称/时间/内容」对外语义，不依赖底层气泡实现。
  */
 import { describe, expect, it } from 'vitest';
-import ChatItem from '../chat-item';
-import ChatLoading from '../chat-loading';
-import ChatReasoning from '../chat-reasoning';
-import { mountChat } from '../test/helpers';
+import ChatItem from '..';
+import ChatLoading from '../../chat-loading';
+import ChatReasoning from '../../chat-reasoning';
 
 describe('ChatItem', () => {
   describe('props', () => {
+    it('保留公开 props 契约', () => expectPropsContract('ChatItem', ChatItem));
+
     it(':role 输出到根节点', () => {
       const wrapper = mountChat(ChatItem, { props: { role: 'user' } });
       expect(wrapper.classes()).toContain('t-chat__inner');
@@ -140,5 +143,8 @@ describe('ChatItem', () => {
       });
       expect(wrapper.find('.t-chat__actions-margin .slot-actions').exists()).toBe(true);
     });
+  });
+  describe('events', () => {
+    it('保留公开 emits 契约', () => expectEmitsContract('ChatItem', ChatItem));
   });
 });
