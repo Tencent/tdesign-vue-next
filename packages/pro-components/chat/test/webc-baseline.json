@@ -1,0 +1,13 @@
+{
+  "units": {
+    ".": 11,
+    "attachments": 3,
+    "chat-engine": 6,
+    "chat-loading": 3,
+    "chat-markdown": 2,
+    "chat-message": 4,
+    "chat-thinking": 3,
+    "chatbot": 3
+  },
+  "dependencies": ["omi-vueify", "tdesign-web-components"]
+}

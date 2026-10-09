@@ -51,6 +51,8 @@ const inputList = [
   `!${joinProComponentsChatRoot('**/type.ts')}`,
   `!${joinProComponentsChatRoot('**/types.ts')}`,
   `!${joinProComponentsChatRoot('**/__tests__')}`,
+  `!${joinProComponentsChatRoot('**/__tests__/**')}`,
+  `!${joinProComponentsChatRoot('test/**')}`,
   `!${joinProComponentsChatRoot('**/_example')}`,
   `!${joinProComponentsChatRoot('**/node_modules')}`,
 ];
