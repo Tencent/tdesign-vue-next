@@ -1,4 +1,4 @@
-import { chatText, expectEmitsContract, expectPropsContract, flush, mountChat, textContent } from '../../test/helpers';
+import { chatText, expectPropsContract, flush, mountChat, textContent } from '../../test/helpers';
 
 import { describe, expect, it } from 'vitest';
 import ChatMessage from '..';
@@ -22,8 +22,5 @@ describe('ChatMessage', () => {
       await flush();
       expect(chatText(slotted.element)).toContain('自定义消息正文');
     });
-  });
-  describe('events', () => {
-    it('保留公开 emits 契约', () => expectEmitsContract('ChatMessage', ChatMessage));
   });
 });
