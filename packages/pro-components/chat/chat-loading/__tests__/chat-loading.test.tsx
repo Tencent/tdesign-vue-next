@@ -18,10 +18,16 @@ describe('ChatLoading', () => {
       expect(chatText(wrapper.element)).toContain('正在加载下一段');
       expect(chatText(wrapper.element)).not.toContain('正在生成回答');
     });
-    it.each(['moving', 'gradient'])('animation=%s 控制公开动画状态', async (animation) => {
-      const wrapper = mountChat(ChatLoading, { props: { animation } });
+    it('切换 animation 时替换当前动画内容', async () => {
+      const wrapper = mountChat(ChatLoading, { props: { animation: 'moving' } });
       await flush();
-      expect(findInChat(wrapper.element, `.t-chat-loading__${animation}`).length).toBeGreaterThan(0);
+      expect(findInChat(wrapper.element, '.t-chat-loading__moving')).toHaveLength(1);
+      expect(findInChat(wrapper.element, '.t-chat-loading__gradient')).toHaveLength(0);
+
+      await wrapper.setProps({ animation: 'gradient' });
+      await flush();
+      expect(findInChat(wrapper.element, '.t-chat-loading__moving')).toHaveLength(0);
+      expect(findInChat(wrapper.element, '.t-chat-loading__gradient')).toHaveLength(1);
     });
   });
 });

@@ -44,14 +44,16 @@ describe('ChatActionbar', () => {
       });
     });
 
-    it(':comment=good 高亮点赞', () => {
+    it(':comment 在点赞与点踩之间切换高亮', async () => {
       const wrapper = mountChat(ChatActionbar, { props: { actionBar: ['good', 'bad'], comment: 'good' } });
-      expect(wrapper.findAll('.t-chat-button--active')).toHaveLength(1);
-    });
-
-    it(':comment=bad 高亮点踩', () => {
-      const wrapper = mountChat(ChatActionbar, { props: { actionBar: ['good', 'bad'], comment: 'bad' } });
-      expect(wrapper.findAll('.t-chat-button--active')).toHaveLength(1);
+      const buttons = wrapper.findAll('button');
+      expect(buttons[0].classes()).toContain('t-chat-button--active');
+      expect(buttons[1].classes()).not.toContain('t-chat-button--active');
+      await wrapper.setProps({ comment: 'bad' });
+      expect(buttons[0].classes()).not.toContain('t-chat-button--active');
+      expect(buttons[1].classes()).toContain('t-chat-button--active');
+      await wrapper.setProps({ comment: '' });
+      expect(wrapper.findAll('.t-chat-button--active')).toHaveLength(0);
     });
 
     it('复制按钮带 data-clipboard-text 供剪贴板使用', () => {
@@ -61,12 +63,14 @@ describe('ChatActionbar', () => {
   });
 
   describe('legacy props', () => {
-    it('isGood / isBad 等价 comment', () => {
+    it('isGood / isBad 分别高亮对应按钮', () => {
       const good = mountChat(ChatActionbar, { props: { actionBar: ['good', 'bad'], isGood: true } });
-      expect(good.findAll('.t-chat-button--active')).toHaveLength(1);
+      expect(good.findAll('button')[0].classes()).toContain('t-chat-button--active');
+      expect(good.findAll('button')[1].classes()).not.toContain('t-chat-button--active');
 
       const bad = mountChat(ChatActionbar, { props: { actionBar: ['good', 'bad'], isBad: true } });
-      expect(bad.findAll('.t-chat-button--active')).toHaveLength(1);
+      expect(bad.findAll('button')[0].classes()).not.toContain('t-chat-button--active');
+      expect(bad.findAll('button')[1].classes()).toContain('t-chat-button--active');
     });
   });
 
