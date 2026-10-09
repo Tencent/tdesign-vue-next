@@ -20,9 +20,9 @@ import {
   useAgentState,
   useChat,
   type ChatMessagesData,
-} from '../index';
-import { createRegistryManager } from '../chat-engine/components/shared/createRegistry';
-import { flush, mountChat } from '../test/helpers';
+} from '../../index';
+import { createRegistryManager } from '../components/shared/createRegistry';
+import { flush, mountChat } from '../../test/helpers';
 
 const TestComponent = defineComponent({ setup: () => () => h('div') });
 

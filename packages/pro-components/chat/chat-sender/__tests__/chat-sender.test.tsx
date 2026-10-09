@@ -1,3 +1,5 @@
+import { expectEmitsContract, expectPropsContract, flush, mountChat } from '../../test/helpers';
+
 /**
  * L2 - ChatSender 基础 API / 事件 / 插槽
  *
@@ -5,13 +7,14 @@
  * 输入值、发送/停止、禁用态、上传入口、以及全部扩展插槽。
  */
 import { describe, expect, it, vi } from 'vitest';
-import ChatSender from '../chat-sender';
-import { flush, mountChat } from '../test/helpers';
+import ChatSender from '..';
 
 const SEND_BTN = '.t-chat-sender__button__sendbtn button';
 
 describe('ChatSender', () => {
   describe('props', () => {
+    it('保留公开 props 契约', () => expectPropsContract('ChatSender', ChatSender));
+
     it('渲染完整输入区结构', () => {
       const wrapper = mountChat(ChatSender);
       expect(wrapper.find('.t-chat-sender').exists()).toBe(true);
@@ -69,6 +72,8 @@ describe('ChatSender', () => {
   });
 
   describe('events', () => {
+    it('保留公开 emits 契约', () => expectEmitsContract('ChatSender', ChatSender));
+
     it('点击发送按钮触发 send，回传输入值', async () => {
       const onSend = vi.fn();
       const wrapper = mountChat(ChatSender, { props: { defaultValue: '你好', onSend } });

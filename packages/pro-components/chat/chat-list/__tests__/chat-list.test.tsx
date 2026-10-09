@@ -1,3 +1,12 @@
+import {
+  chatItemMetaList,
+  chatText,
+  expectEmitsContract,
+  expectPropsContract,
+  flush,
+  mountChat,
+} from '../../test/helpers';
+
 /**
  * L2 - ChatList 基础 API / 事件 / 插槽 / 实例方法
  *
@@ -8,12 +17,13 @@
  */
 import { describe, expect, it, vi } from 'vitest';
 import { Popconfirm } from 'tdesign-vue-next';
-import ChatList from '../chat-list';
-import ChatMessage from '../chat-message';
-import { chatItemMetaList, chatText, flush, mountChat } from '../test/helpers';
+import ChatList from '..';
+import ChatMessage from '../../chat-message';
 
 describe('ChatList', () => {
   describe('props', () => {
+    it('保留公开 props 契约', () => expectPropsContract('ChatList', ChatList));
+
     it(':data 渲染每条消息', () => {
       const wrapper = mountChat(ChatList, { props: { data: chatItemMetaList } });
       expect(wrapper.findAllComponents(ChatMessage)).toHaveLength(chatItemMetaList.length);
@@ -80,6 +90,8 @@ describe('ChatList', () => {
   });
 
   describe('events', () => {
+    it('保留公开 emits 契约', () => expectEmitsContract('ChatList', ChatList));
+
     it('滚动触发 scroll 事件', async () => {
       const onScroll = vi.fn();
       const wrapper = mountChat(ChatList, { props: { data: chatItemMetaList, onScroll } });
