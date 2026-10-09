@@ -10,13 +10,22 @@ import { describe, expect, it, vi } from 'vitest';
 import { Popconfirm } from 'tdesign-vue-next';
 import ChatList from '../chat-list';
 import ChatMessage from '../chat-message';
-import { chatItemMetaList, flush, mountChat } from '../test/helpers';
+import { chatItemMetaList, chatText, flush, mountChat } from '../test/helpers';
 
 describe('ChatList', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it(':data 渲染每条消息', () => {
       const wrapper = mountChat(ChatList, { props: { data: chatItemMetaList } });
       expect(wrapper.findAllComponents(ChatMessage)).toHaveLength(chatItemMetaList.length);
+    });
+
+    it(':data 在没有插槽时显示消息正文和元信息', async () => {
+      const wrapper = mountChat(ChatList, { props: { data: chatItemMetaList } });
+      await flush();
+      const content = chatText(wrapper.element);
+      expect(content).toContain('你好，有什么可以帮你？');
+      expect(content).toContain('TDesign Bot');
+      expect(content).toContain('2024-01-01 10:00:01');
     });
 
     it(':data 为空时不渲染消息', () => {
@@ -70,7 +79,7 @@ describe('ChatList', () => {
     });
   });
 
-  describe('@event', () => {
+  describe('events', () => {
     it('滚动触发 scroll 事件', async () => {
       const onScroll = vi.fn();
       const wrapper = mountChat(ChatList, { props: { data: chatItemMetaList, onScroll } });
@@ -91,7 +100,7 @@ describe('ChatList', () => {
     });
   });
 
-  describe('<slot>', () => {
+  describe('slots', () => {
     it('footer 插槽渲染在列表下方', () => {
       const wrapper = mountChat(ChatList, {
         props: { data: chatItemMetaList },
@@ -126,7 +135,7 @@ describe('ChatList', () => {
     });
   });
 
-  describe(':expose', () => {
+  describe('instance methods', () => {
     it('暴露 scrollToBottom 实例方法', () => {
       const wrapper = mountChat(ChatList, { props: { data: chatItemMetaList } });
       const exposed = wrapper.vm as unknown as Record<string, any>;

@@ -11,7 +11,7 @@ import ChatReasoning from '../chat-reasoning';
 import { mountChat } from '../test/helpers';
 
 describe('ChatItem', () => {
-  describe(':props', () => {
+  describe('props', () => {
     it(':role 输出到根节点', () => {
       const wrapper = mountChat(ChatItem, { props: { role: 'user' } });
       expect(wrapper.classes()).toContain('t-chat__inner');
@@ -93,7 +93,7 @@ describe('ChatItem', () => {
     });
   });
 
-  describe('<slot>', () => {
+  describe('slots', () => {
     it('未传入 content 时内容区仍存在（空态不报错）', () => {
       const wrapper = mountChat(ChatItem, { props: { role: 'user' } });
       expect(wrapper.find('.t-chat__content').exists()).toBe(true);
