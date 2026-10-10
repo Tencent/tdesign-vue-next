@@ -283,10 +283,47 @@ export default defineComponent({
       props.onSearch?.(String(value));
     };
 
+    const getTagRelatedValues = (value: TreeNodeValue) => {
+      const node: TreeNodeModel = treeRef.value?.getItem(value);
+      const parents = node
+        ? node.getParents().map((parent) => parent.value)
+        : findParentValues(props.data, value, realValue.value, realChildren.value);
+      const related = new Set([value, ...parents]);
+      const collectChildren = (nodeValue: TreeNodeValue, data: TreeOptionData) => {
+        const item: TreeNodeModel = treeRef.value?.getItem(nodeValue);
+        // setItem 可能覆盖 data.checkable，因此优先读取节点的实际状态。
+        const checkable =
+          treeRef.value?.store.getNode(nodeValue)?.isCheckable() ??
+          (isBoolean(data.checkable) ? data.checkable : props.treeProps?.checkable ?? props.multiple);
+        if (!checkable) return;
+        const children = item ? item.getChildren(false) : data[realChildren.value];
+        if (!isArray(children)) return;
+        children.forEach((child) => {
+          const childValue = item ? child.value : child[realValue.value];
+          related.add(childValue);
+          collectChildren(childValue, item ? child.data : child);
+        });
+      };
+      const data = node?.data ?? getTreeNode(props.data, value);
+      if (data) collectChildren(value, data as TreeOptionData);
+      return related;
+    };
+
     const tagChange: TdSelectInputProps['onTagChange'] = (value, context) => {
       const { trigger, index } = context;
-      if (['tag-remove', 'backspace'].includes(trigger)) {
-        isArray(treeSelectValue.value) && (treeSelectValue.value as Array<TreeSelectValue>).splice(index, 1);
+      if (['tag-remove', 'backspace'].includes(trigger) && isArray(treeSelectValue.value)) {
+        const values = treeSelectValue.value as Array<TreeSelectValue>;
+        const [removed] = values.splice(index, 1);
+        if (props.multiple && props.treeProps?.valueMode === 'all' && !props.treeProps.checkStrictly) {
+          const getValue = (item: TreeSelectValue) =>
+            isObjectValue.value ? (item as INodeOptions)?.value : (item as TreeNodeValue);
+          const related = getTagRelatedValues(getValue(removed));
+          let remaining = 0;
+          values.forEach((item) => {
+            if (!related.has(getValue(item))) values[remaining++] = item;
+          });
+          values.splice(remaining);
+        }
       }
       props.onRemove?.({ value, data: null, e: context && (context.e as MouseEvent) });
       change(treeSelectValue.value, null, trigger as 'tag-remove' | 'backspace', context?.e as MouseEvent, index);

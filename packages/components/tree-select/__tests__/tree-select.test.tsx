@@ -1,4 +1,4 @@
-import { nextTick } from 'vue';
+import { defineComponent, nextTick, ref } from 'vue';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 
@@ -881,6 +881,254 @@ describe('TreeSelect', () => {
       expect(document.querySelector('.t-tree')).not.toBeNull();
       wrapper.unmount();
       expect(document.querySelector('.t-tree')).toBeNull();
+    });
+  });
+
+  describe('scenarios', () => {
+    describe('removing multiple selections', () => {
+      const settle = async () => {
+        await nextTick();
+        await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+        await nextTick();
+      };
+
+      const renderControlled = async (
+        options: TreeSelectProps = {},
+        initialValue: Array<string | number | Record<string, unknown>> = [],
+      ) => {
+        const selected = ref(initialValue);
+        const visible = ref(options.popupVisible ?? true);
+        const onChange = vi.fn();
+        const onRemove = vi.fn();
+        const treeOnChange = vi.fn();
+        const wrapper = trackWrapper(
+          mount(
+            defineComponent({
+              setup: () => () =>
+                (
+                  <TreeSelect
+                    data={[data[0], { ...data[1], disabled: true }]}
+                    multiple
+                    {...options}
+                    v-model={selected.value}
+                    popupVisible={visible.value}
+                    treeProps={{ valueMode: 'all', expandAll: true, onChange: treeOnChange, ...options.treeProps }}
+                    onChange={onChange}
+                    onRemove={onRemove}
+                  />
+                ),
+            }),
+            { attachTo: document.body },
+          ),
+        );
+        await settle();
+        const treeSelect = wrapper.findComponent(TreeSelect);
+        const check = async (value: string, checked = true) => {
+          await getTree(treeSelect).get(`[data-value="${value}"] input[type="checkbox"]`).setValue(checked);
+          await settle();
+        };
+        const close = async (index: number) => {
+          await wrapper.findAll('.t-tag')[index].get('.t-tag__icon-close').trigger('click');
+          await settle();
+        };
+        return { wrapper, treeSelect, selected, visible, onChange, onRemove, treeOnChange, check, close };
+      };
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6753
+      it('keeps all-mode tags and checkbox states in sync after removing a child', async () => {
+        const ctx = await renderControlled();
+        await ctx.check('guangdong');
+        expect(ctx.selected.value).toEqual(['guangdong', 'guangzhou', 'shenzhen']);
+        ctx.onChange.mockClear();
+        ctx.treeOnChange.mockClear();
+        const updatesBefore = ctx.treeSelect.emitted('update:modelValue')?.length ?? 0;
+
+        await ctx.close(2);
+
+        expect(ctx.selected.value).toEqual(['guangzhou']);
+        expect(ctx.wrapper.findAll('.t-tag').map((tag) => tag.text())).toEqual(['广州市']);
+        expect(ctx.onRemove).toHaveBeenCalledOnce();
+        expect(ctx.onRemove).toHaveBeenCalledWith({
+          value: ['广东省', '广州市'],
+          data: null,
+          e: expect.any(MouseEvent),
+        });
+        expect(ctx.onChange).toHaveBeenCalledExactlyOnceWith(['guangzhou'], {
+          node: null,
+          data: null,
+          trigger: 'tag-remove',
+          index: 2,
+          e: ctx.onRemove.mock.calls[0][0].e,
+        });
+        expect(ctx.onRemove.mock.invocationCallOrder[0]).toBeLessThan(ctx.onChange.mock.invocationCallOrder[0]);
+        expect(ctx.treeOnChange).not.toHaveBeenCalled();
+        expect(ctx.treeSelect.emitted('update:modelValue')).toHaveLength(updatesBefore + 1);
+
+        ctx.visible.value = false;
+        await settle();
+        ctx.visible.value = true;
+        await settle();
+        const tree = getTree(ctx.treeSelect);
+        expect(tree.get('[data-value="guangdong"] .t-checkbox').classes()).toContain('t-is-indeterminate');
+        expect(tree.get('[data-value="shenzhen"] .t-checkbox').classes()).not.toContain('t-is-checked');
+        expect(tree.get('[data-value="guangzhou"] .t-checkbox').classes()).toContain('t-is-checked');
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6753
+      it('removes descendants with an all-mode parent tag, retaining unrelated selections', async () => {
+        const ctx = await renderControlled({}, ['nanjing']);
+        await ctx.check('guangdong');
+        const parentIndex = ctx.wrapper.findAll('.t-tag').findIndex((tag) => tag.text() === '广东省');
+        await ctx.close(parentIndex);
+        expect(ctx.selected.value).toEqual(['nanjing']);
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6753
+      it('removes related initial values before the panel opens and after reaching max', async () => {
+        const ctx = await renderControlled({ popupVisible: false, max: 3 }, [
+          'guangdong',
+          'guangzhou',
+          'shenzhen',
+          'unknown',
+        ]);
+        expect(getTree(ctx.treeSelect).exists()).toBe(false);
+        await ctx.close(2);
+        expect(ctx.selected.value).toEqual(['guangzhou', 'unknown']);
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6753
+      it('keeps strict-mode selections independent', async () => {
+        const ctx = await renderControlled({ treeProps: { checkStrictly: true } });
+        await ctx.check('guangdong');
+        await ctx.check('guangzhou');
+        await ctx.check('shenzhen');
+        await ctx.close(2);
+        expect(ctx.selected.value).toEqual(['guangdong', 'guangzhou']);
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6753
+      it.each(['onlyLeaf', 'parentFirst'] as const)('preserves %s removal behavior', async (valueMode) => {
+        const ctx = await renderControlled({ treeProps: { valueMode } });
+        await ctx.check('guangdong');
+        await ctx.close(valueMode === 'onlyLeaf' ? 1 : 0);
+        expect(ctx.selected.value).toEqual(valueMode === 'onlyLeaf' ? ['guangzhou'] : []);
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6753
+      it('uses node identity with object values, custom keys and duplicate labels', async () => {
+        const options = [
+          {
+            id: 0,
+            name: 'same',
+            list: [
+              { id: 1, name: 'same' },
+              { id: 2, name: 'same' },
+            ],
+          },
+        ];
+        const kept = { value: 1, label: 'same', extra: 'preserved' };
+        const ctx = await renderControlled(
+          {
+            data: options,
+            keys: { value: 'id', label: 'name', children: 'list' },
+            valueType: 'object',
+            popupVisible: false,
+          },
+          [{ value: 0, label: 'same' }, kept, { value: 2, label: 'same' }],
+        );
+        const keptReference = (ctx.selected.value as object[])[1];
+        await ctx.close(2);
+        expect(ctx.selected.value).toEqual([kept]);
+        expect((ctx.selected.value as object[])[0]).toBe(keptReference);
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6753
+      it('normalizes all-mode selections when Backspace removes the last tag', async () => {
+        const ctx = await renderControlled({ filterable: true });
+        await ctx.check('guangdong');
+        ctx.onChange.mockClear();
+        await ctx.wrapper.get('input.t-input__inner').trigger('keydown', { key: 'Backspace', code: 'Backspace' });
+        await settle();
+        expect(ctx.selected.value).toEqual(['guangzhou']);
+        expect(ctx.onChange).toHaveBeenCalledExactlyOnceWith(
+          ['guangzhou'],
+          expect.objectContaining({
+            trigger: 'backspace',
+            index: 2,
+            e: expect.any(KeyboardEvent),
+          }),
+        );
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6753
+      it.each([false, true])(
+        'retains descendants below a non-checkable node when popupVisible=%s',
+        async (popupVisible) => {
+          const ctx = await renderControlled(
+            {
+              popupVisible,
+              data: [
+                {
+                  value: 'p',
+                  label: 'parent',
+                  children: [
+                    { value: 'b', label: 'branch', checkable: false, children: [{ value: 'x', label: 'child' }] },
+                    { value: 'y', label: 'sibling' },
+                  ],
+                },
+              ],
+            },
+            ['p', 'x', 'y'],
+          );
+          await ctx.close(0);
+          expect(ctx.selected.value).toEqual(['x']);
+        },
+      );
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6753
+      it.each([false, true])('uses current checkability after setItem overrides it to %s', async (checkable) => {
+        const ctx = await renderControlled(
+          {
+            data: [
+              {
+                value: 'p',
+                label: 'parent',
+                children: [
+                  { value: 'b', label: 'branch', checkable: !checkable, children: [{ value: 'x', label: 'child' }] },
+                  { value: 'y', label: 'sibling' },
+                ],
+              },
+            ],
+          },
+          ['p', 'x', 'y'],
+        );
+        getTree(ctx.treeSelect).vm.setItem('b', { checkable });
+        await settle();
+        await ctx.close(0);
+        expect(ctx.selected.value).toEqual(checkable ? [] : ['x']);
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6753
+      it('uses the same linked removal for custom valueDisplay', async () => {
+        const ctx = await renderControlled(
+          {
+            valueDisplay: (_h, { onClose }) => (
+              <button class="custom-remove" onClick={() => (onClose as (index: number) => void)(2)}>
+                remove
+              </button>
+            ),
+          },
+          ['guangdong', 'guangzhou', 'shenzhen'],
+        );
+        await ctx.wrapper.get('.custom-remove').trigger('click');
+        await settle();
+        expect(ctx.selected.value).toEqual(['guangzhou']);
+        expect(ctx.onRemove).toHaveBeenCalledExactlyOnceWith({
+          value: ['guangdong', 'guangzhou', 'shenzhen'],
+          data: null,
+          e: undefined,
+        });
+      });
     });
   });
 });
