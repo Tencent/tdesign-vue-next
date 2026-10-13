@@ -73,11 +73,12 @@ export default function generateLlmsPlugin() {
         }
       };
 
-      // 通用文档解析管道：读取 frontmatter -> 替换 demo -> 清理正文
+      // 通用文档解析管道：读取 frontmatter -> 替换 demo -> 注入示例代码分组标题 -> 清理正文
       const parseComponentDoc = createComponentDocParser({
         readComponentDoc,
         readDemoCode: readVueDemo,
         isDemoSlot,
+        demoSectionHeading: '## 示例代码',
         transformers: [],
       });
 
