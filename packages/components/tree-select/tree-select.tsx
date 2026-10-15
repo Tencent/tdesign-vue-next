@@ -291,18 +291,25 @@ export default defineComponent({
       const related = new Set([value, ...parents]);
       const collectChildren = (nodeValue: TreeNodeValue, data: TreeOptionData) => {
         const item: TreeNodeModel = treeRef.value?.getItem(nodeValue);
-        // setItem 可能覆盖 data.checkable，因此优先读取节点的实际状态。
+        const treeNode = treeRef.value?.store.getNode(nodeValue);
+        // setItem 可能覆盖 data，因此优先读取节点的实际状态。
         const checkable =
-          treeRef.value?.store.getNode(nodeValue)?.isCheckable() ??
+          treeNode?.isCheckable() ??
           (isBoolean(data.checkable) ? data.checkable : props.treeProps?.checkable ?? props.multiple);
-        if (!checkable) return;
+        const disabled =
+          treeNode?.isDisabledState() ??
+          (props.treeProps?.disabled ||
+            props.treeProps?.disableCheck === true ||
+            data[(props.treeProps?.keys?.disabled || props.keys?.disabled || 'disabled') as keyof TreeOptionData] ===
+              true);
+        if (!checkable || disabled) return false;
         const children = item ? item.getChildren(false) : data[realChildren.value];
-        if (!isArray(children)) return;
+        if (!isArray(children)) return true;
         children.forEach((child) => {
           const childValue = item ? child.value : child[realValue.value];
-          related.add(childValue);
-          collectChildren(childValue, item ? child.data : child);
+          if (collectChildren(childValue, item ? child.data : child)) related.add(childValue);
         });
+        return true;
       };
       const data = node?.data ?? getTreeNode(props.data, value);
       if (data) collectChildren(value, data as TreeOptionData);
