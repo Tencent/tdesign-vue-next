@@ -5,6 +5,24 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.10 `2026-10-15`
+
+### 🐞 Bug Fixes
+
+- `Cascader`: 修复数字值不存在于 options 时展开面板产生 placeholder 类型警告的问题。 @Blackn-L ([#6993](https://github.com/Tencent/tdesign-vue-next/pull/6993))
+- `Dialog`: 修复启用 confirmOnEnter 时 Textarea 内换行触发对话框确认的问题。 @lifuyue ([#6991](https://github.com/Tencent/tdesign-vue-next/pull/6991))
+- `Form`: 修复 `1.20.8` 版本后引入的 Form 样式缺陷 @uyarn ([#7005](https://github.com/Tencent/tdesign-vue-next/pull/7005))
+- `InputNumber`: 修复空输入失焦后未恢复父级保留值的问题，使 Slider 数字输入正确回显当前数值，接受空值的输入框继续保持为空。 @dvd233 ([#6995](https://github.com/Tencent/tdesign-vue-next/pull/6995))
+- `Table`: 修复 scrollToElement 不支持零值行标识及虚拟滚动定位偏移的问题。 @Blackn-L ([#6994](https://github.com/Tencent/tdesign-vue-next/pull/6994))
+- `Tree`: 
+  - 修复存在禁用的子节点时，父节点全选在展示异常的问题 @RSS1102 ([#6999](https://github.com/Tencent/tdesign-vue-next/pull/6999))
+  - 修复存在禁用的子节点且 `valueMode` 为 `all` 时，返回值没有包含父节点的问题 @RSS1102 ([#6999](https://github.com/Tencent/tdesign-vue-next/pull/6999))
+- `TreeSelect`: 修复 all 模式移除标签后值与树勾选状态不同步的问题。 @dvd233 ([#6998](https://github.com/Tencent/tdesign-vue-next/pull/6998))
+
+### 📝 Documentation
+
+- `Comment`: 修正 `avatar` 属性的类型描述，移除不受支持的 `AvatarProps` 类型 @liweijie0812 ([#7008](https://github.com/Tencent/tdesign-vue-next/pull/7008))
+
 ## 🌈 1.20.9 `2026-09-30`
 
 ### 🚀 Features
