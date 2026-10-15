@@ -366,7 +366,8 @@ describe('FormItem', () => {
         expect(getLastItemNames(wrapper)).toEqual(['b', 'd']);
       });
 
-      it('未设置 name 的表单项不参与末位判定', async () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7000
+      it('未设置 name 的表单项参与末位判定', async () => {
         const wrapper = mount(
           <Form>
             <FormItem name="a" />
@@ -378,7 +379,9 @@ describe('FormItem', () => {
         );
         await flushPromises();
 
-        expect(getLastItemNames(wrapper)).toEqual(['b']);
+        const formItems = wrapper.findAll('.t-form__item');
+        expect(formItems[1].classes()).not.toContain('t-form__item--last');
+        expect(formItems[2].classes()).toContain('t-form__item--last');
       });
 
       it('inline 布局下不标记末位表单项', async () => {
