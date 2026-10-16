@@ -1,5 +1,5 @@
 // TODO 应当提取到公共 hooks 中
-import { computed, h, inject, getCurrentInstance, ref, provide } from 'vue';
+import { computed, h, inject, getCurrentInstance, ref, provide, watch } from 'vue';
 import { cloneDeep, isFunction } from 'lodash-es';
 
 import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from '../utils/context';
@@ -13,16 +13,7 @@ const globalConfigCopy = ref<GlobalConfigProvider>();
 
 export * from '../type';
 
-/**
- * component globalConfig
- * @param componentName
- * @returns {t, globalConfig}
- * useConfig('pagination')
- */
-export function useConfig<T extends keyof GlobalConfigProvider>(
-  componentName: T = undefined,
-  componentLocale?: GlobalConfigProvider[T],
-) {
+export function useGlobalConfig() {
   let injectGlobalConfig = null;
   if (getCurrentInstance()) {
     injectGlobalConfig = inject(configProviderInjectKey, null);
@@ -34,7 +25,20 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
   } else {
     injectGlobalConfig = globalConfigCopy;
   }
-  const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
+  return computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
+}
+
+/**
+ * component globalConfig
+ * @param componentName
+ * @returns {t, globalConfig}
+ * useConfig('pagination')
+ */
+export function useConfig<T extends keyof GlobalConfigProvider>(
+  componentName: T = undefined,
+  componentLocale?: GlobalConfigProvider[T],
+) {
+  const mergedGlobalConfig = useGlobalConfig();
   const globalConfig = computed(() => Object.assign({}, mergedGlobalConfig.value[componentName], componentLocale));
 
   const classPrefix = computed(() => {
@@ -69,13 +73,13 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
 export const provideConfig = (props: TdConfigProviderProps) => {
   const defaultData = cloneDeep(defaultGlobalConfig);
   const mergedGlobalConfig = computed(() =>
-    Object.assign({}, mergeWith(defaultData as unknown as GlobalConfigProvider, props.globalConfig)),
+    Object.assign({}, mergeWith(cloneDeep(defaultData) as unknown as GlobalConfigProvider, props.globalConfig)),
   );
 
   provide(configProviderInjectKey, mergedGlobalConfig);
 
   if (!globalConfigCopy.value) {
-    globalConfigCopy.value = mergedGlobalConfig.value;
+    watch(mergedGlobalConfig, (config) => (globalConfigCopy.value = config), { immediate: true });
   }
 
   return mergedGlobalConfig;

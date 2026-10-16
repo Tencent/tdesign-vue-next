@@ -48,13 +48,13 @@ export default {
   },
   /** 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色” */
   recentColors: {
-    type: Array as PropType<TdColorPickerProps['recentColors']>,
+    type: [Boolean, Array] as PropType<TdColorPickerProps['recentColors']>,
     default: undefined as TdColorPickerProps['recentColors'],
   },
   /** 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”，非受控属性 */
   defaultRecentColors: {
-    type: Array as PropType<TdColorPickerProps['defaultRecentColors']>,
-    default: (): TdColorPickerProps['defaultRecentColors'] => [],
+    type: [Boolean, Array] as PropType<TdColorPickerProps['defaultRecentColors']>,
+    default: (): TdColorPickerProps['defaultRecentColors'] => [] as TdColorPickerProps['defaultRecentColors'],
   },
   /** 透传 SelectInputProps 筛选器输入框组件全部属性 */
   selectInputProps: {

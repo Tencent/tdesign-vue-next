@@ -5,6 +5,39 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.10 `2026-10-15`
+
+### 🐞 Bug Fixes
+
+- `Cascader`: Fixed a placeholder type warning triggered when expanding the panel if a numeric value does not exist in `options` @Blackn-L ([#6993](https://github.com/Tencent/tdesign-vue-next/pull/6993))
+- `Dialog`: Fixed pressing Enter inside a Textarea to insert a line break incorrectly confirming the dialog when `confirmOnEnter` is enabled @lifuyue ([#6991](https://github.com/Tencent/tdesign-vue-next/pull/6991))
+- `Form`: Fixed Form styling regressions introduced after version `1.20.8` @uyarn ([#7005](https://github.com/Tencent/tdesign-vue-next/pull/7005))
+- `InputNumber`: Fixed empty input not restoring the value retained by the parent after losing focus, ensuring Slider numeric inputs correctly display the current value while inputs that accept empty values remain empty @dvd233 ([#6995](https://github.com/Tencent/tdesign-vue-next/pull/6995))
+- `Table`: Fixed the `scrollToElement` method not supporting zero-valued row identifiers and incorrect positioning offsets during virtual scrolling @Blackn-L ([#6994](https://github.com/Tencent/tdesign-vue-next/pull/6994))
+- `Tree`: 
+  - Fixed an incorrect parent node select-all display when disabled child nodes exist @RSS1102 ([#6999](https://github.com/Tencent/tdesign-vue-next/pull/6999))
+  - Fixed parent nodes not being included in the returned value when disabled child nodes exist and `valueMode` is set to `all` @RSS1102 ([#6999](https://github.com/Tencent/tdesign-vue-next/pull/6999))
+- `TreeSelect`: Fixed values and tree checked states becoming out of sync after removing tags in `all` mode @dvd233 ([#6998](https://github.com/Tencent/tdesign-vue-next/pull/6998))
+
+### 📝 Documentation
+
+- `Comment`: Corrected the type description of the `avatar` property and removed the unsupported `AvatarProps` type @liweijie0812 ([#7008](https://github.com/Tencent/tdesign-vue-next/pull/7008))
+
+## 🌈 1.20.9 `2026-09-30`
+
+### 🚀 Features
+
+- `Calendar`: The `value` property now supports setting a null value @uyarn ([#6986](https://github.com/Tencent/tdesign-vue-next/pull/6986))
+- `ConfigProvider`: A new `attach` property has been added to enable unified configuration of the mounting nodes for Dialog, Drawer, Popup, and ImageViewer; component properties take precedence while the original default behaviors are retained @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+
+### 🐞 Bug Fixes
+
+- `ColorPicker`: Fixed issues related to the boolean data type of `recentColors` as well as related warnings @liweijie0812 ([#6984](https://github.com/Tencent/tdesign-vue-next/pull/6984))
+- `Dialog`: Fixed the problem where custom styles were not applied to the actual nodes after the plugin’s overlay was mounted @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+- `Drawer`: Fixed the problem where custom styles were not applied to the actual nodes after the plugin’s overlay was mounted @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+- `Form`: Fixed an issue where consecutive validation attempts failed when using regex patterns with `g` or `y` flags in the `pattern` setting @kwy404 ([#6982](https://github.com/Tencent/tdesign-vue-next/pull/6982))
+- `Popup`: Fixed the problem where the popup closed accidentally when clicking on its content or when a nested popup was displayed within it in Shadow DOM environments @liweijie0812 ([#6980](https://github.com/Tencent/tdesign-vue-next/pull/6980))
+
 ## 🌈 1.20.8 `2026-09-17`
 
 ### 🚀 Features

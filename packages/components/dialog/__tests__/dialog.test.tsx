@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { ref, nextTick } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import Dialog from '@tdesign/components/dialog';
+import Textarea from '@tdesign/components/textarea';
 
 describe('Dialog', () => {
   describe('props', () => {
@@ -885,6 +886,40 @@ describe('Dialog', () => {
 
       const position = wrapper.find('.t-dialog__position');
       expect(position.attributes('style')).toContain('padding-top: 100px');
+    });
+  });
+
+  describe('scenarios', () => {
+    describe('keyboard interaction', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6987
+      it.each(['Enter', 'NumpadEnter'])(':confirmOnEnter ignores %s from textarea', async (code) => {
+        const onConfirm = vi.fn();
+        const wrapper = mount(
+          () => (
+            <Dialog visible confirmOnEnter onConfirm={onConfirm}>
+              <Textarea />
+            </Dialog>
+          ),
+          { attachTo: document.body },
+        );
+        await nextTick();
+
+        try {
+          const event = new KeyboardEvent('keydown', { key: 'Enter', code, bubbles: true, cancelable: true });
+          wrapper.find('textarea').element.dispatchEvent(event);
+          await nextTick();
+
+          expect(onConfirm).not.toHaveBeenCalled();
+          expect(event.defaultPrevented).toBe(false);
+
+          const dialogEvent = new KeyboardEvent('keydown', { key: 'Enter', code, bubbles: true });
+          wrapper.find('.t-dialog__body').element.dispatchEvent(dialogEvent);
+          await nextTick();
+          expect(onConfirm).toHaveBeenCalledExactlyOnceWith({ e: dialogEvent });
+        } finally {
+          wrapper.unmount();
+        }
+      });
     });
   });
 });

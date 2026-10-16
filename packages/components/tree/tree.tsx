@@ -22,7 +22,7 @@ import useTreeStyles from './hooks/useTreeStyles';
 import props from './props';
 import { TreeNodeState, TreeNodeValue, TypeTreeNodeModel } from './types';
 import { getNode } from './utils';
-import { useTNodeJSX } from '@tdesign/shared-hooks';
+import { useKeepAnimation, useTNodeJSX } from '@tdesign/shared-hooks';
 
 // 2022.11.02 tabliang 备注
 // 之前尝试实现了嵌套布局，原本预期嵌套布局能够提升大数据量下，全部渲染节点时的性能表现
@@ -42,6 +42,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const componentName = usePrefixClass('tree');
     const renderTNodeJSX = useTNodeJSX();
+    const { keepExpand } = useKeepAnimation();
 
     // 用于 hooks 传递数据
     const { state } = useTreeState(props, context);
@@ -66,6 +67,7 @@ export default defineComponent({
       treeClasses,
       treeContentRef,
       renderTNodeJSX,
+      keepExpand,
 
       rebuild,
       updateStoreConfig,
@@ -287,7 +289,7 @@ export default defineComponent({
     const { transition } = $props;
 
     let treeNodeList = null;
-    if (!transition || (isVirtual && isScrolling)) {
+    if (!transition || !this.keepExpand || (isVirtual && isScrolling)) {
       // vue3 不使用 transition group 会导致展开收起动作异常
       treeNodeList = (
         <div class={`${cname}__list`} style={scrollStyles}>

@@ -2,6 +2,7 @@ import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpda
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import {
   useConfig,
+  useAttach,
   useContent,
   useTNodeJSX,
   useTeleport,
@@ -41,7 +42,8 @@ export default defineComponent({
     const isMounted = ref(false);
 
     // teleport容器
-    const teleportElement = useTeleport(() => props.attach);
+    const attach = useAttach('drawer', () => props.attach);
+    const teleportElement = useTeleport(attach);
 
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
@@ -305,7 +307,7 @@ export default defineComponent({
       const defaultFooter = getDefaultFooter();
 
       return (
-        <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
+        <Teleport disabled={!attach.value || !teleportElement.value} to={teleportElement.value}>
           <div
             ref={drawerEle}
             class={drawerClasses.value}

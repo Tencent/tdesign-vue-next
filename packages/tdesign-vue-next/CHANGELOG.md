@@ -5,6 +5,39 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.10 `2026-10-15`
+
+### 🐞 Bug Fixes
+
+- `Cascader`: 修复数字值不存在于 options 时展开面板产生 placeholder 类型警告的问题 @Blackn-L ([#6993](https://github.com/Tencent/tdesign-vue-next/pull/6993))
+- `Dialog`: 修复启用 `confirmOnEnter` 时 Textarea 内换行触发对话框确认的问题 @lifuyue ([#6991](https://github.com/Tencent/tdesign-vue-next/pull/6991))
+- `Form`: 修复 `1.20.8` 版本后引入的 Form 样式缺陷 @uyarn ([#7005](https://github.com/Tencent/tdesign-vue-next/pull/7005))
+- `InputNumber`: 修复空输入失焦后未恢复父级保留值的问题，使 Slider 数字输入正确回显当前数值，接受空值的输入框继续保持为空 @dvd233 ([#6995](https://github.com/Tencent/tdesign-vue-next/pull/6995))
+- `Table`: 修复 `scrollToElement` 方法不支持零值行标识及虚拟滚动定位偏移的问题 @Blackn-L ([#6994](https://github.com/Tencent/tdesign-vue-next/pull/6994))
+- `Tree`: 
+  - 修复存在禁用的子节点时，父节点全选在展示异常的问题 @RSS1102 ([#6999](https://github.com/Tencent/tdesign-vue-next/pull/6999))
+  - 修复存在禁用的子节点且 `valueMode` 为 `all` 时，返回值没有包含父节点的问题 @RSS1102 ([#6999](https://github.com/Tencent/tdesign-vue-next/pull/6999))
+- `TreeSelect`: 修复 all 模式移除标签后值与树勾选状态不同步的问题 @dvd233 ([#6998](https://github.com/Tencent/tdesign-vue-next/pull/6998))
+
+### 📝 Documentation
+
+- `Comment`: 修正 `avatar` 属性的类型描述，移除不受支持的 `AvatarProps` 类型 @liweijie0812 ([#7008](https://github.com/Tencent/tdesign-vue-next/pull/7008))
+
+## 🌈 1.20.9 `2026-09-30`
+
+### 🚀 Features
+
+- `Calendar`: value 属性支持配置空值 @uyarn ([#6986](https://github.com/Tencent/tdesign-vue-next/pull/6986))
+- `ConfigProvider`: 新增`attach` 属性，用于支持统一配置 Dialog、Drawer、Popup、ImageViewer 的挂载节点，组件属性优先并保留原有默认行为 @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+
+### 🐞 Bug Fixes
+
+- `ColorPicker`: 修复`recentColors` 的布尔值类型相关定义和告警问题 @liweijie0812 ([#6984](https://github.com/Tencent/tdesign-vue-next/pull/6984))
+- `Dialog`: 修复插件浮层挂载后自定义样式未应用到实际节点的问题 @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+- `Drawer`: 修复插件浮层挂载后自定义样式未应用到实际节点的问题 @SadWood ([#6976](https://github.com/Tencent/tdesign-vue-next/pull/6976))
+- `Form`: 修复 `pattern` 规则使用带 `g` 或 `y` 标志的正则时，连续校验隔次失败的问题 @kwy404 ([#6982](https://github.com/Tencent/tdesign-vue-next/pull/6982))
+- `Popup`: 修复 Shadow DOM 下点击弹层内容和移入嵌套弹层时弹层误关闭的问题 @liweijie0812 ([#6980](https://github.com/Tencent/tdesign-vue-next/pull/6980))
+
 ## 🌈 1.20.8 `2026-09-17`
 
 ### 🚀 Features

@@ -1,4 +1,4 @@
-import { App, ref, Plugin, defineComponent, h, onMounted, nextTick, AppContext, createVNode, render } from 'vue';
+import { App, ref, Plugin, defineComponent, h, onMounted, AppContext, createVNode, render } from 'vue';
 import DialogComponent from './dialog';
 import { getAttach } from '@tdesign/shared-utils';
 import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from './type';
@@ -10,23 +10,12 @@ const createDialog: DialogMethod = (props, context) => {
   const visible = ref(false);
   const { className, style } = options;
 
-  let preClassName = className;
+  const customClassName = ref(className);
+  const customStyle = ref(style);
 
   const updateClassNameStyle = (className: string, style: DialogOptions['style']) => {
-    if (className && wrapper.firstElementChild) {
-      if (preClassName && preClassName !== className) {
-        wrapper.firstElementChild.classList.remove(...preClassName.split(' ').map((name) => name.trim()));
-      }
-      className.split(' ').forEach((name) => {
-        wrapper.firstElementChild.classList.add(name.trim());
-      });
-    }
-
-    if (style && wrapper.firstElementChild) {
-      (wrapper.firstElementChild as HTMLElement).style.cssText += style;
-    }
-
-    preClassName = className;
+    if (className) customClassName.value = className;
+    if (style) customStyle.value = `${customStyle.value || ''};${style}`;
   };
 
   function destroySelf() {
@@ -41,10 +30,6 @@ const createDialog: DialogMethod = (props, context) => {
         visible.value = true;
         // 处理 https://github.com/Tencent/tdesign-vue-next/issues/394
         (document.activeElement as HTMLElement).blur();
-        // 避免元素未挂载就触发样式获取，子元素为空的问题
-        nextTick(() => {
-          updateClassNameStyle(className, style);
-        });
       });
       const update = (newOptions: DialogOptions) => {
         dialogOptions.value = {
@@ -72,6 +57,9 @@ const createDialog: DialogMethod = (props, context) => {
         delete options.style;
         return h(DialogComponent, {
           ...dialogOptions.value,
+          // 样式绑定到组件根节点，避免 Teleport 后落在空的插件容器上。
+          class: customClassName.value,
+          style: customStyle.value,
           onClose,
           lazy: dialogOptions.value.lazy ?? true,
           visible: visible.value,

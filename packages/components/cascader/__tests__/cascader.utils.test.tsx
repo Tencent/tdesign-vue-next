@@ -62,7 +62,8 @@ describe('Cascader utils', () => {
       expect(getSingleContent(asContext({ multiple: true, value: 'child', treeStore }))).toBe('');
       expect(getSingleContent(asContext({ multiple: false, value: '', treeStore }))).toBe('');
       expect(getSingleContent(asContext({ multiple: false, value: ['child'], treeStore }))).toBe('');
-      expect(getSingleContent(asContext({ multiple: false, value: 0, treeStore }))).toBe(0);
+      expect(getSingleContent(asContext({ multiple: false, value: 0, treeStore }))).toBe('0');
+      expect(getSingleContent(asContext({ multiple: false, value: 1596595651, treeStore }))).toBe('1596595651');
       expect(getSingleContent(asContext({ multiple: false, value: 'unknown', treeStore }))).toBe('unknown');
     });
 
@@ -82,6 +83,7 @@ describe('Cascader utils', () => {
       expect(getSingleContent(asContext({ multiple: false, value: 'raw', treeStore, showAllLevels: true }))).toBe(
         'raw',
       );
+      expect(getSingleContent(asContext({ multiple: false, value: 42, treeStore, showAllLevels: true }))).toBe('42');
     });
 
     it('getMultipleContent() handles incompatible and missing values', () => {

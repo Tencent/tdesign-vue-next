@@ -177,6 +177,27 @@ describe('ColorPicker', () => {
       expect(getItemsBgColor(2)).toBe(recentColors[2]);
     });
 
+    it(':recentColors[boolean]', async () => {
+      const { panel: panel1 } = await mountColorPickerAndTriggerPanel({
+        props: { value: '0052d9', recentColors: false },
+      });
+      const titles1 = panel1.findAll('.t-color-picker__swatches--title');
+      expect(titles1.length).toBe(1);
+      expect(titles1[0].text()).not.toContain('最近使用颜色');
+
+      const handleRecentColorsChange = vi.fn();
+      const { panel: panel2 } = await mountColorPickerAndTriggerPanel({
+        props: { value: '#0052d9', recentColors: true, onRecentColorsChange: handleRecentColorsChange },
+      });
+      const titles2 = panel2.findAll('.t-color-picker__swatches--title');
+      expect(titles2.length).toBe(2);
+      expect(titles2[0].text()).toContain('最近使用颜色');
+      expect(panel2.findAll('.t-color-picker__swatches')[0].findAll('.t-color-picker__swatches--item').length).toBe(0);
+      await panel2.find('.t-color-picker__swatches').find('.t-color-picker__icon').trigger('click');
+      expect(handleRecentColorsChange).toBeCalled();
+      expect(Array.isArray(handleRecentColorsChange.mock.calls[0][0])).toBeTruthy();
+    });
+
     it(':selectInputProps[object]', async () => {
       const { panel } = await mountColorPickerAndTriggerPanel({
         props: { value: '0052d9', selectInputProps: { disabled: true } },

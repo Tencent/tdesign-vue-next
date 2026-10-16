@@ -47,6 +47,27 @@ describe('ColorPickerPanel', () => {
       );
       expect(wrapper.find('.t-color-picker__swatches .t-color-picker__icon').exists()).toBeFalsy();
     });
+
+    it(':recentColors[boolean]', async () => {
+      const wrapper1 = mount(() => <ColorPickerPanel recentColors={false} />);
+      const titles1 = wrapper1.findAll('.t-color-picker__swatches--title');
+      expect(titles1.length).toBe(1);
+      expect(titles1[0].text()).not.toContain('最近使用颜色');
+
+      const handleRecentColorsChange = vi.fn();
+      const wrapper2 = mount(() => (
+        <ColorPickerPanel value="#0052d9" recentColors={true} onRecentColorsChange={handleRecentColorsChange} />
+      ));
+      const titles2 = wrapper2.findAll('.t-color-picker__swatches--title');
+      expect(titles2.length).toBe(2);
+      expect(titles2[0].text()).toContain('最近使用颜色');
+      expect(wrapper2.findAll('.t-color-picker__swatches')[0].findAll('.t-color-picker__swatches--item').length).toBe(
+        0,
+      );
+      await wrapper2.find('.t-color-picker__swatches').find('.t-color-picker__icon').trigger('click');
+      expect(handleRecentColorsChange).toBeCalled();
+      expect(Array.isArray(handleRecentColorsChange.mock.calls[0][0])).toBeTruthy();
+    });
   });
 
   describe('events', () => {

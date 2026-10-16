@@ -12,7 +12,15 @@ import {
 } from 'vue';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
-import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/shared-hooks';
+import {
+  useAttach,
+  useConfig,
+  useTeleport,
+  usePrefixClass,
+  usePopupManager,
+  useDestroyOnClose,
+  useKeepAnimation,
+} from '@tdesign/shared-hooks';
 import { useSameTarget } from './hooks';
 
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
@@ -47,6 +55,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const dialogCardRef = ref<ComponentPublicInstance<{ resetPosition: () => void }>>(null);
     const { globalConfig } = useConfig('dialog');
+    const { keepFade } = useKeepAnimation();
     const confirmBtnAction: TdDialogProps['onConfirm'] = (context) => {
       props.onConfirm?.(context);
     };
@@ -55,7 +64,8 @@ export default defineComponent({
       emitCloseEvent({ e: context.e, trigger: 'cancel' });
     };
     // teleport容器
-    const teleportElement = useTeleport(() => props.attach);
+    const attach = useAttach('dialog', () => props.attach);
+    const teleportElement = useTeleport(attach);
     useDestroyOnClose();
     const timer = ref();
     const styleEl = ref();
@@ -157,7 +167,9 @@ export default defineComponent({
     // 回车触发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
       const eventSrc = e.target as HTMLElement;
-      if (eventSrc?.tagName?.toLowerCase() === 'input') return; // 若是input触发 则不执行
+      const tagName = eventSrc?.tagName?.toLowerCase();
+      // 输入控件内的回车由控件处理，避免 textarea 换行时确认对话框
+      if (tagName === 'input' || tagName === 'textarea') return;
       const { code } = e;
       if ((code === 'Enter' || code === 'NumpadEnter') && isTopInteractivePopup()) {
         props.onConfirm?.({ e });
@@ -308,10 +320,11 @@ export default defineComponent({
       ];
 
       return (
-        <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
+        <Teleport disabled={!attach.value || !teleportElement.value} to={teleportElement.value}>
           <Transition
-            duration={300}
+            duration={keepFade.value ? 300 : 0}
             name={`${COMPONENT_NAME.value}-zoom__vue`}
+            css={keepFade.value}
             onBeforeEnter={beforeEnter}
             onAfterEnter={afterEnter}
             onBeforeLeave={beforeLeave}

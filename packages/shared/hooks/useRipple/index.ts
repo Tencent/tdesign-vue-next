@@ -55,7 +55,7 @@ export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) 
     if (!dom || !(dom instanceof Element)) return;
 
     const rippleColor = getRippleColor(dom, fixedRippleColor?.value);
-    if (e.button !== 0 || !el || !keepRipple) return;
+    if (e.button !== 0 || !el || !keepRipple.value) return;
 
     if (
       dom.classList.contains(`${classPrefix.value}-is-active`) ||

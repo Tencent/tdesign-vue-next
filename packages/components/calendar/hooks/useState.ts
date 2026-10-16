@@ -45,17 +45,17 @@ export function useState(props: TdCalendarProps) {
 
   function setCurrentDate(value?: TdCalendarProps['value']): void {
     if (isArray(value)) {
-      state.curDate = value && value.length ? dayjs(value[0]) : createDefaultCurDate();
+      state.curDate = value.length ? dayjs(value[0]) : null;
     } else {
-      state.curDate = value ? dayjs(value) : createDefaultCurDate();
+      state.curDate = value === undefined ? createDefaultCurDate() : value ? dayjs(value) : null;
     }
   }
 
   function setCurrentDateList(value?: TdCalendarProps['value']): void {
     if (isArray(value)) {
-      state.curDateList = value && value.length ? value.map((item) => dayjs(item)) : [createDefaultCurDate()];
+      state.curDateList = value.map((item) => dayjs(item));
     } else {
-      state.curDateList = value ? [dayjs(value)] : [createDefaultCurDate()];
+      state.curDateList = value === undefined ? [createDefaultCurDate()] : value ? [dayjs(value)] : [];
     }
   }
 
