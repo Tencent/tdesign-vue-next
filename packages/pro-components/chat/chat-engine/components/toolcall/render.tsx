@@ -86,14 +86,13 @@ export default defineComponent({
                 console.warn('解析后端结果失败，使用原始字符串:', error);
                 backendResult = props.toolCall.result;
               }
+              // 调用 handler，传入 args 和 backendResult
+              const result = await config.value.handler(args.value, backendResult);
+              actionState.value = {
+                status: 'complete',
+                result,
+              };
             }
-
-            // 调用 handler，传入 args 和 backendResult
-            const result = await config.value.handler(args.value, backendResult);
-            actionState.value = {
-              status: 'complete',
-              result,
-            };
           } catch (error) {
             actionState.value = {
               status: 'error',
