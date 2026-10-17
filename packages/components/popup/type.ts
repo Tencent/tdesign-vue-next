@@ -5,7 +5,7 @@
  * */
 
 import { Instance } from '@popperjs/core';
-import { TNode, ClassName, Styles, AttachNode } from '../common';
+import type { TNode, ClassName, Styles, AttachNode } from '../common';
 
 export interface TdPopupProps {
   /**
