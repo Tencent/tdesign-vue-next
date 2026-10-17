@@ -54,7 +54,13 @@ export default function useTreeNodes(state: TypeTreeState) {
   };
 
   // 创建单个 tree 节点
-  const renderItem = (h: TypeCreateElement, node: TypeTreeRow, index: number, stateId: string) => {
+  const renderItem = (
+    h: TypeCreateElement,
+    node: TypeTreeRow,
+    index: number,
+    stateId: string,
+    hasLayerAnyChild: boolean,
+  ) => {
     const rowIndex = node.VIRTUAL_SCROLL_INDEX || index;
     const nodeUniqueId = node[privateKey];
     // vue3 中，不使用动画时，传递 node, 或者单纯传递 itemKey 无法触发 treeItem 的 render 方法
@@ -69,6 +75,7 @@ export default function useTreeNodes(state: TypeTreeState) {
         stateId={stateId}
         itemKey={nodeUniqueId}
         treeScope={scope}
+        hasLayerAnyChild={hasLayerAnyChild}
         // @ts-expect-error
         onClick={handleClick}
         onChange={handleChange}
@@ -79,8 +86,9 @@ export default function useTreeNodes(state: TypeTreeState) {
 
   const renderTreeNodes = (h: TypeCreateElement) => {
     const stateId = `render-${new Date().getTime()}`;
+    const hasLayerAnyChild = nodes.value.some((item) => !!item.children);
     const treeNodeViews: TypeVNode[] = nodes.value.map((node: TypeTreeNode, index) =>
-      renderItem(h, node, index, stateId),
+      renderItem(h, node, index, stateId, hasLayerAnyChild),
     );
     return treeNodeViews;
   };
