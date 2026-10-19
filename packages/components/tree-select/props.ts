@@ -138,16 +138,16 @@ export default {
   },
   /** 选中值 */
   value: {
-    type: [String, Number, Object, Array] as PropType<TdTreeSelectProps['value']>,
+    type: [String, Number, BigInt, Object, Array] as PropType<TdTreeSelectProps['value']>,
     default: undefined as TdTreeSelectProps['value'],
   },
   modelValue: {
-    type: [String, Number, Object, Array] as PropType<TdTreeSelectProps['value']>,
+    type: [String, Number, BigInt, Object, Array] as PropType<TdTreeSelectProps['value']>,
     default: undefined as TdTreeSelectProps['value'],
   },
   /** 选中值，非受控属性 */
   defaultValue: {
-    type: [String, Number, Object, Array] as PropType<TdTreeSelectProps['defaultValue']>,
+    type: [String, Number, BigInt, Object, Array] as PropType<TdTreeSelectProps['defaultValue']>,
   },
   /** 自定义选中项呈现方式 */
   valueDisplay: {
