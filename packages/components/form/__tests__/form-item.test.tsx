@@ -384,6 +384,24 @@ describe('FormItem', () => {
         expect(formItems[2].classes()).toContain('t-form__item--last');
       });
 
+      it('栅格列内的表单项不标记末位', async () => {
+        const wrapper = mount(
+          <Form>
+            <div class="t-row">
+              <div class="t-col">
+                <FormItem name="a" />
+              </div>
+              <div class="t-col">
+                <FormItem name="b" />
+              </div>
+            </div>
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual([]);
+      });
+
       it('inline 布局下不标记末位表单项', async () => {
         const wrapper = mount(
           <Form layout="inline">
