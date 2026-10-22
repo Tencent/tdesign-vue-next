@@ -695,6 +695,82 @@ describe('InputNumber', () => {
     });
   });
 
+  describe('scenarios', () => {
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5832
+    it.each([0, 50])('restores the retained value %i after empty input on blur', async (value) => {
+      const onChange = vi.fn();
+      const onBlur = vi.fn();
+      const onValidate = vi.fn();
+      const wrapper = mount(<InputNumber value={value} onChange={onChange} onBlur={onBlur} onValidate={onValidate} />);
+      const input = wrapper.find('input');
+      onValidate.mockClear();
+
+      await input.trigger('focus');
+      await input.setValue('');
+      expect((input.element as HTMLInputElement).value).toBe('');
+      await input.trigger('blur');
+
+      expect((input.element as HTMLInputElement).value).toBe(String(value));
+      expect(onChange.mock.calls.map(([, context]) => context.type)).toEqual(['input', 'blur']);
+      expect(onChange.mock.calls.every(([value]) => value === undefined)).toBe(true);
+      expect(onBlur).toHaveBeenCalledExactlyOnceWith(undefined, { e: expect.any(FocusEvent) });
+      expect(onValidate).not.toHaveBeenCalled();
+      wrapper.unmount();
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5832
+    it('restores formatting and decimal places after empty input on blur', async () => {
+      const wrapper = mount(
+        <InputNumber value={12.5} decimalPlaces={2} format={(_, { fixedNumber }) => `$${fixedNumber}`} />,
+      );
+      const input = wrapper.find('input');
+      await input.trigger('focus');
+      await input.setValue('');
+      await input.trigger('blur');
+      expect((input.element as HTMLInputElement).value).toBe('$12.50');
+      wrapper.unmount();
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5832
+    it('preserves retained large-number precision after empty input on blur', async () => {
+      const value = '12345678901234567890';
+      const wrapper = mount(<InputNumber value={value} largeNumber />);
+      const input = wrapper.find('input');
+      await input.trigger('focus');
+      await input.setValue('');
+      await input.trigger('blur');
+      expect((input.element as HTMLInputElement).value).toBe(value);
+      wrapper.unmount();
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5832
+    it.each([
+      { mode: 'model', allowInputOverLimit: true },
+      { mode: 'model', allowInputOverLimit: false },
+      { mode: 'default', allowInputOverLimit: true },
+      { mode: 'default', allowInputOverLimit: false },
+    ])(
+      'keeps accepted empty input on blur with $mode value and allowInputOverLimit=$allowInputOverLimit',
+      async ({ mode, allowInputOverLimit }) => {
+        const value = ref<number | undefined>(50);
+        const wrapper = mount(() =>
+          mode === 'model' ? (
+            <InputNumber v-model={value.value} min={10} max={100} allowInputOverLimit={allowInputOverLimit} />
+          ) : (
+            <InputNumber defaultValue={50} min={10} max={100} allowInputOverLimit={allowInputOverLimit} />
+          ),
+        );
+        const input = wrapper.find('input');
+        await input.trigger('focus');
+        await input.setValue('');
+        await input.trigger('blur');
+        expect((input.element as HTMLInputElement).value).toBe('');
+        if (mode === 'model') expect(value.value).toBeUndefined();
+        wrapper.unmount();
+      },
+    );
+  });
+
   describe('keyboard interaction', () => {
     it('ArrowUp increases value', async () => {
       const value = ref(5);

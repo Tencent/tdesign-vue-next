@@ -366,8 +366,8 @@ export default defineComponent({
     onMounted(() => {
       initialValue.value = cloneDeep(value.value);
       form?.children.push(context);
-      // 无 name 的表单项（如提交/重置按钮容器）不参与末位判定
-      unregisterFormItem = !props.name ? undefined : form?.registerFormItem(formItemRef.value);
+      // 末位样式属于布局逻辑，无 name 的提交/重置按钮容器也需要参与判定
+      unregisterFormItem = form?.registerFormItem(formItemRef.value);
     });
 
     onBeforeUnmount(() => {

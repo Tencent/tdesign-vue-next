@@ -18,7 +18,7 @@ export default {
   },
   /** 头像 */
   avatar: {
-    type: [String, Object, Function] as PropType<TdCommentProps['avatar']>,
+    type: [String, Function] as PropType<TdCommentProps['avatar']>,
   },
   /** 内容 */
   content: {

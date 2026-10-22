@@ -167,7 +167,9 @@ export default defineComponent({
     // 回车触发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
       const eventSrc = e.target as HTMLElement;
-      if (eventSrc?.tagName?.toLowerCase() === 'input') return; // 若是input触发 则不执行
+      const tagName = eventSrc?.tagName?.toLowerCase();
+      // 输入控件内的回车由控件处理，避免 textarea 换行时确认对话框
+      if (tagName === 'input' || tagName === 'textarea') return;
       const { code } = e;
       if ((code === 'Enter' || code === 'NumpadEnter') && isTopInteractivePopup()) {
         props.onConfirm?.({ e });

@@ -323,17 +323,20 @@ export default defineComponent({
     const scrollToElement = (params: ComponentScrollToElementParams) => {
       let { index } = params;
       if (!index && index !== 0) {
-        if (!params.key) {
+        if (params.key === undefined || params.key === null) {
           log.error('Table', 'scrollToElement: one of `index` or `key` must exist.');
           return;
         }
         index = tableData.value?.findIndex((item) => get(item, props.rowKey) === params.key);
         if (index < 0) {
           log.error('Table', `${params.key} does not exist in data, check \`rowKey\` or \`data\` please.`);
+          return;
         }
       }
       if (virtualConfig.isVirtualScroll.value) {
-        virtualConfig.scrollToElement({ ...params, index: index + 1 });
+        const headerHeight = tableElmRef.value?.querySelector('thead')?.offsetHeight ?? 0;
+        // The virtual scroll hook sums through its index; only rows before the target contribute to its offset.
+        virtualConfig.scrollToElement({ ...params, index: index - 1, top: (params.top ?? 0) - headerHeight });
       } else {
         // 执行普通的滚动
         // 获取 tbody
