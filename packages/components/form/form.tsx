@@ -39,6 +39,7 @@ export default defineComponent({
 
     const COMPONENT_NAME = usePrefixClass('form');
     // 仅在 refreshLastFormItem 内读取，故无需响应式
+    const COL_NAME = usePrefixClass('col');
     const formItemElements: HTMLElement[] = [];
     const lastFormItemElements = shallowRef<Set<HTMLElement>>(new Set());
 
@@ -54,6 +55,8 @@ export default defineComponent({
           if (!parentElement) return;
           // 嵌套在其它表单项内部的子项不参与末位判定
           if (parentElement.closest(formItemSelector)) return;
+          // 栅格列内的表单项视觉上并非末项，保留 margin 以容纳校验文案
+          if (parentElement.classList.contains(COL_NAME.value)) return;
 
           const siblings = groups.get(parentElement);
           if (siblings) siblings.push(el);
