@@ -337,7 +337,7 @@ export default defineComponent({
         const [removed] = values.splice(index, 1);
         if (props.multiple && props.treeProps?.valueMode === 'all' && !props.treeProps.checkStrictly) {
           const getValue = (item: TreeSelectValue) =>
-            isObjectValue.value ? (item as INodeOptions)?.value : (item as TreeNodeValue);
+            isObjectValue.value ? getObjectValue(item) : (item as TreeNodeValue);
           const related = getTagRelatedValues(getValue(removed));
           let remaining = 0;
           values.forEach((item) => {

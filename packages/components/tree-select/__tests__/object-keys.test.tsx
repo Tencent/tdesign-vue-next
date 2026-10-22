@@ -123,36 +123,40 @@ describe('TreeSelect', () => {
       });
 
       // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
-      it('checks aliased object values and removes the zero tag', async () => {
-        const onChange = vi.fn();
-        const wrapper = await renderOpenTreeSelect({
-          data,
-          keys,
-          valueType: 'object',
-          multiple: true,
-          defaultValue: [
-            { name: 'zero', id: 0n },
-            { name: 'large', id: 9007199254740993n },
-          ],
-          onChange,
-        });
-        expect(getTree(wrapper).props('value')).toEqual([0n, 9007199254740993n]);
-        expect(getSelectInput(wrapper).props('value')).toEqual([
-          expect.objectContaining({ label: 'zero', value: 0n }),
-          expect.objectContaining({ label: 'large', value: 9007199254740993n }),
-        ]);
-        getSelectInputHandler(wrapper, 'onTagChange')(['large'], {
-          trigger: 'tag-remove',
-          index: 0,
-          e: new MouseEvent('click'),
-        });
-        await nextTick();
-        expect(onChange).toHaveBeenCalledWith(
-          [{ name: 'large', id: 9007199254740993n }],
-          expect.objectContaining({ trigger: 'tag-remove' }),
-        );
-        expect(getTree(wrapper).props('value')).toEqual([9007199254740993n]);
-      });
+      it.each(['onlyLeaf', 'all'] as const)(
+        'checks aliased object values and removes the zero tag in %s mode',
+        async (valueMode) => {
+          const onChange = vi.fn();
+          const wrapper = await renderOpenTreeSelect({
+            data,
+            keys,
+            valueType: 'object',
+            multiple: true,
+            defaultValue: [
+              { name: 'zero', id: 0n },
+              { name: 'large', id: 9007199254740993n },
+            ],
+            treeProps: { valueMode },
+            onChange,
+          });
+          expect(getTree(wrapper).props('value')).toEqual([0n, 9007199254740993n]);
+          expect(getSelectInput(wrapper).props('value')).toEqual([
+            expect.objectContaining({ label: 'zero', value: 0n }),
+            expect.objectContaining({ label: 'large', value: 9007199254740993n }),
+          ]);
+          getSelectInputHandler(wrapper, 'onTagChange')(['large'], {
+            trigger: 'tag-remove',
+            index: 0,
+            e: new MouseEvent('click'),
+          });
+          await nextTick();
+          expect(onChange).toHaveBeenCalledWith(
+            [{ name: 'large', id: 9007199254740993n }],
+            expect.objectContaining({ trigger: 'tag-remove' }),
+          );
+          expect(getTree(wrapper).props('value')).toEqual([9007199254740993n]);
+        },
+      );
     });
   });
 });
