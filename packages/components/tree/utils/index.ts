@@ -9,6 +9,7 @@ import {
   TypeTNodeProp,
   TypeGetTNodeOption,
   TypeTargetNode,
+  TreeNodeValue,
 } from '../types';
 
 export function emitEvent<T extends any[]>(
@@ -119,14 +120,15 @@ export function getLineModel(nodes: TypeTreeNode[], node: TypeTreeNode, index: n
   return lineModel;
 }
 
-export function isTreeNodeValue(item: unknown): boolean {
-  return typeof item === 'string' || typeof item === 'number';
+export function isTreeNodeValue(item: unknown): item is TreeNodeValue {
+  return typeof item === 'string' || typeof item === 'number' || typeof item === 'bigint';
 }
 
 export function getNode(store: TypeTreeStore, item: TypeTargetNode): TypeTreeNode {
   let node = null;
   let val = null;
-  if (typeof item === 'string' || typeof item === 'number') {
+  // 使用 typeof 判断以保留类型收窄，item 为节点/节点模型时再读取其 value
+  if (typeof item === 'string' || typeof item === 'number' || typeof item === 'bigint') {
     val = item;
   } else if (item && isTreeNodeValue(item.value)) {
     val = item.value;

@@ -73,7 +73,7 @@ export default defineComponent({
         findParentValues(props.data, value, realValue.value, realChildren.value);
 
       let treeParents: TreeSelectValue[] = [];
-      if (treeSelectValue.value) {
+      if (!isNil(treeSelectValue.value) && treeSelectValue.value !== '') {
         if (Array.isArray(treeSelectValue.value) && props.multiple) {
           treeParents = treeSelectValue.value.flatMap(getParents);
         } else if (!Array.isArray(treeSelectValue.value) && !props.multiple) {
@@ -187,7 +187,11 @@ export default defineComponent({
 
     onMounted(async () => {
       setTreeParentsExpanded();
-      if (!treeSelectValue.value && props.defaultValue) {
+      if (
+        (isNil(treeSelectValue.value) || treeSelectValue.value === '') &&
+        !isNil(props.defaultValue) &&
+        props.defaultValue !== ''
+      ) {
         change(props.defaultValue, null, 'uncheck');
       }
       if (isObjectValue.value) {
@@ -343,7 +347,7 @@ export default defineComponent({
     };
     const changeNodeInfo = async () => {
       if (!props.multiple) {
-        if (treeSelectValue.value || treeSelectValue.value === 0) {
+        if (!isNil(treeSelectValue.value) && treeSelectValue.value !== '') {
           nodeInfo.value = getSingleNodeInfo();
         } else {
           nodeInfo.value = '';
