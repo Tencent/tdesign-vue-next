@@ -67,6 +67,24 @@ describe('TreeSelect', () => {
 
   describe('props', () => {
     // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it('supports standard bigint object values in single and multiple mode', async () => {
+      const single = await renderOpenTreeSelect({ data: bigintData, valueType: 'object', value: { value: 2n } });
+      expect(getSelectInput(single).props('value')).toMatchObject({ label: 'node 2', value: 2n });
+      expect(getTree(single).props('actived')).toEqual([2n]);
+      const multiple = await renderOpenTreeSelect({
+        data: bigintData,
+        valueType: 'object',
+        multiple: true,
+        value: [{ value: 1n }, { value: 2n }],
+      });
+      expect(getTree(multiple).props('value')).toEqual([1n, 2n]);
+      expect(getSelectInput(multiple).props('value')).toEqual([
+        expect.objectContaining({ label: 'node 1', value: 1n }),
+        expect.objectContaining({ label: 'node 2', value: 2n }),
+      ]);
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
     it.each(['value', 'modelValue', 'defaultValue'] as const)(
       'resolves a 0n %s and expands its parents',
       async (prop) => {
