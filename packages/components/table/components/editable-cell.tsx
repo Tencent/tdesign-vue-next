@@ -460,7 +460,9 @@ export default defineComponent({
         <div
           class={props.tableBaseClass.cellEditWrap}
           onClick={(e: MouseEvent) => {
-            e.stopPropagation();
+            if (!isKeepEditMode.value) {
+              e.stopPropagation();
+            }
           }}
         >
           <Component
