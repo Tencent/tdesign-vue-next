@@ -8,7 +8,6 @@ import SelectInput, { TdSelectInputProps } from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
 import { PopupVisibleChangeContext } from '../popup';
 
-import { INodeOptions } from './types';
 import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from './type';
 import { TreeOptionData } from '../common';
 import props from './props';
@@ -70,7 +69,12 @@ export default defineComponent({
      */
     const setTreeParentsExpanded = () => {
       const getParents = (value: TreeSelectValue) =>
-        findParentValues(props.data, value, realValue.value, realChildren.value);
+        findParentValues(
+          props.data,
+          isObjectValue.value ? getObjectValue(value) : value,
+          realValue.value,
+          realChildren.value,
+        );
 
       let treeParents: TreeSelectValue[] = [];
       if (treeSelectValue.value) {
@@ -145,7 +149,7 @@ export default defineComponent({
       if (props.multiple) {
         if (isObjectValue.value) {
           return isArray(treeSelectValue.value)
-            ? (treeSelectValue.value as Array<TreeSelectValue>).map((item) => (item as INodeOptions).value)
+            ? (treeSelectValue.value as Array<TreeSelectValue>).map(getObjectValue)
             : [];
         }
         return isArray(treeSelectValue.value)
@@ -185,6 +189,11 @@ export default defineComponent({
       return props.keys?.children || 'children';
     });
 
+    const getObjectValue = (value: TreeSelectValue): TreeNodeValue => {
+      const option = value as Record<string, TreeNodeValue>;
+      return option?.[realValue.value] ?? option?.value;
+    };
+
     onMounted(async () => {
       setTreeParentsExpanded();
       if (!treeSelectValue.value && props.defaultValue) {
@@ -192,8 +201,8 @@ export default defineComponent({
       }
       if (isObjectValue.value) {
         actived.value = isArray(treeSelectValue.value)
-          ? (treeSelectValue.value as Array<TreeSelectValue>).map((item) => (item as INodeOptions)?.value)
-          : [(treeSelectValue.value as INodeOptions)?.value];
+          ? (treeSelectValue.value as Array<TreeSelectValue>).map(getObjectValue)
+          : [getObjectValue(treeSelectValue.value)];
       } else {
         (actived.value as TreeSelectValue) = isArray(treeSelectValue.value)
           ? treeSelectValue.value
@@ -251,7 +260,8 @@ export default defineComponent({
         return;
       }
       // 单选模式重复选择不清空
-      if (treeSelectValue.value === context.node.data[realValue.value]) {
+      const selectedValue = isObjectValue.value ? getObjectValue(treeSelectValue.value) : treeSelectValue.value;
+      if (selectedValue === context.node.data[realValue.value]) {
         return;
       }
       let current: TreeSelectValue = valueParam;
@@ -323,7 +333,7 @@ export default defineComponent({
         const [removed] = values.splice(index, 1);
         if (props.multiple && props.treeProps?.valueMode === 'all' && !props.treeProps.checkStrictly) {
           const getValue = (item: TreeSelectValue) =>
-            isObjectValue.value ? (item as INodeOptions)?.value : (item as TreeNodeValue);
+            isObjectValue.value ? getObjectValue(item) : (item as TreeNodeValue);
           const related = getTagRelatedValues(getValue(removed));
           let remaining = 0;
           values.forEach((item) => {
@@ -360,13 +370,13 @@ export default defineComponent({
     };
 
     const getSingleNodeInfo = () => {
-      const nodeValue = isObjectValue.value ? (treeSelectValue.value as INodeOptions).value : treeSelectValue.value;
+      const nodeValue = isObjectValue.value ? getObjectValue(treeSelectValue.value) : treeSelectValue.value;
       return getNodeItem(nodeValue);
     };
 
     const getMultipleNodeInfo = () => {
       return (treeSelectValue.value as Array<TreeSelectValue>).map((value) => {
-        const nodeValue = isObjectValue.value ? (value as INodeOptions).value : value;
+        const nodeValue = isObjectValue.value ? getObjectValue(value) : value;
         return getNodeItem(nodeValue);
       });
     };
