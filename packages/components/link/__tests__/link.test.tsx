@@ -1,8 +1,10 @@
-import { nextTick } from 'vue';
+import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
-import { Link } from '@tdesign/components';
+import Link from '@tdesign/components/link';
+import Popconfirm from '@tdesign/components/popconfirm';
+import Tooltip from '@tdesign/components/tooltip';
 import linkProps from '@tdesign/components/link/props';
 import { JumpIcon } from 'tdesign-icons-vue-next';
 
@@ -217,6 +219,94 @@ describe('Link', () => {
       await wrapperDisabled.trigger('click');
       expect(onClick).not.toHaveBeenCalled();
       wrapperDisabled.unmount();
+    });
+  });
+
+  describe('scenarios', () => {
+    const wrappers: VueWrapper[] = [];
+
+    beforeEach(() => {
+      vi.useFakeTimers();
+      vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({
+        width: 100,
+        height: 20,
+        top: 0,
+        left: 0,
+        right: 100,
+        bottom: 20,
+        x: 0,
+        y: 0,
+        toJSON: () => ({}),
+      });
+    });
+
+    afterEach(() => {
+      wrappers.splice(0).forEach((wrapper) => wrapper.unmount());
+      vi.clearAllTimers();
+      vi.useRealTimers();
+      vi.restoreAllMocks();
+      document.body.innerHTML = '';
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5891
+    it('does not open Popconfirm from a disabled link and opens it after enabling', async () => {
+      const onClick = vi.fn();
+      const onVisibleChange = vi.fn();
+      const disabled = ref(true);
+      const wrapper = mount(Popconfirm, {
+        attachTo: document.body,
+        props: { content: 'Confirm action?', onVisibleChange },
+        slots: {
+          default: () => (
+            <Link disabled={disabled.value} onClick={onClick}>
+              <span>Action</span>
+            </Link>
+          ),
+        },
+      });
+      wrappers.push(wrapper);
+      await nextTick();
+
+      const link = wrapper.findComponent(Link);
+      await link.trigger('click');
+      await link.find('span').trigger('click');
+      await vi.runAllTimersAsync();
+
+      expect(onClick).not.toHaveBeenCalled();
+      expect(onVisibleChange).not.toHaveBeenCalled();
+      expect(document.querySelector('.t-popconfirm')).toBeNull();
+
+      disabled.value = false;
+      await nextTick();
+      await link.find('span').trigger('click');
+      await vi.runAllTimersAsync();
+
+      expect(onClick).toHaveBeenCalledTimes(1);
+      expect(onVisibleChange).toHaveBeenCalledTimes(1);
+      expect(onVisibleChange).toHaveBeenCalledWith(true, {
+        trigger: 'trigger-element-click',
+      });
+      expect(document.querySelector('.t-popconfirm')).not.toBeNull();
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5891
+    it('still shows a hover tooltip for a disabled link', async () => {
+      const onVisibleChange = vi.fn();
+      const wrapper = mount(
+        <Tooltip content="Unavailable action" delay={0} onVisibleChange={onVisibleChange}>
+          <Link disabled>Action</Link>
+        </Tooltip>,
+        { attachTo: document.body },
+      );
+      wrappers.push(wrapper);
+      await nextTick();
+      await wrapper.findComponent(Link).trigger('mouseenter');
+      await vi.runAllTimersAsync();
+
+      expect(onVisibleChange).toHaveBeenCalledWith(true, {
+        trigger: 'trigger-element-hover',
+      });
+      expect(document.querySelector('.t-tooltip')?.textContent).toContain('Unavailable action');
     });
   });
 
