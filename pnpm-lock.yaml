@@ -254,8 +254,8 @@ catalogs:
       version: 2.8.1
   tdesign:
     '@tdesign/site-components':
-      specifier: ^0.19.2
-      version: 0.19.2
+      specifier: ^0.20.0
+      version: 0.20.0
     '@tdesign/theme-generator':
       specifier: ^1.2.7
       version: 1.2.7
@@ -830,7 +830,7 @@ importers:
         version: link:../../pro-components/chat
       '@tdesign/site-components':
         specifier: catalog:tdesign
-        version: 0.19.2
+        version: 0.20.0
       '@tdesign/theme-generator':
         specifier: catalog:tdesign
         version: 1.2.7
@@ -934,7 +934,7 @@ importers:
         version: link:../../common/docs
       '@tdesign/site-components':
         specifier: catalog:tdesign
-        version: 0.19.2
+        version: 0.20.0
       '@tdesign/theme-generator':
         specifier: catalog:tdesign
         version: 1.2.7
@@ -4186,8 +4186,8 @@ packages:
     peerDependencies:
       immer: ^10.0.0
 
-  '@tdesign/site-components@0.19.2':
-    resolution: {integrity: sha512-9mT+w5TbSYAqO2L/qV1UYPDYcBJkI8jzcuT49OxaZAxJJpMnM8jgeUJFuUDxjel3jeMvsCRMO4uDacwHNQIEDQ==}
+  '@tdesign/site-components@0.20.0':
+    resolution: {integrity: sha512-e8TLy3jsmqsvn2KvEm46MhKQ0ZSwV+CP65csvNNH6+6WhFLncY4u9AN4soZPE0gUFzxBiGMCia1Zck9zRqb9SA==}
 
   '@tdesign/theme-generator@1.2.7':
     resolution: {integrity: sha512-ldnDG9Au3EDr7SPUFaxdLOesVlso4i0vTI7nBJbpqoXnWr9FuUWWmdklTh/PMbAgHgM03P3j+CexYnpaTseBsA==}
@@ -7178,8 +7178,8 @@ packages:
     engines: {node: '>=12'}
     hasBin: true
 
-  hybrids@8.2.2:
-    resolution: {integrity: sha512-xCangE3oItxeWMNKHLa0yn0MHi0MHBtGLIz0Ty7PwdcBBN2sQ0mrBvVSf4lLMyBFNO7x47/2lO13FSJB/SkPyw==}
+  hybrids@9.2.1:
+    resolution: {integrity: sha512-E4Isjj1JgdbtA0DMZnzL5P5KztR3RZwNBHgiHkh/T43ZP6gnYmIo1z3y9nOovK66TMQ0RzCZczC4zz+Te7wPMA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -14954,10 +14954,10 @@ snapshots:
       immer: 10.2.0
       zod: 4.5.4
 
-  '@tdesign/site-components@0.19.2':
+  '@tdesign/site-components@0.20.0':
     dependencies:
       '@popperjs/core': 2.11.8
-      hybrids: 8.2.2
+      hybrids: 9.2.1
       nprogress: 0.2.0
       prismjs: 1.30.0
       qrcode: 1.5.4
@@ -18785,7 +18785,7 @@ snapshots:
 
   husky@7.0.4: {}
 
-  hybrids@8.2.2: {}
+  hybrids@9.2.1: {}
 
   iconv-lite@0.4.24:
     dependencies:
