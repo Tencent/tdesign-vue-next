@@ -254,8 +254,8 @@ catalogs:
       version: 2.8.1
   tdesign:
     '@tdesign/site-components':
-      specifier: ^0.20.2
-      version: 0.20.2
+      specifier: ^0.20.3
+      version: 0.20.3
     '@tdesign/theme-generator':
       specifier: ^1.2.7
       version: 1.2.7
@@ -830,7 +830,7 @@ importers:
         version: link:../../pro-components/chat
       '@tdesign/site-components':
         specifier: catalog:tdesign
-        version: 0.20.2
+        version: 0.20.3
       '@tdesign/theme-generator':
         specifier: catalog:tdesign
         version: 1.2.7
@@ -934,7 +934,7 @@ importers:
         version: link:../../common/docs
       '@tdesign/site-components':
         specifier: catalog:tdesign
-        version: 0.20.2
+        version: 0.20.3
       '@tdesign/theme-generator':
         specifier: catalog:tdesign
         version: 1.2.7
@@ -4186,8 +4186,8 @@ packages:
     peerDependencies:
       immer: ^10.0.0
 
-  '@tdesign/site-components@0.20.2':
-    resolution: {integrity: sha512-1zRT0CGJyapYnJlKCkeT8T0Xf/Q85rhbeVkt+IEAYbGmtyzMJnLRSiBe3pY2RIdrGYJ6+hKSK7d7FW9ZPR8ldA==}
+  '@tdesign/site-components@0.20.3':
+    resolution: {integrity: sha512-WtYcIrgTd8P97aogSpVuuoUgymtRt6hQmbot00wgRDztr7X0sIQ6LzymB26ypCKj0VDKnVm604EiAMscV7ofZA==}
 
   '@tdesign/theme-generator@1.2.7':
     resolution: {integrity: sha512-ldnDG9Au3EDr7SPUFaxdLOesVlso4i0vTI7nBJbpqoXnWr9FuUWWmdklTh/PMbAgHgM03P3j+CexYnpaTseBsA==}
@@ -14954,7 +14954,7 @@ snapshots:
       immer: 10.2.0
       zod: 4.5.4
 
-  '@tdesign/site-components@0.20.2':
+  '@tdesign/site-components@0.20.3':
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 9.2.1
