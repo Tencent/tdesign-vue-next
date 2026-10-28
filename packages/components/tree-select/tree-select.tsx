@@ -64,6 +64,18 @@ export default defineComponent({
       'inputValue',
     );
 
+    const realValue = computed(() => {
+      if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
+        return (props.treeProps as TreeProps).keys.value || 'value';
+      }
+      return props.keys?.value || 'value';
+    });
+
+    const getObjectValue = (value: TreeSelectValue): TreeNodeValue => {
+      const option = value as Record<string, TreeNodeValue>;
+      return option?.[realValue.value] ?? option?.value;
+    };
+
     /**
      * 设置树的所有父节点展开
      */
@@ -175,24 +187,12 @@ export default defineComponent({
       return props.keys?.label || 'label';
     });
 
-    const realValue = computed(() => {
-      if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
-        return (props.treeProps as TreeProps).keys.value || 'value';
-      }
-      return props.keys?.value || 'value';
-    });
-
     const realChildren = computed(() => {
       if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
         return (props.treeProps as TreeProps).keys.children || 'children';
       }
       return props.keys?.children || 'children';
     });
-
-    const getObjectValue = (value: TreeSelectValue): TreeNodeValue => {
-      const option = value as Record<string, TreeNodeValue>;
-      return option?.[realValue.value] ?? option?.value;
-    };
 
     onMounted(async () => {
       setTreeParentsExpanded();
