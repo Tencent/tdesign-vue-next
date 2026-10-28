@@ -15,7 +15,10 @@ export default defineConfig({
     include:
       process.env.NODE_ENV === 'test-snap'
         ? [await joinTdesignVueNextRoot('test/unit/snap/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}')]
-        : [await joinComponentsRoot('**/__tests__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}')],
+        : [
+            await joinComponentsRoot('**/__tests__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'),
+            await joinTdesignVueNextRoot('site/src/components/codeSandbox/__tests__/*.test.tsx'),
+          ],
     globals: true,
     environment: 'jsdom',
     testTimeout: 5000,

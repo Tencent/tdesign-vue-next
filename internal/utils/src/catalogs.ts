@@ -7,6 +7,7 @@ export const catalogs = {
     '@babel/plugin-transform-object-assign': '^7.22.5',
     '@babel/plugin-transform-runtime': '^7.22.9',
     '@babel/preset-env': '^7.22.9',
+    '@babel/standalone': '^7.27.4',
     '@rollup/plugin-babel': '^6.0.3',
     '@rollup/plugin-commonjs': '^24.0.0',
     '@rollup/plugin-json': '^6.0.0',
@@ -64,6 +65,7 @@ export const catalogs = {
     '@json-render/core': '^0.19.0',
   },
   docs: {
+    assert: '^2.1.0',
     'gray-matter': '^4.0.3',
     'marked-highlight': '^2.1.1',
     prismjs: '^1.29.0',
@@ -89,7 +91,7 @@ export const catalogs = {
     prettier: '^2.8.1',
   },
   tdesign: {
-    '@tdesign/site-components': '^0.20.2',
+    '@tdesign/site-components': '^0.20.5',
     '@tdesign/theme-generator': '^1.2.7',
     'tdesign-icons-vue-next': '^0.4.11',
     'tdesign-publish-cli': '^0.0.12',
