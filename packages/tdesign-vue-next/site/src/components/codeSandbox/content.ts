@@ -81,6 +81,7 @@ export async function prepareDemoCode(code: string) {
     : descriptor.script;
   if (!script || (!descriptor.scriptSetup && !/^(ts|tsx|jsx)$/.test(script.lang || ''))) return code;
 
+  // @ts-ignore
   const { transform } = await import('@babel/standalone');
   const lang = script.lang || 'js';
   const useJsx = /^(jsx|tsx)$/.test(lang);
