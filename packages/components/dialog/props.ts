@@ -63,6 +63,10 @@ export default {
   },
   /** 对话框是否可以拖拽（仅在非模态对话框时有效） */
   draggable: Boolean,
+  /** 对话框焦点控制。未设置时默认聚焦对话框容器；`null` 不移动焦点。`confirm-button` 和 `cancel-button` 聚焦对应按钮；函数返回自定义元素。 */
+  focusable: {
+    type: Object as PropType<TdDialogProps['focusable']>,
+  },
   /** 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容 */
   footer: {
     type: [Boolean, Function] as PropType<TdDialogProps['footer']>,

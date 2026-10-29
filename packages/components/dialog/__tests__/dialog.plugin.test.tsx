@@ -268,6 +268,32 @@ describe('Dialog Plugin', () => {
 
       dialog.destroy();
     });
+
+    it('focusable focuses the confirm button and restores the trigger', async () => {
+      const trigger = document.createElement('button');
+      document.body.appendChild(trigger);
+      trigger.focus();
+
+      const dialog = DialogPlugin({
+        header: 'focusable',
+        body: 'content',
+        focusable: {
+          defaultFocus: 'confirm-button',
+          focusTriggerAfterClose: true,
+        },
+      });
+
+      await nextTick();
+      await sleep(50);
+      expect(document.activeElement?.classList.contains('t-dialog__confirm')).toBe(true);
+
+      dialog.hide();
+      await sleep(500);
+      expect(document.activeElement).toBe(trigger);
+
+      dialog.destroy();
+      trigger.remove();
+    });
   });
 
   describe('DialogPlugin.confirm', () => {

@@ -7,6 +7,22 @@
 import { ButtonProps } from '../button';
 import { TNode, Styles, AttachNode, AppContext } from '../common';
 
+export interface DialogFocusable {
+  /**
+   * 打开后的默认焦点。
+   * 未设置时默认聚焦对话框容器；`null` 不移动焦点。`confirm-button` 和 `cancel-button` 聚焦对应按钮；函数返回自定义元素。
+   */
+  defaultFocus?: null | 'confirm-button' | 'cancel-button' | (() => HTMLElement | null);
+  /**
+   * 是否将焦点限制在当前对话框内
+   */
+  focusTrap?: boolean;
+  /**
+   * 是否将焦点交还给打开对话框前的触发元素
+   */
+  focusTriggerAfterClose: boolean;
+}
+
 export interface TdDialogProps {
   /**
    * 对话框挂载的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
@@ -68,6 +84,10 @@ export interface TdDialogProps {
    * @default false
    */
   draggable?: boolean;
+  /**
+   * 对话框焦点控制。`defaultFocus` 决定打开后的默认焦点；`focusTrap` 决定是否焦点将被限制在当前对话框内；`focusTriggerAfterClose` 决定关闭后是否将焦点交还给触发元素
+   */
+  focusable?: DialogFocusable;
   /**
    * 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容
    * @default true

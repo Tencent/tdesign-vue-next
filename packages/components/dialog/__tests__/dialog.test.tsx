@@ -261,7 +261,7 @@ describe('Dialog', () => {
       const escEvent = new KeyboardEvent('keydown', { code: 'Escape', bubbles: true });
       document.dispatchEvent(escEvent);
       await nextTick();
-      // 验证 ESC 事件回调被触发（closeOnEscKeydown 行为依赖 PopupManager 状态）
+      // 验证 ESC 事件回调被触发（closeOnEscKeydown 行为依赖 OverlayManager 状态）
       expect(fn).toHaveBeenCalled();
       wrapper.unmount();
     });
@@ -419,6 +419,147 @@ describe('Dialog', () => {
       const dialog = wrapper.find('.t-dialog');
       expect(dialog.exists()).toBeTruthy();
       expect(dialog.classes()).toContain('t-dialog--draggable');
+    });
+
+    describe('focusable', () => {
+      const focusableOptions = [
+        { defaultFocus: 'confirm-button' as const, className: 't-dialog__confirm' },
+        { defaultFocus: 'cancel-button' as const, className: 't-dialog__cancel' },
+      ];
+
+      it.each(focusableOptions)('defaultFocus[$defaultFocus]', async ({ defaultFocus, className }) => {
+        const wrapper = mount(
+          () => (
+            <Dialog
+              visible
+              focusable={{
+                defaultFocus,
+                focusTriggerAfterClose: false,
+              }}
+            />
+          ),
+          { attachTo: document.body },
+        );
+        await nextTick();
+        expect(document.activeElement?.classList.contains(className)).toBe(true);
+        wrapper.unmount();
+      });
+
+      it('defaultFocus[function]', async () => {
+        const input = document.createElement('input');
+        document.body.appendChild(input);
+        const wrapper = mount(
+          () => (
+            <Dialog
+              visible
+              focusable={{
+                defaultFocus: () => input,
+                focusTriggerAfterClose: false,
+              }}
+            />
+          ),
+          { attachTo: document.body },
+        );
+        await nextTick();
+        expect(document.activeElement).toBe(input);
+        wrapper.unmount();
+        input.remove();
+      });
+
+      it('defaultFocus[null]', async () => {
+        const trigger = document.createElement('button');
+        document.body.appendChild(trigger);
+        trigger.focus();
+        const wrapper = mount(
+          () => (
+            <Dialog
+              visible
+              focusable={{
+                defaultFocus: null,
+                focusTriggerAfterClose: false,
+              }}
+            />
+          ),
+          { attachTo: document.body },
+        );
+        await nextTick();
+        expect(document.activeElement).toBe(trigger);
+        wrapper.unmount();
+        trigger.remove();
+      });
+
+      it('focuses the dialog container when defaultFocus is omitted', async () => {
+        const wrapper = mount(() => <Dialog visible />, { attachTo: document.body });
+        await nextTick();
+        expect(document.activeElement?.classList.contains('t-dialog__ctx')).toBe(true);
+        wrapper.unmount();
+      });
+
+      it('focusTrap', async () => {
+        const outside = document.createElement('button');
+        document.body.appendChild(outside);
+        const wrapper = mount(
+          () => (
+            <Dialog
+              visible
+              focusable={{
+                defaultFocus: 'confirm-button',
+                focusTrap: true,
+                focusTriggerAfterClose: false,
+              }}
+            />
+          ),
+          { attachTo: document.body },
+        );
+        await nextTick();
+
+        const dialog = wrapper.find('.t-dialog').element as HTMLElement;
+        const focusableElements = Array.from(
+          dialog.querySelectorAll<HTMLElement>('button, [tabindex]:not([tabindex="-1"])'),
+        );
+        const first = focusableElements[0];
+        const last = focusableElements[focusableElements.length - 1];
+        last.focus();
+        const event = new KeyboardEvent('keydown', { key: 'Tab', bubbles: true, cancelable: true });
+        document.dispatchEvent(event);
+        expect(event.defaultPrevented).toBe(true);
+        expect(document.activeElement).toBe(first);
+
+        outside.focus();
+        expect(dialog.contains(document.activeElement)).toBe(true);
+        wrapper.unmount();
+        outside.remove();
+      });
+
+      it('focusTriggerAfterClose', async () => {
+        const trigger = document.createElement('button');
+        document.body.appendChild(trigger);
+        trigger.focus();
+        const visible = ref(false);
+        const wrapper = mount(
+          () => (
+            <Dialog
+              v-model:visible={visible.value}
+              focusable={{
+                defaultFocus: 'confirm-button',
+                focusTriggerAfterClose: true,
+              }}
+            />
+          ),
+          { attachTo: document.body },
+        );
+
+        visible.value = true;
+        await nextTick();
+        await nextTick();
+        expect(document.activeElement?.classList.contains('t-dialog__confirm')).toBe(true);
+
+        visible.value = false;
+        await nextTick();
+        wrapper.unmount();
+        expect(document.activeElement).toBe(trigger);
+        trigger.remove();
+      });
     });
   });
 
