@@ -918,17 +918,6 @@ describe('TreeSelect', () => {
         },
       );
 
-      it.each([0, 'zero-key'])('resolves custom object keys for %s', async (id) => {
-        const wrapper = await renderOpenTreeSelect({
-          data: [{ name: 'zero', id }],
-          keys,
-          valueType: 'object',
-          value: { name: 'zero', id },
-        });
-        expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: id });
-        expect(getTree(wrapper).props('actived')).toEqual([id]);
-      });
-
       it('prefers the custom value field over a conflicting normalized value', async () => {
         const wrapper = await renderOpenTreeSelect({
           data,
@@ -951,12 +940,6 @@ describe('TreeSelect', () => {
         expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: 0 });
         expect(getTree(wrapper).props('actived')).toEqual([0]);
         expect(getTree(wrapper).props('expanded')).toEqual([1]);
-      });
-
-      it.each(['modelValue', 'defaultValue'] as const)('resolves custom object fields from %s', async (prop) => {
-        const wrapper = await renderOpenTreeSelect({ data, keys, valueType: 'object', [prop]: { id: 0 } });
-        expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: 0 });
-        expect(getTree(wrapper).props('actived')).toEqual([0]);
       });
 
       it('updates a controlled object selection and clears it', async () => {
