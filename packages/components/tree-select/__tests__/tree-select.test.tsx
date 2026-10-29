@@ -391,9 +391,14 @@ describe('TreeSelect', () => {
 
     it(':treeProps[object]', async () => {
       const wrapper = await renderOpenTreeSelect({
-        treeProps: { expandOnClickNode: true, hover: false, line: true },
+        treeProps: { expandOnClickNode: true, hover: false, line: true, checkAllAffectedBy: 'onlyEnabled' },
       });
-      expect(getTree(wrapper).props()).toMatchObject({ expandOnClickNode: true, hover: false, line: true });
+      expect(getTree(wrapper).props()).toMatchObject({
+        expandOnClickNode: true,
+        hover: false,
+        line: true,
+        checkAllAffectedBy: 'onlyEnabled',
+      });
     });
 
     it(':treeProps.keys[object]', async () => {
@@ -1008,6 +1013,69 @@ describe('TreeSelect', () => {
       );
     });
 
+    describe('checkAllAffectedBy and multiple selection', () => {
+      it.each([undefined, 'onlyEnabled'] as const)(
+        '%s keeps parent selection, values and tags consistent',
+        async (checkAllAffectedBy) => {
+          const selected = ref<Array<string | number>>([]);
+          const onChange = vi.fn();
+          const wrapper = trackWrapper(
+            mount(
+              {
+                setup: () => () =>
+                  (
+                    <TreeSelect
+                      data={[
+                        {
+                          value: 'P',
+                          label: 'Parent',
+                          children: [
+                            { value: 'A', label: 'A' },
+                            { value: 'B', label: 'B' },
+                            { value: 'D', label: 'Disabled', disabled: true },
+                          ],
+                        },
+                      ]}
+                      multiple
+                      v-model={selected.value}
+                      popupVisible
+                      treeProps={{ expandAll: true, transition: false, valueMode: 'parentFirst', checkAllAffectedBy }}
+                      onChange={onChange}
+                    />
+                  ),
+              },
+              { attachTo: document.body },
+            ),
+          );
+          const tree = () => getTree(wrapper.findComponent(TreeSelect));
+          await vi.waitFor(() => expect(tree().find('[data-value="D"] input').exists()).toBe(true));
+          expect(tree().props('checkAllAffectedBy')).toBe(checkAllAffectedBy || 'all');
+          await tree().get('[data-value="P"] input').trigger('click');
+          const enabledOnly = checkAllAffectedBy === 'onlyEnabled';
+          const expected = enabledOnly ? ['P'] : ['A', 'B'];
+          await vi.waitFor(() => expect(selected.value).toEqual(expected));
+          const parent = tree().get('[data-value="P"] .t-checkbox');
+          expect(parent.classes('t-is-checked')).toBe(enabledOnly);
+          expect(parent.classes('t-is-indeterminate')).toBe(!enabledOnly);
+          expect((tree().get('[data-value="D"] input').element as HTMLInputElement).disabled).toBe(true);
+          expect((tree().get('[data-value="D"] input').element as HTMLInputElement).checked).toBe(false);
+          await vi.waitFor(() =>
+            expect(
+              wrapper
+                .findAll('.t-tag')
+                .map((tag) => tag.text())
+                .sort(),
+            ).toEqual(enabledOnly ? ['Parent'] : ['A', 'B']),
+          );
+          expect(onChange).toHaveBeenCalledTimes(1);
+          expect(onChange.mock.calls[0][0]).toEqual(expected);
+          await tree().get('[data-value="P"] input').trigger('click');
+          await vi.waitFor(() => expect(selected.value).toEqual([]));
+          expect(wrapper.findAll('.t-tag')).toHaveLength(0);
+          expect(onChange).toHaveBeenCalledTimes(2);
+        },
+      );
+    });
     describe('removing multiple selections', () => {
       const settle = async () => {
         await nextTick();
