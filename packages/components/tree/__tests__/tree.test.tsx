@@ -1,9 +1,13 @@
 // @ts-nocheck
 /* eslint-disable vue/one-component-per-file */
-import { mount } from '@vue/test-utils';
-import Tree from '@tdesign/components/tree';
+import { nextTick } from 'vue';
+import { enableAutoUnmount, mount } from '@vue/test-utils';
+import Tree, { type TreeInstanceFunctions, type TreeScrollToElementParams } from '@tdesign/components/tree';
+import type { TreeOptionData } from '@tdesign/components/common';
 import { defineComponent } from './adapt';
 import { delay } from './kit';
+
+enableAutoUnmount(afterEach);
 
 describe('Tree:init', () => {
   vi.useRealTimers();
@@ -94,6 +98,132 @@ describe('Tree:init', () => {
       expect(wrapper.find('[data-value="t1"]').exists()).toBe(true);
       expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(false);
       expect(wrapper.find('[data-value="t2"]').exists()).toBe(true);
+    });
+  });
+});
+
+describe('Tree', () => {
+  afterEach(() => vi.restoreAllMocks());
+
+  const renderTree = (data: TreeOptionData[]) =>
+    mount(Tree, { props: { data, transition: false, expandAll: true } }).vm as unknown as TreeInstanceFunctions;
+
+  describe('instanceFunctions', () => {
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it.each([0n, 9007199254740993n])('scrollTo accepts key %s without coercing its type', (key) => {
+      const values = [0n, 1n, 9007199254740993n, 0, 'zero', ''];
+      const wrapper = mount(Tree, { props: { data: values.map((value) => ({ value })), transition: false } });
+      const scroll = vi.spyOn(wrapper.vm.virtualConfig, 'scrollToElement').mockImplementation(() => {});
+      const params = { key } satisfies TreeScrollToElementParams;
+      const tree = wrapper.vm as unknown as TreeInstanceFunctions;
+      tree.scrollTo(params);
+      expect(scroll).toHaveBeenCalledWith({ key, index: values.indexOf(key) - 1 });
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it('scrollTo preserves explicit index precedence and rejects a missing bigint key', () => {
+      const wrapper = mount(Tree, { props: { data: [{ value: 0n }] } });
+      const scroll = vi.spyOn(wrapper.vm.virtualConfig, 'scrollToElement').mockImplementation(() => {});
+      const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const tree = wrapper.vm as unknown as TreeInstanceFunctions;
+      tree.scrollTo({ index: 0, key: 99n });
+      expect(scroll).toHaveBeenCalledWith({ index: -1, key: 99n });
+      scroll.mockClear();
+      tree.scrollTo({ key: 99n });
+      expect(scroll).not.toHaveBeenCalled();
+      expect(error).toHaveBeenCalled();
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it.each([0n, 0, ''])('getTreeData(%s) exports only the requested subtree', (value) => {
+      const subtree = { value, children: [{ value: 2n }] };
+      const tree = renderTree([subtree, { value: 1n }]);
+      expect(tree.getTreeData(value)).toEqual([subtree]);
+      expect(tree.getTreeData()).toEqual([subtree, { value: 1n }]);
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it.each([0n, 0, ''])('getTreeData(%s) returns no nodes when the target is absent', (value) => {
+      const tree = renderTree([{ value: 1n }]);
+      expect(tree.getTreeData(value)).toEqual([]);
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it('getTreeData preserves string, number and bigint keys in nested nodes', () => {
+      const data = [{ value: 1, children: [{ value: '1', children: [{ value: 1n }] }] }];
+      const tree = renderTree(data);
+      expect(tree.getTreeData()).toEqual(data);
+      expect(tree.getTreeData('1')).toEqual(data[0].children);
+      expect(tree.getTreeData(1n)).toEqual([{ value: 1n }]);
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it.each(['appendTo', 'insertBefore', 'insertAfter'] as const)(
+      '%s moves existing zero nodes and preserves their models',
+      async (method) => {
+        for (const value of [0n, 0]) {
+          const warn = vi.spyOn(console, 'warn');
+          const tree = renderTree([{ label: 'zero', value, children: [{ value: 'descendant' }] }, { value: 'target' }]);
+          const model = tree.getItem(value);
+          tree[method]('target', { value });
+          await nextTick();
+          expect(tree.getItem(value) === model).toBe(true);
+          expect(tree.getItem(value).label).toBe('zero');
+          expect(tree.getParent('descendant').value).toBe(value);
+          expect(tree.getItems().filter((node) => node.value === value)).toHaveLength(1);
+          if (method === 'appendTo') {
+            expect(tree.getParent(value).value).toBe('target');
+            expect(tree.getTreeData().map((node) => node.value)).toEqual(['target']);
+          } else {
+            expect(tree.getTreeData().map((node) => node.value)).toEqual(
+              method === 'insertBefore' ? [value, 'target'] : ['target', value],
+            );
+          }
+          expect(warn.mock.calls.some((args) => String(args[0]).includes('Dulplicate value'))).toBe(false);
+          warn.mockRestore();
+        }
+      },
+    );
+  });
+});
+
+describe('Tree', () => {
+  describe('scenarios', () => {
+    describe('bigint activation', () => {
+      const bigintData = [{ value: 1n, children: [{ value: 2n }, { value: 3n }] }];
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+      it('点击 bigint 节点可以正常激活（不会触发 null 读取错误）', async () => {
+        const wrapper = mount({
+          data() {
+            return {
+              actived: [],
+            };
+          },
+          render() {
+            return (
+              <Tree
+                ref="tree"
+                data={bigintData}
+                activable
+                actived={this.actived}
+                onActive={(value) => {
+                  this.actived = value;
+                }}
+                expandAll
+                transition={false}
+              ></Tree>
+            );
+          },
+        });
+        await delay(3);
+
+        await wrapper.find('[data-value="2"] .t-tree__label').trigger('click');
+        await delay(3);
+
+        expect(wrapper.vm.actived).toEqual([2n]);
+        expect(wrapper.find('[data-value="2"]').classes('t-is-active')).toBe(true);
+      });
     });
   });
 });

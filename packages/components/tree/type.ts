@@ -302,7 +302,7 @@ export interface TreeInstanceFunctions<T extends TreeOptionData = TreeOptionData
   /**
    * 虚拟滚动场景下 支持指定滚动到具体的节点
    */
-  scrollTo?: (scrollToParams: ComponentScrollToElementParams) => void;
+  scrollTo?: (scrollToParams: TreeScrollToElementParams) => void;
   /**
    * 设置节点状态
    */
@@ -368,7 +368,7 @@ export interface TreeNodeState {
   /**
    * 节点值
    */
-  value?: string | number;
+  value?: TreeNodeValue;
   /**
    * 节点是否可视
    * @default false
@@ -471,4 +471,8 @@ export interface TreeNodeModel<T extends TreeOptionData = TreeOptionData> extend
   setData: (data: T) => void;
 }
 
-export type TreeNodeValue = string | number;
+export type TreeNodeValue = string | number | bigint;
+
+export interface TreeScrollToElementParams extends Omit<ComponentScrollToElementParams, 'key'> {
+  key?: TreeNodeValue;
+}
