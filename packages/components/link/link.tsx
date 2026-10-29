@@ -34,7 +34,11 @@ export default defineComponent({
     ]);
     // 禁用时 无点击事件
     const handleClick = (event: MouseEvent) => {
-      if (!isDisabled.value) emit('click', event);
+      if (isDisabled.value) {
+        event.stopImmediatePropagation();
+        return;
+      }
+      emit('click', event);
     };
     return () => {
       const linkContent = renderContent('default', 'content');

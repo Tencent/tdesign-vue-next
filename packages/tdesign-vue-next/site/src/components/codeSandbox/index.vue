@@ -1,6 +1,6 @@
 <template>
   <t-tooltip content="在 CodeSandbox 中打开">
-    <t-loading v-show="isCodesandboxAvailable" size="small" :loading="isLoading">
+    <t-loading size="small" :loading="isLoading">
       <div class="action-online" @click="onRunOnline">
         <svg fill="none" height="20" viewBox="0 0 23 23" width="20" xmlns="http://www.w3.org/2000/svg">
           <g clip-rule="evenodd" fill-rule="evenodd">
@@ -20,8 +20,17 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted, nextTick, onBeforeUnmount } from 'vue';
-import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './content';
+import { defineComponent, ref } from 'vue';
+import { MessagePlugin } from '@tdesign/components';
+import {
+  htmlContent,
+  mainJsContent,
+  styleContent,
+  packageJSONContent,
+  sandboxConfigContent,
+  babelrcContent,
+  prepareDemoCode,
+} from './content';
 
 export default defineComponent({
   name: 'CodeSandbox',
@@ -30,75 +39,60 @@ export default defineComponent({
     componentName: String,
   },
   setup(props) {
-    const code = ref('');
     const isLoading = ref(false);
-    const renderCodeObserver = ref(null);
-    const observeDom = ref(null);
-    // TODO: codesandbox + setup tsx
-    const isCodesandboxAvailable = ref(true);
-    onMounted(() => {
-      nextTick(() => {
-        const currentRenderCode = document.querySelector(
-          `td-doc-demo[demo-name='${props.demoName}']`,
-        )?.currentRenderCode;
-        // only script include jsx/tsx need to check
-        const toggleCodesandbox = /lang\=\"jsx\"/.test(currentRenderCode);
-        if (toggleCodesandbox) {
-          renderCodeObserver.value = new MutationObserver((mutations) => {
-            const isTsx = /lang\=\"tsx\"/.test(mutations[0].target.currentRenderCode);
-            isCodesandboxAvailable.value = !isTsx;
-          });
-          observeDom.value = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`);
-          renderCodeObserver.value.observe(observeDom.value, { attributes: true });
-        }
-      });
-    });
 
-    onBeforeUnmount(() => {
-      renderCodeObserver.value?.unobserve?.(observeDom.value);
-      renderCodeObserver.value?.disconnect?.();
-      renderCodeObserver.value = null;
-    });
-
-    const onRunOnline = () => {
-      code.value = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`).currentRenderCode;
+    const onRunOnline = async () => {
+      if (isLoading.value) return;
       isLoading.value = true;
-      fetch('https://codesandbox.io/api/v1/sandboxes/define?json=1', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          files: {
-            'package.json': {
-              content: packageJSONContent(`tdesign-vue-next-${props.componentName}-${props.demoName}-demo`),
-            },
-            'index.html': {
-              content: htmlContent,
-            },
-            'src/main.js': {
-              content: mainJsContent,
-            },
-            'src/index.css': {
-              content: styleContent,
-            },
-            'src/demo.vue': {
-              content: code.value,
-            },
+      try {
+        const sourceCode = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`).currentRenderCode;
+        const code = await prepareDemoCode(sourceCode);
+        const response = await fetch('https://codesandbox.io/api/v1/sandboxes/define?json=1', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
           },
-        }),
-      })
-        .then((x) => x.json())
-        .then(({ sandbox_id: sandboxId }) => {
-          window.open(`https://codesandbox.io/s/${sandboxId}?file=/src/demo.vue`);
-        })
-        .finally(() => (isLoading.value = false));
+          body: JSON.stringify({
+            files: {
+              'package.json': {
+                content: packageJSONContent(`tdesign-vue-next-${props.componentName}-${props.demoName}-demo`),
+              },
+              'index.html': {
+                content: htmlContent,
+              },
+              'src/main.js': {
+                content: mainJsContent,
+              },
+              'src/index.css': {
+                content: styleContent,
+              },
+              'src/demo.vue': {
+                content: code,
+              },
+              ...(sourceCode !== code ? { 'src/demo-source.vue': { content: sourceCode } } : {}),
+              'sandbox.config.json': {
+                content: sandboxConfigContent,
+              },
+              '.babelrc': {
+                content: babelrcContent,
+              },
+            },
+          }),
+        });
+        if (!response.ok) throw new Error('创建 CodeSandbox 失败');
+        const { sandbox_id: sandboxId } = await response.json();
+        if (!sandboxId) throw new Error('未获取到 CodeSandbox 地址');
+        window.open(`https://codesandbox.io/s/${sandboxId}?file=/src/demo.vue`);
+      } catch (error) {
+        MessagePlugin.error(error.message || '打开 CodeSandbox 失败，请稍后重试');
+      } finally {
+        isLoading.value = false;
+      }
     };
     return {
       onRunOnline,
       isLoading,
-      isCodesandboxAvailable,
     };
   },
 });
