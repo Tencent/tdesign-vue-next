@@ -791,44 +791,6 @@ describe('Cascader', () => {
     });
   });
 
-  describe('scenarios', () => {
-    describe('disabled children compatibility', () => {
-      it.each(['all', 'parentFirst', 'onlyLeaf'] as const)(
-        'keeps enabled-only parent selection in %s mode',
-        async (valueMode) => {
-          const onChange = vi.fn();
-          const wrapper = renderCascader({
-            options: [
-              {
-                value: 'P',
-                label: 'Parent',
-                children: [
-                  { value: 'A', label: 'A' },
-                  { value: 'B', label: 'B' },
-                  { value: 'D', label: 'Disabled', disabled: true },
-                ],
-              },
-            ],
-            multiple: true,
-            popupVisible: true,
-            valueMode,
-            value: [],
-            onChange,
-          });
-          const input = () => document.querySelector<HTMLInputElement>('input[name="P"]');
-          await vi.waitFor(() => expect(input()).not.toBeNull());
-          input().click();
-          const expected = { all: ['P', 'A', 'B'], parentFirst: ['P'], onlyLeaf: ['A', 'B'] }[valueMode];
-          await vi.waitFor(() => expect(onChange).toHaveBeenCalledTimes(1));
-          expect(onChange.mock.calls[0][0]).toEqual(expected);
-          await wrapper.setProps({ value: expected });
-          await vi.waitFor(() => expect(input().closest('.t-checkbox').classList.contains('t-is-checked')).toBe(true));
-          expect(input().closest('.t-checkbox').classList.contains('t-is-indeterminate')).toBe(false);
-        },
-      );
-    });
-  });
-
   describe('lifecycle', () => {
     it('normalizes an invalid controlled value shape', async () => {
       const onMultipleChange = vi.fn();

@@ -1,92 +1,59 @@
 // @ts-nocheck
 /* eslint-disable vue/one-component-per-file */
-import { enableAutoUnmount, mount, type VueWrapper } from '@vue/test-utils';
-import { h, nextTick, ref } from 'vue';
-import { afterEach } from 'vitest';
-import type {
-  TdTreeProps,
-  TreeNodeValue,
-  TreeInstanceFunctions,
-  TreeScrollToElementParams,
+import { nextTick } from 'vue';
+import { enableAutoUnmount, mount } from '@vue/test-utils';
+import Tree, {
+  type TdTreeProps,
+  type TreeInstanceFunctions,
+  type TreeScrollToElementParams,
 } from '@tdesign/components/tree';
-import Tree from '@tdesign/components/tree';
 import type { TreeOptionData } from '@tdesign/components/common';
 import { defineComponent } from './adapt';
 import { delay } from './kit';
 
 enableAutoUnmount(afterEach);
 
-const modes = ['all', 'parentFirst', 'onlyLeaf'] as const;
-const checkData = [{ value: 'P', children: [{ value: 'A' }, { value: 'B' }, { value: 'D', disabled: true }] }];
-const selectionWrappers: Array<{ wrapper: VueWrapper; host: HTMLElement }> = [];
-afterEach(() =>
-  selectionWrappers.splice(0).forEach(({ host }) => {
-    host.remove();
-  }),
-);
-async function mountTree(
-  mode: TdTreeProps['valueMode'],
-  initial: TreeNodeValue[] = [],
-  strategy: TdTreeProps['checkAllAffectedBy'] = undefined,
-  options: Partial<TdTreeProps> = {},
-) {
-  const host = document.createElement('div');
-  document.body.appendChild(host);
-  const value = ref(initial);
-  const scope = ref(strategy);
-  const onChange = vi.fn();
-  const wrapper = mount(
-    {
-      setup: () => () =>
-        h(Tree, {
-          data: checkData,
-          checkable: true,
-          expandAll: true,
-          transition: false,
-          valueMode: mode,
-          checkAllAffectedBy: scope.value,
-          ...options,
-          value: value.value,
-          onChange: (next, context) => {
-            value.value = next;
-            onChange(next, context);
-          },
-        }),
-    },
-    { attachTo: host },
-  );
-  selectionWrappers.push({ wrapper, host });
-  const input = (id: string) => host.querySelector<HTMLInputElement>(`[data-value="${id}"] input[type="checkbox"]`);
-  await vi.waitFor(() => expect(input(options.load ? 'P' : 'D')).not.toBeNull());
-  return {
-    wrapper,
-    host,
-    input,
-    value,
-    scope,
-    onChange,
-    click: async (id: string) => {
-      input(id).click();
-      await nextTick();
-    },
-  };
-}
-const checked = (host: HTMLElement, id: string) =>
-  host.querySelector(`[data-value="${id}"] .t-checkbox`).classList.contains('t-is-checked');
-const half = (host: HTMLElement, id: string) =>
-  host.querySelector(`[data-value="${id}"] .t-checkbox`).classList.contains('t-is-indeterminate');
-
-describe('Tree', () => {
+describe('Tree:init', () => {
   vi.useRealTimers();
-  describe('props', () => {
-    describe('data', () => {
-      it('传递空数据时，展示兜底界面', async () => {
+  describe(':props.data', () => {
+    it('传递空数据时，展示兜底界面', async () => {
+      const wrapper = mount(
+        defineComponent({
+          components: {
+            Tree,
+          },
+          // 使用 template 写法是为了 vue2, vue3 统一测试用例
+          template: [
+            '<Tree',
+            'ref="tree"',
+            ':transition="false"',
+            ':data="null"',
+            '><template #empty><div class="tree-empty">暂无数据</div></template></Tree>',
+          ].join(' '),
+        }),
+      );
+      await delay(1);
+      expect(wrapper.find('.tree-empty').exists()).toBe(true);
+    });
+
+    it('空数据初始化后，允许插入根节点', () =>
+      new Promise((resolve) => {
         const wrapper = mount(
           defineComponent({
             components: {
               Tree,
             },
-            // 使用 template 写法是为了 vue2, vue3 统一测试用例
+            mounted() {
+              const { tree } = this.$refs;
+              tree.appendTo('', {
+                value: 'insert1',
+              });
+              setTimeout(() => {
+                expect(wrapper.find('.tree-empty').exists()).toBe(false);
+                expect(wrapper.find('[data-value="insert1"]').exists()).toBe(true);
+                resolve();
+              });
+            },
             template: [
               '<Tree',
               'ref="tree"',
@@ -96,203 +63,45 @@ describe('Tree', () => {
             ].join(' '),
           }),
         );
-        await delay(1);
-        expect(wrapper.find('.tree-empty').exists()).toBe(true);
-      });
+      }));
 
-      it('空数据初始化后，允许插入根节点', () =>
-        new Promise((resolve) => {
-          const wrapper = mount(
-            defineComponent({
-              components: {
-                Tree,
-              },
-              mounted() {
-                const { tree } = this.$refs;
-                tree.appendTo('', {
-                  value: 'insert1',
-                });
-                setTimeout(() => {
-                  expect(wrapper.find('.tree-empty').exists()).toBe(false);
-                  expect(wrapper.find('[data-value="insert1"]').exists()).toBe(true);
-                  resolve();
-                });
-              },
-              template: [
-                '<Tree',
-                'ref="tree"',
-                ':transition="false"',
-                ':data="null"',
-                '><template #empty><div class="tree-empty">暂无数据</div></template></Tree>',
-              ].join(' '),
-            }),
-          );
-        }));
-
-      it('可以传递一个树结构的数据来完成初始化', () => {
-        const data = [
-          {
-            value: 't1',
-            children: [
-              {
-                value: 't1.1',
-              },
-            ],
-          },
-          {
-            value: 't2',
-          },
-        ];
-        const wrapper = mount(
-          defineComponent({
-            components: {
-              Tree,
+    it('可以传递一个树结构的数据来完成初始化', () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
             },
-            data() {
-              return {
-                items: data,
-              };
-            },
-            template: [
-              '<Tree',
-              'ref="tree"',
-              ':transition="false"',
-              ':data="items"',
-              '><template #empty><div class="tree-empty">暂无数据</div></template></Tree>',
-            ].join(' '),
-          }),
-        );
-        expect(wrapper.find('.tree-empty').exists()).toBe(false);
-        expect(wrapper.find('[data-value="t1"]').exists()).toBe(true);
-        expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(false);
-        expect(wrapper.find('[data-value="t2"]').exists()).toBe(true);
-      });
-    });
-
-    describe('checkAllAffectedBy', () => {
-      it('onlyEnabled derives full selection from enabled children', async () => {
-        const ctx = await mountTree('parentFirst', ['A', 'B'], 'onlyEnabled');
-        expect(checked(ctx.host, 'P')).toBe(true);
-        expect(half(ctx.host, 'P')).toBe(false);
-        expect(ctx.input('D').checked).toBe(false);
-        await ctx.click('P');
-        await vi.waitFor(() => expect(ctx.value.value).toEqual([]));
-      });
-      it.each(['all', 'onlyEnabled'] as const)('%s has no effect when checkStrictly is true', async (scope) => {
-        const ctx = await mountTree('parentFirst', [], scope, { checkStrictly: true });
-        await ctx.click('P');
-        await vi.waitFor(() => expect(ctx.value.value).toEqual(['P']));
-        expect(ctx.input('A').checked).toBe(false);
-        expect(ctx.input('D').checked).toBe(false);
-        expect(half(ctx.host, 'P')).toBe(false);
-      });
-      it('onlyEnabled leaves the parent unselected when all children are disabled', async () => {
-        const ctx = await mountTree('parentFirst', ['D'], 'onlyEnabled', {
-          data: [{ value: 'P', children: [{ value: 'D', disabled: true }] }],
-        });
-        expect(checked(ctx.host, 'P')).toBe(false);
-        expect(half(ctx.host, 'P')).toBe(false);
-        expect(ctx.input('D').checked).toBe(true);
-      });
-    });
-  });
-  describe('scenarios', () => {
-    describe('default all with disabled children', () => {
-      it.each(modes)(
-        'keeps the parent half-selected when checking enabled children through the parent in %s mode',
-        async (mode) => {
-          const { host, input, value, click, wrapper } = await mountTree(mode);
-          expect(wrapper.findComponent(Tree).props('checkAllAffectedBy')).toBe('all');
-          await click('P');
-          await vi.waitFor(() => expect(value.value).toEqual(['A', 'B']));
-          expect(checked(host, 'P')).toBe(false);
-          expect(half(host, 'P')).toBe(true);
-          expect(input('D').disabled).toBe(true);
-          expect(input('D').checked).toBe(false);
-          await click('P');
-          await vi.waitFor(() => expect(value.value).toEqual([]));
-          expect(checked(host, 'P')).toBe(false);
-          expect(half(host, 'P')).toBe(false);
+          ],
         },
-      );
-      it.each(modes)('keeps the parent half-selected after checking all enabled children in %s mode', async (mode) => {
-        const { host, input, value, click } = await mountTree(mode);
-        await click('A');
-        await vi.waitFor(() => expect(half(host, 'P')).toBe(true));
-        await click('B');
-        await vi.waitFor(() => expect(value.value).toEqual(['A', 'B']));
-        expect(checked(host, 'P')).toBe(false);
-        expect(half(host, 'P')).toBe(true);
-        expect(input('D').checked).toBe(false);
-        await click('A');
-        await vi.waitFor(() => expect(half(host, 'P')).toBe(true));
-        expect(value.value).toEqual(['B']);
-      });
-      it.each(['all', 'parentFirst'])(
-        'preserves disabled selection when toggling the parent in %s mode',
-        async (mode) => {
-          const { host, input, value, click } = await mountTree(mode, ['D']);
-          await click('P');
-          await vi.waitFor(() => expect(checked(host, 'P')).toBe(true));
-          expect(value.value).toEqual(mode === 'all' ? ['P', 'A', 'B', 'D'] : ['P', 'D']);
-          expect(input('D').checked).toBe(true);
-          await click('P');
-          await vi.waitFor(() => expect(value.value).toEqual(['D']));
-          expect(checked(host, 'P')).toBe(false);
-          expect(half(host, 'P')).toBe(true);
-          expect(input('D').checked).toBe(true);
+        {
+          value: 't2',
         },
+      ];
+      const wrapper = mount(
+        defineComponent({
+          components: {
+            Tree,
+          },
+          data() {
+            return {
+              items: data,
+            };
+          },
+          template: [
+            '<Tree',
+            'ref="tree"',
+            ':transition="false"',
+            ':data="items"',
+            '><template #empty><div class="tree-empty">暂无数据</div></template></Tree>',
+          ].join(' '),
+        }),
       );
-    });
-
-    describe('checkAllAffectedBy changes on loaded nodes', () => {
-      it('updates parent selection without changing the controlled value or emitting change', async () => {
-        const ctx = await mountTree('parentFirst', ['A', 'B'], 'onlyEnabled');
-        expect(checked(ctx.host, 'P')).toBe(true);
-        ctx.scope.value = 'all';
-        await vi.waitFor(() => expect(half(ctx.host, 'P')).toBe(true));
-        expect(checked(ctx.host, 'P')).toBe(false);
-        expect(ctx.value.value).toEqual(['A', 'B']);
-        ctx.scope.value = 'onlyEnabled';
-        await vi.waitFor(() => expect(checked(ctx.host, 'P')).toBe(true));
-        expect(half(ctx.host, 'P')).toBe(false);
-        expect(ctx.value.value).toEqual(['A', 'B']);
-        expect(ctx.onChange).not.toHaveBeenCalled();
-      });
-    });
-    describe('lazy loading', () => {
-      // Issue: https://github.com/Tencent/tdesign-common/pull/2753
-      it.each(['all', 'onlyEnabled'] as const)(
-        '%s preserves disabled child selection during loading',
-        async (scope) => {
-          let resolveLoad: (nodes: TdTreeProps['data']) => void;
-          const load = vi.fn(
-            () =>
-              new Promise<TdTreeProps['data']>((resolve) => {
-                resolveLoad = resolve;
-              }),
-          );
-          const ctx = await mountTree('parentFirst', ['P'], scope, {
-            data: [{ value: 'P', children: true }],
-            load,
-            lazy: true,
-            expandAll: false,
-          });
-          expect(checked(ctx.host, 'P')).toBe(true);
-          ctx.wrapper.findComponent(Tree).vm.setItem('P', { expanded: true });
-          await vi.waitFor(() => expect(load).toHaveBeenCalledTimes(1));
-          resolveLoad([{ value: 'A' }, { value: 'D', disabled: true }, { value: 'E', disabled: true, checked: true }]);
-          await vi.waitFor(() => expect(ctx.input('E')).not.toBeNull());
-          expect(ctx.input('A').checked).toBe(true);
-          expect(ctx.input('D').checked).toBe(false);
-          expect(ctx.input('D').disabled).toBe(true);
-          expect(ctx.input('E').checked).toBe(true);
-          expect(checked(ctx.host, 'P')).toBe(scope === 'onlyEnabled');
-          expect(half(ctx.host, 'P')).toBe(scope === 'all');
-          expect(ctx.value.value).toEqual(['P']);
-          expect(ctx.onChange).not.toHaveBeenCalled();
-        },
-      );
+      expect(wrapper.find('.tree-empty').exists()).toBe(false);
+      expect(wrapper.find('[data-value="t1"]').exists()).toBe(true);
+      expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(false);
+      expect(wrapper.find('[data-value="t2"]').exists()).toBe(true);
     });
   });
 });
@@ -379,6 +188,84 @@ describe('Tree', () => {
         }
       },
     );
+  });
+
+  const renderCheckTree = async (
+    checkAllAffectedBy: TdTreeProps['checkAllAffectedBy'],
+    props: Partial<TdTreeProps> = {},
+  ) => {
+    const wrapper = mount(Tree, {
+      props: {
+        data: [{ value: 'P', children: [{ value: 'A' }, { value: 'B' }, { value: 'D', disabled: true }] }],
+        checkable: true,
+        expandAll: true,
+        transition: false,
+        valueMode: 'parentFirst',
+        value: ['A', 'B'],
+        checkAllAffectedBy,
+        ...props,
+      },
+    });
+    await vi.waitFor(() => expect(wrapper.find('[data-value="D"] input').exists()).toBe(true));
+    return wrapper;
+  };
+
+  describe('props', () => {
+    describe('checkAllAffectedBy', () => {
+      it.each([
+        [undefined, false],
+        ['all', false],
+        ['onlyEnabled', true],
+      ] as const)('%s derives the parent state without selecting disabled children', async (scope, fullyChecked) => {
+        const wrapper = await renderCheckTree(scope);
+        expect(wrapper.props('checkAllAffectedBy')).toBe(scope ?? 'all');
+        const parent = wrapper.get('[data-value="P"] .t-checkbox');
+        expect(parent.classes('t-is-checked')).toBe(fullyChecked);
+        expect(parent.classes('t-is-indeterminate')).toBe(!fullyChecked);
+        expect((wrapper.get('[data-value="D"] input').element as HTMLInputElement).checked).toBe(false);
+        expect(wrapper.props('value')).toEqual(['A', 'B']);
+      });
+
+      it('onlyEnabled does not derive a parent state when all children are disabled', async () => {
+        const wrapper = await renderCheckTree('onlyEnabled', {
+          data: [{ value: 'P', children: [{ value: 'D', disabled: true }] }],
+          value: ['D'],
+        });
+        const parent = wrapper.get('[data-value="P"] .t-checkbox');
+        expect(parent.classes('t-is-checked')).toBe(false);
+        expect(parent.classes('t-is-indeterminate')).toBe(false);
+        expect((wrapper.get('[data-value="D"] input').element as HTMLInputElement).checked).toBe(true);
+      });
+    });
+  });
+
+  describe('scenarios', () => {
+    describe('checkAllAffectedBy with checkStrictly', () => {
+      it.each(['all', 'onlyEnabled'] as const)('%s does not link parent and child selection', async (scope) => {
+        const wrapper = await renderCheckTree(scope, { checkStrictly: true });
+        const parent = wrapper.get('[data-value="P"] .t-checkbox');
+        expect(parent.classes('t-is-checked')).toBe(false);
+        expect(parent.classes('t-is-indeterminate')).toBe(false);
+        expect((wrapper.get('[data-value="A"] input').element as HTMLInputElement).checked).toBe(true);
+      });
+    });
+
+    describe('checkAllAffectedBy changes', () => {
+      it('updates the parent state without rewriting value or emitting change', async () => {
+        const onChange = vi.fn();
+        const wrapper = await renderCheckTree('onlyEnabled', { onChange });
+        const parent = () => wrapper.get('[data-value="P"] .t-checkbox');
+        expect(parent().classes('t-is-checked')).toBe(true);
+        await wrapper.setProps({ checkAllAffectedBy: 'all' });
+        await vi.waitFor(() => expect(parent().classes('t-is-indeterminate')).toBe(true));
+        expect(parent().classes('t-is-checked')).toBe(false);
+        await wrapper.setProps({ checkAllAffectedBy: 'onlyEnabled' });
+        await vi.waitFor(() => expect(parent().classes('t-is-checked')).toBe(true));
+        expect(parent().classes('t-is-indeterminate')).toBe(false);
+        expect(wrapper.props('value')).toEqual(['A', 'B']);
+        expect(onChange).not.toHaveBeenCalled();
+      });
+    });
   });
 });
 

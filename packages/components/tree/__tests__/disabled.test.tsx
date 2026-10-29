@@ -250,7 +250,7 @@ describe('Tree:disabled', () => {
     });
   });
 
-  describe('选中态与禁用态的关联（onlyEnabled）', () => {
+  describe('选中态与禁用态的关联', () => {
     it('禁用的子节点未选中时，父节点选中，子节点不会被选中', async () => {
       const data = [
         {
@@ -339,7 +339,7 @@ describe('Tree:disabled', () => {
     });
   });
 
-  it('onlyEnabled 下禁用子节点状态不一致时，可用子节点仍可切换选中态', async () => {
+  it('禁用的子节点同时存在选中与未选中状态的，父节点状态切换时，可用子节点可切换选中态', async () => {
     const data = [
       {
         value: 't1',
