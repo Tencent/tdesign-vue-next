@@ -18,7 +18,7 @@ import {
  */
 export function getSingleContent(cascaderContext: CascaderContextType): string {
   const { value, multiple, treeStore, showAllLevels } = cascaderContext;
-  if (multiple || (value !== 0 && value !== 0n && !value)) return '';
+  if (multiple || (value !== 0 && typeof value !== 'bigint' && !value)) return '';
 
   if (isArray(value)) return '';
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
