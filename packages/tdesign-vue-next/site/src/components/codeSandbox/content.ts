@@ -1,7 +1,7 @@
 import { catalogs } from '@tdesign/internal-utils/catalogs';
 import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
 
-export const htmlContent = `<div id="app"></div>`;
+export const htmlContent = '<div id="app"></div>';
 
 export const mainJsContent = `
   import { createApp } from 'vue';
@@ -68,18 +68,68 @@ export const styleContent = `
 
 `;
 
+export async function prepareDemoCode(code: string) {
+  const { parse, compileScript } = await import('vue/compiler-sfc');
+  const { descriptor, errors } = parse(code);
+  if (errors.length) throw new Error(String(errors[0]));
+  const script = descriptor.scriptSetup
+    ? compileScript(descriptor, {
+        id: 'codesandbox-demo',
+        inlineTemplate: true,
+        templateOptions: { compilerOptions: { scopeId: undefined, hoistStatic: false } },
+      })
+    : descriptor.script;
+  if (!script || (!descriptor.scriptSetup && !/^(ts|tsx|jsx)$/.test(script.lang || ''))) return code;
+
+  // @ts-ignore
+  const { transform } = await import('@babel/standalone');
+  const lang = script.lang || 'js';
+  const useJsx = /^(jsx|tsx)$/.test(lang);
+  const jsxPlugin = useJsx ? (await import('@vue/babel-plugin-jsx')).default : null;
+  const transformed = transform(script.content, {
+    filename: `demo.${lang}`,
+    presets: /^tsx?$/.test(lang)
+      ? [['typescript', { allExtensions: true, isTSX: lang === 'tsx', onlyRemoveTypeImports: true }]]
+      : [],
+    plugins: useJsx ? [jsxPlugin] : [],
+  }).code;
+
+  const blocks = (
+    descriptor.scriptSetup ? [descriptor.script, descriptor.scriptSetup, descriptor.template] : [descriptor.script]
+  )
+    .filter(Boolean)
+    .sort((a, b) => b.loc.start.offset - a.loc.start.offset);
+  let result = code;
+  for (const block of blocks) {
+    const start = code.lastIndexOf(`<${block.type}`, block.loc.start.offset);
+    const end = code.indexOf(`</${block.type}>`, block.loc.end.offset) + block.type.length + 3;
+    const replacement =
+      block === (descriptor.scriptSetup || descriptor.script) ? `<script>\n${transformed}\n</script>` : '';
+    result = `${result.slice(0, start)}${replacement}${result.slice(end)}`;
+  }
+  return result;
+}
+
+export const sandboxConfigContent = JSON.stringify({ template: 'vue-cli' }, null, 2);
+
+export const babelrcContent = JSON.stringify({ presets: ['env'], plugins: [] }, null, 2);
+
 export const packageJSONContent = (name: string) => {
-  return {
-    name: name,
-    dependencies: {
-      vue: catalogs.deps.vue,
-      less: catalogs.bundle.less,
-      'tdesign-vue-next': tdesignVueNextPackageJson.version,
-      'tdesign-icons-vue-next': catalogs.tdesign['tdesign-icons-vue-next'],
-      dayjs: catalogs.deps.dayjs,
+  return JSON.stringify(
+    {
+      name,
+      version: '0.0.0',
+      private: true,
+      main: 'src/main.js',
+      dependencies: {
+        vue: catalogs.deps.vue,
+        less: catalogs.bundle.less,
+        'tdesign-vue-next': tdesignVueNextPackageJson.version,
+        'tdesign-icons-vue-next': catalogs.tdesign['tdesign-icons-vue-next'],
+        dayjs: catalogs.deps.dayjs,
+      },
     },
-    devDependencies: {
-      '@vue/cli-plugin-babel': '~4.5.0',
-    },
-  };
+    null,
+    2,
+  );
 };
