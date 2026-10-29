@@ -1,9 +1,9 @@
-import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { nextTick, ref } from 'vue';
+import { mount } from '@vue/test-utils';
+import { Button } from '@tdesign/components/button';
 import { ImageViewer } from '@tdesign/components/image-viewer';
 import props from '@tdesign/components/image-viewer/props';
-import { Button } from '@tdesign/components/button';
 
 const images = [
   'https://tdesign.gtimg.com/demo/demo-image-1.png',
@@ -929,6 +929,30 @@ describe('ImageViewer', () => {
       await nextTick();
       expect(document.querySelector('.t-image-viewer__utils')).toBeTruthy();
       expect(document.querySelector('.t-image-viewer__utils-scale')).toBeTruthy();
+    });
+
+    it('only the top modal viewer handles Escape', async () => {
+      const firstOnClose = vi.fn();
+      const secondOnClose = vi.fn();
+      const first = mount(ImageViewer, {
+        attachTo: document.body,
+        props: { visible: true, images, onClose: firstOnClose },
+      });
+      const second = mount(ImageViewer, {
+        attachTo: document.body,
+        props: { visible: true, images, onClose: secondOnClose },
+      });
+      await nextTick();
+
+      const viewers = document.querySelectorAll<HTMLElement>('.t-image-viewer-preview-image');
+      viewers[0].dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape', bubbles: true }));
+      viewers[1].dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape', bubbles: true }));
+      await nextTick();
+
+      expect(firstOnClose).not.toHaveBeenCalled();
+      expect(secondOnClose).toHaveBeenCalledTimes(1);
+      first.unmount();
+      second.unmount();
     });
   });
 });

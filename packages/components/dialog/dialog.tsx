@@ -17,11 +17,11 @@ import {
   useConfig,
   useTeleport,
   usePrefixClass,
-  usePopupManager,
+  useOverlayManager,
   useDestroyOnClose,
   useKeepAnimation,
 } from '@tdesign/shared-hooks';
-import { useSameTarget } from './hooks';
+import { useDialogFocus, useSameTarget } from './hooks';
 
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
 
@@ -30,10 +30,18 @@ import TDialogCard from './dialog-card';
 
 let mousePosition: { x: number; y: number } | null;
 const getClickPosition = (e: MouseEvent) => {
-  mousePosition = {
-    x: e.clientX,
-    y: e.clientY,
-  };
+  if (e.detail === 0 && e.target instanceof Element) {
+    const rect = e.target.getBoundingClientRect();
+    mousePosition = {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2,
+    };
+  } else {
+    mousePosition = {
+      x: e.clientX,
+      y: e.clientY,
+    };
+  }
   setTimeout(() => {
     mousePosition = null;
   }, 100);
@@ -54,6 +62,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('dialog');
     const classPrefix = usePrefixClass();
     const dialogCardRef = ref<ComponentPublicInstance<{ resetPosition: () => void }>>(null);
+    const dialogRef = ref<HTMLElement>();
     const { globalConfig } = useConfig('dialog');
     const { keepFade } = useKeepAnimation();
     const confirmBtnAction: TdDialogProps['onConfirm'] = (context) => {
@@ -109,8 +118,23 @@ export default defineComponent({
       return topStyle;
     });
 
-    const { isTopInteractivePopup } = usePopupManager('dialog', {
+    const { isTopOverlay } = useOverlayManager('dialog', {
       visible: computedVisible,
+      getElement: () => dialogRef.value ?? null,
+    });
+    const getDialogCardEl = () => {
+      const cardEl = dialogCardRef.value?.$el as HTMLElement | { value?: HTMLElement } | undefined;
+      if (cardEl instanceof HTMLElement) return cardEl;
+      if (cardEl && 'value' in cardEl && cardEl.value instanceof HTMLElement) return cardEl.value;
+      return null;
+    };
+    const { focusDialog, restoreTriggerFocus } = useDialogFocus({
+      visible: computedVisible,
+      classPrefix: classPrefix.value,
+      dialogRef,
+      focusable: computed(() => props.focusable),
+      getDialogCardEl,
+      isTop: isTopOverlay,
     });
     /**是否已经第一次渲染，懒加载判断 */
     const isMounted = ref(false);
@@ -127,16 +151,22 @@ export default defineComponent({
             if (props.preventScrollThrough) {
               document.body.appendChild(styleEl.value);
             }
-
-            nextTick(() => {
-              if (mousePosition && dialogCardRef.value?.$el) {
-                const el = dialogCardRef.value.$el as HTMLElement;
-                el.style.transformOrigin = `${mousePosition.x - el.offsetLeft}px ${mousePosition.y - el.offsetTop}px`;
-              }
-            });
           }
-          // 清除鼠标焦点 避免entry事件多次触发（按钮弹出弹窗 不移除焦点 立即按Entry按键 会造成弹窗关闭再弹出）
-          (document.activeElement as HTMLElement)?.blur();
+          // defaultFocus 为 null 时保留触发元素焦点；其余情况先移走焦点，避免 Enter 再次触发打开按钮
+          if (props.focusable?.defaultFocus !== null) {
+            (document.activeElement as HTMLElement)?.blur();
+          }
+          nextTick(() => {
+            const el = getDialogCardEl();
+            if (el && ((isModal.value && !props.showInAttachedElement) || isFullScreen.value)) {
+              if (mousePosition) {
+                el.style.transformOrigin = `${mousePosition.x - el.offsetLeft}px ${mousePosition.y - el.offsetTop}px`;
+              } else {
+                el.style.transformOrigin = '';
+              }
+            }
+            focusDialog();
+          });
         } else {
           clearStyleFunc();
         }
@@ -171,14 +201,14 @@ export default defineComponent({
       // 输入控件内的回车由控件处理，避免 textarea 换行时确认对话框
       if (tagName === 'input' || tagName === 'textarea') return;
       const { code } = e;
-      if ((code === 'Enter' || code === 'NumpadEnter') && isTopInteractivePopup()) {
+      if ((code === 'Enter' || code === 'NumpadEnter') && isTopOverlay()) {
         props.onConfirm?.({ e });
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
       // 中文输入法组合态下按 ESC 仅用于取消候选词，不应关闭对话框
       if (e.code === 'Escape' && e.isComposing) return;
-      if (e.code === 'Escape' && isTopInteractivePopup()) {
+      if (e.code === 'Escape' && isTopOverlay()) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) {
@@ -220,6 +250,7 @@ export default defineComponent({
 
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
+      restoreTriggerFocus();
       cardVisible.value = !props.destroyOnClose;
       dialogCardRef.value?.resetPosition?.();
       props.onClosed?.();
@@ -284,7 +315,11 @@ export default defineComponent({
       `;
 
       if (props.visible) {
+        if (props.focusable?.defaultFocus !== null) {
+          (document.activeElement as HTMLElement)?.blur();
+        }
         addKeyboardEvent(props.visible);
+        nextTick(() => focusDialog());
       }
     });
 
@@ -331,7 +366,14 @@ export default defineComponent({
             onAfterLeave={afterLeave}
           >
             {shouldRender.value && (
-              <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
+              <div
+                ref={dialogRef}
+                v-show={props.visible}
+                class={ctxClass}
+                style={ctxStyle}
+                {...context.attrs}
+                tabindex={0}
+              >
                 {view}
               </div>
             )}

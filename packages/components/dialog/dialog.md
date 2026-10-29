@@ -125,6 +125,7 @@ destroyOnClose | Boolean | false | 是否在关闭弹框的时候销毁子元素
 dialogClassName | String | - | 弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second' | N
 dialogStyle | Object | - | 作用于对话框本身的样式。TS 类型：`Styles`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 draggable | Boolean | false | 对话框是否可以拖拽（在模态和非模态对话框时有效） | N
+focusable | Object | - | 对话框焦点控制。`defaultFocus` 指定打开后的默认焦点：可选择确认按钮、取消按钮，或通过函数返回自定义元素；传入 `null` 时不主动聚焦。`focusTrap` 为 `true` 时，焦点将被限制在当前对话框内。`focusTriggerAfterClose` 决定关闭后是否将焦点交还给触发元素。TS 类型：`DialogFocusable` `interface DialogFocusable { defaultFocus?: null \| 'confirm-button' \| 'cancel-button' \| (() => HTMLElement \| null); focusTrap?: boolean; focusTriggerAfterClose: boolean }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/dialog/type.ts) | N
 footer | Boolean / Slot / Function | true | 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容。TS 类型：`boolean \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 header | String / Boolean / Slot / Function | true | 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 Function 表示自定义头部内容。TS 类型：`string \| boolean \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 lazy | Boolean | false | 是否启用对话框懒加载，启用时对话框内的内容不渲染 | N

@@ -8,7 +8,7 @@ import {
   useTeleport,
   usePrefixClass,
   useDefaultValue,
-  usePopupManager,
+  useOverlayManager,
   useConfig,
   useAttach,
 } from '@tdesign/shared-hooks';
@@ -87,8 +87,9 @@ export default defineComponent({
     const images = computed(() => formatImages(props.images));
     const currentImage = computed(() => images.value[indexValue.value] ?? { mainImage: '' });
 
-    const { isTopInteractivePopup } = usePopupManager('dialog', {
-      visible: visibleValue,
+    const overlayVisible = computed(() => visibleValue.value && props.mode === 'modal');
+    const { isTopOverlay } = useOverlayManager('dialog', {
+      visible: overlayVisible,
     });
 
     const prevImage = () => {
@@ -147,7 +148,7 @@ export default defineComponent({
           onZoomOut();
           break;
         case EVENT_CODE.esc:
-          if (props.closeOnEscKeydown && isTopInteractivePopup()) {
+          if (props.closeOnEscKeydown && isTopOverlay()) {
             onClose({ e, trigger: 'esc' });
           }
           break;

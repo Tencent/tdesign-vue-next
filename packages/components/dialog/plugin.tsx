@@ -1,8 +1,8 @@
-import { App, ref, Plugin, defineComponent, h, onMounted, AppContext, createVNode, render } from 'vue';
-import DialogComponent from './dialog';
-import { getAttach } from '@tdesign/shared-utils';
-import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from './type';
+import { App, AppContext, Plugin, createVNode, defineComponent, h, onMounted, ref, render } from 'vue';
 import { omit } from 'lodash-es';
+import { getAttach } from '@tdesign/shared-utils';
+import DialogComponent from './dialog';
+import type { DialogAlertMethod, DialogConfirmMethod, DialogInstance, DialogMethod, DialogOptions } from './type';
 
 const createDialog: DialogMethod = (props, context) => {
   const options = { ...props };
@@ -24,12 +24,10 @@ const createDialog: DialogMethod = (props, context) => {
   }
 
   const component = defineComponent({
-    setup(props, { expose }) {
+    setup(_, { expose }) {
       const dialogOptions = ref<Record<string, any>>(options);
       onMounted(() => {
         visible.value = true;
-        // 处理 https://github.com/Tencent/tdesign-vue-next/issues/394
-        (document.activeElement as HTMLElement).blur();
       });
       const update = (newOptions: DialogOptions) => {
         dialogOptions.value = {

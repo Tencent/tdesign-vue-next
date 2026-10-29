@@ -8,7 +8,7 @@ import {
   useTeleport,
   useGlobalIcon,
   usePrefixClass,
-  usePopupManager,
+  useOverlayManager,
 } from '@tdesign/shared-hooks';
 
 import { isServer } from '@tdesign/shared-utils';
@@ -103,7 +103,7 @@ export default defineComponent({
         (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) &&
         e.key === 'Escape' &&
         isVisible.value &&
-        isTopInteractivePopup()
+        isTopOverlay()
       ) {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
@@ -183,8 +183,9 @@ export default defineComponent({
       );
     };
 
-    const { isTopInteractivePopup } = usePopupManager('drawer', {
+    const { isTopOverlay } = useOverlayManager('drawer', {
       visible: computedVisible,
+      getElement: () => drawerEle.value,
     });
 
     watch(modeAndPlacement, handlePushMode, { immediate: true });
