@@ -885,6 +885,129 @@ describe('TreeSelect', () => {
   });
 
   describe('scenarios', () => {
+    describe('object values with custom keys', () => {
+      const keys = { label: 'name', value: 'id', children: 'nodes' };
+      const data = [
+        {
+          name: 'parent',
+          id: 1,
+          nodes: [
+            { name: 'zero', id: 0 },
+            { name: 'large', id: 2 },
+          ],
+        },
+      ];
+
+      it.each(['keys', 'treeProps'] as const)(
+        'uses %s to resolve an object value and expand its parents',
+        async (source) => {
+          const wrapper = await renderOpenTreeSelect({
+            data,
+            ...(source === 'keys' ? { keys } : { treeProps: { keys } }),
+            valueType: 'object',
+            value: { name: 'zero', id: 0 },
+          });
+          expect(getSelectInput(wrapper).props('value')).toMatchObject({
+            name: 'zero',
+            id: 0,
+            label: 'zero',
+            value: 0,
+          });
+          expect(getTree(wrapper).props('actived')).toEqual([0]);
+          expect(getTree(wrapper).props('expanded')).toEqual([1]);
+        },
+      );
+
+      it('prefers the custom value field over a conflicting normalized value', async () => {
+        const wrapper = await renderOpenTreeSelect({
+          data,
+          keys,
+          valueType: 'object',
+          value: { id: 0, value: 2 },
+        });
+        expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: 0 });
+        expect(getTree(wrapper).props('actived')).toEqual([0]);
+        expect(getTree(wrapper).props('expanded')).toEqual([1]);
+      });
+
+      it('keeps normalized object values working with custom keys', async () => {
+        const wrapper = await renderOpenTreeSelect({
+          data,
+          keys,
+          valueType: 'object',
+          value: { label: 'zero', value: 0 },
+        });
+        expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: 0 });
+        expect(getTree(wrapper).props('actived')).toEqual([0]);
+        expect(getTree(wrapper).props('expanded')).toEqual([1]);
+      });
+
+      it('updates a controlled object selection and clears it', async () => {
+        const wrapper = renderTreeSelect({ data, keys, valueType: 'object', value: { id: 2 } });
+        await wrapper.setProps({ value: { id: 0 } });
+        await nextTick();
+        expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: 0 });
+        await wrapper.setProps({ value: '' });
+        await nextTick();
+        expect(getSelectInput(wrapper).props('value')).toBe('');
+      });
+
+      it('emits a reusable object when clicking a custom-key node', async () => {
+        const onChange = vi.fn();
+        const wrapper = await renderOpenTreeSelect({
+          data,
+          keys,
+          treeProps: { expandAll: true },
+          valueType: 'object',
+          onChange,
+        });
+        await getTree(wrapper).find('[data-value="0"] .t-tree__label').trigger('click');
+        await nextTick();
+        const selected = onChange.mock.calls[0][0];
+        expect(selected).toMatchObject({ name: 'zero', id: 0, label: 'zero', value: 0 });
+        expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: 0 });
+        expect(getTree(wrapper).props('actived')).toEqual([0]);
+        onChange.mockClear();
+        getTreeHandler(wrapper, 'onActive')([0], { node: { actived: true, data: { name: 'zero', id: 0 } } });
+        expect(onChange).not.toHaveBeenCalled();
+      });
+
+      it.each(['onlyLeaf', 'all'] as const)(
+        'checks aliased object values and removes the zero tag in %s mode',
+        async (valueMode) => {
+          const onChange = vi.fn();
+          const wrapper = await renderOpenTreeSelect({
+            data,
+            keys,
+            valueType: 'object',
+            multiple: true,
+            defaultValue: [
+              { name: 'zero', id: 0 },
+              { name: 'large', id: 2 },
+            ],
+            treeProps: { valueMode },
+            onChange,
+          });
+          expect(getTree(wrapper).props('value')).toEqual([0, 2]);
+          expect(getSelectInput(wrapper).props('value')).toEqual([
+            expect.objectContaining({ label: 'zero', value: 0 }),
+            expect.objectContaining({ label: 'large', value: 2 }),
+          ]);
+          getSelectInputHandler(wrapper, 'onTagChange')(['large'], {
+            trigger: 'tag-remove',
+            index: 0,
+            e: new MouseEvent('click'),
+          });
+          await nextTick();
+          expect(onChange).toHaveBeenCalledWith(
+            [{ name: 'large', id: 2 }],
+            expect.objectContaining({ trigger: 'tag-remove' }),
+          );
+          expect(getTree(wrapper).props('value')).toEqual([2]);
+        },
+      );
+    });
+
     describe('removing multiple selections', () => {
       const settle = async () => {
         await nextTick();
@@ -1128,6 +1251,125 @@ describe('TreeSelect', () => {
           data: null,
           e: undefined,
         });
+      });
+    });
+  });
+});
+
+describe('TreeSelect', () => {
+  const bigintData = [
+    { label: 'node 1', value: 1n },
+    { label: 'node 2', value: 2n, children: [{ label: 'node 2-1', value: 21n }] },
+  ];
+
+  describe('scenarios', () => {
+    describe('bigint selection', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+      it('multiple mode: bigint values round-trip through the Tree', async () => {
+        const wrapper = await renderOpenTreeSelect({ data: bigintData, multiple: true, value: [1n, 2n] });
+        await nextTick();
+
+        expect(getTree(wrapper).props('value')).toEqual([1n, 2n]);
+        expect(getSelectInput(wrapper).props('value')).toEqual([
+          expect.objectContaining({ label: 'node 1', value: 1n }),
+          expect.objectContaining({ label: 'node 2', value: 2n }),
+        ]);
+      });
+    });
+  });
+
+  describe('props', () => {
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it('supports standard bigint object values in single and multiple mode', async () => {
+      const single = await renderOpenTreeSelect({ data: bigintData, valueType: 'object', value: { value: 2n } });
+      expect(getSelectInput(single).props('value')).toMatchObject({ label: 'node 2', value: 2n });
+      expect(getTree(single).props('actived')).toEqual([2n]);
+      const multiple = await renderOpenTreeSelect({
+        data: bigintData,
+        valueType: 'object',
+        multiple: true,
+        value: [{ value: 1n }, { value: 2n }],
+      });
+      expect(getTree(multiple).props('value')).toEqual([1n, 2n]);
+      expect(getSelectInput(multiple).props('value')).toEqual([
+        expect.objectContaining({ label: 'node 1', value: 1n }),
+        expect.objectContaining({ label: 'node 2', value: 2n }),
+      ]);
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it.each(['value', 'modelValue', 'defaultValue'] as const)(
+      'resolves a 0n %s and expands its parents',
+      async (prop) => {
+        const wrapper = await renderOpenTreeSelect({
+          data: [{ label: 'parent', value: 1n, children: [{ label: 'zero', value: 0n }] }],
+          [prop]: 0n,
+        });
+        expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: 0n });
+        expect(getTree(wrapper).props('actived')).toEqual([0n]);
+        expect(getTree(wrapper).props('expanded')).toEqual([1n]);
+      },
+    );
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it('initializes an explicitly empty controlled value from a 0n defaultValue', async () => {
+      const onChange = vi.fn();
+      renderTreeSelect({ data: [{ label: 'zero', value: 0n }], value: '', defaultValue: 0n, onChange });
+      await nextTick();
+      expect(onChange).toHaveBeenCalledWith(0n, expect.objectContaining({ trigger: 'uncheck' }));
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it.each(['value', 'modelValue'] as const)(
+      'preserves controlled 0n %s over a different defaultValue',
+      async (prop) => {
+        const onChange = vi.fn();
+        const wrapper = await renderOpenTreeSelect({
+          data: [
+            { label: 'zero', value: 0n },
+            { label: 'one', value: 1n },
+          ],
+          [prop]: 0n,
+          defaultValue: 1n,
+          onChange,
+        });
+        expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: 0n });
+        expect(onChange).not.toHaveBeenCalled();
+      },
+    );
+  });
+
+  describe('scenarios', () => {
+    describe('zero bigint interaction', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+      it('selects 0n by clicking and clears it through SelectInput', async () => {
+        const onChange = vi.fn();
+        const wrapper = await renderOpenTreeSelect({ data: [{ label: 'zero', value: 0n }], clearable: true, onChange });
+        await getTree(wrapper).find('[data-value="0"] .t-tree__label').trigger('click');
+        await nextTick();
+        expect(onChange).toHaveBeenCalledWith(0n, expect.objectContaining({ trigger: 'check' }));
+        expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: 0n });
+        getSelectInput(wrapper).vm.$emit('clear', { e: new MouseEvent('click') });
+        await nextTick();
+        expect(onChange).toHaveBeenLastCalledWith('', expect.objectContaining({ trigger: 'clear' }));
+        expect(getSelectInput(wrapper).props('value')).toBe('');
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+      it('updates a controlled selection to 0n and then clears it', async () => {
+        const wrapper = renderTreeSelect({
+          data: [
+            { label: 'zero', value: 0n },
+            { label: 'one', value: 1n },
+          ],
+          value: 1n,
+        });
+        await wrapper.setProps({ value: 0n });
+        await nextTick();
+        expect(getSelectInput(wrapper).props('value')).toMatchObject({ label: 'zero', value: 0n });
+        await wrapper.setProps({ value: '' });
+        await nextTick();
+        expect(getSelectInput(wrapper).props('value')).toBe('');
       });
     });
   });

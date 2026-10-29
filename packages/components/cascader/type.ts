@@ -271,7 +271,12 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   onRemove?: (context: RemoveContext<CascaderOption>) => void;
 }
 
-export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
+export type CascaderValue<T extends TreeOptionData = TreeOptionData> =
+  | string
+  | number
+  | bigint
+  | T
+  | Array<CascaderValue<T>>;
 
 export interface CascaderChangeContext<CascaderOption> {
   node?: TreeNodeModel<CascaderOption>;

@@ -4,12 +4,12 @@ export type TreeSelectProps = TdTreeSelectProps;
 
 export * from './type';
 export interface IRemoveOptions<DataOption> {
-  value: string | number;
+  value: string | number | bigint;
   data: DataOption;
   e: MouseEvent;
 }
 
 export interface INodeOptions {
   label: string;
-  value: string | number;
+  value: string | number | bigint;
 }

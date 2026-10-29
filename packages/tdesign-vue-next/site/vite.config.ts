@@ -23,6 +23,9 @@ const publicPathMap: Record<string, string> = {
 export default defineConfig(({ mode }) => {
   return {
     base: publicPathMap[mode],
+    define: {
+      'process.env.BABEL_TYPES_8_BREAKING': 'false',
+    },
     server: {
       port: 17000,
       host: '0.0.0.0',
@@ -30,6 +33,7 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
+        assert: 'assert/',
         '@': joinPosix(__dirname, './'),
         '@tdesign/vue-next': joinTdesignVueNextRoot(),
         '@tdesign/components': joinComponentsRoot(),
