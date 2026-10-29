@@ -213,7 +213,7 @@ export interface TdTreeSelectProps<
   onSearch?: (filterWords: string) => void;
 }
 
-export type TreeSelectValue = string | number | object | Array<TreeSelectValue>;
+export type TreeSelectValue = string | number | bigint | object | Array<TreeSelectValue>;
 
 export interface TreeSelectChangeContext<DataOption> {
   node: TreeNodeModel<DataOption> | null;
@@ -226,7 +226,7 @@ export interface TreeSelectChangeContext<DataOption> {
 export type TreeSelectValueChangeTrigger = 'clear' | 'tag-remove' | 'backspace' | 'check' | 'uncheck';
 
 export interface RemoveOptions<T> {
-  value: string | number | object;
+  value: string | number | bigint | object;
   data: T;
   e?: MouseEvent;
 }

@@ -67,6 +67,16 @@ describe('Cascader utils', () => {
       expect(getSingleContent(asContext({ multiple: false, value: 'unknown', treeStore }))).toBe('unknown');
     });
 
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6798
+    it.each([null, undefined, Number.NaN])(
+      'getSingleContent() treats %s as empty without looking up nodes',
+      (value) => {
+        const treeStore = { getNodes: vi.fn(() => []) };
+        expect(getSingleContent(asContext({ multiple: false, value, treeStore }))).toBe('');
+        expect(treeStore.getNodes).not.toHaveBeenCalled();
+      },
+    );
+
     it('getSingleContent() returns either the full path or leaf label', () => {
       const { child } = createPathNodes();
       const treeStore = { getNodes: vi.fn(() => [child]) };

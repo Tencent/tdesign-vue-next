@@ -18,7 +18,7 @@ import {
  */
 export function getSingleContent(cascaderContext: CascaderContextType): string {
   const { value, multiple, treeStore, showAllLevels } = cascaderContext;
-  if (multiple || (value !== 0 && !value)) return '';
+  if (multiple || (value !== 0 && typeof value !== 'bigint' && !value)) return '';
 
   if (isArray(value)) return '';
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
@@ -132,6 +132,7 @@ export const getCascaderValue = (value: CascaderValue, valueType: TdCascaderProp
  */
 export function isEmptyValues(value: unknown): boolean {
   if (isNumber(value) && !isNaN(value)) return false;
+  if (typeof value === 'bigint') return false;
   return isEmpty(value);
 }
 

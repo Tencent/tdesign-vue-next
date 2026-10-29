@@ -48,7 +48,7 @@ export type OptionData = {
   value?: string | number;
 } & PlainObject;
 
-export type TreeOptionData<T = string | number> = {
+export type TreeOptionData<T = string | number | bigint> = {
   children?: Array<TreeOptionData<T>> | boolean;
   /** option label content */
   label?: string | TNode;

@@ -1,10 +1,8 @@
 import { computed, onMounted, TypeRef, TypeScroll, TreeNode } from '../utils/adapt';
 import { get } from 'lodash-es';
-import { TypeTreeState, TypeTimer } from '../types';
+import { TypeTreeState, TypeTimer, TreeScrollToElementParams } from '../types';
 import log from '@tdesign/common-js/log/index';
 import { useVirtualScrollNew } from '@tdesign/shared-hooks';
-
-import type { ComponentScrollToElementParams } from '../../common';
 
 // tree 虚拟滚动整合
 export default function useTreeScroll(state: TypeTreeState) {
@@ -79,10 +77,10 @@ export default function useTreeScroll(state: TypeTreeState) {
     emitScrollEvent(e);
   };
 
-  const handleScrollTo = (params: ComponentScrollToElementParams) => {
+  const handleScrollTo = (params: TreeScrollToElementParams) => {
     let index = params.index;
     if (!index && index !== 0) {
-      if (!params.key) {
+      if (params.key == null) {
         log.error('Tree', 'scrollToElement: one of `index` or `key` must exist.');
         return;
       }
