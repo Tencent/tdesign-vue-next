@@ -4,9 +4,8 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TdDialogProps } from './type';
-import { PropType } from 'vue';
-
+import type { PropType } from 'vue';
+import type { TdDialogProps } from './type';
 export default {
   /** 对话框挂载的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
   attach: {
@@ -52,18 +51,17 @@ export default {
   },
   /** 是否在关闭弹框的时候销毁子元素 */
   destroyOnClose: Boolean,
-  /** 弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second' */
+  /** 弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]` */
   dialogClassName: {
-    type: String,
-    default: '',
+    type: [String, Object, Array] as PropType<TdDialogProps['dialogClassName']>,
   },
   /** 作用于对话框本身的样式 */
   dialogStyle: {
     type: Object as PropType<TdDialogProps['dialogStyle']>,
   },
-  /** 对话框是否可以拖拽（仅在非模态对话框时有效） */
+  /** 是否可以拖拽（对全屏对话框无效） */
   draggable: Boolean,
-  /** 对话框焦点控制。未设置时默认聚焦对话框容器；`null` 不移动焦点。`confirm-button` 和 `cancel-button` 聚焦对应按钮；函数返回自定义元素。 */
+  /** 对话框焦点控制。`defaultFocus` 决定打开后的默认焦点；`focusTrap` 决定是否焦点将被限制在当前对话框内；`focusTriggerAfterClose` 决定关闭后是否将焦点交还给触发元素。 */
   focusable: {
     type: Object as PropType<TdDialogProps['focusable']>,
   },
@@ -91,6 +89,7 @@ export default {
   /** 对话框位置，内置两种：垂直水平居中显示 和 靠近顶部（top:20%）显示。默认情况，为避免贴顶或贴底，顶部和底部距离最小为 `48px`，可通过调整 `top` 覆盖默认大小 */
   placement: {
     type: String as PropType<TdDialogProps['placement']>,
+    default: 'top' as TdDialogProps['placement'],
     validator(val: TdDialogProps['placement']): boolean {
       if (!val) return true;
       return ['top', 'center'].includes(val);
@@ -127,7 +126,7 @@ export default {
   width: {
     type: [String, Number] as PropType<TdDialogProps['width']>,
   },
-  /** 对话框层级，Web 侧样式默认为 2500，移动端和小程序样式默认为 1500 */
+  /** 对话框层级，Web 侧样式默认为 2500，移动端样式默认 1500，小程序样式默认为 11500 */
   zIndex: {
     type: Number,
   },

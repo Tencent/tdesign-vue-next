@@ -4,24 +4,8 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { ButtonProps } from '../button';
-import { TNode, Styles, AttachNode, AppContext } from '../common';
-
-export interface DialogFocusable {
-  /**
-   * 打开后的默认焦点。
-   * 未设置时默认聚焦对话框容器；`null` 不移动焦点。`confirm-button` 和 `cancel-button` 聚焦对应按钮；函数返回自定义元素。
-   */
-  defaultFocus?: null | 'confirm-button' | 'cancel-button' | (() => HTMLElement | null);
-  /**
-   * 是否将焦点限制在当前对话框内
-   */
-  focusTrap?: boolean;
-  /**
-   * 是否将焦点交还给打开对话框前的触发元素
-   */
-  focusTriggerAfterClose: boolean;
-}
+import type { ButtonProps } from '../button';
+import type { TNode, ClassName, Styles, AttachNode, AppContext } from '../common';
 
 export interface TdDialogProps {
   /**
@@ -71,21 +55,20 @@ export interface TdDialogProps {
    */
   destroyOnClose?: boolean;
   /**
-   * 弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second'
-   * @default ''
+   * 弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`
    */
-  dialogClassName?: string;
+  dialogClassName?: ClassName;
   /**
    * 作用于对话框本身的样式
    */
   dialogStyle?: Styles;
   /**
-   * 对话框是否可以拖拽（仅在非模态对话框时有效）
+   * 是否可以拖拽（对全屏对话框无效）
    * @default false
    */
   draggable?: boolean;
   /**
-   * 对话框焦点控制。`defaultFocus` 决定打开后的默认焦点；`focusTrap` 决定是否焦点将被限制在当前对话框内；`focusTriggerAfterClose` 决定关闭后是否将焦点交还给触发元素
+   * 对话框焦点控制。`defaultFocus` 决定打开后的默认焦点；`focusTrap` 决定是否焦点将被限制在当前对话框内；`focusTriggerAfterClose` 决定关闭后是否将焦点交还给触发元素。
    */
   focusable?: DialogFocusable;
   /**
@@ -146,7 +129,7 @@ export interface TdDialogProps {
    */
   width?: string | number;
   /**
-   * 对话框层级，Web 侧样式默认为 2500，移动端和小程序样式默认为 1500
+   * 对话框层级，Web 侧样式默认为 2500，移动端样式默认 1500，小程序样式默认为 11500
    */
   zIndex?: number;
   /**
@@ -245,6 +228,12 @@ export interface DialogInstance {
    * 更新弹框内容
    */
   update: (props: DialogOptions) => void;
+}
+
+export interface DialogFocusable {
+  defaultFocus?: null | 'confirm-button' | 'cancel-button' | (() => HTMLElement | null);
+  focusTrap?: boolean;
+  focusTriggerAfterClose: boolean;
 }
 
 export type DialogEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
