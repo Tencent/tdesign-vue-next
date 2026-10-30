@@ -201,8 +201,11 @@ export default defineComponent({
     const verifyStatus = ref(ValidateStatus.TO_BE_VALIDATED);
     const resetValidating = ref(false);
     const needResetField = ref(false);
+    // A clearValidate call invalidates validations that are still awaiting their result.
+    let validationResetVersion = 0;
 
-    const resetHandler = () => {
+    const resetHandler = (invalidatePendingValidation = true) => {
+      if (invalidatePendingValidation) validationResetVersion += 1;
       needResetField.value = false;
       errorList.value = [];
       successList.value = [];
@@ -232,7 +235,7 @@ export default defineComponent({
       if (resetValidating.value) {
         needResetField.value = true;
       } else {
-        resetHandler();
+        resetHandler(false);
       }
     };
 
@@ -286,6 +289,7 @@ export default defineComponent({
       trigger: ValidateTriggerType,
       showErrorMessage?: boolean,
     ): Promise<FormItemValidateResult<T>> => {
+      const resetVersion = validationResetVersion;
       resetValidating.value = true;
       // undefined | boolean
       freeShowErrorMessage.value = showErrorMessage;
@@ -297,17 +301,19 @@ export default defineComponent({
         allowSetValue,
       } = await analysisValidateResult(trigger);
 
-      if (allowSetValue) {
-        successList.value = innerSuccessList;
-        errorList.value = innerErrorList;
-      }
-      // 根据校验结果设置校验状态
-      if (rules.length) {
-        verifyStatus.value = innerErrorList.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
-      }
-      // 重置处理
-      if (needResetField.value) {
-        resetHandler();
+      if (resetVersion === validationResetVersion) {
+        if (allowSetValue) {
+          successList.value = innerSuccessList;
+          errorList.value = innerErrorList;
+        }
+        // 根据校验结果设置校验状态
+        if (rules.length) {
+          verifyStatus.value = innerErrorList.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
+        }
+        // 重置处理
+        if (needResetField.value) {
+          resetHandler(false);
+        }
       }
       resetValidating.value = false;
 
