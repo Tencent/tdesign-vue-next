@@ -267,7 +267,9 @@ describe('Tree:disabled', () => {
       ];
       const wrapper = mount({
         render() {
-          return <Tree ref="tree" transition={false} data={data} expandAll checkable></Tree>;
+          return (
+            <Tree ref="tree" transition={false} data={data} expandAll checkable checkAllAffectedBy="onlyEnabled"></Tree>
+          );
         },
       });
       await delay(3);
@@ -307,7 +309,9 @@ describe('Tree:disabled', () => {
       ];
       const wrapper = mount({
         render() {
-          return <Tree ref="tree" transition={false} data={data} expandAll checkable></Tree>;
+          return (
+            <Tree ref="tree" transition={false} data={data} expandAll checkable checkAllAffectedBy="onlyEnabled"></Tree>
+          );
         },
       });
       await delay(3);
@@ -354,7 +358,9 @@ describe('Tree:disabled', () => {
     ];
     const wrapper = mount({
       render() {
-        return <Tree ref="tree" transition={false} data={data} expandAll checkable></Tree>;
+        return (
+          <Tree ref="tree" transition={false} data={data} expandAll checkable checkAllAffectedBy="onlyEnabled"></Tree>
+        );
       },
     });
     await delay(3);
