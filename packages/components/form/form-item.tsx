@@ -403,18 +403,12 @@ export default defineComponent({
       return form?.showErrorMessage;
     });
 
-    const isLastFormItem = computed(() => {
-      const el = formItemRef.value;
-      return !!el && !!form?.lastFormItemElements.has(el);
-    });
-
     const classes = computed(() => [
       CLASS_NAMES.value.formItem,
       getFormItemClassName(formItemClassPrefix.value, props.name),
       {
         [CLASS_NAMES.value.formItemWithHelp]: helpNode.value,
         [CLASS_NAMES.value.formItemWithExtra]: extraNode.value,
-        [`${CLASS_NAMES.value.formItem}--last`]: isLastFormItem.value,
       },
     ]);
     const helpNode = computed<VNode>(() => {

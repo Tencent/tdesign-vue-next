@@ -348,7 +348,7 @@ describe('FormItem', () => {
         expect(getLastItemNames(wrapper)).toEqual(['b']);
       });
 
-      it('按父容器分组，各自标记末位表单项', async () => {
+      it('普通布局包裹不单独标记分组末位', async () => {
         const wrapper = mount(
           <Form>
             <div>
@@ -363,7 +363,22 @@ describe('FormItem', () => {
         );
         await flushPromises();
 
-        expect(getLastItemNames(wrapper)).toEqual(['b', 'd']);
+        expect(getLastItemNames(wrapper)).toEqual(['d']);
+      });
+
+      it('有底部内边距的容器标记容器内末位，并标记表单末位', async () => {
+        const wrapper = mount(
+          <Form>
+            <div style={{ paddingBottom: '16px' }}>
+              <FormItem name="a" />
+              <FormItem name="b" />
+            </div>
+            <FormItem name="c" />
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['b', 'c']);
       });
 
       // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7000
@@ -420,6 +435,30 @@ describe('FormItem', () => {
         await flushPromises();
 
         expect(getLastItemNames(wrapper)).toEqual(['a']);
+      });
+
+      it('组件重渲染覆盖 class 后立即恢复末位类', async () => {
+        const wrapper = mount(
+          <Form
+            data={{ a: '', b: '' }}
+            rules={{
+              a: [{ required: true }],
+              b: [{ required: true }],
+            }}
+          >
+            <FormItem name="a" />
+            <FormItem name="b" />
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['b']);
+
+        await wrapper.findComponent(Form).vm.$.exposed.validate();
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['b']);
+        expect(wrapper.find('.t-form-item__b').classes()).toContain('t-form__item-with-extra');
       });
     });
   });

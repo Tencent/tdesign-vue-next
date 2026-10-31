@@ -1,6 +1,7 @@
-import { computed, defineComponent, provide, reactive, ref, shallowRef, toRefs } from 'vue';
+import { computed, defineComponent, onBeforeUnmount, onMounted, provide, reactive, ref, toRefs, watch } from 'vue';
 import { isEmpty, isArray, isBoolean, isFunction } from 'lodash-es';
 
+import { LastFormItemController } from '@tdesign/common-js/form/last-form-item';
 import { requestSubmit } from '@tdesign/shared-utils';
 import { FormItemValidateResult } from './form-item';
 import {
@@ -17,7 +18,7 @@ import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './constants';
 import { FormResetEvent, FormSubmitEvent } from '../common';
 import { getFormItemClassName } from './utils';
 import { FormDisabledProvider, FormReadonlyProvider } from './hooks';
-import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
+import { useConfig, usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
@@ -38,46 +39,32 @@ export default defineComponent({
     const children = ref<FormItemContext[]>([]);
 
     const COMPONENT_NAME = usePrefixClass('form');
-    // 仅在 refreshLastFormItem 内读取，故无需响应式
-    const formItemElements: HTMLElement[] = [];
-    const lastFormItemElements = shallowRef<Set<HTMLElement>>(new Set());
+    const { classPrefix } = useConfig('classPrefix');
 
-    // 标记每个父容器内文档顺序最靠后的表单项，样式层据此去掉末项的 margin
-    const refreshLastFormItem = () => {
-      const formItemSelector = `.${COMPONENT_NAME.value}__item`;
-      const next = new Set<HTMLElement>();
+    const controller = new LastFormItemController({
+      classPrefix: classPrefix.value,
+      disabled: props.layout === 'inline',
+    });
 
-      if (props.layout !== 'inline') {
-        const groups = new Map<HTMLElement, HTMLElement[]>();
-        formItemElements.forEach((el) => {
-          const { parentElement } = el;
-          if (!parentElement) return;
-          // 嵌套在其它表单项内部的子项不参与末位判定
-          if (parentElement.closest(formItemSelector)) return;
+    const registerFormItem = (node: HTMLElement) => controller.register(node);
 
-          const siblings = groups.get(parentElement);
-          if (siblings) siblings.push(el);
-          else groups.set(parentElement, [el]);
+    watch(
+      () => [classPrefix.value, props.layout] as const,
+      ([prefix, layout]) => {
+        controller.update({
+          classPrefix: prefix,
+          disabled: layout === 'inline',
         });
-        groups.forEach((siblings) => {
-          siblings.sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
-          next.add(siblings[siblings.length - 1]);
-        });
-      }
+      },
+    );
 
-      lastFormItemElements.value = next;
-    };
+    onMounted(() => {
+      controller.bind(formRef.value);
+    });
 
-    const registerFormItem = (node: HTMLElement) => {
-      formItemElements.push(node);
-      refreshLastFormItem();
-
-      return () => {
-        const index = formItemElements.indexOf(node);
-        if (index > -1) formItemElements.splice(index, 1);
-        refreshLastFormItem();
-      };
-    };
+    onBeforeUnmount(() => {
+      controller.destroy();
+    });
 
     const {
       showErrorMessage,
@@ -106,7 +93,6 @@ export default defineComponent({
         resetType,
         children,
         renderContent,
-        lastFormItemElements,
         registerFormItem,
       }),
     );
