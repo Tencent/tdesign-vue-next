@@ -21,11 +21,13 @@ export default function useRenderIcon(state: TypeTreeItemState) {
   };
 
   const renderIcon = (h: TypeCreateElement) => {
-    const { node, treeScope } = state;
+    const { node, treeScope, props } = state;
     const { scopedSlots } = treeScope;
     const treeProps = treeScope?.treeProps || {};
     const { icon } = treeProps;
+    const { hasLayerAnyChild } = props;
     let isDefaultIcon = false;
+    let isPlaceholder = false;
 
     let iconNode = null;
     if (icon === true) {
@@ -33,20 +35,29 @@ export default function useRenderIcon(state: TypeTreeItemState) {
         iconNode = scopedSlots.icon({
           node: node?.getModel(),
         });
-      } else if (!node.vmIsLeaf) {
+      } else if (node.children) {
         isDefaultIcon = true;
         iconNode = getFolderIcon(h);
         if (node.loading && node.expanded) {
           iconNode = <TLoading />;
         }
+      } else if (hasLayerAnyChild) {
+        isDefaultIcon = true;
+        isPlaceholder = true;
+        iconNode = getFolderIcon(h);
       } else {
-        iconNode = '';
+        return null;
       }
     } else if (icon) {
       iconNode = getTNode(icon, {
         createElement: h,
         node,
       });
+      if (!iconNode) {
+        return null;
+      }
+    } else {
+      return null;
     }
 
     const wrapIconNode = (
@@ -58,9 +69,10 @@ export default function useRenderIcon(state: TypeTreeItemState) {
         ]}
         // TODO: 这里最好修改一下，改成 data-ignore 之类的
         // @ts-ignore
-        trigger="expand"
-        ignore="active"
-        onmousedown={handleMousedown}
+        trigger={isPlaceholder ? undefined : 'expand'}
+        ignore={isPlaceholder ? undefined : 'active'}
+        onmousedown={isPlaceholder ? undefined : handleMousedown}
+        style={isPlaceholder ? { visibility: 'hidden', pointerEvents: 'none' } : undefined}
       >
         {iconNode}
       </span>
