@@ -98,11 +98,15 @@ export default defineComponent({
                 classnames.tableColFixedClasses,
               );
               const style: Styles = { ...tdStyles.style };
+              const classes =
+                col.align && col.align !== 'left'
+                  ? [tdStyles.classes, classnames.tdAlignClasses[col.align]]
+                  : tdStyles.classes;
               if (props.thWidthList?.[col.colKey]) {
                 style.width = `${props.thWidthList[col.colKey]}px`;
               }
               return (
-                <td {...{ key: col.colKey, ...cellSpans }} class={tdStyles.classes} style={style}>
+                <td {...{ key: col.colKey, ...cellSpans }} class={classes} style={style}>
                   {renderTFootCell({
                     row,
                     rowIndex,
