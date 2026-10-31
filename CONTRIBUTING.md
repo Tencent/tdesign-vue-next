@@ -45,7 +45,7 @@ pnpm run dev:vue
 
 ## 目录结构
 
-````text
+```text
 .
 ├── internal                  // 仅供仓库内使用的包
 │   ├── tests                 // 测试公共逻辑
@@ -67,11 +67,12 @@ pnpm run dev:vue
     │   │   ├── _usage        // 组件 live demo
     │   │   └── style         // 组件样式
     │   ├── style
-    │   ├── utils
+    │   └── utils
     └── tdesign-vue-next      // tdesign-vue-next 出口
         ├── helper            // 供 vscode 等 IDE 使用
         ├── site              // 站点
         └── test              // 测试配置
+```
 
 ### 组件页路由配置
 
@@ -97,7 +98,7 @@ pnpm run dev:vue
     ...
   ],
 },
-````
+```
 
 ### Markdown 文件的 demo 引用
 
