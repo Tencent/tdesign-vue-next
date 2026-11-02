@@ -122,6 +122,36 @@ describe('ChatItem', () => {
   });
 
   describe('scenarios', () => {
+    describe('message structure', () => {
+      // Use public render/slot inputs to keep these baselines focused on ChatItem's own structure.
+      it('preserves the user metadata and content structure', () => {
+        const wrapper = mountChat(ChatItem, {
+          props: {
+            role: 'user',
+            name: 'User',
+            datetime: '2024-01-01 10:00',
+            avatar: 'https://example.com/avatar.png',
+            content: () => <span>User message</span>,
+          },
+        });
+        expect(wrapper.text()).toContain('User message');
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
+      it('preserves the assistant content and actionbar slot structure', () => {
+        const wrapper = mountChat(ChatItem, {
+          props: { role: 'assistant' },
+          slots: {
+            content: '<span>Assistant message</span>',
+            actionbar: '<button type="button">Custom action</button>',
+          },
+        });
+        expect(wrapper.text()).toContain('Assistant message');
+        expect(wrapper.find('button').text()).toBe('Custom action');
+        expect(wrapper.element).toMatchSnapshot();
+      });
+    });
+
     describe('content prop and slot', () => {
       it('prefers the slot and falls back to the prop when the slot becomes empty', async () => {
         const showSlot = ref(true);
