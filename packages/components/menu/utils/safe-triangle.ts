@@ -53,10 +53,14 @@ export function getSafeTriangle(
       ];
   }
 
-  const center = {
-    x: (nearEdge[0].x + nearEdge[1].x) / 2,
-    y: (nearEdge[0].y + nearEdge[1].y) / 2,
-  };
+  const toward = {
+    right: { x: 1, y: 0 },
+    left: { x: -1, y: 0 },
+    top: { x: 0, y: -1 },
+    bottom: { x: 0, y: 1 },
+  }[direction];
+  const distanceToEdge = (nearEdge[0].x - pointer.x) * toward.x + (nearEdge[0].y - pointer.y) * toward.y;
+  if (distanceToEdge <= 0) return undefined;
   const left = Math.min(pointer.x, nearEdge[0].x, nearEdge[1].x);
   const top = Math.min(pointer.y, nearEdge[0].y, nearEdge[1].y);
   const right = Math.max(pointer.x, nearEdge[0].x, nearEdge[1].x);
@@ -66,7 +70,7 @@ export function getSafeTriangle(
   return {
     points: [pointer, nearEdge[0], nearEdge[1]],
     anchor: pointer,
-    toward: { x: center.x - pointer.x, y: center.y - pointer.y },
+    toward,
     top,
     left,
     width: Math.max(right - left, 1),

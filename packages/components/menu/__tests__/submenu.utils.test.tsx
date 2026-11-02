@@ -31,4 +31,16 @@ describe('submenu safe triangle', () => {
   it('does not create a triangle when the popup has not been measured', () => {
     expect(getSafeTriangle({ x: 0, y: 0 }, { ...popupRect, width: 0 }, 'right')).toBeUndefined();
   });
+
+  it('accepts diagonal movement toward the edge rather than only toward its center', () => {
+    const triangle = getSafeTriangle({ x: 50, y: 110 }, popupRect, 'right');
+    expect(triangle).toBeDefined();
+    if (!triangle) return;
+    expect(isPointerFollowingSafePath({ x: 75, y: 70 }, triangle, 0).active).toBe(true);
+  });
+
+  it('does not create a degenerate or backwards triangle', () => {
+    expect(getSafeTriangle({ x: 100, y: 50 }, popupRect, 'right')).toBeUndefined();
+    expect(getSafeTriangle({ x: 110, y: 50 }, popupRect, 'right')).toBeUndefined();
+  });
 });

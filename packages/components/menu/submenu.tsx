@@ -133,7 +133,16 @@ export default defineComponent({
       safeTriangleAnchor = undefined;
       previousSafePointerPoint = undefined;
       furthestPointerProgress = 0;
+      isCursorInSafeTriangle.value = false;
       stopMouseMoveListener();
+    };
+
+    const scheduleSafeTriangleTimeout = (event: MouseEvent) => {
+      if (safeTriangleTimer) clearTimeout(safeTriangleTimer);
+      safeTriangleTimer = setTimeout(() => {
+        if (isCursorInSafeTriangle.value) handleLeaveSafeTriangle(event);
+        clearSafeTriangle();
+      }, 300);
     };
 
     const beginSafeTriangle = (event: MouseEvent) => {
@@ -144,11 +153,7 @@ export default defineComponent({
       updateSafeTriangle();
       if (!safeTriangle.value) return;
       startMouseMoveListener();
-      if (safeTriangleTimer) clearTimeout(safeTriangleTimer);
-      safeTriangleTimer = setTimeout(() => {
-        if (isCursorInSafeTriangle.value) handleLeaveSafeTriangle(event);
-        clearSafeTriangle();
-      }, 300);
+      scheduleSafeTriangleTimeout(event);
     };
 
     const handlePlacementChange = ({ placement }: { placement: string }) => {
@@ -396,6 +401,7 @@ export default defineComponent({
       }
       furthestPointerProgress = result.progress;
       previousSafePointerPoint = { x: event.clientX, y: event.clientY };
+      scheduleSafeTriangleTimeout(event);
 
       const isOverTriangle = event.target instanceof Node && !!safeTriangleRef.value?.contains(event.target);
       if (isOverTriangle) handleEnterSafeTriangle();
@@ -656,9 +662,7 @@ export default defineComponent({
             >
               <path
                 d={triangle.path}
-                fill="rgba(255, 0, 0, 0.45)"
-                stroke="#ff0000"
-                stroke-width="2"
+                fill="transparent"
                 style={{ pointerEvents: 'all' }}
               />
             </svg>

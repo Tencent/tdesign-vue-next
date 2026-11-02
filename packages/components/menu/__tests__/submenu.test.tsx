@@ -360,7 +360,7 @@ describe('Submenu', () => {
       expect(parentSubmenu.cancelHideTimer).toHaveBeenCalled();
     });
 
-    it('keeps the popup open while the pointer crosses the red safe triangle into its popup', async () => {
+    it('keeps the popup open while the pointer crosses the safe triangle into its popup', async () => {
       const { menu } = createMenu({ mode: ref('popup') });
       const { submenu, wrapper } = mountSubmenu(
         { title: 'First', value: 'first' },
@@ -376,9 +376,11 @@ describe('Submenu', () => {
       await nextTick();
       const triangle = getTeleportedElement('.t-menu__safe-triangle');
       const path = triangle.querySelector('path');
-      expect(path?.getAttribute('fill')).toBe('rgba(255, 0, 0, 0.45)');
+      expect(path?.getAttribute('fill')).toBe('transparent');
 
       path?.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 275, clientY: 150 }));
+      await vi.advanceTimersByTimeAsync(200);
+      path?.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 285, clientY: 150 }));
       await vi.advanceTimersByTimeAsync(200);
       expect(submenu.findComponent(Popup).props('visible')).toBe(true);
 
