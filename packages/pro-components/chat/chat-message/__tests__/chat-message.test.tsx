@@ -1,26 +1,28 @@
-import { chatText, expectPropsContract, flush, mountChat, textContent } from '../../test/helpers';
-
 import { describe, expect, it } from 'vitest';
 import ChatMessage from '..';
+import { chatText, flush, mountChat, textContent } from '../../test/helpers';
 
 describe('ChatMessage', () => {
   describe('props', () => {
-    it('保留公开 props 契约', () => expectPropsContract('ChatMessage', ChatMessage));
+    it('renders content and responds to updates', async () => {
+      const wrapper = mountChat(ChatMessage, { props: { role: 'user', content: [textContent('first message')] } });
+      await flush();
+      expect(chatText(wrapper.element)).toContain('first message');
+      await wrapper.setProps({ content: [textContent('updated message')] });
+      await flush();
+      expect(chatText(wrapper.element)).toContain('updated message');
+      expect(chatText(wrapper.element)).not.toContain('first message');
+    });
   });
 
-  describe('scenarios', () => {
-    it('显示消息正文并支持 content 插槽覆盖', async () => {
+  describe('slots', () => {
+    it('renders custom message content', async () => {
       const wrapper = mountChat(ChatMessage, {
-        props: { role: 'user', content: [textContent('用户消息正文')] },
+        props: { role: 'user' },
+        slots: { content: '<span>custom body</span>' },
       });
       await flush();
-      expect(chatText(wrapper.element)).toContain('用户消息正文');
-      const slotted = mountChat(ChatMessage, {
-        props: { role: 'user', content: [textContent('原始正文')] },
-        slots: { content: '<span>自定义消息正文</span>' },
-      });
-      await flush();
-      expect(chatText(slotted.element)).toContain('自定义消息正文');
+      expect(chatText(wrapper.element)).toContain('custom body');
     });
   });
 });

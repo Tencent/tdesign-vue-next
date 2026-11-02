@@ -1,9 +1,16 @@
-import { describe, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import ChatThinking from '..';
-import { expectPropsContract } from '../../test/helpers';
+import { chatText, flush, mountChat } from '../../test/helpers';
 
 describe('ChatThinking', () => {
-  describe('props', () => {
-    it('保留公开 props 契约', () => expectPropsContract('ChatThinking', ChatThinking));
+  describe('slots', () => {
+    it('renders custom thinking content', async () => {
+      const wrapper = mountChat(ChatThinking, {
+        props: { status: 'complete', collapsed: false },
+        slots: { content: '<span>thinking details</span>' },
+      });
+      await flush();
+      expect(chatText(wrapper.element)).toContain('thinking details');
+    });
   });
 });

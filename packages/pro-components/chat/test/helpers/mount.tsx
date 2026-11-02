@@ -26,13 +26,3 @@ export const flush = async (times = 2) => {
     await flushPromises();
   }
 };
-
-/**
- * 读取组件实例上暴露的 API（expose / ref）。
- * 用于验证「组合类 API」在迁移前后保持一致。
- */
-export const exposedKeysOf = (instance: any): string[] => {
-  const source = instance?.$.exposed || instance?.exposed || {};
-  const keys = Object.keys(source).filter((key) => !key.startsWith('$'));
-  return keys.sort();
-};

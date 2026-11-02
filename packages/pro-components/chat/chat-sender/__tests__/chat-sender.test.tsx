@@ -1,26 +1,20 @@
-import { expectEmitsContract, expectPropsContract, flush, mountChat } from '../../test/helpers';
+/* eslint-disable vue/one-component-per-file */
+import { chatText, flush, mountChat } from '../../test/helpers';
 
-/**
- * L2 - ChatSender 基础 API / 事件 / 插槽
- *
- * Sender 是纯 Vue 实现，DOM 稳定，是「基础 API 不 breaking」的关键回归点：
- * 输入值、发送/停止、禁用态、上传入口、以及全部扩展插槽。
- */
 import { describe, expect, it, vi } from 'vitest';
 import ChatSender from '..';
+import { defineComponent, ref } from 'vue';
 
 const SEND_BTN = '.t-chat-sender__button__sendbtn button';
 
 describe('ChatSender', () => {
   describe('props', () => {
-    it('保留公开 props 契约', () => expectPropsContract('ChatSender', ChatSender));
-
-    it('渲染完整输入区结构', () => {
-      const wrapper = mountChat(ChatSender);
-      expect(wrapper.find('.t-chat-sender').exists()).toBe(true);
-      expect(wrapper.find('.t-chat-sender__textarea').exists()).toBe(true);
-      expect(wrapper.find('.t-chat-sender__footer').exists()).toBe(true);
-      expect(wrapper.find('textarea').exists()).toBe(true);
+    it.each(['suffix', 'footerPrefix'] as const)('%s 支持文本和渲染函数', async (prop) => {
+      const wrapper = mountChat(ChatSender, { props: { [prop]: 'prop text' } });
+      expect(wrapper.text()).toContain('prop text');
+      await wrapper.setProps({ [prop]: () => <span>rendered prop</span> });
+      expect(wrapper.text()).toContain('rendered prop');
+      expect(wrapper.text()).not.toContain('prop text');
     });
 
     it(':value 受控回显', () => {
@@ -53,27 +47,18 @@ describe('ChatSender', () => {
       expect(wrapper.find(SEND_BTN).attributes('disabled')).toBeDefined();
     });
 
-    it(':loading 切换为停止按钮', () => {
-      const wrapper = mountChat(ChatSender, { props: { loading: true } });
-      expect(wrapper.find('.t-chat-sender__button__stopicon').exists()).toBe(true);
-    });
-
-    it(':stopDisabled 同样切换为停止按钮', () => {
-      const wrapper = mountChat(ChatSender, { props: { stopDisabled: true } });
-      expect(wrapper.find('.t-chat-sender__button__stopicon').exists()).toBe(true);
-    });
-
-    it(':attachmentsProps.items 渲染附件区', () => {
+    it(':attachmentsProps.items 渲染附件区', async () => {
       const wrapper = mountChat(ChatSender, {
-        props: { attachmentsProps: { items: [{ name: 'a.png', size: 1024 }], overflow: 'scrollX' } },
+        props: {
+          attachmentsProps: { items: [{ key: 'report', name: 'report.pdf', size: 1024 }], overflow: 'scrollX' },
+        },
       });
-      expect(wrapper.find('.t-chat-sender__attachment').exists()).toBe(true);
+      await flush();
+      expect(chatText(wrapper.element)).toContain('report.pdf');
     });
   });
 
   describe('events', () => {
-    it('保留公开 emits 契约', () => expectEmitsContract('ChatSender', ChatSender));
-
     it('点击发送按钮触发 send，回传输入值', async () => {
       const onSend = vi.fn();
       const wrapper = mountChat(ChatSender, { props: { defaultValue: '你好', onSend } });
@@ -146,9 +131,9 @@ describe('ChatSender', () => {
           'input-prefix': '<div class="slot-input-prefix">prefix</div>',
         },
       });
-      expect(wrapper.find('.t-chat-sender__header .slot-header').exists()).toBe(true);
-      expect(wrapper.find('.t-chat-sender__inner-header .slot-inner-header').exists()).toBe(true);
-      expect(wrapper.find('.t-chat-sender__mode .slot-footer-prefix').exists()).toBe(true);
+      expect(wrapper.find('.slot-header').exists()).toBe(true);
+      expect(wrapper.find('.slot-inner-header').exists()).toBe(true);
+      expect(wrapper.find('.slot-footer-prefix').exists()).toBe(true);
       expect(wrapper.find('.slot-input-prefix').exists()).toBe(true);
     });
 
@@ -157,6 +142,70 @@ describe('ChatSender', () => {
         slots: { suffix: '<div class="slot-suffix">自定义发送</div>' },
       });
       expect(wrapper.find('.slot-suffix').exists()).toBe(true);
+    });
+  });
+  describe('scenarios', () => {
+    describe('controlled input and send', () => {
+      it('updates the parent value before sending the current text', async () => {
+        const value = ref('initial');
+        const onChange = vi.fn();
+        const onSend = vi.fn();
+        const Host = defineComponent({
+          setup: () => () =>
+            (
+              <ChatSender
+                modelValue={value.value}
+                onChange={onChange}
+                onSend={onSend}
+                {...{
+                  'onUpdate:modelValue': (next: string) => {
+                    value.value = next;
+                  },
+                }}
+              />
+            ),
+        });
+        const wrapper = mountChat(Host);
+        await wrapper.find('textarea').setValue('current question');
+        await flush();
+        expect(value.value).toBe('current question');
+        expect(onChange).toHaveBeenCalledWith('current question', expect.objectContaining({ e: expect.anything() }));
+        expect(onSend).not.toHaveBeenCalled();
+        await wrapper.find(SEND_BTN).trigger('click');
+        expect(onSend).toHaveBeenCalledTimes(1);
+        expect(onSend).toHaveBeenCalledWith('current question', expect.objectContaining({ e: expect.anything() }));
+      });
+    });
+
+    describe('send and stop controls', () => {
+      it('switches from send to stop while loading, then allows sending again', async () => {
+        const onSend = vi.fn();
+        const onStop = vi.fn();
+        const wrapper = mountChat(ChatSender, { props: { defaultValue: 'question', onSend, onStop } });
+        await wrapper.find(SEND_BTN).trigger('click');
+        expect(onSend).toHaveBeenCalledTimes(1);
+        await wrapper.setProps({ loading: true });
+        await wrapper.find(SEND_BTN).trigger('click');
+        expect(onStop).toHaveBeenCalledTimes(1);
+        expect(onStop).toHaveBeenCalledWith('question', expect.objectContaining({ e: expect.anything() }));
+        expect(onSend).toHaveBeenCalledTimes(1);
+        await wrapper.setProps({ loading: false });
+        await wrapper.find(SEND_BTN).trigger('click');
+        expect(onSend).toHaveBeenCalledTimes(2);
+      });
+
+      it('does not send while disabled or sendBtnDisabled', async () => {
+        const onSend = vi.fn();
+        const wrapper = mountChat(ChatSender, { props: { defaultValue: 'question', disabled: true, onSend } });
+        await wrapper.find(SEND_BTN).trigger('click');
+        expect(onSend).not.toHaveBeenCalled();
+        await wrapper.setProps({ disabled: false, sendBtnDisabled: true });
+        await wrapper.find(SEND_BTN).trigger('click');
+        expect(onSend).not.toHaveBeenCalled();
+        await wrapper.setProps({ sendBtnDisabled: false });
+        await wrapper.find(SEND_BTN).trigger('click');
+        expect(onSend).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });

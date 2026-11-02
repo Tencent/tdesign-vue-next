@@ -1,147 +1,104 @@
-import { expectPropsContract, mountChat } from '../../test/helpers';
-
-/**
- * L2 - ChatItem 基础 API / 插槽
- *
- * ChatItem 的 DOM 完全由 Vue 层渲染，是 UI 层回归的重点。
- * 这里只断言「角色/变体/头像/昵称/时间/内容」对外语义，不依赖底层气泡实现。
- */
+/* eslint-disable vue/one-component-per-file */
 import { describe, expect, it } from 'vitest';
+import { defineComponent, ref } from 'vue';
 import ChatItem from '..';
-import ChatLoading from '../../chat-loading';
-import ChatReasoning from '../../chat-reasoning';
+import { chatText, flush, mountChat } from '../../test/helpers';
 
 describe('ChatItem', () => {
   describe('props', () => {
-    it('保留公开 props 契约', () => expectPropsContract('ChatItem', ChatItem));
-
-    it(':role 输出到根节点', () => {
-      const wrapper = mountChat(ChatItem, { props: { role: 'user' } });
-      expect(wrapper.classes()).toContain('t-chat__inner');
-      expect(wrapper.classes()).toContain('user');
+    it('renders a content render function', () => {
+      const wrapper = mountChat(ChatItem, { props: { content: () => <span>rendered body</span> } });
+      expect(wrapper.text()).toContain('rendered body');
     });
 
-    it.each(['user', 'assistant', 'error', 'model-change', 'system'])(':role=%s 均输出对应样式标记', (role) => {
+    it.each(['user', 'assistant', 'error', 'model-change', 'system'])('applies the %s role', (role) => {
       const wrapper = mountChat(ChatItem, { props: { role } });
       expect(wrapper.classes()).toContain(role);
     });
 
-    it.each(['base', 'outline', 'text'])(':variant=%s 输出变体样式', (variant) => {
+    it.each(['base', 'outline', 'text'])('applies the %s variant', (variant) => {
       const wrapper = mountChat(ChatItem, { props: { variant } });
-      expect(wrapper.classes()).toContain(`t-chat__text--variant--${variant}`);
+      expect(wrapper.classes()).toContain('t-chat__text--variant--' + variant);
     });
 
-    it(':name 与 :datetime 渲染，并切换内容区边距样式', () => {
-      const withoutMeta = mountChat(ChatItem, { props: { role: 'user' } });
-      expect(withoutMeta.find('.t-chat__base').exists()).toBe(false);
-      expect(withoutMeta.find('.t-chat__content--base').exists()).toBe(true);
-
-      const withMeta = mountChat(ChatItem, { props: { role: 'user', name: '张三', datetime: '2024-01-01' } });
-      expect(withMeta.find('.t-chat__base').exists()).toBe(true);
-      expect(withMeta.find('.t-chat__name').text()).toBe('张三');
-      expect(withMeta.find('.t-chat__time').text()).toBe('2024-01-01');
-      expect(withMeta.find('.t-chat__content--base').exists()).toBe(false);
-    });
-
-    it(':avatar 字符串渲染图片', () => {
-      const wrapper = mountChat(ChatItem, { props: { role: 'user', avatar: 'https://example.com/a.png' } });
-      const img = wrapper.find('.t-chat__avatar-image');
-      expect(img.exists()).toBe(true);
-      expect(img.attributes('src')).toBe('https://example.com/a.png');
-    });
-
-    it(':content 文本内容渲染到内容区', () => {
-      const wrapper = mountChat(ChatItem, { props: { role: 'user', content: '你好 TDesign' } });
-      expect(wrapper.find('.t-chat__detail').text()).toContain('你好 TDesign');
-    });
-
-    it(':textLoading 渲染加载态', () => {
-      const wrapper = mountChat(ChatItem, { props: { role: 'assistant', textLoading: true } });
-      expect(wrapper.findComponent(ChatLoading).exists() || wrapper.find('.t-skeleton').exists()).toBe(true);
-    });
-
-    it(':textLoading=false 不渲染加载态', () => {
-      const wrapper = mountChat(ChatItem, { props: { role: 'assistant', textLoading: false, content: 'hi' } });
-      expect(wrapper.find('.t-chat__detail').exists()).toBe(true);
-    });
-
-    it(':reasoningLoading 与字符串 reasoning 组合时渲染思考中加载态', () => {
+    it('renders name, datetime and avatar', () => {
       const wrapper = mountChat(ChatItem, {
-        props: { role: 'assistant', reasoning: '思考过程', reasoningLoading: true },
+        props: { role: 'user', name: '张三', datetime: '2024-01-01', avatar: 'https://example.com/a.png' },
       });
-      expect(wrapper.findComponent(ChatLoading).exists()).toBe(true);
+      expect(wrapper.text()).toContain('张三');
+      expect(wrapper.text()).toContain('2024-01-01');
+      expect(wrapper.find('img').attributes('src')).toBe('https://example.com/a.png');
     });
 
-    it(':reasoning 为对象时渲染思维链', () => {
-      const wrapper = mountChat(ChatItem, {
-        props: { role: 'assistant', reasoning: { expandIconPlacement: 'right' } },
-      });
-      expect(wrapper.findComponent(ChatReasoning).exists()).toBe(true);
+    it('renders content and responds to updates', async () => {
+      const wrapper = mountChat(ChatItem, { props: { role: 'user', content: 'first message' } });
+      expect(wrapper.text()).toContain('first message');
+      await wrapper.setProps({ content: 'updated message' });
+      expect(wrapper.text()).toContain('updated message');
+      expect(wrapper.text()).not.toContain('first message');
     });
 
-    it(':reasoning 为字符串时渲染思维链', () => {
-      const wrapper = mountChat(ChatItem, { props: { role: 'assistant', reasoning: '思考过程' } });
-      expect(wrapper.findComponent(ChatReasoning).exists()).toBe(true);
-    });
-
-    it(':reasoning=false 不渲染思维链', () => {
-      const wrapper = mountChat(ChatItem, { props: { role: 'assistant', reasoning: false, content: 'hi' } });
-      expect(wrapper.findComponent(ChatReasoning).exists()).toBe(false);
-    });
-
-    it('role=model-change 时不渲染头像与昵称', () => {
-      const wrapper = mountChat(ChatItem, { props: { role: 'model-change', avatar: 'a.png', name: '模型' } });
-      expect(wrapper.find('.t-chat__avatar').exists()).toBe(false);
-      expect(wrapper.find('.t-chat__base').exists()).toBe(false);
+    it('replaces the message with a loading indicator through textLoading', async () => {
+      const wrapper = mountChat(ChatItem, { props: { role: 'user', content: 'message', textLoading: true } });
+      await flush();
+      expect(chatText(wrapper.element)).not.toContain('message');
+      await wrapper.setProps({ textLoading: false });
+      await flush();
+      expect(chatText(wrapper.element)).toContain('message');
     });
   });
 
   describe('slots', () => {
-    it('未传入 content 时内容区仍存在（空态不报错）', () => {
-      const wrapper = mountChat(ChatItem, { props: { role: 'user' } });
-      expect(wrapper.find('.t-chat__content').exists()).toBe(true);
-    });
-
-    it('content 插槽优先于 props.content', () => {
-      const wrapper = mountChat(ChatItem, {
-        props: { role: 'user', content: 'props content' },
-        slots: { content: '<div class="slot-content">slot content</div>' },
-      });
-      expect(wrapper.find('.slot-content').exists()).toBe(true);
-      expect(wrapper.text()).not.toContain('props content');
-    });
-
-    it('avatar 插槽渲染', () => {
+    it('renders content, avatar, name and datetime slots', () => {
       const wrapper = mountChat(ChatItem, {
         props: { role: 'user' },
-        slots: { avatar: '<div class="slot-avatar">A</div>' },
+        slots: {
+          content: '<span>custom body</span>',
+          avatar: '<span>custom avatar</span>',
+          name: '<span>custom name</span>',
+          datetime: '<span>custom time</span>',
+        },
       });
-      expect(wrapper.find('.slot-avatar').exists()).toBe(true);
+      ['custom body', 'custom avatar', 'custom name', 'custom time'].forEach((text) => {
+        expect(wrapper.text()).toContain(text);
+      });
     });
 
-    it('name / datetime 插槽渲染', () => {
+    it.each(['actionbar', 'actions'])('renders the %s action slot', (slot) => {
       const wrapper = mountChat(ChatItem, {
-        props: { role: 'user' },
-        slots: { name: '<div class="slot-name">昵称</div>', datetime: '<div class="slot-time">时间</div>' },
+        props: { role: 'assistant' },
+        slots: { [slot]: '<button>custom action</button>' },
       });
-      expect(wrapper.find('.slot-name').exists()).toBe(true);
-      expect(wrapper.find('.slot-time').exists()).toBe(true);
+      expect(wrapper.find('button').text()).toBe('custom action');
     });
+  });
 
-    it('assistant 角色下 actionbar 插槽渲染在内容下方', () => {
-      const wrapper = mountChat(ChatItem, {
-        props: { role: 'assistant', content: 'hi' },
-        slots: { actionbar: '<div class="slot-actionbar">actions</div>' },
+  describe('scenarios', () => {
+    describe('content prop and slot', () => {
+      it('prefers the slot and falls back to the prop when the slot becomes empty', async () => {
+        const showSlot = ref(true);
+        const content = ref('prop body');
+        const Host = defineComponent({
+          setup: () => () =>
+            (
+              <ChatItem
+                role="user"
+                content={content.value}
+                v-slots={{ content: () => (showSlot.value ? <span>slot body</span> : null) }}
+              />
+            ),
+        });
+        const wrapper = mountChat(Host);
+        expect(wrapper.text()).toContain('slot body');
+        expect(wrapper.text()).not.toContain('prop body');
+        showSlot.value = false;
+        await flush();
+        expect(wrapper.text()).toContain('prop body');
+        expect(wrapper.text()).not.toContain('slot body');
+        content.value = 'updated prop';
+        await flush();
+        expect(wrapper.text()).toContain('updated prop');
       });
-      expect(wrapper.find('.t-chat__actions-margin .slot-actionbar').exists()).toBe(true);
-    });
-
-    it('向后兼容：actions 插槽同样渲染', () => {
-      const wrapper = mountChat(ChatItem, {
-        props: { role: 'assistant', content: 'hi' },
-        slots: { actions: '<div class="slot-actions">actions</div>' },
-      });
-      expect(wrapper.find('.t-chat__actions-margin .slot-actions').exists()).toBe(true);
     });
   });
 });

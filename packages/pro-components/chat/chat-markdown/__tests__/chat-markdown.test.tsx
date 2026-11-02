@@ -3,7 +3,7 @@ import ChatMarkdown from '..';
 import { chatText, findInChat, mountChat } from '../../test/helpers';
 
 describe('ChatMarkdown', () => {
-  describe('scenarios', () => {
+  describe('props', () => {
     it('保留 Markdown 格式并响应内容更新', async () => {
       const wrapper = mountChat(ChatMarkdown, { props: { content: '**加粗内容**' } });
       await vi.waitFor(() => {

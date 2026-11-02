@@ -1,76 +1,68 @@
-/**
- * L3 - 组合类 API
- *
- * 覆盖 ChatList + ChatItem + ChatSender + ChatActionbar 拼装的聊天界面，
- *    验证「输入 -> 发送 -> 入列 -> 操作回调」的整链路数据流。
- */
-/* eslint-disable vue/one-component-per-file */
 import { describe, expect, it, vi } from 'vitest';
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, shallowRef } from 'vue';
 import ChatList from '../chat-list';
 import ChatSender from '../chat-sender';
 import ChatActionbar from '../chat-actionbar';
-import ChatMessage from '../chat-message';
-import { chatText, flush, mountChat, textContent } from '../test/helpers';
+import type { TdChatItemMeta } from '../type';
+import { chatText, findInChat, flush, mountChat, textContent } from '../test/helpers';
 
 describe('Chat composition', () => {
-  describe('ChatList + ChatSender + ChatActionbar 组合', () => {
-    const createChatApp = (onAction = vi.fn()) =>
-      defineComponent({
-        setup() {
-          const list = ref<any[]>([
-            { id: '1', role: 'user', content: [textContent('你好')] },
-            { id: '2', role: 'assistant', content: [textContent('你好，有什么可以帮你？')] },
-          ]);
-          const value = ref('');
-          const handleSend = (text: string) => {
-            list.value = [
-              ...list.value,
-              { id: `${list.value.length + 1}`, role: 'user', content: [textContent(text)] },
-            ];
-          };
-          return () => (
-            <div>
-              <ChatList
-                data={list.value}
-                v-slots={{
-                  actionbar: () => <ChatActionbar actionBar={['copy', 'good']} onActions={onAction} />,
-                }}
-              />
-              <ChatSender
-                modelValue={value.value}
-                {...{ 'onUpdate:modelValue': (next: string) => (value.value = next) }}
-                onSend={handleSend}
-              />
-            </div>
-          );
-        },
+  describe('scenarios', () => {
+    describe('Sender to List to Actionbar', () => {
+      it('renders the sent message and reports the action on the corresponding list item', async () => {
+        const onAction = vi.fn();
+        const Host = defineComponent({
+          setup() {
+            const data = shallowRef<Array<TdChatItemMeta & { id: string }>>([
+              { id: 'reply', role: 'assistant', content: [textContent('initial answer')] },
+            ]);
+            const value = ref('');
+            return () => (
+              <div>
+                <ChatList
+                  data={data.value}
+                  v-slots={{
+                    actionbar: ({ item }: any) => (
+                      <span data-message={item.id}>
+                        <ChatActionbar
+                          actionBar={['copy']}
+                          onActions={(action, context) => onAction(item.id, action, context)}
+                        />
+                      </span>
+                    ),
+                  }}
+                />
+                <ChatSender
+                  modelValue={value.value}
+                  {...{
+                    'onUpdate:modelValue': (next: string) => {
+                      value.value = next;
+                    },
+                  }}
+                  onSend={(text) => {
+                    data.value = [...data.value, { id: 'sent', role: 'user', content: [textContent(text)] }];
+                  }}
+                />
+              </div>
+            );
+          },
+        });
+        const wrapper = mountChat(Host);
+        await flush();
+        expect(chatText(wrapper.element)).toContain('initial answer');
+        expect(chatText(wrapper.element)).not.toContain('new question');
+        await wrapper.find('textarea').setValue('new question');
+        await flush();
+        await wrapper.find('.t-chat-sender__button__sendbtn button').trigger('click');
+        await flush();
+        expect(chatText(wrapper.element)).toContain('new question');
+        expect(chatText(wrapper.element)).toContain('initial answer');
+        const action = findInChat(wrapper.element, '[data-message="reply"] button')[0];
+        expect(action).toBeDefined();
+        action.dispatchEvent(new MouseEvent('click', { bubbles: true, composed: true }));
+        expect(onAction).toHaveBeenCalledTimes(1);
+        expect(onAction).toHaveBeenCalledWith('reply', 'copy', expect.objectContaining({ e: expect.anything() }));
       });
-
-    it('初始渲染全部消息', () => {
-      const wrapper = mountChat(createChatApp());
-      expect(wrapper.findAllComponents(ChatMessage)).toHaveLength(2);
-    });
-
-    it('输入框发送后新消息入列', async () => {
-      const wrapper = mountChat(createChatApp());
-      const textarea = wrapper.find('textarea');
-      (textarea.element as HTMLTextAreaElement).value = '新消息';
-      await textarea.trigger('input');
-      await flush();
-      await wrapper.find('.t-chat-sender__button__sendbtn button').trigger('click');
-      await flush();
-      expect(wrapper.findAllComponents(ChatMessage)).toHaveLength(3);
-      expect(chatText(wrapper.element)).toContain('新消息');
-    });
-
-    it('消息项挂载自定义操作栏并触发回调', async () => {
-      const onAction = vi.fn();
-      const wrapper = mountChat(createChatApp(onAction));
-      const actionbars = wrapper.findAllComponents(ChatActionbar);
-      expect(actionbars.length).toBeGreaterThan(0);
-      await actionbars[0].find('button').trigger('click');
-      expect(onAction).toHaveBeenCalledWith('copy', expect.objectContaining({ e: expect.anything() }));
     });
   });
 });

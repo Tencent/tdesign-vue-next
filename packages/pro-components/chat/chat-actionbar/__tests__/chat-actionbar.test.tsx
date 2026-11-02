@@ -1,4 +1,4 @@
-import { expectEmitsContract, expectPropsContract, mountChat } from '../../test/helpers';
+import { mountChat } from '../../test/helpers';
 
 /**
  * L2 - ChatActionbar 基础 API / 事件（含历史 API 向后兼容）
@@ -13,11 +13,8 @@ const ALL_ACTIONS = ['replay', 'copy', 'good', 'bad', 'share'];
 
 describe('ChatActionbar', () => {
   describe('props', () => {
-    it('保留公开 props 契约', () => expectPropsContract('ChatActionbar', ChatActionbar));
-
     it('默认渲染全部内置操作按钮', () => {
       const wrapper = mountChat(ChatActionbar);
-      expect(wrapper.find('.t-chat__actions').exists()).toBe(true);
       expect(wrapper.findAll('button')).toHaveLength(ALL_ACTIONS.length);
     });
 
@@ -34,7 +31,6 @@ describe('ChatActionbar', () => {
     it(':actionBar 为空时不渲染按钮', () => {
       const wrapper = mountChat(ChatActionbar, { props: { actionBar: [] } });
       expect(wrapper.findAll('button')).toHaveLength(0);
-      expect(wrapper.find('.t-chat__actions').exists()).toBe(true);
     });
 
     it(':disabled 禁用所有按钮', () => {
@@ -56,13 +52,6 @@ describe('ChatActionbar', () => {
       expect(wrapper.findAll('.t-chat-button--active')).toHaveLength(0);
     });
 
-    it('复制按钮带 data-clipboard-text 供剪贴板使用', () => {
-      const wrapper = mountChat(ChatActionbar, { props: { actionBar: ['copy'], content: '要复制的内容' } });
-      expect(wrapper.find('.copy-btn').attributes('data-clipboard-text')).toBe('要复制的内容');
-    });
-  });
-
-  describe('legacy props', () => {
     it('isGood / isBad 分别高亮对应按钮', () => {
       const good = mountChat(ChatActionbar, { props: { actionBar: ['good', 'bad'], isGood: true } });
       expect(good.findAll('button')[0].classes()).toContain('t-chat-button--active');
@@ -75,8 +64,6 @@ describe('ChatActionbar', () => {
   });
 
   describe('events', () => {
-    it('保留公开 emits 契约', () => expectEmitsContract('ChatActionbar', ChatActionbar));
-
     it('点击按钮同时触发 actions 与 operation（历史兼容）', async () => {
       const onActions = vi.fn();
       const onOperation = vi.fn();

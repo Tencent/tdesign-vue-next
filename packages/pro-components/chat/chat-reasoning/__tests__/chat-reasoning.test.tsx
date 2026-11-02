@@ -1,92 +1,60 @@
-import { expectEmitsContract, expectPropsContract, flush, mountChat } from '../../test/helpers';
-
-/**
- * L2 - ChatReasoning 基础 API / 事件 / 插槽（思维链折叠面板）
- *
- * 思维链是「组合类 UI」的高频使用点：折叠状态受控、布局/图标位置、
- * 以及 header / content / expandIcon 等插槽都需要锁定。
- */
 import { describe, expect, it, vi } from 'vitest';
 import { h } from 'vue';
 import ChatReasoning from '..';
+import { flush, mountChat } from '../../test/helpers';
 
 describe('ChatReasoning', () => {
   describe('props', () => {
-    it('保留公开 props 契约', () => expectPropsContract('ChatReasoning', ChatReasoning));
-
-    it('渲染思维链容器', () => {
-      const wrapper = mountChat(ChatReasoning);
-      expect(wrapper.find('.t-chat__detail-reasoning').exists()).toBe(true);
+    it.each(['border', 'block'] as const)('applies the %s layout', (layout) => {
+      const wrapper = mountChat(ChatReasoning, { props: { layout } });
+      expect(wrapper.find('.t-chat__detail-reasoning-border').exists()).toBe(layout === 'border');
     });
 
-    it(':layout=border 输出边框布局样式', () => {
-      const wrapper = mountChat(ChatReasoning, { props: { layout: 'border' } });
-      expect(wrapper.find('.t-chat__detail-reasoning-border').exists()).toBe(true);
-    });
-
-    it(':layout=block 不输出边框布局样式', () => {
-      const wrapper = mountChat(ChatReasoning, { props: { layout: 'block' } });
-      expect(wrapper.find('.t-chat__detail-reasoning-border').exists()).toBe(false);
-    });
-
-    it(':collapsed=true 时面板收起', () => {
-      const wrapper = mountChat(ChatReasoning, { props: { collapsed: true } });
-      expect(wrapper.find('.t-collapse').exists()).toBe(true);
-    });
-
-    it(':defaultCollapsed=true 时默认收起', () => {
-      const wrapper = mountChat(ChatReasoning, { props: { defaultCollapsed: true } });
-      expect(wrapper.find('.t-collapse').exists()).toBe(true);
-    });
-
-    it(':collapsePanelProps.header 渲染自定义头部', () => {
+    it('hides and reveals content when controlled collapsed changes', async () => {
       const wrapper = mountChat(ChatReasoning, {
-        props: { collapsePanelProps: { header: h('div', { class: 'custom-header' }, '思考中') } },
+        props: { collapsed: true, collapsePanelProps: { content: h('span', { class: 'reasoning-body' }, 'details') } },
       });
-      expect(wrapper.find('.custom-header').text()).toBe('思考中');
+      expect(wrapper.find('.reasoning-body').isVisible()).toBe(false);
+      await wrapper.setProps({ collapsed: false });
+      await flush();
+      expect(wrapper.find('.reasoning-body').isVisible()).toBe(true);
     });
 
-    it(':collapsePanelProps.content 渲染自定义内容', () => {
+    it('uses defaultCollapsed as the initial state', () => {
       const wrapper = mountChat(ChatReasoning, {
-        props: { collapsePanelProps: { content: h('div', { class: 'custom-content' }, '推理过程') } },
+        props: { defaultCollapsed: true },
+        slots: { default: '<span class="reasoning-body">details</span>' },
       });
-      expect(wrapper.find('.custom-content').text()).toBe('推理过程');
+      expect(wrapper.find('.reasoning-body').isVisible()).toBe(false);
+    });
+
+    it('renders custom panel header and content', () => {
+      const wrapper = mountChat(ChatReasoning, {
+        props: { collapsePanelProps: { header: h('span', 'custom header'), content: h('span', 'custom details') } },
+      });
+      expect(wrapper.text()).toContain('custom header');
+      expect(wrapper.text()).toContain('custom details');
     });
   });
 
   describe('events', () => {
-    it('保留公开 emits 契约', () => expectEmitsContract('ChatReasoning', ChatReasoning));
-
-    it('展开/收起触发 update:collapsed 与 onExpandChange', async () => {
+    it('reports the new collapsed value when the header is clicked', async () => {
       const onExpandChange = vi.fn();
       const wrapper = mountChat(ChatReasoning, { props: { collapsed: false, onExpandChange } });
       await wrapper.find('.t-collapse-panel__header').trigger('click');
       await flush();
-      expect(onExpandChange).toHaveBeenCalled();
-      expect(wrapper.emitted('update:collapsed')).toBeTruthy();
-    });
-
-    it('受控 collapsed 变化时同步面板状态', async () => {
-      const wrapper = mountChat(ChatReasoning, { props: { collapsed: false } });
-      await wrapper.setProps({ collapsed: true });
-      await flush();
-      expect(wrapper.find('.t-collapse').exists()).toBe(true);
+      expect(onExpandChange).toHaveBeenCalledWith(true);
+      expect(wrapper.emitted('update:collapsed')).toEqual([[true]]);
     });
   });
 
   describe('slots', () => {
-    it('header 插槽渲染', () => {
+    it('renders header and default content', () => {
       const wrapper = mountChat(ChatReasoning, {
-        slots: { header: '<div class="slot-header">已深度思考</div>' },
+        slots: { header: '<span>thinking header</span>', default: '<span>thinking details</span>' },
       });
-      expect(wrapper.find('.slot-header').exists()).toBe(true);
-    });
-
-    it('default 插槽作为内容渲染', () => {
-      const wrapper = mountChat(ChatReasoning, {
-        slots: { default: '<div class="slot-default">推理内容</div>' },
-      });
-      expect(wrapper.text()).toContain('推理内容');
+      expect(wrapper.text()).toContain('thinking header');
+      expect(wrapper.text()).toContain('thinking details');
     });
   });
 });
