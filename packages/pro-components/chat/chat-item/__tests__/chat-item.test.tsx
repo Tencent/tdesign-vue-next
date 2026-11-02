@@ -1,5 +1,5 @@
 /* eslint-disable vue/one-component-per-file */
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { defineComponent, ref } from 'vue';
 import ChatItem from '..';
 import { chatText, flush, mountChat } from '../../test/helpers';
@@ -36,6 +36,54 @@ describe('ChatItem', () => {
       await wrapper.setProps({ content: 'updated message' });
       expect(wrapper.text()).toContain('updated message');
       expect(wrapper.text()).not.toContain('first message');
+    });
+
+    it('renders string reasoning and hides it when reasoning becomes false', async () => {
+      const wrapper = mountChat(ChatItem, { props: { role: 'assistant', reasoning: '推理步骤' } });
+      await flush();
+      expect(chatText(wrapper.element)).toContain('推理步骤');
+      await wrapper.setProps({ reasoning: false });
+      await flush();
+      expect(chatText(wrapper.element)).not.toContain('推理步骤');
+    });
+
+    it('renders object reasoning and invokes its onExpandChange callback', async () => {
+      const onExpandChange = vi.fn();
+      const wrapper = mountChat(ChatItem, {
+        props: {
+          role: 'assistant',
+          reasoning: {
+            expandIconPlacement: 'right',
+            onExpandChange,
+            collapsePanelProps: {
+              header: <span>推理标题</span>,
+              content: <span>自定义推理内容</span>,
+            },
+          },
+        },
+      });
+      expect(wrapper.text()).toContain('推理标题');
+      expect(wrapper.text()).toContain('自定义推理内容');
+      expect(onExpandChange).not.toHaveBeenCalled();
+      await wrapper.find('.t-collapse-panel__header').trigger('click');
+      await flush();
+      expect(onExpandChange).toHaveBeenCalledTimes(1);
+      expect(onExpandChange).toHaveBeenCalledWith(true);
+    });
+
+    it('updates the reasoning header when reasoningLoading finishes', async () => {
+      // reasoningLoading applies to the header of string reasoning for an assistant message.
+      const wrapper = mountChat(ChatItem, {
+        props: { role: 'assistant', reasoning: '推理步骤', reasoningLoading: true },
+      });
+      await flush();
+      expect(chatText(wrapper.element)).toContain('思考中...');
+      expect(chatText(wrapper.element)).not.toContain('已深度思考');
+      await wrapper.setProps({ reasoningLoading: false });
+      await flush();
+      expect(chatText(wrapper.element)).toContain('已深度思考');
+      expect(chatText(wrapper.element)).not.toContain('思考中...');
+      expect(chatText(wrapper.element)).toContain('推理步骤');
     });
 
     it('replaces the message with a loading indicator through textLoading', async () => {

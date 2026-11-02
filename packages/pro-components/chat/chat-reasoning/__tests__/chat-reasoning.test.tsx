@@ -5,6 +5,15 @@ import { flush, mountChat } from '../../test/helpers';
 
 describe('ChatReasoning', () => {
   describe('props', () => {
+    it.each(['left', 'right'] as const)('places the expand icon on the %s', (expandIconPlacement) => {
+      const wrapper = mountChat(ChatReasoning, { props: { expandIconPlacement } });
+      const icon = wrapper.find('.t-collapse-panel__icon');
+      expect(icon.classes()).toContain('t-collapse-panel__icon--' + expandIconPlacement);
+      expect(icon.classes()).not.toContain(
+        't-collapse-panel__icon--' + (expandIconPlacement === 'left' ? 'right' : 'left'),
+      );
+    });
+
     it.each(['border', 'block'] as const)('applies the %s layout', (layout) => {
       const wrapper = mountChat(ChatReasoning, { props: { layout } });
       expect(wrapper.find('.t-chat__detail-reasoning-border').exists()).toBe(layout === 'border');
