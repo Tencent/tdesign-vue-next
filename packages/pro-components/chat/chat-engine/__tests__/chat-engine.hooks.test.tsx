@@ -1,6 +1,6 @@
 /* eslint-disable vue/one-component-per-file */
 import { describe, expect, it } from 'vitest';
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, type DefineComponent } from 'vue';
 import {
   useAgentState,
   useChat,
@@ -9,6 +9,7 @@ import {
   agentToolcallRegistry,
   activityRegistry,
   type ChatMessagesData,
+  type ToolcallComponentProps,
 } from '../../index';
 import { flush, mountChat } from '../../test/helpers';
 
@@ -103,12 +104,13 @@ describe('Chat public hooks', () => {
 
   describe('registration hook lifecycle', () => {
     it('useAgentToolcall cleans up its own registration without affecting another instance', () => {
-      const Tool = defineComponent({ setup: () => () => h('div') });
+      // This fixture is only registered, not rendered; narrow the component type without bypassing config validation.
+      const Tool = defineComponent({ setup: () => () => h('div') }) as DefineComponent<ToolcallComponentProps>;
       const mountTool = (name: string) =>
         mountChat(
           defineComponent({
             setup() {
-              useAgentToolcall({ name, component: Tool } as any);
+              useAgentToolcall({ name, description: 'Test tool registration lifecycle', component: Tool });
               return () => h('div');
             },
           }),

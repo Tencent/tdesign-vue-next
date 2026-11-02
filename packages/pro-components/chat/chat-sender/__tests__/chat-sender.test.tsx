@@ -101,16 +101,16 @@ describe('ChatSender', () => {
         props: { onFileSelect },
         // 通过 suffix 插槽的 renderPresets 开启内置上传入口（与官方示例一致）
         slots: {
-          suffix: ({ renderPresets }: any) => renderPresets([{ name: 'uploadImage' }, { name: 'uploadAttachment' }]),
+          suffix: ({ renderPresets }: any) => renderPresets([{ name: 'uploadImage' }]),
         },
       });
-      const inputs = wrapper.findAll('input[type="file"]');
-      expect(inputs.length).toBeGreaterThan(0);
+      const input = wrapper.find('input[type="file"]');
       const file = new File(['x'], 'a.png', { type: 'image/png' });
-      Object.defineProperty(inputs[0].element, 'files', { value: [file], configurable: true });
-      await inputs[0].trigger('change');
-      expect(onFileSelect).toHaveBeenCalled();
-      expect(onFileSelect.mock.calls[0][0]).toHaveProperty('files');
+      Object.defineProperty(input.element, 'files', { value: [file], configurable: true });
+      await input.trigger('change');
+      expect(onFileSelect).toHaveBeenCalledTimes(1);
+      expect(onFileSelect).toHaveBeenCalledWith({ files: [file], name: 'uploadImage', e: expect.any(Event) });
+      expect(onFileSelect.mock.calls[0][0].files[0]).toBe(file);
     });
 
     it('回车（非组合输入）触发 send', async () => {
@@ -142,6 +142,7 @@ describe('ChatSender', () => {
         slots: { suffix: '<div class="slot-suffix">自定义发送</div>' },
       });
       expect(wrapper.find('.slot-suffix').exists()).toBe(true);
+      expect(wrapper.find(SEND_BTN).exists()).toBe(false);
     });
   });
   describe('scenarios', () => {
