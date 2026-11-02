@@ -87,6 +87,7 @@ export default defineComponent({
     useRipple(submenuRef, rippleColor);
 
     let safeTriangleAnchor: { x: number; y: number } | undefined;
+    let triggerPointerPoint: { x: number; y: number } | undefined;
     let previousSafePointerPoint: { x: number; y: number } | undefined;
     let furthestPointerProgress = 0;
     let safeTriangleTimer: ReturnType<typeof setTimeout> | undefined;
@@ -147,11 +148,19 @@ export default defineComponent({
 
     const beginSafeTriangle = (event: MouseEvent) => {
       if (mode.value !== 'popup' || !popupVisible.value) return;
+      const direction = getActualDirection();
+      const sibling = (event.relatedTarget as Element | null)?.closest?.(`.${classPrefix.value}-submenu`);
+      const dx = triggerPointerPoint ? event.clientX - triggerPointerPoint.x : 0;
+      const dy = triggerPointerPoint ? event.clientY - triggerPointerPoint.y : 0;
+      const forward = direction === 'right' ? dx : direction === 'left' ? -dx : direction === 'bottom' ? dy : -dy;
+      const lateral = direction === 'right' || direction === 'left' ? dy : dx;
+      if (sibling && sibling !== event.currentTarget && lateral !== 0 && forward <= 0) return;
       safeTriangleAnchor = { x: event.clientX, y: event.clientY };
       previousSafePointerPoint = safeTriangleAnchor;
       furthestPointerProgress = 0;
       updateSafeTriangle();
       if (!safeTriangle.value) return;
+      handleEnterSafeTriangle();
       startMouseMoveListener();
       scheduleSafeTriangleTimeout(event);
     };
@@ -382,6 +391,10 @@ export default defineComponent({
 
     const handleDocumentMouseMove = (event: MouseEvent) => {
       if (!safeTriangle.value) return;
+
+      // The mousemove that caused mouseleave can reach this listener after it is
+      // installed. It is the anchor itself, not a reversal or lateral movement.
+      if (event.clientX === previousSafePointerPoint?.x && event.clientY === previousSafePointerPoint?.y) return;
 
       if (isPointInPopup(event.clientX, event.clientY)) {
         handleEnterPopup();
@@ -631,6 +644,9 @@ export default defineComponent({
       if (mode.value === 'popup') {
         events = {
           onMouseenter: handleMouseEnter,
+          onMousemove: (event: MouseEvent) => {
+            triggerPointerPoint = { x: event.clientX, y: event.clientY };
+          },
           onMouseleave: handleMouseLeave,
         };
         // popup模式下且存在多层的特殊封装场景中，需要将子节点挂载进行计算高亮
