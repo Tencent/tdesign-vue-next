@@ -9,6 +9,17 @@ import { mountChat } from '../../test/helpers';
 import { describe, expect, it, vi } from 'vitest';
 import ChatActionbar from '..';
 
+// This suite checks action callbacks, not clipboard access or toast rendering.
+vi.mock('@tdesign/shared-utils', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@tdesign/shared-utils')>()),
+  copy: vi.fn(() => true),
+}));
+vi.mock('../../utils', () => ({
+  MessagePluginSingleton: {
+    getInstance: () => ({ showSuccess: vi.fn(), showError: vi.fn() }),
+  },
+}));
+
 const ALL_ACTIONS = ['replay', 'copy', 'good', 'bad', 'share'];
 
 describe('ChatActionbar', () => {

@@ -1,5 +1,25 @@
-import { mount, flushPromises, type MountingOptions } from '@vue/test-utils';
+import { enableAutoUnmount, mount, flushPromises, type MountingOptions } from '@vue/test-utils';
+import { afterAll, afterEach, vi } from 'vitest';
 import { nextTick, type Component } from 'vue';
+
+enableAutoUnmount(afterEach);
+
+// List and Attachments create an observer on mount; API tests do not drive resize events.
+if (typeof globalThis.ResizeObserver === 'undefined') {
+  vi.stubGlobal(
+    'ResizeObserver',
+    class {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    },
+  );
+  afterAll(async () => {
+    // Attachments schedules observer creation in a frame; let it finish before restoring the dependency.
+    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+    vi.unstubAllGlobals();
+  });
+}
 
 /**
  * chat 组件统一挂载入口。

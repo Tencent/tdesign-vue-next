@@ -25,7 +25,7 @@ describe('Chat composition', () => {
                     actionbar: ({ item }: any) => (
                       <span data-message={item.id}>
                         <ChatActionbar
-                          actionBar={['copy']}
+                          actionBar={['good']}
                           onActions={(action, context) => onAction(item.id, action, context)}
                         />
                       </span>
@@ -61,7 +61,7 @@ describe('Chat composition', () => {
         expect(action).toBeDefined();
         action.dispatchEvent(new MouseEvent('click', { bubbles: true, composed: true }));
         expect(onAction).toHaveBeenCalledTimes(1);
-        expect(onAction).toHaveBeenCalledWith('reply', 'copy', expect.objectContaining({ e: expect.anything() }));
+        expect(onAction).toHaveBeenCalledWith('reply', 'good', expect.objectContaining({ e: expect.anything() }));
       });
     });
   });
