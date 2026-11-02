@@ -13,6 +13,7 @@ import {
   reactive,
   nextTick,
   Transition,
+  Teleport,
 } from 'vue';
 import { isFunction } from 'lodash-es';
 import {
@@ -31,6 +32,8 @@ import FakeArrow from '../common-components/fake-arrow';
 import { Popup, PopupPlacement } from '../popup';
 
 import { TdSubmenuProps } from './type';
+import { getSafeTriangle, isPointerFollowingSafePath } from './utils/safe-triangle';
+import type { SafeTriangleDirection, SafeTriangleGeometry } from './utils/safe-triangle';
 
 export default defineComponent({
   name: 'TSubmenu',
@@ -62,6 +65,7 @@ export default defineComponent({
     const isActive = computed(() => activeValues.value.indexOf(props.value) > -1);
     const popupVisible = ref(false);
     const isCursorInPopup = ref(false);
+    const isCursorInSafeTriangle = ref(false);
     const rippleColor = computed(() => (theme.value === 'light' ? '#E7E7E7' : '#383838'));
     const isOpen = computed(() => {
       if (mode.value === 'popup') {
@@ -74,10 +78,19 @@ export default defineComponent({
     const popupWrapperRef = ref<HTMLElement>();
     const subPopupRef = ref<HTMLElement>();
     const submenuRef = ref<HTMLElement>();
+    const safeTriangle = ref<SafeTriangleGeometry>();
+    const safeTriangleRef = ref<SVGElement>();
+    const safeTriangleZIndex = ref('');
     const transitionClass = usePrefixClass('slide-down');
     const { keepExpand } = useKeepAnimation();
     const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
     useRipple(submenuRef, rippleColor);
+
+    let safeTriangleAnchor: { x: number; y: number } | undefined;
+    let previousSafePointerPoint: { x: number; y: number } | undefined;
+    let furthestPointerProgress = 0;
+    let safeTriangleTimer: ReturnType<typeof setTimeout> | undefined;
+    let listeningMouseMove = false;
 
     // 存储 setTimeout 的 timer ID，用于清除定时器
     const showTimer = ref<ReturnType<typeof setTimeout> | null>(null);
@@ -94,6 +107,50 @@ export default defineComponent({
       }
     };
 
+    // 记录 Popper 的实际方位（包含翻转），用于计算安全三角形。
+    const actualPlacement = ref<SafeTriangleDirection | ''>('');
+
+    const getActualDirection = (): SafeTriangleDirection => {
+      if (actualPlacement.value) return actualPlacement.value as SafeTriangleDirection;
+      return isNested.value || !isHead ? 'right' : 'bottom';
+    };
+
+    const getPopupElement = () =>
+      popupWrapperRef.value?.closest<HTMLElement>(`.${classPrefix.value}-popup`) ?? popupWrapperRef.value;
+
+    const updateSafeTriangle = () => {
+      if (!popupVisible.value || !safeTriangleAnchor) return;
+      const popup = getPopupElement();
+      if (!popup) return;
+      safeTriangle.value = getSafeTriangle(safeTriangleAnchor, popup.getBoundingClientRect(), getActualDirection());
+      safeTriangleZIndex.value = window.getComputedStyle(popup).zIndex;
+    };
+
+    const clearSafeTriangle = () => {
+      if (safeTriangleTimer) clearTimeout(safeTriangleTimer);
+      safeTriangleTimer = undefined;
+      safeTriangle.value = undefined;
+      safeTriangleAnchor = undefined;
+      previousSafePointerPoint = undefined;
+      furthestPointerProgress = 0;
+      stopMouseMoveListener();
+    };
+
+    const beginSafeTriangle = (event: MouseEvent) => {
+      if (mode.value !== 'popup' || !popupVisible.value) return;
+      safeTriangleAnchor = { x: event.clientX, y: event.clientY };
+      previousSafePointerPoint = safeTriangleAnchor;
+      furthestPointerProgress = 0;
+      updateSafeTriangle();
+      if (!safeTriangle.value) return;
+      startMouseMoveListener();
+      if (safeTriangleTimer) clearTimeout(safeTriangleTimer);
+      safeTriangleTimer = setTimeout(() => {
+        if (isCursorInSafeTriangle.value) handleLeaveSafeTriangle(event);
+        clearSafeTriangle();
+      }, 300);
+    };
+
     const handlePlacementChange = ({ placement }: { placement: string }) => {
       const spacerEl = popupWrapperRef.value;
       if (!spacerEl) return;
@@ -104,6 +161,15 @@ export default defineComponent({
 
       spacerEl.classList.toggle(`${prefixClassName}--bottom`, isBottom);
       spacerEl.classList.toggle(`${prefixClassName}--top`, isTop);
+
+      let dir: SafeTriangleDirection = 'right';
+      if (placement.startsWith('left')) dir = 'left';
+      else if (placement.startsWith('top')) dir = 'top';
+      else if (placement.startsWith('bottom')) dir = 'bottom';
+      if (actualPlacement.value !== dir) {
+        actualPlacement.value = dir;
+      }
+      updateSafeTriangle();
     };
 
     const classes = computed(() => [
@@ -214,8 +280,8 @@ export default defineComponent({
     // methods
     const handleMouseEnter = () => {
       if (props.disabled) return;
-
       clearTimers();
+      clearSafeTriangle();
 
       // 通知父级取消隐藏定时器
       if (isFunction(cancelHideTimer)) {
@@ -239,12 +305,20 @@ export default defineComponent({
     const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
 
     const handleMouseLeave = (e: MouseEvent) => {
+      beginSafeTriangle(e);
       clearTimers();
 
       hideTimer.value = setTimeout(() => {
         const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
 
-        if (isCursorInPopup.value || inPopup) return;
+        if (isCursorInPopup.value || inPopup) {
+          hideTimer.value = null;
+          return;
+        }
+        if (isCursorInSafeTriangle.value) {
+          hideTimer.value = null;
+          return;
+        }
         popupVisible.value = false;
         hideTimer.value = null;
       }, 100);
@@ -268,6 +342,7 @@ export default defineComponent({
 
         // 使用延迟隐藏，避免在子项之间移动时闪烁
         hideTimer.value = setTimeout(() => {
+          if (isCursorInPopup.value) return;
           popupVisible.value = false;
           hideTimer.value = null;
         }, 100);
@@ -276,7 +351,76 @@ export default defineComponent({
         closeParentPopup?.(e);
       }
     };
+
+    const handleEnterSafeTriangle = () => {
+      isCursorInSafeTriangle.value = true;
+      clearTimers();
+      if (isFunction(cancelHideTimer)) cancelHideTimer();
+    };
+
+    const handleLeaveSafeTriangle = (event: MouseEvent) => {
+      if (!isCursorInSafeTriangle.value) return;
+      isCursorInSafeTriangle.value = false;
+      clearTimers();
+      hideTimer.value = setTimeout(() => {
+        if (isCursorInPopup.value) return;
+        popupVisible.value = false;
+        hideTimer.value = null;
+      }, 100);
+      closeParentPopup?.(event);
+    };
+
+    const isPointInPopup = (x: number, y: number) => {
+      const rect = getPopupElement()?.getBoundingClientRect();
+      return !!rect && x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+    };
+
+    const handleDocumentMouseMove = (event: MouseEvent) => {
+      if (!safeTriangle.value) return;
+
+      if (isPointInPopup(event.clientX, event.clientY)) {
+        handleEnterPopup();
+        return;
+      }
+
+      const result = isPointerFollowingSafePath(
+        { x: event.clientX, y: event.clientY },
+        safeTriangle.value,
+        furthestPointerProgress,
+        previousSafePointerPoint,
+      );
+      if (!result.active) {
+        handleLeaveSafeTriangle(event);
+        clearSafeTriangle();
+        return;
+      }
+      furthestPointerProgress = result.progress;
+      previousSafePointerPoint = { x: event.clientX, y: event.clientY };
+
+      const isOverTriangle = event.target instanceof Node && !!safeTriangleRef.value?.contains(event.target);
+      if (isOverTriangle) handleEnterSafeTriangle();
+      else handleLeaveSafeTriangle(event);
+    };
+
+    const startMouseMoveListener = () => {
+      if (listeningMouseMove) return;
+      document.addEventListener('mousemove', handleDocumentMouseMove, { passive: true });
+      window.addEventListener('scroll', updateSafeTriangle, true);
+      window.addEventListener('resize', updateSafeTriangle);
+      listeningMouseMove = true;
+    };
+
+    const stopMouseMoveListener = () => {
+      if (!listeningMouseMove) return;
+      document.removeEventListener('mousemove', handleDocumentMouseMove);
+      window.removeEventListener('scroll', updateSafeTriangle, true);
+      window.removeEventListener('resize', updateSafeTriangle);
+      listeningMouseMove = false;
+    };
+
     const handleEnterPopup = () => {
+      clearSafeTriangle();
+      isCursorInSafeTriangle.value = false;
       isCursorInPopup.value = true;
 
       // 进入 popup 时清除隐藏定时器
@@ -439,6 +583,12 @@ export default defineComponent({
 
     watch(popupVisible, (visible) => {
       menu.open(props.value, visible ? 'add' : 'remove');
+      if (visible) {
+        nextTick(updateSafeTriangle);
+      } else {
+        clearSafeTriangle();
+        isCursorInSafeTriangle.value = false;
+      }
     });
 
     watch(popupWrapperRef, () => {
@@ -462,6 +612,8 @@ export default defineComponent({
     // Cleanup timers on unmount to prevent memory leaks
     onBeforeUnmount(() => {
       clearTimers();
+      stopMouseMoveListener();
+      clearSafeTriangle();
       menu?.vMenu?.remove(props.value);
     });
 
@@ -483,10 +635,41 @@ export default defineComponent({
         child = isHead ? renderHeadSubmenu() : renderSubmenu();
       }
 
+      const triangle = safeTriangle.value;
+      const triangleNode =
+        mode.value === 'popup' && popupVisible.value && triangle ? (
+          <Teleport to="body">
+            <svg
+              ref={safeTriangleRef}
+              aria-hidden="true"
+              class={`${classPrefix.value}-menu__safe-triangle`}
+              width={triangle.width}
+              height={triangle.height}
+              viewBox={`0 0 ${triangle.width} ${triangle.height}`}
+              style={{
+                position: 'fixed',
+                pointerEvents: 'none',
+                top: `${triangle.top}px`,
+                left: `${triangle.left}px`,
+                zIndex: safeTriangleZIndex.value,
+              }}
+            >
+              <path
+                d={triangle.path}
+                fill="rgba(255, 0, 0, 0.45)"
+                stroke="#ff0000"
+                stroke-width="2"
+                style={{ pointerEvents: 'all' }}
+              />
+            </svg>
+          </Teleport>
+        ) : null;
+
       return (
         <li class={classes.value} {...events}>
           {child}
           {virtualChild}
+          {triangleNode}
         </li>
       );
     };

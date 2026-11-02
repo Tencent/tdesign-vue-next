@@ -360,6 +360,34 @@ describe('Submenu', () => {
       expect(parentSubmenu.cancelHideTimer).toHaveBeenCalled();
     });
 
+    it('keeps the popup open while the pointer crosses the red safe triangle into its popup', async () => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first' },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      await openSubmenu(wrapper);
+
+      const popup = getTeleportedElement('.t-popup');
+      popup.getBoundingClientRect = () =>
+        ({ left: 300, right: 500, top: 100, bottom: 300, width: 200, height: 200 } as DOMRect);
+
+      await wrapper.get('li').trigger('mouseleave', { clientX: 250, clientY: 150, relatedTarget: null });
+      await nextTick();
+      const triangle = getTeleportedElement('.t-menu__safe-triangle');
+      const path = triangle.querySelector('path');
+      expect(path?.getAttribute('fill')).toBe('rgba(255, 0, 0, 0.45)');
+
+      path?.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 275, clientY: 150 }));
+      await vi.advanceTimersByTimeAsync(200);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+
+      popup.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 310, clientY: 150 }));
+      await vi.advanceTimersByTimeAsync(500);
+      await nextTick();
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+    });
+
     it('mouseenter (disabled)', async () => {
       const { menu } = createMenu({ mode: ref('popup') });
       const { submenu, wrapper } = mountSubmenu(
