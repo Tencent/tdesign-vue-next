@@ -12,11 +12,18 @@ describe('ChatReasoning', () => {
       expect(icon.classes()).not.toContain(
         't-collapse-panel__icon--' + (expandIconPlacement === 'left' ? 'right' : 'left'),
       );
+      if (expandIconPlacement === 'right') expect(wrapper.element).toMatchSnapshot();
     });
 
     it.each(['border', 'block'] as const)('applies the %s layout', (layout) => {
       const wrapper = mountChat(ChatReasoning, { props: { layout } });
       expect(wrapper.find('.t-chat__detail-reasoning-border').exists()).toBe(layout === 'border');
+      if (layout === 'border') expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('preserves the collapsed panel structure', () => {
+      const wrapper = mountChat(ChatReasoning, { props: { collapsed: true } });
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('hides and reveals content when controlled collapsed changes', async () => {
@@ -58,6 +65,12 @@ describe('ChatReasoning', () => {
   });
 
   describe('slots', () => {
+    it('preserves the default content structure', () => {
+      const wrapper = mountChat(ChatReasoning, { slots: { default: '<div>custom content</div>' } });
+      expect(wrapper.text()).toContain('custom content');
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
     it('renders header and default content', () => {
       const wrapper = mountChat(ChatReasoning, {
         slots: { header: '<span>thinking header</span>', default: '<span>thinking details</span>' },

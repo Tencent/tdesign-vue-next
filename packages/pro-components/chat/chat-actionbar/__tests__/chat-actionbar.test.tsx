@@ -24,6 +24,24 @@ const ALL_ACTIONS = ['replay', 'copy', 'good', 'bad', 'share'];
 
 describe('ChatActionbar', () => {
   describe('props', () => {
+    it('preserves the configured action buttons structure', () => {
+      const wrapper = mountChat(ChatActionbar, { props: { actionBar: ['copy', 'good'] } });
+      expect(wrapper.findAll('button')).toHaveLength(2);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('preserves the disabled action structure', () => {
+      const wrapper = mountChat(ChatActionbar, { props: { actionBar: ['copy'], disabled: true } });
+      expect(wrapper.find('button').attributes('disabled')).toBeDefined();
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('preserves the active comment structure', () => {
+      const wrapper = mountChat(ChatActionbar, { props: { actionBar: ['good'], comment: 'good' } });
+      expect(wrapper.find('.t-chat-button--active').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
     it('默认渲染全部内置操作按钮', () => {
       const wrapper = mountChat(ChatActionbar);
       expect(wrapper.findAll('button')).toHaveLength(ALL_ACTIONS.length);

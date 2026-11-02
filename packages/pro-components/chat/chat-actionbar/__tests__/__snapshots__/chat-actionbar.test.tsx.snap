@@ -1,0 +1,340 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChatActionbar > props > preserves the active comment structure 1`] = `
+<div
+  class="t-chat__actions"
+>
+  
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      
+      <button
+        class="t-button t-button--variant-base t-button--theme-default t-button--shape-rectangle t-size-s t-chat-button--active"
+        href=""
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          <svg
+            class="t-icon t-icon-thumb-up-filled"
+            fill="none"
+            height="1em"
+            style="fill: none;"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M12.1578 1.59573C14.0866 1.91719 15.5002 3.58595 15.5002 5.54131L15.5002 7.99992L20.8198 7.99992C22.0557 7.99992 22.9958 9.10966 22.7926 10.3287L21.1259 20.3287C20.9652 21.2931 20.1308 21.9999 19.1531 21.9999H7.00024L7.00025 10.8021L10.8789 1.38257L12.1578 1.59573Z"
+              fill="currentColor"
+            />
+            <path
+              d="M4.00024 21.9999H2.00024L2.00025 9.99992H4.00025L4.00024 21.9999Z"
+              fill="currentColor"
+            />
+          </svg>
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!---->
+    
+    
+  </div>
+  
+</div>
+`;
+
+exports[`ChatActionbar > props > preserves the configured action buttons structure 1`] = `
+<div
+  class="t-chat__actions"
+>
+  
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      
+      <button
+        class="t-button t-button--variant-base t-button--theme-default t-button--shape-rectangle t-size-s copy-btn"
+        data-clipboard-text=""
+        href=""
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          <svg
+            class="t-icon t-icon-copy"
+            fill="none"
+            height="1em"
+            style="fill: none;"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <defs>
+              <mask
+                height="24"
+                id="t-icon-copy-instance-v0-overlap-fill1"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M10 10H21V21H10V10Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+              </mask>
+            </defs>
+            <g
+              id="copy"
+            >
+              <path
+                d="M10 10H21V21H10z"
+                fill="transparent"
+                id="fill1"
+                mask="url(#t-icon-copy-instance-v0-overlap-fill1)"
+              />
+              <path
+                d="M10 10H21V21H10V10Z"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+              <path
+                d="M14 6.5V3L3 3L3 14H6.5"
+                id="stroke2"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+            </g>
+          </svg>
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!---->
+    
+    
+  </div>
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      
+      <button
+        class="t-button t-button--variant-base t-button--theme-default t-button--shape-rectangle t-size-s"
+        href=""
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          <svg
+            class="t-icon t-icon-thumb-up"
+            fill="none"
+            height="1em"
+            style="fill: none;"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <defs>
+              <mask
+                height="24"
+                id="t-icon-thumb-up-instance-v1-overlap-fill1"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M3 21V11M8 11V21H19.1529C19.6417 21 20.0589 20.6466 20.1393 20.1644L21.8059 10.1644C21.9075 9.55487 21.4375 9 20.8195 9H14.5V5.54138C14.5 4.07486 13.4398 2.82329 11.9932 2.5822L11.5 2.5L8 11Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+              </mask>
+            </defs>
+            <g
+              id="thumb-up"
+            >
+              <path
+                d="M8 11L11.5 2.5L11.9932 2.5822C13.4398 2.82329 14.5 4.07486 14.5 5.54138V9H20.8195C21.4375 9 21.9075 9.55487 21.8059 10.1644L20.1393 20.1644C20.0589 20.6466 19.6417 21 19.1529 21H8V11Z"
+                fill="transparent"
+                id="fill1"
+                mask="url(#t-icon-thumb-up-instance-v1-overlap-fill1)"
+              />
+              <path
+                d="M3 21V11M8 11V21H19.1529C19.6417 21 20.0589 20.6466 20.1393 20.1644L21.8059 10.1644C21.9075 9.55487 21.4375 9 20.8195 9H14.5V5.54138C14.5 4.07486 13.4398 2.82329 11.9932 2.5822L11.5 2.5L8 11Z"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+            </g>
+          </svg>
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!---->
+    
+    
+  </div>
+  
+</div>
+`;
+
+exports[`ChatActionbar > props > preserves the disabled action structure 1`] = `
+<div
+  class="t-chat__actions"
+>
+  
+  <div
+    class="t-space t-space-horizontal"
+    style="gap: 16px;"
+  >
+    
+    
+    <div
+      class="t-space-item"
+    >
+      
+      <button
+        class="t-button t-button--variant-base t-button--theme-default t-button--shape-rectangle t-size-s t-is-disabled copy-btn"
+        data-clipboard-text=""
+        disabled=""
+        href=""
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          <svg
+            class="t-icon t-icon-copy"
+            fill="none"
+            height="1em"
+            style="fill: none;"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <defs>
+              <mask
+                height="24"
+                id="t-icon-copy-instance-v0-overlap-fill1"
+                mask-type="luminance"
+                maskContentUnits="userSpaceOnUse"
+                maskUnits="userSpaceOnUse"
+                width="24"
+                x="0"
+                y="0"
+              >
+                <rect
+                  fill="#fff"
+                  height="24"
+                  width="24"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  d="M10 10H21V21H10V10Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-linecap="square"
+                  stroke-width="2"
+                />
+              </mask>
+            </defs>
+            <g
+              id="copy"
+            >
+              <path
+                d="M10 10H21V21H10z"
+                fill="transparent"
+                id="fill1"
+                mask="url(#t-icon-copy-instance-v0-overlap-fill1)"
+              />
+              <path
+                d="M10 10H21V21H10V10Z"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+              <path
+                d="M14 6.5V3L3 3L3 14H6.5"
+                id="stroke2"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+            </g>
+          </svg>
+          
+        </span>
+      </button>
+      <!---->
+      
+    </div>
+    <!---->
+    
+    
+  </div>
+  
+</div>
+`;
