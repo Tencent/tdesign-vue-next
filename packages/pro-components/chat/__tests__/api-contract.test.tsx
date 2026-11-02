@@ -17,7 +17,10 @@ describe('Chat public API', () => {
       const exported = Object.keys(ChatEntry)
         .filter((key) => key !== 'default')
         .sort();
-      expect(exported).toEqual(expect.arrayContaining(baseline.exports));
+      expect(
+        baseline.exports.filter((name) => !exported.includes(name)),
+        '缺少公开导出',
+      ).toEqual([]);
     });
 
     it('核心组件与工具均被导出', () => {

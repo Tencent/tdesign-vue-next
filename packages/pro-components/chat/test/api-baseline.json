@@ -82,7 +82,7 @@
     "isMarkdownContent",
     "isNonInteractive",
     "isNonInteractiveConfig",
-    "isReasoningContent",
+    "isReasoningEvent",
     "isSearchContent",
     "isStateEvent",
     "isSuggestionContent",

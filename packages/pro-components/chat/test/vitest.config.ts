@@ -1,4 +1,4 @@
-import { dirname, resolve } from 'node:path';
+import { dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
@@ -11,9 +11,19 @@ const packagesRoot = resolve(chatRoot, '../../');
 const workspaceRoot = resolve(packagesRoot, '..');
 const componentsRoot = resolve(packagesRoot, 'components');
 
-const joinProComponentsChatRoot = (...paths: string[]) => resolve(chatRoot, ...paths);
-const joinWorkspaceRoot = (...paths: string[]) => resolve(workspaceRoot, ...paths);
-const joinPackagesRoot = (...paths: string[]) => resolve(packagesRoot, ...paths);
+// Vitest glob patterns use forward slashes on every platform.
+const joinProComponentsChatRoot = (...paths: string[]) =>
+  resolve(chatRoot, ...paths)
+    .split(sep)
+    .join('/');
+const joinWorkspaceRoot = (...paths: string[]) =>
+  resolve(workspaceRoot, ...paths)
+    .split(sep)
+    .join('/');
+const joinPackagesRoot = (...paths: string[]) =>
+  resolve(packagesRoot, ...paths)
+    .split(sep)
+    .join('/');
 
 /**
  * chat 组件（pro-components/chat）独立测试工程。
@@ -59,6 +69,12 @@ export default defineConfig({
     exclude: [joinWorkspaceRoot('**/node_modules/**'), joinWorkspaceRoot('**/_example/**')],
     globals: true,
     environment: 'jsdom',
+    server: {
+      deps: {
+        // Resolve extensionless imports in webc dependencies through Vite, including SSR tests.
+        inline: ['@tdesign/web-components', '@tdesign/web-components-chat', 'tdesign-icons-web-components'],
+      },
+    },
     testTimeout: 10000,
     setupFiles: [joinProComponentsChatRoot('test/setup.ts')],
     coverage: {
