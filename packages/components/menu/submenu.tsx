@@ -660,11 +660,7 @@ export default defineComponent({
                 zIndex: safeTriangleZIndex.value,
               }}
             >
-              <path
-                d={triangle.path}
-                fill="transparent"
-                style={{ pointerEvents: 'all' }}
-              />
+              <path d={triangle.path} fill="transparent" style={{ pointerEvents: 'all' }} />
             </svg>
           </Teleport>
         ) : null;
