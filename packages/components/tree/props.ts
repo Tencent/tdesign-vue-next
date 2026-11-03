@@ -27,6 +27,15 @@ export default {
   },
   /** 是否允许在过滤时节点折叠节点 */
   allowFoldNodeOnFilter: Boolean,
+  /** 参与父节点全选、半选状态判定的子节点范围。all 表示所有子节点参与判断，包括禁用子节点；onlyEnabled 表示仅未禁用的子节点参与判断，没有可用子节点时，不由子节点推导出全选或半选状态。仅影响父节点状态的判定，不改变禁用子节点自身的选中状态。checkStrictly 为 true 时不生效 */
+  checkAllAffectedBy: {
+    type: String as PropType<TdTreeProps['checkAllAffectedBy']>,
+    default: 'all' as TdTreeProps['checkAllAffectedBy'],
+    validator(val: TdTreeProps['checkAllAffectedBy']): boolean {
+      if (!val) return true;
+      return ['all', 'onlyEnabled'].includes(val);
+    },
+  },
   /** 透传属性到 checkbox 组件。参考 checkbox 组件 API */
   checkProps: {
     type: Object as PropType<TdTreeProps['checkProps']>,
