@@ -39,6 +39,23 @@ const openPopup = async (wrapper: ReturnType<typeof mount>) => {
 };
 
 describe('Select', () => {
+  it('ignores an open option after becoming disabled', async () => {
+    const onChange = vi.fn();
+    const wrapper = mount(Select, {
+      props: { options: simpleOptions, defaultValue: '1', onChange },
+    });
+    await openPopup(wrapper);
+    const option = document.querySelectorAll<HTMLElement>('.t-select-option')[1];
+    expect(option).toBeTruthy();
+    await wrapper.setProps({ disabled: true });
+    option.click();
+    await nextTick();
+
+    expect(onChange).not.toHaveBeenCalled();
+    expect(wrapper.find<HTMLInputElement>('input').element.value).toBe('选项1');
+    wrapper.unmount();
+  });
+
   afterEach(() => {
     document.body.innerHTML = '';
   });
