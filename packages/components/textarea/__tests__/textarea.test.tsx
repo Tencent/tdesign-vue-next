@@ -200,10 +200,8 @@ describe('Textarea', () => {
       await controlledTextarea.setValue('你好a');
       expect(controlledTextarea.element.value).toBe('你好');
       expect(controlledWrapper.emitted('update:value')).toEqual([['你好']]);
-      // Current behavior is tracked by #6846. Reconciliation should not write to a readonly controlled prop.
-      expect(warnSpy).toHaveBeenCalledWith(
-        expect.stringContaining('Set operation on key "value" failed: target is readonly'),
-        expect.any(Object),
+      expect(warnSpy.mock.calls.flat().join(' ')).not.toContain(
+        'Set operation on key "value" failed: target is readonly',
       );
 
       warnSpy.mockClear();
@@ -227,7 +225,7 @@ describe('Textarea', () => {
       const textarea = getTextarea(wrapper);
       const info = wrapper.get(INFO);
 
-      expect(textarea.attributes('maxlength')).toBe('10');
+      expect(textarea.attributes('maxlength')).toBeUndefined();
       expect(wrapper.get(LIMIT).text()).toBe('4/10');
       expect(info.classes()).toContain('t-textarea__info_wrapper_align');
 
@@ -239,13 +237,27 @@ describe('Textarea', () => {
       expect(tipsInfo.get(LIMIT).text()).toBe('4/10');
       expect(tipsInfo.classes()).not.toContain('t-textarea__info_wrapper_align');
 
+      const onChange = vi.fn();
+      const unicodeWrapper = mount(Textarea, {
+        props: { defaultValue: '', maxlength: 20, onChange },
+      });
+      const unicodeTextarea = getTextarea(unicodeWrapper);
+      const valueAtLimit = '😊'.repeat(20);
+
+      await unicodeTextarea.setValue(valueAtLimit);
+      expect(unicodeTextarea.element.value).toBe(valueAtLimit);
+      expect(unicodeWrapper.get(LIMIT).text()).toBe('20/20');
+
+      await unicodeTextarea.setValue(`${valueAtLimit}😊`);
+      expect(unicodeTextarea.element.value).toBe(valueAtLimit);
+      expect(onChange.mock.calls.at(-1)[0]).toBe(valueAtLimit);
+
       const onValidate = vi.fn();
       const emojiWrapper = mount(Textarea, {
         props: { allowInputOverMax: true, defaultValue: '😊', maxlength: 1, onValidate },
       });
       await nextTick();
-      // Current behavior is tracked by #6846. The counter and validation currently use different length rules.
-      expect(emojiWrapper.get(LIMIT).text()).toBe('2/1');
+      expect(emojiWrapper.get(LIMIT).text()).toBe('1/1');
       expect(onValidate).not.toHaveBeenCalled();
     });
 
@@ -424,9 +436,10 @@ describe('Textarea', () => {
         attrs: { style: 'height: 80px; color: red;' },
       });
       await sleep(0);
-      // Current behavior is tracked by #6846. String styles should be forwarded after the source is fixed.
+      const stringTextarea = getTextarea(stringWrapper);
       expect(stringWrapper.attributes('style')).toBeUndefined();
-      expect(getTextarea(stringWrapper).attributes('style')).toBeUndefined();
+      expect(stringTextarea.element.style.height).toBe('80px');
+      expect(stringTextarea.element.style.color).toBe('red');
     });
   });
 
@@ -500,6 +513,45 @@ describe('Textarea', () => {
       expect(latestOnChange).toHaveBeenCalledWith('latest value', {
         e: expect.objectContaining({ type: 'input' }),
       });
+    });
+
+    it('change preserves composing input when autosize recalculates styles', async () => {
+      mockTextareaHeight();
+      const onChange = vi.fn();
+      const wrapper = mount(Textarea, {
+        props: { defaultValue: '', autosize: true, onChange },
+      });
+      const textarea = getTextarea(wrapper);
+      await nextTick();
+      await nextTick();
+
+      await textarea.trigger('compositionstart');
+      textarea.element.value = '你';
+      await textarea.trigger('input', { inputType: 'insertCompositionText', isComposing: true });
+      await nextTick();
+
+      expect(textarea.element.value).toBe('你');
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('change applies Unicode maxlength after composition ends', async () => {
+      const onChange = vi.fn();
+      const wrapper = mount(Textarea, {
+        props: { defaultValue: '', maxlength: 1, onChange },
+      });
+      const textarea = getTextarea(wrapper);
+
+      await textarea.trigger('compositionstart');
+      textarea.element.value = '😊😊';
+      await textarea.trigger('input', { inputType: 'insertCompositionText', isComposing: true });
+
+      expect(textarea.element.value).toBe('😊😊');
+      expect(onChange).not.toHaveBeenCalled();
+
+      await textarea.trigger('compositionend');
+
+      expect(textarea.element.value).toBe('😊');
+      expect(onChange.mock.calls.at(-1)[0]).toBe('😊');
     });
 
     it('focus', async () => {
