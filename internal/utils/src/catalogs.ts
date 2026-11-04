@@ -93,7 +93,7 @@ export const catalogs = {
   tdesign: {
     '@tdesign/site-components': '^0.20.5',
     '@tdesign/theme-generator': '^1.2.7',
-    'tdesign-icons-vue-next': '^0.4.11',
+    'tdesign-icons-vue-next': '^0.4.12',
     'tdesign-publish-cli': '^0.0.12',
   },
   test: {
