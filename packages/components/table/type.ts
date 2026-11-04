@@ -19,7 +19,7 @@ import { ButtonProps } from '../button';
 import { CheckboxGroupProps } from '../checkbox';
 import { DialogProps } from '../dialog';
 import { FormRule, AllValidateResult } from '../form';
-import {
+import type {
   TNode,
   OptionData,
   SizeEnum,
@@ -94,6 +94,11 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * @default ''
    */
   empty?: string | TNode;
+  /**
+   * 切换分页时是否锁定滚动条。开启后，切换分页时不会重置滚动条位置。
+   * @default false
+   */
+  enableLockScrollbar?: boolean;
   /**
    * 首行内容，横跨所有列
    */
@@ -322,7 +327,7 @@ export interface BaseTableInstanceFunctions<T extends TableRowData = TableRowDat
   /**
    * 纵向滚动到指定行。示例：`scrollToElement({ index: 100, top: 80, time: 200, behavior: 'smooth' })`
    */
-  scrollToElement: (params: ComponentScrollToElementParams) => void;
+  scrollToElement?: (params: ComponentScrollToElementParams) => void;
 }
 
 export interface BaseTableCol<T extends TableRowData = TableRowData> {
@@ -449,7 +454,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   defaultDisplayColumns?: CheckboxGroupValue;
   /**
-   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过拖拽手柄进行行拖拽排序。值为 `col` 表示列顺序拖拽。值为 `row-handler-col` 表示同时支持行拖拽和列拖拽。⚠️`drag-col` 已废弃，请勿使用。
+   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过拖拽手柄进行行拖拽排序。值为 `col` 表示列顺序拖拽。值为 `row-handler-col` 表示同时支持行拖拽和列拖拽。⚠️`drag-col` 已废弃，请勿使用
    */
   dragSort?: 'row' | 'row-handler' | 'col' | 'row-handler-col' | 'drag-col';
   /**
@@ -1038,7 +1043,9 @@ export interface RowClassNameParams<T> {
   type?: 'body' | 'foot';
 }
 
-export type TableRowspanAndColspanFunc<T> = (params: BaseTableCellParams<T>) => RowspanColspan;
+export type TableRowspanAndColspanFunc<T extends TableRowData = TableRowData> = (
+  params: BaseTableCellParams<T>,
+) => RowspanColspan;
 
 export interface RowspanColspan {
   colspan?: number;
@@ -1058,9 +1065,9 @@ export interface ActiveRowActionContext<T> {
 
 export type ActiveRowActionType = 'shift-area-selection' | 'space-one-selection' | 'clear' | 'select-all';
 
-export interface BaseTableCellEventContext<T> {
+export interface BaseTableCellEventContext<T extends TableRowData = TableRowData> {
   row: T;
-  col: BaseTableCol;
+  col: BaseTableCol<T>;
   rowIndex: number;
   colIndex: number;
   e: MouseEvent;
@@ -1086,9 +1093,11 @@ export interface BaseTableCellParams<T> {
   colIndex: number;
 }
 
-export type TableColumnClassName<T> = ClassName | ((context: CellData<T>) => ClassName);
+export type TableColumnClassName<T extends TableRowData = TableRowData> =
+  | ClassName
+  | ((context: CellData<T>) => ClassName);
 
-export interface CellData<T> extends BaseTableCellParams<T> {
+export interface CellData<T extends TableRowData = TableRowData> extends BaseTableCellParams<T> {
   type: 'th' | 'td';
 }
 
