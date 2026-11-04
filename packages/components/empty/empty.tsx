@@ -1,16 +1,19 @@
-import { computed, ComputedRef, defineComponent, h, toRefs } from 'vue';
+import type { VNode } from 'vue';
+import { computed, ComputedRef, defineComponent, h, isVNode, toRefs } from 'vue';
 import { isString, isPlainObject } from 'lodash-es';
+import {
+  TrafficEventsFilledIcon as TdTrafficEventsFilledIcon,
+  CheckCircleIcon as TdCheckCircleIcon,
+  ErrorCircleIcon as TdErrorCircleIcon,
+  WifiNoFilledIcon as TdWifiNoFilledIcon,
+  NoResultFilledIcon as TdNoResultFilledIcon,
+} from 'tdesign-icons-vue-next';
 
-import { useConfig, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
+import { useConfig, useGlobalIcon, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import props from './props';
 import type { TdEmptyProps } from './type';
 import Image, { ImageProps } from '../image';
-import MaintenanceSvg from './components/MaintenanceSvg';
-import NetworkErrorSvg from './components/NetworkErrorSvg';
-import EmptySvg from './components/EmptySvg';
-import FailSvg from './components/FailSvg';
-import SuccessSvg from './components/SuccessSvg';
 
 export default defineComponent({
   name: 'TEmpty',
@@ -20,32 +23,45 @@ export default defineComponent({
     const { size, image: propsImage, description: propsDescription, title: propsTitle, type } = toRefs(props);
     const { globalConfig } = useConfig('empty');
     const classPrefix = usePrefixClass('empty');
+    const { TrafficEventsFilledIcon, CheckCircleIcon, ErrorCircleIcon, WifiNoFilledIcon, NoResultFilledIcon } =
+      useGlobalIcon({
+        TrafficEventsFilledIcon: TdTrafficEventsFilledIcon,
+        CheckCircleIcon: TdCheckCircleIcon,
+        ErrorCircleIcon: TdErrorCircleIcon,
+        WifiNoFilledIcon: TdWifiNoFilledIcon,
+        NoResultFilledIcon: TdNoResultFilledIcon,
+      });
+
     const showAction = computed(() => props.action || slots.action);
     const { SIZE } = useCommonClassName();
     const renderTNodeJSX = useTNodeJSX();
 
     const defaultMaps: ComputedRef<{
-      [key in TdEmptyProps['type']]?: Pick<TdEmptyProps, 'image' | 'title'>;
+      [key in TdEmptyProps['type']]?: { image: TdEmptyProps['image'] | VNode; title: TdEmptyProps['title'] };
     }> = computed(() => {
       return {
         maintenance: {
-          image: globalConfig.value.image.maintenance || MaintenanceSvg,
+          image: globalConfig.value.image.maintenance || (
+            <TrafficEventsFilledIcon fillColor="var(--td-text-color-placeholder)" />
+          ),
           title: globalConfig.value.titleText.maintenance,
         },
         success: {
-          image: globalConfig.value.image.success || SuccessSvg,
+          image: globalConfig.value.image.success || <CheckCircleIcon strokeColor="var(--td-success-color)" />,
           title: globalConfig.value.titleText.success,
         },
         fail: {
-          image: globalConfig.value.image.fail || FailSvg,
+          image: globalConfig.value.image.fail || <ErrorCircleIcon strokeColor="var(--td-error-color)" />,
           title: globalConfig.value.titleText.fail,
         },
         'network-error': {
-          image: globalConfig.value.image.networkError || NetworkErrorSvg,
+          image: globalConfig.value.image.networkError || (
+            <WifiNoFilledIcon fillColor="var(--td-text-color-placeholder)" />
+          ),
           title: globalConfig.value.titleText.networkError,
         },
         empty: {
-          image: globalConfig.value.image.empty || EmptySvg,
+          image: globalConfig.value.image.empty || <NoResultFilledIcon fillColor="var(--td-text-color-placeholder)" />,
           title: globalConfig.value.titleText.empty,
         },
       };
@@ -81,6 +97,8 @@ export default defineComponent({
         result = <Image src={data} />;
       } else if (data && Reflect.has(data, 'setup')) {
         result = h(data as unknown);
+      } else if (isVNode(data)) {
+        result = data;
       } else if (isPlainObject(data)) {
         result = <Image {...(data as ImageProps)} />;
       }
