@@ -118,7 +118,6 @@ export const FormInjectionKey: InjectionKey<{
   children: FormItemContext[];
   renderContent: ReturnType<typeof useTNodeJSX>;
   registerFormItem: (node: HTMLElement) => () => void;
-  lastFormItemElements: Set<HTMLElement>;
 }> = Symbol('FormProvide');
 
 export const FormItemInjectionKey: InjectionKey<{
