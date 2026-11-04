@@ -109,12 +109,12 @@ describe('Empty', () => {
 
     it(':type[fail] with default icon', () => {
       const wrapper = mount(<Empty type="fail" />);
-      expect(wrapper.find('.t-empty__image').find('.t-icon-error-circle-filled').exists()).toBeTruthy();
+      expect(wrapper.find('.t-empty__image').find('.t-icon-error-circle').exists()).toBeTruthy();
     });
 
     it(':type[success] with default icon', () => {
       const wrapper = mount(<Empty type="success" />);
-      expect(wrapper.find('.t-empty__image').find('.t-icon-check-circle-filled').exists()).toBeTruthy();
+      expect(wrapper.find('.t-empty__image').find('.t-icon-check-circle').exists()).toBeTruthy();
     });
 
     it(':type[network-error] with default icon', () => {
