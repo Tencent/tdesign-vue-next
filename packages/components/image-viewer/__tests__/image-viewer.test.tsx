@@ -389,7 +389,7 @@ describe('ImageViewer', () => {
       // string
       mount(ImageViewer, { props: { visible: true, images, title: 'Custom Title' } });
       await nextTick();
-      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('Custom Title');
+      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('Custom Title1/3');
 
       document.body.innerHTML = '';
 
@@ -399,6 +399,7 @@ describe('ImageViewer', () => {
       });
       await nextTick();
       expect(document.querySelector('.custom-title')).toBeTruthy();
+      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toContain('1/3');
 
       document.body.innerHTML = '';
 
@@ -409,13 +410,13 @@ describe('ImageViewer', () => {
     });
 
     it(':title updates when index changes', async () => {
-      const wrapper = mount(ImageViewer, { props: { visible: true, images, index: 0 } });
+      const wrapper = mount(ImageViewer, { props: { visible: true, images, index: 0, title: 'Custom Title' } });
       await nextTick();
-      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('1/3');
+      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('Custom Title1/3');
 
       await wrapper.setProps({ index: 2 });
       await nextTick();
-      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('3/3');
+      expect(document.querySelector('.t-image-viewer__modal-index')?.textContent).toBe('Custom Title3/3');
     });
 
     it(':zIndex[number]', async () => {
