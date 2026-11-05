@@ -7,6 +7,7 @@ export type SafeTriangleDirection = 'right' | 'left' | 'top' | 'bottom';
 
 export interface SafeTriangleGeometry {
   points: [SafeTrianglePoint, SafeTrianglePoint, SafeTrianglePoint];
+  edgeLengths: [number, number, number];
   anchor: SafeTrianglePoint;
   toward: SafeTrianglePoint;
   top: number;
@@ -69,6 +70,11 @@ export function getSafeTriangle(
 
   return {
     points: [pointer, nearEdge[0], nearEdge[1]],
+    edgeLengths: [
+      Math.hypot(pointer.x - nearEdge[0].x, pointer.y - nearEdge[0].y),
+      Math.hypot(nearEdge[0].x - nearEdge[1].x, nearEdge[0].y - nearEdge[1].y),
+      Math.hypot(nearEdge[1].x - pointer.x, nearEdge[1].y - pointer.y),
+    ],
     anchor: pointer,
     toward,
     top,
@@ -79,14 +85,22 @@ export function getSafeTriangle(
   };
 }
 
-export function isPointInSafeTriangle(point: SafeTrianglePoint, [a, b, c]: SafeTriangleGeometry['points']) {
+export function isPointInSafeTriangle(
+  point: SafeTrianglePoint,
+  [a, b, c]: SafeTriangleGeometry['points'],
+  tolerance = 0,
+  edgeLengths?: SafeTriangleGeometry['edgeLengths'],
+) {
   const cross = (p1: SafeTrianglePoint, p2: SafeTrianglePoint, p3: SafeTrianglePoint) =>
     (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y);
   const d1 = cross(point, a, b);
   const d2 = cross(point, b, c);
   const d3 = cross(point, c, a);
-  const hasNegative = d1 < 0 || d2 < 0 || d3 < 0;
-  const hasPositive = d1 > 0 || d2 > 0 || d3 > 0;
+  const t1 = tolerance * (edgeLengths?.[0] ?? Math.hypot(a.x - b.x, a.y - b.y));
+  const t2 = tolerance * (edgeLengths?.[1] ?? Math.hypot(b.x - c.x, b.y - c.y));
+  const t3 = tolerance * (edgeLengths?.[2] ?? Math.hypot(c.x - a.x, c.y - a.y));
+  const hasNegative = d1 < -t1 || d2 < -t2 || d3 < -t3;
+  const hasPositive = d1 > t1 || d2 > t2 || d3 > t3;
   return !(hasNegative && hasPositive);
 }
 
@@ -97,16 +111,22 @@ export function isPointerFollowingSafePath(
   furthestProgress: number,
   previousPoint: SafeTrianglePoint = triangle.anchor,
   tolerance = 4,
+  lastAdvancingPoint: SafeTrianglePoint = previousPoint,
 ) {
-  if (!isPointInSafeTriangle(point, triangle.points)) return { active: false, progress: furthestProgress };
+  if (!isPointInSafeTriangle(point, triangle.points, 3, triangle.edgeLengths)) {
+    return { active: false, progress: furthestProgress };
+  }
 
   const { x, y } = triangle.toward;
-  const length = Math.hypot(x, y) || 1;
-  const progress = ((point.x - triangle.anchor.x) * x + (point.y - triangle.anchor.y) * y) / length;
-  const movementTowardPopup = ((point.x - previousPoint.x) * x + (point.y - previousPoint.y) * y) / length;
-  // A lateral move toward a sibling item should release the hit area even if the pointer
-  // remains inside the geometric triangle. Permit tiny sensor jitter while rejecting no-progress motion.
-  if (movementTowardPopup <= 0.25) return { active: false, progress };
+  // getSafeTriangle only supplies axis-aligned unit vectors.
+  const progress = (point.x - triangle.anchor.x) * x + (point.y - triangle.anchor.y) * y;
+  const movementTowardPopup = (point.x - previousPoint.x) * x + (point.y - previousPoint.y) * y;
+  // Allow small quantized lateral steps, but release for a deliberate sibling
+  // move even if several small steps remain inside the triangle.
+  const lateralDrift = Math.abs((point.x - lastAdvancingPoint.x) * y - (point.y - lastAdvancingPoint.y) * x);
+  if (progress < furthestProgress - Math.min(tolerance, 1) || (movementTowardPopup <= 0.25 && lateralDrift > 2)) {
+    return { active: false, progress };
+  }
   if (progress < furthestProgress - tolerance) return { active: false, progress };
 
   return { active: true, progress: Math.max(furthestProgress, progress) };
