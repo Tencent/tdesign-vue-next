@@ -108,6 +108,11 @@ export default defineComponent({
     let listeningMouseMove = false;
     let protectedMenu: Element | undefined;
     let protection: MenuProtection | undefined;
+    let returnTriangle: SafeTriangleGeometry | undefined;
+    let returnPreviousPoint: { x: number; y: number } | undefined;
+    let returnProgress = 0;
+    let returnTimer: ReturnType<typeof setTimeout> | undefined;
+    let lastPopupPoint: { x: number; y: number } | undefined;
 
     // 存储 setTimeout 的 timer ID，用于清除定时器
     const showTimer = ref<ReturnType<typeof setTimeout> | null>(null);
@@ -467,6 +472,85 @@ export default defineComponent({
       }, 100);
     };
 
+    const stopReturnProtection = () => {
+      if (returnTimer) clearTimeout(returnTimer);
+      returnTimer = undefined;
+      returnTriangle = undefined;
+      returnPreviousPoint = undefined;
+      returnProgress = 0;
+      document.removeEventListener('mousemove', handleReturnMouseMove);
+      document.removeEventListener('pointerdown', handleReturnPointerDown, true);
+    };
+
+    const closeAfterReturn = (event: MouseEvent) => {
+      stopReturnProtection();
+      clearTimers();
+      hideTimer.value = setTimeout(() => {
+        if (!isCursorInPopup.value) popupVisible.value = false;
+        hideTimer.value = null;
+      }, 100);
+      closeParentPopup?.(event);
+    };
+
+    const handleReturnPointerDown = (event: PointerEvent) => closeAfterReturn(event);
+
+    const handleReturnMouseMove = (event: MouseEvent) => {
+      if (!returnTriangle || !returnPreviousPoint) return;
+      if (event.target instanceof Node && submenuRef.value?.contains(event.target)) {
+        stopReturnProtection();
+        clearTimers();
+        cancelHideTimer?.();
+        return;
+      }
+      const interactive = (event.target as Element | null)?.closest?.(
+        `.${classPrefix.value}-menu__item, button, a, input, select, textarea, [role="button"], [role="menuitem"]`,
+      );
+      const point = { x: event.clientX, y: event.clientY };
+      const result = isPointerFollowingSafePath(point, returnTriangle, returnProgress, returnPreviousPoint);
+      if (interactive || !result.active) {
+        closeAfterReturn(event);
+        return;
+      }
+      returnProgress = result.progress;
+      returnPreviousPoint = point;
+      if (returnTimer) clearTimeout(returnTimer);
+      returnTimer = setTimeout(() => closeAfterReturn(event), 300);
+    };
+
+    const beginReturnProtection = (event: MouseEvent) => {
+      const rect = submenuRef.value?.getBoundingClientRect();
+      if (!rect || !lastPopupPoint || !rect.width || !rect.height) return false;
+      const x = event.clientX;
+      const y = event.clientY;
+      const dx = x < rect.left ? rect.left - x : x > rect.right ? x - rect.right : 0;
+      const dy = y < rect.top ? rect.top - y : y > rect.bottom ? y - rect.bottom : 0;
+      if (!dx && !dy) return false;
+      const direction: SafeTriangleDirection =
+        dx > dy ? (x < rect.left ? 'right' : 'left') : y < rect.top ? 'bottom' : 'top';
+      const toward =
+        direction === 'left'
+          ? lastPopupPoint.x - x
+          : direction === 'right'
+          ? x - lastPopupPoint.x
+          : direction === 'top'
+          ? lastPopupPoint.y - y
+          : y - lastPopupPoint.y;
+      if (toward <= 0) return false;
+      const target = event.relatedTarget as Element | null;
+      if (target?.closest?.(`.${classPrefix.value}-menu__item, button, a, input, select, textarea`)) return false;
+      const triangle = getSafeTriangle({ x, y }, rect, direction);
+      if (!triangle) return false;
+      stopReturnProtection();
+      returnTriangle = triangle;
+      returnPreviousPoint = { x, y };
+      clearTimers();
+      cancelHideTimer?.();
+      document.addEventListener('mousemove', handleReturnMouseMove, { passive: true });
+      document.addEventListener('pointerdown', handleReturnPointerDown, true);
+      returnTimer = setTimeout(() => closeAfterReturn(event), 300);
+      return true;
+    };
+
     const handleMouseLeavePopup = (e: any) => {
       const { toElement, relatedTarget } = e;
       let target = toElement || relatedTarget;
@@ -481,6 +565,7 @@ export default defineComponent({
       isCursorInPopup.value = false;
 
       if (!isSubmenu(target)) {
+        if (beginReturnProtection(e)) return;
         clearTimers();
 
         // 使用延迟隐藏，避免在子项之间移动时闪烁
@@ -583,6 +668,7 @@ export default defineComponent({
     };
 
     const handleEnterPopup = () => {
+      stopReturnProtection();
       clearSafeTriangle();
       isCursorInSafeTriangle.value = false;
       isCursorInPopup.value = true;
@@ -621,6 +707,9 @@ export default defineComponent({
           ]}
           onMouseenter={handleEnterPopup}
           onMouseleave={handleMouseLeavePopup}
+          onMousemove={(event: MouseEvent) => {
+            lastPopupPoint = { x: event.clientX, y: event.clientY };
+          }}
         >
           <ul
             class={[
@@ -775,6 +864,7 @@ export default defineComponent({
 
     // Cleanup timers on unmount to prevent memory leaks
     onBeforeUnmount(() => {
+      stopReturnProtection();
       if (protection) protection.pending = undefined;
       clearTimers();
       stopMouseMoveListener();

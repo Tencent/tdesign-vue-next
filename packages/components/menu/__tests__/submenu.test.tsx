@@ -398,6 +398,29 @@ describe('Submenu', () => {
       expect(submenu.findComponent(Popup).props('visible')).toBe(true);
     });
 
+    it('keeps the popup open on a diagonal return to its trigger and releases on an outside click', async () => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first' },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      await openSubmenu(wrapper);
+      const trigger = wrapper.get('.t-menu__item').element as HTMLElement;
+      trigger.getBoundingClientRect = () =>
+        ({ left: 213, right: 304, top: 215, bottom: 238, width: 91, height: 23 } as DOMRect);
+      const popup = getTeleportedElement('.t-menu__spacer');
+      popup.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 293, clientY: 280 }));
+      popup.dispatchEvent(new MouseEvent('mouseleave', { clientX: 283, clientY: 266, relatedTarget: document.body }));
+      await vi.advanceTimersByTimeAsync(150);
+      document.body.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 274, clientY: 253 }));
+      await vi.advanceTimersByTimeAsync(150);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+      document.body.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true, clientX: 274, clientY: 253 }));
+      await vi.advanceTimersByTimeAsync(101);
+      await nextTick();
+      expect(submenu.findComponent(Popup).props('visible')).toBe(false);
+    });
+
     it.each(['reverse', 'idle'])('releases the popup when the pointer is %s', async (action) => {
       const { menu } = createMenu({ mode: ref('popup') });
       const { submenu, wrapper } = mountSubmenu(
