@@ -5,6 +5,30 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.11 `2026-11-05`
+
+### 🚀 Features
+
+- `Tree`: 修复`1.20.10` 版本禁用子节点参与父节点判断的逻辑移动，新增 `checkAllAffectedBy`，支持配置禁用子节点是否参与父节点全选、半选状态判定，默认为`all`，与 `1.20.9` 及之前的版本保持一致 @RSS1102 ([#7031](https://github.com/Tencent/tdesign-vue-next/pull/7031))
+
+### 🐞 Bug Fixes
+
+- 修复多个组件的斜八角动画无法铺满容器的问题 @RylanBot ([#7011](https://github.com/Tencent/tdesign-vue-next/pull/7011))
+- `Cascader`: 新增支持 bigint 类型 @RSS1102 ([#7017](https://github.com/Tencent/tdesign-vue-next/pull/7017))
+- `Form`: 修复组件调用 `clearValidate` 后，未完成的异步校验重新显示错误信息的问题 @FOWEPJF255 ([#7010](https://github.com/Tencent/tdesign-vue-next/pull/7010))
+- `Link`: 修复禁用状态下仍可点击触发 Popconfirm 等行为的问题 @PointerL ([#7020](https://github.com/Tencent/tdesign-vue-next/pull/7020))
+- `Select`: 修复下拉面板打开后动态禁用组件时仍可选择选项并触发 change 事件的问题 @Xapollon430 ([#7041](https://github.com/Tencent/tdesign-vue-next/pull/7041))
+- `Table`: 修复`validateTableData` 方法在 `1.20.5` 版本之后获取不到最新数据导致功能异常的问题 @uyarn ([#7044](https://github.com/Tencent/tdesign-vue-next/pull/7044))
+- `Tree`: 新增支持 bigint 类型 ，修复节点激活、零值节点操作及混合类型节点值导致的树数据异常的问题。 @RSS1102 ([#7017](https://github.com/Tencent/tdesign-vue-next/pull/7017))
+- `TreeSelect`: 
+  - 新增支持 bigint 类型  @RSS1102 ([#7017](https://github.com/Tencent/tdesign-vue-next/pull/7017))
+  - 修复自定义 keys 下对象选中值的解析、父节点展开和重复选择判断的问题 @RSS1102 ([#7019](https://github.com/Tencent/tdesign-vue-next/pull/7019))
+
+### 🚧 Others
+
+- `ColorPicker`: 调整颜色格式选择器宽度，优化展示不全的问题 @runoob-coder ([common#2726](https://github.com/Tencent/tdesign-common/pull/2726))
+- `Empty`: 使用图标库替换内置 SVG 文件 @liweijie0812 ([#7043](https://github.com/Tencent/tdesign-vue-next/pull/7043))
+
 ## 🌈 1.20.10 `2026-10-15`
 
 ### 🐞 Bug Fixes
