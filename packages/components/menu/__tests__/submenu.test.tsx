@@ -421,6 +421,33 @@ describe('Submenu', () => {
       expect(submenu.findComponent(Popup).props('visible')).toBe(false);
     });
 
+    it.each(['scroll', 'resize'])('updates the return path after %s moves the trigger', async (eventName) => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first' },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      await openSubmenu(wrapper);
+      const trigger = wrapper.get('.t-menu__item').element as HTMLElement;
+      let offset = 0;
+      document.body.appendChild(wrapper.element);
+      trigger.getBoundingClientRect = () =>
+        ({ left: 213, right: 304, top: 215 - offset, bottom: 238 - offset, width: 91, height: 23 } as DOMRect);
+      const popup = getTeleportedElement('.t-menu__spacer');
+      popup.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 293, clientY: 280 }));
+      popup.dispatchEvent(new MouseEvent('mouseleave', { clientX: 283, clientY: 266, relatedTarget: document.body }));
+      offset = 50;
+      window.dispatchEvent(new Event(eventName));
+      document.body.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 276, clientY: 230 }));
+      await vi.advanceTimersByTimeAsync(150);
+      document.body.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 270, clientY: 200 }));
+      await vi.advanceTimersByTimeAsync(150);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+      trigger.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 260, clientY: 175 }));
+      await vi.advanceTimersByTimeAsync(400);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+    });
+
     it.each(['reverse', 'idle'])('releases the popup when the pointer is %s', async (action) => {
       const { menu } = createMenu({ mode: ref('popup') });
       const { submenu, wrapper } = mountSubmenu(

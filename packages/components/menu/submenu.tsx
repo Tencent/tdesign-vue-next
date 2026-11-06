@@ -112,6 +112,7 @@ export default defineComponent({
     let returnPreviousPoint: { x: number; y: number } | undefined;
     let returnProgress = 0;
     let returnTimer: ReturnType<typeof setTimeout> | undefined;
+    let returnLastEvent: MouseEvent | undefined;
     let lastPopupPoint: { x: number; y: number } | undefined;
 
     // 存储 setTimeout 的 timer ID，用于清除定时器
@@ -478,8 +479,11 @@ export default defineComponent({
       returnTriangle = undefined;
       returnPreviousPoint = undefined;
       returnProgress = 0;
+      returnLastEvent = undefined;
       document.removeEventListener('mousemove', handleReturnMouseMove);
       document.removeEventListener('pointerdown', handleReturnPointerDown, true);
+      window.removeEventListener('scroll', updateReturnTriangle, true);
+      window.removeEventListener('resize', updateReturnTriangle);
     };
 
     const closeAfterReturn = (event: MouseEvent) => {
@@ -513,40 +517,60 @@ export default defineComponent({
       }
       returnProgress = result.progress;
       returnPreviousPoint = point;
+      returnLastEvent = event;
       if (returnTimer) clearTimeout(returnTimer);
       returnTimer = setTimeout(() => closeAfterReturn(event), 300);
+    };
+
+    const getReturnTriangle = (point: { x: number; y: number }, rect: DOMRect) => {
+      const { x, y } = point;
+      const dx = x < rect.left ? rect.left - x : x > rect.right ? x - rect.right : 0;
+      const dy = y < rect.top ? rect.top - y : y > rect.bottom ? y - rect.bottom : 0;
+      if (!dx && !dy) return undefined;
+      const direction: SafeTriangleDirection =
+        dx > dy ? (x < rect.left ? 'right' : 'left') : y < rect.top ? 'bottom' : 'top';
+      return getSafeTriangle(point, rect, direction);
+    };
+
+    const updateReturnTriangle = () => {
+      if (!returnTriangle || !returnPreviousPoint || !returnLastEvent) return;
+      const rect = submenuRef.value?.getBoundingClientRect();
+      if (!rect || !rect.width || !rect.height) {
+        closeAfterReturn(returnLastEvent);
+        return;
+      }
+      const triangle = getReturnTriangle(returnPreviousPoint, rect);
+      if (!triangle) {
+        stopReturnProtection();
+        clearTimers();
+        cancelHideTimer?.();
+        return;
+      }
+      returnTriangle = triangle;
+      returnProgress = 0;
     };
 
     const beginReturnProtection = (event: MouseEvent) => {
       const rect = submenuRef.value?.getBoundingClientRect();
       if (!rect || !lastPopupPoint || !rect.width || !rect.height) return false;
-      const x = event.clientX;
-      const y = event.clientY;
-      const dx = x < rect.left ? rect.left - x : x > rect.right ? x - rect.right : 0;
-      const dy = y < rect.top ? rect.top - y : y > rect.bottom ? y - rect.bottom : 0;
-      if (!dx && !dy) return false;
-      const direction: SafeTriangleDirection =
-        dx > dy ? (x < rect.left ? 'right' : 'left') : y < rect.top ? 'bottom' : 'top';
-      const toward =
-        direction === 'left'
-          ? lastPopupPoint.x - x
-          : direction === 'right'
-          ? x - lastPopupPoint.x
-          : direction === 'top'
-          ? lastPopupPoint.y - y
-          : y - lastPopupPoint.y;
+      const { clientX: x, clientY: y } = event;
+      const triangle = getReturnTriangle({ x, y }, rect);
+      if (!triangle) return false;
+      const direction = triangle.toward;
+      const toward = (x - lastPopupPoint.x) * direction.x + (y - lastPopupPoint.y) * direction.y;
       if (toward <= 0) return false;
       const target = event.relatedTarget as Element | null;
       if (target?.closest?.(`.${classPrefix.value}-menu__item, button, a, input, select, textarea`)) return false;
-      const triangle = getSafeTriangle({ x, y }, rect, direction);
-      if (!triangle) return false;
       stopReturnProtection();
       returnTriangle = triangle;
       returnPreviousPoint = { x, y };
+      returnLastEvent = event;
       clearTimers();
       cancelHideTimer?.();
       document.addEventListener('mousemove', handleReturnMouseMove, { passive: true });
       document.addEventListener('pointerdown', handleReturnPointerDown, true);
+      window.addEventListener('scroll', updateReturnTriangle, true);
+      window.addEventListener('resize', updateReturnTriangle);
       returnTimer = setTimeout(() => closeAfterReturn(event), 300);
       return true;
     };
