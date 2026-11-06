@@ -10,11 +10,6 @@ export interface SafeTriangleGeometry {
   edgeLengths: [number, number, number];
   anchor: SafeTrianglePoint;
   toward: SafeTrianglePoint;
-  top: number;
-  left: number;
-  width: number;
-  height: number;
-  path: string;
 }
 
 type PopupRect = Pick<DOMRect, 'top' | 'right' | 'bottom' | 'left' | 'width' | 'height'>;
@@ -62,12 +57,6 @@ export function getSafeTriangle(
   }[direction];
   const distanceToEdge = (nearEdge[0].x - pointer.x) * toward.x + (nearEdge[0].y - pointer.y) * toward.y;
   if (distanceToEdge <= 0) return undefined;
-  const left = Math.min(pointer.x, nearEdge[0].x, nearEdge[1].x);
-  const top = Math.min(pointer.y, nearEdge[0].y, nearEdge[1].y);
-  const right = Math.max(pointer.x, nearEdge[0].x, nearEdge[1].x);
-  const bottom = Math.max(pointer.y, nearEdge[0].y, nearEdge[1].y);
-  const toLocal = ({ x, y }: SafeTrianglePoint) => `${x - left},${y - top}`;
-
   return {
     points: [pointer, nearEdge[0], nearEdge[1]],
     edgeLengths: [
@@ -77,11 +66,6 @@ export function getSafeTriangle(
     ],
     anchor: pointer,
     toward,
-    top,
-    left,
-    width: Math.max(right - left, 1),
-    height: Math.max(bottom - top, 1),
-    path: `M ${toLocal(pointer)} L ${toLocal(nearEdge[0])} L ${toLocal(nearEdge[1])} Z`,
   };
 }
 
@@ -110,8 +94,8 @@ export function isPointerFollowingSafePath(
   triangle: SafeTriangleGeometry,
   furthestProgress: number,
   previousPoint: SafeTrianglePoint = triangle.anchor,
-  tolerance = 4,
   lastAdvancingPoint: SafeTrianglePoint = previousPoint,
+  maxBacktrack = 1,
 ) {
   if (!isPointInSafeTriangle(point, triangle.points, 3, triangle.edgeLengths)) {
     return { active: false, progress: furthestProgress };
@@ -124,10 +108,8 @@ export function isPointerFollowingSafePath(
   // Allow small quantized lateral steps, but release for a deliberate sibling
   // move even if several small steps remain inside the triangle.
   const lateralDrift = Math.abs((point.x - lastAdvancingPoint.x) * y - (point.y - lastAdvancingPoint.y) * x);
-  if (progress < furthestProgress - Math.min(tolerance, 1) || (movementTowardPopup <= 0.25 && lateralDrift > 2)) {
+  if (progress < furthestProgress - maxBacktrack || (movementTowardPopup <= 0.25 && lateralDrift > 2)) {
     return { active: false, progress };
   }
-  if (progress < furthestProgress - tolerance) return { active: false, progress };
-
   return { active: true, progress: Math.max(furthestProgress, progress) };
 }

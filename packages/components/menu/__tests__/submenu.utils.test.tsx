@@ -43,14 +43,20 @@ describe('submenu safe triangle', () => {
     const triangle = getSafeTriangle({ x: 50, y: 50 }, popupRect, 'right');
     if (!triangle) throw new Error('Expected triangle');
     const advancing = { x: 75, y: 60 };
-    expect(isPointerFollowingSafePath({ x: 75, y: 61 }, triangle, 25, advancing, 4, advancing).active).toBe(true);
-    expect(isPointerFollowingSafePath({ x: 75, y: 63 }, triangle, 25, { x: 75, y: 62 }, 4, advancing).active).toBe(
-      false,
-    );
-    expect(isPointerFollowingSafePath({ x: 74, y: 60 }, triangle, 25, advancing, 4, advancing).active).toBe(true);
-    expect(isPointerFollowingSafePath({ x: 73, y: 60 }, triangle, 25, { x: 74, y: 60 }, 4, advancing).active).toBe(
-      false,
-    );
+    expect(isPointerFollowingSafePath({ x: 75, y: 61 }, triangle, 25, advancing, advancing).active).toBe(true);
+    expect(isPointerFollowingSafePath({ x: 75, y: 63 }, triangle, 25, { x: 75, y: 62 }, advancing).active).toBe(false);
+    expect(isPointerFollowingSafePath({ x: 74, y: 60 }, triangle, 25, advancing, advancing).active).toBe(true);
+    expect(isPointerFollowingSafePath({ x: 73, y: 60 }, triangle, 25, { x: 74, y: 60 }, advancing).active).toBe(false);
+  });
+
+  it('allows limited return jitter without changing forward reversal handling', () => {
+    const triangle = getSafeTriangle({ x: 50, y: 50 }, popupRect, 'right');
+    if (!triangle) throw new Error('Expected triangle');
+    const previous = { x: 75, y: 50 };
+    const jitter = { x: 73, y: 50 };
+    expect(isPointerFollowingSafePath(jitter, triangle, 25, previous).active).toBe(false);
+    expect(isPointerFollowingSafePath(jitter, triangle, 25, previous, previous, 4).active).toBe(true);
+    expect(isPointerFollowingSafePath({ x: 70, y: 50 }, triangle, 25, jitter, jitter, 4).active).toBe(false);
   });
 
   it('tolerates a small deviation near the tip while rejecting a larger deviation', () => {
