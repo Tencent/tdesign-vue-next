@@ -360,6 +360,235 @@ describe('Submenu', () => {
       expect(parentSubmenu.cancelHideTimer).toHaveBeenCalled();
     });
 
+    it('keeps the popup open while the pointer crosses the safe triangle into its popup', async () => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first' },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      await openSubmenu(wrapper);
+
+      const popup = getTeleportedElement('.t-popup');
+      popup.getBoundingClientRect = vi.fn(
+        () => ({ left: 300, right: 500, top: 100, bottom: 300, width: 200, height: 200 } as DOMRect),
+      );
+
+      await wrapper.get('li').trigger('mouseleave', { clientX: 250, clientY: 150, relatedTarget: null });
+      document.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 250, clientY: 150 }));
+      await nextTick();
+      vi.mocked(popup.getBoundingClientRect).mockClear();
+
+      await vi.advanceTimersByTimeAsync(150);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+
+      document.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 275, clientY: 150 }));
+      await vi.advanceTimersByTimeAsync(200);
+      document.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 285, clientY: 150 }));
+      expect(popup.getBoundingClientRect).not.toHaveBeenCalled();
+      await vi.advanceTimersByTimeAsync(200);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+
+      popup.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 310, clientY: 150 }));
+      await vi.advanceTimersByTimeAsync(500);
+      await nextTick();
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+    });
+
+    it.each([
+      { placement: 'bottom-start', leaveY: 105, popupTop: 120, popupBottom: 220 },
+      { placement: 'top-start', leaveY: 195, popupTop: 80, popupBottom: 180 },
+    ])(
+      'protects the gap before the visible popup for $placement',
+      async ({ placement, leaveY, popupTop, popupBottom }) => {
+        const { menu } = createMenu({ mode: ref('popup') });
+        const { submenu, wrapper } = mountSubmenu(
+          { title: 'First', value: 'first' },
+          { menu, slots: { default: () => 'First child' } },
+        );
+        await openSubmenu(wrapper);
+        const options = submenu.findComponent(Popup).props('popperOptions') as {
+          modifiers: Array<{ fn?: (input: { state: { placement: string } }) => void }>;
+        };
+        options.modifiers[0].fn?.({ state: { placement } });
+        const content = getTeleportedElement('.t-menu__spacer');
+        content.getBoundingClientRect = () =>
+          ({ left: 100, right: 200, top: popupTop, bottom: popupBottom, width: 100, height: 100 } as DOMRect);
+        await wrapper.get('li').trigger('mouseleave', { clientX: 150, clientY: leaveY, relatedTarget: null });
+        await vi.advanceTimersByTimeAsync(150);
+        expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+        content.dispatchEvent(new MouseEvent('mouseenter'));
+        await vi.advanceTimersByTimeAsync(200);
+        expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+      },
+    );
+
+    it('stops hit testing a popup immediately when switching directly to a sibling', async () => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first', popupProps: { overlayStyle: { color: 'red' } } },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      await openSubmenu(wrapper);
+      const popup = getTeleportedElement('.t-popup');
+      popup.getBoundingClientRect = () =>
+        ({ left: 300, right: 500, top: 100, bottom: 300, width: 200, height: 200 } as DOMRect);
+      const current = wrapper.get('li');
+      const sibling = document.createElement('li');
+      sibling.className = 't-submenu';
+      current.element.parentElement?.appendChild(sibling);
+      await current.trigger('mousemove', { clientX: 250, clientY: 150 });
+      await current.trigger('mouseleave', { clientX: 250, clientY: 210, relatedTarget: sibling });
+      await nextTick();
+      expect(submenu.findComponent(Popup).props('visible')).toBe(false);
+      expect(submenu.findComponent(Popup).props('overlayStyle')).toEqual({ color: 'red', pointerEvents: 'none' });
+      sibling.remove();
+    });
+
+    it('preserves function-based popup styles when hit testing is disabled', async () => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const overlayStyle = vi.fn((_trigger: HTMLElement, _popup: HTMLElement) => ({ color: 'red' }));
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first', popupProps: { overlayStyle } },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      const closedStyle = submenu.findComponent(Popup).props('overlayStyle');
+      expect(typeof closedStyle).toBe('function');
+      expect((closedStyle as typeof overlayStyle)(document.body, document.body)).toEqual({
+        color: 'red',
+        pointerEvents: 'none',
+      });
+      await openSubmenu(wrapper);
+      expect(submenu.findComponent(Popup).props('overlayStyle')).toBe(overlayStyle);
+    });
+
+    it('keeps the popup open on a diagonal return to its trigger and releases on an outside click', async () => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first' },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      await openSubmenu(wrapper);
+      const trigger = wrapper.get('.t-menu__item').element as HTMLElement;
+      trigger.getBoundingClientRect = () =>
+        ({ left: 213, right: 304, top: 215, bottom: 238, width: 91, height: 23 } as DOMRect);
+      const popup = getTeleportedElement('.t-menu__spacer');
+      popup.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 293, clientY: 280 }));
+      popup.dispatchEvent(new MouseEvent('mouseleave', { clientX: 283, clientY: 266, relatedTarget: document.body }));
+      await vi.advanceTimersByTimeAsync(150);
+      document.body.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 274, clientY: 253 }));
+      document.body.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 274, clientY: 255 }));
+      await vi.advanceTimersByTimeAsync(150);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+      document.body.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true, clientX: 274, clientY: 253 }));
+      await vi.advanceTimersByTimeAsync(101);
+      await nextTick();
+      expect(submenu.findComponent(Popup).props('visible')).toBe(false);
+    });
+
+    it.each(['scroll', 'resize'])('updates the return path after %s moves the trigger', async (eventName) => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first' },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      await openSubmenu(wrapper);
+      const trigger = wrapper.get('.t-menu__item').element as HTMLElement;
+      let offset = 0;
+      document.body.appendChild(wrapper.element);
+      trigger.getBoundingClientRect = () =>
+        ({ left: 213, right: 304, top: 215 - offset, bottom: 238 - offset, width: 91, height: 23 } as DOMRect);
+      const popup = getTeleportedElement('.t-menu__spacer');
+      popup.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 293, clientY: 280 }));
+      popup.dispatchEvent(new MouseEvent('mouseleave', { clientX: 283, clientY: 266, relatedTarget: document.body }));
+      offset = 50;
+      window.dispatchEvent(new Event(eventName));
+      document.body.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 276, clientY: 230 }));
+      await vi.advanceTimersByTimeAsync(150);
+      document.body.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 270, clientY: 200 }));
+      await vi.advanceTimersByTimeAsync(150);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+      trigger.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 260, clientY: 175 }));
+      await vi.advanceTimersByTimeAsync(400);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+    });
+
+    it.each(['reverse', 'idle'])('releases the popup when the pointer is %s', async (action) => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first' },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      await openSubmenu(wrapper);
+      const popup = getTeleportedElement('.t-popup');
+      popup.getBoundingClientRect = () =>
+        ({ left: 300, right: 500, top: 100, bottom: 300, width: 200, height: 200 } as DOMRect);
+      await wrapper.get('li').trigger('mouseleave', { clientX: 250, clientY: 150, relatedTarget: null });
+      await nextTick();
+      document.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 275, clientY: 150 }));
+      if (action === 'reverse') {
+        document.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 270, clientY: 150 }));
+      }
+      await vi.advanceTimersByTimeAsync(401);
+      await nextTick();
+      expect(submenu.findComponent(Popup).props('visible')).toBe(false);
+    });
+
+    it.each(['empty', 'outside', 'sibling'])(
+      'distinguishes a pause over %s from a sibling selection',
+      async (target) => {
+        const { menu } = createMenu({ mode: ref('popup') });
+        const { submenu, wrapper } = mountSubmenu(
+          { title: 'First', value: 'first' },
+          { menu, slots: { default: () => 'First child' } },
+        );
+        await openSubmenu(wrapper);
+        const popup = getTeleportedElement('.t-popup');
+        popup.getBoundingClientRect = () =>
+          ({ left: 300, right: 500, top: 100, bottom: 300, width: 200, height: 200 } as DOMRect);
+        const below = document.createElement('div');
+        below.className = target === 'empty' ? 't-menu' : target === 'sibling' ? 't-menu__item' : '';
+        Object.defineProperty(document, 'elementFromPoint', { configurable: true, value: () => below });
+
+        await wrapper.get('li').trigger('mouseleave', { clientX: 250, clientY: 150, relatedTarget: null });
+        await nextTick();
+        document.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 275, clientY: 150 }));
+        await vi.advanceTimersByTimeAsync(401);
+        expect(submenu.findComponent(Popup).props('visible')).toBe(target !== 'sibling');
+        if (target !== 'sibling') {
+          popup.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: 310, clientY: 150 }));
+          await vi.advanceTimersByTimeAsync(1000);
+          expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+        }
+        Reflect.deleteProperty(document, 'elementFromPoint');
+      },
+    );
+
+    it.each([
+      ['directly', 250, 130, false],
+      ['mostly sideways with a small forward component', 254, 240, false],
+      ['diagonally toward the popup', 255, 145, true],
+    ])('handles a pointer moving %s toward a sibling', async (_description, nextX, nextY, protectedPath) => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first' },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      await openSubmenu(wrapper);
+      const popup = getTeleportedElement('.t-popup');
+      popup.getBoundingClientRect = () =>
+        ({ left: 300, right: 500, top: 100, bottom: 300, width: 200, height: 200 } as DOMRect);
+      const sibling = document.createElement('li');
+      sibling.className = 't-submenu';
+      document.body.appendChild(sibling);
+
+      await wrapper.get('li').trigger('mousemove', { clientX: 250, clientY: 150 });
+      await wrapper.get('li').trigger('mouseleave', { clientX: nextX, clientY: nextY, relatedTarget: sibling });
+      await vi.advanceTimersByTimeAsync(150);
+      await nextTick();
+      expect(submenu.findComponent(Popup).props('visible')).toBe(protectedPath);
+      sibling.remove();
+    });
+
     it('mouseenter (disabled)', async () => {
       const { menu } = createMenu({ mode: ref('popup') });
       const { submenu, wrapper } = mountSubmenu(
@@ -387,11 +616,11 @@ describe('Submenu', () => {
       const spacer = getTeleportedElement('.t-menu__spacer');
 
       updatePlacement?.({ state: { placement: 'bottom-right' } });
-      expect(spacer.classList).toContain('t-menu__spacer--bottom');
+      expect(spacer.classList).not.toContain('t-menu__spacer--bottom');
       expect(spacer.classList).not.toContain('t-menu__spacer--top');
 
       updatePlacement?.({ state: { placement: 'top-left' } });
-      expect(spacer.classList).toContain('t-menu__spacer--top');
+      expect(spacer.classList).not.toContain('t-menu__spacer--top');
       expect(spacer.classList).not.toContain('t-menu__spacer--bottom');
 
       updatePlacement?.({ state: { placement: 'right-top' } });
@@ -435,6 +664,13 @@ describe('Submenu', () => {
       await nextTick();
       expect(parentSubmenu.setSubPopup).toHaveBeenCalledWith(expect.any(HTMLElement));
       expect(parentSubmenu.cancelHideTimer).toHaveBeenCalled();
+
+      getTeleportedElement('.t-popup').getBoundingClientRect = () =>
+        ({ left: 300, right: 500, top: 100, bottom: 300, width: 200, height: 200 } as DOMRect);
+      childContext?.closeParentPopup?.(new MouseEvent('mouseleave', { clientX: 350, clientY: 150 }));
+      await vi.advanceTimersByTimeAsync(150);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+      expect(parentSubmenu.closeParentPopup).not.toHaveBeenCalled();
 
       childContext?.closeParentPopup?.(new MouseEvent('mouseleave'));
       expect(parentSubmenu.closeParentPopup).toHaveBeenCalled();
@@ -526,6 +762,10 @@ describe('Submenu', () => {
               <Submenu title="Child" value="child">
                 <MenuItem value="leaf">Leaf</MenuItem>
               </Submenu>
+              <Submenu title="Other" value="other">
+                <MenuItem value="other-leaf">Other leaf</MenuItem>
+              </Submenu>
+              <MenuItem value="sibling">Sibling</MenuItem>
             </Submenu>
           );
         },
@@ -551,6 +791,111 @@ describe('Submenu', () => {
       expect(spacers.length).toBeGreaterThanOrEqual(2);
       spacers[0].dispatchEvent(new MouseEvent('mouseleave', { relatedTarget: spacers.at(-1) }));
       expect(closeParentPopup).not.toHaveBeenCalled();
+
+      const childPopup = spacers.at(-1)?.closest<HTMLElement>('.t-popup');
+      if (!childPopup) throw new Error('Expected child popup');
+      childPopup.getBoundingClientRect = () =>
+        ({ left: 300, right: 500, top: 100, bottom: 300, width: 200, height: 200 } as DOMRect);
+      const childTrigger = childSubmenu.querySelector<HTMLElement>('.t-menu__item');
+      if (!childTrigger) throw new Error('Expected child trigger');
+      childTrigger.getBoundingClientRect = () =>
+        ({ left: 200, right: 280, top: 130, bottom: 170, width: 80, height: 40 } as DOMRect);
+      const listeners = vi.spyOn(document, 'addEventListener');
+      childSubmenu.dispatchEvent(new MouseEvent('mousemove', { clientX: 270, clientY: 145, bubbles: true }));
+      childSubmenu.dispatchEvent(
+        new MouseEvent('mouseleave', { clientX: 250, clientY: 200, relatedTarget: document.body }),
+      );
+      await nextTick();
+      expect(listeners.mock.calls.filter(([type]) => type === 'mousemove')).toHaveLength(0);
+      childSubmenu.dispatchEvent(new MouseEvent('mouseenter'));
+      await vi.advanceTimersByTimeAsync(1);
+      childSubmenu.dispatchEvent(new MouseEvent('mousemove', { clientX: 230, clientY: 145, bubbles: true }));
+      childSubmenu.dispatchEvent(
+        new MouseEvent('mouseleave', { clientX: 250, clientY: 350, relatedTarget: document.body }),
+      );
+      await nextTick();
+      expect(listeners.mock.calls.filter(([type]) => type === 'mousemove')).toHaveLength(0);
+      childSubmenu.dispatchEvent(new MouseEvent('mouseenter'));
+      await vi.advanceTimersByTimeAsync(1);
+      childSubmenu.dispatchEvent(new MouseEvent('mousemove', { clientX: 230, clientY: 145, bubbles: true }));
+      const sibling = [...document.body.querySelectorAll<HTMLElement>('.t-menu__item--plain')].find(
+        (item) => item.textContent === 'Sibling',
+      );
+      if (!sibling) throw new Error('Expected sibling item');
+      const originalElementFromPoint = Object.getOwnPropertyDescriptor(document, 'elementFromPoint');
+      let pointTarget: Element = sibling;
+      Object.defineProperty(document, 'elementFromPoint', { configurable: true, value: () => pointTarget });
+      childSubmenu.dispatchEvent(new MouseEvent('mouseleave', { clientX: 250, clientY: 150, relatedTarget: sibling }));
+      await nextTick();
+      expect(listeners.mock.calls.filter(([type]) => type === 'mousemove')).toHaveLength(1);
+      await vi.advanceTimersByTimeAsync(250);
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 260, clientY: 155, bubbles: true }));
+      pointTarget = document.createElement('button');
+      await vi.advanceTimersByTimeAsync(200);
+      expect(childPopup.querySelector('.t-popup__content')?.classList.contains('t-is-opened')).toBe(true);
+      sibling.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true }));
+      await vi.advanceTimersByTimeAsync(101);
+      await nextTick();
+      expect(childPopup.querySelector('.t-popup__content')?.classList.contains('t-is-opened')).toBe(false);
+
+      if (originalElementFromPoint) Object.defineProperty(document, 'elementFromPoint', originalElementFromPoint);
+      else Reflect.deleteProperty(document, 'elementFromPoint');
+      listeners.mockRestore();
+      wrapper.unmount();
+    });
+
+    it.each(['click', 'hover'])('opens a deferred sibling submenu after %s', async (action) => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      // eslint-disable-next-line vue/one-component-per-file -- Reproduce a real nested popup menu.
+      const Host = defineComponent({
+        name: 'TMenu',
+        setup() {
+          provide('TdMenu', menu);
+          return () => (
+            <Submenu title="Parent" value="parent">
+              <Submenu title="Child" value="child">
+                <MenuItem value="one">One</MenuItem>
+              </Submenu>
+              <Submenu title="Other" value="other">
+                <MenuItem value="two">Two</MenuItem>
+              </Submenu>
+            </Submenu>
+          );
+        },
+      });
+      const wrapper = mount(Host, { attachTo: document.body });
+      await nextTick();
+      await wrapper.get('li').trigger('mouseenter');
+      await vi.advanceTimersByTimeAsync(1);
+      const [child, other] = [...document.body.querySelectorAll<HTMLElement>('.t-menu__popup-wrapper > li.t-submenu')];
+      child.dispatchEvent(new MouseEvent('mouseenter'));
+      await vi.advanceTimersByTimeAsync(1);
+      await nextTick();
+      const popup = [...document.body.querySelectorAll<HTMLElement>('.t-menu__spacer')]
+        .at(-1)
+        ?.closest<HTMLElement>('.t-popup');
+      if (!popup) throw new Error('Expected child popup');
+      popup.getBoundingClientRect = () =>
+        ({ left: 300, right: 500, top: 100, bottom: 300, width: 200, height: 200 } as DOMRect);
+      const otherTrigger = other.querySelector<HTMLElement>('.t-menu__item');
+      if (!otherTrigger) throw new Error('Expected sibling submenu trigger');
+      vi.spyOn(otherTrigger, 'matches').mockImplementation((selector) => selector === ':hover');
+      child.dispatchEvent(new MouseEvent('mousemove', { clientX: 230, clientY: 145, bubbles: true }));
+      child.dispatchEvent(new MouseEvent('mouseleave', { clientX: 250, clientY: 150, relatedTarget: other }));
+      other.dispatchEvent(new MouseEvent('mouseenter', { clientX: 250, clientY: 150 }));
+      await vi.advanceTimersByTimeAsync(1);
+      expect(menu.open).not.toHaveBeenCalledWith('other');
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 250, clientY: 151, bubbles: true }));
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 251, clientY: 151, bubbles: true }));
+      await vi.advanceTimersByTimeAsync(330);
+      expect(menu.open).not.toHaveBeenCalledWith('other');
+      if (action === 'click') {
+        otherTrigger.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true }));
+        await vi.advanceTimersByTimeAsync(1);
+      } else {
+        await vi.advanceTimersByTimeAsync(200);
+      }
+      expect(menu.open).toHaveBeenCalledWith('other');
       wrapper.unmount();
     });
   });

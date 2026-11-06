@@ -31,6 +31,9 @@ import FakeArrow from '../common-components/fake-arrow';
 import { Popup, PopupPlacement } from '../popup';
 
 import { TdSubmenuProps } from './type';
+import type { SafeTriangleDirection } from './utils/safe-triangle';
+import { deferProtectedSibling } from './utils/forward-protection';
+import { createMenuProtection } from './utils/menu-protection';
 
 export default defineComponent({
   name: 'TSubmenu',
@@ -94,16 +97,30 @@ export default defineComponent({
       }
     };
 
+    // 记录 Popper 的实际方位（包含翻转），用于计算安全三角形。
+    let actualPlacement: SafeTriangleDirection | '' = '';
+
+    const getActualDirection = (): SafeTriangleDirection => {
+      if (actualPlacement) return actualPlacement;
+      return isNested.value || !isHead ? 'right' : 'bottom';
+    };
+
+    const getPopupElement = () =>
+      popupWrapperRef.value?.closest<HTMLElement>(`.${classPrefix.value}-popup`) ?? popupWrapperRef.value;
+
+    const getSafePopupElement = () => {
+      const direction = getActualDirection();
+      // Vertical popup containers include padding over the gap; protect up to the visible content instead.
+      return direction === 'top' || direction === 'bottom' ? popupWrapperRef.value : getPopupElement();
+    };
+
     const handlePlacementChange = ({ placement }: { placement: string }) => {
-      const spacerEl = popupWrapperRef.value;
-      if (!spacerEl) return;
-
-      const prefixClassName = `${classPrefix.value}-menu__spacer`;
-      const isBottom = placement.startsWith('bottom');
-      const isTop = placement.startsWith('top');
-
-      spacerEl.classList.toggle(`${prefixClassName}--bottom`, isBottom);
-      spacerEl.classList.toggle(`${prefixClassName}--top`, isTop);
+      let dir: SafeTriangleDirection = 'right';
+      if (placement.startsWith('left')) dir = 'left';
+      else if (placement.startsWith('top')) dir = 'top';
+      else if (placement.startsWith('bottom')) dir = 'bottom';
+      actualPlacement = dir;
+      menuProtection.towardPopup.update();
     };
 
     const classes = computed(() => [
@@ -127,6 +144,14 @@ export default defineComponent({
       { [`${classPrefix.value}-menu-is-nested`]: isNested.value },
       props.popupProps?.overlayClassName,
     ]);
+    const popupOverlayStyle = computed(() => {
+      const style = props.popupProps?.overlayStyle;
+      if (popupVisible.value) return style;
+      if (isFunction(style)) {
+        return (trigger: HTMLElement, popup: HTMLElement) => ({ ...style(trigger, popup), pointerEvents: 'none' });
+      }
+      return { ...style, pointerEvents: 'none' };
+    });
     const submenuClass = computed(() => [
       `${classPrefix.value}-menu__item`,
       {
@@ -174,10 +199,18 @@ export default defineComponent({
           subPopupRef.value = ref;
         },
         closeParentPopup: (e: MouseEvent) => {
-          // 不再检查 relatedTarget，直接触发父级的延迟隐藏
-          // 如果鼠标真的停留在父级，父级的 handleEnterPopup 会取消定时器
-          // 如果鼠标继续离开，定时器会触发隐藏
-
+          const rect = getPopupElement()?.getBoundingClientRect();
+          if (
+            rect &&
+            rect.width > 0 &&
+            rect.height > 0 &&
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom
+          ) {
+            return;
+          }
           clearTimers();
 
           // 设置父级的延迟隐藏
@@ -212,10 +245,12 @@ export default defineComponent({
     };
 
     // methods
-    const handleMouseEnter = () => {
+    const handleMouseEnter = (event?: MouseEvent) => {
       if (props.disabled) return;
-
+      const element = submenuRef.value;
+      if (event && element && deferProtectedSibling(element, event, classPrefix.value, handleMouseEnter)) return;
       clearTimers();
+      menuProtection.towardPopup.clear();
 
       // 通知父级取消隐藏定时器
       if (isFunction(cancelHideTimer)) {
@@ -239,16 +274,76 @@ export default defineComponent({
     const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
 
     const handleMouseLeave = (e: MouseEvent) => {
+      menuProtection.towardPopup.begin(e);
       clearTimers();
+
+      const current = e.currentTarget as Element;
+      const sibling = (e.relatedTarget as Element | null)?.closest?.(`.${classPrefix.value}-submenu`);
+      if (
+        sibling &&
+        sibling !== current &&
+        sibling.parentElement === current?.parentElement &&
+        !menuProtection.towardPopup.isActive()
+      ) {
+        popupVisible.value = false;
+        return;
+      }
 
       hideTimer.value = setTimeout(() => {
         const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
 
-        if (isCursorInPopup.value || inPopup) return;
+        if (isCursorInPopup.value || inPopup) {
+          hideTimer.value = null;
+          return;
+        }
+        if (menuProtection.towardPopup.isActive()) {
+          hideTimer.value = null;
+          return;
+        }
         popupVisible.value = false;
         hideTimer.value = null;
       }, 100);
     };
+
+    const holdProtection = () => {
+      clearTimers();
+      cancelHideTimer?.();
+    };
+
+    const menuProtection = createMenuProtection({
+      towardPopup: {
+        isVisible: () => popupVisible.value,
+        getMode: () => mode.value,
+        getPrefix: () => classPrefix.value,
+        getTrigger: () => submenuRef.value,
+        getSafePopupElement,
+        getActualDirection,
+        onHold: holdProtection,
+        onRelease: (event) => {
+          clearTimers();
+          hideTimer.value = setTimeout(() => {
+            if (isCursorInPopup.value) return;
+            popupVisible.value = false;
+            hideTimer.value = null;
+          }, 100);
+          closeParentPopup?.(event);
+        },
+        onEnterPopup: () => handleEnterPopup(),
+      },
+      towardTrigger: {
+        trigger: submenuRef,
+        classPrefix,
+        onHold: holdProtection,
+        onRelease: (event) => {
+          clearTimers();
+          hideTimer.value = setTimeout(() => {
+            if (!isCursorInPopup.value) popupVisible.value = false;
+            hideTimer.value = null;
+          }, 100);
+          closeParentPopup?.(event);
+        },
+      },
+    });
 
     const handleMouseLeavePopup = (e: any) => {
       const { toElement, relatedTarget } = e;
@@ -264,10 +359,12 @@ export default defineComponent({
       isCursorInPopup.value = false;
 
       if (!isSubmenu(target)) {
+        if (menuProtection.towardTrigger.begin(e)) return;
         clearTimers();
 
         // 使用延迟隐藏，避免在子项之间移动时闪烁
         hideTimer.value = setTimeout(() => {
+          if (isCursorInPopup.value) return;
           popupVisible.value = false;
           hideTimer.value = null;
         }, 100);
@@ -276,7 +373,9 @@ export default defineComponent({
         closeParentPopup?.(e);
       }
     };
+
     const handleEnterPopup = () => {
+      menuProtection.enterPopup();
       isCursorInPopup.value = true;
 
       // 进入 popup 时清除隐藏定时器
@@ -313,6 +412,7 @@ export default defineComponent({
           ]}
           onMouseenter={handleEnterPopup}
           onMouseleave={handleMouseLeavePopup}
+          onMousemove={menuProtection.towardTrigger.recordPoint}
         >
           <ul
             class={[
@@ -353,6 +453,7 @@ export default defineComponent({
           {...(props.popupProps ?? {})}
           overlayInnerClassName={[...overlayInnerClassName.value]}
           overlayClassName={[...overlayClassName.value]}
+          overlayStyle={popupOverlayStyle.value}
           visible={popupVisible.value}
           placement={placement}
           popperOptions={popperOptions}
@@ -439,6 +540,11 @@ export default defineComponent({
 
     watch(popupVisible, (visible) => {
       menu.open(props.value, visible ? 'add' : 'remove');
+      if (visible) {
+        nextTick(menuProtection.towardPopup.update);
+      } else {
+        menuProtection.towardPopup.clear();
+      }
     });
 
     watch(popupWrapperRef, () => {
@@ -461,7 +567,10 @@ export default defineComponent({
 
     // Cleanup timers on unmount to prevent memory leaks
     onBeforeUnmount(() => {
+      menuProtection.towardTrigger.stop();
+      menuProtection.towardPopup.cancelPending();
       clearTimers();
+      menuProtection.towardPopup.clear();
       menu?.vMenu?.remove(props.value);
     });
 
@@ -473,6 +582,7 @@ export default defineComponent({
       if (mode.value === 'popup') {
         events = {
           onMouseenter: handleMouseEnter,
+          onMousemove: menuProtection.towardPopup.recordTrigger,
           onMouseleave: handleMouseLeave,
         };
         // popup模式下且存在多层的特殊封装场景中，需要将子节点挂载进行计算高亮
