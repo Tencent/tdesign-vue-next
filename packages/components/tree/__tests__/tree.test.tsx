@@ -2,7 +2,11 @@
 /* eslint-disable vue/one-component-per-file */
 import { nextTick } from 'vue';
 import { enableAutoUnmount, mount } from '@vue/test-utils';
-import Tree, { type TreeInstanceFunctions, type TreeScrollToElementParams } from '@tdesign/components/tree';
+import Tree, {
+  type TdTreeProps,
+  type TreeInstanceFunctions,
+  type TreeScrollToElementParams,
+} from '@tdesign/components/tree';
 import type { TreeOptionData } from '@tdesign/components/common';
 import { defineComponent } from './adapt';
 import { delay } from './kit';
@@ -184,6 +188,84 @@ describe('Tree', () => {
         }
       },
     );
+  });
+
+  const renderCheckTree = async (
+    checkAllAffectedBy: TdTreeProps['checkAllAffectedBy'],
+    props: Partial<TdTreeProps> = {},
+  ) => {
+    const wrapper = mount(Tree, {
+      props: {
+        data: [{ value: 'P', children: [{ value: 'A' }, { value: 'B' }, { value: 'D', disabled: true }] }],
+        checkable: true,
+        expandAll: true,
+        transition: false,
+        valueMode: 'parentFirst',
+        value: ['A', 'B'],
+        checkAllAffectedBy,
+        ...props,
+      },
+    });
+    await vi.waitFor(() => expect(wrapper.find('[data-value="D"] input').exists()).toBe(true));
+    return wrapper;
+  };
+
+  describe('props', () => {
+    describe('checkAllAffectedBy', () => {
+      it.each([
+        [undefined, false],
+        ['all', false],
+        ['onlyEnabled', true],
+      ] as const)('%s derives the parent state without selecting disabled children', async (scope, fullyChecked) => {
+        const wrapper = await renderCheckTree(scope);
+        expect(wrapper.props('checkAllAffectedBy')).toBe(scope ?? 'all');
+        const parent = wrapper.get('[data-value="P"] .t-checkbox');
+        expect(parent.classes('t-is-checked')).toBe(fullyChecked);
+        expect(parent.classes('t-is-indeterminate')).toBe(!fullyChecked);
+        expect((wrapper.get('[data-value="D"] input').element as HTMLInputElement).checked).toBe(false);
+        expect(wrapper.props('value')).toEqual(['A', 'B']);
+      });
+
+      it('onlyEnabled does not derive a parent state when all children are disabled', async () => {
+        const wrapper = await renderCheckTree('onlyEnabled', {
+          data: [{ value: 'P', children: [{ value: 'D', disabled: true }] }],
+          value: ['D'],
+        });
+        const parent = wrapper.get('[data-value="P"] .t-checkbox');
+        expect(parent.classes('t-is-checked')).toBe(false);
+        expect(parent.classes('t-is-indeterminate')).toBe(false);
+        expect((wrapper.get('[data-value="D"] input').element as HTMLInputElement).checked).toBe(true);
+      });
+    });
+  });
+
+  describe('scenarios', () => {
+    describe('checkAllAffectedBy with checkStrictly', () => {
+      it.each(['all', 'onlyEnabled'] as const)('%s does not link parent and child selection', async (scope) => {
+        const wrapper = await renderCheckTree(scope, { checkStrictly: true });
+        const parent = wrapper.get('[data-value="P"] .t-checkbox');
+        expect(parent.classes('t-is-checked')).toBe(false);
+        expect(parent.classes('t-is-indeterminate')).toBe(false);
+        expect((wrapper.get('[data-value="A"] input').element as HTMLInputElement).checked).toBe(true);
+      });
+    });
+
+    describe('checkAllAffectedBy changes', () => {
+      it('updates the parent state without rewriting value or emitting change', async () => {
+        const onChange = vi.fn();
+        const wrapper = await renderCheckTree('onlyEnabled', { onChange });
+        const parent = () => wrapper.get('[data-value="P"] .t-checkbox');
+        expect(parent().classes('t-is-checked')).toBe(true);
+        await wrapper.setProps({ checkAllAffectedBy: 'all' });
+        await vi.waitFor(() => expect(parent().classes('t-is-indeterminate')).toBe(true));
+        expect(parent().classes('t-is-checked')).toBe(false);
+        await wrapper.setProps({ checkAllAffectedBy: 'onlyEnabled' });
+        await vi.waitFor(() => expect(parent().classes('t-is-checked')).toBe(true));
+        expect(parent().classes('t-is-indeterminate')).toBe(false);
+        expect(wrapper.props('value')).toEqual(['A', 'B']);
+        expect(onChange).not.toHaveBeenCalled();
+      });
+    });
   });
 });
 

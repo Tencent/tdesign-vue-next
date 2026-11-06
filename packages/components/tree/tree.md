@@ -11,6 +11,7 @@ activeMultiple | Boolean | false | 是否允许多个节点同时高亮 | N
 actived | Array | - | 高亮的节点值。支持语法糖 `v-model:actived`。TS 类型：`Array<TreeNodeValue>` | N
 allowDrop | Function | - | 判断节点是否可以执行 drop 操作，泛型 `T` 表示树节点 TS 类型。TS 类型：`(context: { e: DragEvent; dragNode: TreeNodeModel<T>; dropNode: TreeNodeModel<T>; dropPosition: number; }) => boolean` | N
 allowFoldNodeOnFilter | Boolean | false | 是否允许在过滤时节点折叠节点 | N
+checkAllAffectedBy | String | all | 参与父节点全选、半选状态判定的子节点范围。all 表示所有子节点参与判断，包括禁用子节点；onlyEnabled 表示仅未禁用的子节点参与判断，没有可用子节点时，不由子节点推导出全选或半选状态。仅影响父节点状态的判定，不改变禁用子节点自身的选中状态。checkStrictly 为 true 时不生效。可选项：all/onlyEnabled | N
 checkProps | Object | - | 透传属性到 checkbox 组件。参考 checkbox 组件 API。TS 类型：`CheckboxProps`，[Checkbox API Documents](./checkbox?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/tree/type.ts) | N
 checkStrictly | Boolean | false | 父子节点选中状态不再关联，可各自选中或取消 | N
 checkable | Boolean | false | 隐藏节点复选框 | N

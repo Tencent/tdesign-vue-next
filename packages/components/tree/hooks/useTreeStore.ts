@@ -14,10 +14,11 @@ import {
 
 export default function useTreeStore(state: TypeTreeState) {
   const { props, context, refProps } = state;
-  const { valueMode, filter, keys } = props;
+  const { valueMode, filter, keys, checkAllAffectedBy } = props;
 
   const store: TreeStore = new TreeStore({
     valueMode: valueMode as TypeValueMode,
+    checkAllAffectedBy,
     filter,
   });
 
@@ -44,6 +45,7 @@ export default function useTreeStore(state: TypeTreeState) {
       'checkable',
       'draggable',
       'checkStrictly',
+      'checkAllAffectedBy',
       'load',
       'lazy',
       'valueMode',
