@@ -324,6 +324,14 @@ export default defineComponent({
       { [`${classPrefix.value}-menu-is-nested`]: isNested.value },
       props.popupProps?.overlayClassName,
     ]);
+    const popupOverlayStyle = computed(() => {
+      const style = props.popupProps?.overlayStyle;
+      if (popupVisible.value) return style;
+      if (isFunction(style)) {
+        return (trigger: HTMLElement, popup: HTMLElement) => ({ ...style(trigger, popup), pointerEvents: 'none' });
+      }
+      return { ...style, pointerEvents: 'none' };
+    });
     const submenuClass = computed(() => [
       `${classPrefix.value}-menu__item`,
       {
@@ -456,6 +464,18 @@ export default defineComponent({
     const handleMouseLeave = (e: MouseEvent) => {
       beginSafeTriangle(e);
       clearTimers();
+
+      const current = e.currentTarget as Element;
+      const sibling = (e.relatedTarget as Element | null)?.closest?.(`.${classPrefix.value}-submenu`);
+      if (
+        sibling &&
+        sibling !== current &&
+        sibling.parentElement === current?.parentElement &&
+        !isCursorInSafeTriangle.value
+      ) {
+        popupVisible.value = false;
+        return;
+      }
 
       hideTimer.value = setTimeout(() => {
         const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
@@ -774,6 +794,7 @@ export default defineComponent({
           {...(props.popupProps ?? {})}
           overlayInnerClassName={[...overlayInnerClassName.value]}
           overlayClassName={[...overlayClassName.value]}
+          overlayStyle={popupOverlayStyle.value}
           visible={popupVisible.value}
           placement={placement}
           popperOptions={popperOptions}

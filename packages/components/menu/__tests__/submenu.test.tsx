@@ -398,6 +398,45 @@ describe('Submenu', () => {
       expect(submenu.findComponent(Popup).props('visible')).toBe(true);
     });
 
+    it('stops hit testing a popup immediately when switching directly to a sibling', async () => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first', popupProps: { overlayStyle: { color: 'red' } } },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      await openSubmenu(wrapper);
+      const popup = getTeleportedElement('.t-popup');
+      popup.getBoundingClientRect = () =>
+        ({ left: 300, right: 500, top: 100, bottom: 300, width: 200, height: 200 } as DOMRect);
+      const current = wrapper.get('li');
+      const sibling = document.createElement('li');
+      sibling.className = 't-submenu';
+      current.element.parentElement?.appendChild(sibling);
+      await current.trigger('mousemove', { clientX: 250, clientY: 150 });
+      await current.trigger('mouseleave', { clientX: 250, clientY: 210, relatedTarget: sibling });
+      await nextTick();
+      expect(submenu.findComponent(Popup).props('visible')).toBe(false);
+      expect(submenu.findComponent(Popup).props('overlayStyle')).toEqual({ color: 'red', pointerEvents: 'none' });
+      sibling.remove();
+    });
+
+    it('preserves function-based popup styles when hit testing is disabled', async () => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const overlayStyle = vi.fn((_trigger: HTMLElement, _popup: HTMLElement) => ({ color: 'red' }));
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'First', value: 'first', popupProps: { overlayStyle } },
+        { menu, slots: { default: () => 'First child' } },
+      );
+      const closedStyle = submenu.findComponent(Popup).props('overlayStyle');
+      expect(typeof closedStyle).toBe('function');
+      expect((closedStyle as typeof overlayStyle)(document.body, document.body)).toEqual({
+        color: 'red',
+        pointerEvents: 'none',
+      });
+      await openSubmenu(wrapper);
+      expect(submenu.findComponent(Popup).props('overlayStyle')).toBe(overlayStyle);
+    });
+
     it('keeps the popup open on a diagonal return to its trigger and releases on an outside click', async () => {
       const { menu } = createMenu({ mode: ref('popup') });
       const { submenu, wrapper } = mountSubmenu(
