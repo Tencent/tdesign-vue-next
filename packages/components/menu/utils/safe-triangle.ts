@@ -14,6 +14,17 @@ export interface SafeTriangleGeometry {
 
 type PopupRect = Pick<DOMRect, 'top' | 'right' | 'bottom' | 'left' | 'width' | 'height'>;
 
+/** Builds a path from a popup back to the nearest side of its trigger. */
+export function getSafeReturnTriangle(point: SafeTrianglePoint, rect: PopupRect) {
+  const { x, y } = point;
+  const dx = x < rect.left ? rect.left - x : x > rect.right ? x - rect.right : 0;
+  const dy = y < rect.top ? rect.top - y : y > rect.bottom ? y - rect.bottom : 0;
+  if (!dx && !dy) return undefined;
+  const direction: SafeTriangleDirection =
+    dx > dy ? (x < rect.left ? 'right' : 'left') : y < rect.top ? 'bottom' : 'top';
+  return getSafeTriangle(point, rect, direction);
+}
+
 /** Builds a triangle from the pointer's leave point to the popup edge facing its trigger. */
 export function getSafeTriangle(
   pointer: SafeTrianglePoint,

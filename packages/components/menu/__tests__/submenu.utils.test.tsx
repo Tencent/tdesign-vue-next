@@ -1,7 +1,33 @@
-import { getSafeTriangle, isPointInSafeTriangle, isPointerFollowingSafePath } from '../utils/safe-triangle';
+import {
+  getSafeReturnTriangle,
+  getSafeTriangle,
+  isPointInSafeTriangle,
+  isPointerFollowingSafePath,
+} from '../utils/safe-triangle';
 
 describe('submenu safe triangle', () => {
   const popupRect = { top: 20, right: 220, bottom: 120, left: 100, width: 120, height: 100 };
+
+  it.each([
+    [
+      { x: 50, y: 70 },
+      { x: 1, y: 0 },
+    ],
+    [
+      { x: 270, y: 70 },
+      { x: -1, y: 0 },
+    ],
+    [
+      { x: 160, y: 0 },
+      { x: 0, y: 1 },
+    ],
+    [
+      { x: 160, y: 140 },
+      { x: 0, y: -1 },
+    ],
+  ])('points a return path from %o toward its trigger', (point, toward) => {
+    expect(getSafeReturnTriangle(point, popupRect)?.toward).toEqual(toward);
+  });
 
   it.each([
     ['right', { x: 50, y: 50 }, { x: 100, y: 20 }, { x: 100, y: 120 }],

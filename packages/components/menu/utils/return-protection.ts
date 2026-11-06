@@ -1,6 +1,6 @@
 import type { Ref } from 'vue';
-import { getSafeTriangle, isPointerFollowingSafePath } from './safe-triangle';
-import type { SafeTriangleDirection, SafeTriangleGeometry } from './safe-triangle';
+import { getSafeReturnTriangle, isPointerFollowingSafePath } from './safe-triangle';
+import type { SafeTriangleGeometry } from './safe-triangle';
 import { createPointerLifecycle } from './pointer-lifecycle';
 
 type ReturnProtectionOptions = {
@@ -64,16 +64,6 @@ export function createReturnProtection({ trigger, classPrefix, onHold, onRelease
     lifecycle.setTimer(() => closeAfterReturn(event), 300);
   };
 
-  const getReturnTriangle = (point: { x: number; y: number }, rect: DOMRect) => {
-    const { x, y } = point;
-    const dx = x < rect.left ? rect.left - x : x > rect.right ? x - rect.right : 0;
-    const dy = y < rect.top ? rect.top - y : y > rect.bottom ? y - rect.bottom : 0;
-    if (!dx && !dy) return undefined;
-    const direction: SafeTriangleDirection =
-      dx > dy ? (x < rect.left ? 'right' : 'left') : y < rect.top ? 'bottom' : 'top';
-    return getSafeTriangle(point, rect, direction);
-  };
-
   const updateReturnTriangle = () => {
     if (!returnTriangle || !returnPreviousPoint || !returnLastEvent) return;
     const rect = trigger.value?.getBoundingClientRect();
@@ -81,7 +71,7 @@ export function createReturnProtection({ trigger, classPrefix, onHold, onRelease
       closeAfterReturn(returnLastEvent);
       return;
     }
-    const triangle = getReturnTriangle(returnPreviousPoint, rect);
+    const triangle = getSafeReturnTriangle(returnPreviousPoint, rect);
     if (!triangle) {
       stopReturnProtection();
       onHold();
@@ -95,7 +85,7 @@ export function createReturnProtection({ trigger, classPrefix, onHold, onRelease
     const rect = trigger.value?.getBoundingClientRect();
     if (!rect || !lastPopupPoint || !rect.width || !rect.height) return false;
     const { clientX: x, clientY: y } = event;
-    const triangle = getReturnTriangle({ x, y }, rect);
+    const triangle = getSafeReturnTriangle({ x, y }, rect);
     if (!triangle) return false;
     const direction = triangle.toward;
     const toward = (x - lastPopupPoint.x) * direction.x + (y - lastPopupPoint.y) * direction.y;
