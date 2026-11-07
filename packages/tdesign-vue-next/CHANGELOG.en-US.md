@@ -5,6 +5,31 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.20.11 `2026-11-05`
+
+### 🚀 Features
+
+- `Cascader`: Supports `bigint` values for selections @RSS1102 ([#7017](https://github.com/Tencent/tdesign-vue-next/pull/7017))
+- `Tree`: 
+    - Fixed the logic in version `1.20.10` that prevented child nodes from being considered in parent node evaluations; added `checkAllAffectedBy` to allow configuration of whether child nodes should be included in the determination of full/selective states for parent nodes, with the default value set to `all`, consistent with versions `1.20.9` and earlier @RSS1102 ([#7031](https://github.com/Tencent/tdesign-vue-next/pull/7031))
+    - Supports `bigint` values for node data @RSS1102 ([#7017]
+- `TreeSelect`: Supports `bigint` values for selections @RSS1102 ([#7017](https://github.com/Tencent/tdesign-vue-next/pull/7017))
+
+### 🐞 Bug Fixes
+
+- Fixed the issue where the diagonal corner animation of multiple components could not fill the container completely @RylanBot ([#7011](https://github.com/Tencent/tdesign-vue-next/pull/7011))
+- `Form`: Fixed the problem where error messages reappeared after calling `clearValidate`, even when asynchronous validation was still in progress @FOWEPJF255 ([#7010](https://github.com/Tencent/tdesign-vue-next/pull/7010))
+- `Link`: Fixed the issue where clicking on elements while they were disabled could still trigger actions such as Popconfirm @PointerL ([#7020](https://github.com/Tencent/tdesign-vue-next/pull/7020))
+- `Select`: Fixed the problem where options could still be selected and the `change` event could be triggered even when the dropdown panel was dynamically disabled after it had been opened @Xapollon430 ([#7041](https://github.com/Tencent/tdesign-vue-next/pull/7041))
+- `Table`: Fixed issues caused by the `validateTableData` method failing to retrieve the latest data after version `1.20.5`, resulting in functional abnormalities @uyarn ([#7044](https://github.com/Tencent/tdesign-vue-next/pull/7044))
+- `Tree`: Supports `bigint` values for node data; fixed issues related to node activation, operations on nodes with zero values, and abnormal tree data due to mixed-type node values. @RSS1102 ([#7017](https://github.com/Tencent/tdesign-vue-next/pull/7017))
+- `TreeSelect`:  Fixed issues related to the parsing of selected values for objects using custom keys, the expansion of parent nodes, and determining duplicate selections @RSS1102 ([#7019](https://github.com/Tencent/tdesign-vue-next/pull/7019))
+
+### 🚧 Others
+
+- `ColorPicker`: Adjusted the width of the color format selector to improve display by addressing issues of incomplete rendering @runoob-coder ([common#2726](https://github.com/Tencent/tdesign-common/pull/2726))
+- `Empty`: Replaced built-in SVG files with icons from an icon library @liweijie0812 ([#7043](https://github.com/Tencent/tdesign-vue-next/pull/7043))
+
 ## 🌈 1.20.10 `2026-10-15`
 
 ### 🐞 Bug Fixes
