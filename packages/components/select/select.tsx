@@ -488,6 +488,19 @@ export default defineComponent({
     });
 
     const renderValueDisplay = () => {
+      // If user provided valueDisplay, use it
+      const userValueDisplay = renderTNodeJSX('valueDisplay', {
+        params: valueDisplayParams.value,
+      });
+      if (userValueDisplay) {
+        return userValueDisplay;
+      }
+
+      // If dragSort is enabled, don't override valueDisplay to let TagInput handle drag sort
+      if (props.tagInputProps?.dragSort) {
+        return undefined;
+      }
+
       const renderTag = () => {
         if (!props.multiple || props.selectInputProps?.multiple === false) {
           return undefined;
@@ -520,11 +533,7 @@ export default defineComponent({
           });
       };
 
-      return (
-        renderTNodeJSX('valueDisplay', {
-          params: valueDisplayParams.value,
-        }) || renderTag()
-      );
+      return renderTag();
     };
 
     provide('updateScrollTop', updateScrollTop);
