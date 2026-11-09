@@ -85091,8 +85091,8 @@ exports[`csr snapshot test > csr test ./packages/components/layout/_example/asid
           <img
             alt="logo"
             class="logo"
-            src="https://www.tencent.com/img/index/menu_logo_hover.png"
-            width="136"
+            src="https://tdesign.gtimg.com/site/baseLogo-light.png"
+            height="28"
           />
           
         </div>
@@ -85529,8 +85529,8 @@ exports[`csr snapshot test > csr test ./packages/components/layout/_example/comb
           <img
             alt="logo"
             class="logo"
-            src="https://www.tencent.com/img/index/menu_logo_hover.png"
-            width="136"
+            src="https://tdesign.gtimg.com/site/baseLogo-light.png"
+            height="28"
           />
           
         </div>
@@ -85891,8 +85891,8 @@ exports[`csr snapshot test > csr test ./packages/components/layout/_example/top.
           <img
             alt="logo"
             class="logo"
-            src="https://www.tencent.com/img/index/menu_logo_hover.png"
-            width="136"
+            src="https://tdesign.gtimg.com/site/baseLogo-light.png"
+            height="28"
           />
           
         </div>
@@ -93999,7 +93999,7 @@ exports[`csr snapshot test > csr test ./packages/components/menu/_example/popup-
       <img
         alt="logo"
         src="https://tdesign.gtimg.com/site/baseLogo-light.png"
-        width="136"
+        height="28"
       />
       
     </div>
