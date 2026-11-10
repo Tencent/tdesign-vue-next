@@ -2,7 +2,7 @@ import { flushPromises, mount, VueWrapper } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 import { expect } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { FormItem, Form, Input } from '@tdesign/components';
+import { FormItem, Form, Input, Row, Col } from '@tdesign/components';
 import formItemProps from '@tdesign/components/form/form-item-props';
 
 describe('FormItem', () => {
@@ -364,6 +364,99 @@ describe('FormItem', () => {
         await flushPromises();
 
         expect(getLastItemNames(wrapper)).toEqual(['b', 'd']);
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7013
+      it('多列布局下只标记每行的末位表单项，不把每一列都判为末位', async () => {
+        const wrapper = mount(
+          <Form>
+            <Row>
+              <Col span={8}>
+                <FormItem name="a" />
+              </Col>
+              <Col span={8}>
+                <FormItem name="b" />
+              </Col>
+              <Col span={8}>
+                <FormItem name="c" />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8}>
+                <FormItem name="d" />
+              </Col>
+              <Col span={8}>
+                <FormItem name="e" />
+              </Col>
+            </Row>
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['c', 'e']);
+      });
+
+      it('布局壳只包裹一个表单项时，继续向上查找真正的分组容器', async () => {
+        const wrapper = mount(
+          <Form>
+            <div>
+              <div>
+                <FormItem name="a" />
+              </div>
+              <div>
+                <FormItem name="b" />
+              </div>
+            </div>
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['b']);
+      });
+
+      // 存在错误文案的场景：校验失败后错误文案渲染，末位标记仍只落在每行最后一个表单项上
+      it('多列布局校验失败产生错误文案时，末位标记仍只落在每行末位', async () => {
+        const wrapper = mount({
+          setup() {
+            const rules = {
+              a: [{ required: true, message: 'a is required' }],
+              b: [{ required: true, message: 'b is required' }],
+              c: [{ required: true, message: 'c is required' }],
+            };
+
+            return () => (
+              <Form rules={rules}>
+                <Row>
+                  <Col span={8}>
+                    <FormItem label="A" name="a">
+                      <Input />
+                    </FormItem>
+                  </Col>
+                  <Col span={8}>
+                    <FormItem label="B" name="b">
+                      <Input />
+                    </FormItem>
+                  </Col>
+                  <Col span={8}>
+                    <FormItem label="C" name="c">
+                      <Input />
+                    </FormItem>
+                  </Col>
+                </Row>
+              </Form>
+            );
+          },
+        });
+        await flushPromises();
+        await wrapper.findComponent(Form).vm.$.exposed.validate();
+        await flushPromises();
+
+        expect(wrapper.findAll('.t-input__extra').map((node) => node.text())).toEqual([
+          'a is required',
+          'b is required',
+          'c is required',
+        ]);
+        expect(getLastItemNames(wrapper)).toEqual(['c']);
       });
 
       // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7000
