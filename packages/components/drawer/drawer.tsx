@@ -226,13 +226,13 @@ export default defineComponent({
       setTimeout(() => (isVisible.value = value));
     };
 
+    // 防滚动穿透：注入 html body { overflow-y: hidden } 锁滚动样式
+    // 必须依据目标可见态 props.visible 判断。isVisible 是抽屉的动画状态，会在本次 watch 之后
+    // 通过 setTimeout 异步更新，若依赖 isVisible，首次打开时样式永远不会被注入（#7047）
     const addStyleElToHead = () => {
-      if (
-        !props.showInAttachedElement &&
-        props.preventScrollThrough &&
-        isVisible.value &&
-        (isMounted.value || !props.lazy)
-      ) {
+      if (!props.showInAttachedElement && props.preventScrollThrough && props.visible) {
+        // 复用可能残留的样式节点时，先取消关闭流程里的延迟移除，避免刚打开就被移除
+        clearTimeout(styleTimer.value);
         if (!styleEl.value) {
           createStyleEl();
         }
