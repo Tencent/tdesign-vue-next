@@ -1,5 +1,6 @@
 import { defineComponent, ref, toRefs, inject, watch, computed, ComputedRef } from 'vue';
 import { isString } from 'lodash-es';
+import { Check1Icon as TdCheck1Icon, Remove1Icon as TdRemove1Icon } from 'tdesign-icons-vue-next';
 import props from './props';
 import {
   useVModel,
@@ -9,6 +10,7 @@ import {
   useReadonly,
   usePrefixClass,
   useCommonClassName,
+  useGlobalIcon,
 } from '@tdesign/shared-hooks';
 
 import { CheckboxGroupInjectionKey } from './constants';
@@ -26,6 +28,10 @@ export default defineComponent({
     data: Object,
   },
   setup(props) {
+    const { Check1Icon, Remove1Icon } = useGlobalIcon({
+      Check1Icon: TdCheck1Icon,
+      Remove1Icon: TdRemove1Icon,
+    });
     const labelRef = ref<HTMLElement>();
     if (props.needRipple) {
       useRipple(labelRef);
@@ -175,7 +181,9 @@ export default defineComponent({
                   class={`${COMPONENT_NAME.value}__input`}
                   key="input-span"
                   onClick={props.stopLabelTrigger && handleChange} // stopLabelTrigger 情况下，仍需保证真正的 input 触发 change
-                />,
+                >
+                  {tIndeterminate.value ? <Remove1Icon /> : <Check1Icon />}
+                </span>,
                 <span class={`${COMPONENT_NAME.value}__label`} key="label">
                   {renderContent('default', 'label')}
                 </span>,
