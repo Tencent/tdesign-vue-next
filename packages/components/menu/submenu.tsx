@@ -98,6 +98,7 @@ export default defineComponent({
     let placementDirection = '';
     const handlePlacementChange = ({ placement }: { placement: string }) => {
       placementDirection = placement;
+      // The top-level head-menu spacer must not cover adjacent menu triggers.
       if (isHead && !isNested.value) return;
       const spacer = popupWrapperRef.value;
       if (!spacer) return;
@@ -274,6 +275,8 @@ export default defineComponent({
     };
 
     const handleMouseLeave = (e: MouseEvent) => {
+      // Vertical placements use the spacer; horizontal placements need the
+      // popup wrapper to cover the gap between trigger and popup.
       const popup =
         placementDirection.startsWith('top') || placementDirection.startsWith('bottom')
           ? popupWrapperRef.value

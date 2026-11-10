@@ -1,5 +1,19 @@
 import { createAdjacentPath, deferAdjacentSibling, protectsDescendant } from '../utils/adjacent-path';
 
+const mockTargetRect = (target: HTMLElement) => {
+  vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({
+    left: 200,
+    right: 300,
+    top: 100,
+    bottom: 200,
+    width: 100,
+    height: 100,
+    x: 200,
+    y: 100,
+    toJSON: () => ({}),
+  });
+};
+
 describe('adjacent menu path', () => {
   beforeEach(() => vi.useFakeTimers());
   afterEach(() => {
@@ -28,17 +42,7 @@ describe('adjacent menu path', () => {
   ])('starts a path toward the adjacent target from %o', (previous, point) => {
     const owner = document.createElement('div');
     const target = document.createElement('div');
-    vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({
-      left: 200,
-      right: 300,
-      top: 100,
-      bottom: 200,
-      width: 100,
-      height: 100,
-      x: 200,
-      y: 100,
-      toJSON: () => ({}),
-    });
+    mockTargetRect(target);
     const path = createAdjacentPath({});
     expect(
       path.begin({
@@ -67,17 +71,7 @@ describe('adjacent menu path', () => {
     sibling.appendChild(siblingItem);
     parent.append(first, sibling);
     document.body.append(parent, target);
-    vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({
-      left: 200,
-      right: 300,
-      top: 100,
-      bottom: 200,
-      width: 100,
-      height: 100,
-      x: 200,
-      y: 100,
-      toJSON: () => ({}),
-    });
+    mockTargetRect(target);
     const release = vi.fn();
     const resume = vi.fn();
     const path = createAdjacentPath(scope);
@@ -121,17 +115,7 @@ describe('adjacent menu path', () => {
     group.append(first, second);
     document.body.append(group, target);
     vi.spyOn(sibling, 'matches').mockReturnValue(true);
-    vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({
-      left: 200,
-      right: 300,
-      top: 100,
-      bottom: 200,
-      width: 100,
-      height: 100,
-      x: 200,
-      y: 100,
-      toJSON: () => ({}),
-    });
+    mockTargetRect(target);
     const resume = vi.fn();
     const release = vi.fn();
     const path = createAdjacentPath(scope);
@@ -239,17 +223,7 @@ describe('adjacent menu path', () => {
     const owner = document.createElement('div');
     const target = document.createElement('div');
     document.body.append(owner, target);
-    vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({
-      left: 200,
-      right: 300,
-      top: 100,
-      bottom: 200,
-      width: 100,
-      height: 100,
-      x: 200,
-      y: 100,
-      toJSON: () => ({}),
-    });
+    mockTargetRect(target);
     const original = document.elementFromPoint;
     document.elementFromPoint = () => document.body;
     const release = vi.fn();
@@ -280,17 +254,7 @@ describe('adjacent menu path', () => {
   ])('keeps a return pause over %s only when it is non-interactive', (surface, closesAt300) => {
     const owner = document.createElement('div');
     const target = document.createElement('div');
-    vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({
-      left: 200,
-      right: 300,
-      top: 100,
-      bottom: 200,
-      width: 100,
-      height: 100,
-      x: 200,
-      y: 100,
-      toJSON: () => ({}),
-    });
+    mockTargetRect(target);
     const original = document.elementFromPoint;
     document.elementFromPoint = () => (surface === 'button' ? document.createElement('button') : document.body);
     const release = vi.fn();

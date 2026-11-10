@@ -8,10 +8,18 @@ type ActivePath = {
   pendingTarget?: HTMLElement;
 };
 
+const EDGE_TOLERANCE_PX = 3;
+const BACKTRACK_TOLERANCE_PX = 4;
+const PAUSE_DELAY_MS = 300;
+const NON_INTERACTIVE_GRACE_MS = 700;
+
 const paths = new WeakMap<object, ActivePath>();
 const cross = (a: Point, b: Point, p: Point) => (b.x - a.x) * (p.y - a.y) - (b.y - a.y) * (p.x - a.x);
 
-/** A temporary pointer path between one trigger and its adjacent popup. */
+/**
+ * Protect the pointer path between a trigger and its adjacent popup.
+ * Each menu scope has one active path; ending it can release the owner and resume a hovered sibling.
+ */
 export function createAdjacentPath(scope: object) {
   let path: ActivePath | undefined;
   let timer: ReturnType<typeof setTimeout> | undefined;
@@ -26,6 +34,8 @@ export function createAdjacentPath(scope: object) {
   let forward = false;
   let prefix = '';
 
+  // Clear the active path before callbacks: release may close the owner, while
+  // pending may open a competing sibling that is still hovered.
   const stop = (event?: MouseEvent, release = false) => {
     if (!path) return;
     const pending = path.pending;
@@ -74,10 +84,11 @@ export function createAdjacentPath(scope: object) {
       Math.hypot(b.x - c.x, b.y - c.y),
       Math.hypot(c.x - anchor.x, c.y - anchor.y),
     ];
-    const negative = sides.some((v, i) => v < -3 * edges[i]);
-    const positive = sides.some((v, i) => v > 3 * edges[i]);
+    // Cross products test the triangle; tolerances allow edge and backward pointer jitter.
+    const negative = sides.some((v, i) => v < -EDGE_TOLERANCE_PX * edges[i]);
+    const positive = sides.some((v, i) => v > EDGE_TOLERANCE_PX * edges[i]);
     const next = (p.x - anchor.x) * direction.x + (p.y - anchor.y) * direction.y;
-    return !(negative && positive) && next >= progress - 4;
+    return !(negative && positive) && next >= progress - BACKTRACK_TOLERANCE_PX;
   };
   const schedule = (event: MouseEvent) => {
     clearTimeout(timer);
@@ -86,14 +97,14 @@ export function createAdjacentPath(scope: object) {
       const interactive = below?.closest(
         `.${prefix}-menu__item, button, a, input, select, textarea, [role="button"], [role="menuitem"]`,
       );
-      // Returning paths already require movement toward the trigger at entry.
-      // Only keep that intent over non-interactive space, never over a control.
+      // Extend a pause only over non-interactive space when there is movement
+      // intent. Return paths establish that intent on entry.
       if ((!forward || progress > 0) && below && !interactive) {
-        timer = setTimeout(() => stop(event, true), 700);
+        timer = setTimeout(() => stop(event, true), NON_INTERACTIVE_GRACE_MS);
       } else {
         stop(event, true);
       }
-    }, 300);
+    }, PAUSE_DELAY_MS);
   };
   const move = (event: MouseEvent) => {
     if (!path) return;
