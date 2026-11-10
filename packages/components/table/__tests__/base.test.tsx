@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@tdesign/components/table';
 
 const data = new Array(5).fill(null).map((item, index) => ({
@@ -47,6 +48,53 @@ TABLES.forEach((TTable) => {
           },
         });
         expect(wrapper.find('.t-table--bordered').exists()).toBeFalsy();
+      });
+
+      // #7038：固定高度大于数据行总高度时，最后一行需要保留底部边框
+      describe('last row bottom border with fixed height', () => {
+        const mockRowRects = (contentBottom: number, lastRowBottom: number) =>
+          vi
+            .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+            .mockImplementation(function mockRect(this: HTMLElement) {
+              const rect = (bottom: number) =>
+                ({ bottom, top: 0, left: 0, right: 0, width: 0, height: bottom, x: 0, y: 0 } as DOMRect);
+              if (this.classList?.contains('t-table__content')) return rect(contentBottom);
+              if (this.tagName === 'TR') return rect(lastRowBottom);
+              return rect(0);
+            });
+
+        it('adds a bottom border to the table when rows are shorter than the fixed height', async () => {
+          // jsdom 没有布局，这里模拟 height=420、最后一行底部在 254 的固定高度场景
+          const rectSpy = mockRowRects(422, 254);
+          const wrapper = mount({
+            render() {
+              return <TTable rowKey="index" bordered height={420} data={data} columns={SIMPLE_COLUMNS}></TTable>;
+            },
+          });
+          await nextTick();
+          await nextTick();
+
+          const tableStyle = wrapper.find('.t-table__content table').attributes('style');
+          expect(tableStyle).toContain('border-bottom-width: 1px');
+          expect(tableStyle).toContain('border-bottom-style: solid');
+          rectSpy.mockRestore();
+        });
+
+        it('keeps the table bottom border untouched when rows overflow the fixed height', async () => {
+          // 内容超出固定高度时最后一行在可视区域之外，不能重复绘制边框
+          const rectSpy = mockRowRects(422, 500);
+          const wrapper = mount({
+            render() {
+              return <TTable rowKey="index" bordered height={420} data={data} columns={SIMPLE_COLUMNS}></TTable>;
+            },
+          });
+          await nextTick();
+          await nextTick();
+
+          const tableStyle = wrapper.find('.t-table__content table').attributes('style') || '';
+          expect(tableStyle).not.toContain('border-bottom-width');
+          rectSpy.mockRestore();
+        });
       });
     });
 
