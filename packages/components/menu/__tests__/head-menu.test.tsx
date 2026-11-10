@@ -452,25 +452,28 @@ describe('HeadMenu', () => {
         expect(topMenuChildren(wrapper).at(-1)?.style.display).toBe('');
       });
 
-      it('currently throws when an unmounted wrapper slot returns one VNode', () => {
-        // See issue #6857.
+      it('supports an unmounted wrapper slot that returns one VNode', async () => {
+        // See issue #6857: 封装组件的插槽函数可以只返回一个 VNode，此时不应抛 nodes is not iterable。
         // eslint-disable-next-line vue/one-component-per-file -- Local fixture reproduces the single-VNode wrapper edge case.
         const SlotWrapper = defineComponent({
           name: 'SingleSlotWrapper',
           setup(_, { slots }) {
-            return () => <div>{slots.default?.()}</div>;
+            return () => <div class="single-slot-wrapper">{slots.default?.()}</div>;
           },
         });
         const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined);
 
-        expect(() =>
-          mountHeadMenu({
-            props: { expandType: 'popup' },
-            slots: {
-              default: () => h(SlotWrapper, null, { default: () => <MenuItem value="single">Single</MenuItem> }),
-            },
-          }),
-        ).toThrow('nodes is not iterable');
+        const wrapper = mountHeadMenu({
+          props: { expandType: 'popup' },
+          slots: {
+            default: () => h(SlotWrapper, null, { default: () => <MenuItem value="single">Single</MenuItem> }),
+          },
+        });
+        await settleLayout();
+
+        // 单个 VNode 的封装组件场景下，菜单项仍需被识别并正常渲染
+        expect(wrapper.find('.single-slot-wrapper').exists()).toBe(true);
+        expect(wrapper.findAll('.t-menu__item').length).toBeGreaterThanOrEqual(1);
         expect(consoleError).not.toHaveBeenCalled();
       });
 

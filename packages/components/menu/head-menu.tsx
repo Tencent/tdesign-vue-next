@@ -418,9 +418,16 @@ export default defineComponent({
     /**
      * 通过递归扁平化 slot VNode 树来获取所有叶子菜单项节点
      */
-    const flattenSlotNodes = (nodes: VNode[]): VNode[] => {
+    // slot 函数（尤其是封装组件的默认插槽）可以返回单个 VNode 或 VNode 数组，
+    // 未挂载的 VNode 还没被 Vue 规范化，这里统一成数组后再遍历，避免 nodes is not iterable
+    const toVNodeArray = (nodes: VNode | VNode[] | null | undefined): VNode[] => {
+      if (nodes == null) return [];
+      return isArray(nodes) ? nodes : [nodes];
+    };
+
+    const flattenSlotNodes = (nodes: VNode | VNode[]): VNode[] => {
       const result: VNode[] = [];
-      for (const node of nodes) {
+      for (const node of toVNodeArray(nodes)) {
         // Fragment 节点：Vue 将 v-for 列表、多根节点等包装为 Fragment
         if (node.type === Fragment) {
           if (isArray(node.children)) {
@@ -431,7 +438,7 @@ export default defineComponent({
         } else if (isArray(node.children)) {
           result.push(...flattenSlotNodes(node.children as VNode[]));
         } else if (isFunction((node.children as any)?.default)) {
-          result.push(...flattenSlotNodes((node.children as any).default()));
+          result.push(...flattenSlotNodes(toVNodeArray((node.children as any).default())));
         } else {
           result.push(node);
         }
@@ -439,8 +446,8 @@ export default defineComponent({
       return result;
     };
 
-    const initVMenu = (slots: VNode[], parentValue?: string) => {
-      slots.forEach((node) => {
+    const initVMenu = (nodes: VNode | VNode[], parentValue?: string) => {
+      toVNodeArray(nodes).forEach((node) => {
         // Fragment 节点（v-for 等）：展开后递归处理
         if (node.type === Fragment) {
           if (isArray(node.children)) {
@@ -453,7 +460,7 @@ export default defineComponent({
           vMenu.add({ value: nodeValue, parent: parentValue, vnode: (node.children as any).default, ...node.props });
         }
         if (isFunction((node.children as any)?.default)) {
-          initVMenu((node.children as any).default(), nodeValue);
+          initVMenu(toVNodeArray((node.children as any).default()), nodeValue);
           return;
         }
         if (isArray(node.children)) {
