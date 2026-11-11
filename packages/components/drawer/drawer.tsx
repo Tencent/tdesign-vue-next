@@ -259,6 +259,14 @@ export default defineComponent({
       { immediate: true },
     );
 
+    // isVisible 通过 setTimeout 异步置 true（见 updateVisibleState）。若仅依赖
+    // watch(props.visible) 的同步调用，addStyleElToHead 读到的是旧值 false，
+    // 锁滚动样式永不注入，背景页面随遮罩滚轮滚动（issue #7047）。
+    // 此处监听 isVisible，待它真正变为 true（抽屉已显示）再注入锁滚动样式。
+    watch(isVisible, (value) => {
+      if (value) addStyleElToHead();
+    });
+
     const handleCloseBtnClick = (e: MouseEvent) => {
       props.onCloseBtnClick?.({ e });
       closeDrawer({ trigger: 'close-btn', e });

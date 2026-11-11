@@ -989,6 +989,37 @@ describe('Drawer', () => {
       w.unmount();
     });
 
+    it('injects overflow-hidden style into head while open (issue #7047)', async () => {
+      const findLockStyle = () =>
+        Array.from(document.head.querySelectorAll('style')).find((el) => el.innerHTML.includes('overflow-y: hidden'));
+      // 同一文件里先前的用例可能残留锁样式（它们不清理 head），先清干净再断言
+      Array.from(document.head.querySelectorAll('style'))
+        .filter((el) => el.innerHTML.includes('overflow-y: hidden'))
+        .forEach((el) => el.remove());
+
+      // 初始 visible=false：不应注入锁滚动样式
+      const w = mount(Drawer, {
+        attachTo: document.body,
+        props: { visible: false, body: '内容', preventScrollThrough: true },
+      });
+      vi.runAllTimers();
+      await nextTick();
+      expect(findLockStyle()).toBeUndefined();
+
+      // 打开：isVisible 异步置 true 后必须注入 overflow-y: hidden
+      await w.setProps({ visible: true });
+      vi.runAllTimers();
+      await nextTick();
+      expect(findLockStyle()).toBeDefined();
+
+      // 关闭：样式被移除（clearStyleEl 走 150ms 定时器）
+      await w.setProps({ visible: false });
+      vi.advanceTimersByTime(200);
+      await nextTick();
+      expect(findLockStyle()).toBeUndefined();
+      w.unmount();
+    });
+
     it('showInAttachedElement prevents scroll through style', async () => {
       const w = mount(Drawer, {
         props: { visible: true, body: '内容', showInAttachedElement: true, preventScrollThrough: true },
