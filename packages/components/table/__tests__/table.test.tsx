@@ -1,3 +1,10 @@
+import { defineComponent, ref, nextTick } from 'vue';
+import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
+import { Input } from '@tdesign/components/input';
+import { PrimaryTable } from '@tdesign/components/table';
+import Table from '../index';
+import type { PrimaryTableCol } from '../type';
 import { getNormalTableMount, getEmptyDataTableMount } from './mount';
 
 describe('BaseTable Component', () => {
@@ -429,5 +436,122 @@ describe('BaseTable Component', () => {
     expect(onPageChange).toHaveBeenCalledTimes(1);
     // 断言滚动条回到顶部
     expect(scrollElement.scrollTop).toBe(0);
+  });
+
+  // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6802
+  it('props.editable keepEditMode does not validate on a blank document click', async () => {
+    const flush = async () => {
+      await nextTick();
+      await new Promise((r) => setTimeout(r, 30));
+      await nextTick();
+    };
+
+    const validateFn = vi.fn((val: any) =>
+      val ? Promise.resolve(true) : Promise.resolve({ result: false, message: 'required' }),
+    );
+
+    const data = ref([{ id: 1, name: '' }]);
+
+    const columns: PrimaryTableCol[] = [
+      {
+        colKey: 'name',
+        title: 'Name',
+        edit: {
+          component: defineComponent({
+            props: { value: [String, Number] as any, onChange: Function as any },
+            setup(props, { expose }) {
+              expose({ focus: () => {} });
+              return () => <input class="cell-input" value={props.value as string} />;
+            },
+          }),
+          keepEditMode: true,
+          rules: [{ validator: validateFn }],
+          props: {},
+        },
+      },
+    ];
+
+    mount({
+      render() {
+        return (
+          <Table
+            data={data.value}
+            columns={columns}
+            rowKey="id"
+            // 故意不传 editableRowKeys
+          />
+        );
+      },
+    });
+
+    await flush();
+
+    const before = validateFn.mock.calls.length;
+
+    // 点击页面空白处
+    document.body.click();
+    await flush();
+    await flush();
+
+    // 没有 editableRowKeys 时不应触发校验
+    expect(validateFn.mock.calls.length).toBe(before);
+  });
+
+  // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6923
+  it('props.editable keepEditMode does not re-emit onEdited with a stale value on a later document click', async () => {
+    const rowData = [
+      { id: 1, price: 5500 },
+      { id: 2, price: 5500 },
+    ];
+    const edited: { trigger: string; price: any }[] = [];
+
+    const columns: PrimaryTableCol[] = [
+      { colKey: 'id', title: 'ID' },
+      {
+        colKey: 'price',
+        title: 'price',
+        edit: {
+          component: Input,
+          keepEditMode: true,
+          defaultEditable: true,
+          abortEditOnEvent: ['onBlur'],
+          onEdited: (ctx: any) => {
+            edited.push({ trigger: ctx.trigger, price: ctx.newRowData.price });
+            // 业务侧把结果写回数据源
+            Object.assign(ctx.row, ctx.newRowData);
+          },
+        },
+      },
+    ];
+
+    const wrapper = mount({
+      render() {
+        return <PrimaryTable rowKey="id" data={rowData} columns={columns} />;
+      },
+    });
+
+    await nextTick();
+
+    const inputs = wrapper.findAll('input');
+    expect(inputs.length).toBe(2);
+
+    await inputs[0].setValue('111');
+    await inputs[0].trigger('blur');
+    await nextTick();
+
+    expect(rowData[0].price).toBe('111');
+    expect(edited.some((e) => e.trigger === 'onBlur' && e.price === '111')).toBe(true);
+
+    edited.length = 0;
+
+    // 点击页面空白处
+    document.body.click();
+    await nextTick();
+
+    // 已经通过 onBlur 提交的单元格，不应再被 document 事件用旧值覆盖
+    expect(edited.filter((e) => e.trigger === 'document')).toEqual([]);
+    expect(rowData[0].price).toBe('111');
+
+    wrapper.unmount();
   });
 });

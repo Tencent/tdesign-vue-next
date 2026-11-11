@@ -321,6 +321,10 @@ export default defineComponent({
       }
       if (!col.value.edit || !col.value.edit.component) return;
       if (!isEdit.value) return;
+      // keepEditMode 的单元格一挂载就进入编辑态，且点击空白不会退出编辑。
+      // 这种情况再走 abort 流程只会白跑一次校验，
+      // 用户看到的就是「点一下空白处表单就报错」（issue #6802）。
+      if (isKeepEditMode.value) return;
       // @ts-ignore some browser is also only support e.path
       const path = e.composedPath?.() || e.path || [];
       const node = path.find((node: HTMLElement) => node.classList?.contains(`${classPrefix.value}-popup__content`));
