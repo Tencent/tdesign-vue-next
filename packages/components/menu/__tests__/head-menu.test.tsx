@@ -452,8 +452,9 @@ describe('HeadMenu', () => {
         expect(topMenuChildren(wrapper).at(-1)?.style.display).toBe('');
       });
 
-      it('currently throws when an unmounted wrapper slot returns one VNode', () => {
-        // See issue #6857.
+      it('accepts an unmounted wrapper slot that returns one VNode', async () => {
+        // See issue #6857: render slots may return a single VNode, which must not
+        // reach the internal recursion as a non-iterable value.
         // eslint-disable-next-line vue/one-component-per-file -- Local fixture reproduces the single-VNode wrapper edge case.
         const SlotWrapper = defineComponent({
           name: 'SingleSlotWrapper',
@@ -461,17 +462,16 @@ describe('HeadMenu', () => {
             return () => <div>{slots.default?.()}</div>;
           },
         });
-        const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined);
 
-        expect(() =>
-          mountHeadMenu({
-            props: { expandType: 'popup' },
-            slots: {
-              default: () => h(SlotWrapper, null, { default: () => <MenuItem value="single">Single</MenuItem> }),
-            },
-          }),
-        ).toThrow('nodes is not iterable');
-        expect(consoleError).not.toHaveBeenCalled();
+        const wrapper = mountHeadMenu({
+          props: { expandType: 'popup' },
+          slots: {
+            default: () => h(SlotWrapper, null, { default: () => <MenuItem value="single">Single</MenuItem> }),
+          },
+        });
+        await settleLayout();
+
+        expect(wrapper.findAll('.t-menu__item').map((item) => item.text())).toContain('Single');
       });
 
       it('marks More active when a folded submenu contains the active leaf', async () => {

@@ -416,6 +416,16 @@ export default defineComponent({
     };
 
     /**
+     * 把 slot 函数返回值 / 子节点统一规范化为 VNode 数组。
+     * render slot 允许直接返回单个 VNode，此时直接迭代会抛
+     * "nodes is not iterable"（issue #6857）。
+     */
+    const toVNodeArray = (nodes: VNode | VNode[] | null | undefined): VNode[] => {
+      if (!nodes) return [];
+      return isArray(nodes) ? nodes : [nodes];
+    };
+
+    /**
      * 通过递归扁平化 slot VNode 树来获取所有叶子菜单项节点
      */
     const flattenSlotNodes = (nodes: VNode[]): VNode[] => {
@@ -431,7 +441,7 @@ export default defineComponent({
         } else if (isArray(node.children)) {
           result.push(...flattenSlotNodes(node.children as VNode[]));
         } else if (isFunction((node.children as any)?.default)) {
-          result.push(...flattenSlotNodes((node.children as any).default()));
+          result.push(...flattenSlotNodes(toVNodeArray((node.children as any).default())));
         } else {
           result.push(node);
         }
@@ -453,7 +463,7 @@ export default defineComponent({
           vMenu.add({ value: nodeValue, parent: parentValue, vnode: (node.children as any).default, ...node.props });
         }
         if (isFunction((node.children as any)?.default)) {
-          initVMenu((node.children as any).default(), nodeValue);
+          initVMenu(toVNodeArray((node.children as any).default()), nodeValue);
           return;
         }
         if (isArray(node.children)) {
@@ -491,7 +501,7 @@ export default defineComponent({
     return () => {
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
-      const originalContent = ctx.slots.default?.() || ctx.slots.content?.() || [];
+      const originalContent = toVNodeArray(ctx.slots.default?.() || ctx.slots.content?.());
 
       // 扁平化 slot VNode，获取所有菜单项（解决封装组件场景）
       const flatItems = flattenSlotNodes(originalContent);
