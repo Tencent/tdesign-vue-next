@@ -162,13 +162,6 @@ export default defineComponent({
       return getLefCount(props.dataSource);
     });
 
-    watch(totalCount, (val) => {
-      if (val <= (currentPage.value - 1) * pageSize.value) {
-        const lastPage = Math.ceil(val / pageSize.value);
-        defaultCurrent.value = lastPage;
-      }
-    });
-
     const filteredTreeData = (list: TransferItemOption[], keyword: string) => {
       const res = filter(cloneDeep(list), (node) => {
         if (node.label.toLowerCase().includes(keyword.toLowerCase())) {
@@ -184,6 +177,19 @@ export default defineComponent({
       });
       return res;
     };
+
+    // 分页器显示的是筛选后的总数，页码校正必须跟着同一个数走。
+    // 之前监听的是未筛选的 totalCount：搜索结果变少时它不变，
+    // 页码就停在旧值，切片拿到空数组，列表显示「暂无数据」（issue #7054）。
+    // 必须放在 filteredTreeData 之后声明：watch 会立即求值 pageTotal，
+    // 而 tree 模式下 pageTotal -> filteredData -> filteredTreeData，
+    // 提前注册会命中 TDZ。
+    watch(pageTotal, (val) => {
+      if (val <= (currentPage.value - 1) * pageSize.value) {
+        const lastPage = Math.max(Math.ceil(val / pageSize.value), 1);
+        defaultCurrent.value = lastPage;
+      }
+    });
 
     const handlePaginationChange = (pageInfo: PageInfo) => {
       props.onPageChange?.(pageInfo);
