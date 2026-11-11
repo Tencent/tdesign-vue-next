@@ -120,6 +120,9 @@ jobs:
       # 运行测试
       - run: pnpm run test:vue
 
+      # 运行 Chat 公开 API 与组合场景测试
+      - run: pnpm run test:chat
+
   build-vue-next:
     # 在最新版本的 Ubuntu 环境中运行
     runs-on: ubuntu-latest
