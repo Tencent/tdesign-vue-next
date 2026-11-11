@@ -268,6 +268,48 @@ describe('Dialog Plugin', () => {
 
       dialog.destroy();
     });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6797
+    it(':body[function] is not re-invoked on update / setConfirmLoading / hide', async () => {
+      const bodyFn = vi.fn(() => 'content');
+      const dialog = DialogPlugin({
+        body: bodyFn,
+        header: 'title',
+      });
+      dialog.show();
+      await nextTick();
+      await sleep(20);
+      await nextTick();
+
+      // 首次渲染必须调用一次 body
+      const afterMount = bodyFn.mock.calls.length;
+      expect(afterMount).toBeGreaterThan(0);
+
+      dialog.update({ header: 'new title' });
+      await nextTick();
+      await sleep(20);
+      await nextTick();
+      const afterUpdate = bodyFn.mock.calls.length;
+
+      dialog.setConfirmLoading(true);
+      await nextTick();
+      await sleep(20);
+      await nextTick();
+      const afterLoading = bodyFn.mock.calls.length;
+
+      dialog.hide();
+      await nextTick();
+      await sleep(20);
+      await nextTick();
+      const afterHide = bodyFn.mock.calls.length;
+
+      // update / setConfirmLoading / hide 都不应该重新执行 body
+      expect(afterUpdate).toBe(afterMount);
+      expect(afterLoading).toBe(afterMount);
+      expect(afterHide).toBe(afterMount);
+
+      dialog.destroy();
+    });
   });
 
   describe('DialogPlugin.confirm', () => {
