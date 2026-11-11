@@ -182,7 +182,9 @@ export default function useRowSelect(
     const disabledSelectedRowKeys = selectedRowKeys.value?.filter((id) => !canSelectedRowKeys.includes(id)) || [];
     const allIds = checked ? [...disabledSelectedRowKeys, ...canSelectedRowKeys] : [...disabledSelectedRowKeys];
     setTSelectedRowKeys(allIds, {
-      selectedRowData: checked ? allIds.map((t) => selectedRowDataMap.value.get(t)) : [],
+      // 取消全选时 allIds 里仍保留跨页已选中的 key（disabledSelectedRowKeys），
+      // selectedRowData 必须按 allIds 推导，否则 keys 非空而 rowData 为空（issue #6726）。
+      selectedRowData: allIds.map((t) => selectedRowDataMap.value.get(t)).filter(Boolean),
       type: checked ? 'check' : 'uncheck',
       currentRowKey: 'CHECK_ALL_BOX',
     });
