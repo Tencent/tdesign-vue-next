@@ -44,6 +44,7 @@ export default defineComponent({
             <TButton
               class={p.reduceClasses.value}
               disabled={p.tDisabled.value}
+              onMousedown={(e: MouseEvent) => e.preventDefault()}
               onClick={p.handleReduce}
               variant="outline"
               shape="square"
@@ -73,6 +74,7 @@ export default defineComponent({
             <TButton
               class={p.addClasses.value}
               disabled={p.tDisabled.value}
+              onMousedown={(e: MouseEvent) => e.preventDefault()}
               onClick={p.handleAdd}
               variant="outline"
               shape="square"

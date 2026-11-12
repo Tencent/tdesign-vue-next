@@ -693,6 +693,49 @@ describe('InputNumber', () => {
 
       expect(decreaseBtn.classes()).toContain('t-is-disabled');
     });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6068
+    it('step buttons prevent the default mousedown so the input keeps focus', async () => {
+      const pressStep = async (wrapper: ReturnType<typeof mount>, selector: string) => {
+        const button = wrapper.find(selector);
+        expect(button.exists()).toBe(true);
+        const mousedown = new MouseEvent('mousedown', { bubbles: true, cancelable: true });
+        button.element.dispatchEvent(mousedown);
+        await button.trigger('click');
+        return mousedown;
+      };
+
+      const increaseValue = ref<number>(1);
+      const increaseBlur = vi.fn();
+      const increaseWrapper = mount(() => (
+        <InputNumber v-model={increaseValue.value} theme="column" onBlur={increaseBlur} />
+      ));
+      const increaseMousedown = await pressStep(increaseWrapper, '.t-input-number__increase');
+      expect(increaseMousedown.defaultPrevented).toBe(true);
+      expect(increaseBlur).not.toHaveBeenCalled();
+      expect(increaseValue.value).toBe(2);
+
+      const decreaseValue = ref<number>(5);
+      const decreaseBlur = vi.fn();
+      const decreaseWrapper = mount(() => (
+        <InputNumber v-model={decreaseValue.value} theme="column" onBlur={decreaseBlur} />
+      ));
+      const decreaseMousedown = await pressStep(decreaseWrapper, '.t-input-number__decrease');
+      expect(decreaseMousedown.defaultPrevented).toBe(true);
+      expect(decreaseBlur).not.toHaveBeenCalled();
+      expect(decreaseValue.value).toBe(4);
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6068
+    it('a genuine blur still fires when focus really leaves the component', async () => {
+      const value = ref<number>(1);
+      const onBlur = vi.fn();
+      const wrapper = mount(() => <InputNumber v-model={value.value} theme="column" onBlur={onBlur} />);
+
+      await wrapper.find('.t-input__inner').trigger('blur');
+
+      expect(onBlur).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe('scenarios', () => {
