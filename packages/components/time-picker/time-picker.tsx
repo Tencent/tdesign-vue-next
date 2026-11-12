@@ -66,6 +66,26 @@ export default defineComponent({
       props?.onClear?.(context);
     };
 
+    /**
+     * disableTime 返回被禁用的 hour/minute/second 列表，
+     * 面板里点选时会过滤掉，手动输入也必须走同一套判定，
+     * 否则 allowInput 可以绕过禁用规则写入非法时间。
+     */
+    const isDisabledInputTime = (text: string) => {
+      if (!props.disableTime || !text) return false;
+      const parsed = dayjs(text, format.value);
+      if (!parsed.isValid()) return false;
+      const disabled = props.disableTime(parsed.hour(), parsed.minute(), parsed.second(), parsed.millisecond(), {
+        partial: 'start',
+      });
+      if (!disabled) return false;
+      return (
+        !!disabled.hour?.includes(parsed.hour()) ||
+        !!disabled.minute?.includes(parsed.minute()) ||
+        !!disabled.second?.includes(parsed.second())
+      );
+    };
+
     const handleInputChange = (value: string) => {
       currentValue.value = value;
     };
@@ -73,7 +93,7 @@ export default defineComponent({
     const handleInputBlur = (value: string, context: SelectInputBlurContext) => {
       if (allowInput.value) {
         const isValidTime = validateInputValue(currentValue.value, format.value);
-        if (isValidTime) {
+        if (isValidTime && !isDisabledInputTime(currentValue.value)) {
           setInnerValue(formatInputValue(currentValue.value, format.value));
         }
       }
@@ -83,7 +103,7 @@ export default defineComponent({
     const handleClickConfirm = (e: MouseEvent) => {
       props?.onConfirm?.({ e });
       const isValidTime = validateInputValue(currentValue.value, format.value);
-      if (isValidTime) setInnerValue(currentValue.value);
+      if (isValidTime && !isDisabledInputTime(currentValue.value)) setInnerValue(currentValue.value);
       isShowPanel.value = false;
     };
 
