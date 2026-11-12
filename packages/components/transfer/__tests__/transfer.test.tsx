@@ -2,6 +2,7 @@ import { ref, h } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { describe, expect, vi, it } from 'vitest';
+import { Pagination } from '@tdesign/components/pagination';
 import Transfer from '@tdesign/components/transfer';
 import TransferProps from '@tdesign/components/transfer/props';
 import { transferMockData, pagination } from './mount';
@@ -381,6 +382,69 @@ describe('Transfer', () => {
       const input = wrapper.find('.t-transfer__search-wrapper input');
       await input.trigger('input');
       expect(fn).toBeCalled();
+    });
+  });
+
+  describe('scenarios', () => {
+    describe('search with pagination', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7054
+      it('keeps the source page in range as the search results change', async () => {
+        const onPageChange = vi.fn();
+        const wrapper = mount(
+          <Transfer data={transferMockData} search pagination={{ pageSize: 5 }} onPageChange={onPageChange} />,
+        );
+        const source = wrapper.get('.t-transfer__list-source');
+        const input = source.get('.t-transfer__search-wrapper input');
+
+        await source.get('.t-pagination__btn-next').trigger('click');
+        expect(source.getComponent(Pagination).props('current')).toBe(2);
+
+        await input.setValue('内容1');
+        expect(source.getComponent(Pagination).props('current')).toBe(2);
+
+        await input.setValue('内容20');
+        expect(source.getComponent(Pagination).props('current')).toBe(1);
+        expect(source.findAll('.t-transfer__list-item').map((item) => item.text())).toEqual(['内容20']);
+        expect(onPageChange).toHaveBeenCalledTimes(1);
+
+        await input.setValue('no matching item');
+        expect(source.find('.t-transfer__empty').exists()).toBe(true);
+        expect(source.findComponent(Pagination).exists()).toBe(false);
+
+        await input.setValue('');
+        expect(source.getComponent(Pagination).props('current')).toBe(1);
+        expect(source.get('.t-transfer__list-item').text()).toBe('内容1');
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7054
+      it('shows matching target items with an out-of-range controlled page', async () => {
+        const onPageChange = vi.fn();
+        const wrapper = mount(
+          <Transfer
+            data={transferMockData}
+            defaultValue={transferMockData.map((item) => item.value)}
+            search
+            pagination={{ pageSize: 5, current: 4 }}
+            onPageChange={onPageChange}
+          />,
+        );
+        const target = wrapper.get('.t-transfer__list-target');
+        const input = target.get('.t-transfer__search-wrapper input');
+        expect(target.get('.t-transfer__list-item').text()).toBe('内容16');
+
+        await input.setValue('内容1');
+        expect(target.getComponent(Pagination).props('current')).toBe(3);
+        expect(target.findAll('.t-transfer__list-item').map((item) => item.text())).toEqual(['内容19']);
+
+        await input.setValue('内容20');
+        expect(target.getComponent(Pagination).props('current')).toBe(1);
+        expect(target.findAll('.t-transfer__list-item').map((item) => item.text())).toEqual(['内容20']);
+
+        await input.setValue('');
+        expect(target.getComponent(Pagination).props('current')).toBe(4);
+        expect(target.get('.t-transfer__list-item').text()).toBe('内容16');
+        expect(onPageChange).not.toHaveBeenCalled();
+      });
     });
   });
 
