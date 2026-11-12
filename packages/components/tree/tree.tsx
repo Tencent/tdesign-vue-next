@@ -105,7 +105,8 @@ export default defineComponent({
     // 设置目标节点状态
     setItem(value: TreeNodeValue, options: TreeNodeState): void {
       const node: TreeNode = this.store.getNode(value);
-      const spec = options;
+      // 复制一份，避免 delete 把调用方传入的对象改掉
+      const spec = { ...options };
       const keys = Object.keys(spec);
       if (node && spec) {
         ['expanded', 'actived', 'checked'].forEach((name) => {
