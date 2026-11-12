@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import Tree from '@tdesign/components/tree';
 import { delay, step } from './kit';
@@ -375,6 +376,39 @@ describe('Tree:api', () => {
       expect(activeParams.context.node.value).toEqual('t2.1');
       await delay(3);
       expect(t2d1.classes('t-is-active')).toBe(true);
+    });
+
+    it('does not mutate the options object passed by the caller', async () => {
+      const data = [
+        { value: 't1', label: 't1' },
+        { value: 't2', label: 't2' },
+      ];
+      const wrapper = mount(Tree, { props: { data } });
+      await nextTick();
+      const tree = wrapper.vm as any;
+
+      const options = { expanded: true };
+      tree.setItem('t1', options);
+      await delay(10);
+      expect(tree.getItem('t1').expanded).toBe(true);
+
+      tree.setItem('t2', options);
+      await delay(10);
+      expect(tree.getItem('t2').expanded).toBe(true);
+      expect(options).toEqual({ expanded: true });
+    });
+
+    it('keeps the caller object intact for a checked state', async () => {
+      const data = [{ value: 't1', label: 't1' }];
+      const wrapper = mount(Tree, { props: { data, checkable: true } });
+      await nextTick();
+      const tree = wrapper.vm as any;
+
+      const options = { checked: true };
+      tree.setItem('t1', options);
+      await delay(10);
+      expect(tree.getItem('t1').checked).toBe(true);
+      expect(options).toEqual({ checked: true });
     });
   });
 
