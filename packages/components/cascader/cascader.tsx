@@ -140,7 +140,7 @@ export default defineComponent({
           class={cascaderClassNames.value}
           value={displayValue.value}
           inputValue={visible ? inputVal : ''}
-          popupVisible={visible}
+          popupVisible={visible && !isDisabled.value}
           keys={props.keys}
           allowInput={isFilterable.value}
           min-collapsed-num={props.minCollapsedNum}

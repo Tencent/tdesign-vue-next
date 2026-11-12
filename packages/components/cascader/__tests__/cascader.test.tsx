@@ -119,6 +119,17 @@ describe('Cascader', () => {
       expect(onChange).toHaveBeenCalledWith('a', expect.objectContaining({ source: 'check' }));
     });
 
+    it('ignores an option click after the open cascader is disabled', async () => {
+      const onChange = vi.fn();
+      const wrapper = renderCascader({ checkStrictly: true, onChange, popupVisible: true });
+      const panel = mountPanel(wrapper);
+      const option = panel.get('.t-cascader__item');
+
+      await wrapper.setProps({ disabled: true });
+      await option.trigger('click');
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
     it(':clearable[boolean]', () => {
       const wrapper = renderCascader({ clearable: true });
 
