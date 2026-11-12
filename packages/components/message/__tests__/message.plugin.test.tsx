@@ -266,9 +266,64 @@ describe('MessagePlugin', () => {
       expect(secondAttach.querySelector('.t-message')).toBeNull();
     });
 
-    it('config() is currently missing although it is documented', () => {
-      // Keep the current public surface visible until the documented API is implemented or removed.
-      expect(Reflect.get(MessagePlugin, 'config')).toBeUndefined();
+    it('config() is implemented as documented', () => {
+      expect(Reflect.get(MessagePlugin, 'config')).toBeTypeOf('function');
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6242
+    it('config() applies the global duration to subsequent messages', async () => {
+      vi.useFakeTimers();
+      MessagePlugin.config({ duration: 500 });
+
+      const attach = createAttach();
+      const onClose = vi.fn();
+      await MessagePlugin.info({ content: 'hi', attach: () => attach, onClose });
+
+      expect(attach.querySelector('.t-message')).not.toBeNull();
+
+      vi.advanceTimersByTime(499);
+      expect(onClose).not.toHaveBeenCalled();
+
+      vi.advanceTimersByTime(2);
+      expect(onClose).toHaveBeenCalledTimes(1);
+      expect(onClose.mock.calls[0][0]).toMatchObject({ trigger: 'duration-end' });
+
+      MessagePlugin.config({});
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6242
+    it('config() lets per-call options override the global defaults', async () => {
+      vi.useFakeTimers();
+      MessagePlugin.config({ duration: 100 });
+
+      const attach = createAttach();
+      const onClose = vi.fn();
+      await MessagePlugin.info({ content: 'hi', attach: () => attach, onClose, duration: 900 });
+
+      vi.advanceTimersByTime(500);
+      expect(onClose).not.toHaveBeenCalled();
+
+      vi.advanceTimersByTime(401);
+      expect(onClose).toHaveBeenCalledTimes(1);
+
+      MessagePlugin.config({});
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6242
+    it('config() does not affect messages that were already created', async () => {
+      vi.useFakeTimers();
+      MessagePlugin.config({ duration: 100 });
+
+      const attach = createAttach();
+      const onClose = vi.fn();
+      await MessagePlugin.info({ content: 'hi', attach: () => attach, onClose });
+
+      MessagePlugin.config({ duration: 9000 });
+
+      vi.advanceTimersByTime(102);
+      expect(onClose).toHaveBeenCalledTimes(1);
+
+      MessagePlugin.config({});
     });
   });
 
@@ -279,9 +334,11 @@ describe('MessagePlugin', () => {
       MessagePlugin.install(app);
       const installed = app.config.globalProperties.$message;
       expect(installed).toBe(MessagePlugin);
-      ['info', 'success', 'warning', 'error', 'question', 'loading', 'close', 'closeAll'].forEach((method) => {
-        expect(typeof installed[method]).toBe('function');
-      });
+      ['info', 'success', 'warning', 'error', 'question', 'loading', 'close', 'closeAll', 'config'].forEach(
+        (method) => {
+          expect(typeof installed[method]).toBe('function');
+        },
+      );
     });
 
     it('uses the application context captured by install()', async () => {

@@ -32,6 +32,7 @@ import MessageList from './message-list';
 import type { AttachNodeReturnValue } from '../common';
 import type {
   MessageCloseAllMethod,
+  MessageConfigMethod,
   MessageCloseMethod,
   MessageErrorMethod,
   MessageInfoMethod,
@@ -47,12 +48,16 @@ import type {
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<AttachNodeReturnValue, Record<string, VNode>> = new Map();
 
+// 全局配置，通过 MessagePlugin.config 设置，作用于后续所有消息
+let globalConfig: MessageOptions = {};
+
 function handleParams(params: MessageOptions): MessageOptions {
   const options: MessageOptions = {
     duration: DEFAULT_DURATION,
     attach: 'body',
     zIndex: DEFAULT_Z_INDEX,
     placement: 'top',
+    ...globalConfig,
     ...params,
   };
   options.content = params.content;
@@ -124,6 +129,7 @@ interface ExtraApi {
   loading: MessageLoadingMethod;
   close: MessageCloseMethod;
   closeAll: MessageCloseAllMethod;
+  config: MessageConfigMethod;
 }
 
 export type MessagePluginType = Plugin & ExtraApi & MessageMethod;
@@ -137,6 +143,9 @@ const extraApi: ExtraApi = {
   loading: (params, duration, context) => showThemeMessage('loading', params, duration, context),
   close: (promise) => {
     promise.then((instance) => instance?.close());
+  },
+  config: (message) => {
+    globalConfig = { ...message };
   },
   closeAll: () => {
     if (instanceMap instanceof Map) {
