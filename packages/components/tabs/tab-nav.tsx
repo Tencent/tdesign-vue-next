@@ -181,7 +181,7 @@ export default defineComponent({
     watch([() => props.scrollPosition], handleActiveTabScroll);
 
     // life times
-    useResize(debounce(getMaxScrollLeft), navsContainerRef.value);
+    useResize(debounce(getMaxScrollLeft), navsContainerRef);
 
     const handleAddTab = (e: MouseEvent) => {
       props.onAdd?.({ e });

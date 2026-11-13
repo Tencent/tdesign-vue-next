@@ -1,4 +1,4 @@
-import { onBeforeUnmount, onMounted } from 'vue';
+import { onBeforeUnmount, onMounted, Ref, unref } from 'vue';
 
 /**
  * 用于订阅Listener事件
@@ -14,15 +14,18 @@ export function useListener(type: string, listener: () => void): void {
   });
 }
 
-export function useResize(listener: () => void, observer?: HTMLElement) {
+export function useResize(listener: () => void, observer?: HTMLElement | Ref<HTMLElement>) {
   useListener('resize', listener);
 
   let resizeObserver: ResizeObserver = null;
 
   onMounted(() => {
-    if (!window.ResizeObserver || !observer) return;
+    // 调用方常在 setup 阶段传入 ref.value，此时元素还没挂载，取到的是 undefined。
+    // 挂载后再解一次，才能拿到真实元素。
+    const target = unref(observer);
+    if (!window.ResizeObserver || !target) return;
     resizeObserver = new window.ResizeObserver(listener);
-    resizeObserver.observe(observer);
+    resizeObserver.observe(target);
   });
 
   onBeforeUnmount(() => {

@@ -1,9 +1,23 @@
 import { mount } from '@vue/test-utils';
-import { h, nextTick } from 'vue';
+import { h, nextTick, ref } from 'vue';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { TabPanel, Tabs } from '@tdesign/components/tabs';
 import TTabNav from '../tab-nav';
 import tabProps from '../props';
+import { useResize } from '../../../shared/hooks/useListener';
+
+const { observeSpy, disconnectSpy } = vi.hoisted(() => ({
+  observeSpy: vi.fn(),
+  disconnectSpy: vi.fn(),
+}));
+
+class FakeResizeObserver {
+  observe = observeSpy;
+
+  disconnect = disconnectSpy;
+
+  unobserve = vi.fn();
+}
 
 const createPanels = () => [
   h(TabPanel, { value: 'first', label: 'First', destroyOnHide: false }, { default: () => 'First content' }),
@@ -363,5 +377,44 @@ describe('Tabs', () => {
 
       expect(onDragSort).toHaveBeenCalledWith(context);
     });
+  });
+});
+
+describe('useResize', () => {
+  it('observes the real element, not the ref wrapper', async () => {
+    observeSpy.mockClear();
+    (window as any).ResizeObserver = FakeResizeObserver;
+
+    const wrapper = mount({
+      setup() {
+        const el = ref<HTMLElement>();
+        useResize(() => {}, el);
+        return () => h('div', { ref: el, class: 'target' });
+      },
+    });
+    await nextTick();
+    await nextTick();
+
+    expect(observeSpy).toHaveBeenCalledTimes(1);
+    const arg = observeSpy.mock.calls[0][0];
+    expect(arg).toBeInstanceOf(HTMLElement);
+    expect(arg).toBe(wrapper.find('.target').element);
+  });
+
+  it('still accepts a plain element', async () => {
+    observeSpy.mockClear();
+    (window as any).ResizeObserver = FakeResizeObserver;
+
+    mount({
+      setup() {
+        const el = ref<HTMLElement>();
+        useResize(() => {}, el.value);
+        return () => h('div', { ref: el, class: 'target' });
+      },
+    });
+    await nextTick();
+    await nextTick();
+    // 传值时元素尚未挂载，hook 不应崩溃
+    expect(observeSpy).not.toHaveBeenCalled();
   });
 });
