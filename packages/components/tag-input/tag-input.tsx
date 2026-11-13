@@ -12,7 +12,8 @@ import {
 } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
-import { TdTagInputProps } from './type';
+import { TdTagInputProps, TagInputValue } from './type';
+import { DragSortContext } from './types';
 import props from './props';
 import { useConfig } from '../config-provider/hooks/useConfig';
 import {
@@ -70,6 +71,10 @@ export default defineComponent({
     const suffixWidthRef = ref<number>(0);
     const suffixIconWidthRef = ref<number>(0);
 
+    // useTagList 在 useDragSorter 之后创建，这里做延迟绑定，
+    // 保证拖拽排序时拿到的是当前真实标签，而不是初始 value/defaultValue
+    let getCurrentTags: () => TagInputValue = () => [];
+
     // 这里不需要响应式，因此直接传递参数
     const { getDragProps } = useDragSorter({
       ...props,
@@ -77,6 +82,17 @@ export default defineComponent({
       onDragOverCheck: {
         x: true,
         targetClassNameRegExp: new RegExp(`^${classPrefix.value}-tag`),
+      },
+      // 排序结果只有这里能算出来（useDragSorter 拿不到完整的 tags 数组），
+      // 补齐公开类型 TagInputDragSortContext 要求的 newTags（issue #6907）
+      onDragSort: (context: DragSortContext<TagInputValue>) => {
+        const { currentIndex, targetIndex } = context;
+        const nextTags = [...getCurrentTags()];
+        if (currentIndex >= 0 && targetIndex >= 0 && nextTags.length) {
+          const [moved] = nextTags.splice(currentIndex, 1);
+          nextTags.splice(targetIndex, 0, moved);
+        }
+        props.onDragSort?.({ ...context, newTags: nextTags });
       },
     });
     const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef, isScrollable } =
@@ -90,6 +106,8 @@ export default defineComponent({
           getDragProps,
         }),
       );
+
+    getCurrentTags = () => tagValue.value;
 
     const isBreakLine = computed(() => excessTagsDisplayType.value === 'break-line');
 
@@ -307,7 +325,7 @@ export default defineComponent({
           disabled={isDisabled.value}
           label={() => renderLabel({ displayNode, label })}
           class={classes.value}
-          tips={tips.value}
+          tips={renderTNodeJSX('tips', { silent: true }) ?? tips.value}
           status={status.value}
           placeholder={tagInputPlaceholder.value}
           suffix={suffix.value}
