@@ -36,6 +36,24 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
+
+    // body 为函数时，renderContent 会在每次渲染都调用它。
+    // update / setConfirmLoading / hide 都会触发重新渲染，
+    // 于是业务里的 body 函数被反复执行（issue #6797）。
+    // 仅对函数形态做缓存：函数体通常是有副作用的计算，
+    // 而字符串和插槽本身不会重复求值，保持每次渲染重新解析。
+    let cachedBodySource: any;
+    let cachedBodyNode: any;
+    const getStableBody = () => {
+      const source = props.body;
+      if (typeof source !== 'function') return renderContent('default', 'body');
+
+      if (source !== cachedBodySource) {
+        cachedBodySource = source;
+        cachedBodyNode = renderContent('default', 'body');
+      }
+      return cachedBodyNode;
+    };
     const { globalConfig } = useConfig('dialog');
     const { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
       CloseIcon: TdCloseIcon,
@@ -164,7 +182,7 @@ export default defineComponent({
       };
 
       const renderBody = () => {
-        const body = renderContent('default', 'body');
+        const body = getStableBody();
         const bodyClassName =
           props?.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
         if (isFullScreen.value && footerContent) {
