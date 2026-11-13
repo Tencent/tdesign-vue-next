@@ -234,8 +234,15 @@ export default defineComponent({
         const oldValue = get(row.value, col.value.colKey);
         // 相同的值无需触发变化
         if (!isSame(editValue.value, oldValue)) {
-          editValue.value = oldValue;
+          // 派发的是本次编辑的结果，必须在重置 editValue 之前取快照，
+          // 否则 newRowData 会被下面的重置污染成旧值（issue #6923）。
+          // currentRow / args 由调用方在调用时求值，这里只处理 keepEditMode 的常驻编辑态。
           outsideAbortEvent?.(...args);
+          // keepEditMode 下单元格保持编辑态，editValue 是用户当前输入的内容，
+          // 回退成 oldValue 会让后续 document 事件拿旧值覆盖已提交的结果，因此保留下沉。
+          if (!isKeepEditMode.value) {
+            editValue.value = oldValue;
+          }
         }
         if (isKeepEditMode.value) return;
         editOnListeners.value[eventName]?.(args[2]);
