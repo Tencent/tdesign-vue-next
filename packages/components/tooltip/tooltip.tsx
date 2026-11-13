@@ -74,9 +74,31 @@ export default defineComponent({
       if (props.placement !== 'mouse' || offsetX.value === 0) {
         return props.overlayInnerStyle;
       }
-      const offsetStyle = (triggerEl: HTMLElement) => ({
-        transform: `translateX(${offsetX.value - triggerEl.getBoundingClientRect().left}px)`,
-      });
+      const offsetStyle = (triggerEl: HTMLElement) => {
+        const triggerRect = triggerEl.getBoundingClientRect();
+        // tooltip 的场景传入的都是字符串  这里直接使用canvas计算长度
+        const content = props.content as string;
+        const canvas = document.createElement('canvas');
+        const ctx = canvas?.getContext('2d');
+        ctx.font = getComputedStyle(triggerEl).font;
+        const textWidth = ctx.measureText(content).width;
+
+        const tipWidth = textWidth + 10; // 考虑到padding 需要添加10px
+
+        // 获取距离窗口右侧的距离
+        const maxLeftOffset = window.innerWidth - x.value;
+
+        let finalLeftOffset = 0;
+        if (maxLeftOffset >= tipWidth) {
+          finalLeftOffset = x.value - triggerRect.left;
+        } else {
+          finalLeftOffset = triggerRect.width - tipWidth;
+        }
+
+        return {
+          transform: `translateX(${finalLeftOffset}px)`,
+        };
+      };
       if (props.overlayInnerStyle) {
         return (triggerEl: HTMLElement, popupEl: HTMLElement) => ({
           ...offsetStyle(triggerEl),
