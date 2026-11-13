@@ -20,9 +20,9 @@ export default function useDrag(props: UploadDragEvents, accept: Ref<string>) {
     const { files } = event.dataTransfer;
     const dragFiles: File[] = getFileList(files, accept.value);
     props.onDrop?.({ e: event });
-    if (dragFiles?.length) {
-      props.onDragFileChange?.(dragFiles);
-    }
+    // 即使 accept 把文件全部过滤掉，也要把这次拖拽的选择结果上报，
+    // 否则调用方拿不到 onSelectChange，无法提示「格式不支持」。
+    props.onDragFileChange?.(dragFiles ?? []);
   };
 
   const handleDragenter = (event: DragEvent) => {
