@@ -179,7 +179,8 @@ export default function useRowSelect(
   function handleSelectAll(checked: boolean) {
     const reRowKey = props.rowKey || 'id';
     const canSelectedRowKeys = canSelectedRows.value.map((record) => get(record, reRowKey));
-    const disabledSelectedRowKeys = selectedRowKeys.value?.filter((id) => !canSelectedRowKeys.includes(id)) || [];
+    // 用内部状态而不是原始 prop：非受控模式下 selectedRowKeys 是 undefined
+    const disabledSelectedRowKeys = tSelectedRowKeys.value?.filter((id) => !canSelectedRowKeys.includes(id)) || [];
     const allIds = checked ? [...disabledSelectedRowKeys, ...canSelectedRowKeys] : [...disabledSelectedRowKeys];
     setTSelectedRowKeys(allIds, {
       selectedRowData: checked ? allIds.map((t) => selectedRowDataMap.value.get(t)) : [],
