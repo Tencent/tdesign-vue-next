@@ -1,9 +1,18 @@
-import { nextTick } from 'vue';
+import { h, nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { BaseTable, PrimaryTable, EnhancedTable } from '@tdesign/components/table';
 import type { BaseTableInstanceFunctions } from '@tdesign/components/table';
+
+const { observeMock, disconnectSpy } = vi.hoisted(() => ({
+  observeMock: vi.fn(() => ({ unobserve: vi.fn(), disconnect: disconnectSpy })),
+  disconnectSpy: vi.fn(),
+}));
+vi.mock('@tdesign/common-js/utils/observe', () => ({ default: observeMock }));
+
+import useLazyLoad from '../hooks/useLazyLoad';
+import { useLazyLoad as useSharedLazyLoad } from '../../../shared/hooks/useLazyLoad';
 
 const columns = [{ colKey: 'id', title: 'ID' }];
 
@@ -168,5 +177,79 @@ describe.each([
       const targetOffset = translateY + 47 + (255 - firstIndex) * 47 - container.scrollTop;
       expect(targetOffset).toBe(47);
     });
+  });
+});
+
+describe('useLazyLoad', () => {
+  const mountHook = (hook: typeof useLazyLoad, type: 'lazy' | 'virtual') => {
+    const wrapper = mount({
+      setup() {
+        const container = ref<HTMLElement>();
+        const child = ref<HTMLElement>();
+        hook(container, child, { type, rowHeight: 48, bufferSize: 10 });
+        return () => h('div', { ref: container, class: 'container' }, [h('div', { ref: child, class: 'child' })]);
+      },
+    });
+    return wrapper;
+  };
+
+  it('disconnects the observer when the table unmounts before scrolling', async () => {
+    observeMock.mockClear();
+    disconnectSpy.mockClear();
+    const wrapper = mountHook(useLazyLoad, 'lazy');
+    await nextTick();
+    await nextTick();
+    expect(observeMock).toHaveBeenCalled();
+
+    wrapper.unmount();
+    await nextTick();
+    expect(disconnectSpy).toHaveBeenCalled();
+  });
+
+  it('does not create an observer when the table is not lazy', async () => {
+    observeMock.mockClear();
+    mountHook(useLazyLoad, 'virtual');
+    await nextTick();
+    await nextTick();
+    expect(observeMock).not.toHaveBeenCalled();
+  });
+});
+
+describe('useLazyLoad (shared)', () => {
+  it('disconnects the observer when the component unmounts before scrolling', async () => {
+    observeMock.mockClear();
+    disconnectSpy.mockClear();
+    const wrapper = mount({
+      setup() {
+        const container = ref<HTMLElement>();
+        const child = ref<HTMLElement>();
+        useSharedLazyLoad(container, child, { type: 'lazy', rowHeight: 48, bufferSize: 10 });
+        return () => h('div', { ref: container, class: 'container' }, [h('div', { ref: child, class: 'child' })]);
+      },
+    });
+    await nextTick();
+    await nextTick();
+    expect(observeMock).toHaveBeenCalled();
+
+    wrapper.unmount();
+    await nextTick();
+    // 卸载时 observer 仍持有 DOM 引用，必须主动断开
+    expect(disconnectSpy).toHaveBeenCalled();
+  });
+
+  it('skips observe when the refs are not resolved yet', async () => {
+    observeMock.mockClear();
+    mount({
+      setup() {
+        const container = ref<HTMLElement>();
+        const child = ref<HTMLElement>();
+        useSharedLazyLoad(container, child, { type: 'lazy' });
+        return () => h('div', { class: 'empty' });
+      },
+    });
+    await nextTick();
+    await nextTick();
+    // 没有元素可观察时不应该把 undefined 传给 observe
+    expect(observeMock).not.toHaveBeenCalled();
   });
 });
