@@ -63,20 +63,20 @@ export const usePanelVirtualScroll = (props: {
         width: '1px',
         height: '1px',
         transition: 'transform 0.2s',
-        transform: `translate(0, ${scrollHeight.value}px)`,
-        '-ms-transform': `translate(0, ${scrollHeight.value}px)`,
-        '-moz-transform': `translate(0, ${scrollHeight.value}px)`,
-        '-webkit-transform': `translate(0, ${scrollHeight.value}px)`,
+        transform: `translate(0, ${scrollHeight?.value ?? 0}px)`,
+        '-ms-transform': `translate(0, ${scrollHeight?.value ?? 0}px)`,
+        '-moz-transform': `translate(0, ${scrollHeight?.value ?? 0}px)`,
+        '-webkit-transform': `translate(0, ${scrollHeight?.value ?? 0}px)`,
       } as Styles),
   );
 
   const panelStyle = computed(
     () =>
       ({
-        transform: `translate(0, ${translateY.value}px)`,
-        '-ms-transform': `translate(0, ${translateY.value}px)`,
-        '-moz-transform': `translate(0, ${translateY.value}px)`,
-        '-webkit-transform': `translate(0, ${translateY.value}px)`,
+        transform: `translate(0, ${translateY?.value ?? 0}px)`,
+        '-ms-transform': `translate(0, ${translateY?.value ?? 0}px)`,
+        '-moz-transform': `translate(0, ${translateY?.value ?? 0}px)`,
+        '-webkit-transform': `translate(0, ${translateY?.value ?? 0}px)`,
       } as Styles),
   );
 
