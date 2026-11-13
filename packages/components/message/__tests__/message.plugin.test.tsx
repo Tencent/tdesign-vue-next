@@ -266,9 +266,8 @@ describe('MessagePlugin', () => {
       expect(secondAttach.querySelector('.t-message')).toBeNull();
     });
 
-    it('config() is currently missing although it is documented', () => {
-      // Keep the current public surface visible until the documented API is implemented or removed.
-      expect(Reflect.get(MessagePlugin, 'config')).toBeUndefined();
+    it('config() is implemented as documented', () => {
+      expect(Reflect.get(MessagePlugin, 'config')).toBeTypeOf('function');
     });
   });
 
@@ -279,9 +278,11 @@ describe('MessagePlugin', () => {
       MessagePlugin.install(app);
       const installed = app.config.globalProperties.$message;
       expect(installed).toBe(MessagePlugin);
-      ['info', 'success', 'warning', 'error', 'question', 'loading', 'close', 'closeAll'].forEach((method) => {
-        expect(typeof installed[method]).toBe('function');
-      });
+      ['info', 'success', 'warning', 'error', 'question', 'loading', 'close', 'closeAll', 'config'].forEach(
+        (method) => {
+          expect(typeof installed[method]).toBe('function');
+        },
+      );
     });
 
     it('uses the application context captured by install()', async () => {
