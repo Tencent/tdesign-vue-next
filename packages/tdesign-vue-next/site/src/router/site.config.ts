@@ -170,6 +170,14 @@ export const docs = [
         component: () => import('@tdesign/components/space/space.md'),
         componentEn: () => import('@tdesign/components/space/space.en-US.md'),
       },
+      {
+        title: 'Scrollbar 滚动条',
+        titleEn: 'Scrollbar',
+        name: 'scrollbar',
+        path: '/vue-next/components/scrollbar',
+        component: () => import('@tdesign/components/scrollbar/scrollbar.md'),
+        componentEn: () => import('@tdesign/components/scrollbar/scrollbar.en-US.md'),
+      },
     ],
   },
   {
