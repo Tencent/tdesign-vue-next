@@ -31,6 +31,7 @@ import FakeArrow from '../common-components/fake-arrow';
 import { Popup, PopupPlacement } from '../popup';
 
 import { TdSubmenuProps } from './type';
+import { createAdjacentPath, deferAdjacentSibling, protectsDescendant } from './utils/adjacent-path';
 
 export default defineComponent({
   name: 'TSubmenu',
@@ -94,16 +95,16 @@ export default defineComponent({
       }
     };
 
+    let placementDirection = '';
     const handlePlacementChange = ({ placement }: { placement: string }) => {
-      const spacerEl = popupWrapperRef.value;
-      if (!spacerEl) return;
-
-      const prefixClassName = `${classPrefix.value}-menu__spacer`;
-      const isBottom = placement.startsWith('bottom');
-      const isTop = placement.startsWith('top');
-
-      spacerEl.classList.toggle(`${prefixClassName}--bottom`, isBottom);
-      spacerEl.classList.toggle(`${prefixClassName}--top`, isTop);
+      placementDirection = placement;
+      // The top-level head-menu spacer must not cover adjacent menu triggers.
+      if (isHead && !isNested.value) return;
+      const spacer = popupWrapperRef.value;
+      if (!spacer) return;
+      const prefix = `${classPrefix.value}-menu__spacer`;
+      spacer.classList.toggle(`${prefix}--bottom`, placement.startsWith('bottom'));
+      spacer.classList.toggle(`${prefix}--top`, placement.startsWith('top'));
     };
 
     const classes = computed(() => [
@@ -127,6 +128,13 @@ export default defineComponent({
       { [`${classPrefix.value}-menu-is-nested`]: isNested.value },
       props.popupProps?.overlayClassName,
     ]);
+    const popupOverlayStyle = computed(() => {
+      const style = props.popupProps?.overlayStyle;
+      if (popupVisible.value) return style;
+      if (isFunction(style))
+        return (trigger: HTMLElement, popup: HTMLElement) => ({ ...style(trigger, popup), pointerEvents: 'none' });
+      return { ...style, pointerEvents: 'none' };
+    });
     const submenuClass = computed(() => [
       `${classPrefix.value}-menu__item`,
       {
@@ -174,10 +182,16 @@ export default defineComponent({
           subPopupRef.value = ref;
         },
         closeParentPopup: (e: MouseEvent) => {
-          // 不再检查 relatedTarget，直接触发父级的延迟隐藏
-          // 如果鼠标真的停留在父级，父级的 handleEnterPopup 会取消定时器
-          // 如果鼠标继续离开，定时器会触发隐藏
-
+          const rect = popupWrapperRef.value?.getBoundingClientRect();
+          if (
+            rect?.width &&
+            rect.height &&
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom
+          )
+            return;
           clearTimers();
 
           // 设置父级的延迟隐藏
@@ -212,8 +226,14 @@ export default defineComponent({
     };
 
     // methods
-    const handleMouseEnter = () => {
+    const handleMouseEnter = (event?: MouseEvent) => {
       if (props.disabled) return;
+      if (
+        event &&
+        submenuRef.value &&
+        deferAdjacentSibling(menu, submenuRef.value, event, handleMouseEnter, classPrefix.value)
+      )
+        return;
 
       clearTimers();
 
@@ -238,8 +258,52 @@ export default defineComponent({
 
     const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
 
-    const handleMouseLeave = (e: MouseEvent) => {
+    const path = createAdjacentPath(menu);
+    let triggerPoint: { x: number; y: number } | undefined;
+    let popupPoint: { x: number; y: number } | undefined;
+    const releasePath = (event: MouseEvent) => {
       clearTimers();
+      hideTimer.value = setTimeout(() => {
+        if (!isCursorInPopup.value) popupVisible.value = false;
+        hideTimer.value = null;
+      }, 100);
+      closeParentPopup?.(event);
+    };
+    const holdPath = () => {
+      clearTimers();
+      cancelHideTimer?.();
+    };
+
+    const handleMouseLeave = (e: MouseEvent) => {
+      // Vertical placements use the spacer; horizontal placements need the
+      // popup wrapper to cover the gap between trigger and popup.
+      const popup =
+        placementDirection.startsWith('top') || placementDirection.startsWith('bottom')
+          ? popupWrapperRef.value
+          : popupWrapperRef.value?.closest<HTMLElement>(`.${classPrefix.value}-popup`);
+      if (
+        popupVisible.value &&
+        path.begin({
+          owner: submenuRef.value,
+          target: popup ?? undefined,
+          previous: triggerPoint,
+          event: e,
+          release: releasePath,
+          prefix: classPrefix.value,
+          forward: true,
+        })
+      ) {
+        holdPath();
+        return;
+      }
+      clearTimers();
+
+      const current = e.currentTarget as Element;
+      const sibling = (e.relatedTarget as Element | null)?.closest?.(`.${classPrefix.value}-submenu`);
+      if (sibling && sibling !== current && sibling.parentElement === current?.parentElement) {
+        popupVisible.value = false;
+        return;
+      }
 
       hideTimer.value = setTimeout(() => {
         const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
@@ -255,6 +319,7 @@ export default defineComponent({
       let target = toElement || relatedTarget;
 
       if (target === subPopupRef.value) return;
+      if (target instanceof Node && e.currentTarget?.contains(target)) return;
 
       const isSubmenu = (el: Element) => el === submenuRef.value;
       while (target !== null && target !== document && !isSubmenu(target)) {
@@ -264,6 +329,24 @@ export default defineComponent({
       isCursorInPopup.value = false;
 
       if (!isSubmenu(target)) {
+        if (protectsDescendant(menu, popupWrapperRef.value, e)) {
+          holdPath();
+          return;
+        }
+        if (
+          path.begin({
+            owner: submenuRef.value,
+            target: submenuRef.value,
+            previous: popupPoint,
+            event: e,
+            release: releasePath,
+            prefix: classPrefix.value,
+            forward: false,
+          })
+        ) {
+          holdPath();
+          return;
+        }
         clearTimers();
 
         // 使用延迟隐藏，避免在子项之间移动时闪烁
@@ -277,6 +360,7 @@ export default defineComponent({
       }
     };
     const handleEnterPopup = () => {
+      path.stop();
       isCursorInPopup.value = true;
 
       // 进入 popup 时清除隐藏定时器
@@ -313,6 +397,9 @@ export default defineComponent({
           ]}
           onMouseenter={handleEnterPopup}
           onMouseleave={handleMouseLeavePopup}
+          onMousemove={(event: MouseEvent) => {
+            popupPoint = { x: event.clientX, y: event.clientY };
+          }}
         >
           <ul
             class={[
@@ -353,6 +440,7 @@ export default defineComponent({
           {...(props.popupProps ?? {})}
           overlayInnerClassName={[...overlayInnerClassName.value]}
           overlayClassName={[...overlayClassName.value]}
+          overlayStyle={popupOverlayStyle.value}
           visible={popupVisible.value}
           placement={placement}
           popperOptions={popperOptions}
@@ -461,6 +549,7 @@ export default defineComponent({
 
     // Cleanup timers on unmount to prevent memory leaks
     onBeforeUnmount(() => {
+      path.stop();
       clearTimers();
       menu?.vMenu?.remove(props.value);
     });
@@ -473,6 +562,9 @@ export default defineComponent({
       if (mode.value === 'popup') {
         events = {
           onMouseenter: handleMouseEnter,
+          onMousemove: (event: MouseEvent) => {
+            triggerPoint = { x: event.clientX, y: event.clientY };
+          },
           onMouseleave: handleMouseLeave,
         };
         // popup模式下且存在多层的特殊封装场景中，需要将子节点挂载进行计算高亮
