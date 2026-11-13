@@ -532,6 +532,39 @@ describe('Drawer', () => {
       w.unmount();
     });
 
+    it('injects scroll lock style while open and removes it after close', async () => {
+      // 其他用例可能残留样式节点，这里只关注本次打开抽屉新注入的节点
+      const lockStyleIds = () =>
+        Array.from(document.head.querySelectorAll('style[data-id^="td_drawer_"]')).map(
+          (el) => (el as HTMLElement).dataset.id,
+        );
+      const beforeIds = new Set(lockStyleIds());
+
+      const w = mount(Drawer, {
+        attachTo: document.body,
+        props: { visible: false, body: '内容' },
+      });
+      await nextTick();
+      expect(lockStyleIds().filter((id) => !beforeIds.has(id))).toHaveLength(0);
+
+      // 打开抽屉：showOverlay、preventScrollThrough 均为默认值 true，此时必须注入锁滚动样式
+      await w.setProps({ visible: true });
+      vi.runAllTimers();
+      await nextTick();
+      const addedIds = lockStyleIds().filter((id) => !beforeIds.has(id));
+      expect(addedIds).toHaveLength(1);
+      const lockStyle = document.head.querySelector('[data-id="' + addedIds[0] + '"]') as HTMLStyleElement;
+      expect(lockStyle.innerHTML).toContain('overflow-y: hidden');
+
+      // 关闭抽屉：锁滚动样式需要被移除，背景页面恢复滚动
+      await w.setProps({ visible: false });
+      vi.runAllTimers();
+      await nextTick();
+      vi.advanceTimersByTime(200);
+      expect(lockStyleIds()).not.toContain(addedIds[0]);
+      w.unmount();
+    });
+
     it(':sizeDraggable[boolean/object]', async () => {
       // Default false - no drag handle
       const contentDefault = wrapper.find('.t-drawer__content-wrapper');
