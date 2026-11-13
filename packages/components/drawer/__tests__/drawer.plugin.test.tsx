@@ -96,6 +96,24 @@ describe('DrawerPlugin', () => {
 
       await destroyDrawer(instance);
     });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6675
+    it(':className[string] keeps working when :drawerClassName[string] is also passed', async () => {
+      const instance = DrawerPlugin({
+        attach: 'body',
+        body: '内容',
+        className: 'from-class-name',
+        drawerClassName: 'from-drawer-class-name',
+      });
+      await openDrawer();
+
+      const drawer = document.querySelector('.t-drawer');
+      expect(drawer).not.toBeNull();
+      expect(drawer.className).toContain('from-class-name');
+      expect(drawer.className).toContain('from-drawer-class-name');
+
+      await destroyDrawer(instance);
+    });
   });
 
   describe('instanceFunctions', () => {
