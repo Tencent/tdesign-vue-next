@@ -48,6 +48,14 @@ export default defineComponent({
       const next = new Set<HTMLElement>();
 
       if (props.layout !== 'inline') {
+        const root = formRef.value;
+        // 统计容器内注册的表单项数量，用于识别「只包裹了一个表单项」的布局壳
+        const countItemsIn = (container: HTMLElement) =>
+          formItemElements.reduce(
+            (count, item) => (item !== container && container.contains(item) ? count + 1 : count),
+            0,
+          );
+
         const groups = new Map<HTMLElement, HTMLElement[]>();
         formItemElements.forEach((el) => {
           const { parentElement } = el;
@@ -55,9 +63,17 @@ export default defineComponent({
           // 嵌套在其它表单项内部的子项不参与末位判定
           if (parentElement.closest(formItemSelector)) return;
 
-          const siblings = groups.get(parentElement);
+          // 向上穿过只包裹了这一个表单项的布局壳（如 t-row > t-col > t-form-item 中的 t-col）。
+          // 否则每列都会被当成独立分组，多列布局下所有表单项都会被判为末项、margin 归零，
+          // 校验文案会压住下一行的 label。(issue #7013)
+          let container = parentElement;
+          while (container !== root && container.parentElement && countItemsIn(container) === 1) {
+            container = container.parentElement;
+          }
+
+          const siblings = groups.get(container);
           if (siblings) siblings.push(el);
-          else groups.set(parentElement, [el]);
+          else groups.set(container, [el]);
         });
         groups.forEach((siblings) => {
           siblings.sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));

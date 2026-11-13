@@ -2,7 +2,7 @@ import { flushPromises, mount, VueWrapper } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 import { expect } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { FormItem, Form, Input } from '@tdesign/components';
+import { FormItem, Form, Input, Row, Col } from '@tdesign/components';
 import formItemProps from '@tdesign/components/form/form-item-props';
 
 describe('FormItem', () => {
@@ -364,6 +364,54 @@ describe('FormItem', () => {
         await flushPromises();
 
         expect(getLastItemNames(wrapper)).toEqual(['b', 'd']);
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7013
+      it('多列布局下只标记每行的末位表单项，不把每一列都判为末位', async () => {
+        const wrapper = mount(
+          <Form>
+            <Row>
+              <Col span={8}>
+                <FormItem name="a" />
+              </Col>
+              <Col span={8}>
+                <FormItem name="b" />
+              </Col>
+              <Col span={8}>
+                <FormItem name="c" />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8}>
+                <FormItem name="d" />
+              </Col>
+              <Col span={8}>
+                <FormItem name="e" />
+              </Col>
+            </Row>
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['c', 'e']);
+      });
+
+      it('布局壳只包裹一个表单项时，继续向上查找真正的分组容器', async () => {
+        const wrapper = mount(
+          <Form>
+            <div>
+              <div>
+                <FormItem name="a" />
+              </div>
+              <div>
+                <FormItem name="b" />
+              </div>
+            </div>
+          </Form>,
+        );
+        await flushPromises();
+
+        expect(getLastItemNames(wrapper)).toEqual(['b']);
       });
 
       // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7000
