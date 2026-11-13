@@ -33,6 +33,8 @@ export function initDragEvent(dragBox: HTMLElement) {
       document.removeEventListener('mousemove', mouseMoverHandler);
       // 预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）
       document.removeEventListener('mouseup', mouseUpHandler);
+      // dragend 也是在这里挂的，同样要摘掉，否则每拖一次就多留一个监听
+      document.removeEventListener('dragend', mouseUpHandler);
     }
     // 元素按下时注册document鼠标监听事件
     document.addEventListener('mousemove', mouseMoverHandler);
