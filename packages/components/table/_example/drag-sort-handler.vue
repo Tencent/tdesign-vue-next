@@ -106,7 +106,7 @@ const columns: TableProps['columns'] = [
 const loading = ref<TableProps['loading']>(false);
 const data = ref<TableProps['data']>([...initialData]);
 const resetData: ButtonProps['onClick'] = () => {
-  data.value = [];
+  data.value = [...initialData];
 };
 
 // { currentIndex, targetIndex, current, target, data, newData, e }
