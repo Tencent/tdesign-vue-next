@@ -1,5 +1,4 @@
 import { defineComponent, computed } from 'vue';
-import { isArray } from 'lodash-es';
 import Popup from '../popup';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import RangeInput from './range-input';
@@ -12,12 +11,17 @@ export default defineComponent({
   props,
   setup(props: TdRangeInputPopupProps) {
     const COMPONENT_NAME = usePrefixClass('range-input-popup');
-    const { tOverlayInnerStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayInnerStyle(props);
+    const { tOverlayInnerStyle, innerPopupVisible, isPopupDisabled, onInnerPopupVisibleChange } =
+      useOverlayInnerStyle(props);
+
+    const visible = computed(
+      () => !isPopupDisabled.value && (props.popupProps?.visible ?? (props.popupVisible || innerPopupVisible.value)),
+    );
 
     const popupClasses = computed(() => [
       COMPONENT_NAME.value,
       {
-        [`${COMPONENT_NAME.value}--visible`]: props.popupVisible || innerPopupVisible.value,
+        [`${COMPONENT_NAME.value}--visible`]: visible.value,
       },
     ]);
 
@@ -28,12 +32,12 @@ export default defineComponent({
           content={props.panel}
           trigger="click"
           placement="bottom-left"
-          disabled={isArray(props.disabled) ? props.disabled.every(Boolean) : props.disabled}
-          visible={props.popupVisible || innerPopupVisible.value}
           {...{
             overlayInnerStyle: tOverlayInnerStyle.value,
             onVisibleChange: onInnerPopupVisibleChange,
             ...props.popupProps,
+            visible: visible.value,
+            disabled: isPopupDisabled.value || props.popupProps?.disabled,
           }}
         >
           <RangeInput

@@ -181,7 +181,7 @@ describe('TreeSelect', () => {
 
     it(':loading[boolean] is hidden when disabled', async () => {
       await renderOpenTreeSelect({ disabled: true, loading: true });
-      expect((document.querySelector('.t-select-loading-tips') as HTMLElement).style.display).toBe('none');
+      expect(document.querySelector('.t-select-loading-tips')).toBeNull();
     });
 
     it(':loadingText[string]', async () => {

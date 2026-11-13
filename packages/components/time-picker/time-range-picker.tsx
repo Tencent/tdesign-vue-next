@@ -65,6 +65,7 @@ export default defineComponent({
     };
 
     const handleClear = (context: { e: MouseEvent }) => {
+      if (isDisabled.value) return;
       const { e } = context;
       e.stopPropagation();
       currentValue.value = TIME_PICKER_EMPTY;
@@ -76,6 +77,7 @@ export default defineComponent({
     };
 
     const handleTimeChange = (newValue: string | string[], e: MouseEvent) => {
+      if (isDisabled.value) return;
       if (isArray(newValue)) {
         currentValue.value = newValue;
       } else if (currentPanelIdx.value === 0) {
@@ -87,7 +89,7 @@ export default defineComponent({
     };
 
     const handleInputBlur = (value: TimeRangeValue, { e }: { e: FocusEvent }) => {
-      if (allowInput.value) {
+      if (!isDisabled.value && allowInput.value) {
         const isValidTime = validateInputValue(currentValue.value[currentPanelIdx.value], format.value);
         if (isValidTime) {
           const formattedVal = formatInputValue(currentValue.value[currentPanelIdx.value], format.value);
@@ -108,11 +110,13 @@ export default defineComponent({
       inputVal: TimeRangeValue,
       { e, position }: { e: InputEvent; position: RangeInputPosition },
     ) => {
+      if (isDisabled.value) return;
       currentValue.value = inputVal;
       props.onInput?.({ value: innerValue.value, e, position: position === 'first' ? 'start' : 'end' });
     };
 
     const handleClickConfirm = () => {
+      if (isDisabled.value) return;
       const isValidTime = !currentValue.value.find((v) => !validateInputValue(v, format.value));
       if (isValidTime) setInnerValue(currentValue.value);
       if (props.autoSwap) autoSwapTime();
@@ -150,6 +154,10 @@ export default defineComponent({
       }
       props.onPick?.(pickedRangeValue, context);
     };
+
+    watch(isDisabled, (disabled) => {
+      if (disabled) isShowPanel.value = false;
+    });
 
     watch(
       () => isShowPanel.value,

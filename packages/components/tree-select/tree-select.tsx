@@ -222,6 +222,7 @@ export default defineComponent({
       e?: MouseEvent | KeyboardEvent | Event,
       index?: number,
     ) => {
+      if (tDisabled.value) return;
       setTreeSelectValue(valueParam, {
         node,
         trigger,
@@ -233,6 +234,7 @@ export default defineComponent({
     };
 
     const clear = (content: { e: MouseEvent }) => {
+      if (tDisabled.value) return;
       const defaultValue: TreeSelectValue = props.multiple ? [] : '';
       actived.value = [];
       change(defaultValue, null, 'clear', content.e);
@@ -256,6 +258,7 @@ export default defineComponent({
       valueParam: Array<TreeNodeValue>,
       context: { node: TreeNodeModel<TreeOptionData>; e?: MouseEvent },
     ) => {
+      if (tDisabled.value) return;
       if (!props.multiple) {
         setInnerVisible(false, context);
       }
@@ -331,6 +334,7 @@ export default defineComponent({
     };
 
     const tagChange: TdSelectInputProps['onTagChange'] = (value, context) => {
+      if (tDisabled.value) return;
       const { trigger, index } = context;
       if (['tag-remove', 'backspace'].includes(trigger) && isArray(treeSelectValue.value)) {
         const values = treeSelectValue.value as Array<TreeSelectValue>;

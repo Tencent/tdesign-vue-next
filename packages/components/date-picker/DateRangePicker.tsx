@@ -50,6 +50,13 @@ export default defineComponent({
     } = useRange(props);
 
     const isDisabled = useDisabled() as ComputedRef<boolean | Array<boolean>>;
+    const isFullyDisabled = computed(() =>
+      isArray(isDisabled.value) ? isDisabled.value.every(Boolean) : isDisabled.value,
+    );
+    watch(isFullyDisabled, (disabled) => {
+      if (disabled) popupVisible.value = false;
+    });
+
     const isReadOnly = useReadonly();
 
     const formatRef = computed(() =>
@@ -168,7 +175,7 @@ export default defineComponent({
         activeIndex.value = 0;
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
-        if (props.needConfirm) {
+        if (props.needConfirm || isFullyDisabled.value) {
           inputValue.value = formatDate(value.value, {
             format: formatRef.value.valueType,
             targetFormat: formatRef.value.format,
@@ -225,6 +232,7 @@ export default defineComponent({
 
     // 日期点击
     function onCellClick(date: Date, { e }: { e: MouseEvent; partial: DateRangePickerPartial }) {
+      if (isFullyDisabled.value) return;
       const nextActiveIndex = getAvailableActiveIndex();
       activeIndex.value = nextActiveIndex as 0 | 1;
 
@@ -364,6 +372,7 @@ export default defineComponent({
 
     // time-picker 点击
     function onTimePickerChange(val: string) {
+      if (isFullyDisabled.value) return;
       const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(val);
 
       const nextInputValue = [...(inputValue.value as DateValue[])];
@@ -392,6 +401,7 @@ export default defineComponent({
       });
     }
     const confirmValueChange = (e?: MouseEvent) => {
+      if (isFullyDisabled.value) return;
       const nextValue = normalizeRangeValue([...(inputValue.value as string[])]);
 
       const notValidIndex = getInvalidIndex(nextValue);
@@ -441,6 +451,7 @@ export default defineComponent({
     };
     // 确定
     function onConfirmClick({ e }: { e: MouseEvent }) {
+      if (isFullyDisabled.value) return;
       confirmValueChange(e);
 
       const nextValue = normalizeRangeValue([...(inputValue.value as string[])]);
@@ -462,6 +473,7 @@ export default defineComponent({
 
     // 预设
     function onPresetClick(preset: any, context: any) {
+      if (isFullyDisabled.value) return;
       let presetValue = preset;
       if (isFunction(preset)) {
         presetValue = preset();

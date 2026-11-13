@@ -41,7 +41,8 @@ export default defineComponent({
     const popupRef = ref<PopupInstanceFunctions>();
     const { multiple, value, popupVisible, borderless, popupProps, panel, allowInput, status } = toRefs(props);
 
-    const { tOverlayInnerStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayInnerStyle(props);
+    const { tOverlayInnerStyle, innerPopupVisible, isPopupDisabled, onInnerPopupVisibleChange } =
+      useOverlayInnerStyle(props);
 
     const { isSingleFocus, commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context, popupRef);
 
@@ -49,17 +50,22 @@ export default defineComponent({
 
     const isFocus = computed(() => (props.multiple ? isMultipleFocus.value : isSingleFocus.value));
 
+    const visible = computed(
+      () => !isPopupDisabled.value && (popupProps.value?.visible ?? popupVisible.value ?? innerPopupVisible.value),
+    );
+
     const classes = computed(() => [
       `${NAME_CLASS.value}`,
       {
         [BASE_CLASS_MULTIPLE.value]: multiple.value,
         [BASE_CLASS_BORDERLESS.value]: borderless.value,
-        [BASE_CLASS_POPUP_VISIBLE.value]: popupVisible.value ?? innerPopupVisible.value,
+        [BASE_CLASS_POPUP_VISIBLE.value]: visible.value,
         [BASE_CLASS_EMPTY.value]: value.value instanceof Array ? !value.value.length : !value.value,
       },
     ]);
 
     const addKeyboardEventListener = (e: KeyboardEvent) => {
+      if (isPopupDisabled.value) return;
       const code = e.code || e.key?.trim();
       if (/(ArrowDown|ArrowUp)/.test(code) && !popupVisible.value) {
         const ctx: PopupVisibleChangeContext = { ...context, trigger: 'trigger-element-focus' };
@@ -100,14 +106,12 @@ export default defineComponent({
 
     return () => {
       // 浮层显示的受控与非受控
-      const visibleProps = { visible: popupVisible.value ?? innerPopupVisible.value };
 
       const mainContent = (
         <Popup
           ref={popupRef}
           trigger={popupProps.value?.trigger || 'click'}
           placement="bottom-left"
-          {...visibleProps}
           content={panel.value}
           v-slots={{ ...context.slots, content: context.slots.panel }}
           hideEmptyPopup={true}
@@ -115,6 +119,8 @@ export default defineComponent({
             onVisibleChange: onInnerPopupVisibleChange,
             onOverlayClick: onOverlayClick,
             ...popupProps.value,
+            visible: visible.value,
+            disabled: isPopupDisabled.value || popupProps.value?.disabled,
             overlayInnerStyle: tOverlayInnerStyle.value,
           }}
         >
@@ -122,10 +128,10 @@ export default defineComponent({
             ? renderSelectMultiple({
                 commonInputProps: commonInputProps.value,
                 onInnerClear: onInnerClear,
-                popupVisible: visibleProps.visible,
+                popupVisible: visible.value,
                 allowInput: allowInput.value,
               })
-            : renderSelectSingle(visibleProps.visible)}
+            : renderSelectSingle(visible.value)}
         </Popup>
       );
 

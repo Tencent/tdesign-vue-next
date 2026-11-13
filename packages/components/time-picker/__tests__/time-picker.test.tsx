@@ -409,6 +409,27 @@ describe('TimePicker', () => {
       expect(onPick).toHaveBeenCalledWith('13:14:15', { e: event });
     });
 
+    it('discards an open time edit and ignores popup actions after disabling', async () => {
+      const onChange = vi.fn();
+      const onConfirm = vi.fn();
+      const onPick = vi.fn();
+      const wrapper = renderTimePicker({ props: { defaultValue: '10:20:30', onChange, onConfirm, onPick } });
+      const event = await openPicker(wrapper);
+      const panel = getPanelVNode(wrapper);
+      callHandler(panel.props.onChange, '11:22:33', event);
+      onPick.mockClear();
+
+      await wrapper.setProps({ disabled: true });
+      callHandler(panel.props.onChange, '12:23:34', event);
+      callHandler(panel.props.handleConfirmClick, event);
+
+      expect(getSelectInput(wrapper).props('popupVisible')).toBe(false);
+      expect(getSelectInput(wrapper).props('value')).toBe('10:20:30');
+      expect(onChange).not.toHaveBeenCalled();
+      expect(onConfirm).not.toHaveBeenCalled();
+      expect(onPick).not.toHaveBeenCalled();
+    });
+
     it('confirm commits valid input and closes the panel', async () => {
       const onConfirm = vi.fn();
       const onChange = vi.fn();
