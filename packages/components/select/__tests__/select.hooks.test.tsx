@@ -1,8 +1,9 @@
-import { ref, nextTick, computed } from 'vue';
+import { ref, nextTick, computed, h } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { Select } from '@tdesign/components/select';
 import { getNewMultipleValue, getSingleContent, getMultipleContent } from '../utils';
+import { usePanelVirtualScroll } from '../hooks/usePanelVirtualScroll';
 import type { useKeyboardControlType } from '../hooks/useKeyboardControl';
 import type { SelectOption, TdOptionProps } from '../type';
 
@@ -485,6 +486,51 @@ describe('Select Hooks', () => {
       await openPopup(wrapper);
       expect(document.querySelector('.t-select__dropdown-inner')).toBeTruthy();
       wrapper.unmount();
+    });
+
+    it('does not throw when scroll is not configured', async () => {
+      const wrapper = mount({
+        setup() {
+          const popupContentRef = ref<HTMLElement>();
+          const options = ref([{ label: 'a', value: 1 }]);
+          const { cursorStyle, panelStyle } = usePanelVirtualScroll({
+            scroll: undefined,
+            popupContentRef,
+            options,
+          });
+          return () =>
+            h('div', { class: 'out' }, [
+              h('span', { class: 'cursor' }, JSON.stringify(cursorStyle.value)),
+              h('span', { class: 'panel' }, JSON.stringify(panelStyle.value)),
+            ]);
+        },
+      });
+      await nextTick();
+      expect(wrapper.find('.out').exists()).toBe(true);
+      expect(wrapper.find('.cursor').text()).toContain('translate(0, 0px)');
+      expect(wrapper.find('.panel').text()).toContain('translate(0, 0px)');
+    });
+
+    it('still uses the virtual scroll offsets when scroll is virtual', async () => {
+      const wrapper = mount({
+        setup() {
+          const popupContentRef = ref<HTMLElement>();
+          const options = ref(Array.from({ length: 200 }, (_, i) => ({ label: String(i), value: i })));
+          const { cursorStyle, panelStyle } = usePanelVirtualScroll({
+            scroll: { type: 'virtual', threshold: 100, rowHeight: 30 },
+            popupContentRef,
+            options,
+          });
+          return () =>
+            h('div', { class: 'out' }, [
+              h('span', { class: 'cursor' }, JSON.stringify(cursorStyle.value)),
+              h('span', { class: 'panel' }, JSON.stringify(panelStyle.value)),
+            ]);
+        },
+      });
+      await nextTick();
+      expect(wrapper.find('.cursor').text()).toContain('translate(0,');
+      expect(wrapper.find('.panel').text()).toContain('translate(0,');
     });
   });
 
