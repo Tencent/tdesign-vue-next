@@ -1,3 +1,6 @@
+import { nextTick, ref } from 'vue';
+import { mount } from '@vue/test-utils';
+import { PrimaryTable } from '@tdesign/components/table';
 import { getNormalTableMount, getEmptyDataTableMount } from './mount';
 
 describe('BaseTable Component', () => {
@@ -429,5 +432,55 @@ describe('BaseTable Component', () => {
     expect(onPageChange).toHaveBeenCalledTimes(1);
     // 断言滚动条回到顶部
     expect(scrollElement.scrollTop).toBe(0);
+  });
+
+  describe('props.selectOnRowClick', () => {
+    const mountSelectOnRowClick = (columns: any[]) => {
+      const keys = ref<any[]>([]);
+      const data = [
+        { id: 1, name: 'a' },
+        { id: 2, name: 'b' },
+      ];
+      const wrapper = mount(PrimaryTable, {
+        props: {
+          data,
+          columns,
+          rowKey: 'id',
+          selectOnRowClick: true,
+          selectedRowKeys: keys.value,
+          'onUpdate:selectedRowKeys': (v: any[]) => {
+            keys.value = v;
+          },
+        },
+      });
+      return { wrapper, keys };
+    };
+
+    it('does not select a disabled row when the select column uses a custom colKey', async () => {
+      const { wrapper, keys } = mountSelectOnRowClick([
+        {
+          colKey: 'custom-select',
+          type: 'multiple' as const,
+          width: 64,
+          disabled: ({ row }: any) => row.id === 1,
+        },
+        { colKey: 'name', title: 'name' },
+      ]);
+      await nextTick();
+      await wrapper.findAll('tbody tr')[0].trigger('click');
+      await nextTick();
+      expect(keys.value).toEqual([]);
+    });
+
+    it('still selects an enabled row with the default row-select colKey', async () => {
+      const { wrapper, keys } = mountSelectOnRowClick([
+        { colKey: 'row-select', type: 'multiple' as const, width: 64 },
+        { colKey: 'name', title: 'name' },
+      ]);
+      await nextTick();
+      await wrapper.findAll('tbody tr')[0].trigger('click');
+      await nextTick();
+      expect(keys.value).toEqual([1]);
+    });
   });
 });
