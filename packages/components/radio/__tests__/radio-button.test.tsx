@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
+import { nextTick } from 'vue';
 
 import { RadioButton, RadioGroup } from '@tdesign/components/radio';
 import type { RadioProps } from '@tdesign/components/radio';
@@ -21,25 +22,26 @@ describe('RadioButton', () => {
       expect(onChange).toHaveBeenCalledWith(false, { e: expect.any(MouseEvent) });
     });
 
-    // Current behavior is tracked by #6844. RadioButton forwards undefined modelValue and overrides checked state.
     it(':checked[boolean]', async () => {
-      const onChange = vi.fn();
       const wrapper = mount(RadioButton, {
-        props: { checked: true, onChange },
+        props: { checked: true },
       });
 
+      // 传了 checked 即为受控，展示状态由 checked 决定
+      expect(wrapper.get(RADIO_BUTTON).classes()).toContain('t-is-checked');
+
+      await wrapper.setProps({ checked: false });
       expect(wrapper.get(RADIO_BUTTON).classes()).not.toContain('t-is-checked');
-      await wrapper.get(RADIO_BUTTON).trigger('click');
-      expect(onChange).toHaveBeenCalledWith(true, { e: expect.any(MouseEvent) });
-      expect(wrapper.get(RADIO_BUTTON).classes()).not.toContain('t-is-checked');
+
+      await wrapper.setProps({ checked: true });
+      expect(wrapper.get(RADIO_BUTTON).classes()).toContain('t-is-checked');
     });
 
-    // Current behavior is tracked by #6844. The forwarded undefined modelValue also takes priority over defaultChecked.
     it(':defaultChecked[boolean]', () => {
       const wrapper = mount(RadioButton, {
         props: { defaultChecked: true },
       });
-      expect(wrapper.get(RADIO_BUTTON).classes()).not.toContain('t-is-checked');
+      expect(wrapper.get(RADIO_BUTTON).classes()).toContain('t-is-checked');
     });
 
     it(':modelValue[boolean]', async () => {
@@ -198,6 +200,17 @@ describe('RadioButton', () => {
 
       await wrapper.get(INPUT).trigger('focus');
       expect(onFocus).not.toHaveBeenCalled();
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6844
+    it('click keeps the button selected when used without RadioGroup', async () => {
+      const wrapper = mount(<RadioButton value="1">按钮</RadioButton>);
+      expect(wrapper.get(RADIO_BUTTON).classes()).not.toContain('t-is-checked');
+
+      await wrapper.get(RADIO_BUTTON).trigger('click');
+      await nextTick();
+
+      expect(wrapper.get(RADIO_BUTTON).classes()).toContain('t-is-checked');
     });
   });
 });
