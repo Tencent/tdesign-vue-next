@@ -21,7 +21,9 @@ export function useElementLazyRender(labelRef: Ref<HTMLElement>, lazyLoad: Ref<b
 
   onMounted(handleLazyLoad);
 
-  lazyLoad.value && watch([lazyLoad, labelRef], handleLazyLoad);
+  // watch 必须无条件注册：lazyLoad 可能在挂载后才被打开，
+  // 条件注册会让这条路径永远不生效。
+  watch([lazyLoad, labelRef], handleLazyLoad);
 
   onBeforeUnmount(() => {
     if (!lazyLoad.value) return;

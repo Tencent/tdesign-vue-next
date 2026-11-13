@@ -1,6 +1,13 @@
 // @ts-nocheck
+import { h, nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@tdesign/components/table';
+
+const { observeMock } = vi.hoisted(() => ({ observeMock: vi.fn(() => ({ unobserve: vi.fn() })) }));
+vi.mock('@tdesign/common-js/utils/observe', () => ({ default: observeMock }));
+
+import { useElementLazyRender } from '../../../shared/hooks/useElementLazyRender';
 
 const data = new Array(5).fill(null).map((item, index) => ({
   id: index + 100,
@@ -613,5 +620,41 @@ TABLES.forEach((TTable) => {
         }
       });
     });
+  });
+});
+
+describe('useElementLazyRender', () => {
+  const mountHook = (initial: boolean) => {
+    const lazyLoad = ref(initial);
+    const wrapper = mount({
+      setup() {
+        const el = ref<HTMLElement>();
+        const { showElement } = useElementLazyRender(el, lazyLoad);
+        return () => h('div', { ref: el, class: 'target' }, String(showElement.value));
+      },
+    });
+    return { wrapper, lazyLoad };
+  };
+
+  it('starts observing when lazyLoad turns on after mount', async () => {
+    observeMock.mockClear();
+    const { wrapper, lazyLoad } = mountHook(false);
+    await nextTick();
+    expect(observeMock).not.toHaveBeenCalled();
+
+    lazyLoad.value = true;
+    await nextTick();
+    await nextTick();
+
+    expect(observeMock).toHaveBeenCalled();
+    expect(wrapper.find('.target').text()).toBe('false');
+  });
+
+  it('observes right away when lazyLoad is already on at mount', async () => {
+    observeMock.mockClear();
+    const { wrapper } = mountHook(true);
+    await nextTick();
+    expect(observeMock).toHaveBeenCalled();
+    expect(wrapper.find('.target').text()).toBe('false');
   });
 });
