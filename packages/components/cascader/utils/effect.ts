@@ -16,6 +16,8 @@ export function expandClickEffect(
   node: TreeNode,
   cascaderContext: CascaderContextType,
 ) {
+  if (cascaderContext.disabled) return;
+
   const { checkStrictly, multiple, treeStore, setVisible, setValue, setTreeNodes, setExpand, value, max, valueType } =
     cascaderContext;
 

@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs } from 'vue';
-import { useDefaultValue, useTNodeDefault, useVModel } from '@tdesign/shared-hooks';
+import { useDefaultValue, useDisabled, useTNodeDefault, useVModel } from '@tdesign/shared-hooks';
 
 import { type PopupProps, Popup as TPopup } from '../popup';
 import ColorPanel from './components/panel';
@@ -23,12 +23,17 @@ export default defineComponent({
       'recentColors',
     );
 
+    const isDisabled = useDisabled();
+    const changeColor: typeof setInnerValue = (...args) => {
+      if (!isDisabled.value) setInnerValue(...args);
+    };
+
     const refTrigger = ref<HTMLElement>();
 
     const handleClear = (context: { e: MouseEvent }) => props.onClear?.(context);
 
     const renderPopupContent = () => {
-      if (props.disabled) {
+      if (isDisabled.value) {
         return null;
       }
 
@@ -36,7 +41,7 @@ export default defineComponent({
         <ColorPanel
           {...{
             ...props,
-            onChange: setInnerValue,
+            onChange: changeColor,
             onRecentColorsChange: setInnerRecentColors,
           }}
           value={innerValue.value}
@@ -53,18 +58,23 @@ export default defineComponent({
         ...((props.popupProps as PopupProps) || {}),
       };
       return (
-        <TPopup {...popProps} content={renderPopupContent}>
+        <TPopup
+          {...popProps}
+          disabled={Boolean(isDisabled.value || popProps.disabled)}
+          hideEmptyPopup={Boolean(isDisabled.value) || popProps.hideEmptyPopup}
+          content={renderPopupContent}
+        >
           <div class={`${baseClassName.value}__trigger`} ref={refTrigger}>
             {renderTNodeJSXDefault(
               'default',
               <DefaultTrigger
                 borderless={props.borderless}
                 color={innerValue.value}
-                disabled={props.disabled}
+                disabled={Boolean(isDisabled.value)}
                 clearable={props.clearable}
                 enableAlpha={props.enableAlpha}
                 input-props={props.inputProps}
-                onTriggerChange={setInnerValue}
+                onTriggerChange={changeColor}
                 onTriggerClear={handleClear}
                 size={props.size}
               />,

@@ -80,11 +80,15 @@ export default defineComponent({
       };
     });
 
+    watch(isDisabled, (disabled) => {
+      if (disabled) popupVisible.value = false;
+    });
+
     watch(popupVisible, (visible) => {
       // 多选不考虑输入情况
       if (props.multiple) return;
       // 如果不需要确认，直接保存当前值
-      if (!props.needConfirm && props.enableTimePicker && !visible) {
+      if (!isDisabled.value && !props.needConfirm && props.enableTimePicker && !visible) {
         const nextValue = formatDate(inputValue.value, {
           format: formatRef.value.format,
         });
@@ -170,6 +174,8 @@ export default defineComponent({
 
     // 日期点击
     function onCellClick(date: Date) {
+      if (isDisabled.value) return;
+
       isHoverCell.value = false;
       // date 模式自动切换年月
       if (props.mode === 'date') {
@@ -314,6 +320,8 @@ export default defineComponent({
 
     // timePicker 点击
     function onTimePickerChange(val: string) {
+      if (isDisabled.value) return;
+
       time.value = val;
 
       const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(val);
@@ -338,6 +346,8 @@ export default defineComponent({
 
     // 确定
     function onConfirmClick({ e }: { e: MouseEvent }) {
+      if (isDisabled.value) return;
+
       const nextValue = formatDate(inputValue.value, {
         format: formatRef.value.format,
       });
@@ -370,6 +380,8 @@ export default defineComponent({
 
     // 预设
     function onPresetClick(presetValue: DateValue | (() => DateValue), context: { preset: PresetDate; e: MouseEvent }) {
+      if (isDisabled.value) return;
+
       const presetVal = isFunction(presetValue) ? presetValue() : presetValue;
       onChange?.(
         formatDate(presetVal, {
@@ -461,7 +473,7 @@ export default defineComponent({
           placeholder={
             props.placeholder || (globalConfig.value.placeholder as { [key in typeof props.mode]: string })[props.mode]
           }
-          popupVisible={!isReadOnly.value && popupVisible.value}
+          popupVisible={!isDisabled.value && !isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
           {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
           panel={() => <TSinglePanel {...panelProps.value} v-slots={slots} />}

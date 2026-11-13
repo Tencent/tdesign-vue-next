@@ -1,4 +1,5 @@
 // @ts-nocheck
+import Popup from '../../popup';
 import { SelectInput } from '@tdesign/components';
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
@@ -105,6 +106,20 @@ describe('useOverlayInnerStyle hooks', () => {
   });
 
   describe('popup visibility handling', () => {
+    it('hides a controlled popup while disabled', async () => {
+      const wrapper = mount(SelectInput, {
+        props: { popupProps: { visible: true }, panel: () => 'Option' },
+      });
+      const popup = wrapper.findComponent(Popup);
+
+      expect(popup.props('visible')).toBe(true);
+      await wrapper.setProps({ disabled: true });
+      expect(popup.props('visible')).toBe(false);
+      await wrapper.setProps({ disabled: false });
+      expect(popup.props('visible')).toBe(true);
+      wrapper.unmount();
+    });
+
     it('should handle disabled state in onInnerPopupVisibleChange', async () => {
       const onPopupVisibleChange = vi.fn();
       const wrapper = mount(SelectInput, {

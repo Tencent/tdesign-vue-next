@@ -28,6 +28,43 @@ describe('DatePicker', () => {
     });
   });
 
+  it('ignores clicks in an open panel after disabling', async () => {
+    const onChange = vi.fn();
+    const disabled = ref(false);
+    const attachClass = 'date-picker-disable-open-attach';
+    const wrapper = mount({
+      render() {
+        return (
+          <div class={attachClass}>
+            <DatePicker
+              value="2020-12-12"
+              disabled={disabled.value}
+              onChange={onChange}
+              popupProps={{ attach: `.${attachClass}` }}
+            />
+          </div>
+        );
+      },
+    });
+    try {
+      const trigger = wrapper.get('.t-input');
+      await trigger.trigger('mousedown');
+      await trigger.trigger('mouseup');
+      await trigger.trigger('click');
+      await nextTick();
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      const cell = wrapper.findAll('td.t-date-picker__cell').find((option) => option.text() === '18');
+      expect(cell).toBeDefined();
+
+      disabled.value = true;
+      await nextTick();
+      await cell?.trigger('click');
+      expect(onChange).not.toHaveBeenCalled();
+    } finally {
+      wrapper.unmount();
+    }
+  });
+
   it(':value', () => {
     const wrapper = mount({
       render() {

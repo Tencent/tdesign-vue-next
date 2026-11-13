@@ -1,4 +1,4 @@
-import { computed, ref, defineComponent, toRefs, nextTick, ComputedRef } from 'vue';
+import { computed, ref, defineComponent, toRefs, nextTick, ComputedRef, watch } from 'vue';
 import props from './props';
 import { TdAutoCompleteProps } from './type';
 import TInput, { InputProps, StrInputProps } from '../input';
@@ -30,6 +30,9 @@ export default defineComponent({
     const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
     const popupVisible = ref();
+    watch(isDisabled, (disabled) => {
+      if (disabled) popupVisible.value = false;
+    });
     const optionListRef = ref();
 
     const getOverlayStyle = (trigger: HTMLElement, popupElement: HTMLElement) => {
@@ -59,6 +62,7 @@ export default defineComponent({
     });
 
     const onInputChange: StrInputProps['onChange'] = (value, context) => {
+      if (isDisabled.value) return;
       popupVisible.value = true;
       setTValue(value, context);
     };
