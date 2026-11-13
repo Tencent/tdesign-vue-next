@@ -574,6 +574,12 @@ describe('Form', () => {
 
       await wrapper.findComponent(Form).vm.$.exposed.validate();
       expect(scrollIntoViewMock).toHaveBeenCalled();
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7070
+      // block: 'nearest' 只滚动最小距离，不会把整页顶上去。
+      // 默认的 block: 'start' 会滚动所有可滚动祖先，body 带 transform 时整页上移。
+      expect(scrollIntoViewMock.mock.calls[0][0]).toEqual(
+        expect.objectContaining({ behavior: 'smooth', block: 'nearest' }),
+      );
 
       Element.prototype.scrollIntoView = originalScrollIntoView;
       wrapper.unmount();

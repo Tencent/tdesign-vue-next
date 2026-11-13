@@ -135,7 +135,9 @@ export default defineComponent({
       const [dom] = formRef.value.getElementsByClassName(selector);
       const behavior = props.scrollToFirstError;
       if (behavior) {
-        dom && dom.scrollIntoView({ behavior });
+        // block: 'nearest' 只滚动最小距离。默认的 'start' 会滚动所有可滚动祖先，
+        // body 带 transform 时 body 成为包含块，整页会被顶上去（issue #7070）。
+        dom && dom.scrollIntoView({ behavior, block: 'nearest' });
       }
     };
 
