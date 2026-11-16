@@ -9,6 +9,7 @@ export * from './layout';
 export * from './divider';
 export * from './space';
 export * from './descriptions';
+export * from './scrollbar';
 
 // 导航
 export * from './affix';

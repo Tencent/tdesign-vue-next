@@ -1,0 +1,39 @@
+[
+  {
+    "name": "autoExpand",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "autoresize",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "visibility",
+    "type": "enum",
+    "defaultValue": "hover",
+    "options": [
+      {
+        "label": "hover",
+        "value": "hover"
+      },
+      {
+        "label": "always",
+        "value": "always"
+      },
+      {
+        "label": "hide",
+        "value": "hide"
+      }
+    ]
+  }
+]
