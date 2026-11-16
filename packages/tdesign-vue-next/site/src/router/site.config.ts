@@ -163,6 +163,14 @@ export const docs = [
         componentEn: () => import('@tdesign/components/layout/layout.en-US.md'),
       },
       {
+        title: 'Split 分割面板',
+        titleEn: 'Split',
+        name: 'split',
+        path: '/vue-next/components/split',
+        component: () => import('@tdesign/components/split/split.md'),
+        componentEn: () => import('@tdesign/components/split/split.en-US.md'),
+      },
+      {
         title: 'Space 间距',
         titleEn: 'Space',
         name: 'space',

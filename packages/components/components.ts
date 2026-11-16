@@ -7,6 +7,7 @@ export * from './link';
 export * from './grid';
 export * from './layout';
 export * from './divider';
+export * from './split';
 export * from './space';
 export * from './descriptions';
 
