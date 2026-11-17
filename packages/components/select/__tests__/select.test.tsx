@@ -719,6 +719,75 @@ describe('Select', () => {
   });
 
   describe('scenarios', () => {
+    describe('scroll to selected option when reopening dropdown', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6281
+      it('scrolls grouped options to the selected item', async () => {
+        const groupedOptions = [
+          {
+            group: 'Group 1',
+            children: Array.from({ length: 15 }, (_, i) => ({ label: `G1-${i}`, value: `g1-${i}` })),
+          },
+          {
+            group: 'Group 2',
+            children: Array.from({ length: 15 }, (_, i) => ({ label: `G2-${i}`, value: `g2-${i}` })),
+          },
+        ];
+        const wrapper = mount({
+          render: () => <Select options={groupedOptions} defaultValue="g2-14" popupProps={{ visible: false }} />,
+        });
+        await openPopup(wrapper);
+
+        const selected = document.querySelector('.t-select-option.t-is-selected') as HTMLElement;
+        const content = document.querySelector('.t-popup__content') as HTMLElement;
+        expect(selected).toBeTruthy();
+        expect(content).toBeTruthy();
+
+        Object.defineProperty(selected, 'offsetTop', { get: () => 28, configurable: true });
+        Object.defineProperty(selected, 'clientHeight', { get: () => 28, configurable: true });
+        Object.defineProperty(content, 'clientHeight', { get: () => 200, configurable: true });
+        Object.defineProperty(content, 'offsetTop', { get: () => 0, configurable: true });
+        selected.getBoundingClientRect = () =>
+          ({
+            top: 500,
+            bottom: 528,
+            height: 28,
+            left: 0,
+            right: 100,
+            width: 100,
+            x: 0,
+            y: 500,
+            toJSON: () => {},
+          } as DOMRect);
+        content.getBoundingClientRect = () =>
+          ({
+            top: 100,
+            bottom: 300,
+            height: 200,
+            left: 0,
+            right: 100,
+            width: 100,
+            x: 0,
+            y: 100,
+            toJSON: () => {},
+          } as DOMRect);
+
+        const getComputedStyleSpy = vi.spyOn(window, 'getComputedStyle').mockImplementation((el) => {
+          const style = { paddingBottom: '0px', marginBottom: '0px' } as CSSStyleDeclaration;
+          if (el === selected || el === content) return style;
+          return window.getComputedStyle(el);
+        });
+
+        await wrapper.setProps({ popupProps: { visible: false } });
+        await nextTick();
+        content.scrollTop = 0;
+        await openPopup(wrapper);
+
+        expect(content.scrollTop).toBeGreaterThan(100);
+        getComputedStyleSpy.mockRestore();
+        wrapper.unmount();
+      });
+    });
+
     describe('disabled state transitions', () => {
       it('ignores an open option after becoming disabled', async () => {
         const onChange = vi.fn();
