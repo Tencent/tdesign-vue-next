@@ -379,9 +379,9 @@ describe('TagInput', () => {
     it(':tips[slot]', () => {
       const wrapper = render({}, { tips: () => <span class="tips-slot">Up to three tags</span> });
 
-      // Current behavior: TagInput forwards the tips prop, but not the documented tips slot.
-      expect(wrapper.find('.tips-slot').exists()).toBe(false);
-      expect(wrapper.find('.t-input__tips').exists()).toBe(false);
+      // #6907: tips 插槽按文档正常渲染
+      expect(wrapper.find('.tips-slot').exists()).toBe(true);
+      expect(wrapper.find('.t-input__tips').exists()).toBe(true);
     });
 
     it(':value[array]', async () => {
@@ -544,8 +544,14 @@ describe('TagInput', () => {
       await first.trigger('dragstart', { clientX: 10 });
       await second.trigger('dragover', { clientX: 30 });
 
-      // Current behavior: runtime omits newTags although TagInputDragSortContext declares it as required.
-      expect(onDragSort).toHaveBeenCalledWith({ currentIndex: 0, current: 'Vue', targetIndex: 1, target: 'React' });
+      // #6907: 运行时上下文必须满足 TagInputDragSortContext，包含 newTags
+      expect(onDragSort).toHaveBeenCalledWith({
+        currentIndex: 0,
+        current: 'Vue',
+        targetIndex: 1,
+        target: 'React',
+        newTags: ['React', 'Vue'],
+      });
     });
 
     it(':onEnter', async () => {

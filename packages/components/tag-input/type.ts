@@ -55,12 +55,12 @@ export interface TdTagInputProps {
    * 输入框的值
    * @default ''
    */
-  inputValue?: string;
+  inputValue?: string | number;
   /**
    * 输入框的值，非受控属性
    * @default ''
    */
-  defaultInputValue?: string;
+  defaultInputValue?: string | number;
   /**
    * 左侧文本
    */
