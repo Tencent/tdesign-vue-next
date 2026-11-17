@@ -1,0 +1,23 @@
+[
+  {
+    "name": "direction",
+    "type": "enum",
+    "defaultValue": "horizontal",
+    "options": [
+      {
+        "label": "horizontal",
+        "value": "horizontal"
+      },
+      {
+        "label": "vertical",
+        "value": "vertical"
+      }
+    ]
+  },
+  {
+    "name": "lazy",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]
