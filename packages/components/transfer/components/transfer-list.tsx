@@ -48,7 +48,7 @@ const props = {
   },
   search: {
     type: [Boolean, Object] as PropType<SearchOption>,
-    default: false as TdTransferProps['search'],
+    default: false as SearchOption,
   },
   transferItem: Function as PropType<TdTransferProps['transferItem']>,
   empty: {
@@ -134,6 +134,7 @@ export default defineComponent({
         ? {
             ...defaultPaginationProps,
             ...props.pagination,
+            disabled: props.disabled || props.pagination.disabled,
             size: 'small',
             theme: 'simple',
             current: currentPage.value,
@@ -363,6 +364,7 @@ export default defineComponent({
               placeholder={t(globalConfig.value.placeholder)}
               onChange={handleSearch}
               search={props.search}
+              disabled={props.disabled}
             />
           )}
           {curPageData.value.length > 0 ? renderContent() : renderEmpty()}
