@@ -696,6 +696,79 @@ describe('InputNumber', () => {
   });
 
   describe('scenarios', () => {
+    describe.each(['model', 'default'])('large-number blur limits with %s value', (mode) => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7097
+      it.each([
+        {
+          min: '10000000000000000001',
+          input: '10000000000000000000',
+          expected: '10000000000000000001',
+          allowInputOverLimit: false,
+        },
+        {
+          min: '-10000000000000000001',
+          input: '-10000000000000000002',
+          expected: '-10000000000000000001',
+          allowInputOverLimit: false,
+        },
+        {
+          min: '0.10000000000000000002',
+          input: '0.10000000000000000001',
+          expected: '0.10000000000000000002',
+          allowInputOverLimit: false,
+        },
+        {
+          min: '10000000000000000001',
+          input: '10000000000000000010',
+          expected: '10000000000000000009',
+          allowInputOverLimit: false,
+        },
+        {
+          min: '10000000000000000001',
+          input: '10000000000000000004',
+          expected: '10000000000000000004',
+          allowInputOverLimit: false,
+        },
+        {
+          min: '10000000000000000001',
+          input: '10000000000000000000',
+          expected: '10000000000000000000',
+          allowInputOverLimit: true,
+        },
+        { min: '10000000000000000001', input: '', expected: '', allowInputOverLimit: false },
+      ])(
+        'blurs $input with min=$min and allowInputOverLimit=$allowInputOverLimit',
+        async ({ min, input: enteredValue, expected, allowInputOverLimit }) => {
+          const value = ref(min);
+          const onChange = vi.fn();
+          const onBlur = vi.fn();
+          const props = { min, max: '10000000000000000009', largeNumber: true, allowInputOverLimit, onChange, onBlur };
+          const wrapper = mount(() =>
+            mode === 'model' ? (
+              <InputNumber {...props} v-model={value.value} />
+            ) : (
+              <InputNumber {...props} defaultValue={min} />
+            ),
+          );
+          const input = wrapper.find('input');
+          await input.trigger('focus');
+          await input.setValue(enteredValue);
+          onChange.mockClear();
+
+          await input.trigger('blur');
+
+          expect((input.element as HTMLInputElement).value).toBe(expected);
+          expect(onBlur).toHaveBeenCalledExactlyOnceWith(expected, { e: expect.any(FocusEvent) });
+          expect(onChange).toHaveBeenCalledTimes(enteredValue === expected ? 0 : 1);
+          if (enteredValue !== expected) {
+            expect(onChange).toHaveBeenCalledWith(expected, { type: 'blur', e: expect.any(FocusEvent) });
+          }
+          if (mode === 'model') expect(value.value).toBe(expected);
+          wrapper.unmount();
+        },
+      );
+    });
+
     // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5832
     it.each([0, 50])('restores the retained value %i after empty input on blur', async (value) => {
       const onChange = vi.fn();
