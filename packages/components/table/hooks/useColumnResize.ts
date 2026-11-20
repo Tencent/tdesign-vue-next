@@ -110,7 +110,12 @@ export default function useColumnResize(params: {
     const target = (e.target as HTMLElement).closest('th');
     // 判断是否为叶子阶段，仅叶子结点允许拖拽
     const colKey = target.getAttribute('data-colkey');
-    if (!leafColumns.value.find((t) => t.colKey === colKey)) return;
+    if (!leafColumns.value.find((t) => t.colKey === colKey)) {
+      // 从叶子结点的边框直接移入多级表头的父级表头时，需清除上一次记录的拖拽目标，避免在父级表头按下鼠标时误触发拖拽
+      resizeLineParams.draggingCol = null;
+      resizeLineParams.effectCol = null;
+      return;
+    }
     const targetBoundRect = target.getBoundingClientRect();
     const thRightCursor = targetBoundRect.right - e.pageX <= distance;
     const thLeftCursor = e.pageX - targetBoundRect.left <= distance;
@@ -252,6 +257,20 @@ export default function useColumnResize(params: {
       resizeLineStyle.bottom = `${parent.bottom - tableBoundRect.bottom}px`;
     }
 
+    // 恢复拖拽前的状态，包括解绑 document 事件、恢复文字选中和拖放
+    const resetDragState = () => {
+      resizeLineParams.isDragging = false;
+      resizeLineParams.draggingCol = null;
+      resizeLineParams.effectCol = null;
+      target.style.cursor = '';
+      resizeLineStyle.display = 'none';
+      resizeLineStyle.left = '0';
+      off(document, 'mouseup', onDragEnd);
+      off(document, 'mousemove', onDragOver);
+      document.onselectstart = originalSelectStart;
+      document.ondragstart = originalDragStart;
+    };
+
     // 结束拖拽，更新列宽。拖拽时鼠标可能会超出 table 范围，需要给 document 绑定拖拽相关事件；
     const onDragEnd = () => {
       if (!resizeLineParams.isDragging) return;
@@ -264,7 +283,11 @@ export default function useColumnResize(params: {
        */
       const thWidthList = getThWidthList('calculate');
       const currentCol = effectColMap.value[col.colKey]?.current;
-      if (!currentCol) return;
+      // 当前列不是叶子结点（如多级表头的父级表头）时无法调整列宽，但仍需恢复拖拽前的状态
+      if (!currentCol) {
+        resetDragState();
+        return;
+      }
       const currentSibling = resizeLineParams.effectCol === 'next' ? currentCol.nextSibling : currentCol.prevSibling;
       // 多行表头，列宽为最后一层的宽度，即叶子结点宽度
       const newThWidthList = { ...thWidthList };
@@ -302,16 +325,7 @@ export default function useColumnResize(params: {
       updateTableAfterColumnResize();
 
       // 恢复设置
-      resizeLineParams.isDragging = false;
-      resizeLineParams.draggingCol = null;
-      resizeLineParams.effectCol = null;
-      target.style.cursor = '';
-      resizeLineStyle.display = 'none';
-      resizeLineStyle.left = '0';
-      off(document, 'mouseup', onDragEnd);
-      off(document, 'mousemove', onDragOver);
-      document.onselectstart = originalSelectStart;
-      document.ondragstart = originalDragStart;
+      resetDragState();
       onColumnResizeChange?.({ columnsWidth: newThWidthList });
     };
 
