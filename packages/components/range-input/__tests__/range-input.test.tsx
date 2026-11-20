@@ -2,7 +2,7 @@ import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import RangeInput from '../range-input';
-import type { RangeInputInstanceFunctions } from '../type';
+import type { RangeInputInstanceFunctions, RangeInputValue } from '../type';
 
 describe('RangeInput', () => {
   describe('props', () => {
@@ -324,6 +324,80 @@ describe('RangeInput', () => {
         // select方法可能因为input元素未完全初始化而失败，这是正常的
         expect(error.message).toMatch(/select|inputRefs/);
       }
+    });
+  });
+
+  describe('scenarios', () => {
+    describe.each(['model', 'default'])('clearing with %s value', (mode) => {
+      describe.each(['object', 'array'])('inputProps as %s', (inputPropsType) => {
+        // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7101
+        it.each([
+          { position: 'first', side: 'left', initial: ['100', '500'], expected: ['', '500'] },
+          { position: 'second', side: 'right', initial: ['100', '500'], expected: ['100', ''] },
+          { position: 'first', side: 'left', initial: ['100', 0], expected: ['', 0] },
+          { position: 'second', side: 'right', initial: [0, '500'], expected: [0, ''] },
+        ])('clears only $position and preserves $initial', async ({ position, side, initial, expected }) => {
+          const value = ref<RangeInputValue>([...initial]);
+          const onChange = vi.fn();
+          const onClear = vi.fn();
+          const inputOnChange = vi.fn();
+          const inputOnClear = vi.fn();
+          const inputProps = { clearable: true, onChange: inputOnChange, onClear: inputOnClear };
+          const props = {
+            onChange,
+            onClear,
+            inputProps: inputPropsType === 'array' ? [inputProps, inputProps] : inputProps,
+          };
+          const wrapper = mount(() =>
+            mode === 'model' ? (
+              <RangeInput {...props} v-model={value.value} />
+            ) : (
+              <RangeInput {...props} defaultValue={value.value} />
+            ),
+          );
+          const input = wrapper.find(`.t-range-input__inner-${side} .t-input`);
+          await input.trigger('mouseenter');
+          await input.find('.t-input__suffix-clear').trigger('click');
+
+          expect(wrapper.findAll('input').map((input) => input.element.value)).toEqual(expected.map(String));
+          expect(onChange).toHaveBeenCalledExactlyOnceWith(expected, {
+            e: expect.any(MouseEvent),
+            position,
+            trigger: 'input',
+          });
+          expect(inputOnChange).toHaveBeenCalledExactlyOnceWith('', { e: expect.any(MouseEvent), trigger: 'clear' });
+          expect(inputOnClear).toHaveBeenCalledExactlyOnceWith({ e: expect.any(MouseEvent) });
+          expect(onClear).not.toHaveBeenCalled();
+          if (mode === 'model') expect(value.value).toEqual(expected);
+          wrapper.unmount();
+        });
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7101
+      it('clears both values once with the range clear button', async () => {
+        const value = ref<RangeInputValue>(['100', '500']);
+        const onChange = vi.fn();
+        const onClear = vi.fn();
+        const props = { clearable: true, onChange, onClear };
+        const wrapper = mount(() =>
+          mode === 'model' ? (
+            <RangeInput {...props} v-model={value.value} />
+          ) : (
+            <RangeInput {...props} defaultValue={value.value} />
+          ),
+        );
+        await wrapper.find('.t-range-input').trigger('mouseenter');
+        await wrapper.find('.t-range-input__suffix-clear').trigger('click');
+
+        expect(wrapper.findAll('input').map((input) => input.element.value)).toEqual(['', '']);
+        expect(onChange).toHaveBeenCalledExactlyOnceWith(['', ''], {
+          e: expect.any(MouseEvent),
+          position: 'all',
+          trigger: 'clear',
+        });
+        expect(onClear).toHaveBeenCalledExactlyOnceWith({ e: expect.any(MouseEvent) });
+        wrapper.unmount();
+      });
     });
   });
 
