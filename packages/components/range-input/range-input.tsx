@@ -117,7 +117,6 @@ export default defineComponent({
         onClick: ({ e }: { e: MouseEvent }) => {
           props.onClick?.({ e, position: 'first' });
         },
-        onClear: () => setInnerValue([], { position: 'first', trigger: 'input' }),
         onEnter: (val, { e }) => {
           handleEnter([val, innerValue.value?.[1]], { e, position: 'first' } as {
             e: any;
@@ -143,9 +142,6 @@ export default defineComponent({
       const secondInputEvents = useEventForward(inputProps.value[1] as TdInputProps, {
         onClick: ({ e }: { e: MouseEvent }) => {
           props.onClick?.({ e, position: 'second' });
-        },
-        onClear: () => {
-          setInnerValue([], { position: 'second', trigger: 'input' });
         },
         onEnter: (val, { e }) => {
           handleEnter([innerValue.value?.[0], val], { e, position: 'second' } as {
