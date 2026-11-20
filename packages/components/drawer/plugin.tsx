@@ -34,8 +34,9 @@ const createDrawer: DrawerMethod = (props, context) => {
       const update = (newOptions: DrawerOptions) => {
         drawerOptions.value = {
           ...options,
-          drawerClassName: drawerOptions.value?.className,
           ...omit(newOptions, ['className', 'style']),
+          // className 和 drawerClassName 都落到 t-drawer 上，合并而不是互相覆盖
+          drawerClassName: [drawerOptions.value?.className, newOptions?.drawerClassName].filter(Boolean).join(' '),
         };
       };
 
@@ -58,8 +59,11 @@ const createDrawer: DrawerMethod = (props, context) => {
         return h(DrawerComponent, {
           onClose,
           visible: visible.value,
-          drawerClassName: drawerOptions.value?.className,
           ...omit(drawerOptions.value, 'className', 'style'),
+          // className 和 drawerClassName 都落到 t-drawer 上，合并而不是互相覆盖
+          drawerClassName: [drawerOptions.value?.className, drawerOptions.value?.drawerClassName]
+            .filter(Boolean)
+            .join(' '),
           // 样式绑定到组件根节点，避免 Teleport 后落在空的插件容器上。
           style: customStyle.value,
         });
