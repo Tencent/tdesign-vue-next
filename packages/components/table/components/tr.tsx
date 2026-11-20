@@ -11,7 +11,7 @@ import {
   nextTick,
   onMounted,
 } from 'vue';
-import { get, pick, isString, isFunction, upperFirst } from 'lodash-es';
+import { get, pick, isString, isFunction, isPlainObject, upperFirst } from 'lodash-es';
 
 import { formatClassNames, formatRowAttributes, formatRowClassNames } from '../utils';
 import { getRowFixedStyles, getColumnFixedStyles } from '../hooks/useFixed';
@@ -268,6 +268,10 @@ export default defineComponent({
       if (typeof col.ellipsis === 'object') {
         tooltipProps = 'props' in col.ellipsis ? col.ellipsis.props : col.ellipsis || undefined;
       }
+      // 单元格值可能是普通对象（如 { content: '...' }）。Vue 的插槽归一化会给
+      // 非 vnode 的对象挂上 _ctx 属性，污染用户的源数据（issue #6432）。
+      // 转成字符串后与不带 ellipsis 时的渲染结果一致。
+      const ellipsisCellNode = isPlainObject(cellNode) ? String(cellNode) : cellNode;
       const tableElement = props.tableElm as HTMLDivElement;
       let placement: TooltipProps['placement'] = colIndex === 0 ? 'top-left' : 'top';
       placement = colIndex === props.columns.length - 1 ? 'top-right' : placement;
@@ -280,7 +284,7 @@ export default defineComponent({
           overlayClassName={props.ellipsisOverlayClassName}
           classPrefix={props.classPrefix}
         >
-          {cellNode}
+          {ellipsisCellNode}
         </TEllipsis>
       );
     }
