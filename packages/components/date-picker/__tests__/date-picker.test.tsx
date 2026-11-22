@@ -754,6 +754,67 @@ describe('DatePicker', () => {
       expect(initialRangeOnChange).not.toHaveBeenCalled();
       expect(latestRangeOnChange).toHaveBeenCalledWith([], expect.objectContaining({ trigger: 'clear' }));
     });
+
+    it('inputProps: onEnter receives the keyboard event, so the default form submit can be prevented', async () => {
+      const onEnter = vi.fn((_value: string, context: { e: KeyboardEvent }) => context.e.preventDefault());
+      const wrapper = mount({
+        render() {
+          return (
+            <form>
+              <DatePicker allowInput inputProps={{ onEnter }} />
+            </form>
+          );
+        },
+      });
+
+      const input = wrapper.find('input');
+      await input.setValue('2020-12-30');
+
+      const enterEvent = new KeyboardEvent('keydown', {
+        key: 'Enter',
+        code: 'Enter',
+        bubbles: true,
+        cancelable: true,
+      });
+      input.element.dispatchEvent(enterEvent);
+      await nextTick();
+
+      expect(onEnter).toHaveBeenCalledTimes(1);
+      expect(onEnter.mock.calls[0][0]).toBe('2020-12-30');
+      expect(onEnter.mock.calls[0][1].e).toBe(enterEvent);
+      expect(enterEvent.defaultPrevented).toBe(true);
+    });
+
+    it('rangeInputProps: onEnter receives the keyboard event, so the default form submit can be prevented', async () => {
+      const onEnter = vi.fn((_value: string[], context: { e?: MouseEvent | InputEvent }) =>
+        context.e?.preventDefault(),
+      );
+      const wrapper = mount({
+        render() {
+          return (
+            <form>
+              <DateRangePicker allowInput rangeInputProps={{ onEnter }} />
+            </form>
+          );
+        },
+      });
+
+      const input = wrapper.findAll('input')[0];
+      await input.setValue('2020-12-30');
+
+      const enterEvent = new KeyboardEvent('keydown', {
+        key: 'Enter',
+        code: 'Enter',
+        bubbles: true,
+        cancelable: true,
+      });
+      input.element.dispatchEvent(enterEvent);
+      await nextTick();
+
+      expect(onEnter).toHaveBeenCalledTimes(1);
+      expect(onEnter.mock.calls[0][1].e).toBe(enterEvent);
+      expect(enterEvent.defaultPrevented).toBe(true);
+    });
   });
 
   it('DatePickerPanel: enableTimePicker applied to dayjsValue (panel select time)', async () => {

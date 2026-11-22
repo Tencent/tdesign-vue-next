@@ -2,7 +2,14 @@ import { ref, computed, watch } from 'vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import { omit } from 'lodash-es';
 
-import { useConfig, useTNodeJSX, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+import {
+  useConfig,
+  useEventForward,
+  useTNodeJSX,
+  useReadonly,
+  useGlobalIcon,
+  usePrefixClass,
+} from '@tdesign/shared-hooks';
 
 import { TdDateRangePickerProps, DateValue, DateRangePickerPartial } from '../type';
 import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
@@ -35,6 +42,36 @@ export function useRange(props: TdDateRangePickerProps) {
   const activeIndex = ref<0 | 1>(0); // 确定当前选中的输入框序号
   const inputValue = ref(formatDate(props.value, { format: formatRef.value.format })); // 未真正选中前可能不断变更输入框的内容
   const isReadOnly = useReadonly();
+
+  // 输入框回车确认逻辑
+  const handleEnter = (newVal: string[]) => {
+    if (!isValidDate(newVal, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) return;
+
+    popupVisible.value = false;
+    if (isValidDate(newVal, formatRef.value.format)) {
+      onRawChange?.(
+        formatDate(newVal, {
+          format: formatRef.value.format,
+          targetFormat: formatRef.value.valueType,
+          autoSwap: true,
+        }) as DateValue[],
+        {
+          dayjsValue: newVal.map((v) => parseToDayjs(v, formatRef.value.format)),
+          trigger: 'enter',
+        },
+      );
+    } else if (isValidDate(value.value, formatRef.value.format)) {
+      inputValue.value = formatDate(value.value, {
+        format: formatRef.value.format,
+      });
+    } else {
+      inputValue.value = [];
+    }
+  };
+
+  // 透传 rangeInputProps 中的回调：先执行组件内部逻辑，再执行用户回调。
+  // 用户回调可以拿到键盘事件，通过 e.preventDefault() 阻止回车触发表单提交
+  const inputEventHandlers = useEventForward(props.rangeInputProps, { onEnter: handleEnter });
 
   // input 设置
   const rangeInputProps = computed(() => ({
@@ -99,30 +136,7 @@ export function useRange(props: TdDateRangePickerProps) {
       month.value = newMonth;
       time.value = newTime;
     },
-    onEnter: (newVal: string[]) => {
-      if (!isValidDate(newVal, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) return;
-
-      popupVisible.value = false;
-      if (isValidDate(newVal, formatRef.value.format)) {
-        onRawChange?.(
-          formatDate(newVal, {
-            format: formatRef.value.format,
-            targetFormat: formatRef.value.valueType,
-            autoSwap: true,
-          }) as DateValue[],
-          {
-            dayjsValue: newVal.map((v) => parseToDayjs(v, formatRef.value.format)),
-            trigger: 'enter',
-          },
-        );
-      } else if (isValidDate(value.value, formatRef.value.format)) {
-        inputValue.value = formatDate(value.value, {
-          format: formatRef.value.format,
-        });
-      } else {
-        inputValue.value = [];
-      }
-    },
+    onEnter: inputEventHandlers.value.onEnter,
   }));
 
   // popup 设置
