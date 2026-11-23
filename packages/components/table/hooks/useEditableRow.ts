@@ -117,34 +117,35 @@ export default function useRowEdit(props: PrimaryTableProps) {
     const editingCellKeys = Object.keys(editingCells.value).filter((v) => existKeys.includes(getRowKeyFromCell(v)));
 
     const keepEditColumns = getKeepEditColumns(props.columns as PrimaryTableCol<TableRowData>[]);
-    const keepEditColKeys = new Set(keepEditColumns.map((col) => col.colKey));
+    const mountedCellPersistKeys = new Set<string>();
 
     const promiseList: Promise<CellValidateResult>[] = [];
 
-    // 1. 校验当前处于编辑态（已挂载）的单元格，使用组件内的实时编辑值。
-    //    keepEditMode 列交由步骤 2 基于数据整表校验，避免虚拟滚动下未挂载行漏校验。
+    // 1. 校验当前处于编辑态（已挂载）的单元格，使用组件内的实时编辑值，避免行数据或编辑缓存未同步。
     editingCellKeys.forEach((cellKey) => {
       const context = editingCells.value[cellKey];
-      if (keepEditColKeys.has(context.col.colKey)) return;
       const rowValue = get(context.row, props.rowKey || 'id');
+      const persistKey = [rowValue, context.col.colKey].join('__');
+      mountedCellPersistKeys.add(persistKey);
       promiseList.push(
         context.validateEdit('parent').then((result) => ({
           cellKey,
-          persistKey: [rowValue, context.col.colKey].join('__'),
+          persistKey,
           errorList: result === true ? [] : result,
         })),
       );
     });
 
     // 2. keepEditMode 场景：虚拟滚动只挂载可视区行，导致未挂载行不参与校验且滚动后校验状态丢失。
-    //    这里对所有数据行的 keepEditMode 列基于行数据（含已编辑值）补充校验，保证校验完整且滚动后可恢复。
+    //    这里只对未挂载单元格基于行数据（含已编辑值）补充校验，保证校验完整且滚动后可恢复。
     keepEditColumns.forEach((col) => {
       props.data.forEach((row, rowIndex) => {
         const rowValue = get(row, props.rowKey || 'id');
+        const persistKey = [rowValue, col.colKey].join('__');
+        if (mountedCellPersistKeys.has(persistKey)) return;
         const editedRow = editedFormData.value[rowValue];
         const value = editedRow ? get(editedRow, col.colKey) : get(row, col.colKey);
         const cellKey = getCellKey(row, props.rowKey || 'id', col.colKey, 0, rowIndex);
-        const persistKey = [rowValue, col.colKey].join('__');
         const params = { row, col, rowIndex, colIndex: 0 } as PrimaryTableCellParams<TableRowData>;
         const rules = isFunction(col.edit.rules) ? col.edit.rules(params) : col.edit.rules;
         if (!rules || !rules.length) return;

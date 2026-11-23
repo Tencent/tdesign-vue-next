@@ -2,6 +2,7 @@ import { ref, h } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { describe, expect, vi, it } from 'vitest';
+import { Pagination } from '@tdesign/components/pagination';
 import Transfer from '@tdesign/components/transfer';
 import TransferProps from '@tdesign/components/transfer/props';
 import { transferMockData, pagination } from './mount';
@@ -381,6 +382,139 @@ describe('Transfer', () => {
       const input = wrapper.find('.t-transfer__search-wrapper input');
       await input.trigger('input');
       expect(fn).toBeCalled();
+    });
+  });
+
+  describe('scenarios', () => {
+    describe('disabled search and pagination', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7090
+      it('disables search and pagination on both lists', async () => {
+        const onSearch = vi.fn();
+        const onPageChange = vi.fn();
+        const wrapper = mount(
+          <Transfer
+            data={transferMockData}
+            defaultValue={transferMockData.slice(10).map((item) => item.value)}
+            search
+            pagination={{ pageSize: 5 }}
+            disabled
+            onSearch={onSearch}
+            onPageChange={onPageChange}
+          />,
+        );
+
+        for (const side of ['source', 'target']) {
+          const list = wrapper.get(`.t-transfer__list-${side}`);
+          const searchInput = list.get<HTMLInputElement>('.t-transfer__search-wrapper input');
+          expect(searchInput.element.disabled).toBe(true);
+          await searchInput.setValue('内容2');
+          expect(list.get<HTMLInputElement>('.t-pagination input').element.disabled).toBe(true);
+          await list.get('.t-pagination__btn-next').trigger('click');
+          expect(list.getComponent(Pagination).props('current')).toBe(1);
+        }
+        expect(onSearch).not.toHaveBeenCalled();
+        expect(onPageChange).not.toHaveBeenCalled();
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7090
+      it('respects side-specific disabled state and keeps control-level options', async () => {
+        const onSearch = vi.fn();
+        const onPageChange = vi.fn();
+        const wrapper = mount(
+          <Transfer
+            data={transferMockData}
+            defaultValue={transferMockData.slice(10).map((item) => item.value)}
+            disabled={[true, false]}
+            search={[{ disabled: false }, { disabled: true }]}
+            pagination={[{ pageSize: 5, disabled: false }, { pageSize: 5 }]}
+            onSearch={onSearch}
+            onPageChange={onPageChange}
+          />,
+        );
+        const source = wrapper.get('.t-transfer__list-source');
+        const target = wrapper.get('.t-transfer__list-target');
+        const sourceSearch = source.get<HTMLInputElement>('.t-transfer__search-wrapper input');
+        const targetSearch = target.get<HTMLInputElement>('.t-transfer__search-wrapper input');
+
+        expect(sourceSearch.element.disabled).toBe(true);
+        expect(targetSearch.element.disabled).toBe(true);
+        await source.get('.t-pagination__btn-next').trigger('click');
+        expect(onPageChange).not.toHaveBeenCalled();
+        await target.get('.t-pagination__btn-next').trigger('click');
+        expect(onPageChange).toHaveBeenCalledWith(expect.objectContaining({ current: 2 }), { type: 'target' });
+
+        await wrapper.setProps({ disabled: [false, true] });
+        expect(sourceSearch.element.disabled).toBe(false);
+        await source.get('.t-pagination__btn-next').trigger('click');
+        expect(onPageChange).toHaveBeenLastCalledWith(expect.objectContaining({ current: 2 }), { type: 'source' });
+        await sourceSearch.setValue('内容2');
+        expect(onSearch).toHaveBeenCalledWith(expect.objectContaining({ query: '内容2', type: 'source' }));
+
+        await target.get('.t-pagination__btn-prev').trigger('click');
+        expect(onPageChange).toHaveBeenCalledTimes(2);
+        expect(target.getComponent(Pagination).props('current')).toBe(2);
+      });
+    });
+
+    describe('search with pagination', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7054
+      it('keeps the source page in range as the search results change', async () => {
+        const onPageChange = vi.fn();
+        const wrapper = mount(
+          <Transfer data={transferMockData} search pagination={{ pageSize: 5 }} onPageChange={onPageChange} />,
+        );
+        const source = wrapper.get('.t-transfer__list-source');
+        const input = source.get('.t-transfer__search-wrapper input');
+
+        await source.get('.t-pagination__btn-next').trigger('click');
+        expect(source.getComponent(Pagination).props('current')).toBe(2);
+
+        await input.setValue('内容1');
+        expect(source.getComponent(Pagination).props('current')).toBe(2);
+
+        await input.setValue('内容20');
+        expect(source.getComponent(Pagination).props('current')).toBe(1);
+        expect(source.findAll('.t-transfer__list-item').map((item) => item.text())).toEqual(['内容20']);
+        expect(onPageChange).toHaveBeenCalledTimes(1);
+
+        await input.setValue('no matching item');
+        expect(source.find('.t-transfer__empty').exists()).toBe(true);
+        expect(source.findComponent(Pagination).exists()).toBe(false);
+
+        await input.setValue('');
+        expect(source.getComponent(Pagination).props('current')).toBe(1);
+        expect(source.get('.t-transfer__list-item').text()).toBe('内容1');
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7054
+      it('shows matching target items with an out-of-range controlled page', async () => {
+        const onPageChange = vi.fn();
+        const wrapper = mount(
+          <Transfer
+            data={transferMockData}
+            defaultValue={transferMockData.map((item) => item.value)}
+            search
+            pagination={{ pageSize: 5, current: 4 }}
+            onPageChange={onPageChange}
+          />,
+        );
+        const target = wrapper.get('.t-transfer__list-target');
+        const input = target.get('.t-transfer__search-wrapper input');
+        expect(target.get('.t-transfer__list-item').text()).toBe('内容16');
+
+        await input.setValue('内容1');
+        expect(target.getComponent(Pagination).props('current')).toBe(3);
+        expect(target.findAll('.t-transfer__list-item').map((item) => item.text())).toEqual(['内容19']);
+
+        await input.setValue('内容20');
+        expect(target.getComponent(Pagination).props('current')).toBe(1);
+        expect(target.findAll('.t-transfer__list-item').map((item) => item.text())).toEqual(['内容20']);
+
+        await input.setValue('');
+        expect(target.getComponent(Pagination).props('current')).toBe(4);
+        expect(target.get('.t-transfer__list-item').text()).toBe('内容16');
+        expect(onPageChange).not.toHaveBeenCalled();
+      });
     });
   });
 

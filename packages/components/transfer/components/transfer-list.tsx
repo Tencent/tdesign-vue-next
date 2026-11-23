@@ -48,7 +48,7 @@ const props = {
   },
   search: {
     type: [Boolean, Object] as PropType<SearchOption>,
-    default: false as TdTransferProps['search'],
+    default: false as SearchOption,
   },
   transferItem: Function as PropType<TdTransferProps['transferItem']>,
   empty: {
@@ -86,10 +86,6 @@ export default defineComponent({
     // 用于兼容处理 Pagination 的非受控属性
     const defaultPageSize = ref(0);
 
-    const currentPage = computed(() => {
-      const pagination = props.pagination as any;
-      return pagination?.current || defaultCurrent.value || pagination?.defaultCurrent;
-    });
     const pageSize = computed(() => {
       const pagination = props.pagination as any;
       return pagination?.pageSize || defaultPageSize.value || pagination?.defaultPageSize;
@@ -110,6 +106,15 @@ export default defineComponent({
     const pageTotal = computed(() => {
       return (filteredData.value && filteredData.value.length) || 0;
     });
+    const lastPage = computed(() => {
+      if (!props.pagination || !(pageSize.value > 0)) return Infinity;
+      return Math.max(1, Math.ceil(pageTotal.value / pageSize.value));
+    });
+    const currentPage = computed(() => {
+      const pagination = props.pagination as TdPaginationProps;
+      const current = pagination?.current || defaultCurrent.value || pagination?.defaultCurrent;
+      return Math.min(current, lastPage.value);
+    });
 
     const curPageData = computed(() => {
       let pageData = filteredData.value;
@@ -129,6 +134,7 @@ export default defineComponent({
         ? {
             ...defaultPaginationProps,
             ...props.pagination,
+            disabled: props.disabled || props.pagination.disabled,
             size: 'small',
             theme: 'simple',
             current: currentPage.value,
@@ -162,11 +168,8 @@ export default defineComponent({
       return getLefCount(props.dataSource);
     });
 
-    watch(totalCount, (val) => {
-      if (val <= (currentPage.value - 1) * pageSize.value) {
-        const lastPage = Math.ceil(val / pageSize.value);
-        defaultCurrent.value = lastPage;
-      }
+    watch(lastPage, (val) => {
+      defaultCurrent.value = Math.min(defaultCurrent.value, val);
     });
 
     const filteredTreeData = (list: TransferItemOption[], keyword: string) => {
@@ -361,6 +364,7 @@ export default defineComponent({
               placeholder={t(globalConfig.value.placeholder)}
               onChange={handleSearch}
               search={props.search}
+              disabled={props.disabled}
             />
           )}
           {curPageData.value.length > 0 ? renderContent() : renderEmpty()}

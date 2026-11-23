@@ -29,6 +29,7 @@ async function mount(Component, mode, initial = []) {
       h(Component, {
         data,
         checkable: true,
+        checkAllAffectedBy: 'onlyEnabled',
         expandAll: true,
         transition: false,
         valueMode: mode,

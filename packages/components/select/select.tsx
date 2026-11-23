@@ -84,6 +84,8 @@ export default defineComponent({
       useSelectOptions(props, keys, innerInputValue, innerValue);
 
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
+      if (isDisabled.value) return;
+
       if (isObjectType.value) {
         const { value, label } = keys.value;
         const getOption = (val: SelectValue) => {

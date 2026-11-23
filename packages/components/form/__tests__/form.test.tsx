@@ -889,6 +889,34 @@ describe('Form', () => {
       checkDefaultStyle();
     });
 
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6639
+    it('clearValidate ignores a pending validation result', async () => {
+      let resolveValidation: (valid: boolean) => void;
+      const pendingValidation = new Promise<boolean>((resolve) => {
+        resolveValidation = resolve;
+      });
+      const formData = { name: '' };
+      const wrapper = mount(
+        <Form data={formData} rules={{ name: [{ validator: () => pendingValidation, message: 'Invalid name' }] }}>
+          <FormItem name="name">
+            <Input />
+          </FormItem>
+        </Form>,
+      );
+      const form = wrapper.findComponent(Form);
+
+      const validation = form.vm.$.exposed.validate();
+      await nextTick();
+      form.vm.$.exposed.clearValidate();
+      resolveValidation(false);
+      await validation;
+      await nextTick();
+
+      expect(wrapper.find('.t-is-error').exists()).toBe(false);
+      expect(wrapper.find('.t-input__extra').exists()).toBe(false);
+      wrapper.unmount();
+    });
+
     it('reset', async () => {
       let rules: FormRules<Data> = {
         name: [{ required: true, message: '姓名必填', trigger: 'blur' }],

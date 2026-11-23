@@ -39,7 +39,7 @@
       ><div :style="{ padding: '24px', background: 'var(--bg-color-page)', borderRadius: '3px' }">
         <t-head-menu style="marginbottom: 20px" v-bind="configProps">
           <template #logo>
-            <img src="https://www.tencent.com/img/index/menu_logo_hover.png" width="136" />
+            <img src="https://tdesign.gtimg.com/site/baseLogo-light.png" height="28" />
           </template>
           <t-menu-item value="0">
             <span>菜单1</span>
@@ -67,7 +67,7 @@ const panelList = [
 const usageCodeMap = {
   menu: '\n        <div :style="{ padding: \'24px\', background: \'var(--bg-color-page)\', borderRadius: \'3px\' }">\n          <t-menu v-bind="configProps">\n            <t-menu-item value="0">\n              <template #icon>\n                <t-icon name="app" />\n              </template>\n              仪表盘\n            </t-menu-item>\n      \n            <t-submenu value="1" title="资源列表">\n              <template #icon>\n                <t-icon name="code" />\n              </template>\n              <t-menu-item value="1-1" disabled>\n                <span>菜单二</span>\n              </t-menu-item>\n            </t-submenu>\n            <t-submenu value="2" title="调度平台">\n              <template #icon>\n                <t-icon name="file" />\n              </template>\n              <t-submenu value="2-1" title="二级菜单-1">\n                <t-menu-item value="3-1">三级菜单-1</t-menu-item>\n                <t-menu-item value="3-2">三级菜单-2</t-menu-item>\n                <t-menu-item value="3-3">三级菜单-3</t-menu-item>\n              </t-submenu>\n              <t-menu-item value="2-2">\n                <span>二级菜单-2</span>\n              </t-menu-item>\n            </t-submenu>\n          </t-menu>\n        </div>\n      ',
   headMenu:
-    '\n        <div :style="{ padding: \'24px\', background: \'var(--bg-color-page)\', borderRadius: \'3px\' }">\n          <t-head-menu style="marginBottom: 20px" v-bind="configProps">\n            <template #logo>\n              <img src="https://www.tencent.com/img/index/menu_logo_hover.png" width="136" />\n            </template>\n            <t-menu-item value="0">\n              <span>菜单1</span>\n            </t-menu-item>\n            <t-menu-item value="1">\n              <span>菜单2</span>\n            </t-menu-item>\n          </t-head-menu>\n        </div>\n      ',
+    '\n        <div :style="{ padding: \'24px\', background: \'var(--bg-color-page)\', borderRadius: \'3px\' }">\n          <t-head-menu style="marginBottom: 20px" v-bind="configProps">\n            <template #logo>\n              <img src="https://tdesign.gtimg.com/site/baseLogo-light.png" height="28" />\n            </template>\n            <t-menu-item value="0">\n              <span>菜单1</span>\n            </t-menu-item>\n            <t-menu-item value="1">\n              <span>菜单2</span>\n            </t-menu-item>\n          </t-head-menu>\n        </div>\n      ',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

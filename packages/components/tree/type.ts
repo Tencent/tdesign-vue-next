@@ -41,6 +41,11 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
    */
   allowFoldNodeOnFilter?: boolean;
   /**
+   * 参与父节点全选、半选状态判定的子节点范围。all 表示所有子节点参与判断，包括禁用子节点；onlyEnabled 表示仅未禁用的子节点参与判断，没有可用子节点时，不由子节点推导出全选或半选状态。仅影响父节点状态的判定，不改变禁用子节点自身的选中状态。checkStrictly 为 true 时不生效
+   * @default all
+   */
+  checkAllAffectedBy?: 'all' | 'onlyEnabled';
+  /**
    * 透传属性到 checkbox 组件。参考 checkbox 组件 API
    */
   checkProps?: CheckboxProps;
