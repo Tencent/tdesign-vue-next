@@ -179,7 +179,7 @@ const getStatusIcon: FormItemProps['statusIcon'] = () => (
     name="help-circle"
     size="16px"
     style={{
-      color: '#0006',
+      color: 'var(--td-text-color-placeholder)',
     }}
   />
 );
