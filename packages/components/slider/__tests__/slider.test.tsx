@@ -439,6 +439,28 @@ describe('Slider', () => {
   });
 
   describe('scenarios', () => {
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/7108
+    it('clamps both range values after max changes during a coarse-step drag', async () => {
+      const onChangeEnd = vi.fn();
+      const wrapper = mount(<Slider range modelValue={[80, 100]} step={40} onChangeEnd={onChangeEnd} />);
+      await nextTick();
+      const slider = wrapper.find('.t-slider');
+      Object.defineProperty(slider.element, 'getBoundingClientRect', {
+        value: () => ({ left: 0, top: 0, width: 200, height: 20, right: 200, bottom: 20 }),
+      });
+      const button = wrapper.findAll('.t-slider__button-wrapper')[1];
+      await button.trigger('mousedown', { clientX: 200, clientY: 10 });
+      window.dispatchEvent(new MouseEvent('mousemove', { clientX: 202, clientY: 10, bubbles: true }));
+      await nextTick();
+      await wrapper.setProps({ max: 60 });
+      window.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+      await nextTick();
+      await new Promise((resolve) => setTimeout(resolve, 10));
+
+      expect(onChangeEnd).toHaveBeenLastCalledWith([60, 60]);
+      wrapper.unmount();
+    });
+
     // Issue: https://github.com/Tencent/tdesign-vue-next/issues/5832
     it.each([0, 50])('restores slider value %i after empty input on blur', async (value) => {
       const onChange = vi.fn();

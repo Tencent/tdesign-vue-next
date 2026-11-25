@@ -141,7 +141,7 @@ export default defineComponent({
       if (props.range && isArray(value)) {
         let [maxLimit, minLimit] = [Math.min(...value), Math.max(...value)];
         if (maxLimit > max) {
-          maxLimit = firstValue.value;
+          maxLimit = Math.min(firstValue.value, max);
         }
         if (maxLimit < min) {
           maxLimit = min;
