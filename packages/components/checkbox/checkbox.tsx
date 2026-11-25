@@ -38,12 +38,34 @@ export default defineComponent({
     }
     const { STATUS } = useCommonClassName();
 
-    const { checked, modelValue, lazyLoad, onChange: onChangeRef } = toRefs(props);
+    const { checked, modelValue, lazyLoad } = toRefs(props);
+
+    // 自定义选中载荷值（issue #6979）：设置 customValue 后，onChange 的载荷改为
+    // [选中时的值, 未选中时的值]（如 1/0、'yes'/'no'），与 Switch.customValue 语义一致；
+    // v-model:checked 仍为布尔，未设置 customValue 时行为完全不变。
+    const activeValue = computed(() => {
+      if (props.customValue && props.customValue.length > 0) return props.customValue[0];
+      return true;
+    });
+    const inactiveValue = computed(() => {
+      if (props.customValue && props.customValue.length > 1) return props.customValue[1];
+      return false;
+    });
+    const proxyOnChange: (value: boolean, context: { e: Event }) => void = (value, context) => {
+      // 每次调用时读取最新 props.onChange，保持与 useVModel 原生行为一致的响应性
+      const onChange = props.onChange;
+      if (props.customValue && props.customValue.length && typeof value === 'boolean') {
+        onChange?.(value ? activeValue.value : inactiveValue.value, context);
+        return;
+      }
+      onChange?.(value, context);
+    };
+
     const [innerChecked, setInnerChecked] = useVModel(
       checked,
       modelValue,
       props.defaultChecked,
-      onChangeRef,
+      proxyOnChange,
       'checked',
     );
 
@@ -132,6 +154,8 @@ export default defineComponent({
     const handleChange = (e: Event) => {
       if (isReadonly.value || isDisabled.value) return;
       const checked = !tChecked.value;
+      // 自定义选中载荷值场景：onChange 的载荷改为自定义值（如 1/0、'yes'/'no'），
+      // 组件内部选中态仍为布尔；未设置 customValue 时行为完全不变（issue #6979）
       setInnerChecked(checked, { e });
       if (checkboxGroupData?.value.handleCheckboxChange) {
         checkboxGroupData.value.onCheckedChange({ checked, checkAll: props.checkAll, e, option: props });

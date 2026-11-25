@@ -19,6 +19,10 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 用于自定义选中时 onChange 的载荷值，[选中时的值，未选中时的值]。默认为 [true, false]。示例：[1, 0]、['yes', 'no'] */
+  customValue: {
+    type: Array as PropType<TdCheckboxProps['customValue']>,
+  },
   /** 是否选中，非受控属性 */
   defaultChecked: Boolean,
   /** 多选框内容，同 label */

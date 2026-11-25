@@ -18,6 +18,10 @@ export interface TdCheckboxProps {
    */
   checked?: boolean;
   /**
+   * 用于自定义选中时 onChange 的载荷值，[选中时的值，未选中时的值]。默认为 [true, false]。示例：[1, 0]、['yes', 'no']
+   */
+  customValue?: Array<string | number | boolean>;
+  /**
    * 是否选中，非受控属性
    * @default false
    */
@@ -70,7 +74,10 @@ export interface TdCheckboxProps {
   /**
    * 值变化时触发
    */
-  onChange?: (checked: boolean, context: { e: Event }) => void;
+  /**
+   * 值变化时触发。设置 customValue 后，首个参数为自定义值（如 1/0、'yes'/'no'）
+   */
+  onChange?: (checked: boolean | string | number, context: { e: Event }) => void;
 }
 
 export interface TdCheckboxGroupProps<T = CheckboxGroupValue> {
