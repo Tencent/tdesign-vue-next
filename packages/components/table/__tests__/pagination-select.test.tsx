@@ -21,6 +21,7 @@ function mountSelectTable(reserveSelectedRowOnPaginate: boolean) {
   const data = ref(createTableData(12));
   const selectedRowKeys = ref<(string | number)[]>([]);
   const pagination = ref({ current: 1, pageSize: 5, total: 12 });
+  const changes: { keys: (string | number)[]; rowData: (string | number)[] }[] = [];
 
   const TableDemo = defineComponent({
     setup() {
@@ -34,6 +35,9 @@ function mountSelectTable(reserveSelectedRowOnPaginate: boolean) {
           onUpdate:selectedRowKeys={(value) => {
             selectedRowKeys.value = value;
           }}
+          onSelectChange={(keys, ctx) => {
+            changes.push({ keys: [...keys], rowData: (ctx.selectedRowData || []).map((r) => r?.id) });
+          }}
           reserveSelectedRowOnPaginate={reserveSelectedRowOnPaginate}
         />
       );
@@ -42,7 +46,7 @@ function mountSelectTable(reserveSelectedRowOnPaginate: boolean) {
 
   const wrapper = mount(TableDemo);
 
-  return { wrapper, data, selectedRowKeys, pagination };
+  return { wrapper, data, selectedRowKeys, pagination, changes };
 }
 
 function mountSelectTableByProps(props: Record<string, unknown>) {
@@ -221,5 +225,29 @@ describe('reserveSelectedRowOnPaginate', () => {
 
     await setHeaderSelectAll(wrapper, true);
     expect(selectedRowKeys.value).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6726
+  it('reserveSelectedRowOnPaginate={false}: selectedRowData keeps cross-page keys after unchecking current page', async () => {
+    const { wrapper, selectedRowKeys, pagination, changes } = mountSelectTable(false);
+    await nextTick();
+
+    // 第一页选中第一行
+    await wrapper.find('tbody .t-table__cell-check input[type="checkbox"]').setValue(true);
+    await nextTick();
+
+    // 翻到第二页后全选，再取消当前页全选
+    pagination.value = { current: 2, pageSize: 5, total: 12 };
+    await nextTick();
+    await nextTick();
+    await setHeaderSelectAll(wrapper, true);
+    await setHeaderSelectAll(wrapper, false);
+
+    const last = changes.at(-1);
+    // 第一页选中的 id=1 仍保留在 keys 中
+    expect(last.keys).toEqual([1]);
+    // selectedRowData 必须与 keys 同步，不能是空数组
+    expect(last.rowData).toEqual([1]);
+    expect(selectedRowKeys.value).toEqual([1]);
   });
 });
