@@ -332,6 +332,23 @@ describe('Submenu', () => {
       expect(menu.open).toHaveBeenCalledWith('products', 'remove');
     });
 
+    it('closes immediately when moving directly to a sibling submenu', async () => {
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'Products', value: 'products' },
+        { menu, slots: { default: () => 'Product' } },
+      );
+      await openSubmenu(wrapper);
+      const item = wrapper.get('li').element;
+      const sibling = document.createElement('li');
+      sibling.className = 't-submenu';
+      item.parentElement?.appendChild(sibling);
+      await wrapper.get('li').trigger('mouseleave', { relatedTarget: sibling });
+      await nextTick();
+      expect(submenu.findComponent(Popup).props('visible')).toBe(false);
+      sibling.remove();
+    });
+
     it('mouseenter (overlay)', async () => {
       const { menu } = createMenu({ mode: ref('popup') });
       const parentSubmenu = { cancelHideTimer: vi.fn() };
@@ -448,6 +465,23 @@ describe('Submenu', () => {
       childContext?.closeParentPopup?.(new MouseEvent('mouseleave'));
       childContext?.cancelHideTimer?.();
       await vi.advanceTimersByTimeAsync(100);
+      expect(submenu.findComponent(Popup).props('visible')).toBe(true);
+    });
+
+    it('keeps the popup open when a leave event targets its own content', async () => {
+      const parentSubmenu = { closeParentPopup: vi.fn() };
+      const { menu } = createMenu({ mode: ref('popup') });
+      const { submenu, wrapper } = mountSubmenu(
+        { title: 'Products', value: 'products' },
+        { menu, parentSubmenu, slots: { default: () => <span>Product</span> } },
+      );
+      await openSubmenu(wrapper);
+      const spacer = getTeleportedElement('.t-menu__spacer');
+      const child = spacer.querySelector('span') as HTMLElement;
+      spacer.dispatchEvent(new MouseEvent('mouseleave', { relatedTarget: child }));
+      await vi.advanceTimersByTimeAsync(100);
+      await nextTick();
+      expect(parentSubmenu.closeParentPopup).not.toHaveBeenCalled();
       expect(submenu.findComponent(Popup).props('visible')).toBe(true);
     });
 
