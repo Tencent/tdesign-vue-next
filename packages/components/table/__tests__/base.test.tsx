@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@tdesign/components/table';
 
 const data = new Array(5).fill(null).map((item, index) => ({
@@ -611,6 +612,40 @@ TABLES.forEach((TTable) => {
             expect(wrapper.findAll('.t-table__filter-icon').at(index).text()).toBe(filterIconText(item.colKey));
           });
         }
+      });
+    });
+
+    // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6432
+    describe(':props.ellipsis', () => {
+      const makeObjectData = () => [{ id: 1, time: { description: { content: 'hello' } } }];
+      const objectColumns = [
+        { title: 'ID', colKey: 'id' },
+        { title: 'Time', colKey: 'time.description', ellipsis: true },
+      ];
+
+      it('does not write _ctx into the source data', async () => {
+        const objectData = makeObjectData();
+        const wrapper = mount({
+          render() {
+            return <TTable rowKey="id" data={objectData} columns={objectColumns}></TTable>;
+          },
+        });
+        await nextTick();
+        expect(Object.keys(objectData[0].time.description)).toEqual(['content']);
+        expect(() => JSON.stringify(objectData)).not.toThrow();
+        wrapper.unmount();
+      });
+
+      it('renders an object cell the same way as without ellipsis', async () => {
+        const objectData = makeObjectData();
+        const wrapper = mount({
+          render() {
+            return <TTable rowKey="id" data={objectData} columns={objectColumns}></TTable>;
+          },
+        });
+        await nextTick();
+        expect(wrapper.find('tbody tr td:nth-child(2)').text()).toBe('[object Object]');
+        wrapper.unmount();
       });
     });
   });
