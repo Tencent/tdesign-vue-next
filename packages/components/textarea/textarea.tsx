@@ -45,6 +45,8 @@ export default defineComponent({
 
     const { value, modelValue, onChange: onChangeRef } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
+    // 受控判定：父组件传了 value 或 modelValue
+    const isControlled = computed(() => props.value !== undefined || props.modelValue !== undefined);
     const disabled = useDisabled();
     const isReadonly = useReadonly();
     const textareaStyle = ref<CSSProperties>({});
@@ -57,6 +59,25 @@ export default defineComponent({
     const blur = () => refTextareaElem.value?.blur();
 
     // methods
+    // 把 "height: 80px; color: red;" 解析成 { height: '80px', color: 'red' }
+    const parseStyleString = (style: string): CSSProperties => {
+      const result: CSSProperties = {};
+      style
+        .split(';')
+        .map((item) => item.trim())
+        .filter(Boolean)
+        .forEach((item) => {
+          const idx = item.indexOf(':');
+          if (idx < 0) return;
+          const key = item.slice(0, idx).trim();
+          const value = item.slice(idx + 1).trim();
+          if (!key || !value) return;
+          const camelKey = key.replace(/-([a-z])/g, (_, c: string) => c.toUpperCase());
+          (result as Record<string, string>)[camelKey] = value;
+        });
+      return result;
+    };
+
     const adjustTextareaHeight = () => {
       if (props.autosize === true) {
         nextTick(() => {
@@ -71,6 +92,9 @@ export default defineComponent({
         textareaStyle.value = { height: 'auto', minHeight: 'auto' };
       } else if (attrs.style && (attrs.style as CSSProperties)?.height) {
         textareaStyle.value = { height: (attrs.style as CSSProperties)?.height };
+      } else {
+        // autosize 关闭后必须清掉此前写入的行内高度，否则会残留旧高度
+        textareaStyle.value = {};
       }
     };
 
@@ -83,7 +107,9 @@ export default defineComponent({
 
       if (textareaElem.value !== sV) {
         textareaElem.value = sV;
-        innerValue.value = sV;
+        // 受控模式下 innerValue 指向只读 prop，直接赋值会触发 Vue readonly 警告；
+        // 且受控值由父组件回写，这里再同步会重复触发一次 update:value。
+        if (!isControlled.value) setInnerValue(sV);
       }
     };
     const inputValueChangeHandle = (e: InputEvent) => {
@@ -197,14 +223,24 @@ export default defineComponent({
       }
     });
 
-    watch(textareaStyle, (val) => {
+    const applyTextareaStyle = (val: CSSProperties) => {
+      const el = refTextareaElem.value;
+      if (!el) return;
+      // setStyle 只做赋值，不会删除旧属性；autosize 关闭后必须显式清掉残留的行内高度
+      el.style.removeProperty('height');
+      el.style.removeProperty('min-height');
       const { style } = attrs as { style: StyleValue };
       if (isObject(style)) {
-        setStyle(refTextareaElem.value, merge(style, val) as Record<string, any>);
+        setStyle(el, merge(style, val) as Record<string, any>);
+      } else if (typeof style === 'string' && style.trim()) {
+        // Vue 支持字符串形式的 style，不能静默丢弃：解析成对象后与 autosize 计算值合并
+        setStyle(el, merge(parseStyleString(style), val) as Record<string, any>);
       } else {
-        setStyle(refTextareaElem.value, val);
+        setStyle(el, val);
       }
-    });
+    };
+
+    watch(textareaStyle, applyTextareaStyle);
 
     watch(() => props.autosize, adjustTextareaHeight, { deep: true });
 
@@ -215,6 +251,8 @@ export default defineComponent({
 
     onMounted(() => {
       adjustTextareaHeight();
+      // 挂载后补一次，确保字符串 style 与 autosize 计算值都已落到原生 textarea
+      applyTextareaStyle(textareaStyle.value);
     });
 
     const renderTNodeJSX = useTNodeJSX();
@@ -249,13 +287,11 @@ export default defineComponent({
           <span class={TEXTAREA_LIMIT.value}>{`${characterNumber.value}/${props.maxcharacter}`}</span>
         )) ||
         (!props.maxcharacter && props.maxlength && (
-          <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
-            props.maxlength
-          }`}</span>
+          <span class={TEXTAREA_LIMIT.value}>{`${characterNumber.value}/${props.maxlength}`}</span>
         ));
 
       return (
-        <div class={textareaClasses.value} {...omit(attrs, ['style'])}>
+        <div class={textareaClasses.value} {...omit(attrs, ['style', 'rows'])}>
           <textarea
             onInput={handleInput}
             onCompositionstart={onCompositionstart}
@@ -263,6 +299,7 @@ export default defineComponent({
             ref={refTextareaElem}
             value={innerValue.value}
             class={classes.value}
+            rows={attrs.rows as number | undefined}
             {...inputEvents}
             {...inputAttrs.value}
           ></textarea>

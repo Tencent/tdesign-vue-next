@@ -102,9 +102,9 @@ describe('Textarea', () => {
       await sleep(0);
 
       expect(textarea.classes()).not.toContain('t-hide-scrollbar');
-      // Current behavior is tracked by #6846. Autosize dimensions should be cleared after the source is fixed.
-      expect(textarea.element.style.height).toBe('50px');
-      expect(textarea.element.style.minHeight).toBe('22px');
+      // #6846: autosize 关闭后必须清掉此前写入的行内高度
+      expect(textarea.element.style.height).toBe('');
+      expect(textarea.element.style.minHeight).toBe('');
 
       const defaultWrapper = mount(Textarea);
       await sleep(0);
@@ -200,8 +200,8 @@ describe('Textarea', () => {
       await controlledTextarea.setValue('你好a');
       expect(controlledTextarea.element.value).toBe('你好');
       expect(controlledWrapper.emitted('update:value')).toEqual([['你好']]);
-      // Current behavior is tracked by #6846. Reconciliation should not write to a readonly controlled prop.
-      expect(warnSpy).toHaveBeenCalledWith(
+      // #6846: 受控截断不应写入只读 prop，因此不应产生 readonly 警告
+      expect(warnSpy).not.toHaveBeenCalledWith(
         expect.stringContaining('Set operation on key "value" failed: target is readonly'),
         expect.any(Object),
       );
@@ -244,8 +244,8 @@ describe('Textarea', () => {
         props: { allowInputOverMax: true, defaultValue: '😊', maxlength: 1, onValidate },
       });
       await nextTick();
-      // Current behavior is tracked by #6846. The counter and validation currently use different length rules.
-      expect(emojiWrapper.get(LIMIT).text()).toBe('2/1');
+      // #6846: 计数器与校验使用同一套长度规则（getCharacterLength，非 ASCII 计 2）
+      expect(emojiWrapper.get(LIMIT).text()).toBe('4/1');
       expect(onValidate).not.toHaveBeenCalled();
     });
 
@@ -397,7 +397,7 @@ describe('Textarea', () => {
       expect(getTextarea(modelWrapper).element.value).toBe('updated model value');
     });
 
-    // Current behavior is tracked by #6846. rows should be forwarded to the native textarea after the source is fixed.
+    // #6846: rows 应透传到原生 textarea，而不是外层 div
     it(':rows[number] attr', async () => {
       const wrapper = mount(Textarea, { attrs: { rows: 4 } });
       await sleep(0);
@@ -405,8 +405,8 @@ describe('Textarea', () => {
       const textarea = getTextarea(wrapper);
       expect(textarea.element.style.height).toBe('auto');
       expect(textarea.element.style.minHeight).toBe('auto');
-      expect(wrapper.attributes('rows')).toBe('4');
-      expect(textarea.attributes('rows')).toBeUndefined();
+      expect(wrapper.attributes('rows')).toBeUndefined();
+      expect(textarea.attributes('rows')).toBe('4');
     });
 
     it(':style[string/object] attr', async () => {
@@ -424,9 +424,9 @@ describe('Textarea', () => {
         attrs: { style: 'height: 80px; color: red;' },
       });
       await sleep(0);
-      // Current behavior is tracked by #6846. String styles should be forwarded after the source is fixed.
+      // #6846: 字符串 style 应解析后应用到原生 textarea
       expect(stringWrapper.attributes('style')).toBeUndefined();
-      expect(getTextarea(stringWrapper).attributes('style')).toBeUndefined();
+      expect(getTextarea(stringWrapper).attributes('style')).toContain('80px');
     });
   });
 
