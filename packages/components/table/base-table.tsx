@@ -1,4 +1,15 @@
-import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
+import {
+  computed,
+  defineComponent,
+  SetupContext,
+  ref,
+  nextTick,
+  PropType,
+  watch,
+  onMounted,
+  onBeforeUnmount,
+  toRefs,
+} from 'vue';
 import { pick, get, isFunction, throttle } from 'lodash-es';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
@@ -292,6 +303,57 @@ export default defineComponent({
       getTFootHeight();
       setTableContentRef(tableContentRef.value);
       addTableResizeObserver(tableRef.value);
+      nextTick(() => updateLastRowBottomBorder());
+    });
+
+    // #7038：bordered 且设置了固定高度时，若数据行总高度小于内容区高度，内容区下边框落在固定高度底部，
+    // 最后一行看起来没有下边框。这里测量最后一行与内容区底部的间距，未铺满时在 table 底部补一条边框线。
+    const needLastRowBottomBorder = ref(false);
+    const lastRowBottomBorderStyle = computed<Styles>(() =>
+      needLastRowBottomBorder.value
+        ? {
+            // 与 @table-border-color（即 --td-component-border）保持一致，兼容浅色/深色主题
+            borderBottomWidth: '1px',
+            borderBottomStyle: 'solid',
+            borderBottomColor: 'var(--td-component-border, #dddddd)',
+          }
+        : {},
+    );
+
+    const updateLastRowBottomBorder = () => {
+      const contentEl = tableContentRef.value;
+      const tableEl = tableElmRef.value;
+      if (!contentEl || !tableEl || !props.bordered || !props.height) {
+        needLastRowBottomBorder.value = false;
+        return;
+      }
+      const lastRow = tableEl.querySelector('tbody > tr:last-child, tfoot > tr:last-child') as HTMLElement;
+      if (!lastRow) {
+        needLastRowBottomBorder.value = false;
+        return;
+      }
+      const contentRect = contentEl.getBoundingClientRect();
+      const contentInnerBottom = contentRect.bottom - (parseFloat(getComputedStyle(contentEl).borderBottomWidth) || 0);
+      needLastRowBottomBorder.value = lastRow.getBoundingClientRect().bottom < contentInnerBottom - 1;
+    };
+
+    let lastRowBorderObserver: ResizeObserver = null;
+    const observeLastRowBottomBorder = () => {
+      if (typeof window === 'undefined' || typeof window.ResizeObserver === 'undefined') return;
+      lastRowBorderObserver?.disconnect();
+      lastRowBorderObserver = new window.ResizeObserver(() => updateLastRowBottomBorder());
+      [tableContentRef.value, tableElmRef.value].forEach((el) => el && lastRowBorderObserver.observe(el));
+    };
+
+    watch(tableContentRef, observeLastRowBottomBorder);
+
+    // 固定高度或边框配置变化后重新测量，flush: 'post' 保证 DOM 已更新
+    watch([() => props.height, () => props.bordered, () => props.showHeader], updateLastRowBottomBorder, {
+      flush: 'post',
+    });
+
+    onBeforeUnmount(() => {
+      lastRowBorderObserver?.disconnect();
     });
 
     const onTableFocus = () => {
@@ -621,6 +683,7 @@ export default defineComponent({
             class={tableElmClasses.value}
             style={{
               ...tableElementStyles.value,
+              ...lastRowBottomBorderStyle.value,
               width:
                 props.resizable && isWidthOverflow.value && tableElmWidth.value
                   ? `${tableElmWidth.value}px`
