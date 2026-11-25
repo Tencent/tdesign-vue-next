@@ -2,7 +2,7 @@ import { ref, computed, watch, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
 import { omit } from 'lodash-es';
 
-import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
+import { useDisabled, useEventForward, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { TdDatePickerProps, DateValue } from '../type';
 import {
@@ -40,6 +40,41 @@ export function useSingle(props: TdDatePickerProps) {
       ? formatDate(value.value, { format: formatRef.value.format }) || []
       : formatDate(value.value, { format: formatRef.value.format }),
   );
+
+  // 输入框回车确认逻辑
+  const handleEnter = (val: string) => {
+    if (!val) {
+      onChange('', { dayjsValue: dayjs(), trigger: 'enter' });
+      popupVisible.value = false;
+      return;
+    }
+
+    if (!isValidDate(val, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) return;
+
+    popupVisible.value = false;
+    if (isValidDate(val, formatRef.value.format)) {
+      onChange?.(
+        formatDate(val, {
+          format: formatRef.value.format,
+          targetFormat: formatRef.value.valueType,
+        }) as DateValue,
+        {
+          dayjsValue: parseToDayjs(val, formatRef.value.format),
+          trigger: 'enter',
+        },
+      );
+    } else if (isValidDate(value.value, formatRef.value.format)) {
+      inputValue.value = formatDate(value.value, {
+        format: formatRef.value.format,
+      });
+    } else {
+      inputValue.value = '';
+    }
+  };
+
+  // 透传 inputProps 中的回调：先执行组件内部逻辑，再执行用户回调。
+  // 用户回调可以拿到键盘事件，通过 e.preventDefault() 阻止回车触发表单提交
+  const inputEventHandlers = useEventForward(props.inputProps, { onEnter: handleEnter });
 
   // input 设置
   const inputProps = computed(() => {
@@ -85,35 +120,7 @@ export function useSingle(props: TdDatePickerProps) {
             !Number.isNaN(newMonth) && (month.value = newMonth);
             !Number.isNaN(newTime) && (time.value = newTime);
           },
-          onEnter: (val: string) => {
-            if (!val) {
-              onChange('', { dayjsValue: dayjs(), trigger: 'enter' });
-              popupVisible.value = false;
-              return;
-            }
-
-            if (!isValidDate(val, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) return;
-
-            popupVisible.value = false;
-            if (isValidDate(val, formatRef.value.format)) {
-              onChange?.(
-                formatDate(val, {
-                  format: formatRef.value.format,
-                  targetFormat: formatRef.value.valueType,
-                }) as DateValue,
-                {
-                  dayjsValue: parseToDayjs(val, formatRef.value.format),
-                  trigger: 'enter',
-                },
-              );
-            } else if (isValidDate(value.value, formatRef.value.format)) {
-              inputValue.value = formatDate(value.value, {
-                format: formatRef.value.format,
-              });
-            } else {
-              inputValue.value = '';
-            }
-          },
+          onEnter: inputEventHandlers.value.onEnter,
         };
   });
 
