@@ -70,10 +70,24 @@ export default defineComponent({
     const suffixWidthRef = ref<number>(0);
     const suffixIconWidthRef = ref<number>(0);
 
+    // tagValue 在下方才定义，这里用 ref 中转，回调执行时再读取
+    const tagValueRef = ref<TagInputValue>([]);
+
     // 这里不需要响应式，因此直接传递参数
     const { getDragProps } = useDragSorter({
       ...props,
       sortOnDraggable: props.dragSort,
+      // 公开类型 TagInputDragSortContext 要求带 newTags，hook 只负责索引与记录，
+      // 完整数组在 TagInput 层才能拿到，这里补上后再交给使用方。
+      onDragSort: (context) => {
+        const list = isArray(tagValueRef.value) ? [...tagValueRef.value] : [];
+        const { currentIndex, targetIndex } = context;
+        if (currentIndex >= 0 && targetIndex >= 0 && currentIndex < list.length) {
+          const [moved] = list.splice(currentIndex, 1);
+          list.splice(targetIndex, 0, moved);
+        }
+        props.onDragSort?.({ ...context, newTags: list });
+      },
       onDragOverCheck: {
         x: true,
         targetClassNameRegExp: new RegExp(`^${classPrefix.value}-tag`),
@@ -90,6 +104,14 @@ export default defineComponent({
           getDragProps,
         }),
       );
+
+    watch(
+      tagValue,
+      (val) => {
+        tagValueRef.value = val;
+      },
+      { immediate: true },
+    );
 
     const isBreakLine = computed(() => excessTagsDisplayType.value === 'break-line');
 
@@ -307,7 +329,7 @@ export default defineComponent({
           disabled={isDisabled.value}
           label={() => renderLabel({ displayNode, label })}
           class={classes.value}
-          tips={tips.value}
+          tips={renderTNodeJSX('tips', { silent: true }) ?? tips.value}
           status={status.value}
           placeholder={tagInputPlaceholder.value}
           suffix={suffix.value}
