@@ -201,7 +201,7 @@ export default defineComponent({
     const verifyStatus = ref(ValidateStatus.TO_BE_VALIDATED);
     const resetValidating = ref(false);
     const needResetField = ref(false);
-    // A clearValidate call invalidates validations that are still awaiting their result.
+    // Clearing validation or rebinding the field invalidates pending results.
     let validationResetVersion = 0;
 
     const resetHandler = (invalidatePendingValidation = true) => {
@@ -382,15 +382,19 @@ export default defineComponent({
     });
 
     watch(
-      value,
-      async () => {
+      [value, () => props.name],
+      async ([, name], [, previousName]) => {
+        if (name !== previousName) {
+          validationResetVersion += 1;
+          return;
+        }
         await validateHandler('change');
       },
       { deep: true },
     );
 
     watch(
-      () => [props.name, JSON.stringify(props.rules)].join(','),
+      () => JSON.stringify(props.rules),
       () => {
         validateHandler('change');
       },
