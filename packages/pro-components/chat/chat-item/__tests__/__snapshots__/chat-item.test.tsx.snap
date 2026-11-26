@@ -1,0 +1,90 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChatItem > scenarios > message structure > preserves the assistant content and actionbar slot structure 1`] = `
+<div
+  class="t-chat__inner assistant t-chat__text--variant--text"
+>
+  
+  <!---->
+  <div
+    class="t-chat__content t-chat__content--base"
+  >
+    <!---->
+    <!---->
+    <div
+      class="t-chat__detail"
+    >
+      <!---->
+      <!---->
+      
+      <span>
+        Assistant message
+      </span>
+      
+    </div>
+    <div
+      class="t-chat__actions-margin"
+    >
+      
+      <button
+        type="button"
+      >
+        Custom action
+      </button>
+      
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`ChatItem > scenarios > message structure > preserves the user metadata and content structure 1`] = `
+<div
+  class="t-chat__inner user t-chat__text--variant--text"
+>
+  
+  <div
+    class="t-chat__avatar"
+  >
+    <div
+      class="t-chat__avatar__box"
+    >
+      <img
+        alt=""
+        class="t-chat__avatar-image"
+        src="https://example.com/avatar.png"
+      />
+    </div>
+  </div>
+  <div
+    class="t-chat__content"
+  >
+    <div
+      class="t-chat__base"
+    >
+      <span
+        class="t-chat__name"
+      >
+        User
+      </span>
+      <span
+        class="t-chat__time"
+      >
+        2024-01-01 10:00
+      </span>
+    </div>
+    <!---->
+    <div
+      class="t-chat__detail"
+    >
+      <!---->
+      <!---->
+      <span>
+        User message
+      </span>
+    </div>
+    <!---->
+  </div>
+  
+</div>
+`;

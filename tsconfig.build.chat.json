@@ -17,6 +17,7 @@
     "vue-next",
     "vue-next-chat",
     "**/__tests__/**",
+    "packages/pro-components/chat/test/**",
     "**/_example/**"
   ]
 }
