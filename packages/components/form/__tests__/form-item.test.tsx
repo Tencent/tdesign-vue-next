@@ -1,5 +1,5 @@
 import { flushPromises, mount, VueWrapper } from '@vue/test-utils';
-import { defineComponent } from 'vue';
+import { defineComponent, nextTick, reactive } from 'vue';
 import { expect } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { FormItem, Form, Input } from '@tdesign/components';
@@ -326,6 +326,133 @@ describe('FormItem', () => {
   });
 
   describe('scenarios', () => {
+    describe('dynamic names', () => {
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6686
+      it.each([0, 1, 2].flatMap((index) => [false, true].map((mixed) => ({ index, mixed }))))(
+        'does not validate untouched rows after removing row $index (mixed values: $mixed)',
+        async ({ index, mixed }) => {
+          const data = reactive({ students: [1, 2, 3].map((id) => ({ id, name: mixed && id === 2 ? 'valid' : '' })) });
+          const wrapper = mount({
+            setup: () => () =>
+              (
+                <Form data={data}>
+                  {data.students.map((student, row) => (
+                    <FormItem
+                      key={student.id}
+                      name={`students[${row}].name`}
+                      rules={[{ required: true, message: 'Required' }]}
+                    >
+                      <Input v-model={student.name} />
+                    </FormItem>
+                  ))}
+                </Form>
+              ),
+          });
+          await flushPromises();
+          expect(wrapper.find('.t-input__extra').exists()).toBe(false);
+
+          data.students.splice(index, 1);
+          await flushPromises();
+          expect(wrapper.findAllComponents(FormItem)).toHaveLength(2);
+          expect(wrapper.find('.t-input__extra').exists()).toBe(false);
+
+          const input = wrapper.find('input');
+          await input.setValue('valid');
+          await flushPromises();
+          await input.setValue('');
+          await flushPromises();
+          expect(wrapper.find('.t-input__extra').text()).toBe('Required');
+          wrapper.unmount();
+        },
+      );
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6686
+      it('still validates changes to the rules', async () => {
+        const rule = reactive({ required: false, message: 'Required' });
+        const wrapper = mount({
+          setup: () => () =>
+            (
+              <Form data={{ name: '' }}>
+                <FormItem name="name" rules={[rule]}>
+                  <Input />
+                </FormItem>
+              </Form>
+            ),
+        });
+        rule.required = true;
+        await flushPromises();
+        expect(wrapper.find('.t-input__extra').text()).toBe('Required');
+        rule.required = false;
+        await flushPromises();
+        expect(wrapper.find('.t-input__extra').exists()).toBe(false);
+        wrapper.unmount();
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6686
+      it('preserves an existing error when a row is reindexed', async () => {
+        const data = reactive({
+          students: [
+            { id: 1, name: 'valid' },
+            { id: 2, name: '' },
+          ],
+        });
+        const wrapper = mount({
+          setup: () => () =>
+            (
+              <Form data={data}>
+                {data.students.map((student, row) => (
+                  <FormItem
+                    key={student.id}
+                    name={`students[${row}].name`}
+                    rules={[{ required: true, message: 'Required' }]}
+                  >
+                    <Input v-model={student.name} />
+                  </FormItem>
+                ))}
+              </Form>
+            ),
+        });
+        await wrapper.findComponent(Form).vm.$.exposed.validate();
+        await flushPromises();
+        expect(wrapper.findAll('.t-input__extra')).toHaveLength(1);
+        data.students.splice(0, 1);
+        await flushPromises();
+        expect(wrapper.findAll('.t-input__extra')).toHaveLength(1);
+        expect(wrapper.find('.t-input__extra').text()).toBe('Required');
+        wrapper.unmount();
+      });
+
+      // Issue: https://github.com/Tencent/tdesign-vue-next/issues/6686
+      it('ignores a pending validation result after rebinding the name', async () => {
+        let resolveValidation: (valid: boolean) => void;
+        const pendingValidation = new Promise<boolean>((resolve) => {
+          resolveValidation = resolve;
+        });
+        const state = reactive({ name: 'first' });
+        const data = { first: '', second: '' };
+        const rules = [{ validator: () => pendingValidation, message: 'Old field error' }];
+        const wrapper = mount({
+          setup: () => () =>
+            (
+              <Form data={data}>
+                <FormItem name={state.name} rules={rules}>
+                  <Input />
+                </FormItem>
+              </Form>
+            ),
+        });
+        const validation = wrapper.findComponent(Form).vm.$.exposed.validate();
+        await nextTick();
+        state.name = 'second';
+        await nextTick();
+        resolveValidation(false);
+        await validation;
+        await flushPromises();
+        expect(wrapper.find('.t-input__extra').exists()).toBe(false);
+        wrapper.unmount();
+      });
+    });
+
     describe('--last', () => {
       // 借 `t-form-item__{name}` 反解出被标记为末位的表单项，避免断言依赖 DOM 顺序
       const getLastItemNames = (wrapper: VueWrapper<any>) =>
