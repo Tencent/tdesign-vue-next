@@ -459,21 +459,21 @@ export default defineComponent({
       if (!selectPanelRef.value) {
         return;
       }
-      const firstSelectedNode: HTMLDivElement = (selectPanelRef.value?.innerRef as HTMLDivElement)?.querySelector(
-        `.${classPrefix.value}-is-selected`,
-      );
       // 此处需要等待渲染后进行计算
       nextTick(() => {
-        if (firstSelectedNode && content) {
-          const { paddingBottom } = getComputedStyle(firstSelectedNode);
+        const selectedNode = (selectPanelRef.value?.innerRef as HTMLDivElement)?.querySelector(
+          `.${classPrefix.value}-is-selected`,
+        ) as HTMLElement;
+        if (selectedNode && content) {
+          const { paddingBottom } = getComputedStyle(selectedNode);
           const { marginBottom } = getComputedStyle(content);
           const elementBottomHeight = parseInt(paddingBottom, 10) + parseInt(marginBottom, 10);
+          // 分组选项嵌套在 OptionGroup 内，offsetTop 相对父级列表，需用视口坐标换算到滚动容器
+          const selectedOffsetTop =
+            selectedNode.getBoundingClientRect().top - content.getBoundingClientRect().top + content.scrollTop;
           // 小于0时不需要特殊处理，会被设为0
           const updateValue =
-            firstSelectedNode.offsetTop -
-            content.offsetTop -
-            (content.clientHeight - firstSelectedNode.clientHeight) +
-            elementBottomHeight;
+            selectedOffsetTop - (content.clientHeight - selectedNode.clientHeight) + elementBottomHeight;
           // eslint-disable-next-line no-param-reassign
           content.scrollTop = updateValue;
         }
