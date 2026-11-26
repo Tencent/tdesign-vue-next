@@ -1,5 +1,5 @@
 import { computed, defineComponent, inject, Slots, ref } from 'vue';
-import { omit } from 'lodash-es';
+import { find, omit } from 'lodash-es';
 import { Styles } from '../../common';
 
 import { SelectOption, SelectOptionGroup, TdOptionProps } from '../type';
@@ -39,7 +39,14 @@ export default defineComponent({
     const keys = computed(() => props.keys as SelectProps['keys']);
 
     const popupContentRef = computed(() => tSelect.value.popupContentRef.value);
-    const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
+    const showCreateOption = computed(() => {
+      return (
+        props.creatable &&
+        props.filterable &&
+        props.inputValue &&
+        !find(tSelect.value.displayOptions, (item: TdOptionProps) => item.value === props.inputValue)
+      );
+    });
     const displayOptions = computed(() => tSelect.value.displayOptions);
 
     const { trs, visibleData, handleRowMounted, isVirtual, panelStyle, cursorStyle } = usePanelVirtualScroll({
