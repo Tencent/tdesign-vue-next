@@ -29,6 +29,7 @@ export const useContext = (
   setInnerValue: TdCascaderProps['onChange'],
   innerPopupVisible: Ref<TdCascaderProps['popupVisible']>,
   setPopupVisible: TdCascaderProps['onPopupVisibleChange'],
+  isDisabled: Ref<boolean>,
 ) => {
   const statusContext = reactive({
     treeStore: null,
@@ -55,7 +56,6 @@ export const useContext = (
         clearable,
         checkProps,
         max,
-        disabled,
         showAllLevels,
         minCollapsedNum,
         valueType,
@@ -73,7 +73,7 @@ export const useContext = (
         clearable,
         checkProps,
         max,
-        disabled,
+        disabled: isDisabled.value,
         showAllLevels,
         minCollapsedNum,
         valueType,
@@ -103,7 +103,7 @@ export const useContext = (
 
 // 内聚组件核心的副作用与状态处理
 export const useCascaderContext = (props: TdCascaderProps) => {
-  const isDisabled = useDisabled();
+  const isDisabled = useDisabled() as Ref<boolean>;
   const { value, modelValue, popupVisible, onChange: onChangeRef, onPopupVisibleChange } = toRefs(props);
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, onChangeRef);
   const [innerPopupVisible, setPopupVisible] = useDefaultValue(
@@ -112,7 +112,11 @@ export const useCascaderContext = (props: TdCascaderProps) => {
     onPopupVisibleChange,
     'popupVisible',
   );
-  const { cascaderContext, statusContext } = useContext(props, setInnerValue, innerPopupVisible, setPopupVisible);
+  const { cascaderContext, statusContext } = useContext(props, setInnerValue, innerPopupVisible, setPopupVisible, isDisabled);
+
+  watch(isDisabled, (disabled) => {
+    if (disabled && innerPopupVisible.value) setPopupVisible(false, {});
+  });
 
   const isFilterable = computed(() => {
     return Boolean(props.filterable || isFunction(props.filter));
@@ -181,6 +185,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
         checkStrictly,
         lazy,
         load,
+        disabled: isDisabled.value,
       });
     },
     () => {

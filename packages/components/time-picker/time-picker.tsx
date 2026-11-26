@@ -59,6 +59,7 @@ export default defineComponent({
     };
 
     const handleClear = (context: { e: MouseEvent }) => {
+      if (isDisabled.value) return;
       const { e } = context;
       e.stopPropagation();
       currentValue.value = null;
@@ -67,11 +68,12 @@ export default defineComponent({
     };
 
     const handleInputChange = (value: string) => {
+      if (isDisabled.value) return;
       currentValue.value = value;
     };
 
     const handleInputBlur = (value: string, context: SelectInputBlurContext) => {
-      if (allowInput.value) {
+      if (!isDisabled.value && allowInput.value) {
         const isValidTime = validateInputValue(currentValue.value, format.value);
         if (isValidTime) {
           setInnerValue(formatInputValue(currentValue.value, format.value));
@@ -81,6 +83,7 @@ export default defineComponent({
     };
 
     const handleClickConfirm = (e: MouseEvent) => {
+      if (isDisabled.value) return;
       props?.onConfirm?.({ e });
       const isValidTime = validateInputValue(currentValue.value, format.value);
       if (isValidTime) setInnerValue(currentValue.value);
@@ -88,6 +91,7 @@ export default defineComponent({
     };
 
     const handlePanelChange = (v: string, e: MouseEvent) => {
+      if (isDisabled.value) return;
       currentValue.value = v;
       props.onPick?.(v, { e });
     };
@@ -96,6 +100,10 @@ export default defineComponent({
       return {
         value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
       };
+    });
+
+    watch(isDisabled, (disabled) => {
+      if (disabled) isShowPanel.value = false;
     });
 
     watch(

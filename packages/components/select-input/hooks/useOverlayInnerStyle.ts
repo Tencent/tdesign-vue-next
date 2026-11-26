@@ -1,5 +1,5 @@
-import { ref, toRefs, computed, CSSProperties } from 'vue';
-import { isObject, isFunction, isArray, isBoolean } from 'lodash-es';
+import { ref, toRefs, computed, CSSProperties, watch } from 'vue';
+import { isObject, isFunction, isArray } from 'lodash-es';
 
 import { TdSelectInputProps } from '../type';
 import { TdPopupProps, PopupVisibleChangeContext } from '../../popup';
@@ -22,6 +22,11 @@ export function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   const innerPopupVisible = ref(false);
   const disable = useDisabled();
   const isReadonly = useReadonly();
+  const isPopupDisabled = computed(() => (isArray(disable.value) ? disable.value.every(Boolean) : disable.value));
+
+  watch(isPopupDisabled, (disabled) => {
+    if (disabled) innerPopupVisible.value = false;
+  });
 
   const matchWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
     const SCROLLBAR_WIDTH = popupElement.scrollHeight > popupElement.offsetHeight ? RESERVE_WIDTH : 0;
@@ -44,7 +49,7 @@ export function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   };
 
   const onInnerPopupVisibleChange = (visible: boolean, ctx: PopupVisibleChangeContext) => {
-    if ((isArray(disable.value) && disable.value.every(Boolean)) || (isBoolean(disable.value) && disable.value)) return;
+    if (isPopupDisabled.value) return;
     if (isReadonly.value) return;
 
     // 如果点击触发元素（输入框）且为可输入状态，则继续显示下拉框
@@ -82,6 +87,7 @@ export function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   return {
     tOverlayInnerStyle,
     innerPopupVisible,
+    isPopupDisabled,
     onInnerPopupVisibleChange,
   };
 }
