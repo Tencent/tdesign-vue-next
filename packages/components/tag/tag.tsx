@@ -88,18 +88,15 @@ export default defineComponent({
     const getCloseIcon = () => {
       if (!props.closable) return null;
       const iconClassName = `${COMPONENT_NAME.value}__icon-close`;
+      const handleCloseClick = ({ e }: { e: MouseEvent }) => {
+        if (e) e.stopPropagation();
+        props.onClose?.({ e });
+      };
       if (tagGlobalConfig.value.closeIcon) {
-        return h(tagGlobalConfig.value.closeIcon(h) as VNode, { class: iconClassName });
+        // 自定义关闭图标同样需要绑定点击回调，否则 onClose 永远不会触发
+        return h(tagGlobalConfig.value.closeIcon(h) as VNode, { class: iconClassName, onClick: handleCloseClick });
       }
-      return (
-        <CloseIcon
-          onClick={({ e }: { e: MouseEvent }) => {
-            if (e) e.stopPropagation();
-            props.onClose?.({ e });
-          }}
-          class={iconClassName}
-        />
-      );
+      return <CloseIcon onClick={handleCloseClick} class={iconClassName} />;
     };
 
     const renderTitle = (tagContent: string) => {
