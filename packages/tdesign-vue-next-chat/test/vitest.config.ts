@@ -9,6 +9,7 @@ const componentsRoot = fileURLToPath(new URL('../../components', import.meta.url
 export default defineConfig({
   // TODO: use joinComponentsRoot() after @tdesign/internal-utils can be loaded correctly by the Chat Vitest ESM config.
   resolve: {
+    conditions: ['module', 'browser', 'development|production'],
     alias: {
       'tdesign-vue-next/es': componentsRoot,
       'tdesign-vue-next': componentsRoot,
@@ -17,8 +18,14 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   test: {
     name: '@tdesign/vue-next-chat-test',
-    include: [`${chatRoot}/chat-engine/**/__tests__/*.{test,spec}.{js,jsx,ts,tsx}`],
+    include: [
+      `${chatRoot}/chat-engine/**/__tests__/*.{test,spec}.{js,jsx,ts,tsx}`,
+      `${chatRoot}/chat-thinking/__tests__/*.{test,spec}.{js,jsx,ts,tsx}`,
+    ],
     environment: 'jsdom',
     testTimeout: 5000,
+    server: {
+      deps: { inline: ['omi-vueify'] },
+    },
   },
 });
