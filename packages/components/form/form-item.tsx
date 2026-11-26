@@ -415,7 +415,7 @@ export default defineComponent({
         [CLASS_NAMES.value.formItemWithHelp]: helpNode.value,
         [CLASS_NAMES.value.formItemWithExtra]: extraNode.value,
         [`${CLASS_NAMES.value.formItem}--last`]: isLastFormItem.value,
-        [`${CLASS_NAMES.value.formItem}--with-rules`]: innerRules.value.length > 0,
+        [`${CLASS_NAMES.value.formItem}-with-rules`]: innerRules.value.length > 0,
       },
     ]);
     const helpNode = computed<VNode>(() => {
