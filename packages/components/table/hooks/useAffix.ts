@@ -209,7 +209,7 @@ export default function useAffix(props: TdBaseTableProps) {
       }
     }
 
-    on(element, 'touchstart', onElementTouchStart);
+    on(element, 'touchstart', onElementTouchStart, { passive: true });
 
     function removeElementTouchScrollListener() {
       off(element, 'touchstart', onElementTouchStart);
