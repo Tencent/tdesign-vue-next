@@ -48,6 +48,15 @@ describe.each([
     vi.restoreAllMocks();
   });
 
+  it('registers a passive touchstart listener for affixed table scrolling', async () => {
+    const addEventListener = vi.spyOn(HTMLElement.prototype, 'addEventListener');
+    const { container } = await renderTable({ headerAffixedTop: true });
+    const touchRegistration = addEventListener.mock.calls.find(
+      ([type], index) => type === 'touchstart' && addEventListener.mock.contexts[index] === container,
+    );
+    expect(touchRegistration?.[2]).toMatchObject({ passive: true });
+  });
+
   describe('instanceFunctions', () => {
     it.each([{ key: 0 }, { index: 0 }])(
       'scrollToElement(%j) reaches the first row in a normal table',
